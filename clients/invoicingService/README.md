@@ -50,25 +50,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-
-$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+$apiInstance = new OpenAPI\Client\Api\FenixAllianceABPWebApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$tenant_id = 'tenant_id_example'; // string
+$forgot_password_request = new \OpenAPI\Client\Model\ForgotPasswordRequest(); // \OpenAPI\Client\Model\ForgotPasswordRequest
 
 try {
-    $result = $apiInstance->apiV2InvoicingServiceInvoicesCountGet($tenant_id);
-    print_r($result);
+    $apiInstance->forgotPasswordPost($forgot_password_request);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->apiV2InvoicingServiceInvoicesCountGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FenixAllianceABPWebApi->forgotPasswordPost: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -79,97 +72,122 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesCountGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicescountget) | **GET** /api/v2/InvoicingService/Invoices/Count | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesDiscountsAggregatePost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesdiscountsaggregatepost) | **POST** /api/v2/InvoicingService/Invoices/DiscountsAggregate | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesExtendedCountGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesextendedcountget) | **GET** /api/v2/InvoicingService/Invoices/Extended/Count | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesExtendedGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesextendedget) | **GET** /api/v2/InvoicingService/Invoices/Extended | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesget) | **GET** /api/v2/InvoicingService/Invoices | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesglobalsurchargesaggregatepost) | **POST** /api/v2/InvoicingService/Invoices/GlobalSurchargesAggregate | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidadjustmentscountget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidadjustmentsget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidadjustmentsinvoiceadjustmentiddelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidadjustmentsinvoiceadjustmentidget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidadjustmentsinvoiceadjustmentidput) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidadjustmentspost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidcalculateput) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Calculate | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdDelete**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceiddelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidextendedget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Extended | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinescountget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidcalculateput) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Calculate | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineiddelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidput) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidtaxescountget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidtaxesget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidtaxesinvoicelinetaxiddelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidtaxesinvoicelinetaxidput) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinesinvoicelineidtaxespost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdLinesPost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidlinespost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidpaymentscountget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidpaymentsget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdPut**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidput) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidreferencescountget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidreferencesget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidreferencesinvoicereferenceiddelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidreferencesinvoicereferenceidget) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidreferencesinvoicereferenceidput) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicesinvoiceidreferencespost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/References | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesPost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicespost) | **POST** /api/v2/InvoicingService/Invoices | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesTaxBasesAggregatePost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicestaxbasesaggregatepost) | **POST** /api/v2/InvoicingService/Invoices/TaxBasesAggregate | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesTaxesAggregatePost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicestaxesaggregatepost) | **POST** /api/v2/InvoicingService/Invoices/TaxesAggregate | 
-*InvoicesApi* | [**apiV2InvoicingServiceInvoicesTotalsAggregatePost**](docs/Api/InvoicesApi.md#apiv2invoicingserviceinvoicestotalsaggregatepost) | **POST** /api/v2/InvoicingService/Invoices/TotalsAggregate | 
-*InvoicesApi* | [**getInvoiceAsync**](docs/Api/InvoicesApi.md#getinvoiceasync) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId} | 
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*InvoicesApi* | [**aggregateInvoiceDiscounts**](docs/Api/InvoicesApi.md#aggregateinvoicediscounts) | **POST** /api/v2/InvoicingService/Invoices/DiscountsAggregate | Aggregate invoice discounts.
+*InvoicesApi* | [**aggregateInvoiceGlobalSurcharges**](docs/Api/InvoicesApi.md#aggregateinvoiceglobalsurcharges) | **POST** /api/v2/InvoicingService/Invoices/GlobalSurchargesAggregate | Aggregate invoice global surcharges.
+*InvoicesApi* | [**aggregateInvoiceTaxBases**](docs/Api/InvoicesApi.md#aggregateinvoicetaxbases) | **POST** /api/v2/InvoicingService/Invoices/TaxBasesAggregate | Aggregate invoice tax bases.
+*InvoicesApi* | [**aggregateInvoiceTaxes**](docs/Api/InvoicesApi.md#aggregateinvoicetaxes) | **POST** /api/v2/InvoicingService/Invoices/TaxesAggregate | Aggregate invoice taxes.
+*InvoicesApi* | [**aggregateInvoiceTotals**](docs/Api/InvoicesApi.md#aggregateinvoicetotals) | **POST** /api/v2/InvoicingService/Invoices/TotalsAggregate | Aggregate invoice totals.
+*InvoicesApi* | [**calculateInvoice**](docs/Api/InvoicesApi.md#calculateinvoice) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Calculate | Calculate an invoice.
+*InvoicesApi* | [**calculateInvoiceLine**](docs/Api/InvoicesApi.md#calculateinvoiceline) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Calculate | Calculate an invoice line.
+*InvoicesApi* | [**createInvoice**](docs/Api/InvoicesApi.md#createinvoice) | **POST** /api/v2/InvoicingService/Invoices | Create a new invoice.
+*InvoicesApi* | [**createInvoiceAdjustment**](docs/Api/InvoicesApi.md#createinvoiceadjustment) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments | Create a new invoice adjustment.
+*InvoicesApi* | [**createInvoiceLine**](docs/Api/InvoicesApi.md#createinvoiceline) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines | Create a new invoice line.
+*InvoicesApi* | [**createInvoiceLineTax**](docs/Api/InvoicesApi.md#createinvoicelinetax) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes | Create a new tax for an invoice line.
+*InvoicesApi* | [**createInvoiceReference**](docs/Api/InvoicesApi.md#createinvoicereference) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/References | Create a new invoice reference.
+*InvoicesApi* | [**deleteInvoice**](docs/Api/InvoicesApi.md#deleteinvoice) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId} | Delete an invoice.
+*InvoicesApi* | [**deleteInvoiceAdjustment**](docs/Api/InvoicesApi.md#deleteinvoiceadjustment) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Delete an invoice adjustment.
+*InvoicesApi* | [**deleteInvoiceLine**](docs/Api/InvoicesApi.md#deleteinvoiceline) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Delete an invoice line.
+*InvoicesApi* | [**deleteInvoiceLineTax**](docs/Api/InvoicesApi.md#deleteinvoicelinetax) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | Delete a tax from an invoice line.
+*InvoicesApi* | [**deleteInvoiceReference**](docs/Api/InvoicesApi.md#deleteinvoicereference) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Delete an invoice reference.
+*InvoicesApi* | [**getExtendedInvoice**](docs/Api/InvoicesApi.md#getextendedinvoice) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Extended | Get an extended invoice by ID.
+*InvoicesApi* | [**getExtendedInvoices**](docs/Api/InvoicesApi.md#getextendedinvoices) | **GET** /api/v2/InvoicingService/Invoices/Extended | Get a list of extended invoices.
+*InvoicesApi* | [**getExtendedInvoicesCount**](docs/Api/InvoicesApi.md#getextendedinvoicescount) | **GET** /api/v2/InvoicingService/Invoices/Extended/Count | Get the count of extended invoices.
+*InvoicesApi* | [**getInvoice**](docs/Api/InvoicesApi.md#getinvoice) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId} | Get an invoice by ID.
+*InvoicesApi* | [**getInvoiceAdjustment**](docs/Api/InvoicesApi.md#getinvoiceadjustment) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Get an invoice adjustment by ID.
+*InvoicesApi* | [**getInvoiceAdjustments**](docs/Api/InvoicesApi.md#getinvoiceadjustments) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments | Get invoice adjustments.
+*InvoicesApi* | [**getInvoiceAdjustmentsCount**](docs/Api/InvoicesApi.md#getinvoiceadjustmentscount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count | Get the count of invoice adjustments.
+*InvoicesApi* | [**getInvoiceLine**](docs/Api/InvoicesApi.md#getinvoiceline) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Get an invoice line by ID.
+*InvoicesApi* | [**getInvoiceLineTaxes**](docs/Api/InvoicesApi.md#getinvoicelinetaxes) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes | Get taxes for an invoice line.
+*InvoicesApi* | [**getInvoiceLineTaxesCount**](docs/Api/InvoicesApi.md#getinvoicelinetaxescount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count | Get the count of taxes for an invoice line.
+*InvoicesApi* | [**getInvoiceLines**](docs/Api/InvoicesApi.md#getinvoicelines) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines | Get invoice lines.
+*InvoicesApi* | [**getInvoiceLinesCount**](docs/Api/InvoicesApi.md#getinvoicelinescount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count | Get the count of invoice lines.
+*InvoicesApi* | [**getInvoicePayments**](docs/Api/InvoicesApi.md#getinvoicepayments) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments | Get payments for an invoice.
+*InvoicesApi* | [**getInvoicePaymentsCount**](docs/Api/InvoicesApi.md#getinvoicepaymentscount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count | Get the count of payments for an invoice.
+*InvoicesApi* | [**getInvoiceReference**](docs/Api/InvoicesApi.md#getinvoicereference) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Get an invoice reference by ID.
+*InvoicesApi* | [**getInvoiceReferences**](docs/Api/InvoicesApi.md#getinvoicereferences) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References | Get invoice references.
+*InvoicesApi* | [**getInvoiceReferencesCount**](docs/Api/InvoicesApi.md#getinvoicereferencescount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references.
+*InvoicesApi* | [**getInvoices**](docs/Api/InvoicesApi.md#getinvoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices.
+*InvoicesApi* | [**getInvoicesCount**](docs/Api/InvoicesApi.md#getinvoicescount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices.
+*InvoicesApi* | [**previewInvoiceEmail**](docs/Api/InvoicesApi.md#previewinvoiceemail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Preview | Preview the rendered email for an invoice.
+*InvoicesApi* | [**sendInvoiceEmail**](docs/Api/InvoicesApi.md#sendinvoiceemail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Send | Send an invoice transactional email to recipients.
+*InvoicesApi* | [**updateInvoice**](docs/Api/InvoicesApi.md#updateinvoice) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId} | Update an invoice.
+*InvoicesApi* | [**updateInvoiceAdjustment**](docs/Api/InvoicesApi.md#updateinvoiceadjustment) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Update an invoice adjustment.
+*InvoicesApi* | [**updateInvoiceLine**](docs/Api/InvoicesApi.md#updateinvoiceline) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Update an invoice line.
+*InvoicesApi* | [**updateInvoiceLineTax**](docs/Api/InvoicesApi.md#updateinvoicelinetax) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | Update a tax for an invoice line.
+*InvoicesApi* | [**updateInvoiceReference**](docs/Api/InvoicesApi.md#updateinvoicereference) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Update an invoice reference.
 
 ## Models
 
-- [Currency](docs/Model/Currency.md)
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [CurrencyId](docs/Model/CurrencyId.md)
+- [EmailDispatchRequest](docs/Model/EmailDispatchRequest.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
+- [Envelope](docs/Model/Envelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExtendedInvoiceDto](docs/Model/ExtendedInvoiceDto.md)
 - [ExtendedInvoiceDtoListEnvelope](docs/Model/ExtendedInvoiceDtoListEnvelope.md)
+- [ForexRates](docs/Model/ForexRates.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [InvoiceAdjustmentCreateDto](docs/Model/InvoiceAdjustmentCreateDto.md)
 - [InvoiceAdjustmentDto](docs/Model/InvoiceAdjustmentDto.md)
 - [InvoiceAdjustmentDtoEnvelope](docs/Model/InvoiceAdjustmentDtoEnvelope.md)
-- [InvoiceAdjustmentDtoListEnvelope](docs/Model/InvoiceAdjustmentDtoListEnvelope.md)
+- [InvoiceAdjustmentDtoIReadOnlyListEnvelope](docs/Model/InvoiceAdjustmentDtoIReadOnlyListEnvelope.md)
 - [InvoiceAdjustmentUpdateDto](docs/Model/InvoiceAdjustmentUpdateDto.md)
 - [InvoiceCreateDto](docs/Model/InvoiceCreateDto.md)
 - [InvoiceDto](docs/Model/InvoiceDto.md)
 - [InvoiceDtoEnvelope](docs/Model/InvoiceDtoEnvelope.md)
 - [InvoiceDtoListEnvelope](docs/Model/InvoiceDtoListEnvelope.md)
-- [InvoiceItemRecordDto](docs/Model/InvoiceItemRecordDto.md)
 - [InvoiceLineAppliedTaxCreateDto](docs/Model/InvoiceLineAppliedTaxCreateDto.md)
 - [InvoiceLineAppliedTaxDto](docs/Model/InvoiceLineAppliedTaxDto.md)
-- [InvoiceLineAppliedTaxDtoListEnvelope](docs/Model/InvoiceLineAppliedTaxDtoListEnvelope.md)
+- [InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope](docs/Model/InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope.md)
 - [InvoiceLineAppliedTaxUpdateDto](docs/Model/InvoiceLineAppliedTaxUpdateDto.md)
 - [InvoiceLineCreateDto](docs/Model/InvoiceLineCreateDto.md)
 - [InvoiceLineDto](docs/Model/InvoiceLineDto.md)
 - [InvoiceLineDtoEnvelope](docs/Model/InvoiceLineDtoEnvelope.md)
+- [InvoiceLineDtoIReadOnlyListEnvelope](docs/Model/InvoiceLineDtoIReadOnlyListEnvelope.md)
 - [InvoiceLineDtoListEnvelope](docs/Model/InvoiceLineDtoListEnvelope.md)
 - [InvoiceLineUpdateDto](docs/Model/InvoiceLineUpdateDto.md)
 - [InvoiceReferenceCreateDto](docs/Model/InvoiceReferenceCreateDto.md)
 - [InvoiceReferenceDto](docs/Model/InvoiceReferenceDto.md)
 - [InvoiceReferenceDtoEnvelope](docs/Model/InvoiceReferenceDtoEnvelope.md)
-- [InvoiceReferenceDtoListEnvelope](docs/Model/InvoiceReferenceDtoListEnvelope.md)
+- [InvoiceReferenceDtoIReadOnlyListEnvelope](docs/Model/InvoiceReferenceDtoIReadOnlyListEnvelope.md)
 - [InvoiceReferenceUpdateDto](docs/Model/InvoiceReferenceUpdateDto.md)
 - [InvoiceUpdateDto](docs/Model/InvoiceUpdateDto.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [Money](docs/Model/Money.md)
 - [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
+- [PaymentDto](docs/Model/PaymentDto.md)
+- [PaymentDtoIReadOnlyListEnvelope](docs/Model/PaymentDtoIReadOnlyListEnvelope.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [SimpleContactDto](docs/Model/SimpleContactDto.md)
-- [SimpleTenantEnrolmentDto](docs/Model/SimpleTenantEnrolmentDto.md)
+- [SimpleTenantEnrollmentDto](docs/Model/SimpleTenantEnrollmentDto.md)
 - [SimpleUserDto](docs/Model/SimpleUserDto.md)
 - [TenantDto](docs/Model/TenantDto.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -188,6 +206,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

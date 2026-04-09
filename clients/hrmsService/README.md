@@ -50,17 +50,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -82,33 +76,47 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*EmployeesApi* | [**createEmployeeAsync**](docs/Api/EmployeesApi.md#createemployeeasync) | **POST** /api/v2/HrmsService/Employees | 
-*EmployeesApi* | [**deleteEmployeeAsync**](docs/Api/EmployeesApi.md#deleteemployeeasync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} | 
-*EmployeesApi* | [**getEmployeeByIdAsync**](docs/Api/EmployeesApi.md#getemployeebyidasync) | **GET** /api/v2/HrmsService/Employees/{employeeId} | 
-*EmployeesApi* | [**getEmployeesAsync**](docs/Api/EmployeesApi.md#getemployeesasync) | **GET** /api/v2/HrmsService/Employees | 
-*EmployeesApi* | [**getEmployeesCountAsync**](docs/Api/EmployeesApi.md#getemployeescountasync) | **GET** /api/v2/HrmsService/Employees/Count | 
-*EmployeesApi* | [**updateEmployeeAsync**](docs/Api/EmployeesApi.md#updateemployeeasync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} | 
-*EmployersApi* | [**createEmployerAsync**](docs/Api/EmployersApi.md#createemployerasync) | **POST** /api/v2/HrmsService/Employers | 
-*EmployersApi* | [**deleteEmployerAsync**](docs/Api/EmployersApi.md#deleteemployerasync) | **DELETE** /api/v2/HrmsService/Employers/{employerId} | 
-*EmployersApi* | [**getEmployerByIdAsync**](docs/Api/EmployersApi.md#getemployerbyidasync) | **GET** /api/v2/HrmsService/Employers/{employerId} | 
-*EmployersApi* | [**getEmployersAsync**](docs/Api/EmployersApi.md#getemployersasync) | **GET** /api/v2/HrmsService/Employers | 
-*EmployersApi* | [**getEmployersCountAsync**](docs/Api/EmployersApi.md#getemployerscountasync) | **GET** /api/v2/HrmsService/Employers/Count | 
-*EmployersApi* | [**updateEmployerAsync**](docs/Api/EmployersApi.md#updateemployerasync) | **PUT** /api/v2/HrmsService/Employers/{employerId} | 
-*GigsApi* | [**createGigAsync**](docs/Api/GigsApi.md#creategigasync) | **POST** /api/v2/HrmsService/Gigs | 
-*GigsApi* | [**deleteGigAsync**](docs/Api/GigsApi.md#deletegigasync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | 
-*GigsApi* | [**getGigByIdAsync**](docs/Api/GigsApi.md#getgigbyidasync) | **GET** /api/v2/HrmsService/Gigs/{gigId} | 
-*GigsApi* | [**getGigsAsync**](docs/Api/GigsApi.md#getgigsasync) | **GET** /api/v2/HrmsService/Gigs | 
-*GigsApi* | [**getGigsCountAsync**](docs/Api/GigsApi.md#getgigscountasync) | **GET** /api/v2/HrmsService/Gigs/Count | 
-*GigsApi* | [**updateGigAsync**](docs/Api/GigsApi.md#updategigasync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} | 
-*JobOffersApi* | [**createJobOfferAsync**](docs/Api/JobOffersApi.md#createjobofferasync) | **POST** /api/v2/HrmsService/JobOffers | 
-*JobOffersApi* | [**deleteJobOfferAsync**](docs/Api/JobOffersApi.md#deletejobofferasync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
-*JobOffersApi* | [**getJobOfferByIdAsync**](docs/Api/JobOffersApi.md#getjobofferbyidasync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
-*JobOffersApi* | [**getJobOffersAsync**](docs/Api/JobOffersApi.md#getjoboffersasync) | **GET** /api/v2/HrmsService/JobOffers | 
-*JobOffersApi* | [**getJobOffersCountAsync**](docs/Api/JobOffersApi.md#getjobofferscountasync) | **GET** /api/v2/HrmsService/JobOffers/Count | 
-*JobOffersApi* | [**updateJobOfferAsync**](docs/Api/JobOffersApi.md#updatejobofferasync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | 
+*EmployeesApi* | [**createEmployeeAsync**](docs/Api/EmployeesApi.md#createemployeeasync) | **POST** /api/v2/HrmsService/Employees | Create an employee
+*EmployeesApi* | [**deleteEmployeeAsync**](docs/Api/EmployeesApi.md#deleteemployeeasync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} | Delete an employee
+*EmployeesApi* | [**getEmployeeByIdAsync**](docs/Api/EmployeesApi.md#getemployeebyidasync) | **GET** /api/v2/HrmsService/Employees/{employeeId} | Get employee by ID
+*EmployeesApi* | [**getEmployeesAsync**](docs/Api/EmployeesApi.md#getemployeesasync) | **GET** /api/v2/HrmsService/Employees | Get employees
+*EmployeesApi* | [**getEmployeesCountAsync**](docs/Api/EmployeesApi.md#getemployeescountasync) | **GET** /api/v2/HrmsService/Employees/Count | Count employees
+*EmployeesApi* | [**updateEmployeeAsync**](docs/Api/EmployeesApi.md#updateemployeeasync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} | Update an employee
+*EmployersApi* | [**createEmployerAsync**](docs/Api/EmployersApi.md#createemployerasync) | **POST** /api/v2/HrmsService/Employers | Create an employer
+*EmployersApi* | [**deleteEmployerAsync**](docs/Api/EmployersApi.md#deleteemployerasync) | **DELETE** /api/v2/HrmsService/Employers/{employerId} | Delete an employer
+*EmployersApi* | [**getEmployerByIdAsync**](docs/Api/EmployersApi.md#getemployerbyidasync) | **GET** /api/v2/HrmsService/Employers/{employerId} | Get employer by ID
+*EmployersApi* | [**getEmployersAsync**](docs/Api/EmployersApi.md#getemployersasync) | **GET** /api/v2/HrmsService/Employers | Get employers
+*EmployersApi* | [**getEmployersCountAsync**](docs/Api/EmployersApi.md#getemployerscountasync) | **GET** /api/v2/HrmsService/Employers/Count | Count employers
+*EmployersApi* | [**updateEmployerAsync**](docs/Api/EmployersApi.md#updateemployerasync) | **PUT** /api/v2/HrmsService/Employers/{employerId} | Update an employer
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*GigsApi* | [**createGigAsync**](docs/Api/GigsApi.md#creategigasync) | **POST** /api/v2/HrmsService/Gigs | Create a gig
+*GigsApi* | [**deleteGigAsync**](docs/Api/GigsApi.md#deletegigasync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | Delete a gig
+*GigsApi* | [**getGigByIdAsync**](docs/Api/GigsApi.md#getgigbyidasync) | **GET** /api/v2/HrmsService/Gigs/{gigId} | Get gig by ID
+*GigsApi* | [**getGigsAsync**](docs/Api/GigsApi.md#getgigsasync) | **GET** /api/v2/HrmsService/Gigs | Get gigs
+*GigsApi* | [**getGigsCountAsync**](docs/Api/GigsApi.md#getgigscountasync) | **GET** /api/v2/HrmsService/Gigs/Count | Count gigs
+*GigsApi* | [**updateGigAsync**](docs/Api/GigsApi.md#updategigasync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} | Update a gig
+*JobOffersApi* | [**createJobOfferAsync**](docs/Api/JobOffersApi.md#createjobofferasync) | **POST** /api/v2/HrmsService/JobOffers | Create a job offer
+*JobOffersApi* | [**deleteJobOfferAsync**](docs/Api/JobOffersApi.md#deletejobofferasync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | Delete a job offer
+*JobOffersApi* | [**getJobOfferByIdAsync**](docs/Api/JobOffersApi.md#getjobofferbyidasync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID
+*JobOffersApi* | [**getJobOffersAsync**](docs/Api/JobOffersApi.md#getjoboffersasync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers
+*JobOffersApi* | [**getJobOffersCountAsync**](docs/Api/JobOffersApi.md#getjobofferscountasync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers
+*JobOffersApi* | [**updateJobOfferAsync**](docs/Api/JobOffersApi.md#updatejobofferasync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [EmployeeProfileCreateDto](docs/Model/EmployeeProfileCreateDto.md)
 - [EmployeeProfileDto](docs/Model/EmployeeProfileDto.md)
 - [EmployeeProfileDtoEnvelope](docs/Model/EmployeeProfileDtoEnvelope.md)
@@ -119,25 +127,30 @@ Class | Method | HTTP request | Description
 - [EmployerProfileDtoListEnvelope](docs/Model/EmployerProfileDtoListEnvelope.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [GigCreateDto](docs/Model/GigCreateDto.md)
 - [GigDto](docs/Model/GigDto.md)
 - [GigDtoEnvelope](docs/Model/GigDtoEnvelope.md)
 - [GigDtoListEnvelope](docs/Model/GigDtoListEnvelope.md)
+- [GigUpdateDto](docs/Model/GigUpdateDto.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [JobOfferCreateDto](docs/Model/JobOfferCreateDto.md)
 - [JobOfferDto](docs/Model/JobOfferDto.md)
 - [JobOfferDtoEnvelope](docs/Model/JobOfferDtoEnvelope.md)
 - [JobOfferDtoListEnvelope](docs/Model/JobOfferDtoListEnvelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -156,6 +169,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

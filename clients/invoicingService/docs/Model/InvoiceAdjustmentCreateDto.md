@@ -4,12 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] [readonly]
-**timestamp** | **\DateTime** |  | [optional] [readonly]
-**tenant_id** | **string** |  | [optional]
-**invoice_id** | **string** |  | [optional]
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **currency_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **surcharge_percent** | **float** |  | [optional]
 **surcharge_amount** | **float** |  | [optional]
@@ -17,6 +14,6 @@ Name | Type | Description | Notes
 **discount_amount** | **float** |  | [optional]
 **total_surcharge** | **float** |  | [optional]
 **total_discount** | **float** |  | [optional]
-**type** | **int** |  | [optional]
+**type** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

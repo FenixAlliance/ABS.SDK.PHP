@@ -4,21 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SupportServiceSupportEntitlementsCountGet()**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsCountGet) | **GET** /api/v2/SupportService/SupportEntitlements/Count |  |
-| [**apiV2SupportServiceSupportEntitlementsGet()**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsGet) | **GET** /api/v2/SupportService/SupportEntitlements |  |
-| [**apiV2SupportServiceSupportEntitlementsPost()**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsPost) | **POST** /api/v2/SupportService/SupportEntitlements |  |
-| [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete()**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} |  |
-| [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet()**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} |  |
-| [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut()**](SupportEntitlementsApi.md#apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} |  |
+| [**createSupportEntitlementAsync()**](SupportEntitlementsApi.md#createSupportEntitlementAsync) | **POST** /api/v2/SupportService/SupportEntitlements | Create a new support entitlement |
+| [**deleteSupportEntitlementAsync()**](SupportEntitlementsApi.md#deleteSupportEntitlementAsync) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Delete a support entitlement |
+| [**getSupportEntitlementAsync()**](SupportEntitlementsApi.md#getSupportEntitlementAsync) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Retrieve a support entitlement by ID |
+| [**getSupportEntitlementsAsync()**](SupportEntitlementsApi.md#getSupportEntitlementsAsync) | **GET** /api/v2/SupportService/SupportEntitlements | Retrieve a list of support entitlements |
+| [**getSupportEntitlementsCountAsync()**](SupportEntitlementsApi.md#getSupportEntitlementsCountAsync) | **GET** /api/v2/SupportService/SupportEntitlements/Count | Get the count of support entitlements |
+| [**updateSupportEntitlementAsync()**](SupportEntitlementsApi.md#updateSupportEntitlementAsync) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Update a support entitlement |
 
 
-## `apiV2SupportServiceSupportEntitlementsCountGet()`
+## `createSupportEntitlementAsync()`
 
 ```php
-apiV2SupportServiceSupportEntitlementsCountGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+createSupportEntitlementAsync($tenant_id, $api_version, $x_api_version, $support_entitlement_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create a new support entitlement
 
+Creates a new support entitlement for the specified tenant.
 
 ### Example
 
@@ -27,156 +29,22 @@ apiV2SupportServiceSupportEntitlementsCountGet($tenant_id, $api_version, $x_api_
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SupportServiceSupportEntitlementsCountGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SupportEntitlementsApi->apiV2SupportServiceSupportEntitlementsCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SupportServiceSupportEntitlementsGet()`
-
-```php
-apiV2SupportServiceSupportEntitlementsGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportEntitlementDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SupportServiceSupportEntitlementsGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SupportEntitlementsApi->apiV2SupportServiceSupportEntitlementsGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\SupportEntitlementDtoListEnvelope**](../Model/SupportEntitlementDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SupportServiceSupportEntitlementsPost()`
-
-```php
-apiV2SupportServiceSupportEntitlementsPost($support_entitlement_create_dto, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $support_entitlement_create_dto = new \OpenAPI\Client\Model\SupportEntitlementCreateDto(); // \OpenAPI\Client\Model\SupportEntitlementCreateDto
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportEntitlementsPost($support_entitlement_create_dto, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->createSupportEntitlementAsync($tenant_id, $api_version, $x_api_version, $support_entitlement_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportEntitlementsApi->apiV2SupportServiceSupportEntitlementsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportEntitlementsApi->createSupportEntitlementAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -184,10 +52,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **support_entitlement_create_dto** | [**\OpenAPI\Client\Model\SupportEntitlementCreateDto**](../Model/SupportEntitlementCreateDto.md)|  | |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_entitlement_create_dto** | [**\OpenAPI\Client\Model\SupportEntitlementCreateDto**](../Model/SupportEntitlementCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -195,7 +63,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,13 +74,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete()`
+## `deleteSupportEntitlementAsync()`
 
 ```php
-apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete($support_entitlement_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete a support entitlement
 
+Deletes a support entitlement by its unique identifier.
 
 ### Example
 
@@ -221,28 +91,22 @@ apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete($support_entitl
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$support_entitlement_id = 'support_entitlement_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$support_entitlement_id = 'support_entitlement_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete($support_entitlement_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportEntitlementsApi->apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportEntitlementsApi->deleteSupportEntitlementAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -250,8 +114,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **support_entitlement_id** | **string**|  | |
-| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -261,7 +125,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,13 +136,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet()`
+## `getSupportEntitlementAsync()`
 
 ```php
-apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet($support_entitlement_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportEntitlementDtoEnvelope
+getSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportEntitlementDtoEnvelope
 ```
 
+Retrieve a support entitlement by ID
 
+Retrieves a single support entitlement by its unique identifier.
 
 ### Example
 
@@ -287,27 +153,22 @@ apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet($support_entitleme
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $support_entitlement_id = 'support_entitlement_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet($support_entitlement_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportEntitlementsApi->apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportEntitlementsApi->getSupportEntitlementAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -315,6 +176,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **support_entitlement_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -325,7 +187,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -336,13 +198,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut()`
+## `getSupportEntitlementsAsync()`
 
 ```php
-apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut($support_entitlement_id, $support_entitlement_update_dto, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+getSupportEntitlementsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportEntitlementDtoListEnvelope
 ```
 
+Retrieve a list of support entitlements
 
+Retrieves a list of support entitlements for the specified tenant with OData query support.
 
 ### Example
 
@@ -351,29 +215,21 @@ apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut($support_entitleme
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$support_entitlement_id = 'support_entitlement_id_example'; // string
-$support_entitlement_update_dto = new \OpenAPI\Client\Model\SupportEntitlementUpdateDto(); // \OpenAPI\Client\Model\SupportEntitlementUpdateDto
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut($support_entitlement_id, $support_entitlement_update_dto, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportEntitlementsAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportEntitlementsApi->apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportEntitlementsApi->getSupportEntitlementsAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -381,11 +237,133 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **support_entitlement_id** | **string**|  | |
-| **support_entitlement_update_dto** | [**\OpenAPI\Client\Model\SupportEntitlementUpdateDto**](../Model/SupportEntitlementUpdateDto.md)|  | |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SupportEntitlementDtoListEnvelope**](../Model/SupportEntitlementDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSupportEntitlementsCountAsync()`
+
+```php
+getSupportEntitlementsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Get the count of support entitlements
+
+Returns the total count of support entitlements for the specified tenant with OData query support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getSupportEntitlementsCountAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportEntitlementsApi->getSupportEntitlementsCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSupportEntitlementAsync()`
+
+```php
+updateSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $support_entitlement_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update a support entitlement
+
+Updates an existing support entitlement by its unique identifier.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$support_entitlement_id = 'support_entitlement_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$support_entitlement_update_dto = new \OpenAPI\Client\Model\SupportEntitlementUpdateDto(); // \OpenAPI\Client\Model\SupportEntitlementUpdateDto
+
+try {
+    $result = $apiInstance->updateSupportEntitlementAsync($tenant_id, $support_entitlement_id, $api_version, $x_api_version, $support_entitlement_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportEntitlementsApi->updateSupportEntitlementAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **support_entitlement_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **support_entitlement_update_dto** | [**\OpenAPI\Client\Model\SupportEntitlementUpdateDto**](../Model/SupportEntitlementUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -393,7 +371,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

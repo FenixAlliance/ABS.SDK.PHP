@@ -4,18 +4,20 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut()**](TimeLogApprovalsApi.md#apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver |  |
-| [**apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut()**](TimeLogApprovalsApi.md#apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status |  |
-| [**apiV2TimeTrackerServiceTimeLogApprovalsPost()**](TimeLogApprovalsApi.md#apiV2TimeTrackerServiceTimeLogApprovalsPost) | **POST** /api/v2/TimeTrackerService/TimeLogApprovals |  |
+| [**requestProjectHoursApprovalAsync()**](TimeLogApprovalsApi.md#requestProjectHoursApprovalAsync) | **POST** /api/v2/TimeTrackerService/TimeLogApprovals | Request project hours approval |
+| [**updateProjectHoursApprovalApproverAsync()**](TimeLogApprovalsApi.md#updateProjectHoursApprovalApproverAsync) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver | Update approval approver |
+| [**updateProjectHoursApprovalStatusAsync()**](TimeLogApprovalsApi.md#updateProjectHoursApprovalStatusAsync) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status | Update approval status |
 
 
-## `apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut()`
+## `requestProjectHoursApprovalAsync()`
 
 ```php
-apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut($approval_id, $tenant_id, $api_version, $x_api_version, $project_hours_approval_approver_update_dto)
+requestProjectHoursApprovalAsync($tenant_id, $api_version, $x_api_version, $project_hours_approval_create_dto)
 ```
 
+Request project hours approval
 
+Creates a new project hours approval request.
 
 ### Example
 
@@ -24,17 +26,72 @@ apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut($approval_id, $tena
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\TimeLogApprovalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$project_hours_approval_create_dto = new \OpenAPI\Client\Model\ProjectHoursApprovalCreateDto(); // \OpenAPI\Client\Model\ProjectHoursApprovalCreateDto
+
+try {
+    $apiInstance->requestProjectHoursApprovalAsync($tenant_id, $api_version, $x_api_version, $project_hours_approval_create_dto);
+} catch (Exception $e) {
+    echo 'Exception when calling TimeLogApprovalsApi->requestProjectHoursApprovalAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **project_hours_approval_create_dto** | [**\OpenAPI\Client\Model\ProjectHoursApprovalCreateDto**](../Model/ProjectHoursApprovalCreateDto.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateProjectHoursApprovalApproverAsync()`
+
+```php
+updateProjectHoursApprovalApproverAsync($approval_id, $tenant_id, $api_version, $x_api_version, $project_hours_approval_approver_update_dto)
+```
+
+Update approval approver
+
+Updates the approver of an existing project hours approval.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\TimeLogApprovalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $approval_id = 'approval_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
@@ -43,9 +100,9 @@ $x_api_version = 'x_api_version_example'; // string
 $project_hours_approval_approver_update_dto = new \OpenAPI\Client\Model\ProjectHoursApprovalApproverUpdateDto(); // \OpenAPI\Client\Model\ProjectHoursApprovalApproverUpdateDto
 
 try {
-    $apiInstance->apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut($approval_id, $tenant_id, $api_version, $x_api_version, $project_hours_approval_approver_update_dto);
+    $apiInstance->updateProjectHoursApprovalApproverAsync($approval_id, $tenant_id, $api_version, $x_api_version, $project_hours_approval_approver_update_dto);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeLogApprovalsApi->apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeLogApprovalsApi->updateProjectHoursApprovalApproverAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -65,7 +122,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,13 +133,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut()`
+## `updateProjectHoursApprovalStatusAsync()`
 
 ```php
-apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut($tenant_id, $approval_id, $api_version, $x_api_version, $project_hours_approval_status_update_dto)
+updateProjectHoursApprovalStatusAsync($tenant_id, $approval_id, $api_version, $x_api_version, $project_hours_approval_status_update_dto)
 ```
 
+Update approval status
 
+Updates the status of an existing project hours approval.
 
 ### Example
 
@@ -91,17 +150,11 @@ apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut($tenant_id, $approval
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\TimeLogApprovalsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $approval_id = 'approval_id_example'; // string
@@ -110,9 +163,9 @@ $x_api_version = 'x_api_version_example'; // string
 $project_hours_approval_status_update_dto = new \OpenAPI\Client\Model\ProjectHoursApprovalStatusUpdateDto(); // \OpenAPI\Client\Model\ProjectHoursApprovalStatusUpdateDto
 
 try {
-    $apiInstance->apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut($tenant_id, $approval_id, $api_version, $x_api_version, $project_hours_approval_status_update_dto);
+    $apiInstance->updateProjectHoursApprovalStatusAsync($tenant_id, $approval_id, $api_version, $x_api_version, $project_hours_approval_status_update_dto);
 } catch (Exception $e) {
-    echo 'Exception when calling TimeLogApprovalsApi->apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TimeLogApprovalsApi->updateProjectHoursApprovalStatusAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -132,72 +185,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `application/xml`
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2TimeTrackerServiceTimeLogApprovalsPost()`
-
-```php
-apiV2TimeTrackerServiceTimeLogApprovalsPost($tenant_id, $api_version, $x_api_version, $project_hours_approval_create_dto)
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\TimeLogApprovalsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$project_hours_approval_create_dto = new \OpenAPI\Client\Model\ProjectHoursApprovalCreateDto(); // \OpenAPI\Client\Model\ProjectHoursApprovalCreateDto
-
-try {
-    $apiInstance->apiV2TimeTrackerServiceTimeLogApprovalsPost($tenant_id, $api_version, $x_api_version, $project_hours_approval_create_dto);
-} catch (Exception $e) {
-    echo 'Exception when calling TimeLogApprovalsApi->apiV2TimeTrackerServiceTimeLogApprovalsPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **project_hours_approval_create_dto** | [**\OpenAPI\Client\Model\ProjectHoursApprovalCreateDto**](../Model/ProjectHoursApprovalCreateDto.md)|  | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

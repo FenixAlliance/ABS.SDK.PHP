@@ -50,25 +50,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-
-$apiInstance = new OpenAPI\Client\Api\OrdersApi(
+$apiInstance = new OpenAPI\Client\Api\FenixAllianceABPWebApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$tenant_id = 'tenant_id_example'; // string
+$forgot_password_request = new \OpenAPI\Client\Model\ForgotPasswordRequest(); // \OpenAPI\Client\Model\ForgotPasswordRequest
 
 try {
-    $result = $apiInstance->apiV2OrdersServiceOrdersCountGet($tenant_id);
-    print_r($result);
+    $apiInstance->forgotPasswordPost($forgot_password_request);
 } catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->apiV2OrdersServiceOrdersCountGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FenixAllianceABPWebApi->forgotPasswordPost: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -79,32 +72,55 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OrdersApi* | [**apiV2OrdersServiceOrdersCountGet**](docs/Api/OrdersApi.md#apiv2ordersserviceorderscountget) | **GET** /api/v2/OrdersService/Orders/Count | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersExtendedGet**](docs/Api/OrdersApi.md#apiv2ordersserviceordersextendedget) | **GET** /api/v2/OrdersService/Orders/Extended | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdCalculatePut**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidcalculateput) | **PUT** /api/v2/OrdersService/Orders/{orderId}/Calculate | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdDelete**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderiddelete) | **DELETE** /api/v2/OrdersService/Orders/{orderId} | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdLinesCountGet**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidlinescountget) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines/Count | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdLinesGet**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidlinesget) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdCalculatePut**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidlinesorderlineidcalculateput) | **PUT** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}/Calculate | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdDelete**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidlinesorderlineiddelete) | **DELETE** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdGet**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidlinesorderlineidget) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdLinesOrderLineIdPut**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidlinesorderlineidput) | **PUT** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdLinesPost**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidlinespost) | **POST** /api/v2/OrdersService/Orders/{orderId}/Lines | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersOrderIdPut**](docs/Api/OrdersApi.md#apiv2ordersserviceordersorderidput) | **PUT** /api/v2/OrdersService/Orders/{orderId} | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersPost**](docs/Api/OrdersApi.md#apiv2ordersserviceorderspost) | **POST** /api/v2/OrdersService/Orders | 
-*OrdersApi* | [**apiV2OrdersServiceOrdersSubmitCartPost**](docs/Api/OrdersApi.md#apiv2ordersserviceorderssubmitcartpost) | **POST** /api/v2/OrdersService/Orders/SubmitCart | 
-*OrdersApi* | [**getOrderAsync**](docs/Api/OrdersApi.md#getorderasync) | **GET** /api/v2/OrdersService/Orders/{orderId} | 
-*OrdersApi* | [**getOrdersAsync**](docs/Api/OrdersApi.md#getordersasync) | **GET** /api/v2/OrdersService/Orders | 
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*OrdersApi* | [**calculateOrder**](docs/Api/OrdersApi.md#calculateorder) | **PUT** /api/v2/OrdersService/Orders/{orderId}/Calculate | Calculates totals for an order.
+*OrdersApi* | [**calculateOrderLine**](docs/Api/OrdersApi.md#calculateorderline) | **PUT** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId}/Calculate | Calculates totals for an order line.
+*OrdersApi* | [**createOrder**](docs/Api/OrdersApi.md#createorder) | **POST** /api/v2/OrdersService/Orders | Creates a new order.
+*OrdersApi* | [**createOrderLine**](docs/Api/OrdersApi.md#createorderline) | **POST** /api/v2/OrdersService/Orders/{orderId}/Lines | Creates a new order line.
+*OrdersApi* | [**deleteOrder**](docs/Api/OrdersApi.md#deleteorder) | **DELETE** /api/v2/OrdersService/Orders/{orderId} | Deletes an order.
+*OrdersApi* | [**deleteOrderLine**](docs/Api/OrdersApi.md#deleteorderline) | **DELETE** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | Deletes an order line.
+*OrdersApi* | [**getExtendedOrders**](docs/Api/OrdersApi.md#getextendedorders) | **GET** /api/v2/OrdersService/Orders/Extended | Gets a list of extended orders for a tenant.
+*OrdersApi* | [**getOrder**](docs/Api/OrdersApi.md#getorder) | **GET** /api/v2/OrdersService/Orders/{orderId} | Gets a specific order by ID.
+*OrdersApi* | [**getOrderLine**](docs/Api/OrdersApi.md#getorderline) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | Gets a specific order line.
+*OrdersApi* | [**getOrderLines**](docs/Api/OrdersApi.md#getorderlines) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines | Gets order lines for an order.
+*OrdersApi* | [**getOrderLinesCount**](docs/Api/OrdersApi.md#getorderlinescount) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines/Count | Gets the count of order lines for an order.
+*OrdersApi* | [**getOrders**](docs/Api/OrdersApi.md#getorders) | **GET** /api/v2/OrdersService/Orders | Gets a list of orders for a tenant.
+*OrdersApi* | [**getOrdersCount**](docs/Api/OrdersApi.md#getorderscount) | **GET** /api/v2/OrdersService/Orders/Count | Gets the count of orders for a tenant.
+*OrdersApi* | [**previewOrderEmailTemplate**](docs/Api/OrdersApi.md#previeworderemailtemplate) | **POST** /api/v2/OrdersService/Orders/{orderId}/Emails/Preview | Preview the rendered email for an Order.
+*OrdersApi* | [**sendOrderEmail**](docs/Api/OrdersApi.md#sendorderemail) | **POST** /api/v2/OrdersService/Orders/{orderId}/Emails/Send | Send a transactional email for an order.
+*OrdersApi* | [**submitCart**](docs/Api/OrdersApi.md#submitcart) | **POST** /api/v2/OrdersService/Orders/SubmitCart | Submits a cart and creates an order.
+*OrdersApi* | [**updateOrder**](docs/Api/OrdersApi.md#updateorder) | **PUT** /api/v2/OrdersService/Orders/{orderId} | Updates an existing order.
+*OrdersApi* | [**updateOrderLine**](docs/Api/OrdersApi.md#updateorderline) | **PUT** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | Updates an order line.
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [ContactDto](docs/Model/ContactDto.md)
-- [Currency](docs/Model/Currency.md)
+- [CurrencyId](docs/Model/CurrencyId.md)
+- [EmailDispatchRequest](docs/Model/EmailDispatchRequest.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExtendedOrderDto](docs/Model/ExtendedOrderDto.md)
 - [ExtendedOrderDtoListEnvelope](docs/Model/ExtendedOrderDtoListEnvelope.md)
+- [ForexRates](docs/Model/ForexRates.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [Money](docs/Model/Money.md)
 - [OrderCreateDto](docs/Model/OrderCreateDto.md)
 - [OrderDto](docs/Model/OrderDto.md)
@@ -116,19 +132,18 @@ Class | Method | HTTP request | Description
 - [OrderLineDtoListEnvelope](docs/Model/OrderLineDtoListEnvelope.md)
 - [OrderLineUpdateDto](docs/Model/OrderLineUpdateDto.md)
 - [OrderUpdateDto](docs/Model/OrderUpdateDto.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [TenantDto](docs/Model/TenantDto.md)
-- [TenantEnrolmentDto](docs/Model/TenantEnrolmentDto.md)
+- [TenantEnrollmentDto](docs/Model/TenantEnrollmentDto.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 - [UserDto](docs/Model/UserDto.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -147,6 +162,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

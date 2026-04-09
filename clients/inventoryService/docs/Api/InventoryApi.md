@@ -4,16 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2InventoryServiceInventoryStockItemIdDetailsGet()**](InventoryApi.md#apiV2InventoryServiceInventoryStockItemIdDetailsGet) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details |  |
+| [**getInventoryDetailsAsync()**](InventoryApi.md#getInventoryDetailsAsync) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details | Get inventory details for a stock item |
 
 
-## `apiV2InventoryServiceInventoryStockItemIdDetailsGet()`
+## `getInventoryDetailsAsync()`
 
 ```php
-apiV2InventoryServiceInventoryStockItemIdDetailsGet($stock_item_id, $api_version, $x_api_version)
+getInventoryDetailsAsync($stock_item_id, $api_version, $x_api_version)
 ```
 
+Get inventory details for a stock item
 
+Retrieves the inventory details for a specific stock item by its ID.
 
 ### Example
 
@@ -22,26 +24,20 @@ apiV2InventoryServiceInventoryStockItemIdDetailsGet($stock_item_id, $api_version
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\InventoryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $stock_item_id = 'stock_item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->apiV2InventoryServiceInventoryStockItemIdDetailsGet($stock_item_id, $api_version, $x_api_version);
+    $apiInstance->getInventoryDetailsAsync($stock_item_id, $api_version, $x_api_version);
 } catch (Exception $e) {
-    echo 'Exception when calling InventoryApi->apiV2InventoryServiceInventoryStockItemIdDetailsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InventoryApi->getInventoryDetailsAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -59,7 +55,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

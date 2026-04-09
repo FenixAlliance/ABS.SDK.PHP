@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] [readonly]
-**timestamp** | **\DateTime** |  | [optional] [readonly]
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **description** | **string** |  | [optional]
 **account_holder_id** | **string** |  | [optional]
 **contact_id** | **string** |  | [optional]

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] [readonly]
-**timestamp** | **\DateTime** |  | [optional] [readonly]
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **tenant_id** | **string** |  |
-**type** | **int** |  |
+**type** | **string** |  |
 **first_name** | **string** |  |
 **last_name** | **string** |  | [optional]
 **email** | **string** |  |
@@ -41,10 +41,11 @@ Name | Type | Description | Notes
 **linked_in_url** | **string** |  | [optional]
 **instagram_url** | **string** |  | [optional]
 **github_username** | **string** |  | [optional]
-**instagram_username** | **mixed** |  | [optional]
-**tik_tok_username** | **mixed** |  | [optional]
-**stack_exchange_url** | **mixed** |  | [optional]
-**stack_overflow_url** | **mixed** |  | [optional]
-**parent_contact_id** | **mixed** |  | [optional]
+**instagram_username** | **string** |  | [optional]
+**tik_tok_username** | **string** |  | [optional]
+**stack_exchange_url** | **string** |  | [optional]
+**stack_overflow_url** | **string** |  | [optional]
+**parent_contact_id** | **string** |  | [optional]
+**fax_number** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

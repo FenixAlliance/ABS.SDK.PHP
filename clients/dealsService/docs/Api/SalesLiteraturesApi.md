@@ -4,21 +4,24 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2DealsServiceSalesLiteraturesExtendedGet()**](SalesLiteraturesApi.md#apiV2DealsServiceSalesLiteraturesExtendedGet) | **GET** /api/v2/DealsService/SalesLiteratures/Extended |  |
-| [**apiV2DealsServiceSalesLiteraturesGet()**](SalesLiteraturesApi.md#apiV2DealsServiceSalesLiteraturesGet) | **GET** /api/v2/DealsService/SalesLiteratures |  |
-| [**apiV2DealsServiceSalesLiteraturesPost()**](SalesLiteraturesApi.md#apiV2DealsServiceSalesLiteraturesPost) | **POST** /api/v2/DealsService/SalesLiteratures |  |
-| [**apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete()**](SalesLiteraturesApi.md#apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete) | **DELETE** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} |  |
-| [**apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet()**](SalesLiteraturesApi.md#apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet) | **GET** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} |  |
-| [**apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut()**](SalesLiteraturesApi.md#apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut) | **PUT** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} |  |
+| [**countSalesLiteraturesAsync()**](SalesLiteraturesApi.md#countSalesLiteraturesAsync) | **GET** /api/v2/DealsService/SalesLiteratures/Count | Get sales literatures count |
+| [**createSalesLiteratureAsync()**](SalesLiteraturesApi.md#createSalesLiteratureAsync) | **POST** /api/v2/DealsService/SalesLiteratures | Create a sales literature |
+| [**deleteSalesLiteratureAsync()**](SalesLiteraturesApi.md#deleteSalesLiteratureAsync) | **DELETE** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Delete a sales literature |
+| [**getExtendedSalesLiteraturesAsync()**](SalesLiteraturesApi.md#getExtendedSalesLiteraturesAsync) | **GET** /api/v2/DealsService/SalesLiteratures/Extended | Get extended sales literatures |
+| [**getSalesLiteratureAsync()**](SalesLiteraturesApi.md#getSalesLiteratureAsync) | **GET** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID |
+| [**getSalesLiteraturesAsync()**](SalesLiteraturesApi.md#getSalesLiteraturesAsync) | **GET** /api/v2/DealsService/SalesLiteratures | Get sales literatures |
+| [**updateSalesLiteratureAsync()**](SalesLiteraturesApi.md#updateSalesLiteratureAsync) | **PUT** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Update a sales literature |
 
 
-## `apiV2DealsServiceSalesLiteraturesExtendedGet()`
+## `countSalesLiteraturesAsync()`
 
 ```php
-apiV2DealsServiceSalesLiteraturesExtendedGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope
+countSalesLiteraturesAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
 ```
 
+Get sales literatures count
 
+Returns the total count of sales literatures for the specified tenant with OData filter support.
 
 ### Example
 
@@ -27,27 +30,19 @@ apiV2DealsServiceSalesLiteraturesExtendedGet($tenant_id, $api_version, $x_api_ve
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2DealsServiceSalesLiteraturesExtendedGet($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->countSalesLiteraturesAsync($tenant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SalesLiteraturesApi->apiV2DealsServiceSalesLiteraturesExtendedGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SalesLiteraturesApi->countSalesLiteraturesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -56,16 +51,14 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope**](../Model/ExtendedSalesLiteratureDtoListEnvelope.md)
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,13 +69,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2DealsServiceSalesLiteraturesGet()`
+## `createSalesLiteratureAsync()`
 
 ```php
-apiV2DealsServiceSalesLiteraturesGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope
+createSalesLiteratureAsync($tenant_id, $sales_literature_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create a sales literature
 
+Creates a new sales literature for the specified tenant.
 
 ### Example
 
@@ -91,92 +86,20 @@ apiV2DealsServiceSalesLiteraturesGet($tenant_id, $api_version, $x_api_version): 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2DealsServiceSalesLiteraturesGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SalesLiteraturesApi->apiV2DealsServiceSalesLiteraturesGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope**](../Model/SalesLiteratureDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2DealsServiceSalesLiteraturesPost()`
-
-```php
-apiV2DealsServiceSalesLiteraturesPost($tenant_id, $api_version, $x_api_version, $sales_literature_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 $sales_literature_create_dto = new \OpenAPI\Client\Model\SalesLiteratureCreateDto(); // \OpenAPI\Client\Model\SalesLiteratureCreateDto
 
 try {
-    $result = $apiInstance->apiV2DealsServiceSalesLiteraturesPost($tenant_id, $api_version, $x_api_version, $sales_literature_create_dto);
+    $result = $apiInstance->createSalesLiteratureAsync($tenant_id, $sales_literature_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SalesLiteraturesApi->apiV2DealsServiceSalesLiteraturesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SalesLiteraturesApi->createSalesLiteratureAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -185,8 +108,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 | **sales_literature_create_dto** | [**\OpenAPI\Client\Model\SalesLiteratureCreateDto**](../Model/SalesLiteratureCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -195,7 +116,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,13 +127,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete()`
+## `deleteSalesLiteratureAsync()`
 
 ```php
-apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete($tenant_id, $sales_literature_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteSalesLiteratureAsync($tenant_id, $sales_literature_id): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete a sales literature
 
+Deletes an existing sales literature by its unique identifier.
 
 ### Example
 
@@ -221,28 +144,20 @@ apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete($tenant_id, $sales_lite
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $sales_literature_id = 'sales_literature_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete($tenant_id, $sales_literature_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteSalesLiteratureAsync($tenant_id, $sales_literature_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SalesLiteraturesApi->apiV2DealsServiceSalesLiteraturesSalesLiteratureIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SalesLiteraturesApi->deleteSalesLiteratureAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -252,8 +167,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **sales_literature_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 
 ### Return type
 
@@ -261,7 +174,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,13 +185,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet()`
+## `getExtendedSalesLiteraturesAsync()`
 
 ```php
-apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet($sales_literature_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SalesLiteratureDtoEnvelope
+getExtendedSalesLiteraturesAsync($tenant_id): \OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope
 ```
 
+Get extended sales literatures
 
+Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
 
 ### Example
 
@@ -287,27 +202,19 @@ apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet($sales_literature_id, $api
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$sales_literature_id = 'sales_literature_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 
 try {
-    $result = $apiInstance->apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet($sales_literature_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExtendedSalesLiteraturesAsync($tenant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SalesLiteraturesApi->apiV2DealsServiceSalesLiteraturesSalesLiteratureIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SalesLiteraturesApi->getExtendedSalesLiteraturesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -315,17 +222,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sales_literature_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SalesLiteratureDtoEnvelope**](../Model/SalesLiteratureDtoEnvelope.md)
+[**\OpenAPI\Client\Model\ExtendedSalesLiteratureDtoListEnvelope**](../Model/ExtendedSalesLiteratureDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -336,13 +241,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut()`
+## `getSalesLiteratureAsync()`
 
 ```php
-apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut($tenant_id, $sales_literature_id, $api_version, $x_api_version, $sales_literature_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+getSalesLiteratureAsync($tenant_id, $sales_literature_id): \OpenAPI\Client\Model\SalesLiteratureDtoEnvelope
 ```
 
+Get sales literature by ID
 
+Retrieves a single sales literature by its unique identifier.
 
 ### Example
 
@@ -351,29 +258,20 @@ apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut($tenant_id, $sales_literat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $sales_literature_id = 'sales_literature_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$sales_literature_update_dto = new \OpenAPI\Client\Model\SalesLiteratureUpdateDto(); // \OpenAPI\Client\Model\SalesLiteratureUpdateDto
 
 try {
-    $result = $apiInstance->apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut($tenant_id, $sales_literature_id, $api_version, $x_api_version, $sales_literature_update_dto);
+    $result = $apiInstance->getSalesLiteratureAsync($tenant_id, $sales_literature_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SalesLiteraturesApi->apiV2DealsServiceSalesLiteraturesSalesLiteratureIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SalesLiteraturesApi->getSalesLiteratureAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -383,8 +281,121 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **sales_literature_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SalesLiteratureDtoEnvelope**](../Model/SalesLiteratureDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSalesLiteraturesAsync()`
+
+```php
+getSalesLiteraturesAsync($tenant_id): \OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope
+```
+
+Get sales literatures
+
+Retrieves a list of sales literatures for the specified tenant with OData query support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getSalesLiteraturesAsync($tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SalesLiteraturesApi->getSalesLiteraturesAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SalesLiteratureDtoListEnvelope**](../Model/SalesLiteratureDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSalesLiteratureAsync()`
+
+```php
+updateSalesLiteratureAsync($tenant_id, $sales_literature_id, $sales_literature_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update a sales literature
+
+Updates an existing sales literature by its unique identifier.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SalesLiteraturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$sales_literature_id = 'sales_literature_id_example'; // string
+$sales_literature_update_dto = new \OpenAPI\Client\Model\SalesLiteratureUpdateDto(); // \OpenAPI\Client\Model\SalesLiteratureUpdateDto
+
+try {
+    $result = $apiInstance->updateSalesLiteratureAsync($tenant_id, $sales_literature_id, $sales_literature_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SalesLiteraturesApi->updateSalesLiteratureAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **sales_literature_id** | **string**|  | |
 | **sales_literature_update_dto** | [**\OpenAPI\Client\Model\SalesLiteratureUpdateDto**](../Model/SalesLiteratureUpdateDto.md)|  | [optional] |
 
 ### Return type
@@ -393,7 +404,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

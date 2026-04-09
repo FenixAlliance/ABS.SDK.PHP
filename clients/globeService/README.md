@@ -50,27 +50,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdCallingCodesGet($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->countCountries($api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdCallingCodesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->countCountries: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -81,26 +74,43 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdCallingCodesGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidcallingcodesget) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdCurrenciesGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidcurrenciesget) | **GET** /api/v2/GlobeService/Countries/{countryId}/Currencies | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidget) | **GET** /api/v2/GlobeService/Countries/{countryId} | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidstatescountrystateidcitiesget) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidstatescountrystateidget) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId} | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdStatesGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidstatesget) | **GET** /api/v2/GlobeService/Countries/{countryId}/States | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdTimezonesGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidtimezonesget) | **GET** /api/v2/GlobeService/Countries/{countryId}/Timezones | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriescountryidtopleveldomainsget) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriesget) | **GET** /api/v2/GlobeService/Countries | 
-*CountriesApi* | [**apiV2GlobeServiceCountriesSearchGet**](docs/Api/CountriesApi.md#apiv2globeservicecountriessearchget) | **GET** /api/v2/GlobeService/Countries/Search | 
-*CurrenciesApi* | [**apiV2GlobeServiceCurrenciesCurrencyIdGet**](docs/Api/CurrenciesApi.md#apiv2globeservicecurrenciescurrencyidget) | **GET** /api/v2/GlobeService/Currencies/{currencyId} | 
-*CurrenciesApi* | [**apiV2GlobeServiceCurrenciesGet**](docs/Api/CurrenciesApi.md#apiv2globeservicecurrenciesget) | **GET** /api/v2/GlobeService/Currencies | 
-*LanguagesApi* | [**apiV2GlobeServiceLanguagesGet**](docs/Api/LanguagesApi.md#apiv2globeservicelanguagesget) | **GET** /api/v2/GlobeService/Languages | 
-*LanguagesApi* | [**apiV2GlobeServiceLanguagesLanguageIdGet**](docs/Api/LanguagesApi.md#apiv2globeservicelanguageslanguageidget) | **GET** /api/v2/GlobeService/Languages/{languageId} | 
-*MigrationsApi* | [**apiV2GlobalSystemMigratePost**](docs/Api/MigrationsApi.md#apiv2globalsystemmigratepost) | **POST** /api/v2/Global/System/Migrate | 
-*TimezonesApi* | [**apiV2GlobeServiceTimezonesGet**](docs/Api/TimezonesApi.md#apiv2globeservicetimezonesget) | **GET** /api/v2/GlobeService/Timezones | 
-*TimezonesApi* | [**apiV2GlobeServiceTimezonesTimeZoneIdGet**](docs/Api/TimezonesApi.md#apiv2globeservicetimezonestimezoneidget) | **GET** /api/v2/GlobeService/Timezones/{timeZoneId} | 
+*CountriesApi* | [**countCountries**](docs/Api/CountriesApi.md#countcountries) | **GET** /api/v2/GlobeService/Countries/Count | Count countries
+*CountriesApi* | [**getAllCountries**](docs/Api/CountriesApi.md#getallcountries) | **GET** /api/v2/GlobeService/Countries | Get all countries
+*CountriesApi* | [**getCallingCodesByCountryIdAsync**](docs/Api/CountriesApi.md#getcallingcodesbycountryidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | Get calling codes for a country
+*CountriesApi* | [**getCitiesByCountryStateIdAsync**](docs/Api/CountriesApi.md#getcitiesbycountrystateidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | Get cities for a state
+*CountriesApi* | [**getCountryById**](docs/Api/CountriesApi.md#getcountrybyid) | **GET** /api/v2/GlobeService/Countries/{countryId} | Get country by ID
+*CountriesApi* | [**getCountryStateByIdAsync**](docs/Api/CountriesApi.md#getcountrystatebyidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId} | Get state by ID
+*CountriesApi* | [**getCountryStatesAsync**](docs/Api/CountriesApi.md#getcountrystatesasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States | Get states for a country
+*CountriesApi* | [**getEnabledCurrenciesByCountryIdAsync**](docs/Api/CountriesApi.md#getenabledcurrenciesbycountryidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/Currencies | Get currencies for a country
+*CountriesApi* | [**getTimeZonesByCountryIdAsync**](docs/Api/CountriesApi.md#gettimezonesbycountryidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/Timezones | Get timezones for a country
+*CountriesApi* | [**getTopLevelDomainsByCountryIdAsync**](docs/Api/CountriesApi.md#gettopleveldomainsbycountryidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | Get top-level domains for a country
+*CountriesApi* | [**searchCountriesByNameAsync**](docs/Api/CountriesApi.md#searchcountriesbynameasync) | **GET** /api/v2/GlobeService/Countries/Search | Search countries by name
+*CurrenciesApi* | [**countCurrenciesAsync**](docs/Api/CurrenciesApi.md#countcurrenciesasync) | **GET** /api/v2/GlobeService/Currencies/Count | Count currencies
+*CurrenciesApi* | [**getCurrencyByIdAsync**](docs/Api/CurrenciesApi.md#getcurrencybyidasync) | **GET** /api/v2/GlobeService/Currencies/{currencyId} | Get currency by ID
+*CurrenciesApi* | [**getEnabledCurrenciesAsync**](docs/Api/CurrenciesApi.md#getenabledcurrenciesasync) | **GET** /api/v2/GlobeService/Currencies | Get all currencies
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*LanguagesApi* | [**countLanguagesAsync**](docs/Api/LanguagesApi.md#countlanguagesasync) | **GET** /api/v2/GlobeService/Languages/Count | Count languages
+*LanguagesApi* | [**getLanguageByIdAsync**](docs/Api/LanguagesApi.md#getlanguagebyidasync) | **GET** /api/v2/GlobeService/Languages/{languageId} | Get language by ID
+*LanguagesApi* | [**getLanguagesAsync**](docs/Api/LanguagesApi.md#getlanguagesasync) | **GET** /api/v2/GlobeService/Languages | Get all languages
+*TimezonesApi* | [**countTimezonesAsync**](docs/Api/TimezonesApi.md#counttimezonesasync) | **GET** /api/v2/GlobeService/Timezones/Count | Count timezones
+*TimezonesApi* | [**getTimeZoneByIdAsync**](docs/Api/TimezonesApi.md#gettimezonebyidasync) | **GET** /api/v2/GlobeService/Timezones/{timeZoneId} | Get timezone by ID
+*TimezonesApi* | [**getTimeZonesAsync**](docs/Api/TimezonesApi.md#gettimezonesasync) | **GET** /api/v2/GlobeService/Timezones | Get all timezones
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [CityDto](docs/Model/CityDto.md)
 - [CityDtoListEnvelope](docs/Model/CityDtoListEnvelope.md)
 - [CountryCallingCodeDto](docs/Model/CountryCallingCodeDto.md)
@@ -119,23 +129,25 @@ Class | Method | HTTP request | Description
 - [CurrencyDto](docs/Model/CurrencyDto.md)
 - [CurrencyDtoEnvelope](docs/Model/CurrencyDtoEnvelope.md)
 - [CurrencyDtoListEnvelope](docs/Model/CurrencyDtoListEnvelope.md)
-- [Error](docs/Model/Error.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
-- [PaymentResponse](docs/Model/PaymentResponse.md)
-- [ResponseStatus](docs/Model/ResponseStatus.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
+- [Int32Envelope](docs/Model/Int32Envelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [TimezoneDto](docs/Model/TimezoneDto.md)
 - [TimezoneDtoEnvelope](docs/Model/TimezoneDtoEnvelope.md)
 - [TimezoneDtoListEnvelope](docs/Model/TimezoneDtoListEnvelope.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -154,6 +166,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

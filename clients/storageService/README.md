@@ -50,17 +50,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\AvatarsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -91,37 +85,55 @@ Class | Method | HTTP request | Description
 *AvatarsApi* | [**updateUserAvatar**](docs/Api/AvatarsApi.md#updateuseravatar) | **POST** /api/v2/StorageService/Avatars/User | Update the avatar for the current user.
 *BlobsApi* | [**getBlobAsync**](docs/Api/BlobsApi.md#getblobasync) | **GET** /api/v2/StorageService/Blobs/Single | 
 *BlobsApi* | [**getBlobsAsync**](docs/Api/BlobsApi.md#getblobsasync) | **GET** /api/v2/StorageService/Blobs | 
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
 *FilesApi* | [**createFileAsync**](docs/Api/FilesApi.md#createfileasync) | **POST** /api/v2/StorageService/Files | 
 *FilesApi* | [**deleteFileAsync**](docs/Api/FilesApi.md#deletefileasync) | **DELETE** /api/v2/StorageService/Files/{fileId} | 
 *FilesApi* | [**downloadFileAsync**](docs/Api/FilesApi.md#downloadfileasync) | **GET** /api/v2/StorageService/Files/{fileId}/Raw | 
 *FilesApi* | [**getFileAsync**](docs/Api/FilesApi.md#getfileasync) | **GET** /api/v2/StorageService/Files/{fileId} | 
 *FilesApi* | [**getFilesAsync**](docs/Api/FilesApi.md#getfilesasync) | **GET** /api/v2/StorageService/Files | 
 *FilesApi* | [**updateFileAsync**](docs/Api/FilesApi.md#updatefileasync) | **PUT** /api/v2/StorageService/Files/{fileId} | 
-*RadzenEditorApi* | [**apiV2StorageServiceRadzenEditorUploadsIdPost**](docs/Api/RadzenEditorApi.md#apiv2storageserviceradzeneditoruploadsidpost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/{id} | 
-*RadzenEditorApi* | [**apiV2StorageServiceRadzenEditorUploadsImagePost**](docs/Api/RadzenEditorApi.md#apiv2storageserviceradzeneditoruploadsimagepost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Image | 
-*RadzenEditorApi* | [**apiV2StorageServiceRadzenEditorUploadsMultiplePost**](docs/Api/RadzenEditorApi.md#apiv2storageserviceradzeneditoruploadsmultiplepost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Multiple | 
-*RadzenEditorApi* | [**apiV2StorageServiceRadzenEditorUploadsSinglePost**](docs/Api/RadzenEditorApi.md#apiv2storageserviceradzeneditoruploadssinglepost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Single | 
-*RadzenEditorApi* | [**apiV2StorageServiceRadzenEditorUploadsSpecificPost**](docs/Api/RadzenEditorApi.md#apiv2storageserviceradzeneditoruploadsspecificpost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Specific | 
-*UploadsApi* | [**apiV2StorageServiceUploadsPost**](docs/Api/UploadsApi.md#apiv2storageserviceuploadspost) | **POST** /api/v2/StorageService/Uploads | 
+*RadzenEditorApi* | [**image**](docs/Api/RadzenEditorApi.md#image) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Image | Upload an image file
+*RadzenEditorApi* | [**multiple**](docs/Api/RadzenEditorApi.md#multiple) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Multiple | Upload multiple files
+*RadzenEditorApi* | [**post**](docs/Api/RadzenEditorApi.md#post) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/{id} | Upload files by ID
+*RadzenEditorApi* | [**single**](docs/Api/RadzenEditorApi.md#single) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Single | Upload a single file
+*RadzenEditorApi* | [**specific**](docs/Api/RadzenEditorApi.md#specific) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Specific | Upload a specific file
+*UploadsApi* | [**saveFileAsync**](docs/Api/UploadsApi.md#savefileasync) | **POST** /api/v2/StorageService/Uploads | Upload a file
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [Blob](docs/Model/Blob.md)
 - [BlobEnvelope](docs/Model/BlobEnvelope.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [FileUploadDto](docs/Model/FileUploadDto.md)
 - [FileUploadDtoEnvelope](docs/Model/FileUploadDtoEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -140,6 +152,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

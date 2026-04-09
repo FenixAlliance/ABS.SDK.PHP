@@ -4,24 +4,28 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SystemServiceUsersCountGet()**](UsersApi.md#apiV2SystemServiceUsersCountGet) | **GET** /api/v2/SystemService/Users/Count |  |
-| [**apiV2SystemServiceUsersExtendedCountGet()**](UsersApi.md#apiV2SystemServiceUsersExtendedCountGet) | **GET** /api/v2/SystemService/Users/Extended/Count |  |
-| [**apiV2SystemServiceUsersExtendedGet()**](UsersApi.md#apiV2SystemServiceUsersExtendedGet) | **GET** /api/v2/SystemService/Users/Extended |  |
-| [**apiV2SystemServiceUsersGet()**](UsersApi.md#apiV2SystemServiceUsersGet) | **GET** /api/v2/SystemService/Users |  |
-| [**apiV2SystemServiceUsersPost()**](UsersApi.md#apiV2SystemServiceUsersPost) | **POST** /api/v2/SystemService/Users |  |
-| [**apiV2SystemServiceUsersUserIdDelete()**](UsersApi.md#apiV2SystemServiceUsersUserIdDelete) | **DELETE** /api/v2/SystemService/Users/{userId} |  |
-| [**apiV2SystemServiceUsersUserIdExtendedGet()**](UsersApi.md#apiV2SystemServiceUsersUserIdExtendedGet) | **GET** /api/v2/SystemService/Users/{userId}/Extended |  |
-| [**apiV2SystemServiceUsersUserIdPut()**](UsersApi.md#apiV2SystemServiceUsersUserIdPut) | **PUT** /api/v2/SystemService/Users/{userId} |  |
-| [**getUserAsync()**](UsersApi.md#getUserAsync) | **GET** /api/v2/SystemService/Users/{userId} |  |
+| [**adminPreviewUserEmailTemplate()**](UsersApi.md#adminPreviewUserEmailTemplate) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Preview | Preview the rendered email for a user. |
+| [**adminSendUserEmail()**](UsersApi.md#adminSendUserEmail) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Send | Send an email to a user. |
+| [**createAccountHolderAsync()**](UsersApi.md#createAccountHolderAsync) | **POST** /api/v2/SystemService/Users | Create a new user |
+| [**deleteAccountHolderAsync()**](UsersApi.md#deleteAccountHolderAsync) | **DELETE** /api/v2/SystemService/Users/{userId} | Delete a user |
+| [**getExtendedAccountHolderAsync()**](UsersApi.md#getExtendedAccountHolderAsync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID |
+| [**getExtendedUsersAsync()**](UsersApi.md#getExtendedUsersAsync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users |
+| [**getExtendedUsersCountAsync()**](UsersApi.md#getExtendedUsersCountAsync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users |
+| [**getUserAsync()**](UsersApi.md#getUserAsync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID |
+| [**getUsersAsync()**](UsersApi.md#getUsersAsync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users |
+| [**getUsersCountAsync()**](UsersApi.md#getUsersCountAsync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users |
+| [**updateAccountHolderAsync()**](UsersApi.md#updateAccountHolderAsync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user |
 
 
-## `apiV2SystemServiceUsersCountGet()`
+## `adminPreviewUserEmailTemplate()`
 
 ```php
-apiV2SystemServiceUsersCountGet($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+adminPreviewUserEmailTemplate($user_id, $api_version, $x_api_version, $email_dispatch_request)
 ```
 
+Preview the rendered email for a user.
 
+This action is only available for users with the 'business_owner' role (global administrators).
 
 ### Example
 
@@ -30,26 +34,21 @@ apiV2SystemServiceUsersCountGet($api_version, $x_api_version): \OpenAPI\Client\M
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
+$user_id = 'user_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$email_dispatch_request = new \OpenAPI\Client\Model\EmailDispatchRequest(); // \OpenAPI\Client\Model\EmailDispatchRequest
 
 try {
-    $result = $apiInstance->apiV2SystemServiceUsersCountGet($api_version, $x_api_version);
-    print_r($result);
+    $apiInstance->adminPreviewUserEmailTemplate($user_id, $api_version, $x_api_version, $email_dispatch_request);
 } catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersCountGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling UsersApi->adminPreviewUserEmailTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -57,266 +56,18 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **email_dispatch_request** | [**\OpenAPI\Client\Model\EmailDispatchRequest**](../Model/EmailDispatchRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SystemServiceUsersExtendedCountGet()`
-
-```php
-apiV2SystemServiceUsersExtendedCountGet($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SystemServiceUsersExtendedCountGet($api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersExtendedCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SystemServiceUsersExtendedGet()`
-
-```php
-apiV2SystemServiceUsersExtendedGet($api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedUserDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SystemServiceUsersExtendedGet($api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersExtendedGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ExtendedUserDtoListEnvelope**](../Model/ExtendedUserDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SystemServiceUsersGet()`
-
-```php
-apiV2SystemServiceUsersGet($api_version, $x_api_version): \OpenAPI\Client\Model\UserDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SystemServiceUsersGet($api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\UserDtoListEnvelope**](../Model/UserDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SystemServiceUsersPost()`
-
-```php
-apiV2SystemServiceUsersPost($api_version, $x_api_version, $account_holder_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\UsersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$account_holder_create_dto = new \OpenAPI\Client\Model\AccountHolderCreateDto(); // \OpenAPI\Client\Model\AccountHolderCreateDto
-
-try {
-    $result = $apiInstance->apiV2SystemServiceUsersPost($api_version, $x_api_version, $account_holder_create_dto);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **account_holder_create_dto** | [**\OpenAPI\Client\Model\AccountHolderCreateDto**](../Model/AccountHolderCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -327,13 +78,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SystemServiceUsersUserIdDelete()`
+## `adminSendUserEmail()`
 
 ```php
-apiV2SystemServiceUsersUserIdDelete($user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+adminSendUserEmail($user_id, $api_version, $x_api_version, $email_dispatch_request): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Send an email to a user.
 
+This action is only available for users with the 'business_owner' role (global administrators).
 
 ### Example
 
@@ -342,27 +95,143 @@ apiV2SystemServiceUsersUserIdDelete($user_id, $api_version, $x_api_version): \Op
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$user_id = 'user_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$email_dispatch_request = new \OpenAPI\Client\Model\EmailDispatchRequest(); // \OpenAPI\Client\Model\EmailDispatchRequest
+
+try {
+    $result = $apiInstance->adminSendUserEmail($user_id, $api_version, $x_api_version, $email_dispatch_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->adminSendUserEmail: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **email_dispatch_request** | [**\OpenAPI\Client\Model\EmailDispatchRequest**](../Model/EmailDispatchRequest.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createAccountHolderAsync()`
+
+```php
+createAccountHolderAsync($api_version, $x_api_version, $user_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Create a new user
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$user_create_dto = new \OpenAPI\Client\Model\UserCreateDto(); // \OpenAPI\Client\Model\UserCreateDto
+
+try {
+    $result = $apiInstance->createAccountHolderAsync($api_version, $x_api_version, $user_create_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->createAccountHolderAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **user_create_dto** | [**\OpenAPI\Client\Model\UserCreateDto**](../Model/UserCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteAccountHolderAsync()`
+
+```php
+deleteAccountHolderAsync($user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Delete a user
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
 );
 $user_id = 'user_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SystemServiceUsersUserIdDelete($user_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteAccountHolderAsync($user_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersUserIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling UsersApi->deleteAccountHolderAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -380,7 +249,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -391,13 +260,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SystemServiceUsersUserIdExtendedGet()`
+## `getExtendedAccountHolderAsync()`
 
 ```php
-apiV2SystemServiceUsersUserIdExtendedGet($user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedUserDtoEnvelope
+getExtendedAccountHolderAsync($user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedUserDtoEnvelope
 ```
 
+Retrieve an extended user by ID
 
+This action is only available for users with the 'business_owner' role (global administrators).
 
 ### Example
 
@@ -406,27 +277,21 @@ apiV2SystemServiceUsersUserIdExtendedGet($user_id, $api_version, $x_api_version)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $user_id = 'user_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SystemServiceUsersUserIdExtendedGet($user_id, $api_version, $x_api_version);
+    $result = $apiInstance->getExtendedAccountHolderAsync($user_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersUserIdExtendedGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling UsersApi->getExtendedAccountHolderAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -444,7 +309,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -455,13 +320,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SystemServiceUsersUserIdPut()`
+## `getExtendedUsersAsync()`
 
 ```php
-apiV2SystemServiceUsersUserIdPut($user_id, $api_version, $x_api_version, $body): \OpenAPI\Client\Model\EmptyEnvelope
+getExtendedUsersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\ExtendedUserDtoListEnvelope
 ```
 
+Retrieve a list of extended users
 
+This action is only available for users with the 'business_owner' role (global administrators).
 
 ### Example
 
@@ -470,28 +337,20 @@ apiV2SystemServiceUsersUserIdPut($user_id, $api_version, $x_api_version, $body):
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$body = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->apiV2SystemServiceUsersUserIdPut($user_id, $api_version, $x_api_version, $body);
+    $result = $apiInstance->getExtendedUsersAsync($api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UsersApi->apiV2SystemServiceUsersUserIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling UsersApi->getExtendedUsersAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -499,22 +358,78 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **user_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **body** | **object**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+[**\OpenAPI\Client\Model\ExtendedUserDtoListEnvelope**](../Model/ExtendedUserDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `application/xml`
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getExtendedUsersCountAsync()`
+
+```php
+getExtendedUsersCountAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Get the count of extended users
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getExtendedUsersCountAsync($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->getExtendedUsersCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -527,7 +442,9 @@ try {
 getUserAsync($user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\UserDtoEnvelope
 ```
 
+Retrieve a user by ID
 
+This action is only available for users with the 'business_owner' role (global administrators).
 
 ### Example
 
@@ -536,17 +453,11 @@ getUserAsync($user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\User
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $user_id = 'user_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -574,11 +485,189 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getUsersAsync()`
+
+```php
+getUsersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\UserDtoListEnvelope
+```
+
+Retrieve a list of users
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getUsersAsync($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->getUsersAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\UserDtoListEnvelope**](../Model/UserDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getUsersCountAsync()`
+
+```php
+getUsersCountAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Get the count of users
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getUsersCountAsync($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->getUsersCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAccountHolderAsync()`
+
+```php
+updateAccountHolderAsync($user_id, $api_version, $x_api_version, $user_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update a user
+
+This action is only available for users with the 'business_owner' role (global administrators).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$user_id = 'user_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$user_update_dto = new \OpenAPI\Client\Model\UserUpdateDto(); // \OpenAPI\Client\Model\UserUpdateDto
+
+try {
+    $result = $apiInstance->updateAccountHolderAsync($user_id, $api_version, $x_api_version, $user_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->updateAccountHolderAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **user_update_dto** | [**\OpenAPI\Client\Model\UserUpdateDto**](../Model/UserUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

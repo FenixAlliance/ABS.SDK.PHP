@@ -50,27 +50,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-
-$apiInstance = new OpenAPI\Client\Api\SupportEntitlementsApi(
+$apiInstance = new OpenAPI\Client\Api\FenixAllianceABPWebApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
+$forgot_password_request = new \OpenAPI\Client\Model\ForgotPasswordRequest(); // \OpenAPI\Client\Model\ForgotPasswordRequest
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportEntitlementsCountGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
+    $apiInstance->forgotPasswordPost($forgot_password_request);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportEntitlementsApi->apiV2SupportServiceSupportEntitlementsCountGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FenixAllianceABPWebApi->forgotPasswordPost: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -81,60 +72,83 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SupportEntitlementsApi* | [**apiV2SupportServiceSupportEntitlementsCountGet**](docs/Api/SupportEntitlementsApi.md#apiv2supportservicesupportentitlementscountget) | **GET** /api/v2/SupportService/SupportEntitlements/Count | 
-*SupportEntitlementsApi* | [**apiV2SupportServiceSupportEntitlementsGet**](docs/Api/SupportEntitlementsApi.md#apiv2supportservicesupportentitlementsget) | **GET** /api/v2/SupportService/SupportEntitlements | 
-*SupportEntitlementsApi* | [**apiV2SupportServiceSupportEntitlementsPost**](docs/Api/SupportEntitlementsApi.md#apiv2supportservicesupportentitlementspost) | **POST** /api/v2/SupportService/SupportEntitlements | 
-*SupportEntitlementsApi* | [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdDelete**](docs/Api/SupportEntitlementsApi.md#apiv2supportservicesupportentitlementssupportentitlementiddelete) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | 
-*SupportEntitlementsApi* | [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdGet**](docs/Api/SupportEntitlementsApi.md#apiv2supportservicesupportentitlementssupportentitlementidget) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | 
-*SupportEntitlementsApi* | [**apiV2SupportServiceSupportEntitlementsSupportEntitlementIdPut**](docs/Api/SupportEntitlementsApi.md#apiv2supportservicesupportentitlementssupportentitlementidput) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | 
-*SupportRequestAttachmentsApi* | [**apiV2SupportServiceSupportRequestAttachmentsCountGet**](docs/Api/SupportRequestAttachmentsApi.md#apiv2supportservicesupportrequestattachmentscountget) | **GET** /api/v2/SupportService/SupportRequestAttachments/Count | 
-*SupportRequestAttachmentsApi* | [**apiV2SupportServiceSupportRequestAttachmentsGet**](docs/Api/SupportRequestAttachmentsApi.md#apiv2supportservicesupportrequestattachmentsget) | **GET** /api/v2/SupportService/SupportRequestAttachments | 
-*SupportRequestAttachmentsApi* | [**apiV2SupportServiceSupportRequestAttachmentsPost**](docs/Api/SupportRequestAttachmentsApi.md#apiv2supportservicesupportrequestattachmentspost) | **POST** /api/v2/SupportService/SupportRequestAttachments | 
-*SupportRequestAttachmentsApi* | [**apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete**](docs/Api/SupportRequestAttachmentsApi.md#apiv2supportservicesupportrequestattachmentssupportrequestattachmentiddelete) | **DELETE** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | 
-*SupportRequestAttachmentsApi* | [**apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet**](docs/Api/SupportRequestAttachmentsApi.md#apiv2supportservicesupportrequestattachmentssupportrequestattachmentidget) | **GET** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | 
-*SupportRequestAttachmentsApi* | [**apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut**](docs/Api/SupportRequestAttachmentsApi.md#apiv2supportservicesupportrequestattachmentssupportrequestattachmentidput) | **PUT** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsCountGet**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestscountget) | **GET** /api/v2/SupportService/SupportRequests/Count | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsGet**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestsget) | **GET** /api/v2/SupportService/SupportRequests | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsPost**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestspost) | **POST** /api/v2/SupportService/SupportRequests | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestidattachmentsattachmentidget) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId} | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestidattachmentscountget) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestidattachmentsget) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestidattachmentspost) | **POST** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdDelete**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestiddelete) | **DELETE** /api/v2/SupportService/SupportRequests/{supportRequestId} | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdGet**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestidget) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId} | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdPut**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestidput) | **PUT** /api/v2/SupportService/SupportRequests/{supportRequestId} | 
-*SupportRequestsApi* | [**apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet**](docs/Api/SupportRequestsApi.md#apiv2supportservicesupportrequestssupportrequestidticketsget) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets | 
-*SupportTicketPrioritiesApi* | [**apiV2SupportServiceSupportTicketPrioritiesCountGet**](docs/Api/SupportTicketPrioritiesApi.md#apiv2supportservicesupportticketprioritiescountget) | **GET** /api/v2/SupportService/SupportTicketPriorities/Count | 
-*SupportTicketPrioritiesApi* | [**apiV2SupportServiceSupportTicketPrioritiesGet**](docs/Api/SupportTicketPrioritiesApi.md#apiv2supportservicesupportticketprioritiesget) | **GET** /api/v2/SupportService/SupportTicketPriorities | 
-*SupportTicketPrioritiesApi* | [**apiV2SupportServiceSupportTicketPrioritiesPost**](docs/Api/SupportTicketPrioritiesApi.md#apiv2supportservicesupportticketprioritiespost) | **POST** /api/v2/SupportService/SupportTicketPriorities | 
-*SupportTicketPrioritiesApi* | [**apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete**](docs/Api/SupportTicketPrioritiesApi.md#apiv2supportservicesupportticketprioritiessupportticketpriorityiddelete) | **DELETE** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | 
-*SupportTicketPrioritiesApi* | [**apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet**](docs/Api/SupportTicketPrioritiesApi.md#apiv2supportservicesupportticketprioritiessupportticketpriorityidget) | **GET** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | 
-*SupportTicketPrioritiesApi* | [**apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut**](docs/Api/SupportTicketPrioritiesApi.md#apiv2supportservicesupportticketprioritiessupportticketpriorityidput) | **PUT** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | 
-*SupportTicketTypesApi* | [**apiV2SupportServiceSupportTicketTypesCountGet**](docs/Api/SupportTicketTypesApi.md#apiv2supportservicesupporttickettypescountget) | **GET** /api/v2/SupportService/SupportTicketTypes/Count | 
-*SupportTicketTypesApi* | [**apiV2SupportServiceSupportTicketTypesGet**](docs/Api/SupportTicketTypesApi.md#apiv2supportservicesupporttickettypesget) | **GET** /api/v2/SupportService/SupportTicketTypes | 
-*SupportTicketTypesApi* | [**apiV2SupportServiceSupportTicketTypesPost**](docs/Api/SupportTicketTypesApi.md#apiv2supportservicesupporttickettypespost) | **POST** /api/v2/SupportService/SupportTicketTypes | 
-*SupportTicketTypesApi* | [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete**](docs/Api/SupportTicketTypesApi.md#apiv2supportservicesupporttickettypessupporttickettypeiddelete) | **DELETE** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | 
-*SupportTicketTypesApi* | [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet**](docs/Api/SupportTicketTypesApi.md#apiv2supportservicesupporttickettypessupporttickettypeidget) | **GET** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | 
-*SupportTicketTypesApi* | [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut**](docs/Api/SupportTicketTypesApi.md#apiv2supportservicesupporttickettypessupporttickettypeidput) | **PUT** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsCountGet**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketscountget) | **GET** /api/v2/SupportService/SupportTickets/Count | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsGet**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketsget) | **GET** /api/v2/SupportService/SupportTickets | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsPost**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketspost) | **POST** /api/v2/SupportService/SupportTickets | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsGet**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketidconversationsget) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsPost**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketidconversationspost) | **POST** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdDelete**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketidconversationssupportticketconversationiddelete) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdGet**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketidconversationssupportticketconversationidget) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdConversationsSupportTicketConversationIdMessagesGet**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketidconversationssupportticketconversationidmessagesget) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId}/Messages | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdDelete**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketiddelete) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId} | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdGet**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketidget) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId} | 
-*SupportTicketsApi* | [**apiV2SupportServiceSupportTicketsSupportTicketIdPut**](docs/Api/SupportTicketsApi.md#apiv2supportservicesupportticketssupportticketidput) | **PUT** /api/v2/SupportService/SupportTickets/{supportTicketId} | 
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*SupportEntitlementsApi* | [**createSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#createsupportentitlementasync) | **POST** /api/v2/SupportService/SupportEntitlements | Create a new support entitlement
+*SupportEntitlementsApi* | [**deleteSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#deletesupportentitlementasync) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Delete a support entitlement
+*SupportEntitlementsApi* | [**getSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#getsupportentitlementasync) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Retrieve a support entitlement by ID
+*SupportEntitlementsApi* | [**getSupportEntitlementsAsync**](docs/Api/SupportEntitlementsApi.md#getsupportentitlementsasync) | **GET** /api/v2/SupportService/SupportEntitlements | Retrieve a list of support entitlements
+*SupportEntitlementsApi* | [**getSupportEntitlementsCountAsync**](docs/Api/SupportEntitlementsApi.md#getsupportentitlementscountasync) | **GET** /api/v2/SupportService/SupportEntitlements/Count | Get the count of support entitlements
+*SupportEntitlementsApi* | [**updateSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#updatesupportentitlementasync) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Update a support entitlement
+*SupportRequestAttachmentsApi* | [**createSupportRequestAttachmentAsync**](docs/Api/SupportRequestAttachmentsApi.md#createsupportrequestattachmentasync) | **POST** /api/v2/SupportService/SupportRequestAttachments | Create a new support request attachment
+*SupportRequestAttachmentsApi* | [**deleteSupportRequestAttachmentAsync**](docs/Api/SupportRequestAttachmentsApi.md#deletesupportrequestattachmentasync) | **DELETE** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Delete a support request attachment
+*SupportRequestAttachmentsApi* | [**getSupportRequestAttachmentAsync**](docs/Api/SupportRequestAttachmentsApi.md#getsupportrequestattachmentasync) | **GET** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Retrieve a support request attachment by ID
+*SupportRequestAttachmentsApi* | [**getSupportRequestAttachmentsAsync**](docs/Api/SupportRequestAttachmentsApi.md#getsupportrequestattachmentsasync) | **GET** /api/v2/SupportService/SupportRequestAttachments | Retrieve a list of support request attachments
+*SupportRequestAttachmentsApi* | [**getSupportRequestAttachmentsCountAsync**](docs/Api/SupportRequestAttachmentsApi.md#getsupportrequestattachmentscountasync) | **GET** /api/v2/SupportService/SupportRequestAttachments/Count | Get the count of support request attachments
+*SupportRequestAttachmentsApi* | [**updateSupportRequestAttachmentAsync**](docs/Api/SupportRequestAttachmentsApi.md#updatesupportrequestattachmentasync) | **PUT** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Update a support request attachment
+*SupportRequestsApi* | [**createSupportRequestAsync**](docs/Api/SupportRequestsApi.md#createsupportrequestasync) | **POST** /api/v2/SupportService/SupportRequests | Create a new support request
+*SupportRequestsApi* | [**deleteSupportRequestAsync**](docs/Api/SupportRequestsApi.md#deletesupportrequestasync) | **DELETE** /api/v2/SupportService/SupportRequests/{supportRequestId} | Delete a support request
+*SupportRequestsApi* | [**getSupportRequestAsync**](docs/Api/SupportRequestsApi.md#getsupportrequestasync) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId} | Retrieve a support request by ID
+*SupportRequestsApi* | [**getSupportRequestAttachmentByRequest**](docs/Api/SupportRequestsApi.md#getsupportrequestattachmentbyrequest) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId} | Retrieve a specific attachment for a support request
+*SupportRequestsApi* | [**getSupportRequestAttachmentsByRequest**](docs/Api/SupportRequestsApi.md#getsupportrequestattachmentsbyrequest) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Retrieve attachments for a support request
+*SupportRequestsApi* | [**getSupportRequestAttachmentsCountByRequest**](docs/Api/SupportRequestsApi.md#getsupportrequestattachmentscountbyrequest) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count | Get the count of attachments for a support request
+*SupportRequestsApi* | [**getSupportRequestTicketsAsync**](docs/Api/SupportRequestsApi.md#getsupportrequestticketsasync) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets | Retrieve tickets for a support request
+*SupportRequestsApi* | [**getSupportRequestsAsync**](docs/Api/SupportRequestsApi.md#getsupportrequestsasync) | **GET** /api/v2/SupportService/SupportRequests | Retrieve a list of support requests
+*SupportRequestsApi* | [**getSupportRequestsCountAsync**](docs/Api/SupportRequestsApi.md#getsupportrequestscountasync) | **GET** /api/v2/SupportService/SupportRequests/Count | Get the count of support requests
+*SupportRequestsApi* | [**relateSupportRequestToAttachmentAsync**](docs/Api/SupportRequestsApi.md#relatesupportrequesttoattachmentasync) | **POST** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Add an attachment to a support request
+*SupportRequestsApi* | [**updateSupportRequestAsync**](docs/Api/SupportRequestsApi.md#updatesupportrequestasync) | **PUT** /api/v2/SupportService/SupportRequests/{supportRequestId} | Update a support request
+*SupportTicketPrioritiesApi* | [**createSupportTicketPriorityAsync**](docs/Api/SupportTicketPrioritiesApi.md#createsupportticketpriorityasync) | **POST** /api/v2/SupportService/SupportTicketPriorities | Create a new support ticket priority
+*SupportTicketPrioritiesApi* | [**deleteSupportTicketPriorityAsync**](docs/Api/SupportTicketPrioritiesApi.md#deletesupportticketpriorityasync) | **DELETE** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Delete a support ticket priority
+*SupportTicketPrioritiesApi* | [**getSupportTicketPrioritiesAsync**](docs/Api/SupportTicketPrioritiesApi.md#getsupportticketprioritiesasync) | **GET** /api/v2/SupportService/SupportTicketPriorities | Retrieve a list of support ticket priorities
+*SupportTicketPrioritiesApi* | [**getSupportTicketPrioritiesCountAsync**](docs/Api/SupportTicketPrioritiesApi.md#getsupportticketprioritiescountasync) | **GET** /api/v2/SupportService/SupportTicketPriorities/Count | Get the count of support ticket priorities
+*SupportTicketPrioritiesApi* | [**getSupportTicketPriorityAsync**](docs/Api/SupportTicketPrioritiesApi.md#getsupportticketpriorityasync) | **GET** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Retrieve a support ticket priority by ID
+*SupportTicketPrioritiesApi* | [**updateSupportTicketPriorityAsync**](docs/Api/SupportTicketPrioritiesApi.md#updatesupportticketpriorityasync) | **PUT** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Update a support ticket priority
+*SupportTicketTypesApi* | [**createSupportTicketTypeAsync**](docs/Api/SupportTicketTypesApi.md#createsupporttickettypeasync) | **POST** /api/v2/SupportService/SupportTicketTypes | Create a new support ticket type
+*SupportTicketTypesApi* | [**deleteSupportTicketTypeAsync**](docs/Api/SupportTicketTypesApi.md#deletesupporttickettypeasync) | **DELETE** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Delete a support ticket type
+*SupportTicketTypesApi* | [**getSupportTicketTypeAsync**](docs/Api/SupportTicketTypesApi.md#getsupporttickettypeasync) | **GET** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Retrieve a support ticket type by ID
+*SupportTicketTypesApi* | [**getSupportTicketTypesAsync**](docs/Api/SupportTicketTypesApi.md#getsupporttickettypesasync) | **GET** /api/v2/SupportService/SupportTicketTypes | Retrieve a list of support ticket types
+*SupportTicketTypesApi* | [**getSupportTicketTypesCountAsync**](docs/Api/SupportTicketTypesApi.md#getsupporttickettypescountasync) | **GET** /api/v2/SupportService/SupportTicketTypes/Count | Get the count of support ticket types
+*SupportTicketTypesApi* | [**updateSupportTicketTypeAsync**](docs/Api/SupportTicketTypesApi.md#updatesupporttickettypeasync) | **PUT** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Update a support ticket type
+*SupportTicketsApi* | [**createSupportTicketAsync**](docs/Api/SupportTicketsApi.md#createsupportticketasync) | **POST** /api/v2/SupportService/SupportTickets | Create a new support ticket
+*SupportTicketsApi* | [**deleteSupportTicketAsync**](docs/Api/SupportTicketsApi.md#deletesupportticketasync) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId} | Delete a support ticket
+*SupportTicketsApi* | [**deleteSupportTicketConversationAsync**](docs/Api/SupportTicketsApi.md#deletesupportticketconversationasync) | **DELETE** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} | Delete a conversation from a support ticket
+*SupportTicketsApi* | [**getSupportTicketAsync**](docs/Api/SupportTicketsApi.md#getsupportticketasync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId} | Retrieve a support ticket by ID
+*SupportTicketsApi* | [**getSupportTicketConversationAsync**](docs/Api/SupportTicketsApi.md#getsupportticketconversationasync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId} | Retrieve a specific conversation for a support ticket
+*SupportTicketsApi* | [**getSupportTicketConversationMessagesAsync**](docs/Api/SupportTicketsApi.md#getsupportticketconversationmessagesasync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId}/Messages | Retrieve messages for a support ticket conversation
+*SupportTicketsApi* | [**getSupportTicketConversationsAsync**](docs/Api/SupportTicketsApi.md#getsupportticketconversationsasync) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Retrieve conversations for a support ticket
+*SupportTicketsApi* | [**getSupportTicketsAsync**](docs/Api/SupportTicketsApi.md#getsupportticketsasync) | **GET** /api/v2/SupportService/SupportTickets | Retrieve a list of support tickets
+*SupportTicketsApi* | [**getSupportTicketsCountAsync**](docs/Api/SupportTicketsApi.md#getsupportticketscountasync) | **GET** /api/v2/SupportService/SupportTickets/Count | Get the count of support tickets
+*SupportTicketsApi* | [**relateSupportTicketToConversationAsync**](docs/Api/SupportTicketsApi.md#relatesupporttickettoconversationasync) | **POST** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Create a conversation for a support ticket
+*SupportTicketsApi* | [**updateSupportTicketAsync**](docs/Api/SupportTicketsApi.md#updatesupportticketasync) | **PUT** /api/v2/SupportService/SupportTickets/{supportTicketId} | Update a support ticket
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [PrivateMessageDto](docs/Model/PrivateMessageDto.md)
 - [PrivateMessageDtoListEnvelope](docs/Model/PrivateMessageDtoListEnvelope.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [SupportEntitlementCreateDto](docs/Model/SupportEntitlementCreateDto.md)
 - [SupportEntitlementDto](docs/Model/SupportEntitlementDto.md)
 - [SupportEntitlementDtoEnvelope](docs/Model/SupportEntitlementDtoEnvelope.md)
@@ -169,16 +183,11 @@ Class | Method | HTTP request | Description
 - [SupportTicketTypeDtoListEnvelope](docs/Model/SupportTicketTypeDtoListEnvelope.md)
 - [SupportTicketTypeUpdateDto](docs/Model/SupportTicketTypeUpdateDto.md)
 - [SupportTicketUpdateDto](docs/Model/SupportTicketUpdateDto.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -197,6 +206,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

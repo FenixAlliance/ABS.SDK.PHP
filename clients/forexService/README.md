@@ -50,28 +50,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ExchangeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $amount = 3.4; // float
 $source_currency_id = 'source_currency_id_example'; // string
 $target_currency_id = 'target_currency_id_example'; // string
-$date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime
 
 try {
-    $result = $apiInstance->apiV2ForexServiceExchangeHistoryGet($amount, $source_currency_id, $target_currency_id, $date);
+    $result = $apiInstance->exchangeAmountAsync($amount, $source_currency_id, $target_currency_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ExchangeApi->apiV2ForexServiceExchangeHistoryGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ExchangeApi->exchangeAmountAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -82,35 +75,53 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ExchangeApi* | [**apiV2ForexServiceExchangeHistoryGet**](docs/Api/ExchangeApi.md#apiv2forexserviceexchangehistoryget) | **GET** /api/v2/ForexService/Exchange/History | 
-*ExchangeApi* | [**apiV2ForexServiceExchangeLatestGet**](docs/Api/ExchangeApi.md#apiv2forexserviceexchangelatestget) | **GET** /api/v2/ForexService/Exchange/Latest | 
-*ExchangeVApi* | [**apiV3ForexServiceExchangeHistoryGet**](docs/Api/ExchangeVApi.md#apiv3forexserviceexchangehistoryget) | **GET** /api/v3/ForexService/Exchange/History | 
-*ExchangeVApi* | [**apiV3ForexServiceExchangeLatestGet**](docs/Api/ExchangeVApi.md#apiv3forexserviceexchangelatestget) | **GET** /api/v3/ForexService/Exchange/Latest | 
-*RatesApi* | [**apiV2ForexServiceRatesHistoryCurrencyIdGet**](docs/Api/RatesApi.md#apiv2forexservicerateshistorycurrencyidget) | **GET** /api/v2/ForexService/Rates/History/{currencyId} | 
-*RatesApi* | [**apiV2ForexServiceRatesHistoryGet**](docs/Api/RatesApi.md#apiv2forexservicerateshistoryget) | **GET** /api/v2/ForexService/Rates/History | 
-*RatesApi* | [**apiV2ForexServiceRatesLatestCurrencyIdGet**](docs/Api/RatesApi.md#apiv2forexservicerateslatestcurrencyidget) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} | 
-*RatesApi* | [**apiV2ForexServiceRatesLatestGet**](docs/Api/RatesApi.md#apiv2forexservicerateslatestget) | **GET** /api/v2/ForexService/Rates/Latest | 
+*ExchangeApi* | [**exchangeAmountAsync**](docs/Api/ExchangeApi.md#exchangeamountasync) | **GET** /api/v2/ForexService/Exchange/Latest | Exchange currency at latest rates
+*ExchangeApi* | [**exchangeAmountHistoricalAsync**](docs/Api/ExchangeApi.md#exchangeamounthistoricalasync) | **GET** /api/v2/ForexService/Exchange/History | Exchange currency at historical rates
+*ExchangeVApi* | [**exchangeAmountHistoricalV3Async**](docs/Api/ExchangeVApi.md#exchangeamounthistoricalv3async) | **GET** /api/v3/ForexService/Exchange/History | Exchange currency at historical rates (v3)
+*ExchangeVApi* | [**exchangeAmountV3Async**](docs/Api/ExchangeVApi.md#exchangeamountv3async) | **GET** /api/v3/ForexService/Exchange/Latest | Exchange currency at latest rates (v3)
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*RatesApi* | [**getHistoricalCurrencyRateAsync**](docs/Api/RatesApi.md#gethistoricalcurrencyrateasync) | **GET** /api/v2/ForexService/Rates/History/{currencyId} | Get historical rate for a currency
+*RatesApi* | [**getHistoricalCurrencyRatesAsync**](docs/Api/RatesApi.md#gethistoricalcurrencyratesasync) | **GET** /api/v2/ForexService/Rates/History | Get historical currency rates
+*RatesApi* | [**getLatestCurrencyRateAsync**](docs/Api/RatesApi.md#getlatestcurrencyrateasync) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} | Get latest rate for a currency
+*RatesApi* | [**getLatestCurrencyRatesModelAsync**](docs/Api/RatesApi.md#getlatestcurrencyratesmodelasync) | **GET** /api/v2/ForexService/Rates/Latest | Get latest currency rates
 
 ## Models
 
-- [Currency](docs/Model/Currency.md)
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [CurrencyId](docs/Model/CurrencyId.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExchangeRate](docs/Model/ExchangeRate.md)
 - [ExchangeRateEnvelope](docs/Model/ExchangeRateEnvelope.md)
 - [ForexRatesDto](docs/Model/ForexRatesDto.md)
 - [ForexRatesDtoEnvelope](docs/Model/ForexRatesDtoEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [Money](docs/Model/Money.md)
 - [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -129,6 +140,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -4,16 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2ShipmentsServiceShipmentsGet()**](ShipmentsApi.md#apiV2ShipmentsServiceShipmentsGet) | **GET** /api/v2/ShipmentsService/Shipments |  |
+| [**getShipmentsAsync()**](ShipmentsApi.md#getShipmentsAsync) | **GET** /api/v2/ShipmentsService/Shipments | Retrieve a list of shipments |
 
 
-## `apiV2ShipmentsServiceShipmentsGet()`
+## `getShipmentsAsync()`
 
 ```php
-apiV2ShipmentsServiceShipmentsGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShipmentDtoListEnvelope
+getShipmentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ShipmentDtoListEnvelope
 ```
 
+Retrieve a list of shipments
 
+Retrieves a list of shipments for the specified tenant.
 
 ### Example
 
@@ -22,27 +24,21 @@ apiV2ShipmentsServiceShipmentsGet($tenant_id, $api_version, $x_api_version): \Op
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ShipmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ShipmentsServiceShipmentsGet($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getShipmentsAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ShipmentsApi->apiV2ShipmentsServiceShipmentsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ShipmentsApi->getShipmentsAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -60,7 +56,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

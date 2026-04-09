@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] [readonly]
-**timestamp** | **\DateTime** |  | [optional] [readonly]
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **requester_contact_id** | **string** |  | [optional]
 **approver_contact_id** | **string** |  | [optional]
 **project_period_id** | **string** |  | [optional]

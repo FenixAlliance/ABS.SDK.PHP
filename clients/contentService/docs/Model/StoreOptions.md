@@ -1,0 +1,46 @@
+# # StoreOptions
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**enable** | **bool** |  | [optional]
+**name** | **string** |  | [optional]
+**logo** | **string** |  | [optional]
+**footer_logo** | **string** |  | [optional]
+**tagline** | **string** |  | [optional]
+**description** | **string** |  | [optional]
+**address_line1** | **string** |  | [optional]
+**address_line2** | **string** |  | [optional]
+**city_id** | **string** |  | [optional]
+**state_id** | **string** |  | [optional]
+**country_id** | **string** |  | [optional]
+**currency_id** | **string** |  | [optional]
+**postal_code** | **string** |  | [optional]
+**number_of_decimals** | **int** |  | [optional]
+**decimal_separator** | **string** |  | [optional]
+**sell_to_all_countries** | **bool** |  | [optional]
+**cart_options** | [**\OpenAPI\Client\Model\CartOptions**](CartOptions.md) |  | [optional]
+**email_options** | [**\OpenAPI\Client\Model\EmailOptions**](EmailOptions.md) |  | [optional]
+**coupons_options** | [**\OpenAPI\Client\Model\CouponsOptions**](CouponsOptions.md) |  | [optional]
+**payment_options** | [**\OpenAPI\Client\Model\PaymentOptions**](PaymentOptions.md) |  | [optional]
+**product_options** | **object** |  | [optional]
+**reviews_options** | [**\OpenAPI\Client\Model\ReviewsOptions**](ReviewsOptions.md) |  | [optional]
+**advanced_options** | [**\OpenAPI\Client\Model\AdvancedOptions**](AdvancedOptions.md) |  | [optional]
+**services_options** | [**\OpenAPI\Client\Model\ServicesOptions**](ServicesOptions.md) |  | [optional]
+**inventory_options** | [**\OpenAPI\Client\Model\InventoryOptions**](InventoryOptions.md) |  | [optional]
+**integration_options** | [**\OpenAPI\Client\Model\IntegrationOptions**](IntegrationOptions.md) |  | [optional]
+**measurement_options** | [**\OpenAPI\Client\Model\MeasurementOptions**](MeasurementOptions.md) |  | [optional]
+**downloadables_options** | [**\OpenAPI\Client\Model\DownloadablesOptions**](DownloadablesOptions.md) |  | [optional]
+**subscriptions_options** | [**\OpenAPI\Client\Model\SubscriptionsOptions**](SubscriptionsOptions.md) |  | [optional]
+**tax_calculation_options** | [**\OpenAPI\Client\Model\TaxCalculationOptions**](TaxCalculationOptions.md) |  | [optional]
+**recommendation_options** | [**\OpenAPI\Client\Model\RecommendationOptions**](RecommendationOptions.md) |  | [optional]
+**price_calculation_options** | [**\OpenAPI\Client\Model\PriceCalculationOptions**](PriceCalculationOptions.md) |  | [optional]
+**identity_and_privacy_options** | [**\OpenAPI\Client\Model\IdentityAndPrivacyOptions**](IdentityAndPrivacyOptions.md) |  | [optional]
+**included_selling_locations** | **string[]** |  | [optional]
+**excluded_selling_locations** | **string[]** |  | [optional]
+**included_shipping_locations** | **string[]** |  | [optional]
+**excluded_shipping_locations** | **string[]** |  | [optional]
+**currency_position** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

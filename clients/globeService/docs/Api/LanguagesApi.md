@@ -4,17 +4,20 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2GlobeServiceLanguagesGet()**](LanguagesApi.md#apiV2GlobeServiceLanguagesGet) | **GET** /api/v2/GlobeService/Languages |  |
-| [**apiV2GlobeServiceLanguagesLanguageIdGet()**](LanguagesApi.md#apiV2GlobeServiceLanguagesLanguageIdGet) | **GET** /api/v2/GlobeService/Languages/{languageId} |  |
+| [**countLanguagesAsync()**](LanguagesApi.md#countLanguagesAsync) | **GET** /api/v2/GlobeService/Languages/Count | Count languages |
+| [**getLanguageByIdAsync()**](LanguagesApi.md#getLanguageByIdAsync) | **GET** /api/v2/GlobeService/Languages/{languageId} | Get language by ID |
+| [**getLanguagesAsync()**](LanguagesApi.md#getLanguagesAsync) | **GET** /api/v2/GlobeService/Languages | Get all languages |
 
 
-## `apiV2GlobeServiceLanguagesGet()`
+## `countLanguagesAsync()`
 
 ```php
-apiV2GlobeServiceLanguagesGet($api_version, $x_api_version): \OpenAPI\Client\Model\CountryLanguageDtoListEnvelope
+countLanguagesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
+Count languages
 
+Returns the total number of supported languages, with optional OData filtering.
 
 ### Example
 
@@ -23,26 +26,20 @@ apiV2GlobeServiceLanguagesGet($api_version, $x_api_version): \OpenAPI\Client\Mod
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\LanguagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceLanguagesGet($api_version, $x_api_version);
+    $result = $apiInstance->countLanguagesAsync($api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LanguagesApi->apiV2GlobeServiceLanguagesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LanguagesApi->countLanguagesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -55,11 +52,11 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CountryLanguageDtoListEnvelope**](../Model/CountryLanguageDtoListEnvelope.md)
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -70,13 +67,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2GlobeServiceLanguagesLanguageIdGet()`
+## `getLanguageByIdAsync()`
 
 ```php
-apiV2GlobeServiceLanguagesLanguageIdGet($language_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryLanguageDtoEnvelope
+getLanguageByIdAsync($language_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryLanguageDtoEnvelope
 ```
 
+Get language by ID
 
+Retrieves a single language by its unique identifier.
 
 ### Example
 
@@ -85,27 +84,21 @@ apiV2GlobeServiceLanguagesLanguageIdGet($language_id, $api_version, $x_api_versi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\LanguagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $language_id = 'language_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceLanguagesLanguageIdGet($language_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLanguageByIdAsync($language_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LanguagesApi->apiV2GlobeServiceLanguagesLanguageIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LanguagesApi->getLanguageByIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -123,7 +116,65 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getLanguagesAsync()`
+
+```php
+getLanguagesAsync($api_version, $x_api_version): \OpenAPI\Client\Model\CountryLanguageDtoListEnvelope
+```
+
+Get all languages
+
+Retrieves the list of all supported languages with optional OData pagination and filtering.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\LanguagesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getLanguagesAsync($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling LanguagesApi->getLanguagesAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CountryLanguageDtoListEnvelope**](../Model/CountryLanguageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

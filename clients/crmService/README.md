@@ -50,17 +50,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ContactsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -107,17 +101,41 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**getOrganizationRelatedIndividualsAsync**](docs/Api/ContactsApi.md#getorganizationrelatedindividualsasync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals | Get organization related individuals
 *ContactsApi* | [**getOrganizationRelatedOrganizationsAsync**](docs/Api/ContactsApi.md#getorganizationrelatedorganizationsasync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations | Get organization related organizations
 *ContactsApi* | [**patchContactAsync**](docs/Api/ContactsApi.md#patchcontactasync) | **PATCH** /api/v2/CrmService/Contacts/{contactId} | Patch a contact
+*ContactsApi* | [**previewContactEmailTemplate**](docs/Api/ContactsApi.md#previewcontactemailtemplate) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Preview | Preview the rendered email for a contact.
+*ContactsApi* | [**sendContactEmail**](docs/Api/ContactsApi.md#sendcontactemail) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Send | Send an email to a contact.
 *ContactsApi* | [**updateContactAsync**](docs/Api/ContactsApi.md#updatecontactasync) | **PUT** /api/v2/CrmService/Contacts/{contactId} | Update a contact
 *ContactsApi* | [**updateContactAvatarAsync**](docs/Api/ContactsApi.md#updatecontactavatarasync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Avatar | Update a contact&#39;s avatar
 *ContactsApi* | [**upsertTenantOntoAnotherTenantContactListAsync**](docs/Api/ContactsApi.md#upserttenantontoanothertenantcontactlistasync) | **POST** /api/v2/CrmService/Contacts/Organizations/Upsert | Upsert a tenant onto another tenant&#39;s contact list
 *ContactsApi* | [**upsertUserOntoAnotherTenantContactListAsync**](docs/Api/ContactsApi.md#upsertuserontoanothertenantcontactlistasync) | **POST** /api/v2/CrmService/Contacts/Individuals/Upsert | Upsert a user onto a tenant&#39;s contact list
-*SyncApi* | [**apiV2CrmServiceSyncMePost**](docs/Api/SyncApi.md#apiv2crmservicesyncmepost) | **POST** /api/v2/CrmService/Sync/Me | 
-*SyncApi* | [**apiV2CrmServiceSyncPost**](docs/Api/SyncApi.md#apiv2crmservicesyncpost) | **POST** /api/v2/CrmService/Sync | 
-*SyncApi* | [**apiV2CrmServiceSyncTenantPost**](docs/Api/SyncApi.md#apiv2crmservicesynctenantpost) | **POST** /api/v2/CrmService/Sync/Tenant | 
-*SyncApi* | [**apiV2CrmServiceSyncUserPost**](docs/Api/SyncApi.md#apiv2crmservicesyncuserpost) | **POST** /api/v2/CrmService/Sync/User | 
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*OptionsApi* | [**createContactOption**](docs/Api/OptionsApi.md#createcontactoption) | **POST** /api/v2/CrmService/Contacts/{contactId}/Options | Create a new contact option
+*OptionsApi* | [**deleteContactOption**](docs/Api/OptionsApi.md#deletecontactoption) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Delete a contact option
+*OptionsApi* | [**getContactOptionById**](docs/Api/OptionsApi.md#getcontactoptionbyid) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Retrieve a single contact option by its ID
+*OptionsApi* | [**getContactOptionByKey**](docs/Api/OptionsApi.md#getcontactoptionbykey) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Retrieve a single contact option by its key
+*OptionsApi* | [**getContactOptions**](docs/Api/OptionsApi.md#getcontactoptions) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options | Retrieve a list of contact options
+*OptionsApi* | [**getContactOptionsCount**](docs/Api/OptionsApi.md#getcontactoptionscount) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Count | Get the count of contact options
+*OptionsApi* | [**updateContactOption**](docs/Api/OptionsApi.md#updatecontactoption) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Update a contact option
+*OptionsApi* | [**upsertContactOption**](docs/Api/OptionsApi.md#upsertcontactoption) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/Upsert/{key} | Create or update a contact option by key
+*SyncApi* | [**syncCurrentHolderToCurrentTenantCrm**](docs/Api/SyncApi.md#synccurrentholdertocurrenttenantcrm) | **POST** /api/v2/CrmService/Sync | Sync the current user into the current tenant&#39;s contact list
+*SyncApi* | [**syncCurrentHolderToTenantCrm**](docs/Api/SyncApi.md#synccurrentholdertotenantcrm) | **POST** /api/v2/CrmService/Sync/Me | Sync the current user into a tenant&#39;s contact list
+*SyncApi* | [**syncHolderToTenantCrmAsync**](docs/Api/SyncApi.md#syncholdertotenantcrmasync) | **POST** /api/v2/CrmService/Sync/User | Sync a user into a tenant&#39;s contact list
+*SyncApi* | [**syncTenantToTenantCrm**](docs/Api/SyncApi.md#synctenanttotenantcrm) | **POST** /api/v2/CrmService/Sync/Tenant | Sync a tenant into another tenant&#39;s contact list
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [CartDto](docs/Model/CartDto.md)
 - [CartDtoEnvelope](docs/Model/CartDtoEnvelope.md)
 - [ContactCreateDto](docs/Model/ContactCreateDto.md)
@@ -127,28 +145,40 @@ Class | Method | HTTP request | Description
 - [ContactProfileDto](docs/Model/ContactProfileDto.md)
 - [ContactProfileDtoListEnvelope](docs/Model/ContactProfileDtoListEnvelope.md)
 - [ContactUpdateDto](docs/Model/ContactUpdateDto.md)
+- [EmailDispatchRequest](docs/Model/EmailDispatchRequest.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
+- [Envelope](docs/Model/Envelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExtendedContactDto](docs/Model/ExtendedContactDto.md)
 - [ExtendedContactDtoEnvelope](docs/Model/ExtendedContactDtoEnvelope.md)
 - [ExtendedContactDtoListEnvelope](docs/Model/ExtendedContactDtoListEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
+- [Int32Envelope](docs/Model/Int32Envelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [Operation](docs/Model/Operation.md)
+- [OptionCreateDto](docs/Model/OptionCreateDto.md)
+- [OptionDto](docs/Model/OptionDto.md)
+- [OptionDtoEnvelope](docs/Model/OptionDtoEnvelope.md)
+- [OptionDtoListEnvelope](docs/Model/OptionDtoListEnvelope.md)
+- [OptionUpdateDto](docs/Model/OptionUpdateDto.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [SimpleContactDto](docs/Model/SimpleContactDto.md)
 - [SocialProfileDto](docs/Model/SocialProfileDto.md)
 - [SocialProfileDtoEnvelope](docs/Model/SocialProfileDtoEnvelope.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 - [UpdateContactAvatarAsyncRequest](docs/Model/UpdateContactAvatarAsyncRequest.md)
 - [WalletDto](docs/Model/WalletDto.md)
 - [WalletDtoEnvelope](docs/Model/WalletDtoEnvelope.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -167,6 +197,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

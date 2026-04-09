@@ -4,19 +4,21 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2PricingServicePricesItemIdFinalPriceGet()**](PricesApi.md#apiV2PricingServicePricesItemIdFinalPriceGet) | **GET** /api/v2/PricingService/Prices/{itemId}/FinalPrice |  |
-| [**apiV2PricingServicePricesItemIdPriceGet()**](PricesApi.md#apiV2PricingServicePricesItemIdPriceGet) | **GET** /api/v2/PricingService/Prices/{itemId}/Price |  |
-| [**apiV2PricingServicePricesItemIdTotalSavingsGet()**](PricesApi.md#apiV2PricingServicePricesItemIdTotalSavingsGet) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalSavings |  |
-| [**apiV2PricingServicePricesItemIdTotalTaxesGet()**](PricesApi.md#apiV2PricingServicePricesItemIdTotalTaxesGet) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalTaxes |  |
+| [**getFinalPrice()**](PricesApi.md#getFinalPrice) | **GET** /api/v2/PricingService/Prices/{itemId}/FinalPrice | Gets the final price for an item |
+| [**getPrice()**](PricesApi.md#getPrice) | **GET** /api/v2/PricingService/Prices/{itemId}/Price | Gets the calculated price for an item |
+| [**getTotalSavingsInUsd()**](PricesApi.md#getTotalSavingsInUsd) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalSavings | Gets total savings for an item |
+| [**getTotalTaxesInUsd()**](PricesApi.md#getTotalTaxesInUsd) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalTaxes | Gets total taxes for an item |
 
 
-## `apiV2PricingServicePricesItemIdFinalPriceGet()`
+## `getFinalPrice()`
 
 ```php
-apiV2PricingServicePricesItemIdFinalPriceGet($item_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+getFinalPrice($item_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
+Gets the final price for an item
 
+Gets the final price for an item after all discounts and taxes in the specified currency.
 
 ### Example
 
@@ -25,17 +27,11 @@ apiV2PricingServicePricesItemIdFinalPriceGet($item_id, $currency_id, $api_versio
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PricesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $item_id = 'item_id_example'; // string
 $currency_id = 'USD.USA'; // string
@@ -43,10 +39,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2PricingServicePricesItemIdFinalPriceGet($item_id, $currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFinalPrice($item_id, $currency_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PricesApi->apiV2PricingServicePricesItemIdFinalPriceGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PricesApi->getFinalPrice: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -65,7 +61,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,13 +72,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2PricingServicePricesItemIdPriceGet()`
+## `getPrice()`
 
 ```php
-apiV2PricingServicePricesItemIdPriceGet($item_id, $price_list_id, $discounts_list_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PriceCalculationDtoEnvelope
+getPrice($item_id, $price_list_id, $discounts_list_id, $quantity, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemPriceCalculationEnvelope
 ```
 
+Gets the calculated price for an item
 
+Calculates the price for an item considering price list, discount list, quantity, and currency.
 
 ### Example
 
@@ -91,30 +89,25 @@ apiV2PricingServicePricesItemIdPriceGet($item_id, $price_list_id, $discounts_lis
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PricesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $item_id = 'item_id_example'; // string
 $price_list_id = 'price_list_id_example'; // string
 $discounts_list_id = 'discounts_list_id_example'; // string
+$quantity = 1; // float
 $currency_id = 'USD.USA'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2PricingServicePricesItemIdPriceGet($item_id, $price_list_id, $discounts_list_id, $currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->getPrice($item_id, $price_list_id, $discounts_list_id, $quantity, $currency_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PricesApi->apiV2PricingServicePricesItemIdPriceGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PricesApi->getPrice: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -125,17 +118,18 @@ try {
 | **item_id** | **string**|  | |
 | **price_list_id** | **string**|  | [optional] |
 | **discounts_list_id** | **string**|  | [optional] |
+| **quantity** | **float**|  | [optional] [default to 1] |
 | **currency_id** | **string**|  | [optional] [default to &#39;USD.USA&#39;] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PriceCalculationDtoEnvelope**](../Model/PriceCalculationDtoEnvelope.md)
+[**\OpenAPI\Client\Model\ItemPriceCalculationEnvelope**](../Model/ItemPriceCalculationEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -146,13 +140,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2PricingServicePricesItemIdTotalSavingsGet()`
+## `getTotalSavingsInUsd()`
 
 ```php
-apiV2PricingServicePricesItemIdTotalSavingsGet($item_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+getTotalSavingsInUsd($item_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
+Gets total savings for an item
 
+Gets the total savings amount for an item in the specified currency.
 
 ### Example
 
@@ -161,17 +157,11 @@ apiV2PricingServicePricesItemIdTotalSavingsGet($item_id, $currency_id, $api_vers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PricesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $item_id = 'item_id_example'; // string
 $currency_id = 'USD.USA'; // string
@@ -179,10 +169,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2PricingServicePricesItemIdTotalSavingsGet($item_id, $currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTotalSavingsInUsd($item_id, $currency_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PricesApi->apiV2PricingServicePricesItemIdTotalSavingsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PricesApi->getTotalSavingsInUsd: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -201,7 +191,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -212,13 +202,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2PricingServicePricesItemIdTotalTaxesGet()`
+## `getTotalTaxesInUsd()`
 
 ```php
-apiV2PricingServicePricesItemIdTotalTaxesGet($item_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+getTotalTaxesInUsd($item_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
+Gets total taxes for an item
 
+Gets the total tax amount for an item in the specified currency.
 
 ### Example
 
@@ -227,17 +219,11 @@ apiV2PricingServicePricesItemIdTotalTaxesGet($item_id, $currency_id, $api_versio
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PricesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $item_id = 'item_id_example'; // string
 $currency_id = 'USD.USA'; // string
@@ -245,10 +231,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2PricingServicePricesItemIdTotalTaxesGet($item_id, $currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTotalTaxesInUsd($item_id, $currency_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PricesApi->apiV2PricingServicePricesItemIdTotalTaxesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PricesApi->getTotalTaxesInUsd: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -267,7 +253,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

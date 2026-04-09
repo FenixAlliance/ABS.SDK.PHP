@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] [readonly]
-**timestamp** | **\DateTime** |  | [optional] [readonly]
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **name** | **string** |  |
 **tenant_id** | **string** |  |
 **description** | **string** |  | [optional]

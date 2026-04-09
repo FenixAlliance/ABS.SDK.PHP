@@ -4,21 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SupportServiceSupportTicketTypesCountGet()**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesCountGet) | **GET** /api/v2/SupportService/SupportTicketTypes/Count |  |
-| [**apiV2SupportServiceSupportTicketTypesGet()**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesGet) | **GET** /api/v2/SupportService/SupportTicketTypes |  |
-| [**apiV2SupportServiceSupportTicketTypesPost()**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesPost) | **POST** /api/v2/SupportService/SupportTicketTypes |  |
-| [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete()**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete) | **DELETE** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} |  |
-| [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet()**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet) | **GET** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} |  |
-| [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut()**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut) | **PUT** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} |  |
+| [**createSupportTicketTypeAsync()**](SupportTicketTypesApi.md#createSupportTicketTypeAsync) | **POST** /api/v2/SupportService/SupportTicketTypes | Create a new support ticket type |
+| [**deleteSupportTicketTypeAsync()**](SupportTicketTypesApi.md#deleteSupportTicketTypeAsync) | **DELETE** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Delete a support ticket type |
+| [**getSupportTicketTypeAsync()**](SupportTicketTypesApi.md#getSupportTicketTypeAsync) | **GET** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Retrieve a support ticket type by ID |
+| [**getSupportTicketTypesAsync()**](SupportTicketTypesApi.md#getSupportTicketTypesAsync) | **GET** /api/v2/SupportService/SupportTicketTypes | Retrieve a list of support ticket types |
+| [**getSupportTicketTypesCountAsync()**](SupportTicketTypesApi.md#getSupportTicketTypesCountAsync) | **GET** /api/v2/SupportService/SupportTicketTypes/Count | Get the count of support ticket types |
+| [**updateSupportTicketTypeAsync()**](SupportTicketTypesApi.md#updateSupportTicketTypeAsync) | **PUT** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Update a support ticket type |
 
 
-## `apiV2SupportServiceSupportTicketTypesCountGet()`
+## `createSupportTicketTypeAsync()`
 
 ```php
-apiV2SupportServiceSupportTicketTypesCountGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+createSupportTicketTypeAsync($tenant_id, $api_version, $x_api_version, $support_ticket_type_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create a new support ticket type
 
+Creates a new support ticket type for the specified tenant.
 
 ### Example
 
@@ -27,156 +29,22 @@ apiV2SupportServiceSupportTicketTypesCountGet($tenant_id, $api_version, $x_api_v
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SupportServiceSupportTicketTypesCountGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SupportTicketTypesApi->apiV2SupportServiceSupportTicketTypesCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SupportServiceSupportTicketTypesGet()`
-
-```php
-apiV2SupportServiceSupportTicketTypesGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportTicketTypeDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SupportServiceSupportTicketTypesGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SupportTicketTypesApi->apiV2SupportServiceSupportTicketTypesGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\SupportTicketTypeDtoListEnvelope**](../Model/SupportTicketTypeDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SupportServiceSupportTicketTypesPost()`
-
-```php
-apiV2SupportServiceSupportTicketTypesPost($support_ticket_type_create_dto, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $support_ticket_type_create_dto = new \OpenAPI\Client\Model\SupportTicketTypeCreateDto(); // \OpenAPI\Client\Model\SupportTicketTypeCreateDto
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportTicketTypesPost($support_ticket_type_create_dto, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->createSupportTicketTypeAsync($tenant_id, $api_version, $x_api_version, $support_ticket_type_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportTicketTypesApi->apiV2SupportServiceSupportTicketTypesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportTicketTypesApi->createSupportTicketTypeAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -184,10 +52,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **support_ticket_type_create_dto** | [**\OpenAPI\Client\Model\SupportTicketTypeCreateDto**](../Model/SupportTicketTypeCreateDto.md)|  | |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_ticket_type_create_dto** | [**\OpenAPI\Client\Model\SupportTicketTypeCreateDto**](../Model/SupportTicketTypeCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -195,7 +63,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,13 +74,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete()`
+## `deleteSupportTicketTypeAsync()`
 
 ```php
-apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete($support_ticket_type_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteSupportTicketTypeAsync($tenant_id, $support_ticket_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete a support ticket type
 
+Deletes a support ticket type by its unique identifier.
 
 ### Example
 
@@ -221,28 +91,22 @@ apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete($support_ticket_t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$support_ticket_type_id = 'support_ticket_type_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$support_ticket_type_id = 'support_ticket_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete($support_ticket_type_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteSupportTicketTypeAsync($tenant_id, $support_ticket_type_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportTicketTypesApi->apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportTicketTypesApi->deleteSupportTicketTypeAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -250,8 +114,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **support_ticket_type_id** | **string**|  | |
-| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -261,7 +125,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,13 +136,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet()`
+## `getSupportTicketTypeAsync()`
 
 ```php
-apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet($support_ticket_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportTicketTypeDtoEnvelope
+getSupportTicketTypeAsync($tenant_id, $support_ticket_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportTicketTypeDtoEnvelope
 ```
 
+Retrieve a support ticket type by ID
 
+Retrieves a single support ticket type by its unique identifier.
 
 ### Example
 
@@ -287,27 +153,22 @@ apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet($support_ticket_type
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $support_ticket_type_id = 'support_ticket_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet($support_ticket_type_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportTicketTypeAsync($tenant_id, $support_ticket_type_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportTicketTypesApi->apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportTicketTypesApi->getSupportTicketTypeAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -315,6 +176,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **support_ticket_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -325,7 +187,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -336,13 +198,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut()`
+## `getSupportTicketTypesAsync()`
 
 ```php
-apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut($support_ticket_type_id, $support_ticket_type_update_dto, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+getSupportTicketTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportTicketTypeDtoListEnvelope
 ```
 
+Retrieve a list of support ticket types
 
+Retrieves a list of support ticket types for the specified tenant with OData query support.
 
 ### Example
 
@@ -351,29 +215,21 @@ apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut($support_ticket_type
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$support_ticket_type_id = 'support_ticket_type_id_example'; // string
-$support_ticket_type_update_dto = new \OpenAPI\Client\Model\SupportTicketTypeUpdateDto(); // \OpenAPI\Client\Model\SupportTicketTypeUpdateDto
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut($support_ticket_type_id, $support_ticket_type_update_dto, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportTicketTypesAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportTicketTypesApi->apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportTicketTypesApi->getSupportTicketTypesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -381,11 +237,133 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **support_ticket_type_id** | **string**|  | |
-| **support_ticket_type_update_dto** | [**\OpenAPI\Client\Model\SupportTicketTypeUpdateDto**](../Model/SupportTicketTypeUpdateDto.md)|  | |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SupportTicketTypeDtoListEnvelope**](../Model/SupportTicketTypeDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSupportTicketTypesCountAsync()`
+
+```php
+getSupportTicketTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Get the count of support ticket types
+
+Returns the total count of support ticket types for the specified tenant with OData query support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getSupportTicketTypesCountAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportTicketTypesApi->getSupportTicketTypesCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSupportTicketTypeAsync()`
+
+```php
+updateSupportTicketTypeAsync($tenant_id, $support_ticket_type_id, $api_version, $x_api_version, $support_ticket_type_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update a support ticket type
+
+Updates an existing support ticket type by its unique identifier.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SupportTicketTypesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$support_ticket_type_id = 'support_ticket_type_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$support_ticket_type_update_dto = new \OpenAPI\Client\Model\SupportTicketTypeUpdateDto(); // \OpenAPI\Client\Model\SupportTicketTypeUpdateDto
+
+try {
+    $result = $apiInstance->updateSupportTicketTypeAsync($tenant_id, $support_ticket_type_id, $api_version, $x_api_version, $support_ticket_type_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportTicketTypesApi->updateSupportTicketTypeAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **support_ticket_type_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **support_ticket_type_update_dto** | [**\OpenAPI\Client\Model\SupportTicketTypeUpdateDto**](../Model/SupportTicketTypeUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -393,7 +371,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional] [readonly]
-**timestamp** | **\DateTime** |  | [optional] [readonly]
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **period_start_date** | **\DateTime** |  | [optional]
 **period_end_date** | **\DateTime** |  | [optional]
 **project_id** | **string** |  | [optional]

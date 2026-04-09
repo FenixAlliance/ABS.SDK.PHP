@@ -4,20 +4,22 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2StorageServiceRadzenEditorUploadsIdPost()**](RadzenEditorApi.md#apiV2StorageServiceRadzenEditorUploadsIdPost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/{id} |  |
-| [**apiV2StorageServiceRadzenEditorUploadsImagePost()**](RadzenEditorApi.md#apiV2StorageServiceRadzenEditorUploadsImagePost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Image |  |
-| [**apiV2StorageServiceRadzenEditorUploadsMultiplePost()**](RadzenEditorApi.md#apiV2StorageServiceRadzenEditorUploadsMultiplePost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Multiple |  |
-| [**apiV2StorageServiceRadzenEditorUploadsSinglePost()**](RadzenEditorApi.md#apiV2StorageServiceRadzenEditorUploadsSinglePost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Single |  |
-| [**apiV2StorageServiceRadzenEditorUploadsSpecificPost()**](RadzenEditorApi.md#apiV2StorageServiceRadzenEditorUploadsSpecificPost) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Specific |  |
+| [**image()**](RadzenEditorApi.md#image) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Image | Upload an image file |
+| [**multiple()**](RadzenEditorApi.md#multiple) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Multiple | Upload multiple files |
+| [**post()**](RadzenEditorApi.md#post) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/{id} | Upload files by ID |
+| [**single()**](RadzenEditorApi.md#single) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Single | Upload a single file |
+| [**specific()**](RadzenEditorApi.md#specific) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Specific | Upload a specific file |
 
 
-## `apiV2StorageServiceRadzenEditorUploadsIdPost()`
+## `image()`
 
 ```php
-apiV2StorageServiceRadzenEditorUploadsIdPost($id, $tenant_id, $api_version, $x_api_version, $files)
+image($tenant_id, $api_version, $x_api_version, $file)
 ```
 
+Upload an image file
 
+Uploads an image file and returns its URL for editor embedding.
 
 ### Example
 
@@ -26,17 +28,133 @@ apiV2StorageServiceRadzenEditorUploadsIdPost($id, $tenant_id, $api_version, $x_a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $apiInstance->image($tenant_id, $api_version, $x_api_version, $file);
+} catch (Exception $e) {
+    echo 'Exception when calling RadzenEditorApi->image: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `multiple()`
+
+```php
+multiple($tenant_id, $api_version, $x_api_version, $files)
+```
+
+Upload multiple files
+
+Uploads multiple files to tenant or user storage.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$files = array("/path/to/file.txt"); // \SplFileObject[]
+
+try {
+    $apiInstance->multiple($tenant_id, $api_version, $x_api_version, $files);
+} catch (Exception $e) {
+    echo 'Exception when calling RadzenEditorApi->multiple: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **files** | **\SplFileObject[]**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `post()`
+
+```php
+post($id, $tenant_id, $api_version, $x_api_version, $files)
+```
+
+Upload files by ID
+
+Uploads files associated with a specific resource ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
 );
 $id = 56; // int
 $tenant_id = 'tenant_id_example'; // string
@@ -45,9 +163,9 @@ $x_api_version = 'x_api_version_example'; // string
 $files = array("/path/to/file.txt"); // \SplFileObject[]
 
 try {
-    $apiInstance->apiV2StorageServiceRadzenEditorUploadsIdPost($id, $tenant_id, $api_version, $x_api_version, $files);
+    $apiInstance->post($id, $tenant_id, $api_version, $x_api_version, $files);
 } catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->apiV2StorageServiceRadzenEditorUploadsIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RadzenEditorApi->post: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -67,7 +185,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,13 +196,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2StorageServiceRadzenEditorUploadsImagePost()`
+## `single()`
 
 ```php
-apiV2StorageServiceRadzenEditorUploadsImagePost($tenant_id, $api_version, $x_api_version, $file)
+single($tenant_id, $api_version, $x_api_version, $file)
 ```
 
+Upload a single file
 
+Uploads a single file to tenant or user storage.
 
 ### Example
 
@@ -93,17 +213,11 @@ apiV2StorageServiceRadzenEditorUploadsImagePost($tenant_id, $api_version, $x_api
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -111,9 +225,9 @@ $x_api_version = 'x_api_version_example'; // string
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->apiV2StorageServiceRadzenEditorUploadsImagePost($tenant_id, $api_version, $x_api_version, $file);
+    $apiInstance->single($tenant_id, $api_version, $x_api_version, $file);
 } catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->apiV2StorageServiceRadzenEditorUploadsImagePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RadzenEditorApi->single: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -132,7 +246,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,13 +257,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2StorageServiceRadzenEditorUploadsMultiplePost()`
+## `specific()`
 
 ```php
-apiV2StorageServiceRadzenEditorUploadsMultiplePost($tenant_id, $api_version, $x_api_version, $files)
+specific($tenant_id, $api_version, $x_api_version, $file)
 ```
 
+Upload a specific file
 
+Uploads a specific file to tenant or user storage.
 
 ### Example
 
@@ -158,82 +274,11 @@ apiV2StorageServiceRadzenEditorUploadsMultiplePost($tenant_id, $api_version, $x_
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$files = array("/path/to/file.txt"); // \SplFileObject[]
-
-try {
-    $apiInstance->apiV2StorageServiceRadzenEditorUploadsMultiplePost($tenant_id, $api_version, $x_api_version, $files);
-} catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->apiV2StorageServiceRadzenEditorUploadsMultiplePost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **files** | **\SplFileObject[]**|  | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2StorageServiceRadzenEditorUploadsSinglePost()`
-
-```php
-apiV2StorageServiceRadzenEditorUploadsSinglePost($tenant_id, $api_version, $x_api_version, $file)
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -241,9 +286,9 @@ $x_api_version = 'x_api_version_example'; // string
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->apiV2StorageServiceRadzenEditorUploadsSinglePost($tenant_id, $api_version, $x_api_version, $file);
+    $apiInstance->specific($tenant_id, $api_version, $x_api_version, $file);
 } catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->apiV2StorageServiceRadzenEditorUploadsSinglePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RadzenEditorApi->specific: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -262,72 +307,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2StorageServiceRadzenEditorUploadsSpecificPost()`
-
-```php
-apiV2StorageServiceRadzenEditorUploadsSpecificPost($tenant_id, $api_version, $x_api_version, $file)
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$file = "/path/to/file.txt"; // \SplFileObject
-
-try {
-    $apiInstance->apiV2StorageServiceRadzenEditorUploadsSpecificPost($tenant_id, $api_version, $x_api_version, $file);
-} catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->apiV2StorageServiceRadzenEditorUploadsSpecificPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

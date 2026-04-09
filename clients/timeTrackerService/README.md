@@ -50,28 +50,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-
-$apiInstance = new OpenAPI\Client\Api\ProjectTimeLogsApi(
+$apiInstance = new OpenAPI\Client\Api\FenixAllianceABPWebApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$contact_id = 'contact_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
+$forgot_password_request = new \OpenAPI\Client\Model\ForgotPasswordRequest(); // \OpenAPI\Client\Model\ForgotPasswordRequest
 
 try {
-    $result = $apiInstance->apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet($contact_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
+    $apiInstance->forgotPasswordPost($forgot_password_request);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectTimeLogsApi->apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FenixAllianceABPWebApi->forgotPasswordPost: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -82,21 +72,42 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsByResponsibleContactGet**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogsbyresponsiblecontactget) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact | 
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsCreatedByContactGet**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogscreatedbycontactget) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact | 
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsForProjectProjectIdGet**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogsforprojectprojectidget) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId} | 
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsGet**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogsget) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs | 
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsPost**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogspost) | **POST** /api/v2/TimeTrackerService/ProjectTimeLogs | 
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdDelete**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogstimelogiddelete) | **DELETE** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | 
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdGet**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogstimelogidget) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | 
-*ProjectTimeLogsApi* | [**apiV2TimeTrackerServiceProjectTimeLogsTimeLogIdPut**](docs/Api/ProjectTimeLogsApi.md#apiv2timetrackerserviceprojecttimelogstimelogidput) | **PUT** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | 
-*TimeLogApprovalsApi* | [**apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut**](docs/Api/TimeLogApprovalsApi.md#apiv2timetrackerservicetimelogapprovalsapprovalidapproverput) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver | 
-*TimeLogApprovalsApi* | [**apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut**](docs/Api/TimeLogApprovalsApi.md#apiv2timetrackerservicetimelogapprovalsapprovalidstatusput) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status | 
-*TimeLogApprovalsApi* | [**apiV2TimeTrackerServiceTimeLogApprovalsPost**](docs/Api/TimeLogApprovalsApi.md#apiv2timetrackerservicetimelogapprovalspost) | **POST** /api/v2/TimeTrackerService/TimeLogApprovals | 
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*ProjectTimeLogsApi* | [**countProjectPeriodTimeLogsAsync**](docs/Api/ProjectTimeLogsApi.md#countprojectperiodtimelogsasync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/Count | Get the count of project period time logs
+*ProjectTimeLogsApi* | [**createProjectTimeLogAsync**](docs/Api/ProjectTimeLogsApi.md#createprojecttimelogasync) | **POST** /api/v2/TimeTrackerService/ProjectTimeLogs | Create a new project time log
+*ProjectTimeLogsApi* | [**deleteProjectTimeLogAsync**](docs/Api/ProjectTimeLogsApi.md#deleteprojecttimelogasync) | **DELETE** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | Delete a project time log
+*ProjectTimeLogsApi* | [**getProjectPeriodTimeLogsAsync**](docs/Api/ProjectTimeLogsApi.md#getprojectperiodtimelogsasync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs | Retrieve project period time logs
+*ProjectTimeLogsApi* | [**getProjectTimeLogByIdAsync**](docs/Api/ProjectTimeLogsApi.md#getprojecttimelogbyidasync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | Retrieve a project time log by ID
+*ProjectTimeLogsApi* | [**getProjectTimeLogsAsync**](docs/Api/ProjectTimeLogsApi.md#getprojecttimelogsasync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId} | Retrieve time logs for a project
+*ProjectTimeLogsApi* | [**getProjectTimeLogsByResponsibleContactAsync**](docs/Api/ProjectTimeLogsApi.md#getprojecttimelogsbyresponsiblecontactasync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact | Retrieve time logs by responsible contact
+*ProjectTimeLogsApi* | [**getProjectTimeLogsCreatedByContactAsync**](docs/Api/ProjectTimeLogsApi.md#getprojecttimelogscreatedbycontactasync) | **GET** /api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact | Retrieve time logs created by a contact
+*ProjectTimeLogsApi* | [**updateProjectTimeLogAsync**](docs/Api/ProjectTimeLogsApi.md#updateprojecttimelogasync) | **PUT** /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId} | Update a project time log
+*TimeLogApprovalsApi* | [**requestProjectHoursApprovalAsync**](docs/Api/TimeLogApprovalsApi.md#requestprojecthoursapprovalasync) | **POST** /api/v2/TimeTrackerService/TimeLogApprovals | Request project hours approval
+*TimeLogApprovalsApi* | [**updateProjectHoursApprovalApproverAsync**](docs/Api/TimeLogApprovalsApi.md#updateprojecthoursapprovalapproverasync) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver | Update approval approver
+*TimeLogApprovalsApi* | [**updateProjectHoursApprovalStatusAsync**](docs/Api/TimeLogApprovalsApi.md#updateprojecthoursapprovalstatusasync) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status | Update approval status
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
+- [Int32Envelope](docs/Model/Int32Envelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [ProjectHoursApprovalApproverUpdateDto](docs/Model/ProjectHoursApprovalApproverUpdateDto.md)
 - [ProjectHoursApprovalCreateDto](docs/Model/ProjectHoursApprovalCreateDto.md)
 - [ProjectHoursApprovalStatusUpdateDto](docs/Model/ProjectHoursApprovalStatusUpdateDto.md)
@@ -105,16 +116,15 @@ Class | Method | HTTP request | Description
 - [ProjectTimeLogDtoEnvelope](docs/Model/ProjectTimeLogDtoEnvelope.md)
 - [ProjectTimeLogDtoListEnvelope](docs/Model/ProjectTimeLogDtoListEnvelope.md)
 - [ProjectTimeLogUpdateDto](docs/Model/ProjectTimeLogUpdateDto.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -133,6 +143,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **full_name** | **string** |  | [optional] [readonly]
 **qualified_name** | **string** |  | [optional]
 **public_name** | **string** |  | [optional]
+**handler** | **string** |  | [optional]
 **last_name** | **string** |  | [optional]
 **first_name** | **string** |  | [optional]
 **cover_url** | **string** |  | [optional]

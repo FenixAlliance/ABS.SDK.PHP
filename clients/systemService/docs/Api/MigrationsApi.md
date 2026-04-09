@@ -4,17 +4,19 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SystemServiceMigrationsGet()**](MigrationsApi.md#apiV2SystemServiceMigrationsGet) | **GET** /api/v2/SystemService/Migrations |  |
-| [**apiV2SystemServiceMigrationsMigratePost()**](MigrationsApi.md#apiV2SystemServiceMigrationsMigratePost) | **POST** /api/v2/SystemService/Migrations/Migrate |  |
+| [**migrate()**](MigrationsApi.md#migrate) | **POST** /api/v2/SystemService/Migrations/Migrate | Apply pending database migrations |
+| [**migrations()**](MigrationsApi.md#migrations) | **GET** /api/v2/SystemService/Migrations | Retrieve database migrations |
 
 
-## `apiV2SystemServiceMigrationsGet()`
+## `migrate()`
 
 ```php
-apiV2SystemServiceMigrationsGet($pending, $api_version, $x_api_version): \OpenAPI\Client\Model\StringListEnvelope
+migrate($api_version, $x_api_version): \OpenAPI\Client\Model\StringListEnvelope
 ```
 
+Apply pending database migrations
 
+Applies all pending database migrations and returns the list of migrations that were applied.
 
 ### Example
 
@@ -23,27 +25,79 @@ apiV2SystemServiceMigrationsGet($pending, $api_version, $x_api_version): \OpenAP
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\MigrationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->migrate($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MigrationsApi->migrate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\StringListEnvelope**](../Model/StringListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `migrations()`
+
+```php
+migrations($pending, $api_version, $x_api_version): \OpenAPI\Client\Model\StringListEnvelope
+```
+
+Retrieve database migrations
+
+Retrieves the list of applied or pending database migrations.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\MigrationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $pending = True; // bool
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SystemServiceMigrationsGet($pending, $api_version, $x_api_version);
+    $result = $apiInstance->migrations($pending, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MigrationsApi->apiV2SystemServiceMigrationsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MigrationsApi->migrations: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -61,69 +115,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SystemServiceMigrationsMigratePost()`
-
-```php
-apiV2SystemServiceMigrationsMigratePost($api_version, $x_api_version): \OpenAPI\Client\Model\StringListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\MigrationsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SystemServiceMigrationsMigratePost($api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MigrationsApi->apiV2SystemServiceMigrationsMigratePost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\StringListEnvelope**](../Model/StringListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

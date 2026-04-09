@@ -4,33 +4,36 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2ProjectsServiceProjectsCountGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsCountGet) | **GET** /api/v2/ProjectsService/Projects/Count |  |
-| [**apiV2ProjectsServiceProjectsGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsGet) | **GET** /api/v2/ProjectsService/Projects |  |
-| [**apiV2ProjectsServiceProjectsPost()**](ProjectsApi.md#apiV2ProjectsServiceProjectsPost) | **POST** /api/v2/ProjectsService/Projects |  |
-| [**apiV2ProjectsServiceProjectsProjectIdDelete()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdDelete) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} |  |
-| [**apiV2ProjectsServiceProjectsProjectIdGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdGet) | **GET** /api/v2/ProjectsService/Projects/{projectId} |  |
-| [**apiV2ProjectsServiceProjectsProjectIdPeriodsGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdPeriodsGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods |  |
-| [**apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} |  |
-| [**apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} |  |
-| [**apiV2ProjectsServiceProjectsProjectIdPut()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdPut) | **PUT** /api/v2/ProjectsService/Projects/{projectId} |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTasksCountGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTasksCountGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTasksGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTasksGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTasksPost()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTasksPost) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count |  |
-| [**apiV2ProjectsServiceProjectsProjectIdTimeLogsGet()**](ProjectsApi.md#apiV2ProjectsServiceProjectsProjectIdTimeLogsGet) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs |  |
+| [**createProjectAsync()**](ProjectsApi.md#createProjectAsync) | **POST** /api/v2/ProjectsService/Projects | Creates a new project |
+| [**createProjectPeriodAsync()**](ProjectsApi.md#createProjectPeriodAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Periods | Creates a project period |
+| [**createProjectTaskAsync()**](ProjectsApi.md#createProjectTaskAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task |
+| [**deleteProjectAsync()**](ProjectsApi.md#deleteProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} | Deletes a project |
+| [**deleteProjectPeriodAsync()**](ProjectsApi.md#deleteProjectPeriodAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Deletes a project period |
+| [**deleteProjectTaskAsync()**](ProjectsApi.md#deleteProjectTaskAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task |
+| [**getProjectByIdAsync()**](ProjectsApi.md#getProjectByIdAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId} | Gets a project by ID |
+| [**getProjectPeriodsAsync()**](ProjectsApi.md#getProjectPeriodsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods | Retrieves project periods |
+| [**getProjectTaskCategoriesAsync()**](ProjectsApi.md#getProjectTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | Retrieves project task categories |
+| [**getProjectTaskCategoriesCountAsync()**](ProjectsApi.md#getProjectTaskCategoriesCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | Counts project task categories |
+| [**getProjectTasksAsync()**](ProjectsApi.md#getProjectTasksAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks |
+| [**getProjectTasksCountAsync()**](ProjectsApi.md#getProjectTasksCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks |
+| [**getProjectTimeLogsAsync()**](ProjectsApi.md#getProjectTimeLogsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs |
+| [**getProjectTimeLogsCountAsync()**](ProjectsApi.md#getProjectTimeLogsCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | Counts project time logs |
+| [**getProjectsByTenantIdAsync()**](ProjectsApi.md#getProjectsByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects | Retrieves all projects |
+| [**getProjectsCountByTenantIdAsync()**](ProjectsApi.md#getProjectsCountByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects/Count | Counts projects |
+| [**updateProjectAsync()**](ProjectsApi.md#updateProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId} | Updates a project |
+| [**updateProjectPeriodAsync()**](ProjectsApi.md#updateProjectPeriodAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Updates a project period |
+| [**updateProjectTaskAsync()**](ProjectsApi.md#updateProjectTaskAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task |
 
 
-## `apiV2ProjectsServiceProjectsCountGet()`
+## `createProjectAsync()`
 
 ```php
-apiV2ProjectsServiceProjectsCountGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+createProjectAsync($tenant_id, $project_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Creates a new project
 
+Creates a new project for the current tenant.
 
 ### Example
 
@@ -39,156 +42,20 @@ apiV2ProjectsServiceProjectsCountGet($tenant_id, $api_version, $x_api_version): 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsCountGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsGet()`
-
-```php
-apiV2ProjectsServiceProjectsGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProjectDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ProjectDtoListEnvelope**](../Model/ProjectDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsPost()`
-
-```php
-apiV2ProjectsServiceProjectsPost($tenant_id, $api_version, $x_api_version, $project_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 $project_create_dto = new \OpenAPI\Client\Model\ProjectCreateDto(); // \OpenAPI\Client\Model\ProjectCreateDto
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsPost($tenant_id, $api_version, $x_api_version, $project_create_dto);
+    $result = $apiInstance->createProjectAsync($tenant_id, $project_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->createProjectAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -197,8 +64,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 | **project_create_dto** | [**\OpenAPI\Client\Model\ProjectCreateDto**](../Model/ProjectCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -207,7 +72,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -218,13 +83,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ProjectsServiceProjectsProjectIdDelete()`
+## `createProjectPeriodAsync()`
 
 ```php
-apiV2ProjectsServiceProjectsProjectIdDelete($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+createProjectPeriodAsync($project_id, $tenant_id, $project_period_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Creates a project period
 
+Creates a new period for the specified project.
 
 ### Example
 
@@ -233,161 +100,21 @@ apiV2ProjectsServiceProjectsProjectIdDelete($project_id, $tenant_id, $api_versio
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdDelete($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdDelete: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdGet($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProjectDtoEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdGet($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ProjectDtoEnvelope**](../Model/ProjectDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdPeriodsGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdPeriodsGet($project_id, $tenant_id, $api_version, $x_api_version, $project_period_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 $project_period_create_dto = new \OpenAPI\Client\Model\ProjectPeriodCreateDto(); // \OpenAPI\Client\Model\ProjectPeriodCreateDto
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdPeriodsGet($project_id, $tenant_id, $api_version, $x_api_version, $project_period_create_dto);
+    $result = $apiInstance->createProjectPeriodAsync($project_id, $tenant_id, $project_period_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdPeriodsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->createProjectPeriodAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -397,8 +124,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 | **project_period_create_dto** | [**\OpenAPI\Client\Model\ProjectPeriodCreateDto**](../Model/ProjectPeriodCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -407,7 +132,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -418,13 +143,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete()`
+## `createProjectTaskAsync()`
 
 ```php
-apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete($project_id, $project_period_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+createProjectTaskAsync($project_id, $tenant_id, $project_task_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Creates a project task
 
+Creates a new task for the specified project.
 
 ### Example
 
@@ -433,499 +160,21 @@ apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete($project_id, $
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$project_period_id = 'project_period_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete($project_id, $project_period_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdDelete: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **project_period_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut($project_id, $project_period_id, $tenant_id, $api_version, $x_api_version, $project_period_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$project_period_id = 'project_period_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$project_period_update_dto = new \OpenAPI\Client\Model\ProjectPeriodUpdateDto(); // \OpenAPI\Client\Model\ProjectPeriodUpdateDto
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut($project_id, $project_period_id, $tenant_id, $api_version, $x_api_version, $project_period_update_dto);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdPeriodsProjectPeriodIdPut: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **project_period_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **project_period_update_dto** | [**\OpenAPI\Client\Model\ProjectPeriodUpdateDto**](../Model/ProjectPeriodUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `application/xml`
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdPut()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdPut($project_id, $tenant_id, $api_version, $x_api_version, $project_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $project_id = 'project_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$project_update_dto = new \OpenAPI\Client\Model\ProjectUpdateDto(); // \OpenAPI\Client\Model\ProjectUpdateDto
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdPut($project_id, $tenant_id, $api_version, $x_api_version, $project_update_dto);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdPut: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **project_update_dto** | [**\OpenAPI\Client\Model\ProjectUpdateDto**](../Model/ProjectUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `application/xml`
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTaskCategoriesCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TaskCategoryDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTaskCategoriesGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\TaskCategoryDtoListEnvelope**](../Model/TaskCategoryDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdTasksCountGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdTasksCountGet($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTasksCountGet($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTasksCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdTasksGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdTasksGet($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTasksGet($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTasksGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope**](../Model/ProjectTaskDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdTasksPost()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdTasksPost($project_id, $tenant_id, $api_version, $x_api_version, $project_task_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 $project_task_create_dto = new \OpenAPI\Client\Model\ProjectTaskCreateDto(); // \OpenAPI\Client\Model\ProjectTaskCreateDto
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTasksPost($project_id, $tenant_id, $api_version, $x_api_version, $project_task_create_dto);
+    $result = $apiInstance->createProjectTaskAsync($project_id, $tenant_id, $project_task_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTasksPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->createProjectTaskAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -935,8 +184,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **project_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 | **project_task_create_dto** | [**\OpenAPI\Client\Model\ProjectTaskCreateDto**](../Model/ProjectTaskCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -945,7 +192,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -956,13 +203,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete()`
+## `deleteProjectAsync()`
 
 ```php
-apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete($tenant_id, $project_id, $project_task_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteProjectAsync($project_id, $tenant_id): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Deletes a project
 
+Deletes the specified project.
 
 ### Example
 
@@ -971,29 +220,20 @@ apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete($tenant_id, $proje
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$tenant_id = 'tenant_id_example'; // string
 $project_id = 'project_id_example'; // string
-$project_task_id = 'project_task_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete($tenant_id, $project_id, $project_task_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteProjectAsync($project_id, $tenant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->deleteProjectAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1001,11 +241,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
 | **project_id** | **string**|  | |
-| **project_task_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 
 ### Return type
 
@@ -1013,7 +250,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1024,13 +261,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut()`
+## `deleteProjectPeriodAsync()`
 
 ```php
-apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut($project_id, $project_task_id, $tenant_id, $api_version, $x_api_version, $project_task_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+deleteProjectPeriodAsync($project_id, $project_period_id, $tenant_id): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Deletes a project period
 
+Deletes the specified period from a project.
 
 ### Example
 
@@ -1039,30 +278,840 @@ apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut($project_id, $project
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$project_period_id = 'project_period_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->deleteProjectPeriodAsync($project_id, $project_period_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->deleteProjectPeriodAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **project_period_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteProjectTaskAsync()`
+
+```php
+deleteProjectTaskAsync($tenant_id, $project_id, $project_task_id): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Deletes a project task
+
+Deletes the specified task from a project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\ProjectsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$project_id = 'project_id_example'; // string
+$project_task_id = 'project_task_id_example'; // string
+
+try {
+    $result = $apiInstance->deleteProjectTaskAsync($tenant_id, $project_id, $project_task_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->deleteProjectTaskAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **project_id** | **string**|  | |
+| **project_task_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectByIdAsync()`
+
+```php
+getProjectByIdAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectDtoEnvelope
+```
+
+Gets a project by ID
+
+Retrieves the details of a project using its unique identifier.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectByIdAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectByIdAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ProjectDtoEnvelope**](../Model/ProjectDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectPeriodsAsync()`
+
+```php
+getProjectPeriodsAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectPeriodDtoListEnvelope
+```
+
+Retrieves project periods
+
+Gets all periods for a specific project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectPeriodsAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectPeriodsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ProjectPeriodDtoListEnvelope**](../Model/ProjectPeriodDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectTaskCategoriesAsync()`
+
+```php
+getProjectTaskCategoriesAsync($project_id, $tenant_id): \OpenAPI\Client\Model\TaskCategoryDtoListEnvelope
+```
+
+Retrieves project task categories
+
+Gets all task categories for a specific project with OData support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectTaskCategoriesAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectTaskCategoriesAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\TaskCategoryDtoListEnvelope**](../Model/TaskCategoryDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectTaskCategoriesCountAsync()`
+
+```php
+getProjectTaskCategoriesCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Counts project task categories
+
+Gets the count of task categories for a specific project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectTaskCategoriesCountAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectTaskCategoriesCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectTasksAsync()`
+
+```php
+getProjectTasksAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
+```
+
+Retrieves project tasks
+
+Gets all tasks for a specific project with OData support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectTasksAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectTasksAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope**](../Model/ProjectTaskDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectTasksCountAsync()`
+
+```php
+getProjectTasksCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Counts project tasks
+
+Gets the count of tasks for a specific project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectTasksCountAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectTasksCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectTimeLogsAsync()`
+
+```php
+getProjectTimeLogsAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
+```
+
+Retrieves project time logs
+
+Gets all time log entries for a specific project with OData support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectTimeLogsAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectTimeLogsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope**](../Model/ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectTimeLogsCountAsync()`
+
+```php
+getProjectTimeLogsCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Counts project time logs
+
+Gets the count of time log entries for a specific project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectTimeLogsCountAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectTimeLogsCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectsByTenantIdAsync()`
+
+```php
+getProjectsByTenantIdAsync($tenant_id): \OpenAPI\Client\Model\ProjectDtoListEnvelope
+```
+
+Retrieves all projects
+
+Gets all projects for the current tenant with OData support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectsByTenantIdAsync($tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectsByTenantIdAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ProjectDtoListEnvelope**](../Model/ProjectDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProjectsCountByTenantIdAsync()`
+
+```php
+getProjectsCountByTenantIdAsync($tenant_id): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Counts projects
+
+Gets the count of projects for the current tenant.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getProjectsCountByTenantIdAsync($tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getProjectsCountByTenantIdAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateProjectAsync()`
+
+```php
+updateProjectAsync($project_id, $tenant_id, $project_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Updates a project
+
+Updates the specified project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$project_update_dto = new \OpenAPI\Client\Model\ProjectUpdateDto(); // \OpenAPI\Client\Model\ProjectUpdateDto
+
+try {
+    $result = $apiInstance->updateProjectAsync($project_id, $tenant_id, $project_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->updateProjectAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+| **project_update_dto** | [**\OpenAPI\Client\Model\ProjectUpdateDto**](../Model/ProjectUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateProjectPeriodAsync()`
+
+```php
+updateProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $project_period_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Updates a project period
+
+Updates the specified period for a project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$project_period_id = 'project_period_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$project_period_update_dto = new \OpenAPI\Client\Model\ProjectPeriodUpdateDto(); // \OpenAPI\Client\Model\ProjectPeriodUpdateDto
+
+try {
+    $result = $apiInstance->updateProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $project_period_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->updateProjectPeriodAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **project_period_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+| **project_period_update_dto** | [**\OpenAPI\Client\Model\ProjectPeriodUpdateDto**](../Model/ProjectPeriodUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateProjectTaskAsync()`
+
+```php
+updateProjectTaskAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Updates a project task
+
+Updates the specified task in a project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
 );
 $project_id = 'project_id_example'; // string
 $project_task_id = 'project_task_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 $project_task_update_dto = new \OpenAPI\Client\Model\ProjectTaskUpdateDto(); // \OpenAPI\Client\Model\ProjectTaskUpdateDto
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut($project_id, $project_task_id, $tenant_id, $api_version, $x_api_version, $project_task_update_dto);
+    $result = $apiInstance->updateProjectTaskAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTasksProjectTaskIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->updateProjectTaskAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1073,8 +1122,6 @@ try {
 | **project_id** | **string**|  | |
 | **project_task_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 | **project_task_update_dto** | [**\OpenAPI\Client\Model\ProjectTaskUpdateDto**](../Model/ProjectTaskUpdateDto.md)|  | [optional] |
 
 ### Return type
@@ -1083,143 +1130,11 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: `application/json`, `application/xml`
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTimeLogsCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2ProjectsServiceProjectsProjectIdTimeLogsGet()`
-
-```php
-apiV2ProjectsServiceProjectsProjectIdTimeLogsGet($project_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2ProjectsServiceProjectsProjectIdTimeLogsGet($project_id, $tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->apiV2ProjectsServiceProjectsProjectIdTimeLogsGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope**](../Model/ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **unit_group_id** | **string** |  | [optional]
 **partner_visible** | **bool** |  | [optional]
 **unit_of_measure_dependant** | **bool** |  | [optional]
-**enrolment_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

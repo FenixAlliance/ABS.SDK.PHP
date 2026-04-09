@@ -1,0 +1,16 @@
+# # FiscalPeriodDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
+**name** | **string** |  | [optional]
+**from_date** | **\DateTime** |  | [optional]
+**to_date** | **\DateTime** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
+**fiscal_year_id** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

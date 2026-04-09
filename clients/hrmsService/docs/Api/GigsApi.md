@@ -4,21 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createGigAsync()**](GigsApi.md#createGigAsync) | **POST** /api/v2/HrmsService/Gigs |  |
-| [**deleteGigAsync()**](GigsApi.md#deleteGigAsync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} |  |
-| [**getGigByIdAsync()**](GigsApi.md#getGigByIdAsync) | **GET** /api/v2/HrmsService/Gigs/{gigId} |  |
-| [**getGigsAsync()**](GigsApi.md#getGigsAsync) | **GET** /api/v2/HrmsService/Gigs |  |
-| [**getGigsCountAsync()**](GigsApi.md#getGigsCountAsync) | **GET** /api/v2/HrmsService/Gigs/Count |  |
-| [**updateGigAsync()**](GigsApi.md#updateGigAsync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} |  |
+| [**createGigAsync()**](GigsApi.md#createGigAsync) | **POST** /api/v2/HrmsService/Gigs | Create a gig |
+| [**deleteGigAsync()**](GigsApi.md#deleteGigAsync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | Delete a gig |
+| [**getGigByIdAsync()**](GigsApi.md#getGigByIdAsync) | **GET** /api/v2/HrmsService/Gigs/{gigId} | Get gig by ID |
+| [**getGigsAsync()**](GigsApi.md#getGigsAsync) | **GET** /api/v2/HrmsService/Gigs | Get gigs |
+| [**getGigsCountAsync()**](GigsApi.md#getGigsCountAsync) | **GET** /api/v2/HrmsService/Gigs/Count | Count gigs |
+| [**updateGigAsync()**](GigsApi.md#updateGigAsync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} | Update a gig |
 
 
 ## `createGigAsync()`
 
 ```php
-createGigAsync($tenant_id, $api_version, $x_api_version, $gig_create_dto)
+createGigAsync($tenant_id, $api_version, $x_api_version, $gig_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create a gig
 
+Creates a new gig for the specified tenant.
 
 ### Example
 
@@ -27,17 +29,11 @@ createGigAsync($tenant_id, $api_version, $x_api_version, $gig_create_dto)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\GigsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -45,7 +41,8 @@ $x_api_version = 'x_api_version_example'; // string
 $gig_create_dto = new \OpenAPI\Client\Model\GigCreateDto(); // \OpenAPI\Client\Model\GigCreateDto
 
 try {
-    $apiInstance->createGigAsync($tenant_id, $api_version, $x_api_version, $gig_create_dto);
+    $result = $apiInstance->createGigAsync($tenant_id, $api_version, $x_api_version, $gig_create_dto);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GigsApi->createGigAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -62,11 +59,11 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,10 +77,12 @@ void (empty response body)
 ## `deleteGigAsync()`
 
 ```php
-deleteGigAsync($tenant_id, $gig_id, $api_version, $x_api_version)
+deleteGigAsync($tenant_id, $gig_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete a gig
 
+Deletes a gig for the specified tenant.
 
 ### Example
 
@@ -92,17 +91,11 @@ deleteGigAsync($tenant_id, $gig_id, $api_version, $x_api_version)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\GigsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $gig_id = 'gig_id_example'; // string
@@ -110,7 +103,8 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->deleteGigAsync($tenant_id, $gig_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteGigAsync($tenant_id, $gig_id, $api_version, $x_api_version);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GigsApi->deleteGigAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -127,11 +121,11 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -148,7 +142,9 @@ void (empty response body)
 getGigByIdAsync($tenant_id, $gig_id, $api_version, $x_api_version): \OpenAPI\Client\Model\GigDtoEnvelope
 ```
 
+Get gig by ID
 
+Retrieves a specific gig by its identifier.
 
 ### Example
 
@@ -157,17 +153,11 @@ getGigByIdAsync($tenant_id, $gig_id, $api_version, $x_api_version): \OpenAPI\Cli
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\GigsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $gig_id = 'gig_id_example'; // string
@@ -197,7 +187,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -214,7 +204,9 @@ try {
 getGigsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\GigDtoListEnvelope
 ```
 
+Get gigs
 
+Retrieves gigs for the specified tenant.
 
 ### Example
 
@@ -223,17 +215,11 @@ getGigsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Gi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\GigsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -261,7 +247,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -278,7 +264,9 @@ try {
 getGigsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
+Count gigs
 
+Counts gigs for the specified tenant.
 
 ### Example
 
@@ -287,17 +275,11 @@ getGigsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Mod
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\GigsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -325,7 +307,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -339,10 +321,12 @@ try {
 ## `updateGigAsync()`
 
 ```php
-updateGigAsync($tenant_id, $gig_id, $api_version, $x_api_version, $body)
+updateGigAsync($tenant_id, $gig_id, $api_version, $x_api_version, $gig_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Update a gig
 
+Updates an existing gig for the specified tenant.
 
 ### Example
 
@@ -351,26 +335,21 @@ updateGigAsync($tenant_id, $gig_id, $api_version, $x_api_version, $body)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\GigsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $gig_id = 'gig_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$body = array('key' => new \stdClass); // object
+$gig_update_dto = new \OpenAPI\Client\Model\GigUpdateDto(); // \OpenAPI\Client\Model\GigUpdateDto
 
 try {
-    $apiInstance->updateGigAsync($tenant_id, $gig_id, $api_version, $x_api_version, $body);
+    $result = $apiInstance->updateGigAsync($tenant_id, $gig_id, $api_version, $x_api_version, $gig_update_dto);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GigsApi->updateGigAsync: ', $e->getMessage(), PHP_EOL;
 }
@@ -384,15 +363,15 @@ try {
 | **gig_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **body** | **object**|  | [optional] |
+| **gig_update_dto** | [**\OpenAPI\Client\Model\GigUpdateDto**](../Model/GigUpdateDto.md)|  | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

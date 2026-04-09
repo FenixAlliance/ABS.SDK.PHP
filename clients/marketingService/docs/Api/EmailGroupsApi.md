@@ -4,21 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceEmailGroupsCountGet()**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsCountGet) | **GET** /api/v2/MarketingService/EmailGroups/Count |  |
-| [**apiV2MarketingServiceEmailGroupsEmailgroupIdDelete()**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsEmailgroupIdDelete) | **DELETE** /api/v2/MarketingService/EmailGroups/{emailgroupId} |  |
-| [**apiV2MarketingServiceEmailGroupsEmailgroupIdGet()**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsEmailgroupIdGet) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} |  |
-| [**apiV2MarketingServiceEmailGroupsEmailgroupIdPut()**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsEmailgroupIdPut) | **PUT** /api/v2/MarketingService/EmailGroups/{emailgroupId} |  |
-| [**apiV2MarketingServiceEmailGroupsGet()**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsGet) | **GET** /api/v2/MarketingService/EmailGroups |  |
-| [**apiV2MarketingServiceEmailGroupsPost()**](EmailGroupsApi.md#apiV2MarketingServiceEmailGroupsPost) | **POST** /api/v2/MarketingService/EmailGroups |  |
+| [**createEmailGroupAsync()**](EmailGroupsApi.md#createEmailGroupAsync) | **POST** /api/v2/MarketingService/EmailGroups | Create an email group |
+| [**deleteEmailGroupAsync()**](EmailGroupsApi.md#deleteEmailGroupAsync) | **DELETE** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Delete an email group |
+| [**getEmailGroupDetailsAsync()**](EmailGroupsApi.md#getEmailGroupDetailsAsync) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Get email group by ID |
+| [**getEmailGroupsCountAsync()**](EmailGroupsApi.md#getEmailGroupsCountAsync) | **GET** /api/v2/MarketingService/EmailGroups/Count | Get email groups count |
+| [**getEmailGroupsODataAsync()**](EmailGroupsApi.md#getEmailGroupsODataAsync) | **GET** /api/v2/MarketingService/EmailGroups | Get email groups |
+| [**updateEmailGroupAsync()**](EmailGroupsApi.md#updateEmailGroupAsync) | **PUT** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Update an email group |
 
 
-## `apiV2MarketingServiceEmailGroupsCountGet()`
+## `createEmailGroupAsync()`
 
 ```php
-apiV2MarketingServiceEmailGroupsCountGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+createEmailGroupAsync($tenant_id, $email_group_create_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create an email group
 
+Creates a new email group for the specified tenant.
 
 ### Example
 
@@ -27,27 +29,22 @@ apiV2MarketingServiceEmailGroupsCountGet($tenant_id, $api_version, $x_api_versio
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$email_group_create_dto = new \OpenAPI\Client\Model\EmailGroupCreateDto(); // \OpenAPI\Client\Model\EmailGroupCreateDto
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailGroupsCountGet($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->createEmailGroupAsync($tenant_id, $email_group_create_dto, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailGroupsApi->apiV2MarketingServiceEmailGroupsCountGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailGroupsApi->createEmailGroupAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -56,33 +53,36 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **email_group_create_dto** | [**\OpenAPI\Client\Model\EmailGroupCreateDto**](../Model/EmailGroupCreateDto.md)|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2MarketingServiceEmailGroupsEmailgroupIdDelete()`
+## `deleteEmailGroupAsync()`
 
 ```php
-apiV2MarketingServiceEmailGroupsEmailgroupIdDelete($tenant_id, $emailgroup_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteEmailGroupAsync($tenant_id, $emailgroup_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete an email group
 
+Deletes an email group by its ID.
 
 ### Example
 
@@ -91,17 +91,11 @@ apiV2MarketingServiceEmailGroupsEmailgroupIdDelete($tenant_id, $emailgroup_id, $
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $emailgroup_id = 'emailgroup_id_example'; // string
@@ -109,10 +103,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailGroupsEmailgroupIdDelete($tenant_id, $emailgroup_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteEmailGroupAsync($tenant_id, $emailgroup_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailGroupsApi->apiV2MarketingServiceEmailGroupsEmailgroupIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailGroupsApi->deleteEmailGroupAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -131,7 +125,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -142,13 +136,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2MarketingServiceEmailGroupsEmailgroupIdGet()`
+## `getEmailGroupDetailsAsync()`
 
 ```php
-apiV2MarketingServiceEmailGroupsEmailgroupIdGet($tenant_id, $emailgroup_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailGroupDtoEnvelope
+getEmailGroupDetailsAsync($tenant_id, $emailgroup_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailGroupDtoEnvelope
 ```
 
+Get email group by ID
 
+Retrieves the details of a specific email group by its ID.
 
 ### Example
 
@@ -157,17 +153,11 @@ apiV2MarketingServiceEmailGroupsEmailgroupIdGet($tenant_id, $emailgroup_id, $api
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $emailgroup_id = 'emailgroup_id_example'; // string
@@ -175,10 +165,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailGroupsEmailgroupIdGet($tenant_id, $emailgroup_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmailGroupDetailsAsync($tenant_id, $emailgroup_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailGroupsApi->apiV2MarketingServiceEmailGroupsEmailgroupIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailGroupsApi->getEmailGroupDetailsAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -197,7 +187,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,13 +198,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2MarketingServiceEmailGroupsEmailgroupIdPut()`
+## `getEmailGroupsCountAsync()`
 
 ```php
-apiV2MarketingServiceEmailGroupsEmailgroupIdPut($tenant_id, $emailgroup_id, $email_group_update_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+getEmailGroupsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
+Get email groups count
 
+Returns the count of email groups for the specified tenant using OData query options.
 
 ### Example
 
@@ -223,17 +215,131 @@ apiV2MarketingServiceEmailGroupsEmailgroupIdPut($tenant_id, $emailgroup_id, $ema
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getEmailGroupsCountAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailGroupsApi->getEmailGroupsCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailGroupsODataAsync()`
+
+```php
+getEmailGroupsODataAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailGroupDtoListEnvelope
+```
+
+Get email groups
+
+Retrieves a collection of email groups for the specified tenant using OData query options.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getEmailGroupsODataAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailGroupsApi->getEmailGroupsODataAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmailGroupDtoListEnvelope**](../Model/EmailGroupDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateEmailGroupAsync()`
+
+```php
+updateEmailGroupAsync($tenant_id, $emailgroup_id, $email_group_update_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update an email group
+
+Updates an existing email group by its ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $emailgroup_id = 'emailgroup_id_example'; // string
@@ -242,10 +348,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailGroupsEmailgroupIdPut($tenant_id, $emailgroup_id, $email_group_update_dto, $api_version, $x_api_version);
+    $result = $apiInstance->updateEmailGroupAsync($tenant_id, $emailgroup_id, $email_group_update_dto, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailGroupsApi->apiV2MarketingServiceEmailGroupsEmailgroupIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailGroupsApi->updateEmailGroupAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -265,137 +371,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `application/xml`
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2MarketingServiceEmailGroupsGet()`
-
-```php
-apiV2MarketingServiceEmailGroupsGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailGroupDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2MarketingServiceEmailGroupsGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EmailGroupsApi->apiV2MarketingServiceEmailGroupsGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmailGroupDtoListEnvelope**](../Model/EmailGroupDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2MarketingServiceEmailGroupsPost()`
-
-```php
-apiV2MarketingServiceEmailGroupsPost($tenant_id, $email_group_create_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$email_group_create_dto = new \OpenAPI\Client\Model\EmailGroupCreateDto(); // \OpenAPI\Client\Model\EmailGroupCreateDto
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2MarketingServiceEmailGroupsPost($tenant_id, $email_group_create_dto, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EmailGroupsApi->apiV2MarketingServiceEmailGroupsPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **email_group_create_dto** | [**\OpenAPI\Client\Model\EmailGroupCreateDto**](../Model/EmailGroupCreateDto.md)|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

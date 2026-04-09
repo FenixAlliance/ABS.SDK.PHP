@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional]
 **full_name** | **string** |  | [optional] [readonly]
 **description** | **string** |  | [optional]
-**type** | **int** |  | [optional]
+**type** | **string** |  | [optional]
 **configuration** | **string** |  | [optional]
 **author** | **string** |  | [optional]
 **author_url** | **string** |  | [optional]

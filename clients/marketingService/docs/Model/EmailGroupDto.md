@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
 **tenant_id** | **string** |  | [optional]
-**enrolment_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **enabled** | **bool** |  | [optional]

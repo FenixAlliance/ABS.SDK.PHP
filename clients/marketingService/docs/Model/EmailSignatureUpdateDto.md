@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **generated_code** | **string** |  | [optional]
 **compilation_path** | **string** |  | [optional]
 **html_content** | **string** |  | [optional]
+**code_type** | **string** |  | [optional]
 **c_sharp_content** | **string** |  | [optional]
 **razor_content** | **string** |  | [optional]
 **css_content** | **string** |  | [optional]

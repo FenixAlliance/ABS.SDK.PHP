@@ -4,16 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SalesServiceMarginsMarginIdDetailsGet()**](MarginsApi.md#apiV2SalesServiceMarginsMarginIdDetailsGet) | **GET** /api/v2/SalesService/Margins/{marginId}/Details |  |
+| [**getQuoteAsync()**](MarginsApi.md#getQuoteAsync) | **GET** /api/v2/SalesService/Margins/{marginId}/Details | Get margin details by ID |
 
 
-## `apiV2SalesServiceMarginsMarginIdDetailsGet()`
+## `getQuoteAsync()`
 
 ```php
-apiV2SalesServiceMarginsMarginIdDetailsGet($margin_id, $api_version, $x_api_version)
+getQuoteAsync($margin_id, $api_version, $x_api_version)
 ```
 
+Get margin details by ID
 
+Retrieves the details of a specific sales margin by its ID.
 
 ### Example
 
@@ -22,26 +24,20 @@ apiV2SalesServiceMarginsMarginIdDetailsGet($margin_id, $api_version, $x_api_vers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MarginsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $margin_id = 'margin_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->apiV2SalesServiceMarginsMarginIdDetailsGet($margin_id, $api_version, $x_api_version);
+    $apiInstance->getQuoteAsync($margin_id, $api_version, $x_api_version);
 } catch (Exception $e) {
-    echo 'Exception when calling MarginsApi->apiV2SalesServiceMarginsMarginIdDetailsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MarginsApi->getQuoteAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -59,7 +55,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

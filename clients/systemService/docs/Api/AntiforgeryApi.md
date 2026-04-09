@@ -4,17 +4,19 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SystemServiceAntiforgeryGetAndStoreTokensGet()**](AntiforgeryApi.md#apiV2SystemServiceAntiforgeryGetAndStoreTokensGet) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens |  |
-| [**apiV2SystemServiceAntiforgeryIsRequestValidGet()**](AntiforgeryApi.md#apiV2SystemServiceAntiforgeryIsRequestValidGet) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid |  |
+| [**getAndStoreTokens()**](AntiforgeryApi.md#getAndStoreTokens) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens |
+| [**isRequestValidAsync()**](AntiforgeryApi.md#isRequestValidAsync) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request |
 
 
-## `apiV2SystemServiceAntiforgeryGetAndStoreTokensGet()`
+## `getAndStoreTokens()`
 
 ```php
-apiV2SystemServiceAntiforgeryGetAndStoreTokensGet($api_version, $x_api_version)
+getAndStoreTokens($api_version, $x_api_version)
 ```
 
+Get and store antiforgery tokens
 
+Generates antiforgery tokens and stores them in the current HTTP context.
 
 ### Example
 
@@ -23,25 +25,19 @@ apiV2SystemServiceAntiforgeryGetAndStoreTokensGet($api_version, $x_api_version)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\AntiforgeryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->apiV2SystemServiceAntiforgeryGetAndStoreTokensGet($api_version, $x_api_version);
+    $apiInstance->getAndStoreTokens($api_version, $x_api_version);
 } catch (Exception $e) {
-    echo 'Exception when calling AntiforgeryApi->apiV2SystemServiceAntiforgeryGetAndStoreTokensGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AntiforgeryApi->getAndStoreTokens: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -58,7 +54,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -69,13 +65,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SystemServiceAntiforgeryIsRequestValidGet()`
+## `isRequestValidAsync()`
 
 ```php
-apiV2SystemServiceAntiforgeryIsRequestValidGet($api_version, $x_api_version)
+isRequestValidAsync($api_version, $x_api_version)
 ```
 
+Validate antiforgery request
 
+Validates whether the current HTTP request contains a valid antiforgery token.
 
 ### Example
 
@@ -84,25 +82,19 @@ apiV2SystemServiceAntiforgeryIsRequestValidGet($api_version, $x_api_version)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\AntiforgeryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->apiV2SystemServiceAntiforgeryIsRequestValidGet($api_version, $x_api_version);
+    $apiInstance->isRequestValidAsync($api_version, $x_api_version);
 } catch (Exception $e) {
-    echo 'Exception when calling AntiforgeryApi->apiV2SystemServiceAntiforgeryIsRequestValidGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AntiforgeryApi->isRequestValidAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -119,7 +111,7 @@ void (empty response body)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

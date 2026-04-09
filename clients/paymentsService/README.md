@@ -50,25 +50,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new OpenAPI\Client\Api\FenixAllianceABPWebApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$tenant_id = 'tenant_id_example'; // string
+$forgot_password_request = new \OpenAPI\Client\Model\ForgotPasswordRequest(); // \OpenAPI\Client\Model\ForgotPasswordRequest
 
 try {
-    $result = $apiInstance->apiV2PaymentsServicePaymentsGet($tenant_id);
-    print_r($result);
+    $apiInstance->forgotPasswordPost($forgot_password_request);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->apiV2PaymentsServicePaymentsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FenixAllianceABPWebApi->forgotPasswordPost: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -79,31 +72,83 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PaymentsApi* | [**apiV2PaymentsServicePaymentsGet**](docs/Api/PaymentsApi.md#apiv2paymentsservicepaymentsget) | **GET** /api/v2/PaymentsService/Payments | 
-*PaymentsApi* | [**apiV2PaymentsServicePaymentsPaymentIdDelete**](docs/Api/PaymentsApi.md#apiv2paymentsservicepaymentspaymentiddelete) | **DELETE** /api/v2/PaymentsService/Payments/{paymentId} | 
-*PaymentsApi* | [**apiV2PaymentsServicePaymentsPaymentIdDetailsGet**](docs/Api/PaymentsApi.md#apiv2paymentsservicepaymentspaymentiddetailsget) | **GET** /api/v2/PaymentsService/Payments/{paymentId}/Details | 
-*PaymentsApi* | [**apiV2PaymentsServicePaymentsPaymentIdGet**](docs/Api/PaymentsApi.md#apiv2paymentsservicepaymentspaymentidget) | **GET** /api/v2/PaymentsService/Payments/{paymentId} | 
-*PaymentsApi* | [**apiV2PaymentsServicePaymentsPaymentIdPut**](docs/Api/PaymentsApi.md#apiv2paymentsservicepaymentspaymentidput) | **PUT** /api/v2/PaymentsService/Payments/{paymentId} | 
-*PaymentsApi* | [**apiV2PaymentsServicePaymentsPost**](docs/Api/PaymentsApi.md#apiv2paymentsservicepaymentspost) | **POST** /api/v2/PaymentsService/Payments | 
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*PaymentMethodsApi* | [**createPaymentMethodAsync**](docs/Api/PaymentMethodsApi.md#createpaymentmethodasync) | **POST** /api/v2/PaymentsService/PaymentMethods | Creates a new payment method
+*PaymentMethodsApi* | [**deletePaymentMethodAsync**](docs/Api/PaymentMethodsApi.md#deletepaymentmethodasync) | **DELETE** /api/v2/PaymentsService/PaymentMethods/{paymentMethodId} | Deletes a payment method
+*PaymentMethodsApi* | [**getPaymentMethodDetailsAsync**](docs/Api/PaymentMethodsApi.md#getpaymentmethoddetailsasync) | **GET** /api/v2/PaymentsService/PaymentMethods/{paymentMethodId} | Gets a payment method by ID
+*PaymentMethodsApi* | [**getPaymentMethodsAsync**](docs/Api/PaymentMethodsApi.md#getpaymentmethodsasync) | **GET** /api/v2/PaymentsService/PaymentMethods | Retrieves all payment methods
+*PaymentMethodsApi* | [**getPaymentMethodsCountAsync**](docs/Api/PaymentMethodsApi.md#getpaymentmethodscountasync) | **GET** /api/v2/PaymentsService/PaymentMethods/Count | Counts payment methods
+*PaymentMethodsApi* | [**updatePaymentMethodAsync**](docs/Api/PaymentMethodsApi.md#updatepaymentmethodasync) | **PUT** /api/v2/PaymentsService/PaymentMethods/{paymentMethodId} | Updates a payment method
+*PaymentModesApi* | [**createPaymentModeAsync**](docs/Api/PaymentModesApi.md#createpaymentmodeasync) | **POST** /api/v2/PaymentsService/PaymentModes | Creates a new payment mode
+*PaymentModesApi* | [**deletePaymentModeAsync**](docs/Api/PaymentModesApi.md#deletepaymentmodeasync) | **DELETE** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Deletes a payment mode
+*PaymentModesApi* | [**getPaymentModeDetailsAsync**](docs/Api/PaymentModesApi.md#getpaymentmodedetailsasync) | **GET** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Gets a payment mode by ID
+*PaymentModesApi* | [**getPaymentModesAsync**](docs/Api/PaymentModesApi.md#getpaymentmodesasync) | **GET** /api/v2/PaymentsService/PaymentModes | Retrieves all payment modes
+*PaymentModesApi* | [**getPaymentModesCountAsync**](docs/Api/PaymentModesApi.md#getpaymentmodescountasync) | **GET** /api/v2/PaymentsService/PaymentModes/Count | Counts payment modes
+*PaymentModesApi* | [**updatePaymentModeAsync**](docs/Api/PaymentModesApi.md#updatepaymentmodeasync) | **PUT** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Updates a payment mode
+*PaymentTermsApi* | [**createPaymentTermAsync**](docs/Api/PaymentTermsApi.md#createpaymenttermasync) | **POST** /api/v2/PaymentsService/PaymentTerms | Creates a new payment term
+*PaymentTermsApi* | [**deletePaymentTermAsync**](docs/Api/PaymentTermsApi.md#deletepaymenttermasync) | **DELETE** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Deletes a payment term
+*PaymentTermsApi* | [**getPaymentTermDetailsAsync**](docs/Api/PaymentTermsApi.md#getpaymenttermdetailsasync) | **GET** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Gets a payment term by ID
+*PaymentTermsApi* | [**getPaymentTermsAsync**](docs/Api/PaymentTermsApi.md#getpaymenttermsasync) | **GET** /api/v2/PaymentsService/PaymentTerms | Retrieves all payment terms
+*PaymentTermsApi* | [**getPaymentTermsCountAsync**](docs/Api/PaymentTermsApi.md#getpaymenttermscountasync) | **GET** /api/v2/PaymentsService/PaymentTerms/Count | Counts payment terms
+*PaymentTermsApi* | [**updatePaymentTermAsync**](docs/Api/PaymentTermsApi.md#updatepaymenttermasync) | **PUT** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Updates a payment term
+*PaymentsApi* | [**createPaymentAsync**](docs/Api/PaymentsApi.md#createpaymentasync) | **POST** /api/v2/PaymentsService/Payments | Creates a new payment
+*PaymentsApi* | [**deletePaymentAsync**](docs/Api/PaymentsApi.md#deletepaymentasync) | **DELETE** /api/v2/PaymentsService/Payments/{paymentId} | Deletes a payment
+*PaymentsApi* | [**getPaymentAsync**](docs/Api/PaymentsApi.md#getpaymentasync) | **GET** /api/v2/PaymentsService/Payments/{paymentId}/Details | Gets a payment by ID (deprecated)
+*PaymentsApi* | [**getPaymentAsyncV2**](docs/Api/PaymentsApi.md#getpaymentasyncv2) | **GET** /api/v2/PaymentsService/Payments/{paymentId} | Gets a payment by ID
+*PaymentsApi* | [**getPaymentsAsync**](docs/Api/PaymentsApi.md#getpaymentsasync) | **GET** /api/v2/PaymentsService/Payments | Retrieves all payments
+*PaymentsApi* | [**updatePaymentAsync**](docs/Api/PaymentsApi.md#updatepaymentasync) | **PUT** /api/v2/PaymentsService/Payments/{paymentId} | Updates a payment
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
+- [Int32Envelope](docs/Model/Int32Envelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [PaymentCreateDto](docs/Model/PaymentCreateDto.md)
 - [PaymentDto](docs/Model/PaymentDto.md)
 - [PaymentDtoListEnvelope](docs/Model/PaymentDtoListEnvelope.md)
+- [PaymentMethodCreateDto](docs/Model/PaymentMethodCreateDto.md)
+- [PaymentMethodDto](docs/Model/PaymentMethodDto.md)
+- [PaymentMethodDtoEnvelope](docs/Model/PaymentMethodDtoEnvelope.md)
+- [PaymentMethodDtoIReadOnlyListEnvelope](docs/Model/PaymentMethodDtoIReadOnlyListEnvelope.md)
+- [PaymentMethodUpdateDto](docs/Model/PaymentMethodUpdateDto.md)
+- [PaymentModeCreateDto](docs/Model/PaymentModeCreateDto.md)
+- [PaymentModeDto](docs/Model/PaymentModeDto.md)
+- [PaymentModeDtoEnvelope](docs/Model/PaymentModeDtoEnvelope.md)
+- [PaymentModeDtoIReadOnlyListEnvelope](docs/Model/PaymentModeDtoIReadOnlyListEnvelope.md)
+- [PaymentModeUpdateDto](docs/Model/PaymentModeUpdateDto.md)
+- [PaymentTermCreateDto](docs/Model/PaymentTermCreateDto.md)
+- [PaymentTermDto](docs/Model/PaymentTermDto.md)
+- [PaymentTermDtoEnvelope](docs/Model/PaymentTermDtoEnvelope.md)
+- [PaymentTermDtoIReadOnlyListEnvelope](docs/Model/PaymentTermDtoIReadOnlyListEnvelope.md)
+- [PaymentTermUpdateDto](docs/Model/PaymentTermUpdateDto.md)
 - [PaymentUpdateDto](docs/Model/PaymentUpdateDto.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -122,6 +167,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

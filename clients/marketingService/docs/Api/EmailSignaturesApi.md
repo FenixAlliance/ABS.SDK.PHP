@@ -4,21 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceEmailSignaturesCountGet()**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesCountGet) | **GET** /api/v2/MarketingService/EmailSignatures/Count |  |
-| [**apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete()**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete) | **DELETE** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} |  |
-| [**apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet()**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet) | **GET** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} |  |
-| [**apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut()**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut) | **PUT** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} |  |
-| [**apiV2MarketingServiceEmailSignaturesGet()**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesGet) | **GET** /api/v2/MarketingService/EmailSignatures |  |
-| [**apiV2MarketingServiceEmailSignaturesPost()**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesPost) | **POST** /api/v2/MarketingService/EmailSignatures |  |
+| [**createEmailSignatureAsync()**](EmailSignaturesApi.md#createEmailSignatureAsync) | **POST** /api/v2/MarketingService/EmailSignatures | Create an email signature |
+| [**deleteEmailSignatureAsync()**](EmailSignaturesApi.md#deleteEmailSignatureAsync) | **DELETE** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Delete an email signature |
+| [**getEmailSignatureDetailsAsync()**](EmailSignaturesApi.md#getEmailSignatureDetailsAsync) | **GET** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Get email signature by ID |
+| [**getEmailSignaturesCountAsync()**](EmailSignaturesApi.md#getEmailSignaturesCountAsync) | **GET** /api/v2/MarketingService/EmailSignatures/Count | Get email signatures count |
+| [**getEmailSignaturesODataAsync()**](EmailSignaturesApi.md#getEmailSignaturesODataAsync) | **GET** /api/v2/MarketingService/EmailSignatures | Get email signatures |
+| [**updateEmailSignatureAsync()**](EmailSignaturesApi.md#updateEmailSignatureAsync) | **PUT** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Update an email signature |
 
 
-## `apiV2MarketingServiceEmailSignaturesCountGet()`
+## `createEmailSignatureAsync()`
 
 ```php
-apiV2MarketingServiceEmailSignaturesCountGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+createEmailSignatureAsync($tenant_id, $email_signature_create_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create an email signature
 
+Creates a new email signature for the specified tenant.
 
 ### Example
 
@@ -27,27 +29,22 @@ apiV2MarketingServiceEmailSignaturesCountGet($tenant_id, $api_version, $x_api_ve
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$email_signature_create_dto = new \OpenAPI\Client\Model\EmailSignatureCreateDto(); // \OpenAPI\Client\Model\EmailSignatureCreateDto
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailSignaturesCountGet($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->createEmailSignatureAsync($tenant_id, $email_signature_create_dto, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailSignaturesApi->apiV2MarketingServiceEmailSignaturesCountGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailSignaturesApi->createEmailSignatureAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -56,33 +53,36 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **email_signature_create_dto** | [**\OpenAPI\Client\Model\EmailSignatureCreateDto**](../Model/EmailSignatureCreateDto.md)|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete()`
+## `deleteEmailSignatureAsync()`
 
 ```php
-apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete($tenant_id, $emailsignature_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete an email signature
 
+Deletes an email signature by its ID.
 
 ### Example
 
@@ -91,17 +91,11 @@ apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete($tenant_id, $emailsig
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $emailsignature_id = 'emailsignature_id_example'; // string
@@ -109,10 +103,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete($tenant_id, $emailsignature_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteEmailSignatureAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailSignaturesApi->apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailSignaturesApi->deleteEmailSignatureAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -131,7 +125,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -142,13 +136,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet()`
+## `getEmailSignatureDetailsAsync()`
 
 ```php
-apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet($tenant_id, $emailsignature_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailSignatureDtoEnvelope
+getEmailSignatureDetailsAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailSignatureDtoEnvelope
 ```
 
+Get email signature by ID
 
+Retrieves the details of a specific email signature by its ID.
 
 ### Example
 
@@ -157,17 +153,11 @@ apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet($tenant_id, $emailsignat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $emailsignature_id = 'emailsignature_id_example'; // string
@@ -175,10 +165,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet($tenant_id, $emailsignature_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEmailSignatureDetailsAsync($tenant_id, $emailsignature_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailSignaturesApi->apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailSignaturesApi->getEmailSignatureDetailsAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -197,7 +187,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,13 +198,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut()`
+## `getEmailSignaturesCountAsync()`
 
 ```php
-apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut($tenant_id, $emailsignature_id, $email_signature_update_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+getEmailSignaturesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
+Get email signatures count
 
+Returns the count of email signatures for the specified tenant using OData query options.
 
 ### Example
 
@@ -223,17 +215,131 @@ apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut($tenant_id, $emailsignat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getEmailSignaturesCountAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailSignaturesApi->getEmailSignaturesCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEmailSignaturesODataAsync()`
+
+```php
+getEmailSignaturesODataAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailSignatureDtoListEnvelope
+```
+
+Get email signatures
+
+Retrieves a collection of email signatures for the specified tenant using OData query options.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getEmailSignaturesODataAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailSignaturesApi->getEmailSignaturesODataAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmailSignatureDtoListEnvelope**](../Model/EmailSignatureDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateEmailSignatureAsync()`
+
+```php
+updateEmailSignatureAsync($tenant_id, $emailsignature_id, $email_signature_update_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update an email signature
+
+Updates an existing email signature by its ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $emailsignature_id = 'emailsignature_id_example'; // string
@@ -242,10 +348,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut($tenant_id, $emailsignature_id, $email_signature_update_dto, $api_version, $x_api_version);
+    $result = $apiInstance->updateEmailSignatureAsync($tenant_id, $emailsignature_id, $email_signature_update_dto, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmailSignaturesApi->apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailSignaturesApi->updateEmailSignatureAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -265,137 +371,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `application/xml`
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2MarketingServiceEmailSignaturesGet()`
-
-```php
-apiV2MarketingServiceEmailSignaturesGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmailSignatureDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2MarketingServiceEmailSignaturesGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EmailSignaturesApi->apiV2MarketingServiceEmailSignaturesGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmailSignatureDtoListEnvelope**](../Model/EmailSignatureDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2MarketingServiceEmailSignaturesPost()`
-
-```php
-apiV2MarketingServiceEmailSignaturesPost($tenant_id, $email_signature_create_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\EmailSignaturesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$email_signature_create_dto = new \OpenAPI\Client\Model\EmailSignatureCreateDto(); // \OpenAPI\Client\Model\EmailSignatureCreateDto
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2MarketingServiceEmailSignaturesPost($tenant_id, $email_signature_create_dto, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EmailSignaturesApi->apiV2MarketingServiceEmailSignaturesPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **email_signature_create_dto** | [**\OpenAPI\Client\Model\EmailSignatureCreateDto**](../Model/EmailSignatureCreateDto.md)|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

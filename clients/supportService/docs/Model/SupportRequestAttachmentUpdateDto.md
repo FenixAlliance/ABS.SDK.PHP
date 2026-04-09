@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **valid_response** | **bool** |  | [optional]
 **parent_file_upload_id** | **string** |  | [optional]
 **file_path** | **string** |  | [optional]
-**file** | **\SplFileObject** |  | [optional]
 **content_type** | **string** |  | [optional]
 **file_length** | **int** |  | [optional]
 

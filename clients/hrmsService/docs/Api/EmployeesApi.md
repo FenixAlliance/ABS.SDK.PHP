@@ -4,12 +4,12 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createEmployeeAsync()**](EmployeesApi.md#createEmployeeAsync) | **POST** /api/v2/HrmsService/Employees |  |
-| [**deleteEmployeeAsync()**](EmployeesApi.md#deleteEmployeeAsync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} |  |
-| [**getEmployeeByIdAsync()**](EmployeesApi.md#getEmployeeByIdAsync) | **GET** /api/v2/HrmsService/Employees/{employeeId} |  |
-| [**getEmployeesAsync()**](EmployeesApi.md#getEmployeesAsync) | **GET** /api/v2/HrmsService/Employees |  |
-| [**getEmployeesCountAsync()**](EmployeesApi.md#getEmployeesCountAsync) | **GET** /api/v2/HrmsService/Employees/Count |  |
-| [**updateEmployeeAsync()**](EmployeesApi.md#updateEmployeeAsync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} |  |
+| [**createEmployeeAsync()**](EmployeesApi.md#createEmployeeAsync) | **POST** /api/v2/HrmsService/Employees | Create an employee |
+| [**deleteEmployeeAsync()**](EmployeesApi.md#deleteEmployeeAsync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} | Delete an employee |
+| [**getEmployeeByIdAsync()**](EmployeesApi.md#getEmployeeByIdAsync) | **GET** /api/v2/HrmsService/Employees/{employeeId} | Get employee by ID |
+| [**getEmployeesAsync()**](EmployeesApi.md#getEmployeesAsync) | **GET** /api/v2/HrmsService/Employees | Get employees |
+| [**getEmployeesCountAsync()**](EmployeesApi.md#getEmployeesCountAsync) | **GET** /api/v2/HrmsService/Employees/Count | Count employees |
+| [**updateEmployeeAsync()**](EmployeesApi.md#updateEmployeeAsync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} | Update an employee |
 
 
 ## `createEmployeeAsync()`
@@ -18,7 +18,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 createEmployeeAsync($tenant_id, $api_version, $x_api_version, $employee_profile_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create an employee
 
+Creates a new employee for the specified tenant.
 
 ### Example
 
@@ -27,17 +29,11 @@ createEmployeeAsync($tenant_id, $api_version, $x_api_version, $employee_profile_
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -67,7 +63,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -84,7 +80,9 @@ try {
 deleteEmployeeAsync($tenant_id, $employee_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete an employee
 
+Deletes an employee for the specified tenant.
 
 ### Example
 
@@ -93,17 +91,11 @@ deleteEmployeeAsync($tenant_id, $employee_id, $api_version, $x_api_version): \Op
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $employee_id = 'employee_id_example'; // string
@@ -133,7 +125,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -150,7 +142,9 @@ try {
 getEmployeeByIdAsync($tenant_id, $employee_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmployeeProfileDtoEnvelope
 ```
 
+Get employee by ID
 
+Retrieves a specific employee by its identifier.
 
 ### Example
 
@@ -159,17 +153,11 @@ getEmployeeByIdAsync($tenant_id, $employee_id, $api_version, $x_api_version): \O
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $employee_id = 'employee_id_example'; // string
@@ -199,7 +187,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -216,7 +204,9 @@ try {
 getEmployeesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmployeeProfileDtoListEnvelope
 ```
 
+Get employees
 
+Retrieves employees for the specified tenant.
 
 ### Example
 
@@ -225,17 +215,11 @@ getEmployeesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Mod
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -263,7 +247,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -280,7 +264,9 @@ try {
 getEmployeesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
+Count employees
 
+Counts employees for the specified tenant.
 
 ### Example
 
@@ -289,17 +275,11 @@ getEmployeesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Clien
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -327,7 +307,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -344,7 +324,9 @@ try {
 updateEmployeeAsync($tenant_id, $employee_id, $api_version, $x_api_version, $body): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Update an employee
 
+Updates an existing employee for the specified tenant.
 
 ### Example
 
@@ -353,17 +335,11 @@ updateEmployeeAsync($tenant_id, $employee_id, $api_version, $x_api_version, $bod
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\EmployeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $employee_id = 'employee_id_example'; // string
@@ -395,7 +371,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

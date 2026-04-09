@@ -50,27 +50,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-
-$apiInstance = new OpenAPI\Client\Api\PermissionsApi(
+$apiInstance = new OpenAPI\Client\Api\ApplicationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$business_application_create_dto = new \OpenAPI\Client\Model\BusinessApplicationCreateDto(); // \OpenAPI\Client\Model\BusinessApplicationCreateDto
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SecurityServicePermissionsGet($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->createBusinessApplicationAsync($tenant_id, $business_application_create_dto, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PermissionsApi->apiV2SecurityServicePermissionsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApplicationsApi->createBusinessApplicationAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -81,56 +76,130 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PermissionsApi* | [**apiV2SecurityServicePermissionsGet**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionsget) | **GET** /api/v2/SecurityService/Permissions | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsPost**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionspost) | **POST** /api/v2/SecurityService/Permissions | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidapplicationsapplicationiddelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidapplicationsapplicationidpost) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdDelete**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissioniddelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidenrollmentsenrollmentiddelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidenrollmentsenrollmentidpost) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidenrollmentsget) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdGet**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidget) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdPut**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidput) | **PUT** /api/v2/SecurityService/Permissions/{securityPermissionId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidrolessecurityroleiddelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | 
-*PermissionsApi* | [**apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost**](docs/Api/PermissionsApi.md#apiv2securityservicepermissionssecuritypermissionidrolessecurityroleidpost) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesGet**](docs/Api/RolesApi.md#apiv2securityservicerolesget) | **GET** /api/v2/SecurityService/Roles | 
-*RolesApi* | [**apiV2SecurityServiceRolesPost**](docs/Api/RolesApi.md#apiv2securityservicerolespost) | **POST** /api/v2/SecurityService/Roles | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidapplicationsapplicationiddelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidapplicationsapplicationidpost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdDelete**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleiddelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidenrollmentsenrollmentiddelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidenrollmentsenrollmentidpost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidenrollmentsget) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdGet**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidget) | **GET** /api/v2/SecurityService/Roles/{securityRoleId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidpermissionsget) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidpermissionssecuritypermissioniddelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidpermissionssecuritypermissionidpost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | 
-*RolesApi* | [**apiV2SecurityServiceRolesSecurityRoleIdPut**](docs/Api/RolesApi.md#apiv2securityservicerolessecurityroleidput) | **PUT** /api/v2/SecurityService/Roles/{securityRoleId} | 
+*ApplicationsApi* | [**createBusinessApplicationAsync**](docs/Api/ApplicationsApi.md#createbusinessapplicationasync) | **POST** /api/v2/SecurityService/Applications | Create a new business application
+*ApplicationsApi* | [**deleteBusinessApplicationAsync**](docs/Api/ApplicationsApi.md#deletebusinessapplicationasync) | **DELETE** /api/v2/SecurityService/Applications/{applicationId} | Delete a business application
+*ApplicationsApi* | [**getBusinessApplicationByIdAsync**](docs/Api/ApplicationsApi.md#getbusinessapplicationbyidasync) | **GET** /api/v2/SecurityService/Applications/{applicationId} | Get business application by ID
+*ApplicationsApi* | [**getBusinessApplicationsAsync**](docs/Api/ApplicationsApi.md#getbusinessapplicationsasync) | **GET** /api/v2/SecurityService/Applications | Get all business applications
+*ApplicationsApi* | [**getBusinessApplicationsCountAsync**](docs/Api/ApplicationsApi.md#getbusinessapplicationscountasync) | **GET** /api/v2/SecurityService/Applications/Count | Get business applications count
+*ApplicationsApi* | [**updateBusinessApplicationAsync**](docs/Api/ApplicationsApi.md#updatebusinessapplicationasync) | **PUT** /api/v2/SecurityService/Applications/{applicationId} | Update an existing business application
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*LogsApi* | [**getLogsAsync**](docs/Api/LogsApi.md#getlogsasync) | **GET** /api/v2/SecurityService/Logs | Get tenant logs
+*LogsApi* | [**getLogsCountAsync**](docs/Api/LogsApi.md#getlogscountasync) | **GET** /api/v2/SecurityService/Logs/Count | Get tenant logs count
+*OAuthApplicationsApi* | [**createOAuthApplicationAsync**](docs/Api/OAuthApplicationsApi.md#createoauthapplicationasync) | **POST** /api/v2/SecurityService/OAuthApplications | Create a new OAuth application
+*OAuthApplicationsApi* | [**deleteOAuthApplicationAsync**](docs/Api/OAuthApplicationsApi.md#deleteoauthapplicationasync) | **DELETE** /api/v2/SecurityService/OAuthApplications/{applicationId} | Delete an OAuth application
+*OAuthApplicationsApi* | [**getOAuthApplicationByIdAsync**](docs/Api/OAuthApplicationsApi.md#getoauthapplicationbyidasync) | **GET** /api/v2/SecurityService/OAuthApplications/{applicationId} | Get OAuth application by ID
+*OAuthApplicationsApi* | [**getOAuthApplicationsAsync**](docs/Api/OAuthApplicationsApi.md#getoauthapplicationsasync) | **GET** /api/v2/SecurityService/OAuthApplications | Get all OAuth applications
+*OAuthApplicationsApi* | [**getOAuthApplicationsCountAsync**](docs/Api/OAuthApplicationsApi.md#getoauthapplicationscountasync) | **GET** /api/v2/SecurityService/OAuthApplications/Count | Get OAuth applications count
+*OAuthApplicationsApi* | [**getOAuthAuthorizationByIdAsync**](docs/Api/OAuthApplicationsApi.md#getoauthauthorizationbyidasync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/{authorizationId} | Get OAuth authorization by ID
+*OAuthApplicationsApi* | [**getOAuthAuthorizationsAsync**](docs/Api/OAuthApplicationsApi.md#getoauthauthorizationsasync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations | Get all OAuth authorizations
+*OAuthApplicationsApi* | [**getOAuthAuthorizationsCountAsync**](docs/Api/OAuthApplicationsApi.md#getoauthauthorizationscountasync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/Count | Get OAuth authorizations count
+*OAuthApplicationsApi* | [**updateOAuthApplicationAsync**](docs/Api/OAuthApplicationsApi.md#updateoauthapplicationasync) | **PUT** /api/v2/SecurityService/OAuthApplications/{applicationId} | Update an existing OAuth application
+*PermissionsApi* | [**assignPermissionToBusinessApplicationAsync**](docs/Api/PermissionsApi.md#assignpermissiontobusinessapplicationasync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Assign a permission to a business application
+*PermissionsApi* | [**assignPermissionToEnrollmentAsync**](docs/Api/PermissionsApi.md#assignpermissiontoenrollmentasync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Assign a permission to an enrollment
+*PermissionsApi* | [**assignRoleToPermissionAsync**](docs/Api/PermissionsApi.md#assignroletopermissionasync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Assign a role to a permission
+*PermissionsApi* | [**createPermissionAsync**](docs/Api/PermissionsApi.md#createpermissionasync) | **POST** /api/v2/SecurityService/Permissions | Create a new permission
+*PermissionsApi* | [**deletePermissionAsync**](docs/Api/PermissionsApi.md#deletepermissionasync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId} | Delete an existing permission
+*PermissionsApi* | [**getApplicationsByPermissionAsync**](docs/Api/PermissionsApi.md#getapplicationsbypermissionasync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications | Get applications by permission
+*PermissionsApi* | [**getEnrollmentsByPermissionAsync**](docs/Api/PermissionsApi.md#getenrollmentsbypermissionasync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments | Get enrollments by permission
+*PermissionsApi* | [**getPermissionAsync**](docs/Api/PermissionsApi.md#getpermissionasync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId} | Get permission by ID
+*PermissionsApi* | [**getPermissionsAsync**](docs/Api/PermissionsApi.md#getpermissionsasync) | **GET** /api/v2/SecurityService/Permissions | Get all permissions
+*PermissionsApi* | [**getPermissionsByEnrollmentAsync**](docs/Api/PermissionsApi.md#getpermissionsbyenrollmentasync) | **GET** /api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId} | Get permissions by enrollment
+*PermissionsApi* | [**getPermissionsCountAsync**](docs/Api/PermissionsApi.md#getpermissionscountasync) | **GET** /api/v2/SecurityService/Permissions/Count | Get permissions count
+*PermissionsApi* | [**getRolesByPermissionAsync**](docs/Api/PermissionsApi.md#getrolesbypermissionasync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles | Get roles by permission
+*PermissionsApi* | [**revokePermissionFromBusinessApplicationAsync**](docs/Api/PermissionsApi.md#revokepermissionfrombusinessapplicationasync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Revoke a permission from a business application
+*PermissionsApi* | [**revokePermissionFromEnrollmentAsync**](docs/Api/PermissionsApi.md#revokepermissionfromenrollmentasync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Revoke a permission from an enrollment
+*PermissionsApi* | [**revokeRoleFromPermissionAsync**](docs/Api/PermissionsApi.md#revokerolefrompermissionasync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Revoke a role from a permission
+*PermissionsApi* | [**updatePermissionAsync**](docs/Api/PermissionsApi.md#updatepermissionasync) | **PUT** /api/v2/SecurityService/Permissions/{securityPermissionId} | Update an existing permission
+*RolesApi* | [**assignPermissionToRoleAsync**](docs/Api/RolesApi.md#assignpermissiontoroleasync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Assign a permission to a role
+*RolesApi* | [**assignRoleToBusinessApplicationAsync**](docs/Api/RolesApi.md#assignroletobusinessapplicationasync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Assign a role to a business application
+*RolesApi* | [**assignRoleToEnrollmentAsync**](docs/Api/RolesApi.md#assignroletoenrollmentasync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Assign a role to an enrollment
+*RolesApi* | [**createRoleAsync**](docs/Api/RolesApi.md#createroleasync) | **POST** /api/v2/SecurityService/Roles | Create a new role
+*RolesApi* | [**deleteRoleAsync**](docs/Api/RolesApi.md#deleteroleasync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId} | Delete an existing role
+*RolesApi* | [**getApplicationsByRoleAsync**](docs/Api/RolesApi.md#getapplicationsbyroleasync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Applications | Get applications by role
+*RolesApi* | [**getEnrollmentsByRoleAsync**](docs/Api/RolesApi.md#getenrollmentsbyroleasync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments | Get enrollments by role
+*RolesApi* | [**getRoleAsync**](docs/Api/RolesApi.md#getroleasync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId} | Get role by ID
+*RolesApi* | [**getRolePermissionsAsync**](docs/Api/RolesApi.md#getrolepermissionsasync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions | Get permissions by role
+*RolesApi* | [**getRolesAsync**](docs/Api/RolesApi.md#getrolesasync) | **GET** /api/v2/SecurityService/Roles | Get all roles
+*RolesApi* | [**getRolesByEnrollmentAsync**](docs/Api/RolesApi.md#getrolesbyenrollmentasync) | **GET** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment
+*RolesApi* | [**getRolesCountAsync**](docs/Api/RolesApi.md#getrolescountasync) | **GET** /api/v2/SecurityService/Roles/Count | Get roles count
+*RolesApi* | [**revokePermissionFromRoleAsync**](docs/Api/RolesApi.md#revokepermissionfromroleasync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role
+*RolesApi* | [**revokeRoleFromBusinessApplicationAsync**](docs/Api/RolesApi.md#revokerolefrombusinessapplicationasync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application
+*RolesApi* | [**revokeRoleFromEnrollmentAsync**](docs/Api/RolesApi.md#revokerolefromenrollmentasync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment
+*RolesApi* | [**updateRoleAsync**](docs/Api/RolesApi.md#updateroleasync) | **PUT** /api/v2/SecurityService/Roles/{securityRoleId} | Update an existing role
+*SecurityCertificatesApi* | [**getSecurityCertificatesAsync**](docs/Api/SecurityCertificatesApi.md#getsecuritycertificatesasync) | **GET** /api/v2/SecurityService/SecurityCertificates | Get security certificates
+*SecurityCertificatesApi* | [**getSecurityCertificatesCountAsync**](docs/Api/SecurityCertificatesApi.md#getsecuritycertificatescountasync) | **GET** /api/v2/SecurityService/SecurityCertificates/Count | Get security certificates count
+*SecurityLogsApi* | [**getSecurityLogsAsync**](docs/Api/SecurityLogsApi.md#getsecuritylogsasync) | **GET** /api/v2/SecurityService/SecurityLogs | Get business security logs
+*SecurityLogsApi* | [**getSecurityLogsCountAsync**](docs/Api/SecurityLogsApi.md#getsecuritylogscountasync) | **GET** /api/v2/SecurityService/SecurityLogs/Count | Get business security logs count
+*WebhooksApi* | [**getWebhookRequestsAsync**](docs/Api/WebhooksApi.md#getwebhookrequestsasync) | **GET** /api/v2/SecurityService/Webhooks | Get all webhook requests
+*WebhooksApi* | [**getWebhookRequestsCountAsync**](docs/Api/WebhooksApi.md#getwebhookrequestscountasync) | **GET** /api/v2/SecurityService/Webhooks/Count | Get webhook requests count
 
 ## Models
 
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [BusinessApplicationCreateDto](docs/Model/BusinessApplicationCreateDto.md)
+- [BusinessApplicationDto](docs/Model/BusinessApplicationDto.md)
+- [BusinessApplicationDtoEnvelope](docs/Model/BusinessApplicationDtoEnvelope.md)
+- [BusinessApplicationDtoListEnvelope](docs/Model/BusinessApplicationDtoListEnvelope.md)
+- [BusinessApplicationSimpleDto](docs/Model/BusinessApplicationSimpleDto.md)
+- [BusinessApplicationSimpleDtoListEnvelope](docs/Model/BusinessApplicationSimpleDtoListEnvelope.md)
+- [BusinessApplicationUpdateDto](docs/Model/BusinessApplicationUpdateDto.md)
+- [BusinessSecurityLogDto](docs/Model/BusinessSecurityLogDto.md)
+- [BusinessSecurityLogDtoListEnvelope](docs/Model/BusinessSecurityLogDtoListEnvelope.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
+- [Int32Envelope](docs/Model/Int32Envelope.md)
+- [LogDto](docs/Model/LogDto.md)
+- [LogDtoListEnvelope](docs/Model/LogDtoListEnvelope.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
+- [OAuthApplicationCreateDto](docs/Model/OAuthApplicationCreateDto.md)
+- [OAuthApplicationDto](docs/Model/OAuthApplicationDto.md)
+- [OAuthApplicationDtoEnvelope](docs/Model/OAuthApplicationDtoEnvelope.md)
+- [OAuthApplicationDtoListEnvelope](docs/Model/OAuthApplicationDtoListEnvelope.md)
+- [OAuthApplicationUpdateDto](docs/Model/OAuthApplicationUpdateDto.md)
+- [OAuthAuthorizationDto](docs/Model/OAuthAuthorizationDto.md)
+- [OAuthAuthorizationDtoEnvelope](docs/Model/OAuthAuthorizationDtoEnvelope.md)
+- [OAuthAuthorizationDtoListEnvelope](docs/Model/OAuthAuthorizationDtoListEnvelope.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [SecurityCertificateDto](docs/Model/SecurityCertificateDto.md)
+- [SecurityCertificateDtoListEnvelope](docs/Model/SecurityCertificateDtoListEnvelope.md)
 - [SecurityPermissionCreateDto](docs/Model/SecurityPermissionCreateDto.md)
 - [SecurityPermissionDto](docs/Model/SecurityPermissionDto.md)
+- [SecurityPermissionDtoEnvelope](docs/Model/SecurityPermissionDtoEnvelope.md)
 - [SecurityPermissionDtoListEnvelope](docs/Model/SecurityPermissionDtoListEnvelope.md)
 - [SecurityPermissionUpdateDto](docs/Model/SecurityPermissionUpdateDto.md)
 - [SecurityRoleCreateDto](docs/Model/SecurityRoleCreateDto.md)
 - [SecurityRoleDto](docs/Model/SecurityRoleDto.md)
+- [SecurityRoleDtoEnvelope](docs/Model/SecurityRoleDtoEnvelope.md)
 - [SecurityRoleDtoListEnvelope](docs/Model/SecurityRoleDtoListEnvelope.md)
 - [SecurityRoleUpdateDto](docs/Model/SecurityRoleUpdateDto.md)
-- [TenantEnrolmentDto](docs/Model/TenantEnrolmentDto.md)
-- [TenantEnrolmentDtoListEnvelope](docs/Model/TenantEnrolmentDtoListEnvelope.md)
+- [TenantEnrollmentDto](docs/Model/TenantEnrollmentDto.md)
+- [TenantEnrollmentDtoListEnvelope](docs/Model/TenantEnrollmentDtoListEnvelope.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
+- [WebhookRequestDto](docs/Model/WebhookRequestDto.md)
+- [WebhookRequestDtoListEnvelope](docs/Model/WebhookRequestDtoListEnvelope.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -149,6 +218,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

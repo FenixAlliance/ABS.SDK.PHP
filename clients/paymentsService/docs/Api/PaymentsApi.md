@@ -4,21 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2PaymentsServicePaymentsGet()**](PaymentsApi.md#apiV2PaymentsServicePaymentsGet) | **GET** /api/v2/PaymentsService/Payments |  |
-| [**apiV2PaymentsServicePaymentsPaymentIdDelete()**](PaymentsApi.md#apiV2PaymentsServicePaymentsPaymentIdDelete) | **DELETE** /api/v2/PaymentsService/Payments/{paymentId} |  |
-| [**apiV2PaymentsServicePaymentsPaymentIdDetailsGet()**](PaymentsApi.md#apiV2PaymentsServicePaymentsPaymentIdDetailsGet) | **GET** /api/v2/PaymentsService/Payments/{paymentId}/Details |  |
-| [**apiV2PaymentsServicePaymentsPaymentIdGet()**](PaymentsApi.md#apiV2PaymentsServicePaymentsPaymentIdGet) | **GET** /api/v2/PaymentsService/Payments/{paymentId} |  |
-| [**apiV2PaymentsServicePaymentsPaymentIdPut()**](PaymentsApi.md#apiV2PaymentsServicePaymentsPaymentIdPut) | **PUT** /api/v2/PaymentsService/Payments/{paymentId} |  |
-| [**apiV2PaymentsServicePaymentsPost()**](PaymentsApi.md#apiV2PaymentsServicePaymentsPost) | **POST** /api/v2/PaymentsService/Payments |  |
+| [**createPaymentAsync()**](PaymentsApi.md#createPaymentAsync) | **POST** /api/v2/PaymentsService/Payments | Creates a new payment |
+| [**deletePaymentAsync()**](PaymentsApi.md#deletePaymentAsync) | **DELETE** /api/v2/PaymentsService/Payments/{paymentId} | Deletes a payment |
+| [**getPaymentAsync()**](PaymentsApi.md#getPaymentAsync) | **GET** /api/v2/PaymentsService/Payments/{paymentId}/Details | Gets a payment by ID (deprecated) |
+| [**getPaymentAsyncV2()**](PaymentsApi.md#getPaymentAsyncV2) | **GET** /api/v2/PaymentsService/Payments/{paymentId} | Gets a payment by ID |
+| [**getPaymentsAsync()**](PaymentsApi.md#getPaymentsAsync) | **GET** /api/v2/PaymentsService/Payments | Retrieves all payments |
+| [**updatePaymentAsync()**](PaymentsApi.md#updatePaymentAsync) | **PUT** /api/v2/PaymentsService/Payments/{paymentId} | Updates a payment |
 
 
-## `apiV2PaymentsServicePaymentsGet()`
+## `createPaymentAsync()`
 
 ```php
-apiV2PaymentsServicePaymentsGet($tenant_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+createPaymentAsync($tenant_id, $payment_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Creates a new payment
 
+Creates a new payment for the current tenant.
 
 ### Example
 
@@ -27,25 +29,20 @@ apiV2PaymentsServicePaymentsGet($tenant_id): \OpenAPI\Client\Model\PaymentDtoLis
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$payment_create_dto = new \OpenAPI\Client\Model\PaymentCreateDto(); // \OpenAPI\Client\Model\PaymentCreateDto
 
 try {
-    $result = $apiInstance->apiV2PaymentsServicePaymentsGet($tenant_id);
+    $result = $apiInstance->createPaymentAsync($tenant_id, $payment_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->apiV2PaymentsServicePaymentsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->createPaymentAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -54,31 +51,34 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **payment_create_dto** | [**\OpenAPI\Client\Model\PaymentCreateDto**](../Model/PaymentCreateDto.md)|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaymentDtoListEnvelope**](../Model/PaymentDtoListEnvelope.md)
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2PaymentsServicePaymentsPaymentIdDelete()`
+## `deletePaymentAsync()`
 
 ```php
-apiV2PaymentsServicePaymentsPaymentIdDelete($tenant_id, $payment_id): \OpenAPI\Client\Model\EmptyEnvelope
+deletePaymentAsync($tenant_id, $payment_id): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Deletes a payment
 
+Deletes the specified payment.
 
 ### Example
 
@@ -87,26 +87,20 @@ apiV2PaymentsServicePaymentsPaymentIdDelete($tenant_id, $payment_id): \OpenAPI\C
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $payment_id = 'payment_id_example'; // string
 
 try {
-    $result = $apiInstance->apiV2PaymentsServicePaymentsPaymentIdDelete($tenant_id, $payment_id);
+    $result = $apiInstance->deletePaymentAsync($tenant_id, $payment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->apiV2PaymentsServicePaymentsPaymentIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->deletePaymentAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -123,7 +117,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -134,13 +128,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2PaymentsServicePaymentsPaymentIdDetailsGet()`
+## `getPaymentAsync()`
 
 ```php
-apiV2PaymentsServicePaymentsPaymentIdDetailsGet($payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getPaymentAsync($payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
+Gets a payment by ID (deprecated)
 
+Retrieves a payment using the deprecated /Details route. Use GET {paymentId} instead.
 
 ### Example
 
@@ -149,25 +145,19 @@ apiV2PaymentsServicePaymentsPaymentIdDetailsGet($payment_id): \OpenAPI\Client\Mo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $payment_id = 'payment_id_example'; // string
 
 try {
-    $result = $apiInstance->apiV2PaymentsServicePaymentsPaymentIdDetailsGet($payment_id);
+    $result = $apiInstance->getPaymentAsync($payment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->apiV2PaymentsServicePaymentsPaymentIdDetailsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->getPaymentAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -183,7 +173,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -194,13 +184,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2PaymentsServicePaymentsPaymentIdGet()`
+## `getPaymentAsyncV2()`
 
 ```php
-apiV2PaymentsServicePaymentsPaymentIdGet($payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getPaymentAsyncV2($payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
+Gets a payment by ID
 
+Retrieves the details of a payment using its unique identifier.
 
 ### Example
 
@@ -209,25 +201,19 @@ apiV2PaymentsServicePaymentsPaymentIdGet($payment_id): \OpenAPI\Client\Model\Pay
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $payment_id = 'payment_id_example'; // string
 
 try {
-    $result = $apiInstance->apiV2PaymentsServicePaymentsPaymentIdGet($payment_id);
+    $result = $apiInstance->getPaymentAsyncV2($payment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->apiV2PaymentsServicePaymentsPaymentIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->getPaymentAsyncV2: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -243,7 +229,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -254,13 +240,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2PaymentsServicePaymentsPaymentIdPut()`
+## `getPaymentsAsync()`
 
 ```php
-apiV2PaymentsServicePaymentsPaymentIdPut($tenant_id, $payment_id, $payment_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+getPaymentsAsync($tenant_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
+Retrieves all payments
 
+Gets all payments for the current tenant with OData support.
 
 ### Example
 
@@ -269,27 +257,77 @@ apiV2PaymentsServicePaymentsPaymentIdPut($tenant_id, $payment_id, $payment_updat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getPaymentsAsync($tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PaymentsApi->getPaymentsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\PaymentDtoListEnvelope**](../Model/PaymentDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updatePaymentAsync()`
+
+```php
+updatePaymentAsync($tenant_id, $payment_id, $payment_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Updates a payment
+
+Updates the specified payment.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $payment_id = 'payment_id_example'; // string
 $payment_update_dto = new \OpenAPI\Client\Model\PaymentUpdateDto(); // \OpenAPI\Client\Model\PaymentUpdateDto
 
 try {
-    $result = $apiInstance->apiV2PaymentsServicePaymentsPaymentIdPut($tenant_id, $payment_id, $payment_update_dto);
+    $result = $apiInstance->updatePaymentAsync($tenant_id, $payment_id, $payment_update_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->apiV2PaymentsServicePaymentsPaymentIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->updatePaymentAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -307,69 +345,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `application/xml`
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2PaymentsServicePaymentsPost()`
-
-```php
-apiV2PaymentsServicePaymentsPost($tenant_id, $payment_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$payment_create_dto = new \OpenAPI\Client\Model\PaymentCreateDto(); // \OpenAPI\Client\Model\PaymentCreateDto
-
-try {
-    $result = $apiInstance->apiV2PaymentsServicePaymentsPost($tenant_id, $payment_create_dto);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->apiV2PaymentsServicePaymentsPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **payment_create_dto** | [**\OpenAPI\Client\Model\PaymentCreateDto**](../Model/PaymentCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

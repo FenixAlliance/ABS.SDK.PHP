@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
+**id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **code** | **string** |  | [optional]
 **country_id** | **string** |  | [optional]

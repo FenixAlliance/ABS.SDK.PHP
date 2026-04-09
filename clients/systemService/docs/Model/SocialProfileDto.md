@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **notifications_count** | **int** |  | [optional]
 **unread_notifications_count** | **int** |  | [optional]
 **unread_messages_count** | **int** |  | [optional]
-**type** | **int** |  | [optional]
+**type** | **string** |  | [optional]
 **social_feed_id** | **string** |  | [optional]
 **twitter_url** | **string** |  | [optional]
 **facebook_url** | **string** |  | [optional]

@@ -4,19 +4,21 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2CrmServiceSyncMePost()**](SyncApi.md#apiV2CrmServiceSyncMePost) | **POST** /api/v2/CrmService/Sync/Me |  |
-| [**apiV2CrmServiceSyncPost()**](SyncApi.md#apiV2CrmServiceSyncPost) | **POST** /api/v2/CrmService/Sync |  |
-| [**apiV2CrmServiceSyncTenantPost()**](SyncApi.md#apiV2CrmServiceSyncTenantPost) | **POST** /api/v2/CrmService/Sync/Tenant |  |
-| [**apiV2CrmServiceSyncUserPost()**](SyncApi.md#apiV2CrmServiceSyncUserPost) | **POST** /api/v2/CrmService/Sync/User |  |
+| [**syncCurrentHolderToCurrentTenantCrm()**](SyncApi.md#syncCurrentHolderToCurrentTenantCrm) | **POST** /api/v2/CrmService/Sync | Sync the current user into the current tenant&#39;s contact list |
+| [**syncCurrentHolderToTenantCrm()**](SyncApi.md#syncCurrentHolderToTenantCrm) | **POST** /api/v2/CrmService/Sync/Me | Sync the current user into a tenant&#39;s contact list |
+| [**syncHolderToTenantCrmAsync()**](SyncApi.md#syncHolderToTenantCrmAsync) | **POST** /api/v2/CrmService/Sync/User | Sync a user into a tenant&#39;s contact list |
+| [**syncTenantToTenantCrm()**](SyncApi.md#syncTenantToTenantCrm) | **POST** /api/v2/CrmService/Sync/Tenant | Sync a tenant into another tenant&#39;s contact list |
 
 
-## `apiV2CrmServiceSyncMePost()`
+## `syncCurrentHolderToCurrentTenantCrm()`
 
 ```php
-apiV2CrmServiceSyncMePost($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
+syncCurrentHolderToCurrentTenantCrm($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Envelope
 ```
 
+Sync the current user into the current tenant's contact list
 
+Synchronizes the currently authenticated user into the current tenant's CRM contact list.
 
 ### Example
 
@@ -25,27 +27,21 @@ apiV2CrmServiceSyncMePost($tenant_id, $api_version, $x_api_version): \OpenAPI\Cl
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SyncApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2CrmServiceSyncMePost($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->syncCurrentHolderToCurrentTenantCrm($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SyncApi->apiV2CrmServiceSyncMePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SyncApi->syncCurrentHolderToCurrentTenantCrm: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -59,11 +55,11 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ContactDtoListEnvelope**](../Model/ContactDtoListEnvelope.md)
+[**\OpenAPI\Client\Model\Envelope**](../Model/Envelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,13 +70,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2CrmServiceSyncPost()`
+## `syncCurrentHolderToTenantCrm()`
 
 ```php
-apiV2CrmServiceSyncPost($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
+syncCurrentHolderToTenantCrm($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Envelope
 ```
 
+Sync the current user into a tenant's contact list
 
+Synchronizes the currently authenticated user into the specified tenant's CRM contact list.
 
 ### Example
 
@@ -89,27 +87,21 @@ apiV2CrmServiceSyncPost($tenant_id, $api_version, $x_api_version): \OpenAPI\Clie
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SyncApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2CrmServiceSyncPost($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->syncCurrentHolderToTenantCrm($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SyncApi->apiV2CrmServiceSyncPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SyncApi->syncCurrentHolderToTenantCrm: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -123,11 +115,11 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ContactDtoListEnvelope**](../Model/ContactDtoListEnvelope.md)
+[**\OpenAPI\Client\Model\Envelope**](../Model/Envelope.md)
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -138,13 +130,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2CrmServiceSyncTenantPost()`
+## `syncHolderToTenantCrmAsync()`
 
 ```php
-apiV2CrmServiceSyncTenantPost($tenant_id, $related_tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+syncHolderToTenantCrmAsync($tenant_id, $related_user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Envelope
 ```
 
+Sync a user into a tenant's contact list
 
+Synchronizes a specified user into the tenant's CRM contact list.
 
 ### Example
 
@@ -153,17 +147,73 @@ apiV2CrmServiceSyncTenantPost($tenant_id, $related_tenant_id, $api_version, $x_a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\SyncApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$related_user_id = 'related_user_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->syncHolderToTenantCrmAsync($tenant_id, $related_user_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SyncApi->syncHolderToTenantCrmAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **related_user_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Envelope**](../Model/Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `syncTenantToTenantCrm()`
+
+```php
+syncTenantToTenantCrm($tenant_id, $related_tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Sync a tenant into another tenant's contact list
+
+Synchronizes a tenant into another tenant's CRM contact list.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\SyncApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $related_tenant_id = 'related_tenant_id_example'; // string
@@ -171,10 +221,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2CrmServiceSyncTenantPost($tenant_id, $related_tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->syncTenantToTenantCrm($tenant_id, $related_tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SyncApi->apiV2CrmServiceSyncTenantPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SyncApi->syncTenantToTenantCrm: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -193,73 +243,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2CrmServiceSyncUserPost()`
-
-```php
-apiV2CrmServiceSyncUserPost($tenant_id, $related_user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SyncApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$related_user_id = 'related_user_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2CrmServiceSyncUserPost($tenant_id, $related_user_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SyncApi->apiV2CrmServiceSyncUserPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
-| **related_user_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ContactDtoListEnvelope**](../Model/ContactDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

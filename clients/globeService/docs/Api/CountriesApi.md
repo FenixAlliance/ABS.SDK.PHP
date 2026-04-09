@@ -4,25 +4,28 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2GlobeServiceCountriesCountryIdCallingCodesGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdCallingCodesGet) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes |  |
-| [**apiV2GlobeServiceCountriesCountryIdCurrenciesGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdCurrenciesGet) | **GET** /api/v2/GlobeService/Countries/{countryId}/Currencies |  |
-| [**apiV2GlobeServiceCountriesCountryIdGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdGet) | **GET** /api/v2/GlobeService/Countries/{countryId} |  |
-| [**apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities |  |
-| [**apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId} |  |
-| [**apiV2GlobeServiceCountriesCountryIdStatesGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdStatesGet) | **GET** /api/v2/GlobeService/Countries/{countryId}/States |  |
-| [**apiV2GlobeServiceCountriesCountryIdTimezonesGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdTimezonesGet) | **GET** /api/v2/GlobeService/Countries/{countryId}/Timezones |  |
-| [**apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet()**](CountriesApi.md#apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains |  |
-| [**apiV2GlobeServiceCountriesGet()**](CountriesApi.md#apiV2GlobeServiceCountriesGet) | **GET** /api/v2/GlobeService/Countries |  |
-| [**apiV2GlobeServiceCountriesSearchGet()**](CountriesApi.md#apiV2GlobeServiceCountriesSearchGet) | **GET** /api/v2/GlobeService/Countries/Search |  |
+| [**countCountries()**](CountriesApi.md#countCountries) | **GET** /api/v2/GlobeService/Countries/Count | Count countries |
+| [**getAllCountries()**](CountriesApi.md#getAllCountries) | **GET** /api/v2/GlobeService/Countries | Get all countries |
+| [**getCallingCodesByCountryIdAsync()**](CountriesApi.md#getCallingCodesByCountryIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | Get calling codes for a country |
+| [**getCitiesByCountryStateIdAsync()**](CountriesApi.md#getCitiesByCountryStateIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | Get cities for a state |
+| [**getCountryById()**](CountriesApi.md#getCountryById) | **GET** /api/v2/GlobeService/Countries/{countryId} | Get country by ID |
+| [**getCountryStateByIdAsync()**](CountriesApi.md#getCountryStateByIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId} | Get state by ID |
+| [**getCountryStatesAsync()**](CountriesApi.md#getCountryStatesAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States | Get states for a country |
+| [**getEnabledCurrenciesByCountryIdAsync()**](CountriesApi.md#getEnabledCurrenciesByCountryIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/Currencies | Get currencies for a country |
+| [**getTimeZonesByCountryIdAsync()**](CountriesApi.md#getTimeZonesByCountryIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/Timezones | Get timezones for a country |
+| [**getTopLevelDomainsByCountryIdAsync()**](CountriesApi.md#getTopLevelDomainsByCountryIdAsync) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | Get top-level domains for a country |
+| [**searchCountriesByNameAsync()**](CountriesApi.md#searchCountriesByNameAsync) | **GET** /api/v2/GlobeService/Countries/Search | Search countries by name |
 
 
-## `apiV2GlobeServiceCountriesCountryIdCallingCodesGet()`
+## `countCountries()`
 
 ```php
-apiV2GlobeServiceCountriesCountryIdCallingCodesGet($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryCallingCodeDtoListEnvelope
+countCountries($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
+Count countries
 
+Returns the total number of countries, with optional OData filtering.
 
 ### Example
 
@@ -31,27 +34,137 @@ apiV2GlobeServiceCountriesCountryIdCallingCodesGet($country_id, $api_version, $x
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\CountriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->countCountries($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CountriesApi->countCountries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAllCountries()`
+
+```php
+getAllCountries($api_version, $x_api_version): \OpenAPI\Client\Model\CountryDtoListEnvelope
+```
+
+Get all countries
+
+Retrieves a list of all countries with optional OData pagination and filtering.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getAllCountries($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CountriesApi->getAllCountries: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CountryDtoListEnvelope**](../Model/CountryDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCallingCodesByCountryIdAsync()`
+
+```php
+getCallingCodesByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryCallingCodeDtoListEnvelope
+```
+
+Get calling codes for a country
+
+Retrieves the list of international telephone calling codes associated with the specified country.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\CountriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
 );
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdCallingCodesGet($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCallingCodesByCountryIdAsync($country_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdCallingCodesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->getCallingCodesByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,24 +182,26 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2GlobeServiceCountriesCountryIdCurrenciesGet()`
+## `getCitiesByCountryStateIdAsync()`
 
 ```php
-apiV2GlobeServiceCountriesCountryIdCurrenciesGet($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CurrencyDtoListEnvelope
+getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CityDtoListEnvelope
 ```
 
+Get cities for a state
 
+Retrieves the list of cities belonging to the specified state or province.
 
 ### Example
 
@@ -95,145 +210,11 @@ apiV2GlobeServiceCountriesCountryIdCurrenciesGet($country_id, $api_version, $x_a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$country_id = 'country_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdCurrenciesGet($country_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdCurrenciesGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **country_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\CurrencyDtoListEnvelope**](../Model/CurrencyDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2GlobeServiceCountriesCountryIdGet()`
-
-```php
-apiV2GlobeServiceCountriesCountryIdGet($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryDtoEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\CountriesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$country_id = 'country_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdGet($country_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **country_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\CountryDtoEnvelope**](../Model/CountryDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet()`
-
-```php
-apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet($country_state_id, $country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CityDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\CountriesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $country_state_id = 'country_state_id_example'; // string
 $country_id = 'country_id_example'; // string
@@ -241,10 +222,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet($country_state_id, $country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCitiesByCountryStateIdAsync($country_state_id, $country_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdCitiesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->getCitiesByCountryStateIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -263,24 +244,26 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet()`
+## `getCountryById()`
 
 ```php
-apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet($country_state_id, $country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryStateDtoEnvelope
+getCountryById($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryDtoEnvelope
 ```
 
+Get country by ID
 
+Retrieves a single country by its unique identifier.
 
 ### Example
 
@@ -289,17 +272,71 @@ apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet($country_state_id, $c
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new OpenAPI\Client\Api\CountriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$country_id = 'country_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getCountryById($country_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CountriesApi->getCountryById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **country_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CountryDtoEnvelope**](../Model/CountryDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCountryStateByIdAsync()`
+
+```php
+getCountryStateByIdAsync($country_state_id, $country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryStateDtoEnvelope
+```
+
+Get state by ID
+
+Retrieves a single state or province by its unique identifier within a country.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $country_state_id = 'country_state_id_example'; // string
 $country_id = 'country_id_example'; // string
@@ -307,10 +344,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet($country_state_id, $country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCountryStateByIdAsync($country_state_id, $country_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdStatesCountryStateIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->getCountryStateByIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -329,24 +366,26 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2GlobeServiceCountriesCountryIdStatesGet()`
+## `getCountryStatesAsync()`
 
 ```php
-apiV2GlobeServiceCountriesCountryIdStatesGet($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryStateDtoListEnvelope
+getCountryStatesAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryStateDtoListEnvelope
 ```
 
+Get states for a country
 
+Retrieves the list of states or provinces belonging to the specified country.
 
 ### Example
 
@@ -355,27 +394,21 @@ apiV2GlobeServiceCountriesCountryIdStatesGet($country_id, $api_version, $x_api_v
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdStatesGet($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCountryStatesAsync($country_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdStatesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->getCountryStatesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -393,24 +426,26 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2GlobeServiceCountriesCountryIdTimezonesGet()`
+## `getEnabledCurrenciesByCountryIdAsync()`
 
 ```php
-apiV2GlobeServiceCountriesCountryIdTimezonesGet($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TimezoneDtoListEnvelope
+getEnabledCurrenciesByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CurrencyDtoListEnvelope
 ```
 
+Get currencies for a country
 
+Retrieves the list of enabled currencies for the specified country.
 
 ### Example
 
@@ -419,27 +454,81 @@ apiV2GlobeServiceCountriesCountryIdTimezonesGet($country_id, $api_version, $x_ap
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdTimezonesGet($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getEnabledCurrenciesByCountryIdAsync($country_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdTimezonesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->getEnabledCurrenciesByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **country_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CurrencyDtoListEnvelope**](../Model/CurrencyDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTimeZonesByCountryIdAsync()`
+
+```php
+getTimeZonesByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TimezoneDtoListEnvelope
+```
+
+Get timezones for a country
+
+Retrieves the list of timezones associated with the specified country.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\CountriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$country_id = 'country_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getTimeZonesByCountryIdAsync($country_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CountriesApi->getTimeZonesByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -457,24 +546,26 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet()`
+## `getTopLevelDomainsByCountryIdAsync()`
 
 ```php
-apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryTopLevelDomainDtoListEnvelope
+getTopLevelDomainsByCountryIdAsync($country_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryTopLevelDomainDtoListEnvelope
 ```
 
+Get top-level domains for a country
 
+Retrieves the list of internet top-level domains (TLDs) associated with the specified country.
 
 ### Example
 
@@ -483,27 +574,21 @@ apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet($country_id, $api_version,
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $country_id = 'country_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet($country_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTopLevelDomainsByCountryIdAsync($country_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesCountryIdTopLevelDomainsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->getTopLevelDomainsByCountryIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -521,24 +606,26 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2GlobeServiceCountriesGet()`
+## `searchCountriesByNameAsync()`
 
 ```php
-apiV2GlobeServiceCountriesGet($api_version, $x_api_version): \OpenAPI\Client\Model\CountryDtoListEnvelope
+searchCountriesByNameAsync($country_name, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryDtoListEnvelope
 ```
 
+Search countries by name
 
+Searches for countries whose name matches the specified search term.
 
 ### Example
 
@@ -547,89 +634,21 @@ apiV2GlobeServiceCountriesGet($api_version, $x_api_version): \OpenAPI\Client\Mod
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesGet($api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\CountryDtoListEnvelope**](../Model/CountryDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/xml`, `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2GlobeServiceCountriesSearchGet()`
-
-```php
-apiV2GlobeServiceCountriesSearchGet($country_name, $api_version, $x_api_version): \OpenAPI\Client\Model\CountryDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\CountriesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $country_name = 'country_name_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2GlobeServiceCountriesSearchGet($country_name, $api_version, $x_api_version);
+    $result = $apiInstance->searchCountriesByNameAsync($country_name, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->apiV2GlobeServiceCountriesSearchGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->searchCountriesByNameAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -647,12 +666,12 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

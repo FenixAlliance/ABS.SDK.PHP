@@ -4,19 +4,21 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2ProjectsServiceTaskTypesPost()**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesPost) | **POST** /api/v2/ProjectsService/TaskTypes |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdDelete()**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdDelete) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdGet()**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdGet) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdPut()**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdPut) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
+| [**createTaskTypeAsync()**](TaskTypesApi.md#createTaskTypeAsync) | **POST** /api/v2/ProjectsService/TaskTypes | Creates a new task type |
+| [**deleteTaskTypeAsync()**](TaskTypesApi.md#deleteTaskTypeAsync) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type |
+| [**getTaskTypeByIdAsync()**](TaskTypesApi.md#getTaskTypeByIdAsync) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID |
+| [**updateTaskTypeAsync()**](TaskTypesApi.md#updateTaskTypeAsync) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type |
 
 
-## `apiV2ProjectsServiceTaskTypesPost()`
+## `createTaskTypeAsync()`
 
 ```php
-apiV2ProjectsServiceTaskTypesPost($tenant_id, $api_version, $x_api_version, $task_type_create_dto): \OpenAPI\Client\Model\TaskTypeDto
+createTaskTypeAsync($tenant_id, $task_type_create_dto): \OpenAPI\Client\Model\TaskTypeDto
 ```
 
+Creates a new task type
 
+Creates a new task type for the current tenant.
 
 ### Example
 
@@ -25,28 +27,20 @@ apiV2ProjectsServiceTaskTypesPost($tenant_id, $api_version, $x_api_version, $tas
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\TaskTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 $task_type_create_dto = new \OpenAPI\Client\Model\TaskTypeCreateDto(); // \OpenAPI\Client\Model\TaskTypeCreateDto
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceTaskTypesPost($tenant_id, $api_version, $x_api_version, $task_type_create_dto);
+    $result = $apiInstance->createTaskTypeAsync($tenant_id, $task_type_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaskTypesApi->apiV2ProjectsServiceTaskTypesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskTypesApi->createTaskTypeAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -55,8 +49,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 | **task_type_create_dto** | [**\OpenAPI\Client\Model\TaskTypeCreateDto**](../Model/TaskTypeCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -65,7 +57,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,13 +68,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ProjectsServiceTaskTypesTaskTypeIdDelete()`
+## `deleteTaskTypeAsync()`
 
 ```php
-apiV2ProjectsServiceTaskTypesTaskTypeIdDelete($task_type_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TaskTypeDto
+deleteTaskTypeAsync($task_type_id, $tenant_id): \OpenAPI\Client\Model\TaskTypeDto
 ```
 
+Deletes a task type
 
+Deletes the specified task type.
 
 ### Example
 
@@ -91,28 +85,20 @@ apiV2ProjectsServiceTaskTypesTaskTypeIdDelete($task_type_id, $tenant_id, $api_ve
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\TaskTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $task_type_id = 'task_type_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceTaskTypesTaskTypeIdDelete($task_type_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteTaskTypeAsync($task_type_id, $tenant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaskTypesApi->apiV2ProjectsServiceTaskTypesTaskTypeIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskTypesApi->deleteTaskTypeAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -122,8 +108,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **task_type_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 
 ### Return type
 
@@ -131,7 +115,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -142,13 +126,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ProjectsServiceTaskTypesTaskTypeIdGet()`
+## `getTaskTypeByIdAsync()`
 
 ```php
-apiV2ProjectsServiceTaskTypesTaskTypeIdGet($task_type_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\TaskTypeDto
+getTaskTypeByIdAsync($task_type_id, $tenant_id): \OpenAPI\Client\Model\TaskTypeDto
 ```
 
+Gets a task type by ID
 
+Retrieves the details of a task type using its unique identifier.
 
 ### Example
 
@@ -157,28 +143,20 @@ apiV2ProjectsServiceTaskTypesTaskTypeIdGet($task_type_id, $tenant_id, $api_versi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\TaskTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $task_type_id = 'task_type_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceTaskTypesTaskTypeIdGet($task_type_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTaskTypeByIdAsync($task_type_id, $tenant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaskTypesApi->apiV2ProjectsServiceTaskTypesTaskTypeIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskTypesApi->getTaskTypeByIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -188,8 +166,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **task_type_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 
 ### Return type
 
@@ -197,7 +173,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,13 +184,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ProjectsServiceTaskTypesTaskTypeIdPut()`
+## `updateTaskTypeAsync()`
 
 ```php
-apiV2ProjectsServiceTaskTypesTaskTypeIdPut($task_type_id, $tenant_id, $api_version, $x_api_version, $task_type_update_dto): \OpenAPI\Client\Model\TaskTypeDto
+updateTaskTypeAsync($task_type_id, $tenant_id, $task_type_update_dto): \OpenAPI\Client\Model\TaskTypeDto
 ```
 
+Updates a task type
 
+Updates the specified task type.
 
 ### Example
 
@@ -223,29 +201,21 @@ apiV2ProjectsServiceTaskTypesTaskTypeIdPut($task_type_id, $tenant_id, $api_versi
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\TaskTypesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $task_type_id = 'task_type_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 $task_type_update_dto = new \OpenAPI\Client\Model\TaskTypeUpdateDto(); // \OpenAPI\Client\Model\TaskTypeUpdateDto
 
 try {
-    $result = $apiInstance->apiV2ProjectsServiceTaskTypesTaskTypeIdPut($task_type_id, $tenant_id, $api_version, $x_api_version, $task_type_update_dto);
+    $result = $apiInstance->updateTaskTypeAsync($task_type_id, $tenant_id, $task_type_update_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaskTypesApi->apiV2ProjectsServiceTaskTypesTaskTypeIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaskTypesApi->updateTaskTypeAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -255,8 +225,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **task_type_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
 | **task_type_update_dto** | [**\OpenAPI\Client\Model\TaskTypeUpdateDto**](../Model/TaskTypeUpdateDto.md)|  | [optional] |
 
 ### Return type
@@ -265,7 +233,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

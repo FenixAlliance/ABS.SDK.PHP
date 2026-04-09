@@ -4,21 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2SupportServiceSupportRequestAttachmentsCountGet()**](SupportRequestAttachmentsApi.md#apiV2SupportServiceSupportRequestAttachmentsCountGet) | **GET** /api/v2/SupportService/SupportRequestAttachments/Count |  |
-| [**apiV2SupportServiceSupportRequestAttachmentsGet()**](SupportRequestAttachmentsApi.md#apiV2SupportServiceSupportRequestAttachmentsGet) | **GET** /api/v2/SupportService/SupportRequestAttachments |  |
-| [**apiV2SupportServiceSupportRequestAttachmentsPost()**](SupportRequestAttachmentsApi.md#apiV2SupportServiceSupportRequestAttachmentsPost) | **POST** /api/v2/SupportService/SupportRequestAttachments |  |
-| [**apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete()**](SupportRequestAttachmentsApi.md#apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete) | **DELETE** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} |  |
-| [**apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet()**](SupportRequestAttachmentsApi.md#apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet) | **GET** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} |  |
-| [**apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut()**](SupportRequestAttachmentsApi.md#apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut) | **PUT** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} |  |
+| [**createSupportRequestAttachmentAsync()**](SupportRequestAttachmentsApi.md#createSupportRequestAttachmentAsync) | **POST** /api/v2/SupportService/SupportRequestAttachments | Create a new support request attachment |
+| [**deleteSupportRequestAttachmentAsync()**](SupportRequestAttachmentsApi.md#deleteSupportRequestAttachmentAsync) | **DELETE** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Delete a support request attachment |
+| [**getSupportRequestAttachmentAsync()**](SupportRequestAttachmentsApi.md#getSupportRequestAttachmentAsync) | **GET** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Retrieve a support request attachment by ID |
+| [**getSupportRequestAttachmentsAsync()**](SupportRequestAttachmentsApi.md#getSupportRequestAttachmentsAsync) | **GET** /api/v2/SupportService/SupportRequestAttachments | Retrieve a list of support request attachments |
+| [**getSupportRequestAttachmentsCountAsync()**](SupportRequestAttachmentsApi.md#getSupportRequestAttachmentsCountAsync) | **GET** /api/v2/SupportService/SupportRequestAttachments/Count | Get the count of support request attachments |
+| [**updateSupportRequestAttachmentAsync()**](SupportRequestAttachmentsApi.md#updateSupportRequestAttachmentAsync) | **PUT** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Update a support request attachment |
 
 
-## `apiV2SupportServiceSupportRequestAttachmentsCountGet()`
+## `createSupportRequestAttachmentAsync()`
 
 ```php
-apiV2SupportServiceSupportRequestAttachmentsCountGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+createSupportRequestAttachmentAsync($tenant_id, $api_version, $x_api_version, $support_request_attachment_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Create a new support request attachment
 
+Creates a new support request attachment for the specified tenant.
 
 ### Example
 
@@ -27,156 +29,22 @@ apiV2SupportServiceSupportRequestAttachmentsCountGet($tenant_id, $api_version, $
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SupportServiceSupportRequestAttachmentsCountGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SupportRequestAttachmentsApi->apiV2SupportServiceSupportRequestAttachmentsCountGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SupportServiceSupportRequestAttachmentsGet()`
-
-```php
-apiV2SupportServiceSupportRequestAttachmentsGet($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-
-try {
-    $result = $apiInstance->apiV2SupportServiceSupportRequestAttachmentsGet($tenant_id, $api_version, $x_api_version);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SupportRequestAttachmentsApi->apiV2SupportServiceSupportRequestAttachmentsGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope**](../Model/SupportRequestAttachmentDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `apiV2SupportServiceSupportRequestAttachmentsPost()`
-
-```php
-apiV2SupportServiceSupportRequestAttachmentsPost($support_request_attachment_create_dto, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
 $support_request_attachment_create_dto = new \OpenAPI\Client\Model\SupportRequestAttachmentCreateDto(); // \OpenAPI\Client\Model\SupportRequestAttachmentCreateDto
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportRequestAttachmentsPost($support_request_attachment_create_dto, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->createSupportRequestAttachmentAsync($tenant_id, $api_version, $x_api_version, $support_request_attachment_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportRequestAttachmentsApi->apiV2SupportServiceSupportRequestAttachmentsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportRequestAttachmentsApi->createSupportRequestAttachmentAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -184,10 +52,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **support_request_attachment_create_dto** | [**\OpenAPI\Client\Model\SupportRequestAttachmentCreateDto**](../Model/SupportRequestAttachmentCreateDto.md)|  | |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **support_request_attachment_create_dto** | [**\OpenAPI\Client\Model\SupportRequestAttachmentCreateDto**](../Model/SupportRequestAttachmentCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -195,7 +63,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,13 +74,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete()`
+## `deleteSupportRequestAttachmentAsync()`
 
 ```php
-apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete($support_request_attachment_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
+Delete a support request attachment
 
+Deletes a support request attachment by its unique identifier.
 
 ### Example
 
@@ -221,28 +91,22 @@ apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete($su
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$support_request_attachment_id = 'support_request_attachment_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$support_request_attachment_id = 'support_request_attachment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete($support_request_attachment_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportRequestAttachmentsApi->apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportRequestAttachmentsApi->deleteSupportRequestAttachmentAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -250,8 +114,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **support_request_attachment_id** | **string**|  | |
-| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -261,7 +125,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,13 +136,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet()`
+## `getSupportRequestAttachmentAsync()`
 
 ```php
-apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet($support_request_attachment_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportRequestAttachmentDtoEnvelope
+getSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportRequestAttachmentDtoEnvelope
 ```
 
+Retrieve a support request attachment by ID
 
+Retrieves a single support request attachment by its unique identifier.
 
 ### Example
 
@@ -287,27 +153,22 @@ apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet($suppo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $support_request_attachment_id = 'support_request_attachment_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet($support_request_attachment_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportRequestAttachmentsApi->apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportRequestAttachmentsApi->getSupportRequestAttachmentAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -315,6 +176,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **support_request_attachment_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -325,7 +187,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -336,13 +198,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut()`
+## `getSupportRequestAttachmentsAsync()`
 
 ```php
-apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut($support_request_attachment_id, $support_request_attachment_update_dto, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+getSupportRequestAttachmentsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope
 ```
 
+Retrieve a list of support request attachments
 
+Retrieves a list of support request attachments for the specified tenant with OData query support.
 
 ### Example
 
@@ -351,29 +215,21 @@ apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut($suppo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$support_request_attachment_id = 'support_request_attachment_id_example'; // string
-$support_request_attachment_update_dto = new \OpenAPI\Client\Model\SupportRequestAttachmentUpdateDto(); // \OpenAPI\Client\Model\SupportRequestAttachmentUpdateDto
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut($support_request_attachment_id, $support_request_attachment_update_dto, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getSupportRequestAttachmentsAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SupportRequestAttachmentsApi->apiV2SupportServiceSupportRequestAttachmentsSupportRequestAttachmentIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SupportRequestAttachmentsApi->getSupportRequestAttachmentsAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -381,11 +237,133 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **support_request_attachment_id** | **string**|  | |
-| **support_request_attachment_update_dto** | [**\OpenAPI\Client\Model\SupportRequestAttachmentUpdateDto**](../Model/SupportRequestAttachmentUpdateDto.md)|  | |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\SupportRequestAttachmentDtoListEnvelope**](../Model/SupportRequestAttachmentDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSupportRequestAttachmentsCountAsync()`
+
+```php
+getSupportRequestAttachmentsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Get the count of support request attachments
+
+Returns the total count of support request attachments for the specified tenant with OData query support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getSupportRequestAttachmentsCountAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportRequestAttachmentsApi->getSupportRequestAttachmentsCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateSupportRequestAttachmentAsync()`
+
+```php
+updateSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $support_request_attachment_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update a support request attachment
+
+Updates an existing support request attachment by its unique identifier.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SupportRequestAttachmentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$support_request_attachment_id = 'support_request_attachment_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$support_request_attachment_update_dto = new \OpenAPI\Client\Model\SupportRequestAttachmentUpdateDto(); // \OpenAPI\Client\Model\SupportRequestAttachmentUpdateDto
+
+try {
+    $result = $apiInstance->updateSupportRequestAttachmentAsync($tenant_id, $support_request_attachment_id, $api_version, $x_api_version, $support_request_attachment_update_dto);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportRequestAttachmentsApi->updateSupportRequestAttachmentAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **support_request_attachment_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **support_request_attachment_update_dto** | [**\OpenAPI\Client\Model\SupportRequestAttachmentUpdateDto**](../Model/SupportRequestAttachmentUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -393,7 +371,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

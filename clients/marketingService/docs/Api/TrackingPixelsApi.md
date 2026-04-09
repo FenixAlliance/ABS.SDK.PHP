@@ -4,16 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2MarketingServiceTrackingPixelsPixelIdGet()**](TrackingPixelsApi.md#apiV2MarketingServiceTrackingPixelsPixelIdGet) | **GET** /api/v2/MarketingService/TrackingPixels/{pixelId} |  |
+| [**getTrackingPixelAsync()**](TrackingPixelsApi.md#getTrackingPixelAsync) | **GET** /api/v2/MarketingService/TrackingPixels/{pixelId} | Get a tracking pixel |
 
 
-## `apiV2MarketingServiceTrackingPixelsPixelIdGet()`
+## `getTrackingPixelAsync()`
 
 ```php
-apiV2MarketingServiceTrackingPixelsPixelIdGet($pixel_id, $api_version, $x_api_version): \OpenAPI\Client\Model\OrderDtoEnvelope
+getTrackingPixelAsync($pixel_id, $api_version, $x_api_version): \OpenAPI\Client\Model\OrderDtoEnvelope
 ```
 
+Get a tracking pixel
 
+Retrieves a tracking pixel by its ID.
 
 ### Example
 
@@ -22,27 +24,21 @@ apiV2MarketingServiceTrackingPixelsPixelIdGet($pixel_id, $api_version, $x_api_ve
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\TrackingPixelsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $pixel_id = 'pixel_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2MarketingServiceTrackingPixelsPixelIdGet($pixel_id, $api_version, $x_api_version);
+    $result = $apiInstance->getTrackingPixelAsync($pixel_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TrackingPixelsApi->apiV2MarketingServiceTrackingPixelsPixelIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TrackingPixelsApi->getTrackingPixelAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -60,7 +56,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

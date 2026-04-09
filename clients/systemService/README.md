@@ -50,25 +50,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\AntiforgeryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->apiV2SystemServiceAntiforgeryGetAndStoreTokensGet($api_version, $x_api_version);
+    $apiInstance->getAndStoreTokens($api_version, $x_api_version);
 } catch (Exception $e) {
-    echo 'Exception when calling AntiforgeryApi->apiV2SystemServiceAntiforgeryGetAndStoreTokensGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AntiforgeryApi->getAndStoreTokens: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -79,24 +73,45 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AntiforgeryApi* | [**apiV2SystemServiceAntiforgeryGetAndStoreTokensGet**](docs/Api/AntiforgeryApi.md#apiv2systemserviceantiforgerygetandstoretokensget) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | 
-*AntiforgeryApi* | [**apiV2SystemServiceAntiforgeryIsRequestValidGet**](docs/Api/AntiforgeryApi.md#apiv2systemserviceantiforgeryisrequestvalidget) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | 
-*LicensesApi* | [**apiLicensingLicensesGeneratePost**](docs/Api/LicensesApi.md#apilicensinglicensesgeneratepost) | **POST** /api/Licensing/Licenses/Generate | 
-*LicensesApi* | [**apiLicensingLicensesValidateAttributesGet**](docs/Api/LicensesApi.md#apilicensinglicensesvalidateattributesget) | **GET** /api/Licensing/Licenses/Validate/Attributes | 
-*LicensesApi* | [**apiLicensingLicensesValidateErrorsGet**](docs/Api/LicensesApi.md#apilicensinglicensesvalidateerrorsget) | **GET** /api/Licensing/Licenses/Validate/Errors | 
-*LicensesApi* | [**apiLicensingLicensesValidateGet**](docs/Api/LicensesApi.md#apilicensinglicensesvalidateget) | **GET** /api/Licensing/Licenses/Validate | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesGet**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicensesget) | **GET** /api/v2/SystemService/Licensing/Licenses | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesLicenseIdAssignmentsGet**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicenseslicenseidassignmentsget) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Assignments | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesLicenseIdAttributesGet**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicenseslicenseidattributesget) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesLicenseIdFeaturesGet**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicenseslicenseidfeaturesget) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesLicenseIdGet**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicenseslicenseidget) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId} | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesLicenseIdQuotaGet**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicenseslicenseidquotaget) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Quota | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesRedeemPost**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicensesredeempost) | **POST** /api/v2/SystemService/Licensing/Licenses/Redeem | 
-*LicensingApi* | [**apiV2SystemServiceLicensingLicensesValidatePost**](docs/Api/LicensingApi.md#apiv2systemservicelicensinglicensesvalidatepost) | **POST** /api/v2/SystemService/Licensing/Licenses/Validate | 
-*MigrationsApi* | [**apiV2SystemServiceMigrationsGet**](docs/Api/MigrationsApi.md#apiv2systemservicemigrationsget) | **GET** /api/v2/SystemService/Migrations | 
-*MigrationsApi* | [**apiV2SystemServiceMigrationsMigratePost**](docs/Api/MigrationsApi.md#apiv2systemservicemigrationsmigratepost) | **POST** /api/v2/SystemService/Migrations/Migrate | 
+*AntiforgeryApi* | [**getAndStoreTokens**](docs/Api/AntiforgeryApi.md#getandstoretokens) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens
+*AntiforgeryApi* | [**isRequestValidAsync**](docs/Api/AntiforgeryApi.md#isrequestvalidasync) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request
+*EmailsApi* | [**adminPreviewBasicEmailTemplate**](docs/Api/EmailsApi.md#adminpreviewbasicemailtemplate) | **POST** /api/v2/SystemService/Emails/Preview | Preview a rendered basic email template.
+*EmailsApi* | [**adminSendBasicEmail**](docs/Api/EmailsApi.md#adminsendbasicemail) | **POST** /api/v2/SystemService/Emails/SendBasic | Send a basic transactional email to recipients.
+*FenixAllianceABPWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABPWebApi* | [**healthGet**](docs/Api/FenixAllianceABPWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABPWebApi* | [**helloGet**](docs/Api/FenixAllianceABPWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABPWebApi* | [**loginPost**](docs/Api/FenixAllianceABPWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABPWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABPWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABPWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABPWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABPWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABPWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABPWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABPWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABPWebApi* | [**refreshPost**](docs/Api/FenixAllianceABPWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABPWebApi* | [**registerPost**](docs/Api/FenixAllianceABPWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*LicensingApi* | [**getLicenseAssignmentsAsync**](docs/Api/LicensingApi.md#getlicenseassignmentsasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Assignments | Retrieve license assignments
+*LicensingApi* | [**getLicenseAttributesAsync**](docs/Api/LicensingApi.md#getlicenseattributesasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes
+*LicensingApi* | [**getLicenseByIdAsync**](docs/Api/LicensingApi.md#getlicensebyidasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId} | Retrieve a license by ID
+*LicensingApi* | [**getLicenseFeaturesAsync**](docs/Api/LicensingApi.md#getlicensefeaturesasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features
+*LicensingApi* | [**getLicenseRecordsQuotaAsync**](docs/Api/LicensingApi.md#getlicenserecordsquotaasync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Quota | Retrieve license record quota
+*LicensingApi* | [**getLicensesAsync**](docs/Api/LicensingApi.md#getlicensesasync) | **GET** /api/v2/SystemService/Licensing/Licenses | Retrieve a list of licenses
+*LicensingApi* | [**redeemLicenseAsync**](docs/Api/LicensingApi.md#redeemlicenseasync) | **POST** /api/v2/SystemService/Licensing/Licenses/Redeem | Redeem a license
+*LicensingApi* | [**validateLicenseAsync**](docs/Api/LicensingApi.md#validatelicenseasync) | **POST** /api/v2/SystemService/Licensing/Licenses/Validate | Validate a license
+*MigrationsApi* | [**migrate**](docs/Api/MigrationsApi.md#migrate) | **POST** /api/v2/SystemService/Migrations/Migrate | Apply pending database migrations
+*MigrationsApi* | [**migrations**](docs/Api/MigrationsApi.md#migrations) | **GET** /api/v2/SystemService/Migrations | Retrieve database migrations
 *ModulesApi* | [**getAllModules**](docs/Api/ModulesApi.md#getallmodules) | **GET** /api/v2/StudioService/Modules | Get all modules available on this suite server instance.
 *ModulesApi* | [**getAvailableModules**](docs/Api/ModulesApi.md#getavailablemodules) | **GET** /api/v2/StudioService/Modules/Data | Get all modules available to a tenant user.
+*OptionsApi* | [**createSystemOption**](docs/Api/OptionsApi.md#createsystemoption) | **POST** /api/v2/SystemService/Options | Create a new system option
+*OptionsApi* | [**deleteSystemOption**](docs/Api/OptionsApi.md#deletesystemoption) | **DELETE** /api/v2/SystemService/Options/{optionId} | Delete a system option
+*OptionsApi* | [**getSystemOptionById**](docs/Api/OptionsApi.md#getsystemoptionbyid) | **GET** /api/v2/SystemService/Options/{optionId} | Retrieve a single system option by its ID
+*OptionsApi* | [**getSystemOptionByKey**](docs/Api/OptionsApi.md#getsystemoptionbykey) | **GET** /api/v2/SystemService/Options/Key/{key} | Retrieve a single system option by its key
+*OptionsApi* | [**getSystemOptions**](docs/Api/OptionsApi.md#getsystemoptions) | **GET** /api/v2/SystemService/Options | Retrieve a list of system options
+*OptionsApi* | [**getSystemOptionsCount**](docs/Api/OptionsApi.md#getsystemoptionscount) | **GET** /api/v2/SystemService/Options/Count | Get the count of system options
+*OptionsApi* | [**updateSystemOption**](docs/Api/OptionsApi.md#updatesystemoption) | **PUT** /api/v2/SystemService/Options/{optionId} | Update a system option
+*OptionsApi* | [**upsertSystemOption**](docs/Api/OptionsApi.md#upsertsystemoption) | **PUT** /api/v2/SystemService/Options/Upsert/{key} | Create or update a system option by key
+*TenantsApi* | [**adminPreviewTenantEmail**](docs/Api/TenantsApi.md#adminpreviewtenantemail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a user.
+*TenantsApi* | [**adminSendTenantEmail**](docs/Api/TenantsApi.md#adminsendtenantemail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a user.
 *TenantsApi* | [**createTenant**](docs/Api/TenantsApi.md#createtenant) | **POST** /api/v2/SystemService/Tenants | Create a new tenant.
 *TenantsApi* | [**deleteTenant**](docs/Api/TenantsApi.md#deletetenant) | **DELETE** /api/v2/SystemService/Tenants/{tenantId} | Delete a specific tenant by ID.
 *TenantsApi* | [**getAllExtendedTenants**](docs/Api/TenantsApi.md#getallextendedtenants) | **GET** /api/v2/SystemService/Tenants/Extended | Get all extended tenants available on this suite server instance.
@@ -105,22 +120,24 @@ Class | Method | HTTP request | Description
 *TenantsApi* | [**getTenant**](docs/Api/TenantsApi.md#gettenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID.
 *TenantsApi* | [**getTenantsCount**](docs/Api/TenantsApi.md#gettenantscount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance.
 *TenantsApi* | [**updateTenant**](docs/Api/TenantsApi.md#updatetenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID.
-*UsersApi* | [**apiV2SystemServiceUsersCountGet**](docs/Api/UsersApi.md#apiv2systemserviceuserscountget) | **GET** /api/v2/SystemService/Users/Count | 
-*UsersApi* | [**apiV2SystemServiceUsersExtendedCountGet**](docs/Api/UsersApi.md#apiv2systemserviceusersextendedcountget) | **GET** /api/v2/SystemService/Users/Extended/Count | 
-*UsersApi* | [**apiV2SystemServiceUsersExtendedGet**](docs/Api/UsersApi.md#apiv2systemserviceusersextendedget) | **GET** /api/v2/SystemService/Users/Extended | 
-*UsersApi* | [**apiV2SystemServiceUsersGet**](docs/Api/UsersApi.md#apiv2systemserviceusersget) | **GET** /api/v2/SystemService/Users | 
-*UsersApi* | [**apiV2SystemServiceUsersPost**](docs/Api/UsersApi.md#apiv2systemserviceuserspost) | **POST** /api/v2/SystemService/Users | 
-*UsersApi* | [**apiV2SystemServiceUsersUserIdDelete**](docs/Api/UsersApi.md#apiv2systemserviceusersuseriddelete) | **DELETE** /api/v2/SystemService/Users/{userId} | 
-*UsersApi* | [**apiV2SystemServiceUsersUserIdExtendedGet**](docs/Api/UsersApi.md#apiv2systemserviceusersuseridextendedget) | **GET** /api/v2/SystemService/Users/{userId}/Extended | 
-*UsersApi* | [**apiV2SystemServiceUsersUserIdPut**](docs/Api/UsersApi.md#apiv2systemserviceusersuseridput) | **PUT** /api/v2/SystemService/Users/{userId} | 
-*UsersApi* | [**getUserAsync**](docs/Api/UsersApi.md#getuserasync) | **GET** /api/v2/SystemService/Users/{userId} | 
+*UsersApi* | [**adminPreviewUserEmailTemplate**](docs/Api/UsersApi.md#adminpreviewuseremailtemplate) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Preview | Preview the rendered email for a user.
+*UsersApi* | [**adminSendUserEmail**](docs/Api/UsersApi.md#adminsenduseremail) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Send | Send an email to a user.
+*UsersApi* | [**createAccountHolderAsync**](docs/Api/UsersApi.md#createaccountholderasync) | **POST** /api/v2/SystemService/Users | Create a new user
+*UsersApi* | [**deleteAccountHolderAsync**](docs/Api/UsersApi.md#deleteaccountholderasync) | **DELETE** /api/v2/SystemService/Users/{userId} | Delete a user
+*UsersApi* | [**getExtendedAccountHolderAsync**](docs/Api/UsersApi.md#getextendedaccountholderasync) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID
+*UsersApi* | [**getExtendedUsersAsync**](docs/Api/UsersApi.md#getextendedusersasync) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users
+*UsersApi* | [**getExtendedUsersCountAsync**](docs/Api/UsersApi.md#getextendeduserscountasync) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users
+*UsersApi* | [**getUserAsync**](docs/Api/UsersApi.md#getuserasync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID
+*UsersApi* | [**getUsersAsync**](docs/Api/UsersApi.md#getusersasync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users
+*UsersApi* | [**getUsersCountAsync**](docs/Api/UsersApi.md#getuserscountasync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users
+*UsersApi* | [**updateAccountHolderAsync**](docs/Api/UsersApi.md#updateaccountholderasync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user
 
 ## Models
 
-- [AccountHolderCreateDto](docs/Model/AccountHolderCreateDto.md)
-- [AdditionalAttribute](docs/Model/AdditionalAttribute.md)
+- [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [BooleanEnvelope](docs/Model/BooleanEnvelope.md)
 - [CartDto](docs/Model/CartDto.md)
+- [EmailDispatchRequest](docs/Model/EmailDispatchRequest.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExtendedTenantDto](docs/Model/ExtendedTenantDto.md)
@@ -128,24 +145,32 @@ Class | Method | HTTP request | Description
 - [ExtendedUserDto](docs/Model/ExtendedUserDto.md)
 - [ExtendedUserDtoEnvelope](docs/Model/ExtendedUserDtoEnvelope.md)
 - [ExtendedUserDtoListEnvelope](docs/Model/ExtendedUserDtoListEnvelope.md)
-- [GeneralValidationFailure](docs/Model/GeneralValidationFailure.md)
-- [GeneralValidationFailureListEnvelope](docs/Model/GeneralValidationFailureListEnvelope.md)
+- [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
 - [ISwaggerContact](docs/Model/ISwaggerContact.md)
 - [ISwaggerEndpoint](docs/Model/ISwaggerEndpoint.md)
 - [ISwaggerLicense](docs/Model/ISwaggerLicense.md)
 - [ISwaggerSpec](docs/Model/ISwaggerSpec.md)
+- [IValidationFailure](docs/Model/IValidationFailure.md)
+- [IValidationFailureListEnvelope](docs/Model/IValidationFailureListEnvelope.md)
+- [InfoRequest](docs/Model/InfoRequest.md)
+- [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
-- [LicenseAttributesListEnvelope](docs/Model/LicenseAttributesListEnvelope.md)
-- [LicenseFeature](docs/Model/LicenseFeature.md)
-- [LicenseKey](docs/Model/LicenseKey.md)
-- [LicenseKeyRequest](docs/Model/LicenseKeyRequest.md)
-- [LicenseValidationError](docs/Model/LicenseValidationError.md)
-- [LicenseValidationErrorListEnvelope](docs/Model/LicenseValidationErrorListEnvelope.md)
 - [LicenseValidationRequest](docs/Model/LicenseValidationRequest.md)
+- [LoginRequest](docs/Model/LoginRequest.md)
 - [Module](docs/Model/Module.md)
 - [ModuleListEnvelope](docs/Model/ModuleListEnvelope.md)
+- [ObjectEmailDispatchRequest](docs/Model/ObjectEmailDispatchRequest.md)
+- [OptionCreateDto](docs/Model/OptionCreateDto.md)
+- [OptionDto](docs/Model/OptionDto.md)
+- [OptionDtoEnvelope](docs/Model/OptionDtoEnvelope.md)
+- [OptionDtoListEnvelope](docs/Model/OptionDtoListEnvelope.md)
+- [OptionUpdateDto](docs/Model/OptionUpdateDto.md)
+- [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RegisterRequest](docs/Model/RegisterRequest.md)
+- [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
+- [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [SocialProfileDto](docs/Model/SocialProfileDto.md)
-- [StringEnvelope](docs/Model/StringEnvelope.md)
 - [StringListEnvelope](docs/Model/StringListEnvelope.md)
 - [StudioModule](docs/Model/StudioModule.md)
 - [StudioModuleListEnvelope](docs/Model/StudioModuleListEnvelope.md)
@@ -159,21 +184,18 @@ Class | Method | HTTP request | Description
 - [TenantDtoEnvelope](docs/Model/TenantDtoEnvelope.md)
 - [TenantDtoListEnvelope](docs/Model/TenantDtoListEnvelope.md)
 - [TenantUpdateDto](docs/Model/TenantUpdateDto.md)
+- [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
+- [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
+- [UserCreateDto](docs/Model/UserCreateDto.md)
 - [UserDto](docs/Model/UserDto.md)
 - [UserDtoEnvelope](docs/Model/UserDtoEnvelope.md)
 - [UserDtoListEnvelope](docs/Model/UserDtoListEnvelope.md)
 - [UserSettingsDto](docs/Model/UserSettingsDto.md)
+- [UserUpdateDto](docs/Model/UserUpdateDto.md)
 - [WalletDto](docs/Model/WalletDto.md)
 
 ## Authorization
-
-Authentication schemes defined for the API:
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+Endpoints do not require authorization.
 
 ## Tests
 
@@ -192,6 +214,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.1.4089`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

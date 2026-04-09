@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **modified_date** | **\DateTime** |  | [optional]
 **expiration_date** | **\DateTime** |  | [optional]
 **tenant_id** | **string** |  | [optional]
-**enrolment_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **sales_literature_type_id** | **string** |  | [optional]
 **sales_literature_type** | [**\OpenAPI\Client\Model\SalesLiteratureTypeDto**](SalesLiteratureTypeDto.md) |  | [optional]
 **tenant** | [**\OpenAPI\Client\Model\TenantDto**](TenantDto.md) |  | [optional]

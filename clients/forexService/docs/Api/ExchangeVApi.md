@@ -4,17 +4,19 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV3ForexServiceExchangeHistoryGet()**](ExchangeVApi.md#apiV3ForexServiceExchangeHistoryGet) | **GET** /api/v3/ForexService/Exchange/History |  |
-| [**apiV3ForexServiceExchangeLatestGet()**](ExchangeVApi.md#apiV3ForexServiceExchangeLatestGet) | **GET** /api/v3/ForexService/Exchange/Latest |  |
+| [**exchangeAmountHistoricalV3Async()**](ExchangeVApi.md#exchangeAmountHistoricalV3Async) | **GET** /api/v3/ForexService/Exchange/History | Exchange currency at historical rates (v3) |
+| [**exchangeAmountV3Async()**](ExchangeVApi.md#exchangeAmountV3Async) | **GET** /api/v3/ForexService/Exchange/Latest | Exchange currency at latest rates (v3) |
 
 
-## `apiV3ForexServiceExchangeHistoryGet()`
+## `exchangeAmountHistoricalV3Async()`
 
 ```php
-apiV3ForexServiceExchangeHistoryGet($amount, $source_currency_id, $target_currency_id, $date): \OpenAPI\Client\Model\ExchangeRateEnvelope
+exchangeAmountHistoricalV3Async($amount, $source_currency_id, $target_currency_id, $date): \OpenAPI\Client\Model\ExchangeRateEnvelope
 ```
 
+Exchange currency at historical rates (v3)
 
+Exchange an amount of money from one currency to another using exchange rates from a specific historical date. Returns the full ExchangeRate details.
 
 ### Example
 
@@ -23,17 +25,11 @@ apiV3ForexServiceExchangeHistoryGet($amount, $source_currency_id, $target_curren
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ExchangeVApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $amount = 3.4; // float
 $source_currency_id = 'source_currency_id_example'; // string
@@ -41,10 +37,10 @@ $target_currency_id = 'target_currency_id_example'; // string
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime
 
 try {
-    $result = $apiInstance->apiV3ForexServiceExchangeHistoryGet($amount, $source_currency_id, $target_currency_id, $date);
+    $result = $apiInstance->exchangeAmountHistoricalV3Async($amount, $source_currency_id, $target_currency_id, $date);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ExchangeVApi->apiV3ForexServiceExchangeHistoryGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ExchangeVApi->exchangeAmountHistoricalV3Async: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -63,7 +59,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,13 +70,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV3ForexServiceExchangeLatestGet()`
+## `exchangeAmountV3Async()`
 
 ```php
-apiV3ForexServiceExchangeLatestGet($amount, $source_currency_id, $target_currency_id): \OpenAPI\Client\Model\ExchangeRateEnvelope
+exchangeAmountV3Async($amount, $source_currency_id, $target_currency_id): \OpenAPI\Client\Model\ExchangeRateEnvelope
 ```
 
+Exchange currency at latest rates (v3)
 
+Exchange an amount of money from one currency to another using the latest available exchange rates. Returns the full ExchangeRate details.
 
 ### Example
 
@@ -89,27 +87,21 @@ apiV3ForexServiceExchangeLatestGet($amount, $source_currency_id, $target_currenc
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ExchangeVApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $amount = 3.4; // float
 $source_currency_id = 'source_currency_id_example'; // string
 $target_currency_id = 'target_currency_id_example'; // string
 
 try {
-    $result = $apiInstance->apiV3ForexServiceExchangeLatestGet($amount, $source_currency_id, $target_currency_id);
+    $result = $apiInstance->exchangeAmountV3Async($amount, $source_currency_id, $target_currency_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ExchangeVApi->apiV3ForexServiceExchangeLatestGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ExchangeVApi->exchangeAmountV3Async: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -127,7 +119,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

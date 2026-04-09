@@ -4,19 +4,21 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**apiV2ForexServiceRatesHistoryCurrencyIdGet()**](RatesApi.md#apiV2ForexServiceRatesHistoryCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/History/{currencyId} |  |
-| [**apiV2ForexServiceRatesHistoryGet()**](RatesApi.md#apiV2ForexServiceRatesHistoryGet) | **GET** /api/v2/ForexService/Rates/History |  |
-| [**apiV2ForexServiceRatesLatestCurrencyIdGet()**](RatesApi.md#apiV2ForexServiceRatesLatestCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} |  |
-| [**apiV2ForexServiceRatesLatestGet()**](RatesApi.md#apiV2ForexServiceRatesLatestGet) | **GET** /api/v2/ForexService/Rates/Latest |  |
+| [**getHistoricalCurrencyRateAsync()**](RatesApi.md#getHistoricalCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/History/{currencyId} | Get historical rate for a currency |
+| [**getHistoricalCurrencyRatesAsync()**](RatesApi.md#getHistoricalCurrencyRatesAsync) | **GET** /api/v2/ForexService/Rates/History | Get historical currency rates |
+| [**getLatestCurrencyRateAsync()**](RatesApi.md#getLatestCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} | Get latest rate for a currency |
+| [**getLatestCurrencyRatesModelAsync()**](RatesApi.md#getLatestCurrencyRatesModelAsync) | **GET** /api/v2/ForexService/Rates/Latest | Get latest currency rates |
 
 
-## `apiV2ForexServiceRatesHistoryCurrencyIdGet()`
+## `getHistoricalCurrencyRateAsync()`
 
 ```php
-apiV2ForexServiceRatesHistoryCurrencyIdGet($currency_id, $date, $api_version, $x_api_version): \OpenAPI\Client\Model\ExchangeRateEnvelope
+getHistoricalCurrencyRateAsync($currency_id, $date, $api_version, $x_api_version): \OpenAPI\Client\Model\ExchangeRateEnvelope
 ```
 
+Get historical rate for a currency
 
+Retrieves the exchange rate for a specific currency as of a specific historical date.
 
 ### Example
 
@@ -25,17 +27,11 @@ apiV2ForexServiceRatesHistoryCurrencyIdGet($currency_id, $date, $api_version, $x
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\RatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $currency_id = 'currency_id_example'; // string
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime
@@ -43,10 +39,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ForexServiceRatesHistoryCurrencyIdGet($currency_id, $date, $api_version, $x_api_version);
+    $result = $apiInstance->getHistoricalCurrencyRateAsync($currency_id, $date, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RatesApi->apiV2ForexServiceRatesHistoryCurrencyIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RatesApi->getHistoricalCurrencyRateAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -65,7 +61,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,13 +72,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ForexServiceRatesHistoryGet()`
+## `getHistoricalCurrencyRatesAsync()`
 
 ```php
-apiV2ForexServiceRatesHistoryGet($date, $api_version, $x_api_version): \OpenAPI\Client\Model\ForexRatesDtoEnvelope
+getHistoricalCurrencyRatesAsync($date, $api_version, $x_api_version): \OpenAPI\Client\Model\ForexRatesDtoEnvelope
 ```
 
+Get historical currency rates
 
+Retrieves exchange rates for all supported currencies as of a specific historical date.
 
 ### Example
 
@@ -91,27 +89,21 @@ apiV2ForexServiceRatesHistoryGet($date, $api_version, $x_api_version): \OpenAPI\
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\RatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ForexServiceRatesHistoryGet($date, $api_version, $x_api_version);
+    $result = $apiInstance->getHistoricalCurrencyRatesAsync($date, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RatesApi->apiV2ForexServiceRatesHistoryGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RatesApi->getHistoricalCurrencyRatesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -129,7 +121,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -140,13 +132,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ForexServiceRatesLatestCurrencyIdGet()`
+## `getLatestCurrencyRateAsync()`
 
 ```php
-apiV2ForexServiceRatesLatestCurrencyIdGet($currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExchangeRateEnvelope
+getLatestCurrencyRateAsync($currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ExchangeRateEnvelope
 ```
 
+Get latest rate for a currency
 
+Retrieves the latest exchange rate for a specific currency by its identifier.
 
 ### Example
 
@@ -155,27 +149,21 @@ apiV2ForexServiceRatesLatestCurrencyIdGet($currency_id, $api_version, $x_api_ver
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\RatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $currency_id = 'currency_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ForexServiceRatesLatestCurrencyIdGet($currency_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLatestCurrencyRateAsync($currency_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RatesApi->apiV2ForexServiceRatesLatestCurrencyIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RatesApi->getLatestCurrencyRateAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -193,7 +181,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -204,13 +192,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `apiV2ForexServiceRatesLatestGet()`
+## `getLatestCurrencyRatesModelAsync()`
 
 ```php
-apiV2ForexServiceRatesLatestGet($api_version, $x_api_version): \OpenAPI\Client\Model\ForexRatesDtoEnvelope
+getLatestCurrencyRatesModelAsync($api_version, $x_api_version): \OpenAPI\Client\Model\ForexRatesDtoEnvelope
 ```
 
+Get latest currency rates
 
+Retrieves the latest exchange rates for all supported currencies.
 
 ### Example
 
@@ -219,26 +209,20 @@ apiV2ForexServiceRatesLatestGet($api_version, $x_api_version): \OpenAPI\Client\M
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\RatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->apiV2ForexServiceRatesLatestGet($api_version, $x_api_version);
+    $result = $apiInstance->getLatestCurrencyRatesModelAsync($api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RatesApi->apiV2ForexServiceRatesLatestGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RatesApi->getLatestCurrencyRatesModelAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -255,7 +239,7 @@ try {
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
