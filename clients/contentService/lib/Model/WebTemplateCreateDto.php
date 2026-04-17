@@ -81,7 +81,7 @@ class WebTemplateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'uuid',
         'timestamp' => 'date-time',
         'slug' => null,
         'name' => null,
@@ -102,8 +102,8 @@ class WebTemplateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-        'timestamp' => true,
+        'id' => false,
+        'timestamp' => false,
         'slug' => true,
         'name' => true,
         'title' => true,
@@ -394,14 +394,7 @@ class WebTemplateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setId($id)
     {
         if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -428,14 +421,7 @@ class WebTemplateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setTimestamp($timestamp)
     {
         if (is_null($timestamp)) {
-            array_push($this->openAPINullablesSetToNull, 'timestamp');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timestamp', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
 

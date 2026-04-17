@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **asset_id** | **string** |  | [optional]
 **asset_depreciation_policy_id** | **string** |  | [optional]
 **depreciation_amount** | **float** |  | [optional]

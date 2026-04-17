@@ -60,8 +60,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'business_team_id' => 'string',
         'contact_id' => 'string'
     ];
@@ -76,8 +74,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'business_team_id' => null,
         'contact_id' => null
     ];
@@ -90,8 +86,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'business_id' => false,
-        'business_profile_record_id' => false,
         'business_team_id' => false,
         'contact_id' => false
     ];
@@ -184,8 +178,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'business_team_id' => 'businessTeamID',
         'contact_id' => 'contactID'
     ];
@@ -198,8 +190,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'business_team_id' => 'setBusinessTeamId',
         'contact_id' => 'setContactId'
     ];
@@ -212,8 +202,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'business_team_id' => 'getBusinessTeamId',
         'contact_id' => 'getContactId'
     ];
@@ -277,8 +265,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('business_team_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
     }
@@ -309,28 +295,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if ($this->container['business_profile_record_id'] === null) {
-            $invalidProperties[] = "'business_profile_record_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_profile_record_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_profile_record_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be bigger than or equal to 36.";
-        }
 
         if ($this->container['business_team_id'] === null) {
             $invalidProperties[] = "'business_team_id' can't be null";
@@ -419,74 +383,6 @@ class TenantTeamContactEnrollmentCreateDto implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling TenantTeamContactEnrollmentCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling TenantTeamContactEnrollmentCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            throw new \InvalidArgumentException('non-nullable business_profile_record_id cannot be null');
-        }
-        if ((mb_strlen($business_profile_record_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling TenantTeamContactEnrollmentCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_profile_record_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling TenantTeamContactEnrollmentCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

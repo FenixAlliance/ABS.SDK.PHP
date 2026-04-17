@@ -60,9 +60,7 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'user_email' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string'
+        'user_email' => 'string'
     ];
 
     /**
@@ -75,9 +73,7 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'user_email' => 'email',
-        'tenant_id' => null,
-        'enrollment_id' => null
+        'user_email' => 'email'
     ];
 
     /**
@@ -88,9 +84,7 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'user_email' => false,
-        'tenant_id' => true,
-        'enrollment_id' => true
+        'user_email' => false
     ];
 
     /**
@@ -181,9 +175,7 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'user_email' => 'userEmail',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId'
+        'user_email' => 'userEmail'
     ];
 
     /**
@@ -194,9 +186,7 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'user_email' => 'setUserEmail',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId'
+        'user_email' => 'setUserEmail'
     ];
 
     /**
@@ -207,9 +197,7 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'user_email' => 'getUserEmail',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId'
+        'user_email' => 'getUserEmail'
     ];
 
     /**
@@ -272,8 +260,6 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('user_email', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -407,74 +393,6 @@ class TenantInvitationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['user_email'] = $user_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

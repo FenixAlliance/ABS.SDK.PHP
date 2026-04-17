@@ -62,7 +62,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => '\DateTime',
         'name' => 'string',
         'course_id' => 'string',
-        'business_id' => 'string',
         'start_date_time' => '\DateTime',
         'end_date_time' => '\DateTime',
         'expected_start_date_time' => '\DateTime',
@@ -81,7 +80,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'date-time',
         'name' => null,
         'course_id' => null,
-        'business_id' => null,
         'start_date_time' => 'date-time',
         'end_date_time' => 'date-time',
         'expected_start_date_time' => 'date-time',
@@ -98,7 +96,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => false,
         'name' => false,
         'course_id' => false,
-        'business_id' => false,
         'start_date_time' => true,
         'end_date_time' => true,
         'expected_start_date_time' => true,
@@ -195,7 +192,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'timestamp',
         'name' => 'name',
         'course_id' => 'courseID',
-        'business_id' => 'businessID',
         'start_date_time' => 'startDateTime',
         'end_date_time' => 'endDateTime',
         'expected_start_date_time' => 'expectedStartDateTime',
@@ -212,7 +208,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
         'course_id' => 'setCourseId',
-        'business_id' => 'setBusinessId',
         'start_date_time' => 'setStartDateTime',
         'end_date_time' => 'setEndDateTime',
         'expected_start_date_time' => 'setExpectedStartDateTime',
@@ -229,7 +224,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
         'course_id' => 'getCourseId',
-        'business_id' => 'getBusinessId',
         'start_date_time' => 'getStartDateTime',
         'end_date_time' => 'getEndDateTime',
         'expected_start_date_time' => 'getExpectedStartDateTime',
@@ -297,7 +291,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('start_date_time', $data ?? [], null);
         $this->setIfExists('end_date_time', $data ?? [], null);
         $this->setIfExists('expected_start_date_time', $data ?? [], null);
@@ -343,13 +336,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         }
         if ((mb_strlen($this->container['course_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -481,38 +467,6 @@ class CourseCohortCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         }
 
         $this->container['course_id'] = $course_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseCohortCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

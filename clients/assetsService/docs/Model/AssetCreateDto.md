@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**business_id** | **string** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **asset_class** | **string** |  | [optional]

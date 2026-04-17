@@ -60,8 +60,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'name' => 'string',
         'description' => 'string'
     ];
@@ -76,8 +74,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'name' => null,
         'description' => null
     ];
@@ -90,8 +86,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'business_id' => true,
-        'business_profile_record_id' => true,
         'name' => true,
         'description' => true
     ];
@@ -184,8 +178,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'business_id' => 'businessId',
-        'business_profile_record_id' => 'businessProfileRecordId',
         'name' => 'name',
         'description' => 'description'
     ];
@@ -198,8 +190,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'name' => 'setName',
         'description' => 'setDescription'
     ];
@@ -212,8 +202,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'name' => 'getName',
         'description' => 'getDescription'
     ];
@@ -277,8 +265,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
     }
@@ -375,74 +361,6 @@ class AssetTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

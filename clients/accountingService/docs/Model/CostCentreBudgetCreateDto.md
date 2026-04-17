@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
 **name** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **fiscal_year_id** | **string** |  | [optional]
 **cost_centre_id** | **string** |  | [optional]
 

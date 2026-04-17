@@ -61,9 +61,7 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => 'string',
         'content' => 'string',
         'featured_image_url' => 'string',
-        'tenant_id' => 'string',
-        'social_post_bucket_id' => 'string',
-        'enrollment_id' => 'string'
+        'social_post_bucket_id' => 'string'
     ];
 
     /**
@@ -77,9 +75,7 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => null,
         'content' => null,
         'featured_image_url' => 'uri',
-        'tenant_id' => null,
-        'social_post_bucket_id' => null,
-        'enrollment_id' => null
+        'social_post_bucket_id' => null
     ];
 
     /**
@@ -91,9 +87,7 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => true,
         'content' => true,
         'featured_image_url' => true,
-        'tenant_id' => true,
-        'social_post_bucket_id' => true,
-        'enrollment_id' => true
+        'social_post_bucket_id' => true
     ];
 
     /**
@@ -185,9 +179,7 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => 'title',
         'content' => 'content',
         'featured_image_url' => 'featuredImageUrl',
-        'tenant_id' => 'tenantId',
-        'social_post_bucket_id' => 'socialPostBucketId',
-        'enrollment_id' => 'enrollmentId'
+        'social_post_bucket_id' => 'socialPostBucketId'
     ];
 
     /**
@@ -199,9 +191,7 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => 'setTitle',
         'content' => 'setContent',
         'featured_image_url' => 'setFeaturedImageUrl',
-        'tenant_id' => 'setTenantId',
-        'social_post_bucket_id' => 'setSocialPostBucketId',
-        'enrollment_id' => 'setEnrollmentId'
+        'social_post_bucket_id' => 'setSocialPostBucketId'
     ];
 
     /**
@@ -213,9 +203,7 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => 'getTitle',
         'content' => 'getContent',
         'featured_image_url' => 'getFeaturedImageUrl',
-        'tenant_id' => 'getTenantId',
-        'social_post_bucket_id' => 'getSocialPostBucketId',
-        'enrollment_id' => 'getEnrollmentId'
+        'social_post_bucket_id' => 'getSocialPostBucketId'
     ];
 
     /**
@@ -278,9 +266,7 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('featured_image_url', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('social_post_bucket_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -318,28 +304,12 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
             $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['social_post_bucket_id']) && (mb_strlen($this->container['social_post_bucket_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'social_post_bucket_id', the character length must be smaller than or equal to 36.";
         }
 
         if (!is_null($this->container['social_post_bucket_id']) && (mb_strlen($this->container['social_post_bucket_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'social_post_bucket_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -467,47 +437,6 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling SocialMediaPostUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling SocialMediaPostUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets social_post_bucket_id
      *
      * @return string|null
@@ -544,47 +473,6 @@ class SocialMediaPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         }
 
         $this->container['social_post_bucket_id'] = $social_post_bucket_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling SocialMediaPostUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling SocialMediaPostUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

@@ -64,7 +64,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'needs_revision' => 'bool',
         'question' => 'string',
         'social_profile_id' => 'string',
-        'business_id' => 'string',
         'item_id' => 'string'
     ];
 
@@ -82,7 +81,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'needs_revision' => null,
         'question' => null,
         'social_profile_id' => null,
-        'business_id' => null,
         'item_id' => null
     ];
 
@@ -98,7 +96,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'needs_revision' => false,
         'question' => false,
         'social_profile_id' => true,
-        'business_id' => false,
         'item_id' => false
     ];
 
@@ -194,7 +191,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'needs_revision' => 'needsRevision',
         'question' => 'question',
         'social_profile_id' => 'socialProfileID',
-        'business_id' => 'businessID',
         'item_id' => 'itemID'
     ];
 
@@ -210,7 +206,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'needs_revision' => 'setNeedsRevision',
         'question' => 'setQuestion',
         'social_profile_id' => 'setSocialProfileId',
-        'business_id' => 'setBusinessId',
         'item_id' => 'setItemId'
     ];
 
@@ -226,7 +221,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'needs_revision' => 'getNeedsRevision',
         'question' => 'getQuestion',
         'social_profile_id' => 'getSocialProfileId',
-        'business_id' => 'getBusinessId',
         'item_id' => 'getItemId'
     ];
 
@@ -293,7 +287,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('needs_revision', $data ?? [], null);
         $this->setIfExists('question', $data ?? [], null);
         $this->setIfExists('social_profile_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('item_id', $data ?? [], null);
     }
 
@@ -355,17 +348,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
 
         if (!is_null($this->container['social_profile_id']) && (mb_strlen($this->container['social_profile_id']) < 36)) {
             $invalidProperties[] = "invalid value for 'social_profile_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
         }
 
         if ($this->container['item_id'] === null) {
@@ -580,40 +562,6 @@ class ItemQuestionCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         }
 
         $this->container['social_profile_id'] = $social_profile_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemQuestionCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemQuestionCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

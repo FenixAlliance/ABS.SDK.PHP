@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **contact_email** | **string** |  | [optional]
 **privacy_policy_url** | **string** |  | [optional]
 **terms_and_conditions_url** | **string** |  | [optional]
-**business_id** | **string** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
 **require_https** | **bool** |  | [optional]
 **require_app_secret** | **bool** |  | [optional]
 **enable_client_oauth_login** | **bool** |  | [optional]

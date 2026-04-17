@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **amount** | **float** |  | [optional]
 **date** | **\DateTime** |  | [optional]

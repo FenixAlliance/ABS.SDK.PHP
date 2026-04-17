@@ -62,9 +62,7 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'value' => 'float',
         'new_share_holder_id' => 'string',
         'former_share_holder_id' => 'string',
-        'share_transfer_reason_id' => 'string',
-        'enrollment_id' => 'string',
-        'tenant_id' => 'string'
+        'share_transfer_reason_id' => 'string'
     ];
 
     /**
@@ -79,9 +77,7 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'value' => 'double',
         'new_share_holder_id' => null,
         'former_share_holder_id' => null,
-        'share_transfer_reason_id' => null,
-        'enrollment_id' => null,
-        'tenant_id' => null
+        'share_transfer_reason_id' => null
     ];
 
     /**
@@ -94,9 +90,7 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'value' => false,
         'new_share_holder_id' => true,
         'former_share_holder_id' => true,
-        'share_transfer_reason_id' => true,
-        'enrollment_id' => true,
-        'tenant_id' => true
+        'share_transfer_reason_id' => true
     ];
 
     /**
@@ -189,9 +183,7 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'value' => 'value',
         'new_share_holder_id' => 'newShareHolderId',
         'former_share_holder_id' => 'formerShareHolderId',
-        'share_transfer_reason_id' => 'shareTransferReasonId',
-        'enrollment_id' => 'enrollmentId',
-        'tenant_id' => 'tenantId'
+        'share_transfer_reason_id' => 'shareTransferReasonId'
     ];
 
     /**
@@ -204,9 +196,7 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'value' => 'setValue',
         'new_share_holder_id' => 'setNewShareHolderId',
         'former_share_holder_id' => 'setFormerShareHolderId',
-        'share_transfer_reason_id' => 'setShareTransferReasonId',
-        'enrollment_id' => 'setEnrollmentId',
-        'tenant_id' => 'setTenantId'
+        'share_transfer_reason_id' => 'setShareTransferReasonId'
     ];
 
     /**
@@ -219,9 +209,7 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'value' => 'getValue',
         'new_share_holder_id' => 'getNewShareHolderId',
         'former_share_holder_id' => 'getFormerShareHolderId',
-        'share_transfer_reason_id' => 'getShareTransferReasonId',
-        'enrollment_id' => 'getEnrollmentId',
-        'tenant_id' => 'getTenantId'
+        'share_transfer_reason_id' => 'getShareTransferReasonId'
     ];
 
     /**
@@ -286,8 +274,6 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('new_share_holder_id', $data ?? [], null);
         $this->setIfExists('former_share_holder_id', $data ?? [], null);
         $this->setIfExists('share_transfer_reason_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
     }
 
     /**
@@ -347,22 +333,6 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
 
         if (!is_null($this->container['share_transfer_reason_id']) && (mb_strlen($this->container['share_transfer_reason_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'share_transfer_reason_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -567,88 +537,6 @@ class ShareTransferUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
 
         $this->container['share_transfer_reason_id'] = $share_transfer_reason_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling ShareTransferUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling ShareTransferUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling ShareTransferUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling ShareTransferUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

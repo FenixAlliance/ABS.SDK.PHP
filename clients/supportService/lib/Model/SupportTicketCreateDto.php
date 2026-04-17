@@ -61,10 +61,7 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'string',
         'timestamp' => '\DateTime',
         'description' => 'string',
-        'account_holder_id' => 'string',
         'contact_id' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'support_ticket_type_id' => 'string',
         'support_entitlement_id' => 'string',
         'support_priority_id' => 'string'
@@ -81,10 +78,7 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'description' => null,
-        'account_holder_id' => null,
         'contact_id' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'support_ticket_type_id' => null,
         'support_entitlement_id' => null,
         'support_priority_id' => null
@@ -99,10 +93,7 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => false,
         'timestamp' => false,
         'description' => true,
-        'account_holder_id' => true,
         'contact_id' => true,
-        'business_id' => true,
-        'business_profile_record_id' => true,
         'support_ticket_type_id' => true,
         'support_entitlement_id' => true,
         'support_priority_id' => true
@@ -197,10 +188,7 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'id',
         'timestamp' => 'timestamp',
         'description' => 'description',
-        'account_holder_id' => 'accountHolderID',
         'contact_id' => 'contactID',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'support_ticket_type_id' => 'supportTicketTypeID',
         'support_entitlement_id' => 'supportEntitlementID',
         'support_priority_id' => 'supportPriorityID'
@@ -215,10 +203,7 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'description' => 'setDescription',
-        'account_holder_id' => 'setAccountHolderId',
         'contact_id' => 'setContactId',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'support_ticket_type_id' => 'setSupportTicketTypeId',
         'support_entitlement_id' => 'setSupportEntitlementId',
         'support_priority_id' => 'setSupportPriorityId'
@@ -233,10 +218,7 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'description' => 'getDescription',
-        'account_holder_id' => 'getAccountHolderId',
         'contact_id' => 'getContactId',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'support_ticket_type_id' => 'getSupportTicketTypeId',
         'support_entitlement_id' => 'getSupportEntitlementId',
         'support_priority_id' => 'getSupportPriorityId'
@@ -302,10 +284,7 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('account_holder_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('support_ticket_type_id', $data ?? [], null);
         $this->setIfExists('support_entitlement_id', $data ?? [], null);
         $this->setIfExists('support_priority_id', $data ?? [], null);
@@ -346,36 +325,12 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['account_holder_id']) && (mb_strlen($this->container['account_holder_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'account_holder_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['account_holder_id']) && (mb_strlen($this->container['account_holder_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'account_holder_id', the character length must be bigger than or equal to 36.";
-        }
-
         if (!is_null($this->container['contact_id']) && (mb_strlen($this->container['contact_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'contact_id', the character length must be smaller than or equal to 36.";
         }
 
         if (!is_null($this->container['contact_id']) && (mb_strlen($this->container['contact_id']) < 36)) {
             $invalidProperties[] = "invalid value for 'contact_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be bigger than or equal to 36.";
         }
 
         if (!is_null($this->container['support_ticket_type_id']) && (mb_strlen($this->container['support_ticket_type_id']) > 36)) {
@@ -513,47 +468,6 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets account_holder_id
-     *
-     * @return string|null
-     */
-    public function getAccountHolderId()
-    {
-        return $this->container['account_holder_id'];
-    }
-
-    /**
-     * Sets account_holder_id
-     *
-     * @param string|null $account_holder_id account_holder_id
-     *
-     * @return self
-     */
-    public function setAccountHolderId($account_holder_id)
-    {
-        if (is_null($account_holder_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($account_holder_id) && (mb_strlen($account_holder_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $account_holder_id when calling SupportTicketCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($account_holder_id) && (mb_strlen($account_holder_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $account_holder_id when calling SupportTicketCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['account_holder_id'] = $account_holder_id;
-
-        return $this;
-    }
-
-    /**
      * Gets contact_id
      *
      * @return string|null
@@ -590,88 +504,6 @@ class SupportTicketCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
 
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportTicketCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportTicketCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling SupportTicketCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling SupportTicketCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

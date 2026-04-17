@@ -62,8 +62,7 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'timestamp' => '\DateTime',
         'title' => 'string',
         'description' => 'string',
-        'course_id' => 'string',
-        'business_id' => 'string'
+        'course_id' => 'string'
     ];
 
     /**
@@ -78,8 +77,7 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'timestamp' => 'date-time',
         'title' => null,
         'description' => null,
-        'course_id' => null,
-        'business_id' => null
+        'course_id' => null
     ];
 
     /**
@@ -92,8 +90,7 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'timestamp' => false,
         'title' => false,
         'description' => true,
-        'course_id' => false,
-        'business_id' => false
+        'course_id' => false
     ];
 
     /**
@@ -186,8 +183,7 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'timestamp' => 'timestamp',
         'title' => 'title',
         'description' => 'description',
-        'course_id' => 'courseID',
-        'business_id' => 'businessID'
+        'course_id' => 'courseID'
     ];
 
     /**
@@ -200,8 +196,7 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'timestamp' => 'setTimestamp',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'course_id' => 'setCourseId',
-        'business_id' => 'setBusinessId'
+        'course_id' => 'setCourseId'
     ];
 
     /**
@@ -214,8 +209,7 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'timestamp' => 'getTimestamp',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'course_id' => 'getCourseId',
-        'business_id' => 'getBusinessId'
+        'course_id' => 'getCourseId'
     ];
 
     /**
@@ -280,7 +274,6 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -322,13 +315,6 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         }
         if ((mb_strlen($this->container['course_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -494,38 +480,6 @@ class CourseForumCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         }
 
         $this->container['course_id'] = $course_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseForumCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

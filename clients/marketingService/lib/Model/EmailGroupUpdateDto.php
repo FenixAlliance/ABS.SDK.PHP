@@ -60,9 +60,7 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'name' => 'string',
         'description' => 'string',
-        'enabled' => 'bool',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string'
+        'enabled' => 'bool'
     ];
 
     /**
@@ -75,9 +73,7 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'name' => null,
         'description' => null,
-        'enabled' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null
+        'enabled' => null
     ];
 
     /**
@@ -88,9 +84,7 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPINullables = [
         'name' => true,
         'description' => true,
-        'enabled' => false,
-        'tenant_id' => true,
-        'enrollment_id' => true
+        'enabled' => false
     ];
 
     /**
@@ -181,9 +175,7 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'name' => 'name',
         'description' => 'description',
-        'enabled' => 'enabled',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId'
+        'enabled' => 'enabled'
     ];
 
     /**
@@ -194,9 +186,7 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'name' => 'setName',
         'description' => 'setDescription',
-        'enabled' => 'setEnabled',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId'
+        'enabled' => 'setEnabled'
     ];
 
     /**
@@ -207,9 +197,7 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'name' => 'getName',
         'description' => 'getDescription',
-        'enabled' => 'getEnabled',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId'
+        'enabled' => 'getEnabled'
     ];
 
     /**
@@ -272,8 +260,6 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('enabled', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -409,74 +395,6 @@ class EmailGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable enabled cannot be null');
         }
         $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

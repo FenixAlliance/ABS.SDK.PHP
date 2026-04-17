@@ -58,7 +58,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tenant_id' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'company_name' => 'string',
@@ -102,7 +101,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'string',
         'forex_rate' => 'float',
         'currency_id' => 'string',
-        'enrollment_id' => 'string',
         'individual_id' => 'string',
         'organization_id' => 'string',
         'total_amount_in_usd' => 'float',
@@ -126,7 +124,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'tenant_id' => null,
         'first_name' => null,
         'last_name' => null,
         'company_name' => null,
@@ -170,7 +167,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => null,
         'forex_rate' => 'double',
         'currency_id' => null,
-        'enrollment_id' => null,
         'individual_id' => null,
         'organization_id' => null,
         'total_amount_in_usd' => 'double',
@@ -192,7 +188,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'tenant_id' => true,
         'first_name' => true,
         'last_name' => true,
         'company_name' => true,
@@ -236,7 +231,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => true,
         'forex_rate' => false,
         'currency_id' => true,
-        'enrollment_id' => true,
         'individual_id' => true,
         'organization_id' => true,
         'total_amount_in_usd' => false,
@@ -338,7 +332,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'tenant_id' => 'tenantId',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
         'company_name' => 'companyName',
@@ -382,7 +375,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'userId',
         'forex_rate' => 'forexRate',
         'currency_id' => 'currencyId',
-        'enrollment_id' => 'enrollmentId',
         'individual_id' => 'individualId',
         'organization_id' => 'organizationId',
         'total_amount_in_usd' => 'totalAmountInUsd',
@@ -404,7 +396,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'tenant_id' => 'setTenantId',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'company_name' => 'setCompanyName',
@@ -448,7 +439,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'setUserId',
         'forex_rate' => 'setForexRate',
         'currency_id' => 'setCurrencyId',
-        'enrollment_id' => 'setEnrollmentId',
         'individual_id' => 'setIndividualId',
         'organization_id' => 'setOrganizationId',
         'total_amount_in_usd' => 'setTotalAmountInUsd',
@@ -470,7 +460,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'tenant_id' => 'getTenantId',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'company_name' => 'getCompanyName',
@@ -514,7 +503,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'user_id' => 'getUserId',
         'forex_rate' => 'getForexRate',
         'currency_id' => 'getCurrencyId',
-        'enrollment_id' => 'getEnrollmentId',
         'individual_id' => 'getIndividualId',
         'organization_id' => 'getOrganizationId',
         'total_amount_in_usd' => 'getTotalAmountInUsd',
@@ -617,7 +605,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('company_name', $data ?? [], null);
@@ -661,7 +648,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('user_id', $data ?? [], null);
         $this->setIfExists('forex_rate', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('individual_id', $data ?? [], null);
         $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('total_amount_in_usd', $data ?? [], null);
@@ -736,40 +722,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
 
     /**
      * Gets first_name
@@ -2144,40 +2096,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

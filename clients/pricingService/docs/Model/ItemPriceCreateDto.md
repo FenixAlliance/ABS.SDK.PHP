@@ -8,11 +8,9 @@ Name | Type | Description | Notes
 **timestamp** | **\DateTime** |  | [optional]
 **item_id** | **string** |  |
 **unit_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **currency_id** | **string** |  | [optional]
 **price_list_id** | **string** |  | [optional]
 **unit_group_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 **discount_list_id** | **string** |  | [optional]
 **rounding_policy_id** | **string** |  | [optional]
 **price** | **float** |  | [optional]

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional]
 **overall_score** | **float** |  | [optional]
 **course_id** | **string** |  |
-**business_id** | **string** |  |
 **course_unit_id** | **string** |  | [optional]
 **course_grading_rubric_id** | **string** |  | [optional]
 **release_date_time** | **\DateTime** |  | [optional]

@@ -69,8 +69,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'modified_on' => '\DateTime',
         'last_used_on' => '\DateTime',
         'currency_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'marketing_list_type' => 'string',
         'marketing_list_target' => 'string'
     ];
@@ -94,8 +92,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'modified_on' => 'date-time',
         'last_used_on' => 'date-time',
         'currency_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'marketing_list_type' => null,
         'marketing_list_target' => null
     ];
@@ -117,8 +113,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'modified_on' => false,
         'last_used_on' => false,
         'currency_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'marketing_list_type' => false,
         'marketing_list_target' => false
     ];
@@ -220,8 +214,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'modified_on' => 'modifiedOn',
         'last_used_on' => 'lastUsedOn',
         'currency_id' => 'currencyId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'marketing_list_type' => 'marketingListType',
         'marketing_list_target' => 'marketingListTarget'
     ];
@@ -243,8 +235,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'modified_on' => 'setModifiedOn',
         'last_used_on' => 'setLastUsedOn',
         'currency_id' => 'setCurrencyId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'marketing_list_type' => 'setMarketingListType',
         'marketing_list_target' => 'setMarketingListTarget'
     ];
@@ -266,8 +256,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'modified_on' => 'getModifiedOn',
         'last_used_on' => 'getLastUsedOn',
         'currency_id' => 'getCurrencyId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'marketing_list_type' => 'getMarketingListType',
         'marketing_list_target' => 'getMarketingListTarget'
     ];
@@ -372,8 +360,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('modified_on', $data ?? [], null);
         $this->setIfExists('last_used_on', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('marketing_list_type', $data ?? [], null);
         $this->setIfExists('marketing_list_target', $data ?? [], null);
     }
@@ -766,74 +752,6 @@ class MarketingListCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

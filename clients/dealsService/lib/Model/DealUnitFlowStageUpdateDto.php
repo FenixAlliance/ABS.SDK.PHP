@@ -61,7 +61,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'int',
         'name' => 'string',
         'description' => 'string',
-        'enrollment_id' => 'string',
         'deal_unit_flow_id' => 'string',
         'parent_business_process_stage_id' => 'string'
     ];
@@ -77,7 +76,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'int32',
         'name' => null,
         'description' => null,
-        'enrollment_id' => null,
         'deal_unit_flow_id' => null,
         'parent_business_process_stage_id' => null
     ];
@@ -91,7 +89,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => false,
         'name' => true,
         'description' => true,
-        'enrollment_id' => true,
         'deal_unit_flow_id' => true,
         'parent_business_process_stage_id' => true
     ];
@@ -185,7 +182,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'order',
         'name' => 'name',
         'description' => 'description',
-        'enrollment_id' => 'enrollmentId',
         'deal_unit_flow_id' => 'dealUnitFlowId',
         'parent_business_process_stage_id' => 'parentBusinessProcessStageId'
     ];
@@ -199,7 +195,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'setOrder',
         'name' => 'setName',
         'description' => 'setDescription',
-        'enrollment_id' => 'setEnrollmentId',
         'deal_unit_flow_id' => 'setDealUnitFlowId',
         'parent_business_process_stage_id' => 'setParentBusinessProcessStageId'
     ];
@@ -213,7 +208,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'getOrder',
         'name' => 'getName',
         'description' => 'getDescription',
-        'enrollment_id' => 'getEnrollmentId',
         'deal_unit_flow_id' => 'getDealUnitFlowId',
         'parent_business_process_stage_id' => 'getParentBusinessProcessStageId'
     ];
@@ -278,7 +272,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('deal_unit_flow_id', $data ?? [], null);
         $this->setIfExists('parent_business_process_stage_id', $data ?? [], null);
     }
@@ -416,40 +409,6 @@ class DealUnitFlowStageUpdateDto implements ModelInterface, ArrayAccess, \JsonSe
             }
         }
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

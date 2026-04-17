@@ -59,15 +59,12 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'payment_id' => 'string',
-        'tenant_id' => 'string',
         'forex_rate' => 'float',
         'total_amount' => 'float',
         'total_amount_in_usd' => 'float',
         'closed' => 'bool',
         'currency_id' => 'string',
-        'account_holder_id' => 'string',
         'contact_id' => 'string',
-        'enrollment_id' => 'string',
         'order_id' => 'string',
         'invoice_id' => 'string'
     ];
@@ -81,15 +78,12 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'payment_id' => null,
-        'tenant_id' => null,
         'forex_rate' => 'double',
         'total_amount' => 'double',
         'total_amount_in_usd' => 'double',
         'closed' => null,
         'currency_id' => null,
-        'account_holder_id' => null,
         'contact_id' => null,
-        'enrollment_id' => null,
         'order_id' => null,
         'invoice_id' => null
     ];
@@ -101,15 +95,12 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'payment_id' => true,
-        'tenant_id' => true,
         'forex_rate' => false,
         'total_amount' => false,
         'total_amount_in_usd' => false,
         'closed' => false,
         'currency_id' => true,
-        'account_holder_id' => true,
         'contact_id' => true,
-        'enrollment_id' => true,
         'order_id' => true,
         'invoice_id' => true
     ];
@@ -201,15 +192,12 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'payment_id' => 'paymentId',
-        'tenant_id' => 'tenantId',
         'forex_rate' => 'forexRate',
         'total_amount' => 'totalAmount',
         'total_amount_in_usd' => 'totalAmountInUsd',
         'closed' => 'closed',
         'currency_id' => 'currencyId',
-        'account_holder_id' => 'accountHolderId',
         'contact_id' => 'contactId',
-        'enrollment_id' => 'enrollmentId',
         'order_id' => 'orderId',
         'invoice_id' => 'invoiceId'
     ];
@@ -221,15 +209,12 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'payment_id' => 'setPaymentId',
-        'tenant_id' => 'setTenantId',
         'forex_rate' => 'setForexRate',
         'total_amount' => 'setTotalAmount',
         'total_amount_in_usd' => 'setTotalAmountInUsd',
         'closed' => 'setClosed',
         'currency_id' => 'setCurrencyId',
-        'account_holder_id' => 'setAccountHolderId',
         'contact_id' => 'setContactId',
-        'enrollment_id' => 'setEnrollmentId',
         'order_id' => 'setOrderId',
         'invoice_id' => 'setInvoiceId'
     ];
@@ -241,15 +226,12 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'payment_id' => 'getPaymentId',
-        'tenant_id' => 'getTenantId',
         'forex_rate' => 'getForexRate',
         'total_amount' => 'getTotalAmount',
         'total_amount_in_usd' => 'getTotalAmountInUsd',
         'closed' => 'getClosed',
         'currency_id' => 'getCurrencyId',
-        'account_holder_id' => 'getAccountHolderId',
         'contact_id' => 'getContactId',
-        'enrollment_id' => 'getEnrollmentId',
         'order_id' => 'getOrderId',
         'invoice_id' => 'getInvoiceId'
     ];
@@ -312,15 +294,12 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('payment_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('forex_rate', $data ?? [], null);
         $this->setIfExists('total_amount', $data ?? [], null);
         $this->setIfExists('total_amount_in_usd', $data ?? [], null);
         $this->setIfExists('closed', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('account_holder_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('order_id', $data ?? [], null);
         $this->setIfExists('invoice_id', $data ?? [], null);
     }
@@ -397,40 +376,6 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }
@@ -578,40 +523,6 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets account_holder_id
-     *
-     * @return string|null
-     */
-    public function getAccountHolderId()
-    {
-        return $this->container['account_holder_id'];
-    }
-
-    /**
-     * Sets account_holder_id
-     *
-     * @param string|null $account_holder_id account_holder_id
-     *
-     * @return self
-     */
-    public function setAccountHolderId($account_holder_id)
-    {
-        if (is_null($account_holder_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_holder_id'] = $account_holder_id;
-
-        return $this;
-    }
-
-    /**
      * Gets contact_id
      *
      * @return string|null
@@ -641,40 +552,6 @@ class ReceiptUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

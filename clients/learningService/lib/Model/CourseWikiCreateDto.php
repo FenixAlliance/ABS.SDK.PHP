@@ -63,7 +63,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'title' => 'string',
         'description' => 'string',
         'course_id' => 'string',
-        'business_id' => 'string',
         'course_unit_id' => 'string',
         'release_date_time' => '\DateTime'
     ];
@@ -81,7 +80,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'title' => null,
         'description' => null,
         'course_id' => null,
-        'business_id' => null,
         'course_unit_id' => null,
         'release_date_time' => 'date-time'
     ];
@@ -97,7 +95,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'title' => false,
         'description' => true,
         'course_id' => false,
-        'business_id' => false,
         'course_unit_id' => true,
         'release_date_time' => true
     ];
@@ -193,7 +190,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'title' => 'title',
         'description' => 'description',
         'course_id' => 'courseID',
-        'business_id' => 'businessID',
         'course_unit_id' => 'courseUnitID',
         'release_date_time' => 'releaseDateTime'
     ];
@@ -209,7 +205,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'title' => 'setTitle',
         'description' => 'setDescription',
         'course_id' => 'setCourseId',
-        'business_id' => 'setBusinessId',
         'course_unit_id' => 'setCourseUnitId',
         'release_date_time' => 'setReleaseDateTime'
     ];
@@ -225,7 +220,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'title' => 'getTitle',
         'description' => 'getDescription',
         'course_id' => 'getCourseId',
-        'business_id' => 'getBusinessId',
         'course_unit_id' => 'getCourseUnitId',
         'release_date_time' => 'getReleaseDateTime'
     ];
@@ -292,7 +286,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('course_unit_id', $data ?? [], null);
         $this->setIfExists('release_date_time', $data ?? [], null);
     }
@@ -336,13 +329,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ((mb_strlen($this->container['course_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -508,38 +494,6 @@ class CourseWikiCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['course_id'] = $course_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseWikiCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

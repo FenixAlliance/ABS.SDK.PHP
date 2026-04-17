@@ -72,9 +72,7 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'canonical_url' => 'string',
         'image_url' => 'string',
         'image' => 'string',
-        'web_portal_id' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string'
+        'web_portal_id' => 'string'
     ];
 
     /**
@@ -99,9 +97,7 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'canonical_url' => null,
         'image_url' => null,
         'image' => null,
-        'web_portal_id' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null
+        'web_portal_id' => null
     ];
 
     /**
@@ -124,9 +120,7 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'canonical_url' => true,
         'image_url' => true,
         'image' => true,
-        'web_portal_id' => true,
-        'business_id' => true,
-        'business_profile_record_id' => true
+        'web_portal_id' => true
     ];
 
     /**
@@ -229,9 +223,7 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'canonical_url' => 'canonicalUrl',
         'image_url' => 'imageURL',
         'image' => 'image',
-        'web_portal_id' => 'webPortalID',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID'
+        'web_portal_id' => 'webPortalID'
     ];
 
     /**
@@ -254,9 +246,7 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'canonical_url' => 'setCanonicalUrl',
         'image_url' => 'setImageUrl',
         'image' => 'setImage',
-        'web_portal_id' => 'setWebPortalId',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId'
+        'web_portal_id' => 'setWebPortalId'
     ];
 
     /**
@@ -279,9 +269,7 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'canonical_url' => 'getCanonicalUrl',
         'image_url' => 'getImageUrl',
         'image' => 'getImage',
-        'web_portal_id' => 'getWebPortalId',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId'
+        'web_portal_id' => 'getWebPortalId'
     ];
 
     /**
@@ -356,8 +344,6 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('image_url', $data ?? [], null);
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('web_portal_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
     }
 
     /**
@@ -880,74 +866,6 @@ class BlogPostTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['web_portal_id'] = $web_portal_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

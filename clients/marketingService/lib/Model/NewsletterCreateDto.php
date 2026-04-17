@@ -62,9 +62,7 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'timestamp' => '\DateTime',
         'name' => 'string',
         'code' => 'string',
-        'title' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string'
+        'title' => 'string'
     ];
 
     /**
@@ -79,9 +77,7 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'timestamp' => 'date-time',
         'name' => null,
         'code' => null,
-        'title' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null
+        'title' => null
     ];
 
     /**
@@ -94,9 +90,7 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'timestamp' => false,
         'name' => true,
         'code' => true,
-        'title' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true
+        'title' => true
     ];
 
     /**
@@ -189,9 +183,7 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'timestamp' => 'timestamp',
         'name' => 'name',
         'code' => 'code',
-        'title' => 'title',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId'
+        'title' => 'title'
     ];
 
     /**
@@ -204,9 +196,7 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
         'code' => 'setCode',
-        'title' => 'setTitle',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId'
+        'title' => 'setTitle'
     ];
 
     /**
@@ -219,9 +209,7 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
         'code' => 'getCode',
-        'title' => 'getTitle',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId'
+        'title' => 'getTitle'
     ];
 
     /**
@@ -286,8 +274,6 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -484,74 +470,6 @@ class NewsletterCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

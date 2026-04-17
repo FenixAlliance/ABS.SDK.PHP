@@ -66,9 +66,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'code' => 'string',
         'path' => 'string',
         'prefix' => 'string',
-        'tenant_id' => 'string',
         'currency_id' => 'string',
-        'enrollment_id' => 'string',
         'account_type_id' => 'string',
         'parent_account_id' => 'string',
         'account_category' => 'string',
@@ -97,9 +95,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'code' => null,
         'path' => null,
         'prefix' => null,
-        'tenant_id' => null,
         'currency_id' => null,
-        'enrollment_id' => null,
         'account_type_id' => null,
         'parent_account_id' => null,
         'account_category' => null,
@@ -126,9 +122,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'code' => true,
         'path' => true,
         'prefix' => true,
-        'tenant_id' => true,
         'currency_id' => false,
-        'enrollment_id' => true,
         'account_type_id' => true,
         'parent_account_id' => true,
         'account_category' => false,
@@ -235,9 +229,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'code' => 'code',
         'path' => 'path',
         'prefix' => 'prefix',
-        'tenant_id' => 'tenantId',
         'currency_id' => 'currencyId',
-        'enrollment_id' => 'enrollmentId',
         'account_type_id' => 'accountTypeId',
         'parent_account_id' => 'parentAccountId',
         'account_category' => 'accountCategory',
@@ -264,9 +256,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'code' => 'setCode',
         'path' => 'setPath',
         'prefix' => 'setPrefix',
-        'tenant_id' => 'setTenantId',
         'currency_id' => 'setCurrencyId',
-        'enrollment_id' => 'setEnrollmentId',
         'account_type_id' => 'setAccountTypeId',
         'parent_account_id' => 'setParentAccountId',
         'account_category' => 'setAccountCategory',
@@ -293,9 +283,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'code' => 'getCode',
         'path' => 'getPath',
         'prefix' => 'getPrefix',
-        'tenant_id' => 'getTenantId',
         'currency_id' => 'getCurrencyId',
-        'enrollment_id' => 'getEnrollmentId',
         'account_type_id' => 'getAccountTypeId',
         'parent_account_id' => 'getParentAccountId',
         'account_category' => 'getAccountCategory',
@@ -394,9 +382,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('path', $data ?? [], null);
         $this->setIfExists('prefix', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('account_type_id', $data ?? [], null);
         $this->setIfExists('parent_account_id', $data ?? [], null);
         $this->setIfExists('account_category', $data ?? [], null);
@@ -736,40 +722,6 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets currency_id
      *
      * @return string
@@ -797,40 +749,6 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         }
 
         $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

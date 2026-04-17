@@ -61,8 +61,7 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'string',
         'timestamp' => '\DateTime',
         'title' => 'string',
-        'description' => 'string',
-        'business_id' => 'string'
+        'description' => 'string'
     ];
 
     /**
@@ -76,8 +75,7 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'title' => null,
-        'description' => null,
-        'business_id' => null
+        'description' => null
     ];
 
     /**
@@ -89,8 +87,7 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'id' => false,
         'timestamp' => false,
         'title' => true,
-        'description' => true,
-        'business_id' => true
+        'description' => true
     ];
 
     /**
@@ -182,8 +179,7 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'id',
         'timestamp' => 'timestamp',
         'title' => 'title',
-        'description' => 'description',
-        'business_id' => 'businessID'
+        'description' => 'description'
     ];
 
     /**
@@ -195,8 +191,7 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'title' => 'setTitle',
-        'description' => 'setDescription',
-        'business_id' => 'setBusinessId'
+        'description' => 'setDescription'
     ];
 
     /**
@@ -208,8 +203,7 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'title' => 'getTitle',
-        'description' => 'getDescription',
-        'business_id' => 'getBusinessId'
+        'description' => 'getDescription'
     ];
 
     /**
@@ -273,7 +267,6 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -317,14 +310,6 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
         }
 
         return $invalidProperties;
@@ -474,47 +459,6 @@ class SupportTicketTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         }
 
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportTicketTypeCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportTicketTypeCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

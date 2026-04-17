@@ -13,7 +13,5 @@ Name | Type | Description | Notes
 **is_compund_interest_rate** | **bool** |  | [optional]
 **loan_type_id** | **string** |  | [optional]
 **currency_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

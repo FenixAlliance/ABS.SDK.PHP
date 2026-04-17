@@ -61,7 +61,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'string',
         'timestamp' => '\DateTime',
         'name' => 'string',
-        'tenant_id' => 'string',
         'fiscal_year_id' => 'string',
         'cost_centre_id' => 'string'
     ];
@@ -77,7 +76,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'name' => null,
-        'tenant_id' => null,
         'fiscal_year_id' => null,
         'cost_centre_id' => null
     ];
@@ -91,7 +89,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => false,
         'timestamp' => false,
         'name' => true,
-        'tenant_id' => true,
         'fiscal_year_id' => true,
         'cost_centre_id' => true
     ];
@@ -185,7 +182,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'id',
         'timestamp' => 'timestamp',
         'name' => 'name',
-        'tenant_id' => 'tenantId',
         'fiscal_year_id' => 'fiscalYearId',
         'cost_centre_id' => 'costCentreId'
     ];
@@ -199,7 +195,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
-        'tenant_id' => 'setTenantId',
         'fiscal_year_id' => 'setFiscalYearId',
         'cost_centre_id' => 'setCostCentreId'
     ];
@@ -213,7 +208,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
-        'tenant_id' => 'getTenantId',
         'fiscal_year_id' => 'getFiscalYearId',
         'cost_centre_id' => 'getCostCentreId'
     ];
@@ -278,7 +272,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('fiscal_year_id', $data ?? [], null);
         $this->setIfExists('cost_centre_id', $data ?? [], null);
     }
@@ -417,40 +410,6 @@ class CostCentreBudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

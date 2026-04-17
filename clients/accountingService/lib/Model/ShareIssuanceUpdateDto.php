@@ -58,8 +58,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'unit_price' => 'int',
         'quantity' => 'int',
         'currency_id' => 'string'
@@ -73,8 +71,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'unit_price' => 'int32',
         'quantity' => 'int32',
         'currency_id' => null
@@ -86,8 +82,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'unit_price' => false,
         'quantity' => false,
         'currency_id' => true
@@ -179,8 +173,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'unit_price' => 'unitPrice',
         'quantity' => 'quantity',
         'currency_id' => 'currencyId'
@@ -192,8 +184,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'unit_price' => 'setUnitPrice',
         'quantity' => 'setQuantity',
         'currency_id' => 'setCurrencyId'
@@ -205,8 +195,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'unit_price' => 'getUnitPrice',
         'quantity' => 'getQuantity',
         'currency_id' => 'getCurrencyId'
@@ -269,8 +257,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('unit_price', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
@@ -303,22 +289,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['quantity']) && ($this->container['quantity'] > 2147483647)) {
             $invalidProperties[] = "invalid value for 'quantity', must be smaller than or equal to 2147483647.";
         }
@@ -341,88 +311,6 @@ class ShareIssuanceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling ShareIssuanceUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling ShareIssuanceUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling ShareIssuanceUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling ShareIssuanceUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
-
-        return $this;
-    }
 
     /**
      * Gets unit_price

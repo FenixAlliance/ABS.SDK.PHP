@@ -61,8 +61,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'string',
         'timestamp' => '\DateTime',
         'name' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'date_start' => '\DateTime',
         'date_end' => '\DateTime'
     ];
@@ -78,8 +76,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'name' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'date_start' => 'date-time',
         'date_end' => 'date-time'
     ];
@@ -93,8 +89,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => false,
         'timestamp' => false,
         'name' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'date_start' => false,
         'date_end' => false
     ];
@@ -188,8 +182,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'id',
         'timestamp' => 'timestamp',
         'name' => 'name',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'date_start' => 'dateStart',
         'date_end' => 'dateEnd'
     ];
@@ -203,8 +195,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'date_start' => 'setDateStart',
         'date_end' => 'setDateEnd'
     ];
@@ -218,8 +208,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'date_start' => 'getDateStart',
         'date_end' => 'getDateEnd'
     ];
@@ -284,8 +272,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('date_start', $data ?? [], null);
         $this->setIfExists('date_end', $data ?? [], null);
     }
@@ -323,22 +309,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
 
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) < 0)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -447,88 +417,6 @@ class AccountingPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling AccountingPeriodCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling AccountingPeriodCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling AccountingPeriodCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling AccountingPeriodCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

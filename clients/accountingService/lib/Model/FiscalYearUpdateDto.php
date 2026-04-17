@@ -62,7 +62,8 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'string',
         'closed' => 'bool',
         'end_date' => '\DateTime',
-        'start_date' => '\DateTime'
+        'start_date' => '\DateTime',
+        'fiscal_authority_id' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => null,
         'closed' => null,
         'end_date' => 'date-time',
-        'start_date' => 'date-time'
+        'start_date' => 'date-time',
+        'fiscal_authority_id' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => true,
         'closed' => false,
         'end_date' => false,
-        'start_date' => false
+        'start_date' => false,
+        'fiscal_authority_id' => true
     ];
 
     /**
@@ -183,7 +186,8 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'description',
         'closed' => 'closed',
         'end_date' => 'endDate',
-        'start_date' => 'startDate'
+        'start_date' => 'startDate',
+        'fiscal_authority_id' => 'fiscalAuthorityId'
     ];
 
     /**
@@ -196,7 +200,8 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'setDescription',
         'closed' => 'setClosed',
         'end_date' => 'setEndDate',
-        'start_date' => 'setStartDate'
+        'start_date' => 'setStartDate',
+        'fiscal_authority_id' => 'setFiscalAuthorityId'
     ];
 
     /**
@@ -209,7 +214,8 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'getDescription',
         'closed' => 'getClosed',
         'end_date' => 'getEndDate',
-        'start_date' => 'getStartDate'
+        'start_date' => 'getStartDate',
+        'fiscal_authority_id' => 'getFiscalAuthorityId'
     ];
 
     /**
@@ -274,6 +280,7 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('closed', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('fiscal_authority_id', $data ?? [], null);
     }
 
     /**
@@ -463,6 +470,40 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets fiscal_authority_id
+     *
+     * @return string|null
+     */
+    public function getFiscalAuthorityId()
+    {
+        return $this->container['fiscal_authority_id'];
+    }
+
+    /**
+     * Sets fiscal_authority_id
+     *
+     * @param string|null $fiscal_authority_id fiscal_authority_id
+     *
+     * @return self
+     */
+    public function setFiscalAuthorityId($fiscal_authority_id)
+    {
+        if (is_null($fiscal_authority_id)) {
+            array_push($this->openAPINullablesSetToNull, 'fiscal_authority_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fiscal_authority_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['fiscal_authority_id'] = $fiscal_authority_id;
 
         return $this;
     }

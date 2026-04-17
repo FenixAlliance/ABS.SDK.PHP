@@ -60,9 +60,7 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'account_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string'
+        'account_id' => 'string'
     ];
 
     /**
@@ -75,9 +73,7 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'account_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null
+        'account_id' => null
     ];
 
     /**
@@ -88,9 +84,7 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'account_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true
+        'account_id' => true
     ];
 
     /**
@@ -181,9 +175,7 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'account_id' => 'accountId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId'
+        'account_id' => 'accountId'
     ];
 
     /**
@@ -194,9 +186,7 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'account_id' => 'setAccountId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId'
+        'account_id' => 'setAccountId'
     ];
 
     /**
@@ -207,9 +197,7 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'account_id' => 'getAccountId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId'
+        'account_id' => 'getAccountId'
     ];
 
     /**
@@ -272,8 +260,6 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('account_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -309,22 +295,6 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
 
         if (!is_null($this->container['account_id']) && (mb_strlen($this->container['account_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -433,88 +403,6 @@ class AccountRelationCreateDto implements ModelInterface, ArrayAccess, \JsonSeri
         }
 
         $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling AccountRelationCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling AccountRelationCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling AccountRelationCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling AccountRelationCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

@@ -64,8 +64,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'item_short_description' => 'string',
         'item_primary_image_url' => 'string',
         'shipping_policy_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'currency_id' => 'string',
         'description' => 'string',
         'quantity' => 'float',
@@ -151,7 +149,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_location_id' => 'string',
         'location_id' => 'string',
         'quote_item_record_id' => 'string',
-        'business_profile_record_id' => 'string',
         'parent_billing_item_record_id' => 'string'
     ];
 
@@ -169,8 +166,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'item_short_description' => null,
         'item_primary_image_url' => null,
         'shipping_policy_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'currency_id' => null,
         'description' => null,
         'quantity' => 'double',
@@ -256,7 +251,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_location_id' => null,
         'location_id' => null,
         'quote_item_record_id' => null,
-        'business_profile_record_id' => null,
         'parent_billing_item_record_id' => null
     ];
 
@@ -272,8 +266,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'item_short_description' => true,
         'item_primary_image_url' => true,
         'shipping_policy_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'currency_id' => true,
         'description' => true,
         'quantity' => false,
@@ -359,7 +351,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_location_id' => true,
         'location_id' => true,
         'quote_item_record_id' => true,
-        'business_profile_record_id' => true,
         'parent_billing_item_record_id' => true
     ];
 
@@ -455,8 +446,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'item_short_description' => 'itemShortDescription',
         'item_primary_image_url' => 'itemPrimaryImageUrl',
         'shipping_policy_id' => 'shippingPolicyId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'currency_id' => 'currencyId',
         'description' => 'description',
         'quantity' => 'quantity',
@@ -542,7 +531,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_location_id' => 'shippingLocationId',
         'location_id' => 'locationId',
         'quote_item_record_id' => 'quoteItemRecordId',
-        'business_profile_record_id' => 'businessProfileRecordId',
         'parent_billing_item_record_id' => 'parentBillingItemRecordId'
     ];
 
@@ -558,8 +546,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'item_short_description' => 'setItemShortDescription',
         'item_primary_image_url' => 'setItemPrimaryImageUrl',
         'shipping_policy_id' => 'setShippingPolicyId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'currency_id' => 'setCurrencyId',
         'description' => 'setDescription',
         'quantity' => 'setQuantity',
@@ -645,7 +631,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_location_id' => 'setShippingLocationId',
         'location_id' => 'setLocationId',
         'quote_item_record_id' => 'setQuoteItemRecordId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'parent_billing_item_record_id' => 'setParentBillingItemRecordId'
     ];
 
@@ -661,8 +646,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'item_short_description' => 'getItemShortDescription',
         'item_primary_image_url' => 'getItemPrimaryImageUrl',
         'shipping_policy_id' => 'getShippingPolicyId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'currency_id' => 'getCurrencyId',
         'description' => 'getDescription',
         'quantity' => 'getQuantity',
@@ -748,7 +731,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'shipping_location_id' => 'getShippingLocationId',
         'location_id' => 'getLocationId',
         'quote_item_record_id' => 'getQuoteItemRecordId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'parent_billing_item_record_id' => 'getParentBillingItemRecordId'
     ];
 
@@ -845,8 +827,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('item_short_description', $data ?? [], null);
         $this->setIfExists('item_primary_image_url', $data ?? [], null);
         $this->setIfExists('shipping_policy_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
@@ -932,7 +912,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('shipping_location_id', $data ?? [], null);
         $this->setIfExists('location_id', $data ?? [], null);
         $this->setIfExists('quote_item_record_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('parent_billing_item_record_id', $data ?? [], null);
     }
 
@@ -1189,74 +1168,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['shipping_policy_id'] = $shipping_policy_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }
@@ -3922,40 +3833,6 @@ class QuoteLineUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['quote_item_record_id'] = $quote_item_record_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

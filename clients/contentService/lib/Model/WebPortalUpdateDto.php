@@ -65,7 +65,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'string',
         'website_theme_id' => 'string',
         'business_domain_id' => 'string',
-        'business_profile_record_id' => 'string',
         'business_portal_application_id' => 'string'
     ];
 
@@ -84,7 +83,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => null,
         'website_theme_id' => null,
         'business_domain_id' => null,
-        'business_profile_record_id' => null,
         'business_portal_application_id' => null
     ];
 
@@ -101,7 +99,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => true,
         'website_theme_id' => true,
         'business_domain_id' => true,
-        'business_profile_record_id' => true,
         'business_portal_application_id' => true
     ];
 
@@ -198,7 +195,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'description',
         'website_theme_id' => 'websiteThemeID',
         'business_domain_id' => 'businessDomainID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'business_portal_application_id' => 'businessPortalApplicationID'
     ];
 
@@ -215,7 +211,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'setDescription',
         'website_theme_id' => 'setWebsiteThemeId',
         'business_domain_id' => 'setBusinessDomainId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'business_portal_application_id' => 'setBusinessPortalApplicationId'
     ];
 
@@ -232,7 +227,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'getDescription',
         'website_theme_id' => 'getWebsiteThemeId',
         'business_domain_id' => 'getBusinessDomainId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'business_portal_application_id' => 'getBusinessPortalApplicationId'
     ];
 
@@ -300,7 +294,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('website_theme_id', $data ?? [], null);
         $this->setIfExists('business_domain_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('business_portal_application_id', $data ?? [], null);
     }
 
@@ -566,40 +559,6 @@ class WebPortalUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['business_domain_id'] = $business_domain_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

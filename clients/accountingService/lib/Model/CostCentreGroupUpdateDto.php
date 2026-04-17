@@ -61,7 +61,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'name' => 'string',
         'description' => 'string',
         'disabled' => 'bool',
-        'tenant_id' => 'string',
         'parent_cost_centres_group_id' => 'string'
     ];
 
@@ -76,7 +75,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'name' => null,
         'description' => null,
         'disabled' => null,
-        'tenant_id' => null,
         'parent_cost_centres_group_id' => null
     ];
 
@@ -89,7 +87,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'name' => true,
         'description' => true,
         'disabled' => false,
-        'tenant_id' => true,
         'parent_cost_centres_group_id' => true
     ];
 
@@ -182,7 +179,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'name' => 'name',
         'description' => 'description',
         'disabled' => 'disabled',
-        'tenant_id' => 'tenantId',
         'parent_cost_centres_group_id' => 'parentCostCentresGroupId'
     ];
 
@@ -195,7 +191,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'name' => 'setName',
         'description' => 'setDescription',
         'disabled' => 'setDisabled',
-        'tenant_id' => 'setTenantId',
         'parent_cost_centres_group_id' => 'setParentCostCentresGroupId'
     ];
 
@@ -208,7 +203,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'name' => 'getName',
         'description' => 'getDescription',
         'disabled' => 'getDisabled',
-        'tenant_id' => 'getTenantId',
         'parent_cost_centres_group_id' => 'getParentCostCentresGroupId'
     ];
 
@@ -272,7 +266,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('disabled', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('parent_cost_centres_group_id', $data ?? [], null);
     }
 
@@ -317,14 +310,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['parent_cost_centres_group_id']) && (mb_strlen($this->container['parent_cost_centres_group_id']) > 36)) {
@@ -455,47 +440,6 @@ class CostCentreGroupUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable disabled cannot be null');
         }
         $this->container['disabled'] = $disabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling CostCentreGroupUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling CostCentreGroupUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

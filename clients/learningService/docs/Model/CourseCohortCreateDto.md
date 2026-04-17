@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **timestamp** | **\DateTime** |  | [optional]
 **name** | **string** |  |
 **course_id** | **string** |  |
-**business_id** | **string** |  |
 **start_date_time** | **\DateTime** |  | [optional]
 **end_date_time** | **\DateTime** |  | [optional]
 **expected_start_date_time** | **\DateTime** |  | [optional]

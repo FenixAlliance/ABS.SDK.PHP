@@ -73,9 +73,7 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'misc_cost' => 'float',
         'expected_response_percent' => 'float',
         'marketing_area_id' => 'string',
-        'currency_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string'
+        'currency_id' => 'string'
     ];
 
     /**
@@ -101,9 +99,7 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'misc_cost' => 'double',
         'expected_response_percent' => 'double',
         'marketing_area_id' => null,
-        'currency_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null
+        'currency_id' => null
     ];
 
     /**
@@ -127,9 +123,7 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'misc_cost' => false,
         'expected_response_percent' => false,
         'marketing_area_id' => true,
-        'currency_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true
+        'currency_id' => true
     ];
 
     /**
@@ -233,9 +227,7 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'misc_cost' => 'miscCost',
         'expected_response_percent' => 'expectedResponsePercent',
         'marketing_area_id' => 'marketingAreaId',
-        'currency_id' => 'currencyId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId'
+        'currency_id' => 'currencyId'
     ];
 
     /**
@@ -259,9 +251,7 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'misc_cost' => 'setMiscCost',
         'expected_response_percent' => 'setExpectedResponsePercent',
         'marketing_area_id' => 'setMarketingAreaId',
-        'currency_id' => 'setCurrencyId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId'
+        'currency_id' => 'setCurrencyId'
     ];
 
     /**
@@ -285,9 +275,7 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'misc_cost' => 'getMiscCost',
         'expected_response_percent' => 'getExpectedResponsePercent',
         'marketing_area_id' => 'getMarketingAreaId',
-        'currency_id' => 'getCurrencyId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId'
+        'currency_id' => 'getCurrencyId'
     ];
 
     /**
@@ -363,8 +351,6 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('expected_response_percent', $data ?? [], null);
         $this->setIfExists('marketing_area_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -872,74 +858,6 @@ class MarketingCampaignCreateDto implements ModelInterface, ArrayAccess, \JsonSe
             }
         }
         $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

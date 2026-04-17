@@ -64,8 +64,7 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'description' => 'string',
         'content' => 'string',
         'course_id' => 'string',
-        'course_wiki_id' => 'string',
-        'business_id' => 'string'
+        'course_wiki_id' => 'string'
     ];
 
     /**
@@ -82,8 +81,7 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'description' => null,
         'content' => null,
         'course_id' => null,
-        'course_wiki_id' => null,
-        'business_id' => null
+        'course_wiki_id' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'description' => true,
         'content' => true,
         'course_id' => false,
-        'course_wiki_id' => false,
-        'business_id' => false
+        'course_wiki_id' => false
     ];
 
     /**
@@ -194,8 +191,7 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'description' => 'description',
         'content' => 'content',
         'course_id' => 'courseID',
-        'course_wiki_id' => 'courseWikiID',
-        'business_id' => 'businessID'
+        'course_wiki_id' => 'courseWikiID'
     ];
 
     /**
@@ -210,8 +206,7 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'description' => 'setDescription',
         'content' => 'setContent',
         'course_id' => 'setCourseId',
-        'course_wiki_id' => 'setCourseWikiId',
-        'business_id' => 'setBusinessId'
+        'course_wiki_id' => 'setCourseWikiId'
     ];
 
     /**
@@ -226,8 +221,7 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'description' => 'getDescription',
         'content' => 'getContent',
         'course_id' => 'getCourseId',
-        'course_wiki_id' => 'getCourseWikiId',
-        'business_id' => 'getBusinessId'
+        'course_wiki_id' => 'getCourseWikiId'
     ];
 
     /**
@@ -294,7 +288,6 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
         $this->setIfExists('course_wiki_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -343,13 +336,6 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ((mb_strlen($this->container['course_wiki_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_wiki_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -581,38 +567,6 @@ class CourseArticleCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
 
         $this->container['course_wiki_id'] = $course_wiki_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseArticleCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

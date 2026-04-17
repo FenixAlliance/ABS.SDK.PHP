@@ -58,6 +58,8 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'timestamp' => '\DateTime',
         'asset_id' => 'string',
         'asset_depreciation_policy_id' => 'string',
         'depreciation_amount' => 'float',
@@ -76,6 +78,8 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
+        'timestamp' => 'date-time',
         'asset_id' => null,
         'asset_depreciation_policy_id' => null,
         'depreciation_amount' => 'double',
@@ -92,6 +96,8 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'timestamp' => false,
         'asset_id' => true,
         'asset_depreciation_policy_id' => true,
         'depreciation_amount' => false,
@@ -188,6 +194,8 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'timestamp' => 'timestamp',
         'asset_id' => 'assetId',
         'asset_depreciation_policy_id' => 'assetDepreciationPolicyId',
         'depreciation_amount' => 'depreciationAmount',
@@ -204,6 +212,8 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'asset_id' => 'setAssetId',
         'asset_depreciation_policy_id' => 'setAssetDepreciationPolicyId',
         'depreciation_amount' => 'setDepreciationAmount',
@@ -220,6 +230,8 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'asset_id' => 'getAssetId',
         'asset_depreciation_policy_id' => 'getAssetDepreciationPolicyId',
         'depreciation_amount' => 'getDepreciationAmount',
@@ -287,6 +299,8 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('asset_id', $data ?? [], null);
         $this->setIfExists('asset_depreciation_policy_id', $data ?? [], null);
         $this->setIfExists('depreciation_amount', $data ?? [], null);
@@ -338,6 +352,60 @@ class AssetDepreciationRecordCreateDto implements ModelInterface, ArrayAccess, \
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
 
     /**
      * Gets asset_id

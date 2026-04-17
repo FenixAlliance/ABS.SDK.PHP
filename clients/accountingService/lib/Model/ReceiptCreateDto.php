@@ -58,8 +58,9 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'timestamp' => '\DateTime',
         'title' => 'string',
-        'user_id' => 'string',
         'price_list_id' => 'string',
         'description' => 'string',
         'individual_id' => 'string',
@@ -76,9 +77,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'string',
         'state_id' => 'string',
         'city_id' => 'string',
-        'billing_location_id' => 'string',
-        'shipping_location_id' => 'string',
-        'shipping_method_id' => 'string',
         'currency_id' => 'string',
         'total_detail' => 'float',
         'total_detail_currency_id' => 'string',
@@ -88,33 +86,30 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'total_discounts_currency_id' => 'string',
         'total_surcharges' => 'float',
         'total_surcharges_currency_id' => 'string',
-        'total_shipping_tax' => 'float',
-        'total_shipping_tax_currency_id' => 'string',
         'total_shipping_cost' => 'float',
         'total_shipping_cost_currency_id' => 'string',
-        'total_global_discounts' => 'float',
-        'total_global_discounts_currency_id' => 'string',
-        'total_global_surcharges' => 'float',
-        'total_global_surcharges_currency_id' => 'string',
+        'total_shipping_tax' => 'float',
+        'total_shipping_tax_currency_id' => 'string',
         'total_withheld_tax' => 'float',
         'total_withheld_tax_currency_id' => 'string',
         'total_tax_base' => 'float',
         'total_tax_base_currency_id' => 'string',
         'total_taxes' => 'float',
         'total_taxes_currency_id' => 'string',
+        'total_global_surcharges' => 'float',
+        'total_global_surcharges_currency_id' => 'string',
+        'total_global_discounts' => 'float',
+        'total_global_discounts_currency_id' => 'string',
         'total' => 'float',
         'total_currency_id' => 'string',
         'cost_calculation_method' => 'string',
         'tax_calculation_method' => 'string',
         'payment_id' => 'string',
-        'tenant_id' => 'string',
         'forex_rate' => 'float',
         'total_amount' => 'float',
         'total_amount_in_usd' => 'float',
         'closed' => 'bool',
-        'account_holder_id' => 'string',
         'contact_id' => 'string',
-        'enrollment_id' => 'string',
         'receipt_type' => 'string',
         'order_id' => 'string',
         'invoice_id' => 'string'
@@ -128,8 +123,9 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
+        'timestamp' => 'date-time',
         'title' => null,
-        'user_id' => null,
         'price_list_id' => null,
         'description' => null,
         'individual_id' => null,
@@ -146,9 +142,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => null,
         'state_id' => null,
         'city_id' => null,
-        'billing_location_id' => null,
-        'shipping_location_id' => null,
-        'shipping_method_id' => null,
         'currency_id' => null,
         'total_detail' => 'double',
         'total_detail_currency_id' => null,
@@ -158,33 +151,30 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'total_discounts_currency_id' => null,
         'total_surcharges' => 'double',
         'total_surcharges_currency_id' => null,
-        'total_shipping_tax' => 'double',
-        'total_shipping_tax_currency_id' => null,
         'total_shipping_cost' => 'double',
         'total_shipping_cost_currency_id' => null,
-        'total_global_discounts' => 'double',
-        'total_global_discounts_currency_id' => null,
-        'total_global_surcharges' => 'double',
-        'total_global_surcharges_currency_id' => null,
+        'total_shipping_tax' => 'double',
+        'total_shipping_tax_currency_id' => null,
         'total_withheld_tax' => 'double',
         'total_withheld_tax_currency_id' => null,
         'total_tax_base' => 'double',
         'total_tax_base_currency_id' => null,
         'total_taxes' => 'double',
         'total_taxes_currency_id' => null,
+        'total_global_surcharges' => 'double',
+        'total_global_surcharges_currency_id' => null,
+        'total_global_discounts' => 'double',
+        'total_global_discounts_currency_id' => null,
         'total' => 'double',
         'total_currency_id' => null,
         'cost_calculation_method' => null,
         'tax_calculation_method' => null,
         'payment_id' => null,
-        'tenant_id' => null,
         'forex_rate' => 'double',
         'total_amount' => 'double',
         'total_amount_in_usd' => 'double',
         'closed' => null,
-        'account_holder_id' => null,
         'contact_id' => null,
-        'enrollment_id' => null,
         'receipt_type' => null,
         'order_id' => null,
         'invoice_id' => null
@@ -196,8 +186,9 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'timestamp' => false,
         'title' => true,
-        'user_id' => true,
         'price_list_id' => true,
         'description' => true,
         'individual_id' => true,
@@ -214,9 +205,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => true,
         'state_id' => true,
         'city_id' => true,
-        'billing_location_id' => true,
-        'shipping_location_id' => true,
-        'shipping_method_id' => true,
         'currency_id' => true,
         'total_detail' => false,
         'total_detail_currency_id' => true,
@@ -226,33 +214,30 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'total_discounts_currency_id' => true,
         'total_surcharges' => false,
         'total_surcharges_currency_id' => true,
-        'total_shipping_tax' => false,
-        'total_shipping_tax_currency_id' => true,
         'total_shipping_cost' => false,
         'total_shipping_cost_currency_id' => true,
-        'total_global_discounts' => false,
-        'total_global_discounts_currency_id' => true,
-        'total_global_surcharges' => false,
-        'total_global_surcharges_currency_id' => true,
+        'total_shipping_tax' => false,
+        'total_shipping_tax_currency_id' => true,
         'total_withheld_tax' => false,
         'total_withheld_tax_currency_id' => true,
         'total_tax_base' => false,
         'total_tax_base_currency_id' => true,
         'total_taxes' => false,
         'total_taxes_currency_id' => true,
+        'total_global_surcharges' => false,
+        'total_global_surcharges_currency_id' => true,
+        'total_global_discounts' => false,
+        'total_global_discounts_currency_id' => true,
         'total' => false,
         'total_currency_id' => true,
         'cost_calculation_method' => false,
         'tax_calculation_method' => false,
         'payment_id' => true,
-        'tenant_id' => true,
         'forex_rate' => false,
         'total_amount' => false,
         'total_amount_in_usd' => false,
         'closed' => false,
-        'account_holder_id' => true,
         'contact_id' => true,
-        'enrollment_id' => true,
         'receipt_type' => false,
         'order_id' => true,
         'invoice_id' => true
@@ -344,8 +329,9 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'timestamp' => 'timestamp',
         'title' => 'title',
-        'user_id' => 'userId',
         'price_list_id' => 'priceListId',
         'description' => 'description',
         'individual_id' => 'individualId',
@@ -362,9 +348,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'countryId',
         'state_id' => 'stateId',
         'city_id' => 'cityId',
-        'billing_location_id' => 'billingLocationId',
-        'shipping_location_id' => 'shippingLocationId',
-        'shipping_method_id' => 'shippingMethodId',
         'currency_id' => 'currencyId',
         'total_detail' => 'totalDetail',
         'total_detail_currency_id' => 'totalDetailCurrencyId',
@@ -374,33 +357,30 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'total_discounts_currency_id' => 'totalDiscountsCurrencyId',
         'total_surcharges' => 'totalSurcharges',
         'total_surcharges_currency_id' => 'totalSurchargesCurrencyId',
-        'total_shipping_tax' => 'totalShippingTax',
-        'total_shipping_tax_currency_id' => 'totalShippingTaxCurrencyId',
         'total_shipping_cost' => 'totalShippingCost',
         'total_shipping_cost_currency_id' => 'totalShippingCostCurrencyId',
-        'total_global_discounts' => 'totalGlobalDiscounts',
-        'total_global_discounts_currency_id' => 'totalGlobalDiscountsCurrencyId',
-        'total_global_surcharges' => 'totalGlobalSurcharges',
-        'total_global_surcharges_currency_id' => 'totalGlobalSurchargesCurrencyId',
+        'total_shipping_tax' => 'totalShippingTax',
+        'total_shipping_tax_currency_id' => 'totalShippingTaxCurrencyId',
         'total_withheld_tax' => 'totalWithheldTax',
         'total_withheld_tax_currency_id' => 'totalWithheldTaxCurrencyId',
         'total_tax_base' => 'totalTaxBase',
         'total_tax_base_currency_id' => 'totalTaxBaseCurrencyId',
         'total_taxes' => 'totalTaxes',
         'total_taxes_currency_id' => 'totalTaxesCurrencyId',
+        'total_global_surcharges' => 'totalGlobalSurcharges',
+        'total_global_surcharges_currency_id' => 'totalGlobalSurchargesCurrencyId',
+        'total_global_discounts' => 'totalGlobalDiscounts',
+        'total_global_discounts_currency_id' => 'totalGlobalDiscountsCurrencyId',
         'total' => 'total',
         'total_currency_id' => 'totalCurrencyId',
         'cost_calculation_method' => 'costCalculationMethod',
         'tax_calculation_method' => 'taxCalculationMethod',
         'payment_id' => 'paymentId',
-        'tenant_id' => 'tenantId',
         'forex_rate' => 'forexRate',
         'total_amount' => 'totalAmount',
         'total_amount_in_usd' => 'totalAmountInUSD',
         'closed' => 'closed',
-        'account_holder_id' => 'accountHolderId',
         'contact_id' => 'contactId',
-        'enrollment_id' => 'enrollmentId',
         'receipt_type' => 'receiptType',
         'order_id' => 'orderId',
         'invoice_id' => 'invoiceId'
@@ -412,8 +392,9 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'title' => 'setTitle',
-        'user_id' => 'setUserId',
         'price_list_id' => 'setPriceListId',
         'description' => 'setDescription',
         'individual_id' => 'setIndividualId',
@@ -430,9 +411,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'setCountryId',
         'state_id' => 'setStateId',
         'city_id' => 'setCityId',
-        'billing_location_id' => 'setBillingLocationId',
-        'shipping_location_id' => 'setShippingLocationId',
-        'shipping_method_id' => 'setShippingMethodId',
         'currency_id' => 'setCurrencyId',
         'total_detail' => 'setTotalDetail',
         'total_detail_currency_id' => 'setTotalDetailCurrencyId',
@@ -442,33 +420,30 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'total_discounts_currency_id' => 'setTotalDiscountsCurrencyId',
         'total_surcharges' => 'setTotalSurcharges',
         'total_surcharges_currency_id' => 'setTotalSurchargesCurrencyId',
-        'total_shipping_tax' => 'setTotalShippingTax',
-        'total_shipping_tax_currency_id' => 'setTotalShippingTaxCurrencyId',
         'total_shipping_cost' => 'setTotalShippingCost',
         'total_shipping_cost_currency_id' => 'setTotalShippingCostCurrencyId',
-        'total_global_discounts' => 'setTotalGlobalDiscounts',
-        'total_global_discounts_currency_id' => 'setTotalGlobalDiscountsCurrencyId',
-        'total_global_surcharges' => 'setTotalGlobalSurcharges',
-        'total_global_surcharges_currency_id' => 'setTotalGlobalSurchargesCurrencyId',
+        'total_shipping_tax' => 'setTotalShippingTax',
+        'total_shipping_tax_currency_id' => 'setTotalShippingTaxCurrencyId',
         'total_withheld_tax' => 'setTotalWithheldTax',
         'total_withheld_tax_currency_id' => 'setTotalWithheldTaxCurrencyId',
         'total_tax_base' => 'setTotalTaxBase',
         'total_tax_base_currency_id' => 'setTotalTaxBaseCurrencyId',
         'total_taxes' => 'setTotalTaxes',
         'total_taxes_currency_id' => 'setTotalTaxesCurrencyId',
+        'total_global_surcharges' => 'setTotalGlobalSurcharges',
+        'total_global_surcharges_currency_id' => 'setTotalGlobalSurchargesCurrencyId',
+        'total_global_discounts' => 'setTotalGlobalDiscounts',
+        'total_global_discounts_currency_id' => 'setTotalGlobalDiscountsCurrencyId',
         'total' => 'setTotal',
         'total_currency_id' => 'setTotalCurrencyId',
         'cost_calculation_method' => 'setCostCalculationMethod',
         'tax_calculation_method' => 'setTaxCalculationMethod',
         'payment_id' => 'setPaymentId',
-        'tenant_id' => 'setTenantId',
         'forex_rate' => 'setForexRate',
         'total_amount' => 'setTotalAmount',
         'total_amount_in_usd' => 'setTotalAmountInUsd',
         'closed' => 'setClosed',
-        'account_holder_id' => 'setAccountHolderId',
         'contact_id' => 'setContactId',
-        'enrollment_id' => 'setEnrollmentId',
         'receipt_type' => 'setReceiptType',
         'order_id' => 'setOrderId',
         'invoice_id' => 'setInvoiceId'
@@ -480,8 +455,9 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'title' => 'getTitle',
-        'user_id' => 'getUserId',
         'price_list_id' => 'getPriceListId',
         'description' => 'getDescription',
         'individual_id' => 'getIndividualId',
@@ -498,9 +474,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'country_id' => 'getCountryId',
         'state_id' => 'getStateId',
         'city_id' => 'getCityId',
-        'billing_location_id' => 'getBillingLocationId',
-        'shipping_location_id' => 'getShippingLocationId',
-        'shipping_method_id' => 'getShippingMethodId',
         'currency_id' => 'getCurrencyId',
         'total_detail' => 'getTotalDetail',
         'total_detail_currency_id' => 'getTotalDetailCurrencyId',
@@ -510,33 +483,30 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'total_discounts_currency_id' => 'getTotalDiscountsCurrencyId',
         'total_surcharges' => 'getTotalSurcharges',
         'total_surcharges_currency_id' => 'getTotalSurchargesCurrencyId',
-        'total_shipping_tax' => 'getTotalShippingTax',
-        'total_shipping_tax_currency_id' => 'getTotalShippingTaxCurrencyId',
         'total_shipping_cost' => 'getTotalShippingCost',
         'total_shipping_cost_currency_id' => 'getTotalShippingCostCurrencyId',
-        'total_global_discounts' => 'getTotalGlobalDiscounts',
-        'total_global_discounts_currency_id' => 'getTotalGlobalDiscountsCurrencyId',
-        'total_global_surcharges' => 'getTotalGlobalSurcharges',
-        'total_global_surcharges_currency_id' => 'getTotalGlobalSurchargesCurrencyId',
+        'total_shipping_tax' => 'getTotalShippingTax',
+        'total_shipping_tax_currency_id' => 'getTotalShippingTaxCurrencyId',
         'total_withheld_tax' => 'getTotalWithheldTax',
         'total_withheld_tax_currency_id' => 'getTotalWithheldTaxCurrencyId',
         'total_tax_base' => 'getTotalTaxBase',
         'total_tax_base_currency_id' => 'getTotalTaxBaseCurrencyId',
         'total_taxes' => 'getTotalTaxes',
         'total_taxes_currency_id' => 'getTotalTaxesCurrencyId',
+        'total_global_surcharges' => 'getTotalGlobalSurcharges',
+        'total_global_surcharges_currency_id' => 'getTotalGlobalSurchargesCurrencyId',
+        'total_global_discounts' => 'getTotalGlobalDiscounts',
+        'total_global_discounts_currency_id' => 'getTotalGlobalDiscountsCurrencyId',
         'total' => 'getTotal',
         'total_currency_id' => 'getTotalCurrencyId',
         'cost_calculation_method' => 'getCostCalculationMethod',
         'tax_calculation_method' => 'getTaxCalculationMethod',
         'payment_id' => 'getPaymentId',
-        'tenant_id' => 'getTenantId',
         'forex_rate' => 'getForexRate',
         'total_amount' => 'getTotalAmount',
         'total_amount_in_usd' => 'getTotalAmountInUsd',
         'closed' => 'getClosed',
-        'account_holder_id' => 'getAccountHolderId',
         'contact_id' => 'getContactId',
-        'enrollment_id' => 'getEnrollmentId',
         'receipt_type' => 'getReceiptType',
         'order_id' => 'getOrderId',
         'invoice_id' => 'getInvoiceId'
@@ -644,8 +614,9 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('user_id', $data ?? [], null);
         $this->setIfExists('price_list_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('individual_id', $data ?? [], null);
@@ -662,9 +633,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('country_id', $data ?? [], null);
         $this->setIfExists('state_id', $data ?? [], null);
         $this->setIfExists('city_id', $data ?? [], null);
-        $this->setIfExists('billing_location_id', $data ?? [], null);
-        $this->setIfExists('shipping_location_id', $data ?? [], null);
-        $this->setIfExists('shipping_method_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('total_detail', $data ?? [], null);
         $this->setIfExists('total_detail_currency_id', $data ?? [], null);
@@ -674,33 +642,30 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('total_discounts_currency_id', $data ?? [], null);
         $this->setIfExists('total_surcharges', $data ?? [], null);
         $this->setIfExists('total_surcharges_currency_id', $data ?? [], null);
-        $this->setIfExists('total_shipping_tax', $data ?? [], null);
-        $this->setIfExists('total_shipping_tax_currency_id', $data ?? [], null);
         $this->setIfExists('total_shipping_cost', $data ?? [], null);
         $this->setIfExists('total_shipping_cost_currency_id', $data ?? [], null);
-        $this->setIfExists('total_global_discounts', $data ?? [], null);
-        $this->setIfExists('total_global_discounts_currency_id', $data ?? [], null);
-        $this->setIfExists('total_global_surcharges', $data ?? [], null);
-        $this->setIfExists('total_global_surcharges_currency_id', $data ?? [], null);
+        $this->setIfExists('total_shipping_tax', $data ?? [], null);
+        $this->setIfExists('total_shipping_tax_currency_id', $data ?? [], null);
         $this->setIfExists('total_withheld_tax', $data ?? [], null);
         $this->setIfExists('total_withheld_tax_currency_id', $data ?? [], null);
         $this->setIfExists('total_tax_base', $data ?? [], null);
         $this->setIfExists('total_tax_base_currency_id', $data ?? [], null);
         $this->setIfExists('total_taxes', $data ?? [], null);
         $this->setIfExists('total_taxes_currency_id', $data ?? [], null);
+        $this->setIfExists('total_global_surcharges', $data ?? [], null);
+        $this->setIfExists('total_global_surcharges_currency_id', $data ?? [], null);
+        $this->setIfExists('total_global_discounts', $data ?? [], null);
+        $this->setIfExists('total_global_discounts_currency_id', $data ?? [], null);
         $this->setIfExists('total', $data ?? [], null);
         $this->setIfExists('total_currency_id', $data ?? [], null);
         $this->setIfExists('cost_calculation_method', $data ?? [], null);
         $this->setIfExists('tax_calculation_method', $data ?? [], null);
         $this->setIfExists('payment_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('forex_rate', $data ?? [], null);
         $this->setIfExists('total_amount', $data ?? [], null);
         $this->setIfExists('total_amount_in_usd', $data ?? [], null);
         $this->setIfExists('closed', $data ?? [], null);
-        $this->setIfExists('account_holder_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('receipt_type', $data ?? [], null);
         $this->setIfExists('order_id', $data ?? [], null);
         $this->setIfExists('invoice_id', $data ?? [], null);
@@ -776,6 +741,60 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
      * Gets title
      *
      * @return string|null
@@ -805,40 +824,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string|null $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        if (is_null($user_id)) {
-            array_push($this->openAPINullablesSetToNull, 'user_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('user_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['user_id'] = $user_id;
 
         return $this;
     }
@@ -1388,108 +1373,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets billing_location_id
-     *
-     * @return string|null
-     */
-    public function getBillingLocationId()
-    {
-        return $this->container['billing_location_id'];
-    }
-
-    /**
-     * Sets billing_location_id
-     *
-     * @param string|null $billing_location_id billing_location_id
-     *
-     * @return self
-     */
-    public function setBillingLocationId($billing_location_id)
-    {
-        if (is_null($billing_location_id)) {
-            array_push($this->openAPINullablesSetToNull, 'billing_location_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('billing_location_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['billing_location_id'] = $billing_location_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_location_id
-     *
-     * @return string|null
-     */
-    public function getShippingLocationId()
-    {
-        return $this->container['shipping_location_id'];
-    }
-
-    /**
-     * Sets shipping_location_id
-     *
-     * @param string|null $shipping_location_id shipping_location_id
-     *
-     * @return self
-     */
-    public function setShippingLocationId($shipping_location_id)
-    {
-        if (is_null($shipping_location_id)) {
-            array_push($this->openAPINullablesSetToNull, 'shipping_location_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('shipping_location_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['shipping_location_id'] = $shipping_location_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_method_id
-     *
-     * @return string|null
-     */
-    public function getShippingMethodId()
-    {
-        return $this->container['shipping_method_id'];
-    }
-
-    /**
-     * Sets shipping_method_id
-     *
-     * @param string|null $shipping_method_id shipping_method_id
-     *
-     * @return self
-     */
-    public function setShippingMethodId($shipping_method_id)
-    {
-        if (is_null($shipping_method_id)) {
-            array_push($this->openAPINullablesSetToNull, 'shipping_method_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('shipping_method_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['shipping_method_id'] = $shipping_method_id;
-
-        return $this;
-    }
-
-    /**
      * Gets currency_id
      *
      * @return string|null
@@ -1768,67 +1651,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets total_shipping_tax
-     *
-     * @return float|null
-     */
-    public function getTotalShippingTax()
-    {
-        return $this->container['total_shipping_tax'];
-    }
-
-    /**
-     * Sets total_shipping_tax
-     *
-     * @param float|null $total_shipping_tax total_shipping_tax
-     *
-     * @return self
-     */
-    public function setTotalShippingTax($total_shipping_tax)
-    {
-        if (is_null($total_shipping_tax)) {
-            throw new \InvalidArgumentException('non-nullable total_shipping_tax cannot be null');
-        }
-        $this->container['total_shipping_tax'] = $total_shipping_tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_tax_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalShippingTaxCurrencyId()
-    {
-        return $this->container['total_shipping_tax_currency_id'];
-    }
-
-    /**
-     * Sets total_shipping_tax_currency_id
-     *
-     * @param string|null $total_shipping_tax_currency_id total_shipping_tax_currency_id
-     *
-     * @return self
-     */
-    public function setTotalShippingTaxCurrencyId($total_shipping_tax_currency_id)
-    {
-        if (is_null($total_shipping_tax_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_shipping_tax_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_shipping_tax_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_shipping_tax_currency_id'] = $total_shipping_tax_currency_id;
-
-        return $this;
-    }
-
-    /**
      * Gets total_shipping_cost
      *
      * @return float|null
@@ -1890,123 +1712,62 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets total_global_discounts
+     * Gets total_shipping_tax
      *
      * @return float|null
      */
-    public function getTotalGlobalDiscounts()
+    public function getTotalShippingTax()
     {
-        return $this->container['total_global_discounts'];
+        return $this->container['total_shipping_tax'];
     }
 
     /**
-     * Sets total_global_discounts
+     * Sets total_shipping_tax
      *
-     * @param float|null $total_global_discounts total_global_discounts
+     * @param float|null $total_shipping_tax total_shipping_tax
      *
      * @return self
      */
-    public function setTotalGlobalDiscounts($total_global_discounts)
+    public function setTotalShippingTax($total_shipping_tax)
     {
-        if (is_null($total_global_discounts)) {
-            throw new \InvalidArgumentException('non-nullable total_global_discounts cannot be null');
+        if (is_null($total_shipping_tax)) {
+            throw new \InvalidArgumentException('non-nullable total_shipping_tax cannot be null');
         }
-        $this->container['total_global_discounts'] = $total_global_discounts;
+        $this->container['total_shipping_tax'] = $total_shipping_tax;
 
         return $this;
     }
 
     /**
-     * Gets total_global_discounts_currency_id
+     * Gets total_shipping_tax_currency_id
      *
      * @return string|null
      */
-    public function getTotalGlobalDiscountsCurrencyId()
+    public function getTotalShippingTaxCurrencyId()
     {
-        return $this->container['total_global_discounts_currency_id'];
+        return $this->container['total_shipping_tax_currency_id'];
     }
 
     /**
-     * Sets total_global_discounts_currency_id
+     * Sets total_shipping_tax_currency_id
      *
-     * @param string|null $total_global_discounts_currency_id total_global_discounts_currency_id
+     * @param string|null $total_shipping_tax_currency_id total_shipping_tax_currency_id
      *
      * @return self
      */
-    public function setTotalGlobalDiscountsCurrencyId($total_global_discounts_currency_id)
+    public function setTotalShippingTaxCurrencyId($total_shipping_tax_currency_id)
     {
-        if (is_null($total_global_discounts_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_global_discounts_currency_id');
+        if (is_null($total_shipping_tax_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_shipping_tax_currency_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_global_discounts_currency_id', $nullablesSetToNull);
+            $index = array_search('total_shipping_tax_currency_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['total_global_discounts_currency_id'] = $total_global_discounts_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_surcharges
-     *
-     * @return float|null
-     */
-    public function getTotalGlobalSurcharges()
-    {
-        return $this->container['total_global_surcharges'];
-    }
-
-    /**
-     * Sets total_global_surcharges
-     *
-     * @param float|null $total_global_surcharges total_global_surcharges
-     *
-     * @return self
-     */
-    public function setTotalGlobalSurcharges($total_global_surcharges)
-    {
-        if (is_null($total_global_surcharges)) {
-            throw new \InvalidArgumentException('non-nullable total_global_surcharges cannot be null');
-        }
-        $this->container['total_global_surcharges'] = $total_global_surcharges;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_surcharges_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalGlobalSurchargesCurrencyId()
-    {
-        return $this->container['total_global_surcharges_currency_id'];
-    }
-
-    /**
-     * Sets total_global_surcharges_currency_id
-     *
-     * @param string|null $total_global_surcharges_currency_id total_global_surcharges_currency_id
-     *
-     * @return self
-     */
-    public function setTotalGlobalSurchargesCurrencyId($total_global_surcharges_currency_id)
-    {
-        if (is_null($total_global_surcharges_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_global_surcharges_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_global_surcharges_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_global_surcharges_currency_id'] = $total_global_surcharges_currency_id;
+        $this->container['total_shipping_tax_currency_id'] = $total_shipping_tax_currency_id;
 
         return $this;
     }
@@ -2195,6 +1956,128 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets total_global_surcharges
+     *
+     * @return float|null
+     */
+    public function getTotalGlobalSurcharges()
+    {
+        return $this->container['total_global_surcharges'];
+    }
+
+    /**
+     * Sets total_global_surcharges
+     *
+     * @param float|null $total_global_surcharges total_global_surcharges
+     *
+     * @return self
+     */
+    public function setTotalGlobalSurcharges($total_global_surcharges)
+    {
+        if (is_null($total_global_surcharges)) {
+            throw new \InvalidArgumentException('non-nullable total_global_surcharges cannot be null');
+        }
+        $this->container['total_global_surcharges'] = $total_global_surcharges;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_surcharges_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalGlobalSurchargesCurrencyId()
+    {
+        return $this->container['total_global_surcharges_currency_id'];
+    }
+
+    /**
+     * Sets total_global_surcharges_currency_id
+     *
+     * @param string|null $total_global_surcharges_currency_id total_global_surcharges_currency_id
+     *
+     * @return self
+     */
+    public function setTotalGlobalSurchargesCurrencyId($total_global_surcharges_currency_id)
+    {
+        if (is_null($total_global_surcharges_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_global_surcharges_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_global_surcharges_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_global_surcharges_currency_id'] = $total_global_surcharges_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_discounts
+     *
+     * @return float|null
+     */
+    public function getTotalGlobalDiscounts()
+    {
+        return $this->container['total_global_discounts'];
+    }
+
+    /**
+     * Sets total_global_discounts
+     *
+     * @param float|null $total_global_discounts total_global_discounts
+     *
+     * @return self
+     */
+    public function setTotalGlobalDiscounts($total_global_discounts)
+    {
+        if (is_null($total_global_discounts)) {
+            throw new \InvalidArgumentException('non-nullable total_global_discounts cannot be null');
+        }
+        $this->container['total_global_discounts'] = $total_global_discounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_discounts_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalGlobalDiscountsCurrencyId()
+    {
+        return $this->container['total_global_discounts_currency_id'];
+    }
+
+    /**
+     * Sets total_global_discounts_currency_id
+     *
+     * @param string|null $total_global_discounts_currency_id total_global_discounts_currency_id
+     *
+     * @return self
+     */
+    public function setTotalGlobalDiscountsCurrencyId($total_global_discounts_currency_id)
+    {
+        if (is_null($total_global_discounts_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_global_discounts_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_global_discounts_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_global_discounts_currency_id'] = $total_global_discounts_currency_id;
+
+        return $this;
+    }
+
+    /**
      * Gets total
      *
      * @return float|null
@@ -2364,40 +2247,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets forex_rate
      *
      * @return float|null
@@ -2506,40 +2355,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets account_holder_id
-     *
-     * @return string|null
-     */
-    public function getAccountHolderId()
-    {
-        return $this->container['account_holder_id'];
-    }
-
-    /**
-     * Sets account_holder_id
-     *
-     * @param string|null $account_holder_id account_holder_id
-     *
-     * @return self
-     */
-    public function setAccountHolderId($account_holder_id)
-    {
-        if (is_null($account_holder_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_holder_id'] = $account_holder_id;
-
-        return $this;
-    }
-
-    /**
      * Gets contact_id
      *
      * @return string|null
@@ -2569,40 +2384,6 @@ class ReceiptCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

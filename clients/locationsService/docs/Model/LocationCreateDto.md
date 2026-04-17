@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **state_id** | **string** |  | [optional]
 **postal_code** | **string** |  | [optional]
 **country_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **longitude** | **float** |  | [optional]
 **latitude** | **float** |  | [optional]
 **is_routable** | **bool** |  | [optional]

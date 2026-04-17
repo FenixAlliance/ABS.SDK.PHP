@@ -59,9 +59,7 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'description' => 'string',
-        'account_holder_id' => 'string',
         'contact_id' => 'string',
-        'business_profile_record_id' => 'string',
         'support_ticket_type_id' => 'string',
         'support_entitlement_id' => 'string',
         'support_priority_id' => 'string'
@@ -76,9 +74,7 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'description' => null,
-        'account_holder_id' => null,
         'contact_id' => null,
-        'business_profile_record_id' => null,
         'support_ticket_type_id' => null,
         'support_entitlement_id' => null,
         'support_priority_id' => null
@@ -91,9 +87,7 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static array $openAPINullables = [
         'description' => true,
-        'account_holder_id' => true,
         'contact_id' => true,
-        'business_profile_record_id' => true,
         'support_ticket_type_id' => true,
         'support_entitlement_id' => true,
         'support_priority_id' => true
@@ -186,9 +180,7 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'description' => 'description',
-        'account_holder_id' => 'accountHolderID',
         'contact_id' => 'contactID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'support_ticket_type_id' => 'supportTicketTypeID',
         'support_entitlement_id' => 'supportEntitlementID',
         'support_priority_id' => 'supportPriorityID'
@@ -201,9 +193,7 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'description' => 'setDescription',
-        'account_holder_id' => 'setAccountHolderId',
         'contact_id' => 'setContactId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'support_ticket_type_id' => 'setSupportTicketTypeId',
         'support_entitlement_id' => 'setSupportEntitlementId',
         'support_priority_id' => 'setSupportPriorityId'
@@ -216,9 +206,7 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'description' => 'getDescription',
-        'account_holder_id' => 'getAccountHolderId',
         'contact_id' => 'getContactId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'support_ticket_type_id' => 'getSupportTicketTypeId',
         'support_entitlement_id' => 'getSupportEntitlementId',
         'support_priority_id' => 'getSupportPriorityId'
@@ -282,9 +270,7 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('account_holder_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('support_ticket_type_id', $data ?? [], null);
         $this->setIfExists('support_entitlement_id', $data ?? [], null);
         $this->setIfExists('support_priority_id', $data ?? [], null);
@@ -367,40 +353,6 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets account_holder_id
-     *
-     * @return string|null
-     */
-    public function getAccountHolderId()
-    {
-        return $this->container['account_holder_id'];
-    }
-
-    /**
-     * Sets account_holder_id
-     *
-     * @param string|null $account_holder_id account_holder_id
-     *
-     * @return self
-     */
-    public function setAccountHolderId($account_holder_id)
-    {
-        if (is_null($account_holder_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_holder_id'] = $account_holder_id;
-
-        return $this;
-    }
-
-    /**
      * Gets contact_id
      *
      * @return string|null
@@ -430,40 +382,6 @@ class SupportTicketUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

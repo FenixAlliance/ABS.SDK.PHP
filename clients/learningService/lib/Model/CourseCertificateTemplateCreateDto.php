@@ -61,10 +61,8 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
         'id' => 'string',
         'timestamp' => '\DateTime',
         'course_id' => 'string',
-        'business_id' => 'string',
         'web_portal_id' => 'string',
         'website_theme_id' => 'string',
-        'business_profile_record_id' => 'string',
         'social_profile_id' => 'string',
         'parent_web_content_id' => 'string',
         'parent_web_content_version_id' => 'string'
@@ -81,10 +79,8 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'course_id' => null,
-        'business_id' => null,
         'web_portal_id' => null,
         'website_theme_id' => null,
-        'business_profile_record_id' => null,
         'social_profile_id' => null,
         'parent_web_content_id' => null,
         'parent_web_content_version_id' => null
@@ -99,10 +95,8 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
         'id' => false,
         'timestamp' => false,
         'course_id' => false,
-        'business_id' => false,
         'web_portal_id' => true,
         'website_theme_id' => true,
-        'business_profile_record_id' => true,
         'social_profile_id' => true,
         'parent_web_content_id' => true,
         'parent_web_content_version_id' => true
@@ -197,10 +191,8 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
         'id' => 'id',
         'timestamp' => 'timestamp',
         'course_id' => 'courseID',
-        'business_id' => 'businessID',
         'web_portal_id' => 'webPortalID',
         'website_theme_id' => 'websiteThemeID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'social_profile_id' => 'socialProfileID',
         'parent_web_content_id' => 'parentWebContentID',
         'parent_web_content_version_id' => 'parentWebContentVersionID'
@@ -215,10 +207,8 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'course_id' => 'setCourseId',
-        'business_id' => 'setBusinessId',
         'web_portal_id' => 'setWebPortalId',
         'website_theme_id' => 'setWebsiteThemeId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'social_profile_id' => 'setSocialProfileId',
         'parent_web_content_id' => 'setParentWebContentId',
         'parent_web_content_version_id' => 'setParentWebContentVersionId'
@@ -233,10 +223,8 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'course_id' => 'getCourseId',
-        'business_id' => 'getBusinessId',
         'web_portal_id' => 'getWebPortalId',
         'website_theme_id' => 'getWebsiteThemeId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'social_profile_id' => 'getSocialProfileId',
         'parent_web_content_id' => 'getParentWebContentId',
         'parent_web_content_version_id' => 'getParentWebContentVersionId'
@@ -302,10 +290,8 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('web_portal_id', $data ?? [], null);
         $this->setIfExists('website_theme_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('social_profile_id', $data ?? [], null);
         $this->setIfExists('parent_web_content_id', $data ?? [], null);
         $this->setIfExists('parent_web_content_version_id', $data ?? [], null);
@@ -347,17 +333,6 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
 
         if ((mb_strlen($this->container['course_id']) < 36)) {
             $invalidProperties[] = "invalid value for 'course_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
         }
 
         return $invalidProperties;
@@ -464,40 +439,6 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseCertificateTemplateCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseCertificateTemplateCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
      * Gets web_portal_id
      *
      * @return string|null
@@ -561,40 +502,6 @@ class CourseCertificateTemplateCreateDto implements ModelInterface, ArrayAccess,
             }
         }
         $this->container['website_theme_id'] = $website_theme_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

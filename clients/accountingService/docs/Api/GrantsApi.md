@@ -321,7 +321,7 @@ No authorization required
 ## `updateGrantAsync()`
 
 ```php
-updateGrantAsync($tenant_id, $grant_id, $api_version, $x_api_version, $grant_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+updateGrantAsync($tenant_id, $grant_id, $api_version, $x_api_version, $body): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Update grant
@@ -345,10 +345,10 @@ $tenant_id = 'tenant_id_example'; // string
 $grant_id = 'grant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$grant_update_dto = new \OpenAPI\Client\Model\GrantUpdateDto(); // \OpenAPI\Client\Model\GrantUpdateDto
+$body = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->updateGrantAsync($tenant_id, $grant_id, $api_version, $x_api_version, $grant_update_dto);
+    $result = $apiInstance->updateGrantAsync($tenant_id, $grant_id, $api_version, $x_api_version, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GrantsApi->updateGrantAsync: ', $e->getMessage(), PHP_EOL;
@@ -363,7 +363,7 @@ try {
 | **grant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **grant_update_dto** | [**\OpenAPI\Client\Model\GrantUpdateDto**](../Model/GrantUpdateDto.md)|  | [optional] |
+| **body** | **object**|  | [optional] |
 
 ### Return type
 

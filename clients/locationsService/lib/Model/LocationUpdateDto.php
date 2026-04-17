@@ -70,7 +70,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'state_id' => 'string',
         'postal_code' => 'string',
         'country_id' => 'string',
-        'tenant_id' => 'string',
         'longitude' => 'float',
         'latitude' => 'float',
         'is_routable' => 'bool',
@@ -102,7 +101,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'state_id' => null,
         'postal_code' => null,
         'country_id' => null,
-        'tenant_id' => null,
         'longitude' => 'double',
         'latitude' => 'double',
         'is_routable' => null,
@@ -132,7 +130,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'state_id' => true,
         'postal_code' => true,
         'country_id' => true,
-        'tenant_id' => true,
         'longitude' => false,
         'latitude' => false,
         'is_routable' => false,
@@ -242,7 +239,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'state_id' => 'stateId',
         'postal_code' => 'postalCode',
         'country_id' => 'countryId',
-        'tenant_id' => 'tenantId',
         'longitude' => 'longitude',
         'latitude' => 'latitude',
         'is_routable' => 'isRoutable',
@@ -272,7 +268,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'state_id' => 'setStateId',
         'postal_code' => 'setPostalCode',
         'country_id' => 'setCountryId',
-        'tenant_id' => 'setTenantId',
         'longitude' => 'setLongitude',
         'latitude' => 'setLatitude',
         'is_routable' => 'setIsRoutable',
@@ -302,7 +297,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'state_id' => 'getStateId',
         'postal_code' => 'getPostalCode',
         'country_id' => 'getCountryId',
-        'tenant_id' => 'getTenantId',
         'longitude' => 'getLongitude',
         'latitude' => 'getLatitude',
         'is_routable' => 'getIsRoutable',
@@ -383,7 +377,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('state_id', $data ?? [], null);
         $this->setIfExists('postal_code', $data ?? [], null);
         $this->setIfExists('country_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('longitude', $data ?? [], null);
         $this->setIfExists('latitude', $data ?? [], null);
         $this->setIfExists('is_routable', $data ?? [], null);
@@ -841,40 +834,6 @@ class LocationUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['country_id'] = $country_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

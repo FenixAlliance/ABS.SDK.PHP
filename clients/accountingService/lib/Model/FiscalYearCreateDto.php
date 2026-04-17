@@ -63,10 +63,9 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'string',
         'description' => 'string',
         'closed' => 'bool',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'end_date' => '\DateTime',
-        'start_date' => '\DateTime'
+        'start_date' => '\DateTime',
+        'fiscal_authority_id' => 'string'
     ];
 
     /**
@@ -82,10 +81,9 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => null,
         'description' => null,
         'closed' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'end_date' => 'date-time',
-        'start_date' => 'date-time'
+        'start_date' => 'date-time',
+        'fiscal_authority_id' => null
     ];
 
     /**
@@ -99,10 +97,9 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => true,
         'description' => true,
         'closed' => false,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'end_date' => false,
-        'start_date' => false
+        'start_date' => false,
+        'fiscal_authority_id' => true
     ];
 
     /**
@@ -196,10 +193,9 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'name',
         'description' => 'description',
         'closed' => 'closed',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'end_date' => 'endDate',
-        'start_date' => 'startDate'
+        'start_date' => 'startDate',
+        'fiscal_authority_id' => 'fiscalAuthorityId'
     ];
 
     /**
@@ -213,10 +209,9 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'setName',
         'description' => 'setDescription',
         'closed' => 'setClosed',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'end_date' => 'setEndDate',
-        'start_date' => 'setStartDate'
+        'start_date' => 'setStartDate',
+        'fiscal_authority_id' => 'setFiscalAuthorityId'
     ];
 
     /**
@@ -230,10 +225,9 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'getName',
         'description' => 'getDescription',
         'closed' => 'getClosed',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'end_date' => 'getEndDate',
-        'start_date' => 'getStartDate'
+        'start_date' => 'getStartDate',
+        'fiscal_authority_id' => 'getFiscalAuthorityId'
     ];
 
     /**
@@ -298,10 +292,9 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('closed', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('fiscal_authority_id', $data ?? [], null);
     }
 
     /**
@@ -496,74 +489,6 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
-
-        return $this;
-    }
-
-    /**
      * Gets end_date
      *
      * @return \DateTime|null
@@ -613,6 +538,40 @@ class FiscalYearCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
         $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets fiscal_authority_id
+     *
+     * @return string|null
+     */
+    public function getFiscalAuthorityId()
+    {
+        return $this->container['fiscal_authority_id'];
+    }
+
+    /**
+     * Sets fiscal_authority_id
+     *
+     * @param string|null $fiscal_authority_id fiscal_authority_id
+     *
+     * @return self
+     */
+    public function setFiscalAuthorityId($fiscal_authority_id)
+    {
+        if (is_null($fiscal_authority_id)) {
+            array_push($this->openAPINullablesSetToNull, 'fiscal_authority_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fiscal_authority_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['fiscal_authority_id'] = $fiscal_authority_id;
 
         return $this;
     }

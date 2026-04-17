@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **disabled** | **bool** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
 **organization_profile_id** | **string** |  | [optional]
 **parent_department_id** | **string** |  | [optional]
 

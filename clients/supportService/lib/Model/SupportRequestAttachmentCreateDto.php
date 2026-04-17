@@ -70,8 +70,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
         'valid_response' => 'bool',
         'parent_file_upload_id' => 'string',
         'file_path' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'metadata' => 'string',
         'support_request_id' => 'string'
     ];
@@ -96,8 +94,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
         'valid_response' => null,
         'parent_file_upload_id' => null,
         'file_path' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'metadata' => null,
         'support_request_id' => null
     ];
@@ -120,8 +116,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
         'valid_response' => false,
         'parent_file_upload_id' => true,
         'file_path' => true,
-        'business_id' => true,
-        'business_profile_record_id' => true,
         'metadata' => true,
         'support_request_id' => true
     ];
@@ -224,8 +218,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
         'valid_response' => 'validResponse',
         'parent_file_upload_id' => 'parentFileUploadId',
         'file_path' => 'filePath',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'metadata' => 'metadata',
         'support_request_id' => 'supportRequestID'
     ];
@@ -248,8 +240,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
         'valid_response' => 'setValidResponse',
         'parent_file_upload_id' => 'setParentFileUploadId',
         'file_path' => 'setFilePath',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'metadata' => 'setMetadata',
         'support_request_id' => 'setSupportRequestId'
     ];
@@ -272,8 +262,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
         'valid_response' => 'getValidResponse',
         'parent_file_upload_id' => 'getParentFileUploadId',
         'file_path' => 'getFilePath',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'metadata' => 'getMetadata',
         'support_request_id' => 'getSupportRequestId'
     ];
@@ -347,8 +335,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
         $this->setIfExists('valid_response', $data ?? [], null);
         $this->setIfExists('parent_file_upload_id', $data ?? [], null);
         $this->setIfExists('file_path', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('support_request_id', $data ?? [], null);
     }
@@ -379,22 +365,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be bigger than or equal to 36.";
-        }
 
         return $invalidProperties;
     }
@@ -787,88 +757,6 @@ class SupportRequestAttachmentCreateDto implements ModelInterface, ArrayAccess, 
             }
         }
         $this->container['file_path'] = $file_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportRequestAttachmentCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportRequestAttachmentCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling SupportRequestAttachmentCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling SupportRequestAttachmentCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

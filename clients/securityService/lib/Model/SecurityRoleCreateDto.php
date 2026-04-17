@@ -61,7 +61,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'string',
         'timestamp' => '\DateTime',
         'name' => 'string',
-        'tenant_id' => 'string',
         'description' => 'string'
     ];
 
@@ -76,7 +75,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'name' => null,
-        'tenant_id' => 'uuid',
         'description' => null
     ];
 
@@ -89,7 +87,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => false,
         'timestamp' => false,
         'name' => false,
-        'tenant_id' => false,
         'description' => true
     ];
 
@@ -182,7 +179,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'id',
         'timestamp' => 'timestamp',
         'name' => 'name',
-        'tenant_id' => 'tenantId',
         'description' => 'description'
     ];
 
@@ -195,7 +191,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
-        'tenant_id' => 'setTenantId',
         'description' => 'setDescription'
     ];
 
@@ -208,7 +203,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
-        'tenant_id' => 'getTenantId',
         'description' => 'getDescription'
     ];
 
@@ -272,7 +266,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
     }
 
@@ -310,9 +303,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['tenant_id'] === null) {
-            $invalidProperties[] = "'tenant_id' can't be null";
-        }
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 500)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 500.";
         }
@@ -414,33 +404,6 @@ class SecurityRoleCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         }
 
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            throw new \InvalidArgumentException('non-nullable tenant_id cannot be null');
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **invoice_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **emisor_wallet_id** | **string** |  | [optional]
 **receiver_wallet_id** | **string** |  | [optional]
 **currency_id** | **string** |  | [optional]
@@ -57,7 +56,6 @@ Name | Type | Description | Notes
 **accounting_entry_id** | **string** |  | [optional]
 **payment_gateway_id** | **string** |  | [optional]
 **bank_account_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 **bank_id** | **string** |  | [optional]
 **payment_token_id** | **string** |  | [optional]
 **emisor_wallet_account_id** | **string** |  | [optional]

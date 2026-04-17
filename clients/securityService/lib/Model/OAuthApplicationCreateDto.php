@@ -58,6 +58,8 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'timestamp' => '\DateTime',
         'display_name' => 'string',
         'client_id' => 'string',
         'client_secret' => 'string',
@@ -66,9 +68,7 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'requirements' => 'string',
         'redirect_uris' => 'string',
         'post_logout_redirect_uris' => 'string',
-        'logo' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string'
+        'logo' => 'string'
     ];
 
     /**
@@ -79,6 +79,8 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
+        'timestamp' => 'date-time',
         'display_name' => null,
         'client_id' => null,
         'client_secret' => null,
@@ -87,9 +89,7 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'requirements' => null,
         'redirect_uris' => null,
         'post_logout_redirect_uris' => null,
-        'logo' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null
+        'logo' => null
     ];
 
     /**
@@ -98,6 +98,8 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'timestamp' => false,
         'display_name' => false,
         'client_id' => true,
         'client_secret' => true,
@@ -106,9 +108,7 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'requirements' => true,
         'redirect_uris' => true,
         'post_logout_redirect_uris' => true,
-        'logo' => true,
-        'business_id' => true,
-        'business_profile_record_id' => true
+        'logo' => true
     ];
 
     /**
@@ -197,6 +197,8 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'timestamp' => 'timestamp',
         'display_name' => 'displayName',
         'client_id' => 'clientId',
         'client_secret' => 'clientSecret',
@@ -205,9 +207,7 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'requirements' => 'requirements',
         'redirect_uris' => 'redirectUris',
         'post_logout_redirect_uris' => 'postLogoutRedirectUris',
-        'logo' => 'logo',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID'
+        'logo' => 'logo'
     ];
 
     /**
@@ -216,6 +216,8 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'display_name' => 'setDisplayName',
         'client_id' => 'setClientId',
         'client_secret' => 'setClientSecret',
@@ -224,9 +226,7 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'requirements' => 'setRequirements',
         'redirect_uris' => 'setRedirectUris',
         'post_logout_redirect_uris' => 'setPostLogoutRedirectUris',
-        'logo' => 'setLogo',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId'
+        'logo' => 'setLogo'
     ];
 
     /**
@@ -235,6 +235,8 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'display_name' => 'getDisplayName',
         'client_id' => 'getClientId',
         'client_secret' => 'getClientSecret',
@@ -243,9 +245,7 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'requirements' => 'getRequirements',
         'redirect_uris' => 'getRedirectUris',
         'post_logout_redirect_uris' => 'getPostLogoutRedirectUris',
-        'logo' => 'getLogo',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId'
+        'logo' => 'getLogo'
     ];
 
     /**
@@ -305,6 +305,8 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('display_name', $data ?? [], null);
         $this->setIfExists('client_id', $data ?? [], null);
         $this->setIfExists('client_secret', $data ?? [], null);
@@ -314,8 +316,6 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('redirect_uris', $data ?? [], null);
         $this->setIfExists('post_logout_redirect_uris', $data ?? [], null);
         $this->setIfExists('logo', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
     }
 
     /**
@@ -366,6 +366,60 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
 
     /**
      * Gets display_name
@@ -667,74 +721,6 @@ class OAuthApplicationCreateDto implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['logo'] = $logo;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

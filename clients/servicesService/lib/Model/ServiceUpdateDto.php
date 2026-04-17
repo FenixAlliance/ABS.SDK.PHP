@@ -109,7 +109,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'material' => 'string',
         'on_discount' => 'bool',
         'total_tax' => 'float',
-        'tenant_id' => 'string',
         'permalink' => 'string',
         'brand_name' => 'string',
         'reviews_count' => 'int',
@@ -134,7 +133,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_tax_value' => 'float',
         'has_variations' => 'bool',
         'questions_count' => 'int',
-        'enrollment_id' => 'string',
         'supplier_code' => 'string',
         'auction_end' => '\DateTime',
         'purchase_note' => 'string',
@@ -293,7 +291,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'material' => null,
         'on_discount' => null,
         'total_tax' => 'double',
-        'tenant_id' => null,
         'permalink' => null,
         'brand_name' => null,
         'reviews_count' => 'int32',
@@ -318,7 +315,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_tax_value' => 'double',
         'has_variations' => null,
         'questions_count' => 'int32',
-        'enrollment_id' => null,
         'supplier_code' => null,
         'auction_end' => 'date-time',
         'purchase_note' => null,
@@ -475,7 +471,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'material' => true,
         'on_discount' => false,
         'total_tax' => false,
-        'tenant_id' => true,
         'permalink' => true,
         'brand_name' => true,
         'reviews_count' => false,
@@ -500,7 +495,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_tax_value' => false,
         'has_variations' => false,
         'questions_count' => false,
-        'enrollment_id' => true,
         'supplier_code' => true,
         'auction_end' => false,
         'purchase_note' => true,
@@ -737,7 +731,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'material' => 'material',
         'on_discount' => 'onDiscount',
         'total_tax' => 'totalTax',
-        'tenant_id' => 'tenantId',
         'permalink' => 'permalink',
         'brand_name' => 'brandName',
         'reviews_count' => 'reviewsCount',
@@ -762,7 +755,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_tax_value' => 'customTaxValue',
         'has_variations' => 'hasVariations',
         'questions_count' => 'questionsCount',
-        'enrollment_id' => 'enrollmentId',
         'supplier_code' => 'supplierCode',
         'auction_end' => 'auctionEnd',
         'purchase_note' => 'purchaseNote',
@@ -919,7 +911,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'material' => 'setMaterial',
         'on_discount' => 'setOnDiscount',
         'total_tax' => 'setTotalTax',
-        'tenant_id' => 'setTenantId',
         'permalink' => 'setPermalink',
         'brand_name' => 'setBrandName',
         'reviews_count' => 'setReviewsCount',
@@ -944,7 +935,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_tax_value' => 'setCustomTaxValue',
         'has_variations' => 'setHasVariations',
         'questions_count' => 'setQuestionsCount',
-        'enrollment_id' => 'setEnrollmentId',
         'supplier_code' => 'setSupplierCode',
         'auction_end' => 'setAuctionEnd',
         'purchase_note' => 'setPurchaseNote',
@@ -1101,7 +1091,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'material' => 'getMaterial',
         'on_discount' => 'getOnDiscount',
         'total_tax' => 'getTotalTax',
-        'tenant_id' => 'getTenantId',
         'permalink' => 'getPermalink',
         'brand_name' => 'getBrandName',
         'reviews_count' => 'getReviewsCount',
@@ -1126,7 +1115,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'custom_tax_value' => 'getCustomTaxValue',
         'has_variations' => 'getHasVariations',
         'questions_count' => 'getQuestionsCount',
-        'enrollment_id' => 'getEnrollmentId',
         'supplier_code' => 'getSupplierCode',
         'auction_end' => 'getAuctionEnd',
         'purchase_note' => 'getPurchaseNote',
@@ -1334,7 +1322,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('material', $data ?? [], null);
         $this->setIfExists('on_discount', $data ?? [], null);
         $this->setIfExists('total_tax', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('permalink', $data ?? [], null);
         $this->setIfExists('brand_name', $data ?? [], null);
         $this->setIfExists('reviews_count', $data ?? [], null);
@@ -1359,7 +1346,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('custom_tax_value', $data ?? [], null);
         $this->setIfExists('has_variations', $data ?? [], null);
         $this->setIfExists('questions_count', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('supplier_code', $data ?? [], null);
         $this->setIfExists('auction_end', $data ?? [], null);
         $this->setIfExists('purchase_note', $data ?? [], null);
@@ -3144,40 +3130,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets permalink
      *
      * @return string|null
@@ -3898,40 +3850,6 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable questions_count cannot be null');
         }
         $this->container['questions_count'] = $questions_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

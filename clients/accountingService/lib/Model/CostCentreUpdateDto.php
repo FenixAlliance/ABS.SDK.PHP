@@ -62,7 +62,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'disabled' => 'bool',
         'description' => 'string',
         'cost_centre_type' => 'string',
-        'tenant_id' => 'string',
         'cost_centres_group_id' => 'string',
         'parent_cost_centre_id' => 'string'
     ];
@@ -79,7 +78,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'disabled' => null,
         'description' => null,
         'cost_centre_type' => null,
-        'tenant_id' => null,
         'cost_centres_group_id' => null,
         'parent_cost_centre_id' => null
     ];
@@ -94,7 +92,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'disabled' => false,
         'description' => true,
         'cost_centre_type' => false,
-        'tenant_id' => true,
         'cost_centres_group_id' => true,
         'parent_cost_centre_id' => true
     ];
@@ -189,7 +186,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'disabled' => 'disabled',
         'description' => 'description',
         'cost_centre_type' => 'costCentreType',
-        'tenant_id' => 'tenantId',
         'cost_centres_group_id' => 'costCentresGroupId',
         'parent_cost_centre_id' => 'parentCostCentreId'
     ];
@@ -204,7 +200,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'disabled' => 'setDisabled',
         'description' => 'setDescription',
         'cost_centre_type' => 'setCostCentreType',
-        'tenant_id' => 'setTenantId',
         'cost_centres_group_id' => 'setCostCentresGroupId',
         'parent_cost_centre_id' => 'setParentCostCentreId'
     ];
@@ -219,7 +214,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'disabled' => 'getDisabled',
         'description' => 'getDescription',
         'cost_centre_type' => 'getCostCentreType',
-        'tenant_id' => 'getTenantId',
         'cost_centres_group_id' => 'getCostCentresGroupId',
         'parent_cost_centre_id' => 'getParentCostCentreId'
     ];
@@ -300,7 +294,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('disabled', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('cost_centre_type', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('cost_centres_group_id', $data ?? [], null);
         $this->setIfExists('parent_cost_centre_id', $data ?? [], null);
     }
@@ -355,14 +348,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
                 $this->container['cost_centre_type'],
                 implode("', '", $allowedValues)
             );
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['cost_centres_group_id']) && (mb_strlen($this->container['cost_centres_group_id']) > 36)) {
@@ -538,47 +523,6 @@ class CostCentreUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
         $this->container['cost_centre_type'] = $cost_centre_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling CostCentreUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling CostCentreUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **timestamp** | **\DateTime** |  | [optional]
 **student_profile_id** | **string** |  |
 **course_enrollment_id** | **string** |  |
-**business_id** | **string** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
 **course_completion_certificate_template_id** | **string** |  | [optional]
 **course_id** | **string** |  | [optional]
 

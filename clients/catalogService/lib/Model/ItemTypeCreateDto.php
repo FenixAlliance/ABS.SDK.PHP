@@ -65,7 +65,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'description' => 'string',
         'image_url' => 'string',
         'google_category_taxonomy' => 'string',
-        'business_id' => 'string',
         'item_category_id' => 'string',
         'item_google_category_id' => 'string'
     ];
@@ -85,7 +84,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'description' => null,
         'image_url' => 'uri',
         'google_category_taxonomy' => null,
-        'business_id' => null,
         'item_category_id' => null,
         'item_google_category_id' => null
     ];
@@ -103,7 +101,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'description' => true,
         'image_url' => true,
         'google_category_taxonomy' => true,
-        'business_id' => false,
         'item_category_id' => false,
         'item_google_category_id' => true
     ];
@@ -201,7 +198,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'description' => 'description',
         'image_url' => 'imageURL',
         'google_category_taxonomy' => 'googleCategoryTaxonomy',
-        'business_id' => 'businessID',
         'item_category_id' => 'itemCategoryID',
         'item_google_category_id' => 'itemGoogleCategoryID'
     ];
@@ -219,7 +215,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'description' => 'setDescription',
         'image_url' => 'setImageUrl',
         'google_category_taxonomy' => 'setGoogleCategoryTaxonomy',
-        'business_id' => 'setBusinessId',
         'item_category_id' => 'setItemCategoryId',
         'item_google_category_id' => 'setItemGoogleCategoryId'
     ];
@@ -237,7 +232,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'description' => 'getDescription',
         'image_url' => 'getImageUrl',
         'google_category_taxonomy' => 'getGoogleCategoryTaxonomy',
-        'business_id' => 'getBusinessId',
         'item_category_id' => 'getItemCategoryId',
         'item_google_category_id' => 'getItemGoogleCategoryId'
     ];
@@ -306,7 +300,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('image_url', $data ?? [], null);
         $this->setIfExists('google_category_taxonomy', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('item_category_id', $data ?? [], null);
         $this->setIfExists('item_google_category_id', $data ?? [], null);
     }
@@ -368,17 +361,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
 
         if (!is_null($this->container['google_category_taxonomy']) && (mb_strlen($this->container['google_category_taxonomy']) < 0)) {
             $invalidProperties[] = "invalid value for 'google_category_taxonomy', the character length must be bigger than or equal to 0.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
         }
 
         if ($this->container['item_category_id'] === null) {
@@ -663,40 +645,6 @@ class ItemTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
 
         $this->container['google_category_taxonomy'] = $google_category_taxonomy;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemTypeCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemTypeCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

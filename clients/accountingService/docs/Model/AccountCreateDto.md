@@ -12,9 +12,7 @@ Name | Type | Description | Notes
 **code** | **string** |  | [optional]
 **path** | **string** |  | [optional]
 **prefix** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **currency_id** | **string** |  |
-**enrollment_id** | **string** |  | [optional]
 **account_type_id** | **string** |  | [optional]
 **parent_account_id** | **string** |  | [optional]
 **account_category** | **string** |  |

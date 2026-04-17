@@ -58,8 +58,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'description' => 'string',
         'amount' => 'float',
         'date' => '\DateTime',
@@ -78,8 +76,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'description' => null,
         'amount' => 'double',
         'date' => 'date-time',
@@ -96,8 +92,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'description' => true,
         'amount' => false,
         'date' => true,
@@ -194,8 +188,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'description' => 'description',
         'amount' => 'amount',
         'date' => 'date',
@@ -212,8 +204,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'description' => 'setDescription',
         'amount' => 'setAmount',
         'date' => 'setDate',
@@ -230,8 +220,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'description' => 'getDescription',
         'amount' => 'getAmount',
         'date' => 'getDate',
@@ -316,8 +304,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('date', $data ?? [], null);
@@ -354,22 +340,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 36.";
-        }
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 1000)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 1000.";
@@ -426,88 +396,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling AccountingEntryUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling AccountingEntryUpdateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling AccountingEntryUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling AccountingEntryUpdateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
-
-        return $this;
-    }
 
     /**
      * Gets description

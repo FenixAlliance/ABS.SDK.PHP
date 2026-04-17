@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**tenant_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 **description** | **string** |  |
 **date** | **\DateTime** |  | [optional]
 **amount** | **float** |  | [optional]

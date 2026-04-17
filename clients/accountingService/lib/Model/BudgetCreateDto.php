@@ -61,7 +61,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'timestamp' => '\DateTime',
         'name' => 'string',
-        'tenant_id' => 'string',
         'fiscal_year_id' => 'string'
     ];
 
@@ -76,7 +75,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'name' => null,
-        'tenant_id' => null,
         'fiscal_year_id' => null
     ];
 
@@ -89,7 +87,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
         'timestamp' => false,
         'name' => true,
-        'tenant_id' => true,
         'fiscal_year_id' => true
     ];
 
@@ -182,7 +179,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'timestamp' => 'timestamp',
         'name' => 'name',
-        'tenant_id' => 'tenantId',
         'fiscal_year_id' => 'fiscalYearId'
     ];
 
@@ -195,7 +191,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
-        'tenant_id' => 'setTenantId',
         'fiscal_year_id' => 'setFiscalYearId'
     ];
 
@@ -208,7 +203,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
-        'tenant_id' => 'getTenantId',
         'fiscal_year_id' => 'getFiscalYearId'
     ];
 
@@ -272,7 +266,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('fiscal_year_id', $data ?? [], null);
     }
 
@@ -402,40 +395,6 @@ class BudgetCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

@@ -71,8 +71,7 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'canonical_url' => 'string',
         'image_url' => 'string',
         'image' => 'string',
-        'web_portal_id' => 'string',
-        'business_profile_record_id' => 'string'
+        'web_portal_id' => 'string'
     ];
 
     /**
@@ -96,8 +95,7 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'canonical_url' => null,
         'image_url' => null,
         'image' => null,
-        'web_portal_id' => null,
-        'business_profile_record_id' => null
+        'web_portal_id' => null
     ];
 
     /**
@@ -119,8 +117,7 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'canonical_url' => true,
         'image_url' => true,
         'image' => true,
-        'web_portal_id' => true,
-        'business_profile_record_id' => true
+        'web_portal_id' => true
     ];
 
     /**
@@ -222,8 +219,7 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'canonical_url' => 'canonicalUrl',
         'image_url' => 'imageURL',
         'image' => 'image',
-        'web_portal_id' => 'webPortalID',
-        'business_profile_record_id' => 'businessProfileRecordID'
+        'web_portal_id' => 'webPortalID'
     ];
 
     /**
@@ -245,8 +241,7 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'canonical_url' => 'setCanonicalUrl',
         'image_url' => 'setImageUrl',
         'image' => 'setImage',
-        'web_portal_id' => 'setWebPortalId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId'
+        'web_portal_id' => 'setWebPortalId'
     ];
 
     /**
@@ -268,8 +263,7 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'canonical_url' => 'getCanonicalUrl',
         'image_url' => 'getImageUrl',
         'image' => 'getImage',
-        'web_portal_id' => 'getWebPortalId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId'
+        'web_portal_id' => 'getWebPortalId'
     ];
 
     /**
@@ -343,7 +337,6 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('image_url', $data ?? [], null);
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('web_portal_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
     }
 
     /**
@@ -832,40 +825,6 @@ class WebPageTagCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['web_portal_id'] = $web_portal_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

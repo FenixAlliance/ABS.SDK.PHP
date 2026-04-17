@@ -63,9 +63,7 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'int',
         'name' => 'string',
         'deal_unit_flow_id' => 'string',
-        'tenant_id' => 'string',
         'description' => 'string',
-        'enrollment_id' => 'string',
         'parent_business_process_stage_id' => 'string'
     ];
 
@@ -82,9 +80,7 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'int32',
         'name' => null,
         'deal_unit_flow_id' => null,
-        'tenant_id' => null,
         'description' => null,
-        'enrollment_id' => null,
         'parent_business_process_stage_id' => null
     ];
 
@@ -99,9 +95,7 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => false,
         'name' => true,
         'deal_unit_flow_id' => true,
-        'tenant_id' => true,
         'description' => true,
-        'enrollment_id' => true,
         'parent_business_process_stage_id' => true
     ];
 
@@ -196,9 +190,7 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'order',
         'name' => 'name',
         'deal_unit_flow_id' => 'dealUnitFlowId',
-        'tenant_id' => 'tenantId',
         'description' => 'description',
-        'enrollment_id' => 'enrollmentId',
         'parent_business_process_stage_id' => 'parentBusinessProcessStageId'
     ];
 
@@ -213,9 +205,7 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'setOrder',
         'name' => 'setName',
         'deal_unit_flow_id' => 'setDealUnitFlowId',
-        'tenant_id' => 'setTenantId',
         'description' => 'setDescription',
-        'enrollment_id' => 'setEnrollmentId',
         'parent_business_process_stage_id' => 'setParentBusinessProcessStageId'
     ];
 
@@ -230,9 +220,7 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         'order' => 'getOrder',
         'name' => 'getName',
         'deal_unit_flow_id' => 'getDealUnitFlowId',
-        'tenant_id' => 'getTenantId',
         'description' => 'getDescription',
-        'enrollment_id' => 'getEnrollmentId',
         'parent_business_process_stage_id' => 'getParentBusinessProcessStageId'
     ];
 
@@ -298,9 +286,7 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('deal_unit_flow_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('parent_business_process_stage_id', $data ?? [], null);
     }
 
@@ -496,40 +482,6 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets description
      *
      * @return string|null
@@ -559,40 +511,6 @@ class DealUnitFlowStageCreateDto implements ModelInterface, ArrayAccess, \JsonSe
             }
         }
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

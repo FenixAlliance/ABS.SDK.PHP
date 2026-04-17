@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **name** | **string** |  | [optional]
 **title** | **string** |  | [optional]
 **avatar_url** | **string** |  | [optional]

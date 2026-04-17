@@ -59,9 +59,7 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'fiscal_responsibility_id' => 'string',
-        'billing_profile_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string'
+        'billing_profile_id' => 'string'
     ];
 
     /**
@@ -73,9 +71,7 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'fiscal_responsibility_id' => null,
-        'billing_profile_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null
+        'billing_profile_id' => null
     ];
 
     /**
@@ -85,9 +81,7 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
       */
     protected static array $openAPINullables = [
         'fiscal_responsibility_id' => true,
-        'billing_profile_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true
+        'billing_profile_id' => true
     ];
 
     /**
@@ -177,9 +171,7 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'fiscal_responsibility_id' => 'fiscalResponsibilityId',
-        'billing_profile_id' => 'billingProfileId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId'
+        'billing_profile_id' => 'billingProfileId'
     ];
 
     /**
@@ -189,9 +181,7 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'fiscal_responsibility_id' => 'setFiscalResponsibilityId',
-        'billing_profile_id' => 'setBillingProfileId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId'
+        'billing_profile_id' => 'setBillingProfileId'
     ];
 
     /**
@@ -201,9 +191,7 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'fiscal_responsibility_id' => 'getFiscalResponsibilityId',
-        'billing_profile_id' => 'getBillingProfileId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId'
+        'billing_profile_id' => 'getBillingProfileId'
     ];
 
     /**
@@ -265,8 +253,6 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
     {
         $this->setIfExists('fiscal_responsibility_id', $data ?? [], null);
         $this->setIfExists('billing_profile_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -310,22 +296,6 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['billing_profile_id']) && (mb_strlen($this->container['billing_profile_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'billing_profile_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -421,88 +391,6 @@ class FiscalResponsibilityRecordUpdateDto implements ModelInterface, ArrayAccess
         }
 
         $this->container['billing_profile_id'] = $billing_profile_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling FiscalResponsibilityRecordUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling FiscalResponsibilityRecordUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling FiscalResponsibilityRecordUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling FiscalResponsibilityRecordUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

@@ -61,7 +61,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
         'name' => 'string',
         'description' => 'string',
         'disabled' => 'bool',
-        'business_profile_record_id' => 'string',
         'organization_profile_id' => 'string',
         'parent_department_id' => 'string'
     ];
@@ -77,7 +76,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
         'name' => null,
         'description' => null,
         'disabled' => null,
-        'business_profile_record_id' => null,
         'organization_profile_id' => null,
         'parent_department_id' => null
     ];
@@ -91,7 +89,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
         'name' => true,
         'description' => true,
         'disabled' => false,
-        'business_profile_record_id' => true,
         'organization_profile_id' => true,
         'parent_department_id' => true
     ];
@@ -185,7 +182,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
         'name' => 'name',
         'description' => 'description',
         'disabled' => 'disabled',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'organization_profile_id' => 'organizationProfileID',
         'parent_department_id' => 'parentDepartmentID'
     ];
@@ -199,7 +195,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
         'name' => 'setName',
         'description' => 'setDescription',
         'disabled' => 'setDisabled',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'organization_profile_id' => 'setOrganizationProfileId',
         'parent_department_id' => 'setParentDepartmentId'
     ];
@@ -213,7 +208,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
         'name' => 'getName',
         'description' => 'getDescription',
         'disabled' => 'getDisabled',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'organization_profile_id' => 'getOrganizationProfileId',
         'parent_department_id' => 'getParentDepartmentId'
     ];
@@ -278,7 +272,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('disabled', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('organization_profile_id', $data ?? [], null);
         $this->setIfExists('parent_department_id', $data ?? [], null);
     }
@@ -416,40 +409,6 @@ class TenantDepartmentUpdateDto implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable disabled cannot be null');
         }
         $this->container['disabled'] = $disabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

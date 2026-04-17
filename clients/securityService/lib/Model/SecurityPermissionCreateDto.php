@@ -61,7 +61,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'string',
         'timestamp' => '\DateTime',
         'name' => 'string',
-        'tenant_id' => 'string',
         'description' => 'string'
     ];
 
@@ -76,7 +75,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'name' => null,
-        'tenant_id' => null,
         'description' => null
     ];
 
@@ -89,7 +87,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => false,
         'timestamp' => false,
         'name' => false,
-        'tenant_id' => false,
         'description' => true
     ];
 
@@ -182,7 +179,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'id',
         'timestamp' => 'timestamp',
         'name' => 'name',
-        'tenant_id' => 'tenantId',
         'description' => 'description'
     ];
 
@@ -195,7 +191,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
-        'tenant_id' => 'setTenantId',
         'description' => 'setDescription'
     ];
 
@@ -208,7 +203,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
-        'tenant_id' => 'getTenantId',
         'description' => 'getDescription'
     ];
 
@@ -272,7 +266,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
     }
 
@@ -308,13 +301,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         }
         if ((mb_strlen($this->container['name']) < 1)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['tenant_id'] === null) {
-            $invalidProperties[] = "'tenant_id' can't be null";
-        }
-        if ((mb_strlen($this->container['tenant_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 1.";
         }
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 500)) {
@@ -418,38 +404,6 @@ class SecurityPermissionCreateDto implements ModelInterface, ArrayAccess, \JsonS
         }
 
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            throw new \InvalidArgumentException('non-nullable tenant_id cannot be null');
-        }
-
-        if ((mb_strlen($tenant_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling SecurityPermissionCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

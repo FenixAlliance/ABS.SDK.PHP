@@ -63,8 +63,7 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'string',
         'description' => 'string',
         'image_url' => 'string',
-        'is_featured' => 'bool',
-        'business_id' => 'string'
+        'is_featured' => 'bool'
     ];
 
     /**
@@ -80,8 +79,7 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => null,
         'description' => null,
         'image_url' => null,
-        'is_featured' => null,
-        'business_id' => null
+        'is_featured' => null
     ];
 
     /**
@@ -95,8 +93,7 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => false,
         'description' => true,
         'image_url' => true,
-        'is_featured' => false,
-        'business_id' => false
+        'is_featured' => false
     ];
 
     /**
@@ -190,8 +187,7 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'title',
         'description' => 'description',
         'image_url' => 'imageURL',
-        'is_featured' => 'isFeatured',
-        'business_id' => 'businessID'
+        'is_featured' => 'isFeatured'
     ];
 
     /**
@@ -205,8 +201,7 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'setTitle',
         'description' => 'setDescription',
         'image_url' => 'setImageUrl',
-        'is_featured' => 'setIsFeatured',
-        'business_id' => 'setBusinessId'
+        'is_featured' => 'setIsFeatured'
     ];
 
     /**
@@ -220,8 +215,7 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'title' => 'getTitle',
         'description' => 'getDescription',
         'image_url' => 'getImageUrl',
-        'is_featured' => 'getIsFeatured',
-        'business_id' => 'getBusinessId'
+        'is_featured' => 'getIsFeatured'
     ];
 
     /**
@@ -287,7 +281,6 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('image_url', $data ?? [], null);
         $this->setIfExists('is_featured', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -322,13 +315,6 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if ((mb_strlen($this->container['title']) < 1)) {
             $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -523,38 +509,6 @@ class CourseCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable is_featured cannot be null');
         }
         $this->container['is_featured'] = $is_featured;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseCategoryCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

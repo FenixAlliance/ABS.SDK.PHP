@@ -73,8 +73,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
         'contact_email' => 'string',
         'privacy_policy_url' => 'string',
         'terms_and_conditions_url' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'require_https' => 'bool',
         'require_app_secret' => 'bool',
         'enable_client_oauth_login' => 'bool',
@@ -122,8 +120,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
         'contact_email' => null,
         'privacy_policy_url' => null,
         'terms_and_conditions_url' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'require_https' => null,
         'require_app_secret' => null,
         'enable_client_oauth_login' => null,
@@ -169,8 +165,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
         'contact_email' => true,
         'privacy_policy_url' => true,
         'terms_and_conditions_url' => true,
-        'business_id' => true,
-        'business_profile_record_id' => true,
         'require_https' => false,
         'require_app_secret' => false,
         'enable_client_oauth_login' => false,
@@ -296,8 +290,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
         'contact_email' => 'contactEmail',
         'privacy_policy_url' => 'privacyPolicyURL',
         'terms_and_conditions_url' => 'termsAndConditionsURL',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'require_https' => 'requireHttps',
         'require_app_secret' => 'requireAppSecret',
         'enable_client_oauth_login' => 'enableClientOauthLogin',
@@ -343,8 +335,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
         'contact_email' => 'setContactEmail',
         'privacy_policy_url' => 'setPrivacyPolicyUrl',
         'terms_and_conditions_url' => 'setTermsAndConditionsUrl',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'require_https' => 'setRequireHttps',
         'require_app_secret' => 'setRequireAppSecret',
         'enable_client_oauth_login' => 'setEnableClientOauthLogin',
@@ -390,8 +380,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
         'contact_email' => 'getContactEmail',
         'privacy_policy_url' => 'getPrivacyPolicyUrl',
         'terms_and_conditions_url' => 'getTermsAndConditionsUrl',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'require_https' => 'getRequireHttps',
         'require_app_secret' => 'getRequireAppSecret',
         'enable_client_oauth_login' => 'getEnableClientOauthLogin',
@@ -488,8 +476,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('contact_email', $data ?? [], null);
         $this->setIfExists('privacy_policy_url', $data ?? [], null);
         $this->setIfExists('terms_and_conditions_url', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('require_https', $data ?? [], null);
         $this->setIfExists('require_app_secret', $data ?? [], null);
         $this->setIfExists('enable_client_oauth_login', $data ?? [], null);
@@ -1018,74 +1004,6 @@ class BusinessApplicationCreateDto implements ModelInterface, ArrayAccess, \Json
             }
         }
         $this->container['terms_and_conditions_url'] = $terms_and_conditions_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

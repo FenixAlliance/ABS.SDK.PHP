@@ -65,7 +65,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'content' => 'string',
         'course_id' => 'string',
         'course_section_id' => 'string',
-        'business_id' => 'string',
         'course_content_group_id' => 'string',
         'release_date_time' => '\DateTime'
     ];
@@ -85,7 +84,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'content' => null,
         'course_id' => null,
         'course_section_id' => null,
-        'business_id' => null,
         'course_content_group_id' => null,
         'release_date_time' => 'date-time'
     ];
@@ -103,7 +101,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'content' => true,
         'course_id' => false,
         'course_section_id' => false,
-        'business_id' => false,
         'course_content_group_id' => true,
         'release_date_time' => true
     ];
@@ -201,7 +198,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'content' => 'content',
         'course_id' => 'courseID',
         'course_section_id' => 'courseSectionID',
-        'business_id' => 'businessID',
         'course_content_group_id' => 'courseContentGroupID',
         'release_date_time' => 'releaseDateTime'
     ];
@@ -219,7 +215,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'content' => 'setContent',
         'course_id' => 'setCourseId',
         'course_section_id' => 'setCourseSectionId',
-        'business_id' => 'setBusinessId',
         'course_content_group_id' => 'setCourseContentGroupId',
         'release_date_time' => 'setReleaseDateTime'
     ];
@@ -237,7 +232,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'content' => 'getContent',
         'course_id' => 'getCourseId',
         'course_section_id' => 'getCourseSectionId',
-        'business_id' => 'getBusinessId',
         'course_content_group_id' => 'getCourseContentGroupId',
         'release_date_time' => 'getReleaseDateTime'
     ];
@@ -306,7 +300,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
         $this->setIfExists('course_section_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('course_content_group_id', $data ?? [], null);
         $this->setIfExists('release_date_time', $data ?? [], null);
     }
@@ -357,13 +350,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ((mb_strlen($this->container['course_section_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_section_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -595,38 +581,6 @@ class CourseUnitCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['course_section_id'] = $course_section_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseUnitCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

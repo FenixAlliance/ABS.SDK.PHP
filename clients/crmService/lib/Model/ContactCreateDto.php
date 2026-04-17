@@ -60,7 +60,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'tenant_id' => 'string',
         'type' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
@@ -113,7 +112,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'tenant_id' => null,
         'type' => null,
         'first_name' => null,
         'last_name' => null,
@@ -164,7 +162,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'tenant_id' => false,
         'type' => false,
         'first_name' => false,
         'last_name' => true,
@@ -295,7 +292,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'tenant_id' => 'tenantId',
         'type' => 'type',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
@@ -346,7 +342,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'tenant_id' => 'setTenantId',
         'type' => 'setType',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
@@ -397,7 +392,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'tenant_id' => 'getTenantId',
         'type' => 'getType',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
@@ -514,7 +508,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
@@ -583,13 +576,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['tenant_id'] === null) {
-            $invalidProperties[] = "'tenant_id' can't be null";
-        }
-        if ((mb_strlen($this->container['tenant_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 1.";
-        }
 
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -730,38 +716,6 @@ class ContactCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            throw new \InvalidArgumentException('non-nullable tenant_id cannot be null');
-        }
-
-        if ((mb_strlen($tenant_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling ContactCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

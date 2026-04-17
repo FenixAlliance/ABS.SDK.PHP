@@ -15,8 +15,6 @@ Name | Type | Description | Notes
 **modified_on** | **\DateTime** |  | [optional]
 **last_used_on** | **\DateTime** |  | [optional]
 **currency_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 **marketing_list_type** | **string** |  | [optional]
 **marketing_list_target** | **string** |  | [optional]
 

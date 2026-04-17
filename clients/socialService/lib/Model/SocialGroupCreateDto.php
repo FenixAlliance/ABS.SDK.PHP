@@ -58,6 +58,8 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'timestamp' => '\DateTime',
         'name' => 'string',
         'title' => 'string',
         'avatar_url' => 'string',
@@ -72,6 +74,8 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
+        'timestamp' => 'date-time',
         'name' => null,
         'title' => null,
         'avatar_url' => null,
@@ -84,6 +88,8 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'timestamp' => false,
         'name' => true,
         'title' => true,
         'avatar_url' => true,
@@ -176,6 +182,8 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'timestamp' => 'timestamp',
         'name' => 'name',
         'title' => 'title',
         'avatar_url' => 'avatarURL',
@@ -188,6 +196,8 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'name' => 'setName',
         'title' => 'setTitle',
         'avatar_url' => 'setAvatarUrl',
@@ -200,6 +210,8 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'name' => 'getName',
         'title' => 'getTitle',
         'avatar_url' => 'getAvatarUrl',
@@ -263,6 +275,8 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('avatar_url', $data ?? [], null);
@@ -310,6 +324,60 @@ class SocialGroupCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
 
     /**
      * Gets name

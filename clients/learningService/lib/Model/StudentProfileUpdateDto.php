@@ -86,9 +86,7 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'data8_label' => 'string',
         'data9' => 'string',
         'data9_label' => 'string',
-        'business_id' => 'string',
-        'contact_id' => 'string',
-        'business_profile_record_id' => 'string'
+        'contact_id' => 'string'
     ];
 
     /**
@@ -127,9 +125,7 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'data8_label' => null,
         'data9' => null,
         'data9_label' => null,
-        'business_id' => null,
-        'contact_id' => null,
-        'business_profile_record_id' => null
+        'contact_id' => null
     ];
 
     /**
@@ -166,9 +162,7 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'data8_label' => true,
         'data9' => true,
         'data9_label' => true,
-        'business_id' => true,
-        'contact_id' => true,
-        'business_profile_record_id' => true
+        'contact_id' => true
     ];
 
     /**
@@ -285,9 +279,7 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'data8_label' => 'data8Label',
         'data9' => 'data9',
         'data9_label' => 'data9Label',
-        'business_id' => 'businessID',
-        'contact_id' => 'contactID',
-        'business_profile_record_id' => 'businessProfileRecordID'
+        'contact_id' => 'contactID'
     ];
 
     /**
@@ -324,9 +316,7 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'data8_label' => 'setData8Label',
         'data9' => 'setData9',
         'data9_label' => 'setData9Label',
-        'business_id' => 'setBusinessId',
-        'contact_id' => 'setContactId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId'
+        'contact_id' => 'setContactId'
     ];
 
     /**
@@ -363,9 +353,7 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'data8_label' => 'getData8Label',
         'data9' => 'getData9',
         'data9_label' => 'getData9Label',
-        'business_id' => 'getBusinessId',
-        'contact_id' => 'getContactId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId'
+        'contact_id' => 'getContactId'
     ];
 
     /**
@@ -453,9 +441,7 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('data8_label', $data ?? [], null);
         $this->setIfExists('data9', $data ?? [], null);
         $this->setIfExists('data9_label', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
     }
 
     /**
@@ -1418,40 +1404,6 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
      * Gets contact_id
      *
      * @return string|null
@@ -1481,40 +1433,6 @@ class StudentProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

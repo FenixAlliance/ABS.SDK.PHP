@@ -81,8 +81,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'custom_state' => 'string',
         'custom_city' => 'string',
         'city_id' => 'string',
-        'enrollment_id' => 'string',
-        'tenant_id' => 'string',
         'zero' => 'bool',
         'reduced' => 'bool',
         'withholding' => 'bool',
@@ -120,8 +118,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'custom_state' => null,
         'custom_city' => null,
         'city_id' => null,
-        'enrollment_id' => null,
-        'tenant_id' => null,
         'zero' => null,
         'reduced' => null,
         'withholding' => null,
@@ -157,8 +153,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'custom_state' => true,
         'custom_city' => true,
         'city_id' => true,
-        'enrollment_id' => true,
-        'tenant_id' => true,
         'zero' => false,
         'reduced' => false,
         'withholding' => false,
@@ -274,8 +268,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'custom_state' => 'customState',
         'custom_city' => 'customCity',
         'city_id' => 'cityId',
-        'enrollment_id' => 'enrollmentId',
-        'tenant_id' => 'tenantId',
         'zero' => 'zero',
         'reduced' => 'reduced',
         'withholding' => 'withholding',
@@ -311,8 +303,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'custom_state' => 'setCustomState',
         'custom_city' => 'setCustomCity',
         'city_id' => 'setCityId',
-        'enrollment_id' => 'setEnrollmentId',
-        'tenant_id' => 'setTenantId',
         'zero' => 'setZero',
         'reduced' => 'setReduced',
         'withholding' => 'setWithholding',
@@ -348,8 +338,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'custom_state' => 'getCustomState',
         'custom_city' => 'getCustomCity',
         'city_id' => 'getCityId',
-        'enrollment_id' => 'getEnrollmentId',
-        'tenant_id' => 'getTenantId',
         'zero' => 'getZero',
         'reduced' => 'getReduced',
         'withholding' => 'getWithholding',
@@ -436,8 +424,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('custom_state', $data ?? [], null);
         $this->setIfExists('custom_city', $data ?? [], null);
         $this->setIfExists('city_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('zero', $data ?? [], null);
         $this->setIfExists('reduced', $data ?? [], null);
         $this->setIfExists('withholding', $data ?? [], null);
@@ -501,22 +487,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
 
         if (!is_null($this->container['city_id']) && (mb_strlen($this->container['city_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'city_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['fiscal_authority_id']) && (mb_strlen($this->container['fiscal_authority_id']) > 36)) {
@@ -1250,88 +1220,6 @@ class TaxPolicyCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['city_id'] = $city_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling TaxPolicyCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling TaxPolicyCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling TaxPolicyCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling TaxPolicyCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

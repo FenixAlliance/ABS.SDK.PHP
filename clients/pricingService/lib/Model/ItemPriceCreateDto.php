@@ -62,11 +62,9 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'timestamp' => '\DateTime',
         'item_id' => 'string',
         'unit_id' => 'string',
-        'tenant_id' => 'string',
         'currency_id' => 'string',
         'price_list_id' => 'string',
         'unit_group_id' => 'string',
-        'enrollment_id' => 'string',
         'discount_list_id' => 'string',
         'rounding_policy_id' => 'string',
         'price' => 'float',
@@ -85,11 +83,9 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'timestamp' => 'date-time',
         'item_id' => null,
         'unit_id' => null,
-        'tenant_id' => null,
         'currency_id' => null,
         'price_list_id' => null,
         'unit_group_id' => null,
-        'enrollment_id' => null,
         'discount_list_id' => null,
         'rounding_policy_id' => null,
         'price' => 'double',
@@ -106,11 +102,9 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'timestamp' => false,
         'item_id' => false,
         'unit_id' => true,
-        'tenant_id' => true,
         'currency_id' => true,
         'price_list_id' => true,
         'unit_group_id' => true,
-        'enrollment_id' => true,
         'discount_list_id' => true,
         'rounding_policy_id' => true,
         'price' => false,
@@ -207,11 +201,9 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'timestamp' => 'timestamp',
         'item_id' => 'itemId',
         'unit_id' => 'unitId',
-        'tenant_id' => 'tenantId',
         'currency_id' => 'currencyId',
         'price_list_id' => 'priceListId',
         'unit_group_id' => 'unitGroupId',
-        'enrollment_id' => 'enrollmentId',
         'discount_list_id' => 'discountListId',
         'rounding_policy_id' => 'roundingPolicyId',
         'price' => 'price',
@@ -228,11 +220,9 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'timestamp' => 'setTimestamp',
         'item_id' => 'setItemId',
         'unit_id' => 'setUnitId',
-        'tenant_id' => 'setTenantId',
         'currency_id' => 'setCurrencyId',
         'price_list_id' => 'setPriceListId',
         'unit_group_id' => 'setUnitGroupId',
-        'enrollment_id' => 'setEnrollmentId',
         'discount_list_id' => 'setDiscountListId',
         'rounding_policy_id' => 'setRoundingPolicyId',
         'price' => 'setPrice',
@@ -249,11 +239,9 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'timestamp' => 'getTimestamp',
         'item_id' => 'getItemId',
         'unit_id' => 'getUnitId',
-        'tenant_id' => 'getTenantId',
         'currency_id' => 'getCurrencyId',
         'price_list_id' => 'getPriceListId',
         'unit_group_id' => 'getUnitGroupId',
-        'enrollment_id' => 'getEnrollmentId',
         'discount_list_id' => 'getDiscountListId',
         'rounding_policy_id' => 'getRoundingPolicyId',
         'price' => 'getPrice',
@@ -321,11 +309,9 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('item_id', $data ?? [], null);
         $this->setIfExists('unit_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('price_list_id', $data ?? [], null);
         $this->setIfExists('unit_group_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('discount_list_id', $data ?? [], null);
         $this->setIfExists('rounding_policy_id', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
@@ -502,40 +488,6 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets currency_id
      *
      * @return string|null
@@ -633,40 +585,6 @@ class ItemPriceCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['unit_group_id'] = $unit_group_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

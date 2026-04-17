@@ -60,7 +60,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'tenant_id' => 'string',
         'user_id' => 'string'
     ];
 
@@ -74,7 +73,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'tenant_id' => null,
         'user_id' => null
     ];
 
@@ -86,7 +84,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'tenant_id' => true,
         'user_id' => true
     ];
 
@@ -178,7 +175,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'tenant_id' => 'tenantId',
         'user_id' => 'userId'
     ];
 
@@ -190,7 +186,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'tenant_id' => 'setTenantId',
         'user_id' => 'setUserId'
     ];
 
@@ -202,7 +197,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'tenant_id' => 'getTenantId',
         'user_id' => 'getUserId'
     ];
 
@@ -265,7 +259,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('user_id', $data ?? [], null);
     }
 
@@ -361,40 +354,6 @@ class TenantEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **disabled** | **bool** |  | [optional]
 **description** | **string** |  | [optional]
 **cost_centre_type** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **cost_centres_group_id** | **string** |  | [optional]
 **parent_cost_centre_id** | **string** |  | [optional]
 

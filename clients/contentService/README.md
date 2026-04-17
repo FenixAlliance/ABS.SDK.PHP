@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *BlogPostCategoriesApi* | [**getBlogPostCategoriesAsync**](docs/Api/BlogPostCategoriesApi.md#getblogpostcategoriesasync) | **GET** /api/v2/ContentService/BlogPostCategories | Get blog post categories
 *BlogPostCategoriesApi* | [**getBlogPostCategoryByIdAsync**](docs/Api/BlogPostCategoriesApi.md#getblogpostcategorybyidasync) | **GET** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Get blog post category by ID
 *BlogPostCategoriesApi* | [**updateBlogPostCategoryAsync**](docs/Api/BlogPostCategoriesApi.md#updateblogpostcategoryasync) | **PUT** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Update a blog post category
+*BlogPostTagsApi* | [**countBlogPostTagsAsync**](docs/Api/BlogPostTagsApi.md#countblogposttagsasync) | **GET** /api/v2/ContentService/BlogPostTags/Count | Count blog post tags
 *BlogPostTagsApi* | [**createBlogPostTagAsync**](docs/Api/BlogPostTagsApi.md#createblogposttagasync) | **POST** /api/v2/ContentService/BlogPostTags | Create a blog post tag
 *BlogPostTagsApi* | [**deleteBlogPostTagAsync**](docs/Api/BlogPostTagsApi.md#deleteblogposttagasync) | **DELETE** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Delete a blog post tag
 *BlogPostTagsApi* | [**getBlogPostTagByIdAsync**](docs/Api/BlogPostTagsApi.md#getblogposttagbyidasync) | **GET** /api/v2/ContentService/BlogPostTags/{blogPostTagId} | Get blog post tag by ID
@@ -125,10 +126,12 @@ Class | Method | HTTP request | Description
 *FenixAllianceABPWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABPWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
 *FenixAllianceABPWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABPWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
 *FenixAllianceABPWebApi* | [**versionGet**](docs/Api/FenixAllianceABPWebApi.md#versionget) | **GET** /version | 
+*PortalsApi* | [**countPortalsAsync**](docs/Api/PortalsApi.md#countportalsasync) | **GET** /api/v2/ContentService/Portals/Count | Count portals
 *PortalsApi* | [**createWebPortalAsync**](docs/Api/PortalsApi.md#createwebportalasync) | **POST** /api/v2/ContentService/Portals | Create a new web portal
 *PortalsApi* | [**deleteWebPortalAsync**](docs/Api/PortalsApi.md#deletewebportalasync) | **DELETE** /api/v2/ContentService/Portals/{portalId} | Delete a web portal
 *PortalsApi* | [**getCurrentWebPortalAsync**](docs/Api/PortalsApi.md#getcurrentwebportalasync) | **GET** /api/v2/ContentService/Portals/Current | Get the current portal
 *PortalsApi* | [**getCurrentWebPortalOptionsAsync**](docs/Api/PortalsApi.md#getcurrentwebportaloptionsasync) | **GET** /api/v2/ContentService/Portals/Current/Options | Get the current portal&#39;s options
+*PortalsApi* | [**getPortalsAsync**](docs/Api/PortalsApi.md#getportalsasync) | **GET** /api/v2/ContentService/Portals | Get portals
 *PortalsApi* | [**getRootWebPortalAsync**](docs/Api/PortalsApi.md#getrootwebportalasync) | **GET** /api/v2/ContentService/Portals/Root | Get the root portal
 *PortalsApi* | [**getWebPortalByIdAsync**](docs/Api/PortalsApi.md#getwebportalbyidasync) | **GET** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID
 *PortalsApi* | [**getWebPortalOptionsAsync**](docs/Api/PortalsApi.md#getwebportaloptionsasync) | **GET** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal&#39;s options by its ID
@@ -144,11 +147,13 @@ Class | Method | HTTP request | Description
 *WebContentsApi* | [**getWebContentByIdAsync**](docs/Api/WebContentsApi.md#getwebcontentbyidasync) | **GET** /api/v2/ContentService/WebContents/{webContentId} | Get web content by ID
 *WebContentsApi* | [**getWebContentsAsync**](docs/Api/WebContentsApi.md#getwebcontentsasync) | **GET** /api/v2/ContentService/WebContents | Get web contents
 *WebContentsApi* | [**updateWebContentAsync**](docs/Api/WebContentsApi.md#updatewebcontentasync) | **PUT** /api/v2/ContentService/WebContents/{webContentId} | Update a web content
+*WebPageCategoriesApi* | [**countWebPageCategoriesAsync**](docs/Api/WebPageCategoriesApi.md#countwebpagecategoriesasync) | **GET** /api/v2/ContentService/WebPageCategories/Count | Count web page categories
 *WebPageCategoriesApi* | [**createWebPageCategoryAsync**](docs/Api/WebPageCategoriesApi.md#createwebpagecategoryasync) | **POST** /api/v2/ContentService/WebPageCategories | Create a web page category
 *WebPageCategoriesApi* | [**deleteWebPageCategoryAsync**](docs/Api/WebPageCategoriesApi.md#deletewebpagecategoryasync) | **DELETE** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Delete a web page category
 *WebPageCategoriesApi* | [**getWebPageCategoriesAsync**](docs/Api/WebPageCategoriesApi.md#getwebpagecategoriesasync) | **GET** /api/v2/ContentService/WebPageCategories | Get web page categories
 *WebPageCategoriesApi* | [**getWebPageCategoryByIdAsync**](docs/Api/WebPageCategoriesApi.md#getwebpagecategorybyidasync) | **GET** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Get web page category by ID
 *WebPageCategoriesApi* | [**updateWebPageCategoryAsync**](docs/Api/WebPageCategoriesApi.md#updatewebpagecategoryasync) | **PUT** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Update a web page category
+*WebPageTagsApi* | [**countWebPageTagsAsync**](docs/Api/WebPageTagsApi.md#countwebpagetagsasync) | **GET** /api/v2/ContentService/WebPageTags/Count | Count web page tags
 *WebPageTagsApi* | [**createWebPageTagAsync**](docs/Api/WebPageTagsApi.md#createwebpagetagasync) | **POST** /api/v2/ContentService/WebPageTags | Create a web page tag
 *WebPageTagsApi* | [**deleteWebPageTagAsync**](docs/Api/WebPageTagsApi.md#deletewebpagetagasync) | **DELETE** /api/v2/ContentService/WebPageTags/{webPageTagId} | Delete a web page tag
 *WebPageTagsApi* | [**getWebPageTagByIdAsync**](docs/Api/WebPageTagsApi.md#getwebpagetagbyidasync) | **GET** /api/v2/ContentService/WebPageTags/{webPageTagId} | Get web page tag by ID
@@ -318,6 +323,7 @@ Class | Method | HTTP request | Description
 - [WebPortalCreateDto](docs/Model/WebPortalCreateDto.md)
 - [WebPortalDto](docs/Model/WebPortalDto.md)
 - [WebPortalDtoEnvelope](docs/Model/WebPortalDtoEnvelope.md)
+- [WebPortalDtoListEnvelope](docs/Model/WebPortalDtoListEnvelope.md)
 - [WebPortalUpdateDto](docs/Model/WebPortalUpdateDto.md)
 - [WebTemplateCreateDto](docs/Model/WebTemplateCreateDto.md)
 - [WebTemplateDto](docs/Model/WebTemplateDto.md)

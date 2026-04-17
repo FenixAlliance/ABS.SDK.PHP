@@ -60,8 +60,7 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'title' => 'string',
         'description' => 'string',
-        'type' => 'string',
-        'business_profile_record_id' => 'string'
+        'type' => 'string'
     ];
 
     /**
@@ -74,8 +73,7 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'title' => null,
         'description' => null,
-        'type' => null,
-        'business_profile_record_id' => null
+        'type' => null
     ];
 
     /**
@@ -86,8 +84,7 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'title' => true,
         'description' => true,
-        'type' => true,
-        'business_profile_record_id' => true
+        'type' => true
     ];
 
     /**
@@ -178,8 +175,7 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'title' => 'title',
         'description' => 'description',
-        'type' => 'type',
-        'business_profile_record_id' => 'businessProfileRecordID'
+        'type' => 'type'
     ];
 
     /**
@@ -190,8 +186,7 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'type' => 'setType',
-        'business_profile_record_id' => 'setBusinessProfileRecordId'
+        'type' => 'setType'
     ];
 
     /**
@@ -202,8 +197,7 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'type' => 'getType',
-        'business_profile_record_id' => 'getBusinessProfileRecordId'
+        'type' => 'getType'
     ];
 
     /**
@@ -266,7 +260,6 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
     }
 
     /**
@@ -409,40 +402,6 @@ class TenantPositionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

@@ -67,9 +67,7 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'start_date' => '\DateTime',
         'end_date' => '\DateTime',
         'validity_in_days' => 'int',
-        'tenant_id' => 'string',
         'bank_guarantee_type' => 'string',
-        'enrollment_id' => 'string',
         'contact_id' => 'string',
         'project_id' => 'string',
         'order_id' => 'string',
@@ -95,9 +93,7 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'start_date' => 'date-time',
         'end_date' => 'date-time',
         'validity_in_days' => 'int32',
-        'tenant_id' => null,
         'bank_guarantee_type' => null,
-        'enrollment_id' => null,
         'contact_id' => null,
         'project_id' => null,
         'order_id' => null,
@@ -121,9 +117,7 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'start_date' => false,
         'end_date' => false,
         'validity_in_days' => false,
-        'tenant_id' => true,
         'bank_guarantee_type' => false,
-        'enrollment_id' => true,
         'contact_id' => true,
         'project_id' => true,
         'order_id' => true,
@@ -227,9 +221,7 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'start_date' => 'startDate',
         'end_date' => 'endDate',
         'validity_in_days' => 'validityInDays',
-        'tenant_id' => 'tenantId',
         'bank_guarantee_type' => 'bankGuaranteeType',
-        'enrollment_id' => 'enrollmentId',
         'contact_id' => 'contactId',
         'project_id' => 'projectId',
         'order_id' => 'orderId',
@@ -253,9 +245,7 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'start_date' => 'setStartDate',
         'end_date' => 'setEndDate',
         'validity_in_days' => 'setValidityInDays',
-        'tenant_id' => 'setTenantId',
         'bank_guarantee_type' => 'setBankGuaranteeType',
-        'enrollment_id' => 'setEnrollmentId',
         'contact_id' => 'setContactId',
         'project_id' => 'setProjectId',
         'order_id' => 'setOrderId',
@@ -279,9 +269,7 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'start_date' => 'getStartDate',
         'end_date' => 'getEndDate',
         'validity_in_days' => 'getValidityInDays',
-        'tenant_id' => 'getTenantId',
         'bank_guarantee_type' => 'getBankGuaranteeType',
-        'enrollment_id' => 'getEnrollmentId',
         'contact_id' => 'getContactId',
         'project_id' => 'getProjectId',
         'order_id' => 'getOrderId',
@@ -371,9 +359,7 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
         $this->setIfExists('validity_in_days', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('bank_guarantee_type', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
         $this->setIfExists('order_id', $data ?? [], null);
@@ -409,14 +395,6 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
         $allowedValues = $this->getBankGuaranteeTypeAllowableValues();
         if (!is_null($this->container['bank_guarantee_type']) && !in_array($this->container['bank_guarantee_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -424,14 +402,6 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
                 $this->container['bank_guarantee_type'],
                 implode("', '", $allowedValues)
             );
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['contact_id']) && (mb_strlen($this->container['contact_id']) > 36)) {
@@ -754,47 +724,6 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling BankGuaranteeUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling BankGuaranteeUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets bank_guarantee_type
      *
      * @return string|null
@@ -827,47 +756,6 @@ class BankGuaranteeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerial
             );
         }
         $this->container['bank_guarantee_type'] = $bank_guarantee_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling BankGuaranteeUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling BankGuaranteeUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

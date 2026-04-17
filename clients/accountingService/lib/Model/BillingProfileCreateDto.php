@@ -61,7 +61,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'string',
         'timestamp' => '\DateTime',
         'contact_id' => 'string',
-        'tenant_id' => 'string',
         'tax_id' => 'string',
         'phone' => 'string',
         'email' => 'string',
@@ -94,7 +93,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'contact_id' => null,
-        'tenant_id' => null,
         'tax_id' => null,
         'phone' => null,
         'email' => null,
@@ -125,7 +123,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => false,
         'timestamp' => false,
         'contact_id' => true,
-        'tenant_id' => true,
         'tax_id' => false,
         'phone' => false,
         'email' => false,
@@ -236,7 +233,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'id',
         'timestamp' => 'timestamp',
         'contact_id' => 'contactId',
-        'tenant_id' => 'tenantId',
         'tax_id' => 'taxId',
         'phone' => 'phone',
         'email' => 'email',
@@ -267,7 +263,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'contact_id' => 'setContactId',
-        'tenant_id' => 'setTenantId',
         'tax_id' => 'setTaxId',
         'phone' => 'setPhone',
         'email' => 'setEmail',
@@ -298,7 +293,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'contact_id' => 'getContactId',
-        'tenant_id' => 'getTenantId',
         'tax_id' => 'getTaxId',
         'phone' => 'getPhone',
         'email' => 'getEmail',
@@ -380,7 +374,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
@@ -619,40 +612,6 @@ class BillingProfileCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

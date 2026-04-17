@@ -64,8 +64,7 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'string',
         'content' => 'string',
         'slug' => 'string',
-        'course_id' => 'string',
-        'business_id' => 'string'
+        'course_id' => 'string'
     ];
 
     /**
@@ -82,8 +81,7 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => null,
         'content' => null,
         'slug' => null,
-        'course_id' => null,
-        'business_id' => null
+        'course_id' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => true,
         'content' => true,
         'slug' => true,
-        'course_id' => false,
-        'business_id' => false
+        'course_id' => false
     ];
 
     /**
@@ -194,8 +191,7 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'description',
         'content' => 'content',
         'slug' => 'slug',
-        'course_id' => 'courseID',
-        'business_id' => 'businessID'
+        'course_id' => 'courseID'
     ];
 
     /**
@@ -210,8 +206,7 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'setDescription',
         'content' => 'setContent',
         'slug' => 'setSlug',
-        'course_id' => 'setCourseId',
-        'business_id' => 'setBusinessId'
+        'course_id' => 'setCourseId'
     ];
 
     /**
@@ -226,8 +221,7 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'description' => 'getDescription',
         'content' => 'getContent',
         'slug' => 'getSlug',
-        'course_id' => 'getCourseId',
-        'business_id' => 'getBusinessId'
+        'course_id' => 'getCourseId'
     ];
 
     /**
@@ -294,7 +288,6 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -336,13 +329,6 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ((mb_strlen($this->container['course_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -576,38 +562,6 @@ class CoursePageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['course_id'] = $course_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CoursePageCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

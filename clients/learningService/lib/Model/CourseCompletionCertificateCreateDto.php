@@ -62,8 +62,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         'timestamp' => '\DateTime',
         'student_profile_id' => 'string',
         'course_enrollment_id' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'course_completion_certificate_template_id' => 'string',
         'course_id' => 'string'
     ];
@@ -80,8 +78,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         'timestamp' => 'date-time',
         'student_profile_id' => null,
         'course_enrollment_id' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'course_completion_certificate_template_id' => null,
         'course_id' => null
     ];
@@ -96,8 +92,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         'timestamp' => false,
         'student_profile_id' => false,
         'course_enrollment_id' => false,
-        'business_id' => true,
-        'business_profile_record_id' => true,
         'course_completion_certificate_template_id' => true,
         'course_id' => true
     ];
@@ -192,8 +186,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         'timestamp' => 'timestamp',
         'student_profile_id' => 'studentProfileID',
         'course_enrollment_id' => 'courseEnrollmentID',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'course_completion_certificate_template_id' => 'courseCompletionCertificateTemplateID',
         'course_id' => 'courseID'
     ];
@@ -208,8 +200,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         'timestamp' => 'setTimestamp',
         'student_profile_id' => 'setStudentProfileId',
         'course_enrollment_id' => 'setCourseEnrollmentId',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'course_completion_certificate_template_id' => 'setCourseCompletionCertificateTemplateId',
         'course_id' => 'setCourseId'
     ];
@@ -224,8 +214,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         'timestamp' => 'getTimestamp',
         'student_profile_id' => 'getStudentProfileId',
         'course_enrollment_id' => 'getCourseEnrollmentId',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'course_completion_certificate_template_id' => 'getCourseCompletionCertificateTemplateId',
         'course_id' => 'getCourseId'
     ];
@@ -291,8 +279,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('student_profile_id', $data ?? [], null);
         $this->setIfExists('course_enrollment_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('course_completion_certificate_template_id', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
     }
@@ -479,74 +465,6 @@ class CourseCompletionCertificateCreateDto implements ModelInterface, ArrayAcces
         }
 
         $this->container['course_enrollment_id'] = $course_enrollment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

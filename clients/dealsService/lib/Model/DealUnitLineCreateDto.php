@@ -58,14 +58,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'timestamp' => '\DateTime',
         'closed' => 'bool',
         'item_id' => 'string',
         'item_title' => 'string',
         'item_short_description' => 'string',
         'item_primary_image_url' => 'string',
         'shipping_policy_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'currency_id' => 'string',
         'description' => 'string',
         'quantity' => 'float',
@@ -122,14 +122,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'custom_global_discounts_amount_currency_id' => 'string',
         'total_detail' => 'float',
         'total_detail_currency_id' => 'string',
-        'total_profit' => 'float',
-        'total_profit_currency_id' => 'string',
         'total_discounts' => 'float',
         'total_discounts_currency_id' => 'string',
-        'total_surcharges' => 'float',
-        'total_surcharges_currency_id' => 'string',
         'total_tax_base' => 'float',
         'total_tax_base_currency_id' => 'string',
+        'total_surcharges' => 'float',
+        'total_surcharges_currency_id' => 'string',
+        'total_profit' => 'float',
+        'total_profit_currency_id' => 'string',
         'total_shipping_cost' => 'float',
         'total_shipping_cost_currency_id' => 'string',
         'total_shipping_tax' => 'float',
@@ -151,7 +151,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'shipping_location_id' => 'string',
         'location_id' => 'string',
         'quote_item_record_id' => 'string',
-        'business_profile_record_id' => 'string',
         'parent_billing_item_record_id' => 'string',
         'deal_unit_id' => 'string'
     ];
@@ -164,14 +163,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
+        'timestamp' => 'date-time',
         'closed' => null,
         'item_id' => null,
         'item_title' => null,
         'item_short_description' => null,
         'item_primary_image_url' => null,
         'shipping_policy_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'currency_id' => null,
         'description' => null,
         'quantity' => 'double',
@@ -228,14 +227,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'custom_global_discounts_amount_currency_id' => null,
         'total_detail' => 'double',
         'total_detail_currency_id' => null,
-        'total_profit' => 'double',
-        'total_profit_currency_id' => null,
         'total_discounts' => 'double',
         'total_discounts_currency_id' => null,
-        'total_surcharges' => 'double',
-        'total_surcharges_currency_id' => null,
         'total_tax_base' => 'double',
         'total_tax_base_currency_id' => null,
+        'total_surcharges' => 'double',
+        'total_surcharges_currency_id' => null,
+        'total_profit' => 'double',
+        'total_profit_currency_id' => null,
         'total_shipping_cost' => 'double',
         'total_shipping_cost_currency_id' => null,
         'total_shipping_tax' => 'double',
@@ -257,7 +256,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'shipping_location_id' => null,
         'location_id' => null,
         'quote_item_record_id' => null,
-        'business_profile_record_id' => null,
         'parent_billing_item_record_id' => null,
         'deal_unit_id' => null
     ];
@@ -268,14 +266,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'timestamp' => false,
         'closed' => false,
         'item_id' => true,
         'item_title' => true,
         'item_short_description' => true,
         'item_primary_image_url' => true,
         'shipping_policy_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'currency_id' => true,
         'description' => true,
         'quantity' => false,
@@ -332,14 +330,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'custom_global_discounts_amount_currency_id' => true,
         'total_detail' => false,
         'total_detail_currency_id' => true,
-        'total_profit' => false,
-        'total_profit_currency_id' => true,
         'total_discounts' => false,
         'total_discounts_currency_id' => true,
-        'total_surcharges' => false,
-        'total_surcharges_currency_id' => true,
         'total_tax_base' => false,
         'total_tax_base_currency_id' => true,
+        'total_surcharges' => false,
+        'total_surcharges_currency_id' => true,
+        'total_profit' => false,
+        'total_profit_currency_id' => true,
         'total_shipping_cost' => false,
         'total_shipping_cost_currency_id' => true,
         'total_shipping_tax' => false,
@@ -361,7 +359,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'shipping_location_id' => true,
         'location_id' => true,
         'quote_item_record_id' => true,
-        'business_profile_record_id' => true,
         'parent_billing_item_record_id' => true,
         'deal_unit_id' => true
     ];
@@ -452,14 +449,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'timestamp' => 'timestamp',
         'closed' => 'closed',
         'item_id' => 'itemId',
         'item_title' => 'itemTitle',
         'item_short_description' => 'itemShortDescription',
         'item_primary_image_url' => 'itemPrimaryImageUrl',
         'shipping_policy_id' => 'shippingPolicyId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'currency_id' => 'currencyId',
         'description' => 'description',
         'quantity' => 'quantity',
@@ -516,14 +513,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'custom_global_discounts_amount_currency_id' => 'customGlobalDiscountsAmountCurrencyId',
         'total_detail' => 'totalDetail',
         'total_detail_currency_id' => 'totalDetailCurrencyId',
-        'total_profit' => 'totalProfit',
-        'total_profit_currency_id' => 'totalProfitCurrencyId',
         'total_discounts' => 'totalDiscounts',
         'total_discounts_currency_id' => 'totalDiscountsCurrencyId',
-        'total_surcharges' => 'totalSurcharges',
-        'total_surcharges_currency_id' => 'totalSurchargesCurrencyId',
         'total_tax_base' => 'totalTaxBase',
         'total_tax_base_currency_id' => 'totalTaxBaseCurrencyId',
+        'total_surcharges' => 'totalSurcharges',
+        'total_surcharges_currency_id' => 'totalSurchargesCurrencyId',
+        'total_profit' => 'totalProfit',
+        'total_profit_currency_id' => 'totalProfitCurrencyId',
         'total_shipping_cost' => 'totalShippingCost',
         'total_shipping_cost_currency_id' => 'totalShippingCostCurrencyId',
         'total_shipping_tax' => 'totalShippingTax',
@@ -545,7 +542,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'shipping_location_id' => 'shippingLocationId',
         'location_id' => 'locationId',
         'quote_item_record_id' => 'quoteItemRecordId',
-        'business_profile_record_id' => 'businessProfileRecordId',
         'parent_billing_item_record_id' => 'parentBillingItemRecordId',
         'deal_unit_id' => 'dealUnitId'
     ];
@@ -556,14 +552,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'closed' => 'setClosed',
         'item_id' => 'setItemId',
         'item_title' => 'setItemTitle',
         'item_short_description' => 'setItemShortDescription',
         'item_primary_image_url' => 'setItemPrimaryImageUrl',
         'shipping_policy_id' => 'setShippingPolicyId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'currency_id' => 'setCurrencyId',
         'description' => 'setDescription',
         'quantity' => 'setQuantity',
@@ -620,14 +616,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'custom_global_discounts_amount_currency_id' => 'setCustomGlobalDiscountsAmountCurrencyId',
         'total_detail' => 'setTotalDetail',
         'total_detail_currency_id' => 'setTotalDetailCurrencyId',
-        'total_profit' => 'setTotalProfit',
-        'total_profit_currency_id' => 'setTotalProfitCurrencyId',
         'total_discounts' => 'setTotalDiscounts',
         'total_discounts_currency_id' => 'setTotalDiscountsCurrencyId',
-        'total_surcharges' => 'setTotalSurcharges',
-        'total_surcharges_currency_id' => 'setTotalSurchargesCurrencyId',
         'total_tax_base' => 'setTotalTaxBase',
         'total_tax_base_currency_id' => 'setTotalTaxBaseCurrencyId',
+        'total_surcharges' => 'setTotalSurcharges',
+        'total_surcharges_currency_id' => 'setTotalSurchargesCurrencyId',
+        'total_profit' => 'setTotalProfit',
+        'total_profit_currency_id' => 'setTotalProfitCurrencyId',
         'total_shipping_cost' => 'setTotalShippingCost',
         'total_shipping_cost_currency_id' => 'setTotalShippingCostCurrencyId',
         'total_shipping_tax' => 'setTotalShippingTax',
@@ -649,7 +645,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'shipping_location_id' => 'setShippingLocationId',
         'location_id' => 'setLocationId',
         'quote_item_record_id' => 'setQuoteItemRecordId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'parent_billing_item_record_id' => 'setParentBillingItemRecordId',
         'deal_unit_id' => 'setDealUnitId'
     ];
@@ -660,14 +655,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'closed' => 'getClosed',
         'item_id' => 'getItemId',
         'item_title' => 'getItemTitle',
         'item_short_description' => 'getItemShortDescription',
         'item_primary_image_url' => 'getItemPrimaryImageUrl',
         'shipping_policy_id' => 'getShippingPolicyId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'currency_id' => 'getCurrencyId',
         'description' => 'getDescription',
         'quantity' => 'getQuantity',
@@ -724,14 +719,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'custom_global_discounts_amount_currency_id' => 'getCustomGlobalDiscountsAmountCurrencyId',
         'total_detail' => 'getTotalDetail',
         'total_detail_currency_id' => 'getTotalDetailCurrencyId',
-        'total_profit' => 'getTotalProfit',
-        'total_profit_currency_id' => 'getTotalProfitCurrencyId',
         'total_discounts' => 'getTotalDiscounts',
         'total_discounts_currency_id' => 'getTotalDiscountsCurrencyId',
-        'total_surcharges' => 'getTotalSurcharges',
-        'total_surcharges_currency_id' => 'getTotalSurchargesCurrencyId',
         'total_tax_base' => 'getTotalTaxBase',
         'total_tax_base_currency_id' => 'getTotalTaxBaseCurrencyId',
+        'total_surcharges' => 'getTotalSurcharges',
+        'total_surcharges_currency_id' => 'getTotalSurchargesCurrencyId',
+        'total_profit' => 'getTotalProfit',
+        'total_profit_currency_id' => 'getTotalProfitCurrencyId',
         'total_shipping_cost' => 'getTotalShippingCost',
         'total_shipping_cost_currency_id' => 'getTotalShippingCostCurrencyId',
         'total_shipping_tax' => 'getTotalShippingTax',
@@ -753,7 +748,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'shipping_location_id' => 'getShippingLocationId',
         'location_id' => 'getLocationId',
         'quote_item_record_id' => 'getQuoteItemRecordId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'parent_billing_item_record_id' => 'getParentBillingItemRecordId',
         'deal_unit_id' => 'getDealUnitId'
     ];
@@ -845,14 +839,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('closed', $data ?? [], null);
         $this->setIfExists('item_id', $data ?? [], null);
         $this->setIfExists('item_title', $data ?? [], null);
         $this->setIfExists('item_short_description', $data ?? [], null);
         $this->setIfExists('item_primary_image_url', $data ?? [], null);
         $this->setIfExists('shipping_policy_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
@@ -909,14 +903,14 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('custom_global_discounts_amount_currency_id', $data ?? [], null);
         $this->setIfExists('total_detail', $data ?? [], null);
         $this->setIfExists('total_detail_currency_id', $data ?? [], null);
-        $this->setIfExists('total_profit', $data ?? [], null);
-        $this->setIfExists('total_profit_currency_id', $data ?? [], null);
         $this->setIfExists('total_discounts', $data ?? [], null);
         $this->setIfExists('total_discounts_currency_id', $data ?? [], null);
-        $this->setIfExists('total_surcharges', $data ?? [], null);
-        $this->setIfExists('total_surcharges_currency_id', $data ?? [], null);
         $this->setIfExists('total_tax_base', $data ?? [], null);
         $this->setIfExists('total_tax_base_currency_id', $data ?? [], null);
+        $this->setIfExists('total_surcharges', $data ?? [], null);
+        $this->setIfExists('total_surcharges_currency_id', $data ?? [], null);
+        $this->setIfExists('total_profit', $data ?? [], null);
+        $this->setIfExists('total_profit_currency_id', $data ?? [], null);
         $this->setIfExists('total_shipping_cost', $data ?? [], null);
         $this->setIfExists('total_shipping_cost_currency_id', $data ?? [], null);
         $this->setIfExists('total_shipping_tax', $data ?? [], null);
@@ -938,7 +932,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('shipping_location_id', $data ?? [], null);
         $this->setIfExists('location_id', $data ?? [], null);
         $this->setIfExists('quote_item_record_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('parent_billing_item_record_id', $data ?? [], null);
         $this->setIfExists('deal_unit_id', $data ?? [], null);
     }
@@ -1002,6 +995,60 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
 
     /**
      * Gets closed
@@ -1196,74 +1243,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['shipping_policy_id'] = $shipping_policy_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }
@@ -3025,67 +3004,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets total_profit
-     *
-     * @return float|null
-     */
-    public function getTotalProfit()
-    {
-        return $this->container['total_profit'];
-    }
-
-    /**
-     * Sets total_profit
-     *
-     * @param float|null $total_profit total_profit
-     *
-     * @return self
-     */
-    public function setTotalProfit($total_profit)
-    {
-        if (is_null($total_profit)) {
-            throw new \InvalidArgumentException('non-nullable total_profit cannot be null');
-        }
-        $this->container['total_profit'] = $total_profit;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_profit_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalProfitCurrencyId()
-    {
-        return $this->container['total_profit_currency_id'];
-    }
-
-    /**
-     * Sets total_profit_currency_id
-     *
-     * @param string|null $total_profit_currency_id total_profit_currency_id
-     *
-     * @return self
-     */
-    public function setTotalProfitCurrencyId($total_profit_currency_id)
-    {
-        if (is_null($total_profit_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_profit_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_profit_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_profit_currency_id'] = $total_profit_currency_id;
-
-        return $this;
-    }
-
-    /**
      * Gets total_discounts
      *
      * @return float|null
@@ -3142,6 +3060,67 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['total_discounts_currency_id'] = $total_discounts_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tax_base
+     *
+     * @return float|null
+     */
+    public function getTotalTaxBase()
+    {
+        return $this->container['total_tax_base'];
+    }
+
+    /**
+     * Sets total_tax_base
+     *
+     * @param float|null $total_tax_base total_tax_base
+     *
+     * @return self
+     */
+    public function setTotalTaxBase($total_tax_base)
+    {
+        if (is_null($total_tax_base)) {
+            throw new \InvalidArgumentException('non-nullable total_tax_base cannot be null');
+        }
+        $this->container['total_tax_base'] = $total_tax_base;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tax_base_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalTaxBaseCurrencyId()
+    {
+        return $this->container['total_tax_base_currency_id'];
+    }
+
+    /**
+     * Sets total_tax_base_currency_id
+     *
+     * @param string|null $total_tax_base_currency_id total_tax_base_currency_id
+     *
+     * @return self
+     */
+    public function setTotalTaxBaseCurrencyId($total_tax_base_currency_id)
+    {
+        if (is_null($total_tax_base_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_tax_base_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_tax_base_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_tax_base_currency_id'] = $total_tax_base_currency_id;
 
         return $this;
     }
@@ -3208,62 +3187,62 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets total_tax_base
+     * Gets total_profit
      *
      * @return float|null
      */
-    public function getTotalTaxBase()
+    public function getTotalProfit()
     {
-        return $this->container['total_tax_base'];
+        return $this->container['total_profit'];
     }
 
     /**
-     * Sets total_tax_base
+     * Sets total_profit
      *
-     * @param float|null $total_tax_base total_tax_base
+     * @param float|null $total_profit total_profit
      *
      * @return self
      */
-    public function setTotalTaxBase($total_tax_base)
+    public function setTotalProfit($total_profit)
     {
-        if (is_null($total_tax_base)) {
-            throw new \InvalidArgumentException('non-nullable total_tax_base cannot be null');
+        if (is_null($total_profit)) {
+            throw new \InvalidArgumentException('non-nullable total_profit cannot be null');
         }
-        $this->container['total_tax_base'] = $total_tax_base;
+        $this->container['total_profit'] = $total_profit;
 
         return $this;
     }
 
     /**
-     * Gets total_tax_base_currency_id
+     * Gets total_profit_currency_id
      *
      * @return string|null
      */
-    public function getTotalTaxBaseCurrencyId()
+    public function getTotalProfitCurrencyId()
     {
-        return $this->container['total_tax_base_currency_id'];
+        return $this->container['total_profit_currency_id'];
     }
 
     /**
-     * Sets total_tax_base_currency_id
+     * Sets total_profit_currency_id
      *
-     * @param string|null $total_tax_base_currency_id total_tax_base_currency_id
+     * @param string|null $total_profit_currency_id total_profit_currency_id
      *
      * @return self
      */
-    public function setTotalTaxBaseCurrencyId($total_tax_base_currency_id)
+    public function setTotalProfitCurrencyId($total_profit_currency_id)
     {
-        if (is_null($total_tax_base_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_tax_base_currency_id');
+        if (is_null($total_profit_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_profit_currency_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_tax_base_currency_id', $nullablesSetToNull);
+            $index = array_search('total_profit_currency_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['total_tax_base_currency_id'] = $total_tax_base_currency_id;
+        $this->container['total_profit_currency_id'] = $total_profit_currency_id;
 
         return $this;
     }
@@ -3929,40 +3908,6 @@ class DealUnitLineCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['quote_item_record_id'] = $quote_item_record_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

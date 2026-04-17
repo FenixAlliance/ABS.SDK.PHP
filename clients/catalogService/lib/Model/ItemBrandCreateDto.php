@@ -65,8 +65,7 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'string',
         'website_url' => 'string',
         'featured' => 'bool',
-        'trending' => 'bool',
-        'business_id' => 'string'
+        'trending' => 'bool'
     ];
 
     /**
@@ -84,8 +83,7 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => null,
         'website_url' => 'uri',
         'featured' => null,
-        'trending' => null,
-        'business_id' => null
+        'trending' => null
     ];
 
     /**
@@ -101,8 +99,7 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => true,
         'website_url' => true,
         'featured' => false,
-        'trending' => false,
-        'business_id' => false
+        'trending' => false
     ];
 
     /**
@@ -198,8 +195,7 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'description',
         'website_url' => 'websiteURL',
         'featured' => 'featured',
-        'trending' => 'trending',
-        'business_id' => 'businessID'
+        'trending' => 'trending'
     ];
 
     /**
@@ -215,8 +211,7 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'setDescription',
         'website_url' => 'setWebsiteUrl',
         'featured' => 'setFeatured',
-        'trending' => 'setTrending',
-        'business_id' => 'setBusinessId'
+        'trending' => 'setTrending'
     ];
 
     /**
@@ -232,8 +227,7 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'description' => 'getDescription',
         'website_url' => 'getWebsiteUrl',
         'featured' => 'getFeatured',
-        'trending' => 'getTrending',
-        'business_id' => 'getBusinessId'
+        'trending' => 'getTrending'
     ];
 
     /**
@@ -301,7 +295,6 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('website_url', $data ?? [], null);
         $this->setIfExists('featured', $data ?? [], null);
         $this->setIfExists('trending', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -356,17 +349,6 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
         }
 
         return $invalidProperties;
@@ -638,40 +620,6 @@ class ItemBrandCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable trending cannot be null');
         }
         $this->container['trending'] = $trending;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemBrandCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemBrandCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

@@ -64,11 +64,8 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'description' => 'string',
         'approved' => 'bool',
         'approved_timestamp' => '\DateTime',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'support_entitlement_id' => 'string',
-        'contact_id' => 'string',
-        'account_holder_id' => 'string'
+        'contact_id' => 'string'
     ];
 
     /**
@@ -85,11 +82,8 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'description' => null,
         'approved' => null,
         'approved_timestamp' => 'date-time',
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'support_entitlement_id' => null,
-        'contact_id' => null,
-        'account_holder_id' => null
+        'contact_id' => null
     ];
 
     /**
@@ -104,11 +98,8 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'description' => true,
         'approved' => false,
         'approved_timestamp' => false,
-        'business_id' => true,
-        'business_profile_record_id' => true,
         'support_entitlement_id' => true,
-        'contact_id' => true,
-        'account_holder_id' => true
+        'contact_id' => true
     ];
 
     /**
@@ -203,11 +194,8 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'description' => 'description',
         'approved' => 'approved',
         'approved_timestamp' => 'approvedTimestamp',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'support_entitlement_id' => 'supportEntitlementID',
-        'contact_id' => 'contactID',
-        'account_holder_id' => 'accountHolderID'
+        'contact_id' => 'contactID'
     ];
 
     /**
@@ -222,11 +210,8 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'description' => 'setDescription',
         'approved' => 'setApproved',
         'approved_timestamp' => 'setApprovedTimestamp',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'support_entitlement_id' => 'setSupportEntitlementId',
-        'contact_id' => 'setContactId',
-        'account_holder_id' => 'setAccountHolderId'
+        'contact_id' => 'setContactId'
     ];
 
     /**
@@ -241,11 +226,8 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'description' => 'getDescription',
         'approved' => 'getApproved',
         'approved_timestamp' => 'getApprovedTimestamp',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'support_entitlement_id' => 'getSupportEntitlementId',
-        'contact_id' => 'getContactId',
-        'account_holder_id' => 'getAccountHolderId'
+        'contact_id' => 'getContactId'
     ];
 
     /**
@@ -311,11 +293,8 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('approved', $data ?? [], null);
         $this->setIfExists('approved_timestamp', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('support_entitlement_id', $data ?? [], null);
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('account_holder_id', $data ?? [], null);
     }
 
     /**
@@ -563,74 +542,6 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
-
-        return $this;
-    }
-
-    /**
      * Gets support_entitlement_id
      *
      * @return string|null
@@ -694,40 +605,6 @@ class SupportRequestCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_holder_id
-     *
-     * @return string|null
-     */
-    public function getAccountHolderId()
-    {
-        return $this->container['account_holder_id'];
-    }
-
-    /**
-     * Sets account_holder_id
-     *
-     * @param string|null $account_holder_id account_holder_id
-     *
-     * @return self
-     */
-    public function setAccountHolderId($account_holder_id)
-    {
-        if (is_null($account_holder_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_holder_id'] = $account_holder_id;
 
         return $this;
     }

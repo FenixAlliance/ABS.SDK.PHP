@@ -59,7 +59,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'contact_id' => 'string',
-        'tenant_id' => 'string',
         'tax_id' => 'string',
         'phone' => 'string',
         'email' => 'string',
@@ -90,7 +89,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'contact_id' => null,
-        'tenant_id' => null,
         'tax_id' => null,
         'phone' => null,
         'email' => null,
@@ -119,7 +117,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'contact_id' => true,
-        'tenant_id' => true,
         'tax_id' => true,
         'phone' => true,
         'email' => true,
@@ -228,7 +225,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'contact_id' => 'contactId',
-        'tenant_id' => 'tenantId',
         'tax_id' => 'taxId',
         'phone' => 'phone',
         'email' => 'email',
@@ -257,7 +253,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'contact_id' => 'setContactId',
-        'tenant_id' => 'setTenantId',
         'tax_id' => 'setTaxId',
         'phone' => 'setPhone',
         'email' => 'setEmail',
@@ -286,7 +281,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'contact_id' => 'getContactId',
-        'tenant_id' => 'getTenantId',
         'tax_id' => 'getTaxId',
         'phone' => 'getPhone',
         'email' => 'getEmail',
@@ -366,7 +360,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(array $data = null)
     {
         $this->setIfExists('contact_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
@@ -460,40 +453,6 @@ class BillingProfileUpdateDto implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['contact_id'] = $contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

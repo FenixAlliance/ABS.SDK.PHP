@@ -60,10 +60,8 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'tenant_id' => 'string',
         'invoice_id' => 'string',
-        'tax_policy_id' => 'string',
-        'enrollment_id' => 'string'
+        'tax_policy_id' => 'string'
     ];
 
     /**
@@ -76,10 +74,8 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'tenant_id' => null,
         'invoice_id' => null,
-        'tax_policy_id' => null,
-        'enrollment_id' => null
+        'tax_policy_id' => null
     ];
 
     /**
@@ -90,10 +86,8 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'tenant_id' => true,
         'invoice_id' => true,
-        'tax_policy_id' => true,
-        'enrollment_id' => true
+        'tax_policy_id' => true
     ];
 
     /**
@@ -184,10 +178,8 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'tenant_id' => 'tenantId',
         'invoice_id' => 'invoiceId',
-        'tax_policy_id' => 'taxPolicyId',
-        'enrollment_id' => 'enrollmentId'
+        'tax_policy_id' => 'taxPolicyId'
     ];
 
     /**
@@ -198,10 +190,8 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'tenant_id' => 'setTenantId',
         'invoice_id' => 'setInvoiceId',
-        'tax_policy_id' => 'setTaxPolicyId',
-        'enrollment_id' => 'setEnrollmentId'
+        'tax_policy_id' => 'setTaxPolicyId'
     ];
 
     /**
@@ -212,10 +202,8 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'tenant_id' => 'getTenantId',
         'invoice_id' => 'getInvoiceId',
-        'tax_policy_id' => 'getTaxPolicyId',
-        'enrollment_id' => 'getEnrollmentId'
+        'tax_policy_id' => 'getTaxPolicyId'
     ];
 
     /**
@@ -277,10 +265,8 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('invoice_id', $data ?? [], null);
         $this->setIfExists('tax_policy_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -380,40 +366,6 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets invoice_id
      *
      * @return string|null
@@ -477,40 +429,6 @@ class InvoiceLineAppliedTaxCreateDto implements ModelInterface, ArrayAccess, \Js
             }
         }
         $this->container['tax_policy_id'] = $tax_policy_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

@@ -65,8 +65,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'end_quantity' => 'float',
         'percent' => 'float',
         'value' => 'float',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'discount_list_id' => 'string'
     ];
 
@@ -85,8 +83,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'end_quantity' => 'double',
         'percent' => 'double',
         'value' => 'double',
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'discount_list_id' => null
     ];
 
@@ -103,8 +99,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'end_quantity' => false,
         'percent' => false,
         'value' => false,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'discount_list_id' => true
     ];
 
@@ -201,8 +195,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'end_quantity' => 'endQuantity',
         'percent' => 'percent',
         'value' => 'value',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'discount_list_id' => 'discountListId'
     ];
 
@@ -219,8 +211,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'end_quantity' => 'setEndQuantity',
         'percent' => 'setPercent',
         'value' => 'setValue',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'discount_list_id' => 'setDiscountListId'
     ];
 
@@ -237,8 +227,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'end_quantity' => 'getEndQuantity',
         'percent' => 'getPercent',
         'value' => 'getValue',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'discount_list_id' => 'getDiscountListId'
     ];
 
@@ -306,8 +294,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('end_quantity', $data ?? [], null);
         $this->setIfExists('percent', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('discount_list_id', $data ?? [], null);
     }
 
@@ -337,22 +323,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
-        }
 
         if (!is_null($this->container['discount_list_id']) && (mb_strlen($this->container['discount_list_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'discount_list_id', the character length must be smaller than or equal to 36.";
@@ -569,88 +539,6 @@ class DiscountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
         $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling DiscountCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling DiscountCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling DiscountCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling DiscountCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

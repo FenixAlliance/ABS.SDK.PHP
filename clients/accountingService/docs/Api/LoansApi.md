@@ -633,7 +633,7 @@ No authorization required
 ## `updateLoanApplicationAsync()`
 
 ```php
-updateLoanApplicationAsync($tenant_id, $application_id, $loan_application_update_dto, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+updateLoanApplicationAsync($tenant_id, $application_id, $body, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Updates a loan application
@@ -655,12 +655,12 @@ $apiInstance = new OpenAPI\Client\Api\LoansApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $application_id = 'application_id_example'; // string
-$loan_application_update_dto = new \OpenAPI\Client\Model\LoanApplicationUpdateDto(); // \OpenAPI\Client\Model\LoanApplicationUpdateDto
+$body = array('key' => new \stdClass); // object
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->updateLoanApplicationAsync($tenant_id, $application_id, $loan_application_update_dto, $api_version, $x_api_version);
+    $result = $apiInstance->updateLoanApplicationAsync($tenant_id, $application_id, $body, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoansApi->updateLoanApplicationAsync: ', $e->getMessage(), PHP_EOL;
@@ -673,7 +673,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **application_id** | **string**|  | |
-| **loan_application_update_dto** | [**\OpenAPI\Client\Model\LoanApplicationUpdateDto**](../Model/LoanApplicationUpdateDto.md)|  | |
+| **body** | **object**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

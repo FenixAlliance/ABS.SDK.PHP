@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **asset_id** | **string** |  | [optional]
 **is_root_transfer** | **bool** |  | [optional]
 **serial_list** | **string** |  | [optional]

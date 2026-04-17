@@ -64,8 +64,7 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'interest_rate' => 'float',
         'is_compund_interest_rate' => 'bool',
         'loan_type_id' => 'string',
-        'currency_id' => 'string',
-        'enrollment_id' => 'string'
+        'currency_id' => 'string'
     ];
 
     /**
@@ -82,8 +81,7 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'interest_rate' => 'double',
         'is_compund_interest_rate' => null,
         'loan_type_id' => null,
-        'currency_id' => null,
-        'enrollment_id' => null
+        'currency_id' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'interest_rate' => false,
         'is_compund_interest_rate' => false,
         'loan_type_id' => true,
-        'currency_id' => true,
-        'enrollment_id' => true
+        'currency_id' => true
     ];
 
     /**
@@ -194,8 +191,7 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'interest_rate' => 'interestRate',
         'is_compund_interest_rate' => 'isCompundInterestRate',
         'loan_type_id' => 'loanTypeId',
-        'currency_id' => 'currencyId',
-        'enrollment_id' => 'enrollmentId'
+        'currency_id' => 'currencyId'
     ];
 
     /**
@@ -210,8 +206,7 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'interest_rate' => 'setInterestRate',
         'is_compund_interest_rate' => 'setIsCompundInterestRate',
         'loan_type_id' => 'setLoanTypeId',
-        'currency_id' => 'setCurrencyId',
-        'enrollment_id' => 'setEnrollmentId'
+        'currency_id' => 'setCurrencyId'
     ];
 
     /**
@@ -226,8 +221,7 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'interest_rate' => 'getInterestRate',
         'is_compund_interest_rate' => 'getIsCompundInterestRate',
         'loan_type_id' => 'getLoanTypeId',
-        'currency_id' => 'getCurrencyId',
-        'enrollment_id' => 'getEnrollmentId'
+        'currency_id' => 'getCurrencyId'
     ];
 
     /**
@@ -294,7 +288,6 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('is_compund_interest_rate', $data ?? [], null);
         $this->setIfExists('loan_type_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -538,40 +531,6 @@ class LoanUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

@@ -66,9 +66,7 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_date' => '\DateTime',
         'currency_id' => 'string',
         'unit_id' => 'string',
-        'unit_group_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string'
+        'unit_group_id' => 'string'
     ];
 
     /**
@@ -87,9 +85,7 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_date' => 'date-time',
         'currency_id' => null,
         'unit_id' => null,
-        'unit_group_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null
+        'unit_group_id' => null
     ];
 
     /**
@@ -106,9 +102,7 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_date' => false,
         'currency_id' => true,
         'unit_id' => true,
-        'unit_group_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true
+        'unit_group_id' => true
     ];
 
     /**
@@ -205,9 +199,7 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_date' => 'endDate',
         'currency_id' => 'currencyId',
         'unit_id' => 'unitId',
-        'unit_group_id' => 'unitGroupId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId'
+        'unit_group_id' => 'unitGroupId'
     ];
 
     /**
@@ -224,9 +216,7 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_date' => 'setEndDate',
         'currency_id' => 'setCurrencyId',
         'unit_id' => 'setUnitId',
-        'unit_group_id' => 'setUnitGroupId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId'
+        'unit_group_id' => 'setUnitGroupId'
     ];
 
     /**
@@ -243,9 +233,7 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_date' => 'getEndDate',
         'currency_id' => 'getCurrencyId',
         'unit_id' => 'getUnitId',
-        'unit_group_id' => 'getUnitGroupId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId'
+        'unit_group_id' => 'getUnitGroupId'
     ];
 
     /**
@@ -314,8 +302,6 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('unit_id', $data ?? [], null);
         $this->setIfExists('unit_group_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -660,74 +646,6 @@ class PriceListCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['unit_group_id'] = $unit_group_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

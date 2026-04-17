@@ -69,8 +69,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'unit_id' => 'string',
         'transaction_category_id' => 'string',
         'currency_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'bank_profile_id' => 'string',
         'bank_account_id' => 'string'
     ];
@@ -94,8 +92,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'unit_id' => null,
         'transaction_category_id' => null,
         'currency_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'bank_profile_id' => null,
         'bank_account_id' => null
     ];
@@ -117,8 +113,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'unit_id' => true,
         'transaction_category_id' => true,
         'currency_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'bank_profile_id' => true,
         'bank_account_id' => true
     ];
@@ -220,8 +214,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'unit_id' => 'unitId',
         'transaction_category_id' => 'transactionCategoryId',
         'currency_id' => 'currencyId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'bank_profile_id' => 'bankProfileId',
         'bank_account_id' => 'bankAccountId'
     ];
@@ -243,8 +235,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'unit_id' => 'setUnitId',
         'transaction_category_id' => 'setTransactionCategoryId',
         'currency_id' => 'setCurrencyId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'bank_profile_id' => 'setBankProfileId',
         'bank_account_id' => 'setBankAccountId'
     ];
@@ -266,8 +256,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         'unit_id' => 'getUnitId',
         'transaction_category_id' => 'getTransactionCategoryId',
         'currency_id' => 'getCurrencyId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'bank_profile_id' => 'getBankProfileId',
         'bank_account_id' => 'getBankAccountId'
     ];
@@ -340,8 +328,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('unit_id', $data ?? [], null);
         $this->setIfExists('transaction_category_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('bank_profile_id', $data ?? [], null);
         $this->setIfExists('bank_account_id', $data ?? [], null);
     }
@@ -411,22 +397,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
 
         if (!is_null($this->container['transaction_category_id']) && (mb_strlen($this->container['transaction_category_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'transaction_category_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['bank_profile_id']) && (mb_strlen($this->container['bank_profile_id']) > 36)) {
@@ -830,88 +800,6 @@ class BankTransactionUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling BankTransactionUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling BankTransactionUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling BankTransactionUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling BankTransactionUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

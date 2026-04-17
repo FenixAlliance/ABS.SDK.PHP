@@ -58,9 +58,10 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'timestamp' => '\DateTime',
         'title' => 'string',
         'description' => 'string',
-        'business_id' => 'string',
         'support_entitlement_id' => 'string'
     ];
 
@@ -72,9 +73,10 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
+        'timestamp' => 'date-time',
         'title' => null,
         'description' => null,
-        'business_id' => null,
         'support_entitlement_id' => null
     ];
 
@@ -84,9 +86,10 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'timestamp' => false,
         'title' => true,
         'description' => true,
-        'business_id' => true,
         'support_entitlement_id' => true
     ];
 
@@ -176,9 +179,10 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'timestamp' => 'timestamp',
         'title' => 'title',
         'description' => 'description',
-        'business_id' => 'businessID',
         'support_entitlement_id' => 'supportEntitlementID'
     ];
 
@@ -188,9 +192,10 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'business_id' => 'setBusinessId',
         'support_entitlement_id' => 'setSupportEntitlementId'
     ];
 
@@ -200,9 +205,10 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'business_id' => 'getBusinessId',
         'support_entitlement_id' => 'getSupportEntitlementId'
     ];
 
@@ -263,9 +269,10 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('support_entitlement_id', $data ?? [], null);
     }
 
@@ -312,14 +319,6 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_id']) && (mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
-        }
-
         if (!is_null($this->container['support_entitlement_id']) && (mb_strlen($this->container['support_entitlement_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'support_entitlement_id', the character length must be smaller than or equal to 36.";
         }
@@ -342,6 +341,60 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
 
     /**
      * Gets title
@@ -421,47 +474,6 @@ class SupportTicketPriorityCreateDto implements ModelInterface, ArrayAccess, \Js
         }
 
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportTicketPriorityCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_id) && (mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling SupportTicketPriorityCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

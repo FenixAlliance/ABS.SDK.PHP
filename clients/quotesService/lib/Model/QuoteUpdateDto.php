@@ -61,10 +61,8 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed' => 'bool',
         'title' => 'string',
         'user_id' => 'string',
-        'tenant_id' => 'string',
         'price_list_id' => 'string',
         'description' => 'string',
-        'enrollment_id' => 'string',
         'individual_id' => 'string',
         'payment_term_id' => 'string',
         'organization_id' => 'string',
@@ -137,10 +135,8 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed' => null,
         'title' => null,
         'user_id' => null,
-        'tenant_id' => null,
         'price_list_id' => null,
         'description' => null,
-        'enrollment_id' => null,
         'individual_id' => null,
         'payment_term_id' => null,
         'organization_id' => null,
@@ -211,10 +207,8 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed' => false,
         'title' => true,
         'user_id' => true,
-        'tenant_id' => true,
         'price_list_id' => true,
         'description' => true,
-        'enrollment_id' => true,
         'individual_id' => true,
         'payment_term_id' => true,
         'organization_id' => true,
@@ -365,10 +359,8 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed' => 'closed',
         'title' => 'title',
         'user_id' => 'userId',
-        'tenant_id' => 'tenantId',
         'price_list_id' => 'priceListId',
         'description' => 'description',
-        'enrollment_id' => 'enrollmentId',
         'individual_id' => 'individualId',
         'payment_term_id' => 'paymentTermId',
         'organization_id' => 'organizationId',
@@ -439,10 +431,8 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed' => 'setClosed',
         'title' => 'setTitle',
         'user_id' => 'setUserId',
-        'tenant_id' => 'setTenantId',
         'price_list_id' => 'setPriceListId',
         'description' => 'setDescription',
-        'enrollment_id' => 'setEnrollmentId',
         'individual_id' => 'setIndividualId',
         'payment_term_id' => 'setPaymentTermId',
         'organization_id' => 'setOrganizationId',
@@ -513,10 +503,8 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed' => 'getClosed',
         'title' => 'getTitle',
         'user_id' => 'getUserId',
-        'tenant_id' => 'getTenantId',
         'price_list_id' => 'getPriceListId',
         'description' => 'getDescription',
-        'enrollment_id' => 'getEnrollmentId',
         'individual_id' => 'getIndividualId',
         'payment_term_id' => 'getPaymentTermId',
         'organization_id' => 'getOrganizationId',
@@ -704,10 +692,8 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('closed', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('user_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('price_list_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('individual_id', $data ?? [], null);
         $this->setIfExists('payment_term_id', $data ?? [], null);
         $this->setIfExists('organization_id', $data ?? [], null);
@@ -943,40 +929,6 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets price_list_id
      *
      * @return string|null
@@ -1040,40 +992,6 @@ class QuoteUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

@@ -63,8 +63,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'title' => 'string',
         'description' => 'string',
         'image_url' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'parent_item_category_id' => 'string'
     ];
 
@@ -81,8 +79,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'title' => null,
         'description' => null,
         'image_url' => 'uri',
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'parent_item_category_id' => null
     ];
 
@@ -97,8 +93,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'title' => false,
         'description' => true,
         'image_url' => true,
-        'business_id' => false,
-        'business_profile_record_id' => true,
         'parent_item_category_id' => true
     ];
 
@@ -193,8 +187,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'title' => 'title',
         'description' => 'description',
         'image_url' => 'imageURL',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'parent_item_category_id' => 'parentItemCategoryID'
     ];
 
@@ -209,8 +201,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'title' => 'setTitle',
         'description' => 'setDescription',
         'image_url' => 'setImageUrl',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'parent_item_category_id' => 'setParentItemCategoryId'
     ];
 
@@ -225,8 +215,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'title' => 'getTitle',
         'description' => 'getDescription',
         'image_url' => 'getImageUrl',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'parent_item_category_id' => 'getParentItemCategoryId'
     ];
 
@@ -292,8 +280,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('image_url', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('parent_item_category_id', $data ?? [], null);
     }
 
@@ -341,25 +327,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be bigger than or equal to 36.";
         }
 
         if (!is_null($this->container['parent_item_category_id']) && (mb_strlen($this->container['parent_item_category_id']) > 36)) {
@@ -544,81 +511,6 @@ class ItemCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['image_url'] = $image_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemCategoryCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemCategoryCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling ItemCategoryCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling ItemCategoryCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

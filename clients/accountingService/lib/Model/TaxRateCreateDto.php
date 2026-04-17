@@ -74,12 +74,10 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cumulative_transaction_threshold' => 'float',
         'fiscal_authority_id' => 'string',
         'fiscal_year_id' => 'string',
-        'tenant_id' => 'string',
         'country_id' => 'string',
         'tax_class_id' => 'string',
         'currency_id' => 'string',
-        'tax_policy_id' => 'string',
-        'enrollment_id' => 'string'
+        'tax_policy_id' => 'string'
     ];
 
     /**
@@ -106,12 +104,10 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cumulative_transaction_threshold' => 'double',
         'fiscal_authority_id' => null,
         'fiscal_year_id' => null,
-        'tenant_id' => null,
         'country_id' => null,
         'tax_class_id' => null,
         'currency_id' => null,
-        'tax_policy_id' => null,
-        'enrollment_id' => null
+        'tax_policy_id' => null
     ];
 
     /**
@@ -136,12 +132,10 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cumulative_transaction_threshold' => false,
         'fiscal_authority_id' => true,
         'fiscal_year_id' => true,
-        'tenant_id' => true,
         'country_id' => true,
         'tax_class_id' => true,
         'currency_id' => true,
-        'tax_policy_id' => true,
-        'enrollment_id' => true
+        'tax_policy_id' => true
     ];
 
     /**
@@ -246,12 +240,10 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cumulative_transaction_threshold' => 'cumulativeTransactionThreshold',
         'fiscal_authority_id' => 'fiscalAuthorityId',
         'fiscal_year_id' => 'fiscalYearId',
-        'tenant_id' => 'tenantId',
         'country_id' => 'countryId',
         'tax_class_id' => 'taxClassId',
         'currency_id' => 'currencyId',
-        'tax_policy_id' => 'taxPolicyId',
-        'enrollment_id' => 'enrollmentId'
+        'tax_policy_id' => 'taxPolicyId'
     ];
 
     /**
@@ -276,12 +268,10 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cumulative_transaction_threshold' => 'setCumulativeTransactionThreshold',
         'fiscal_authority_id' => 'setFiscalAuthorityId',
         'fiscal_year_id' => 'setFiscalYearId',
-        'tenant_id' => 'setTenantId',
         'country_id' => 'setCountryId',
         'tax_class_id' => 'setTaxClassId',
         'currency_id' => 'setCurrencyId',
-        'tax_policy_id' => 'setTaxPolicyId',
-        'enrollment_id' => 'setEnrollmentId'
+        'tax_policy_id' => 'setTaxPolicyId'
     ];
 
     /**
@@ -306,12 +296,10 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cumulative_transaction_threshold' => 'getCumulativeTransactionThreshold',
         'fiscal_authority_id' => 'getFiscalAuthorityId',
         'fiscal_year_id' => 'getFiscalYearId',
-        'tenant_id' => 'getTenantId',
         'country_id' => 'getCountryId',
         'tax_class_id' => 'getTaxClassId',
         'currency_id' => 'getCurrencyId',
-        'tax_policy_id' => 'getTaxPolicyId',
-        'enrollment_id' => 'getEnrollmentId'
+        'tax_policy_id' => 'getTaxPolicyId'
     ];
 
     /**
@@ -387,12 +375,10 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('cumulative_transaction_threshold', $data ?? [], null);
         $this->setIfExists('fiscal_authority_id', $data ?? [], null);
         $this->setIfExists('fiscal_year_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('country_id', $data ?? [], null);
         $this->setIfExists('tax_class_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('tax_policy_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -462,14 +448,6 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'fiscal_year_id', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['tax_class_id']) && (mb_strlen($this->container['tax_class_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'tax_class_id', the character length must be smaller than or equal to 36.";
         }
@@ -484,14 +462,6 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['tax_policy_id']) && (mb_strlen($this->container['tax_policy_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'tax_policy_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -1019,47 +989,6 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling TaxRateCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling TaxRateCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
      * Gets country_id
      *
      * @return string|null
@@ -1205,47 +1134,6 @@ class TaxRateCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['tax_policy_id'] = $tax_policy_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling TaxRateCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling TaxRateCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

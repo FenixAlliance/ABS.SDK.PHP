@@ -5,15 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payment_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **forex_rate** | **float** |  | [optional]
 **total_amount** | **float** |  | [optional]
 **total_amount_in_usd** | **float** |  | [optional]
 **closed** | **bool** |  | [optional]
 **currency_id** | **string** |  | [optional]
-**account_holder_id** | **string** |  | [optional]
 **contact_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 **order_id** | **string** |  | [optional]
 **invoice_id** | **string** |  | [optional]
 

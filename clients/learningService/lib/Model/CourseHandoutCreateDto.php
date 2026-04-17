@@ -66,8 +66,7 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'url' => 'string',
         'release_date_time' => '\DateTime',
         'course_id' => 'string',
-        'course_unit_id' => 'string',
-        'business_id' => 'string'
+        'course_unit_id' => 'string'
     ];
 
     /**
@@ -86,8 +85,7 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'url' => null,
         'release_date_time' => 'date-time',
         'course_id' => null,
-        'course_unit_id' => null,
-        'business_id' => null
+        'course_unit_id' => null
     ];
 
     /**
@@ -104,8 +102,7 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'url' => true,
         'release_date_time' => true,
         'course_id' => false,
-        'course_unit_id' => true,
-        'business_id' => false
+        'course_unit_id' => true
     ];
 
     /**
@@ -202,8 +199,7 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'url' => 'url',
         'release_date_time' => 'releaseDateTime',
         'course_id' => 'courseID',
-        'course_unit_id' => 'courseUnitID',
-        'business_id' => 'businessID'
+        'course_unit_id' => 'courseUnitID'
     ];
 
     /**
@@ -220,8 +216,7 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'url' => 'setUrl',
         'release_date_time' => 'setReleaseDateTime',
         'course_id' => 'setCourseId',
-        'course_unit_id' => 'setCourseUnitId',
-        'business_id' => 'setBusinessId'
+        'course_unit_id' => 'setCourseUnitId'
     ];
 
     /**
@@ -238,8 +233,7 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'url' => 'getUrl',
         'release_date_time' => 'getReleaseDateTime',
         'course_id' => 'getCourseId',
-        'course_unit_id' => 'getCourseUnitId',
-        'business_id' => 'getBusinessId'
+        'course_unit_id' => 'getCourseUnitId'
     ];
 
     /**
@@ -308,7 +302,6 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('release_date_time', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
         $this->setIfExists('course_unit_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -350,13 +343,6 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ((mb_strlen($this->container['course_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -658,38 +644,6 @@ class CourseHandoutCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['course_unit_id'] = $course_unit_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseHandoutCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

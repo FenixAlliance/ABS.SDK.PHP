@@ -61,8 +61,7 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'string',
         'timestamp' => '\DateTime',
         'name' => 'string',
-        'parent_business_industry_id' => 'string',
-        'business_profile_record_id' => 'string'
+        'parent_business_industry_id' => 'string'
     ];
 
     /**
@@ -76,8 +75,7 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'name' => null,
-        'parent_business_industry_id' => null,
-        'business_profile_record_id' => null
+        'parent_business_industry_id' => null
     ];
 
     /**
@@ -89,8 +87,7 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => false,
         'timestamp' => false,
         'name' => true,
-        'parent_business_industry_id' => true,
-        'business_profile_record_id' => true
+        'parent_business_industry_id' => true
     ];
 
     /**
@@ -182,8 +179,7 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'id',
         'timestamp' => 'timestamp',
         'name' => 'name',
-        'parent_business_industry_id' => 'parentBusinessIndustryID',
-        'business_profile_record_id' => 'businessProfileRecordID'
+        'parent_business_industry_id' => 'parentBusinessIndustryID'
     ];
 
     /**
@@ -195,8 +191,7 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
-        'parent_business_industry_id' => 'setParentBusinessIndustryId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId'
+        'parent_business_industry_id' => 'setParentBusinessIndustryId'
     ];
 
     /**
@@ -208,8 +203,7 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
-        'parent_business_industry_id' => 'getParentBusinessIndustryId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId'
+        'parent_business_industry_id' => 'getParentBusinessIndustryId'
     ];
 
     /**
@@ -273,7 +267,6 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('parent_business_industry_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
     }
 
     /**
@@ -436,40 +429,6 @@ class TenantIndustryCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['parent_business_industry_id'] = $parent_business_industry_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

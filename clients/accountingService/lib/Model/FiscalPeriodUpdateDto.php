@@ -61,8 +61,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'string',
         'from_date' => '\DateTime',
         'to_date' => '\DateTime',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'fiscal_year_id' => 'string'
     ];
 
@@ -77,8 +75,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => null,
         'from_date' => 'date-time',
         'to_date' => 'date-time',
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'fiscal_year_id' => null
     ];
 
@@ -91,8 +87,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => true,
         'from_date' => false,
         'to_date' => false,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'fiscal_year_id' => true
     ];
 
@@ -185,8 +179,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'name',
         'from_date' => 'fromDate',
         'to_date' => 'toDate',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'fiscal_year_id' => 'fiscalYearId'
     ];
 
@@ -199,8 +191,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'setName',
         'from_date' => 'setFromDate',
         'to_date' => 'setToDate',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'fiscal_year_id' => 'setFiscalYearId'
     ];
 
@@ -213,8 +203,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'getName',
         'from_date' => 'getFromDate',
         'to_date' => 'getToDate',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'fiscal_year_id' => 'getFiscalYearId'
     ];
 
@@ -278,8 +266,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('from_date', $data ?? [], null);
         $this->setIfExists('to_date', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('fiscal_year_id', $data ?? [], null);
     }
 
@@ -316,22 +302,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
 
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) < 0)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['fiscal_year_id']) && (mb_strlen($this->container['fiscal_year_id']) > 36)) {
@@ -448,88 +418,6 @@ class FiscalPeriodUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable to_date cannot be null');
         }
         $this->container['to_date'] = $to_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling FiscalPeriodUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling FiscalPeriodUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling FiscalPeriodUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling FiscalPeriodUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

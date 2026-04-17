@@ -63,7 +63,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'course_id' => 'string',
         'course_cohort_id' => 'string',
         'student_profile_id' => 'string',
-        'business_profile_record_id' => 'string',
         'course_completion_certificate_id' => 'string'
     ];
 
@@ -80,7 +79,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'course_id' => null,
         'course_cohort_id' => null,
         'student_profile_id' => null,
-        'business_profile_record_id' => null,
         'course_completion_certificate_id' => null
     ];
 
@@ -95,7 +93,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'course_id' => true,
         'course_cohort_id' => true,
         'student_profile_id' => true,
-        'business_profile_record_id' => true,
         'course_completion_certificate_id' => true
     ];
 
@@ -190,7 +187,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'course_id' => 'courseID',
         'course_cohort_id' => 'courseCohortID',
         'student_profile_id' => 'studentProfileID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'course_completion_certificate_id' => 'courseCompletionCertificateID'
     ];
 
@@ -205,7 +201,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'course_id' => 'setCourseId',
         'course_cohort_id' => 'setCourseCohortId',
         'student_profile_id' => 'setStudentProfileId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'course_completion_certificate_id' => 'setCourseCompletionCertificateId'
     ];
 
@@ -220,7 +215,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'course_id' => 'getCourseId',
         'course_cohort_id' => 'getCourseCohortId',
         'student_profile_id' => 'getStudentProfileId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'course_completion_certificate_id' => 'getCourseCompletionCertificateId'
     ];
 
@@ -286,7 +280,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('course_id', $data ?? [], null);
         $this->setIfExists('course_cohort_id', $data ?? [], null);
         $this->setIfExists('student_profile_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('course_completion_certificate_id', $data ?? [], null);
     }
 
@@ -484,40 +477,6 @@ class CourseEnrollmentCreateDto implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['student_profile_id'] = $student_profile_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

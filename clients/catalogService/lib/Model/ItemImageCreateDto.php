@@ -60,8 +60,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'item_id' => 'string',
         'is_item_mozaic_bg' => 'bool',
         'm_d5_hash' => 'string',
@@ -77,8 +75,7 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'file_length' => 'int',
         'valid_response' => 'bool',
         'social_profile_id' => 'string',
-        'parent_file_upload_id' => 'string',
-        'account_holder_id' => 'string'
+        'parent_file_upload_id' => 'string'
     ];
 
     /**
@@ -91,8 +88,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'item_id' => null,
         'is_item_mozaic_bg' => null,
         'm_d5_hash' => null,
@@ -108,8 +103,7 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'file_length' => 'int64',
         'valid_response' => null,
         'social_profile_id' => null,
-        'parent_file_upload_id' => null,
-        'account_holder_id' => null
+        'parent_file_upload_id' => null
     ];
 
     /**
@@ -120,8 +114,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'business_id' => false,
-        'business_profile_record_id' => true,
         'item_id' => true,
         'is_item_mozaic_bg' => false,
         'm_d5_hash' => true,
@@ -137,8 +129,7 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'file_length' => false,
         'valid_response' => false,
         'social_profile_id' => true,
-        'parent_file_upload_id' => true,
-        'account_holder_id' => true
+        'parent_file_upload_id' => true
     ];
 
     /**
@@ -229,8 +220,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'item_id' => 'itemID',
         'is_item_mozaic_bg' => 'isItemMozaicBG',
         'm_d5_hash' => 'mD5Hash',
@@ -246,8 +235,7 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'file_length' => 'fileLength',
         'valid_response' => 'validResponse',
         'social_profile_id' => 'socialProfileID',
-        'parent_file_upload_id' => 'parentFileUploadID',
-        'account_holder_id' => 'accountHolderID'
+        'parent_file_upload_id' => 'parentFileUploadID'
     ];
 
     /**
@@ -258,8 +246,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'item_id' => 'setItemId',
         'is_item_mozaic_bg' => 'setIsItemMozaicBg',
         'm_d5_hash' => 'setMD5Hash',
@@ -275,8 +261,7 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'file_length' => 'setFileLength',
         'valid_response' => 'setValidResponse',
         'social_profile_id' => 'setSocialProfileId',
-        'parent_file_upload_id' => 'setParentFileUploadId',
-        'account_holder_id' => 'setAccountHolderId'
+        'parent_file_upload_id' => 'setParentFileUploadId'
     ];
 
     /**
@@ -287,8 +272,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'item_id' => 'getItemId',
         'is_item_mozaic_bg' => 'getIsItemMozaicBg',
         'm_d5_hash' => 'getMD5Hash',
@@ -304,8 +287,7 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         'file_length' => 'getFileLength',
         'valid_response' => 'getValidResponse',
         'social_profile_id' => 'getSocialProfileId',
-        'parent_file_upload_id' => 'getParentFileUploadId',
-        'account_holder_id' => 'getAccountHolderId'
+        'parent_file_upload_id' => 'getParentFileUploadId'
     ];
 
     /**
@@ -367,8 +349,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('item_id', $data ?? [], null);
         $this->setIfExists('is_item_mozaic_bg', $data ?? [], null);
         $this->setIfExists('m_d5_hash', $data ?? [], null);
@@ -385,7 +365,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('valid_response', $data ?? [], null);
         $this->setIfExists('social_profile_id', $data ?? [], null);
         $this->setIfExists('parent_file_upload_id', $data ?? [], null);
-        $this->setIfExists('account_holder_id', $data ?? [], null);
     }
 
     /**
@@ -414,25 +393,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['business_profile_record_id']) && (mb_strlen($this->container['business_profile_record_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_profile_record_id', the character length must be bigger than or equal to 36.";
-        }
 
         if (!is_null($this->container['item_id']) && (mb_strlen($this->container['item_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'item_id', the character length must be smaller than or equal to 36.";
@@ -541,14 +501,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'parent_file_upload_id', the character length must be bigger than or equal to 36.";
         }
 
-        if (!is_null($this->container['account_holder_id']) && (mb_strlen($this->container['account_holder_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'account_holder_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['account_holder_id']) && (mb_strlen($this->container['account_holder_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'account_holder_id', the character length must be bigger than or equal to 36.";
-        }
-
         return $invalidProperties;
     }
 
@@ -614,81 +566,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
         }
         $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemImageCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemImageCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling ItemImageCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($business_profile_record_id) && (mb_strlen($business_profile_record_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_profile_record_id when calling ItemImageCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }
@@ -1297,47 +1174,6 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['parent_file_upload_id'] = $parent_file_upload_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_holder_id
-     *
-     * @return string|null
-     */
-    public function getAccountHolderId()
-    {
-        return $this->container['account_holder_id'];
-    }
-
-    /**
-     * Sets account_holder_id
-     *
-     * @param string|null $account_holder_id account_holder_id
-     *
-     * @return self
-     */
-    public function setAccountHolderId($account_holder_id)
-    {
-        if (is_null($account_holder_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($account_holder_id) && (mb_strlen($account_holder_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $account_holder_id when calling ItemImageCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($account_holder_id) && (mb_strlen($account_holder_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $account_holder_id when calling ItemImageCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['account_holder_id'] = $account_holder_id;
 
         return $this;
     }

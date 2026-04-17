@@ -59,7 +59,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'invoice_id' => 'string',
-        'tenant_id' => 'string',
         'emisor_wallet_id' => 'string',
         'receiver_wallet_id' => 'string',
         'currency_id' => 'string',
@@ -111,7 +110,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'accounting_entry_id' => 'string',
         'payment_gateway_id' => 'string',
         'bank_account_id' => 'string',
-        'enrollment_id' => 'string',
         'bank_id' => 'string',
         'payment_token_id' => 'string',
         'emisor_wallet_account_id' => 'string',
@@ -127,7 +125,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'invoice_id' => null,
-        'tenant_id' => null,
         'emisor_wallet_id' => null,
         'receiver_wallet_id' => null,
         'currency_id' => null,
@@ -179,7 +176,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'accounting_entry_id' => null,
         'payment_gateway_id' => null,
         'bank_account_id' => null,
-        'enrollment_id' => null,
         'bank_id' => null,
         'payment_token_id' => null,
         'emisor_wallet_account_id' => null,
@@ -193,7 +189,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'invoice_id' => true,
-        'tenant_id' => true,
         'emisor_wallet_id' => true,
         'receiver_wallet_id' => true,
         'currency_id' => true,
@@ -245,7 +240,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'accounting_entry_id' => true,
         'payment_gateway_id' => true,
         'bank_account_id' => true,
-        'enrollment_id' => true,
         'bank_id' => true,
         'payment_token_id' => true,
         'emisor_wallet_account_id' => true,
@@ -339,7 +333,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'invoice_id' => 'invoiceId',
-        'tenant_id' => 'tenantId',
         'emisor_wallet_id' => 'emisorWalletId',
         'receiver_wallet_id' => 'receiverWalletId',
         'currency_id' => 'currencyId',
@@ -391,7 +384,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'accounting_entry_id' => 'accountingEntryId',
         'payment_gateway_id' => 'paymentGatewayId',
         'bank_account_id' => 'bankAccountId',
-        'enrollment_id' => 'enrollmentId',
         'bank_id' => 'bankId',
         'payment_token_id' => 'paymentTokenId',
         'emisor_wallet_account_id' => 'emisorWalletAccountId',
@@ -405,7 +397,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'invoice_id' => 'setInvoiceId',
-        'tenant_id' => 'setTenantId',
         'emisor_wallet_id' => 'setEmisorWalletId',
         'receiver_wallet_id' => 'setReceiverWalletId',
         'currency_id' => 'setCurrencyId',
@@ -457,7 +448,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'accounting_entry_id' => 'setAccountingEntryId',
         'payment_gateway_id' => 'setPaymentGatewayId',
         'bank_account_id' => 'setBankAccountId',
-        'enrollment_id' => 'setEnrollmentId',
         'bank_id' => 'setBankId',
         'payment_token_id' => 'setPaymentTokenId',
         'emisor_wallet_account_id' => 'setEmisorWalletAccountId',
@@ -471,7 +461,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'invoice_id' => 'getInvoiceId',
-        'tenant_id' => 'getTenantId',
         'emisor_wallet_id' => 'getEmisorWalletId',
         'receiver_wallet_id' => 'getReceiverWalletId',
         'currency_id' => 'getCurrencyId',
@@ -523,7 +512,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'accounting_entry_id' => 'getAccountingEntryId',
         'payment_gateway_id' => 'getPaymentGatewayId',
         'bank_account_id' => 'getBankAccountId',
-        'enrollment_id' => 'getEnrollmentId',
         'bank_id' => 'getBankId',
         'payment_token_id' => 'getPaymentTokenId',
         'emisor_wallet_account_id' => 'getEmisorWalletAccountId',
@@ -659,7 +647,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('invoice_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('emisor_wallet_id', $data ?? [], null);
         $this->setIfExists('receiver_wallet_id', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
@@ -711,7 +698,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('accounting_entry_id', $data ?? [], null);
         $this->setIfExists('payment_gateway_id', $data ?? [], null);
         $this->setIfExists('bank_account_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('bank_id', $data ?? [], null);
         $this->setIfExists('payment_token_id', $data ?? [], null);
         $this->setIfExists('emisor_wallet_account_id', $data ?? [], null);
@@ -751,14 +737,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['invoice_id']) && (mb_strlen($this->container['invoice_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'invoice_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['emisor_wallet_id']) && (mb_strlen($this->container['emisor_wallet_id']) > 36)) {
@@ -868,14 +846,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'bank_account_id', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['bank_id']) && (mb_strlen($this->container['bank_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'bank_id', the character length must be smaller than or equal to 36.";
         }
@@ -960,47 +930,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['invoice_id'] = $invoice_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling PaymentUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling PaymentUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }
@@ -2723,47 +2652,6 @@ class PaymentUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['bank_account_id'] = $bank_account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling PaymentUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling PaymentUpdateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

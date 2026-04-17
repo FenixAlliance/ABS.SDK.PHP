@@ -64,7 +64,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'icon' => 'string',
         'description' => 'string',
         'course_id' => 'string',
-        'business_id' => 'string',
         'release_date_time' => '\DateTime',
         'hide_from_students' => 'bool'
     ];
@@ -83,7 +82,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'icon' => null,
         'description' => null,
         'course_id' => null,
-        'business_id' => null,
         'release_date_time' => 'date-time',
         'hide_from_students' => null
     ];
@@ -100,7 +98,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'icon' => true,
         'description' => true,
         'course_id' => false,
-        'business_id' => false,
         'release_date_time' => true,
         'hide_from_students' => false
     ];
@@ -197,7 +194,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'icon' => 'icon',
         'description' => 'description',
         'course_id' => 'courseID',
-        'business_id' => 'businessID',
         'release_date_time' => 'releaseDateTime',
         'hide_from_students' => 'hideFromStudents'
     ];
@@ -214,7 +210,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'icon' => 'setIcon',
         'description' => 'setDescription',
         'course_id' => 'setCourseId',
-        'business_id' => 'setBusinessId',
         'release_date_time' => 'setReleaseDateTime',
         'hide_from_students' => 'setHideFromStudents'
     ];
@@ -231,7 +226,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'icon' => 'getIcon',
         'description' => 'getDescription',
         'course_id' => 'getCourseId',
-        'business_id' => 'getBusinessId',
         'release_date_time' => 'getReleaseDateTime',
         'hide_from_students' => 'getHideFromStudents'
     ];
@@ -299,7 +293,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('course_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
         $this->setIfExists('release_date_time', $data ?? [], null);
         $this->setIfExists('hide_from_students', $data ?? [], null);
     }
@@ -343,13 +336,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ((mb_strlen($this->container['course_id']) < 1)) {
             $invalidProperties[] = "invalid value for 'course_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -549,38 +535,6 @@ class CourseSectionCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
 
         $this->container['course_id'] = $course_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-
-        if ((mb_strlen($business_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling CourseSectionCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

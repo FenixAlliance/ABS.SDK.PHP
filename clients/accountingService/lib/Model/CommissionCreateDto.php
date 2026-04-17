@@ -66,8 +66,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'added_percent' => 'float',
         'added_amount' => 'float',
         'tax_comission' => 'float',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'salary_id' => 'string',
         'emisor_wallet_account_id' => 'string',
         'receiver_wallet_account_id' => 'string',
@@ -91,8 +89,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'added_percent' => 'double',
         'added_amount' => 'double',
         'tax_comission' => 'double',
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'salary_id' => null,
         'emisor_wallet_account_id' => null,
         'receiver_wallet_account_id' => null,
@@ -114,8 +110,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'added_percent' => false,
         'added_amount' => false,
         'tax_comission' => false,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'salary_id' => true,
         'emisor_wallet_account_id' => true,
         'receiver_wallet_account_id' => true,
@@ -217,8 +211,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'added_percent' => 'addedPercent',
         'added_amount' => 'addedAmount',
         'tax_comission' => 'taxComission',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'salary_id' => 'salaryId',
         'emisor_wallet_account_id' => 'emisorWalletAccountId',
         'receiver_wallet_account_id' => 'receiverWalletAccountId',
@@ -240,8 +232,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'added_percent' => 'setAddedPercent',
         'added_amount' => 'setAddedAmount',
         'tax_comission' => 'setTaxComission',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'salary_id' => 'setSalaryId',
         'emisor_wallet_account_id' => 'setEmisorWalletAccountId',
         'receiver_wallet_account_id' => 'setReceiverWalletAccountId',
@@ -263,8 +253,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         'added_percent' => 'getAddedPercent',
         'added_amount' => 'getAddedAmount',
         'tax_comission' => 'getTaxComission',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'salary_id' => 'getSalaryId',
         'emisor_wallet_account_id' => 'getEmisorWalletAccountId',
         'receiver_wallet_account_id' => 'getReceiverWalletAccountId',
@@ -337,8 +325,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('added_percent', $data ?? [], null);
         $this->setIfExists('added_amount', $data ?? [], null);
         $this->setIfExists('tax_comission', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('salary_id', $data ?? [], null);
         $this->setIfExists('emisor_wallet_account_id', $data ?? [], null);
         $this->setIfExists('receiver_wallet_account_id', $data ?? [], null);
@@ -387,22 +373,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['salary_id']) && (mb_strlen($this->container['salary_id']) > 36)) {
@@ -700,88 +670,6 @@ class CommissionCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable tax_comission cannot be null');
         }
         $this->container['tax_comission'] = $tax_comission;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling CommissionCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling CommissionCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling CommissionCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling CommissionCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

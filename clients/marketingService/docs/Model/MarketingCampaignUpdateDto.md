@@ -18,7 +18,5 @@ Name | Type | Description | Notes
 **expected_response_percent** | **float** |  | [optional]
 **marketing_area_id** | **string** |  | [optional]
 **currency_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

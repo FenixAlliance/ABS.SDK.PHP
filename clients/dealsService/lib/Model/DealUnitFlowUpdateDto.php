@@ -61,7 +61,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'string',
         'description' => 'string',
         'parent_business_process_id' => 'string',
-        'tenant_id' => 'string',
         'tenant_enrollment_id' => 'string'
     ];
 
@@ -76,7 +75,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => null,
         'description' => null,
         'parent_business_process_id' => null,
-        'tenant_id' => null,
         'tenant_enrollment_id' => null
     ];
 
@@ -89,7 +87,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => true,
         'description' => true,
         'parent_business_process_id' => true,
-        'tenant_id' => true,
         'tenant_enrollment_id' => true
     ];
 
@@ -182,7 +179,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'name',
         'description' => 'description',
         'parent_business_process_id' => 'parentBusinessProcessId',
-        'tenant_id' => 'tenantId',
         'tenant_enrollment_id' => 'tenantEnrollmentId'
     ];
 
@@ -195,7 +191,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'setName',
         'description' => 'setDescription',
         'parent_business_process_id' => 'setParentBusinessProcessId',
-        'tenant_id' => 'setTenantId',
         'tenant_enrollment_id' => 'setTenantEnrollmentId'
     ];
 
@@ -208,7 +203,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'getName',
         'description' => 'getDescription',
         'parent_business_process_id' => 'getParentBusinessProcessId',
-        'tenant_id' => 'getTenantId',
         'tenant_enrollment_id' => 'getTenantEnrollmentId'
     ];
 
@@ -272,7 +266,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('parent_business_process_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('tenant_enrollment_id', $data ?? [], null);
     }
 
@@ -325,14 +318,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
 
         if (!is_null($this->container['parent_business_process_id']) && (mb_strlen($this->container['parent_business_process_id']) < 36)) {
             $invalidProperties[] = "invalid value for 'parent_business_process_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 36.";
         }
 
         if (!is_null($this->container['tenant_enrollment_id']) && (mb_strlen($this->container['tenant_enrollment_id']) > 36)) {
@@ -477,47 +462,6 @@ class DealUnitFlowUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         }
 
         $this->container['parent_business_process_id'] = $parent_business_process_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling DealUnitFlowUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling DealUnitFlowUpdateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

@@ -27,8 +27,6 @@ Name | Type | Description | Notes
 **custom_state** | **string** |  | [optional]
 **custom_city** | **string** |  | [optional]
 **city_id** | **string** |  | [optional]
-**enrollment_id** | **string** |  | [optional]
-**tenant_id** | **string** |  | [optional]
 **zero** | **bool** |  | [optional]
 **reduced** | **bool** |  | [optional]
 **withholding** | **bool** |  | [optional]

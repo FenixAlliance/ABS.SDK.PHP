@@ -63,8 +63,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'description' => 'string',
         'date_time' => '\DateTime',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'parent_journal_id' => 'string',
         'journal_type_id' => 'string',
         'ledger_id' => 'string'
@@ -83,8 +81,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'description' => null,
         'date_time' => 'date-time',
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'parent_journal_id' => null,
         'journal_type_id' => null,
         'ledger_id' => null
@@ -101,8 +97,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'description' => true,
         'date_time' => false,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'parent_journal_id' => true,
         'journal_type_id' => true,
         'ledger_id' => true
@@ -199,8 +193,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'description' => 'description',
         'date_time' => 'dateTime',
-        'tenant_id' => 'tenantID',
-        'enrollment_id' => 'enrollmentID',
         'parent_journal_id' => 'parentJournalID',
         'journal_type_id' => 'journalTypeID',
         'ledger_id' => 'ledgerID'
@@ -217,8 +209,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'description' => 'setDescription',
         'date_time' => 'setDateTime',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'parent_journal_id' => 'setParentJournalId',
         'journal_type_id' => 'setJournalTypeId',
         'ledger_id' => 'setLedgerId'
@@ -235,8 +225,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'description' => 'getDescription',
         'date_time' => 'getDateTime',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'parent_journal_id' => 'getParentJournalId',
         'journal_type_id' => 'getJournalTypeId',
         'ledger_id' => 'getLedgerId'
@@ -304,8 +292,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('date_time', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('parent_journal_id', $data ?? [], null);
         $this->setIfExists('journal_type_id', $data ?? [], null);
         $this->setIfExists('ledger_id', $data ?? [], null);
@@ -355,22 +341,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 1)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['tenant_id']) && (mb_strlen($this->container['tenant_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'tenant_id', the character length must be bigger than or equal to 0.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['enrollment_id']) && (mb_strlen($this->container['enrollment_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'enrollment_id', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['parent_journal_id']) && (mb_strlen($this->container['parent_journal_id']) > 36)) {
@@ -564,88 +534,6 @@ class JournalCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable date_time cannot be null');
         }
         $this->container['date_time'] = $date_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling JournalCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($tenant_id) && (mb_strlen($tenant_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $tenant_id when calling JournalCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling JournalCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($enrollment_id) && (mb_strlen($enrollment_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $enrollment_id when calling JournalCreateDto., must be bigger than or equal to 0.');
-        }
-
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

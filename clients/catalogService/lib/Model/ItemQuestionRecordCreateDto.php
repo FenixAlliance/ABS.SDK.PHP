@@ -63,8 +63,7 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'title' => 'string',
         'needs_revision' => 'bool',
         'question' => 'string',
-        'social_profile_id' => 'string',
-        'business_id' => 'string'
+        'social_profile_id' => 'string'
     ];
 
     /**
@@ -80,8 +79,7 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'title' => null,
         'needs_revision' => null,
         'question' => null,
-        'social_profile_id' => null,
-        'business_id' => null
+        'social_profile_id' => null
     ];
 
     /**
@@ -95,8 +93,7 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'title' => false,
         'needs_revision' => false,
         'question' => false,
-        'social_profile_id' => true,
-        'business_id' => false
+        'social_profile_id' => true
     ];
 
     /**
@@ -190,8 +187,7 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'title' => 'title',
         'needs_revision' => 'needsRevision',
         'question' => 'question',
-        'social_profile_id' => 'socialProfileID',
-        'business_id' => 'businessID'
+        'social_profile_id' => 'socialProfileID'
     ];
 
     /**
@@ -205,8 +201,7 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'title' => 'setTitle',
         'needs_revision' => 'setNeedsRevision',
         'question' => 'setQuestion',
-        'social_profile_id' => 'setSocialProfileId',
-        'business_id' => 'setBusinessId'
+        'social_profile_id' => 'setSocialProfileId'
     ];
 
     /**
@@ -220,8 +215,7 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'title' => 'getTitle',
         'needs_revision' => 'getNeedsRevision',
         'question' => 'getQuestion',
-        'social_profile_id' => 'getSocialProfileId',
-        'business_id' => 'getBusinessId'
+        'social_profile_id' => 'getSocialProfileId'
     ];
 
     /**
@@ -287,7 +281,6 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('needs_revision', $data ?? [], null);
         $this->setIfExists('question', $data ?? [], null);
         $this->setIfExists('social_profile_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -348,17 +341,6 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
 
         if (!is_null($this->container['social_profile_id']) && (mb_strlen($this->container['social_profile_id']) < 36)) {
             $invalidProperties[] = "invalid value for 'social_profile_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
         }
 
         return $invalidProperties;
@@ -562,40 +544,6 @@ class ItemQuestionRecordCreateDto implements ModelInterface, ArrayAccess, \JsonS
         }
 
         $this->container['social_profile_id'] = $social_profile_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemQuestionRecordCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemQuestionRecordCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

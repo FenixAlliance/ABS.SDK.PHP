@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **instructions** | **string** |  | [optional]
 **points** | **float** |  | [optional]
 **course_id** | **string** |  |
-**business_id** | **string** |  |
 **course_unit_id** | **string** |  | [optional]
 **course_cohort_id** | **string** |  | [optional]
 **course_assignment_type_id** | **string** |  | [optional]

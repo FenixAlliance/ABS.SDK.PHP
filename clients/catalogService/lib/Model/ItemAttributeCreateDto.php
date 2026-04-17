@@ -61,8 +61,7 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'string',
         'timestamp' => '\DateTime',
         'name' => 'string',
-        'description' => 'string',
-        'business_id' => 'string'
+        'description' => 'string'
     ];
 
     /**
@@ -76,8 +75,7 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'name' => null,
-        'description' => null,
-        'business_id' => null
+        'description' => null
     ];
 
     /**
@@ -89,8 +87,7 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => false,
         'timestamp' => false,
         'name' => false,
-        'description' => true,
-        'business_id' => false
+        'description' => true
     ];
 
     /**
@@ -182,8 +179,7 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'id',
         'timestamp' => 'timestamp',
         'name' => 'name',
-        'description' => 'description',
-        'business_id' => 'businessID'
+        'description' => 'description'
     ];
 
     /**
@@ -195,8 +191,7 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'name' => 'setName',
-        'description' => 'setDescription',
-        'business_id' => 'setBusinessId'
+        'description' => 'setDescription'
     ];
 
     /**
@@ -208,8 +203,7 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'name' => 'getName',
-        'description' => 'getDescription',
-        'business_id' => 'getBusinessId'
+        'description' => 'getDescription'
     ];
 
     /**
@@ -273,7 +267,6 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -320,17 +313,6 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 0)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 0.";
-        }
-
-        if ($this->container['business_id'] === null) {
-            $invalidProperties[] = "'business_id' can't be null";
-        }
-        if ((mb_strlen($this->container['business_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if ((mb_strlen($this->container['business_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'business_id', the character length must be bigger than or equal to 36.";
         }
 
         return $invalidProperties;
@@ -473,40 +455,6 @@ class ItemAttributeCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         }
 
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            throw new \InvalidArgumentException('non-nullable business_id cannot be null');
-        }
-        if ((mb_strlen($business_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemAttributeCreateDto., must be smaller than or equal to 36.');
-        }
-        if ((mb_strlen($business_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $business_id when calling ItemAttributeCreateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['business_id'] = $business_id;
 
         return $this;
     }

@@ -99,12 +99,9 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'data8_label' => 'string',
         'data9' => 'string',
         'data9_label' => 'string',
-        'account_holder_id' => 'string',
         'individual_id' => 'string',
         'organization_id' => 'string',
         'receiver_business_id' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string',
         'payment_token_id' => 'string',
         'wallet_account_id' => 'string',
         'security_certificate_id' => 'string'
@@ -159,12 +156,9 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'data8_label' => null,
         'data9' => null,
         'data9_label' => null,
-        'account_holder_id' => null,
         'individual_id' => null,
         'organization_id' => null,
         'receiver_business_id' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null,
         'payment_token_id' => null,
         'wallet_account_id' => null,
         'security_certificate_id' => null
@@ -217,12 +211,9 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'data8_label' => true,
         'data9' => true,
         'data9_label' => true,
-        'account_holder_id' => true,
         'individual_id' => true,
         'organization_id' => true,
         'receiver_business_id' => true,
-        'business_id' => true,
-        'business_profile_record_id' => true,
         'payment_token_id' => true,
         'wallet_account_id' => true,
         'security_certificate_id' => true
@@ -355,12 +346,9 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'data8_label' => 'data8Label',
         'data9' => 'data9',
         'data9_label' => 'data9Label',
-        'account_holder_id' => 'accountHolderID',
         'individual_id' => 'individualID',
         'organization_id' => 'organizationID',
         'receiver_business_id' => 'receiverBusinessID',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID',
         'payment_token_id' => 'paymentTokenID',
         'wallet_account_id' => 'walletAccountID',
         'security_certificate_id' => 'securityCertificateID'
@@ -413,12 +401,9 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'data8_label' => 'setData8Label',
         'data9' => 'setData9',
         'data9_label' => 'setData9Label',
-        'account_holder_id' => 'setAccountHolderId',
         'individual_id' => 'setIndividualId',
         'organization_id' => 'setOrganizationId',
         'receiver_business_id' => 'setReceiverBusinessId',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'payment_token_id' => 'setPaymentTokenId',
         'wallet_account_id' => 'setWalletAccountId',
         'security_certificate_id' => 'setSecurityCertificateId'
@@ -471,12 +456,9 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'data8_label' => 'getData8Label',
         'data9' => 'getData9',
         'data9_label' => 'getData9Label',
-        'account_holder_id' => 'getAccountHolderId',
         'individual_id' => 'getIndividualId',
         'organization_id' => 'getOrganizationId',
         'receiver_business_id' => 'getReceiverBusinessId',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'payment_token_id' => 'getPaymentTokenId',
         'wallet_account_id' => 'getWalletAccountId',
         'security_certificate_id' => 'getSecurityCertificateId'
@@ -580,12 +562,9 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('data8_label', $data ?? [], null);
         $this->setIfExists('data9', $data ?? [], null);
         $this->setIfExists('data9_label', $data ?? [], null);
-        $this->setIfExists('account_holder_id', $data ?? [], null);
         $this->setIfExists('individual_id', $data ?? [], null);
         $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('receiver_business_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('payment_token_id', $data ?? [], null);
         $this->setIfExists('wallet_account_id', $data ?? [], null);
         $this->setIfExists('security_certificate_id', $data ?? [], null);
@@ -1939,40 +1918,6 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets account_holder_id
-     *
-     * @return string|null
-     */
-    public function getAccountHolderId()
-    {
-        return $this->container['account_holder_id'];
-    }
-
-    /**
-     * Sets account_holder_id
-     *
-     * @param string|null $account_holder_id account_holder_id
-     *
-     * @return self
-     */
-    public function setAccountHolderId($account_holder_id)
-    {
-        if (is_null($account_holder_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_holder_id'] = $account_holder_id;
-
-        return $this;
-    }
-
-    /**
      * Gets individual_id
      *
      * @return string|null
@@ -2070,74 +2015,6 @@ class SupportEntitlementCreateDto implements ModelInterface, ArrayAccess, \JsonS
             }
         }
         $this->container['receiver_business_id'] = $receiver_business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

@@ -58,6 +58,8 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'timestamp' => '\DateTime',
         'asset_id' => 'string',
         'is_root_transfer' => 'bool',
         'serial_list' => 'string',
@@ -80,6 +82,8 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
+        'timestamp' => 'date-time',
         'asset_id' => null,
         'is_root_transfer' => null,
         'serial_list' => null,
@@ -100,6 +104,8 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'timestamp' => false,
         'asset_id' => true,
         'is_root_transfer' => false,
         'serial_list' => true,
@@ -200,6 +206,8 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'timestamp' => 'timestamp',
         'asset_id' => 'assetId',
         'is_root_transfer' => 'isRootTransfer',
         'serial_list' => 'serialList',
@@ -220,6 +228,8 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'asset_id' => 'setAssetId',
         'is_root_transfer' => 'setIsRootTransfer',
         'serial_list' => 'setSerialList',
@@ -240,6 +250,8 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'asset_id' => 'getAssetId',
         'is_root_transfer' => 'getIsRootTransfer',
         'serial_list' => 'getSerialList',
@@ -311,6 +323,8 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('asset_id', $data ?? [], null);
         $this->setIfExists('is_root_transfer', $data ?? [], null);
         $this->setIfExists('serial_list', $data ?? [], null);
@@ -366,6 +380,60 @@ class AssetTransferCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
 
     /**
      * Gets asset_id

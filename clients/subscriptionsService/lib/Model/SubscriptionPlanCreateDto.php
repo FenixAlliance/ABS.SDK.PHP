@@ -90,7 +90,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'pattern' => 'string',
         'features' => 'string',
         'material' => 'string',
-        'tenant_id' => 'string',
         'permalink' => 'string',
         'brand_name' => 'string',
         'variations' => 'string',
@@ -265,7 +264,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'pattern' => null,
         'features' => null,
         'material' => null,
-        'tenant_id' => null,
         'permalink' => null,
         'brand_name' => null,
         'variations' => null,
@@ -438,7 +436,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'pattern' => true,
         'features' => true,
         'material' => true,
-        'tenant_id' => true,
         'permalink' => true,
         'brand_name' => true,
         'variations' => true,
@@ -691,7 +688,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'pattern' => 'pattern',
         'features' => 'features',
         'material' => 'material',
-        'tenant_id' => 'tenantId',
         'permalink' => 'permalink',
         'brand_name' => 'brandName',
         'variations' => 'variations',
@@ -864,7 +860,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'pattern' => 'setPattern',
         'features' => 'setFeatures',
         'material' => 'setMaterial',
-        'tenant_id' => 'setTenantId',
         'permalink' => 'setPermalink',
         'brand_name' => 'setBrandName',
         'variations' => 'setVariations',
@@ -1037,7 +1032,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         'pattern' => 'getPattern',
         'features' => 'getFeatures',
         'material' => 'getMaterial',
-        'tenant_id' => 'getTenantId',
         'permalink' => 'getPermalink',
         'brand_name' => 'getBrandName',
         'variations' => 'getVariations',
@@ -1261,7 +1255,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('pattern', $data ?? [], null);
         $this->setIfExists('features', $data ?? [], null);
         $this->setIfExists('material', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('permalink', $data ?? [], null);
         $this->setIfExists('brand_name', $data ?? [], null);
         $this->setIfExists('variations', $data ?? [], null);
@@ -2508,40 +2501,6 @@ class SubscriptionPlanCreateDto implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['material'] = $material;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }

@@ -80,9 +80,7 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'country_state_id' => 'string',
         'custom_state' => 'string',
         'custom_city' => 'string',
-        'city_id' => 'string',
-        'business_id' => 'string',
-        'business_profile_record_id' => 'string'
+        'city_id' => 'string'
     ];
 
     /**
@@ -115,9 +113,7 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'country_state_id' => null,
         'custom_state' => null,
         'custom_city' => null,
-        'city_id' => null,
-        'business_id' => null,
-        'business_profile_record_id' => null
+        'city_id' => null
     ];
 
     /**
@@ -148,9 +144,7 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'country_state_id' => true,
         'custom_state' => true,
         'custom_city' => true,
-        'city_id' => true,
-        'business_id' => true,
-        'business_profile_record_id' => true
+        'city_id' => true
     ];
 
     /**
@@ -261,9 +255,7 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'country_state_id' => 'countryStateID',
         'custom_state' => 'customState',
         'custom_city' => 'customCity',
-        'city_id' => 'cityID',
-        'business_id' => 'businessID',
-        'business_profile_record_id' => 'businessProfileRecordID'
+        'city_id' => 'cityID'
     ];
 
     /**
@@ -294,9 +286,7 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'country_state_id' => 'setCountryStateId',
         'custom_state' => 'setCustomState',
         'custom_city' => 'setCustomCity',
-        'city_id' => 'setCityId',
-        'business_id' => 'setBusinessId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId'
+        'city_id' => 'setCityId'
     ];
 
     /**
@@ -327,9 +317,7 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'country_state_id' => 'getCountryStateId',
         'custom_state' => 'getCustomState',
         'custom_city' => 'getCustomCity',
-        'city_id' => 'getCityId',
-        'business_id' => 'getBusinessId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId'
+        'city_id' => 'getCityId'
     ];
 
     /**
@@ -412,8 +400,6 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('custom_state', $data ?? [], null);
         $this->setIfExists('custom_city', $data ?? [], null);
         $this->setIfExists('city_id', $data ?? [], null);
-        $this->setIfExists('business_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
     }
 
     /**
@@ -1138,74 +1124,6 @@ class PricingRuleCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['city_id'] = $city_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_id
-     *
-     * @return string|null
-     */
-    public function getBusinessId()
-    {
-        return $this->container['business_id'];
-    }
-
-    /**
-     * Sets business_id
-     *
-     * @param string|null $business_id business_id
-     *
-     * @return self
-     */
-    public function setBusinessId($business_id)
-    {
-        if (is_null($business_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_id'] = $business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

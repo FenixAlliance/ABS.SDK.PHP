@@ -68,8 +68,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
         'valid_from' => '\DateTime',
         'valid_to' => '\DateTime',
         'fiscal_authority_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
         'document_type' => 'string'
     ];
 
@@ -91,8 +89,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
         'valid_from' => 'date-time',
         'valid_to' => 'date-time',
         'fiscal_authority_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
         'document_type' => null
     ];
 
@@ -112,8 +108,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
         'valid_from' => false,
         'valid_to' => false,
         'fiscal_authority_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true,
         'document_type' => false
     ];
 
@@ -213,8 +207,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
         'valid_from' => 'validFrom',
         'valid_to' => 'validTo',
         'fiscal_authority_id' => 'fiscalAuthorityId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
         'document_type' => 'documentType'
     ];
 
@@ -234,8 +226,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
         'valid_from' => 'setValidFrom',
         'valid_to' => 'setValidTo',
         'fiscal_authority_id' => 'setFiscalAuthorityId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
         'document_type' => 'setDocumentType'
     ];
 
@@ -255,8 +245,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
         'valid_from' => 'getValidFrom',
         'valid_to' => 'getValidTo',
         'fiscal_authority_id' => 'getFiscalAuthorityId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
         'document_type' => 'getDocumentType'
     ];
 
@@ -344,8 +332,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
         $this->setIfExists('valid_from', $data ?? [], null);
         $this->setIfExists('valid_to', $data ?? [], null);
         $this->setIfExists('fiscal_authority_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('document_type', $data ?? [], null);
     }
 
@@ -701,74 +687,6 @@ class InvoiceEnumerationRangeUpdateDto implements ModelInterface, ArrayAccess, \
             }
         }
         $this->container['fiscal_authority_id'] = $fiscal_authority_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }
