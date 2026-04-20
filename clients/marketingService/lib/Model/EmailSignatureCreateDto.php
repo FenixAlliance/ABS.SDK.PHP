@@ -61,10 +61,10 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'string',
         'timestamp' => '\DateTime',
         'title' => 'string',
-        'code' => 'string',
         'published' => 'bool',
         'description' => 'string',
-        'html_content' => 'string',
+        'code' => 'string',
+        'markup' => 'string',
         'featured_image_url' => 'string',
         'code_type' => 'string'
     ];
@@ -80,10 +80,10 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'title' => null,
-        'code' => null,
         'published' => null,
         'description' => null,
-        'html_content' => null,
+        'code' => null,
+        'markup' => null,
         'featured_image_url' => null,
         'code_type' => null
     ];
@@ -96,11 +96,11 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'title' => true,
-        'code' => true,
+        'title' => false,
         'published' => false,
         'description' => true,
-        'html_content' => true,
+        'code' => true,
+        'markup' => true,
         'featured_image_url' => true,
         'code_type' => true
     ];
@@ -194,10 +194,10 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'id',
         'timestamp' => 'timestamp',
         'title' => 'title',
-        'code' => 'code',
         'published' => 'published',
         'description' => 'description',
-        'html_content' => 'htmlContent',
+        'code' => 'code',
+        'markup' => 'markup',
         'featured_image_url' => 'featuredImageUrl',
         'code_type' => 'codeType'
     ];
@@ -211,10 +211,10 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'title' => 'setTitle',
-        'code' => 'setCode',
         'published' => 'setPublished',
         'description' => 'setDescription',
-        'html_content' => 'setHtmlContent',
+        'code' => 'setCode',
+        'markup' => 'setMarkup',
         'featured_image_url' => 'setFeaturedImageUrl',
         'code_type' => 'setCodeType'
     ];
@@ -228,10 +228,10 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'title' => 'getTitle',
-        'code' => 'getCode',
         'published' => 'getPublished',
         'description' => 'getDescription',
-        'html_content' => 'getHtmlContent',
+        'code' => 'getCode',
+        'markup' => 'getMarkup',
         'featured_image_url' => 'getFeaturedImageUrl',
         'code_type' => 'getCodeType'
     ];
@@ -283,6 +283,7 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     public const CODE_TYPE_LIQUID = 'Liquid';
     public const CODE_TYPE_HTML5 = 'Html5';
     public const CODE_TYPE_MARKDOWN = 'Markdown';
+    public const CODE_TYPE_MARKUP = 'Markup';
 
     /**
      * Gets allowable values of the enum
@@ -298,6 +299,7 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
             self::CODE_TYPE_LIQUID,
             self::CODE_TYPE_HTML5,
             self::CODE_TYPE_MARKDOWN,
+            self::CODE_TYPE_MARKUP,
         ];
     }
 
@@ -319,10 +321,10 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('published', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('html_content', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('markup', $data ?? [], null);
         $this->setIfExists('featured_image_url', $data ?? [], null);
         $this->setIfExists('code_type', $data ?? [], null);
     }
@@ -353,6 +355,17 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ((mb_strlen($this->container['title']) > 100)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 100.";
+        }
+
+        if ((mb_strlen($this->container['title']) < 3)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 3.";
+        }
 
         $allowedValues = $this->getCodeTypeAllowableValues();
         if (!is_null($this->container['code_type']) && !in_array($this->container['code_type'], $allowedValues, true)) {
@@ -435,7 +448,7 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -445,57 +458,23 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string $title title
      *
      * @return self
      */
     public function setTitle($title)
     {
         if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
+        if ((mb_strlen($title) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling EmailSignatureCreateDto., must be smaller than or equal to 100.');
+        }
+        if ((mb_strlen($title) < 3)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling EmailSignatureCreateDto., must be bigger than or equal to 3.');
+        }
+
         $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return string|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param string|null $code code
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            array_push($this->openAPINullablesSetToNull, 'code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['code'] = $code;
 
         return $this;
     }
@@ -562,35 +541,69 @@ class EmailSignatureCreateDto implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets html_content
+     * Gets code
      *
      * @return string|null
      */
-    public function getHtmlContent()
+    public function getCode()
     {
-        return $this->container['html_content'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets html_content
+     * Sets code
      *
-     * @param string|null $html_content html_content
+     * @param string|null $code code
      *
      * @return self
      */
-    public function setHtmlContent($html_content)
+    public function setCode($code)
     {
-        if (is_null($html_content)) {
-            array_push($this->openAPINullablesSetToNull, 'html_content');
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('html_content', $nullablesSetToNull);
+            $index = array_search('code', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['html_content'] = $html_content;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets markup
+     *
+     * @return string|null
+     */
+    public function getMarkup()
+    {
+        return $this->container['markup'];
+    }
+
+    /**
+     * Sets markup
+     *
+     * @param string|null $markup markup
+     *
+     * @return self
+     */
+    public function setMarkup($markup)
+    {
+        if (is_null($markup)) {
+            array_push($this->openAPINullablesSetToNull, 'markup');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('markup', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['markup'] = $markup;
 
         return $this;
     }

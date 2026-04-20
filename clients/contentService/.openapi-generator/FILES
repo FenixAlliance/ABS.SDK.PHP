@@ -332,4 +332,3 @@ lib/Model/WebTemplateDtoListEnvelope.php
 lib/Model/WebTemplateUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/WebPortalDtoListEnvelopeTest.php

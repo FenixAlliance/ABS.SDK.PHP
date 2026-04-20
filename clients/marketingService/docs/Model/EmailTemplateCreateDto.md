@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**title** | **string** |  | [optional]
-**code** | **string** |  | [optional]
+**title** | **string** |  |
 **published** | **bool** |  | [optional]
 **description** | **string** |  | [optional]
-**html_content** | **string** |  | [optional]
+**code** | **string** |  | [optional]
+**markup** | **string** |  | [optional]
 **featured_image_url** | **string** |  | [optional]
 **code_type** | **string** |  | [optional]
 **marketing_campaign_id** | **string** |  | [optional]

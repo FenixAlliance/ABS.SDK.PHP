@@ -583,6 +583,7 @@ class EmailSignatureDto implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const CODE_TYPE_LIQUID = 'Liquid';
     public const CODE_TYPE_HTML5 = 'Html5';
     public const CODE_TYPE_MARKDOWN = 'Markdown';
+    public const CODE_TYPE_MARKUP = 'Markup';
 
     /**
      * Gets allowable values of the enum
@@ -598,6 +599,7 @@ class EmailSignatureDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::CODE_TYPE_LIQUID,
             self::CODE_TYPE_HTML5,
             self::CODE_TYPE_MARKDOWN,
+            self::CODE_TYPE_MARKUP,
         ];
     }
 

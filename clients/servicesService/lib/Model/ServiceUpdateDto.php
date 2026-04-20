@@ -1472,48 +1472,48 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['estimated_witholding_taxes_in_usd']) && ($this->container['estimated_witholding_taxes_in_usd'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'estimated_witholding_taxes_in_usd', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['estimated_witholding_taxes_in_usd']) && ($this->container['estimated_witholding_taxes_in_usd'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'estimated_witholding_taxes_in_usd', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['estimated_witholding_taxes_in_usd']) && ($this->container['estimated_witholding_taxes_in_usd'] < 0)) {
             $invalidProperties[] = "invalid value for 'estimated_witholding_taxes_in_usd', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['estimated_payment_cost_in_usd']) && ($this->container['estimated_payment_cost_in_usd'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'estimated_payment_cost_in_usd', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['estimated_payment_cost_in_usd']) && ($this->container['estimated_payment_cost_in_usd'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'estimated_payment_cost_in_usd', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['estimated_payment_cost_in_usd']) && ($this->container['estimated_payment_cost_in_usd'] < 0)) {
             $invalidProperties[] = "invalid value for 'estimated_payment_cost_in_usd', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['estimated_payment_tax_in_usd']) && ($this->container['estimated_payment_tax_in_usd'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'estimated_payment_tax_in_usd', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['estimated_payment_tax_in_usd']) && ($this->container['estimated_payment_tax_in_usd'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'estimated_payment_tax_in_usd', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['estimated_payment_tax_in_usd']) && ($this->container['estimated_payment_tax_in_usd'] < 0)) {
             $invalidProperties[] = "invalid value for 'estimated_payment_tax_in_usd', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['estimated_default_shipping_cost_in_usd']) && ($this->container['estimated_default_shipping_cost_in_usd'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'estimated_default_shipping_cost_in_usd', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['estimated_default_shipping_cost_in_usd']) && ($this->container['estimated_default_shipping_cost_in_usd'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'estimated_default_shipping_cost_in_usd', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['estimated_default_shipping_cost_in_usd']) && ($this->container['estimated_default_shipping_cost_in_usd'] < 0)) {
             $invalidProperties[] = "invalid value for 'estimated_default_shipping_cost_in_usd', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['estimated_default_shipping_tax_in_usd']) && ($this->container['estimated_default_shipping_tax_in_usd'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'estimated_default_shipping_tax_in_usd', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['estimated_default_shipping_tax_in_usd']) && ($this->container['estimated_default_shipping_tax_in_usd'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'estimated_default_shipping_tax_in_usd', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['estimated_default_shipping_tax_in_usd']) && ($this->container['estimated_default_shipping_tax_in_usd'] < 0)) {
             $invalidProperties[] = "invalid value for 'estimated_default_shipping_tax_in_usd', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['estimated_total_price_in_usd']) && ($this->container['estimated_total_price_in_usd'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'estimated_total_price_in_usd', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['estimated_total_price_in_usd']) && ($this->container['estimated_total_price_in_usd'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'estimated_total_price_in_usd', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['estimated_total_price_in_usd']) && ($this->container['estimated_total_price_in_usd'] < 0)) {
@@ -5896,8 +5896,8 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable estimated_witholding_taxes_in_usd cannot be null');
         }
 
-        if (($estimated_witholding_taxes_in_usd > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $estimated_witholding_taxes_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($estimated_witholding_taxes_in_usd > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $estimated_witholding_taxes_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 999999999999999.');
         }
         if (($estimated_witholding_taxes_in_usd < 0)) {
             throw new \InvalidArgumentException('invalid value for $estimated_witholding_taxes_in_usd when calling ServiceUpdateDto., must be bigger than or equal to 0.');
@@ -5931,8 +5931,8 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable estimated_payment_cost_in_usd cannot be null');
         }
 
-        if (($estimated_payment_cost_in_usd > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $estimated_payment_cost_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($estimated_payment_cost_in_usd > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $estimated_payment_cost_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 999999999999999.');
         }
         if (($estimated_payment_cost_in_usd < 0)) {
             throw new \InvalidArgumentException('invalid value for $estimated_payment_cost_in_usd when calling ServiceUpdateDto., must be bigger than or equal to 0.');
@@ -5966,8 +5966,8 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable estimated_payment_tax_in_usd cannot be null');
         }
 
-        if (($estimated_payment_tax_in_usd > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $estimated_payment_tax_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($estimated_payment_tax_in_usd > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $estimated_payment_tax_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 999999999999999.');
         }
         if (($estimated_payment_tax_in_usd < 0)) {
             throw new \InvalidArgumentException('invalid value for $estimated_payment_tax_in_usd when calling ServiceUpdateDto., must be bigger than or equal to 0.');
@@ -6001,8 +6001,8 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable estimated_default_shipping_cost_in_usd cannot be null');
         }
 
-        if (($estimated_default_shipping_cost_in_usd > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $estimated_default_shipping_cost_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($estimated_default_shipping_cost_in_usd > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $estimated_default_shipping_cost_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 999999999999999.');
         }
         if (($estimated_default_shipping_cost_in_usd < 0)) {
             throw new \InvalidArgumentException('invalid value for $estimated_default_shipping_cost_in_usd when calling ServiceUpdateDto., must be bigger than or equal to 0.');
@@ -6036,8 +6036,8 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable estimated_default_shipping_tax_in_usd cannot be null');
         }
 
-        if (($estimated_default_shipping_tax_in_usd > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $estimated_default_shipping_tax_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($estimated_default_shipping_tax_in_usd > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $estimated_default_shipping_tax_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 999999999999999.');
         }
         if (($estimated_default_shipping_tax_in_usd < 0)) {
             throw new \InvalidArgumentException('invalid value for $estimated_default_shipping_tax_in_usd when calling ServiceUpdateDto., must be bigger than or equal to 0.');
@@ -6071,8 +6071,8 @@ class ServiceUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable estimated_total_price_in_usd cannot be null');
         }
 
-        if (($estimated_total_price_in_usd > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $estimated_total_price_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($estimated_total_price_in_usd > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $estimated_total_price_in_usd when calling ServiceUpdateDto., must be smaller than or equal to 999999999999999.');
         }
         if (($estimated_total_price_in_usd < 0)) {
             throw new \InvalidArgumentException('invalid value for $estimated_total_price_in_usd when calling ServiceUpdateDto., must be bigger than or equal to 0.');

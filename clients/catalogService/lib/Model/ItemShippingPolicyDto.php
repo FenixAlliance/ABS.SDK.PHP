@@ -556,8 +556,8 @@ class ItemShippingPolicyDto implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = "invalid value for 'years', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['value']) && ($this->container['value'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'value', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['value']) && ($this->container['value'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'value', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['value']) && ($this->container['value'] < 0)) {
@@ -1262,8 +1262,8 @@ class ItemShippingPolicyDto implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
 
-        if (($value > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $value when calling ItemShippingPolicyDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($value > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $value when calling ItemShippingPolicyDto., must be smaller than or equal to 999999999999999.');
         }
         if (($value < 0)) {
             throw new \InvalidArgumentException('invalid value for $value when calling ItemShippingPolicyDto., must be bigger than or equal to 0.');

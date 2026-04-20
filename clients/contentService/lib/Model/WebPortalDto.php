@@ -66,9 +66,9 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'bool',
         'tenant_id' => 'string',
         'description' => 'string',
+        'enrollment_id' => 'string',
         'website_theme_id' => 'string',
         'business_domain_id' => 'string',
-        'business_profile_record_id' => 'string',
         'business_portal_application_id' => 'string'
     ];
 
@@ -88,9 +88,9 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => null,
         'tenant_id' => null,
         'description' => null,
+        'enrollment_id' => null,
         'website_theme_id' => null,
         'business_domain_id' => null,
-        'business_profile_record_id' => null,
         'business_portal_application_id' => null
     ];
 
@@ -108,9 +108,9 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => false,
         'tenant_id' => true,
         'description' => true,
+        'enrollment_id' => true,
         'website_theme_id' => true,
         'business_domain_id' => true,
-        'business_profile_record_id' => true,
         'business_portal_application_id' => true
     ];
 
@@ -208,10 +208,10 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'disabled',
         'tenant_id' => 'tenantId',
         'description' => 'description',
-        'website_theme_id' => 'websiteThemeID',
-        'business_domain_id' => 'businessDomainID',
-        'business_profile_record_id' => 'businessProfileRecordID',
-        'business_portal_application_id' => 'businessPortalApplicationID'
+        'enrollment_id' => 'enrollmentId',
+        'website_theme_id' => 'websiteThemeId',
+        'business_domain_id' => 'businessDomainId',
+        'business_portal_application_id' => 'businessPortalApplicationId'
     ];
 
     /**
@@ -228,9 +228,9 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'setDisabled',
         'tenant_id' => 'setTenantId',
         'description' => 'setDescription',
+        'enrollment_id' => 'setEnrollmentId',
         'website_theme_id' => 'setWebsiteThemeId',
         'business_domain_id' => 'setBusinessDomainId',
-        'business_profile_record_id' => 'setBusinessProfileRecordId',
         'business_portal_application_id' => 'setBusinessPortalApplicationId'
     ];
 
@@ -248,9 +248,9 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'disabled' => 'getDisabled',
         'tenant_id' => 'getTenantId',
         'description' => 'getDescription',
+        'enrollment_id' => 'getEnrollmentId',
         'website_theme_id' => 'getWebsiteThemeId',
         'business_domain_id' => 'getBusinessDomainId',
-        'business_profile_record_id' => 'getBusinessProfileRecordId',
         'business_portal_application_id' => 'getBusinessPortalApplicationId'
     ];
 
@@ -319,9 +319,9 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('disabled', $data ?? [], null);
         $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('website_theme_id', $data ?? [], null);
         $this->setIfExists('business_domain_id', $data ?? [], null);
-        $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('business_portal_application_id', $data ?? [], null);
     }
 
@@ -626,6 +626,40 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets enrollment_id
+     *
+     * @return string|null
+     */
+    public function getEnrollmentId()
+    {
+        return $this->container['enrollment_id'];
+    }
+
+    /**
+     * Sets enrollment_id
+     *
+     * @param string|null $enrollment_id enrollment_id
+     *
+     * @return self
+     */
+    public function setEnrollmentId($enrollment_id)
+    {
+        if (is_null($enrollment_id)) {
+            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enrollment_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enrollment_id'] = $enrollment_id;
+
+        return $this;
+    }
+
+    /**
      * Gets website_theme_id
      *
      * @return string|null
@@ -689,40 +723,6 @@ class WebPortalDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['business_domain_id'] = $business_domain_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets business_profile_record_id
-     *
-     * @return string|null
-     */
-    public function getBusinessProfileRecordId()
-    {
-        return $this->container['business_profile_record_id'];
-    }
-
-    /**
-     * Sets business_profile_record_id
-     *
-     * @param string|null $business_profile_record_id business_profile_record_id
-     *
-     * @return self
-     */
-    public function setBusinessProfileRecordId($business_profile_record_id)
-    {
-        if (is_null($business_profile_record_id)) {
-            array_push($this->openAPINullablesSetToNull, 'business_profile_record_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('business_profile_record_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['business_profile_record_id'] = $business_profile_record_id;
 
         return $this;
     }

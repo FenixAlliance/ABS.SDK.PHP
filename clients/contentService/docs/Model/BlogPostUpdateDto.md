@@ -58,5 +58,7 @@ Name | Type | Description | Notes
 **cornerstone_content** | **bool** |  | [optional]
 **is_essential_content** | **bool** |  | [optional]
 **allow_search_engine_indexing** | **bool** |  | [optional]
+**blog_post_category_id** | **string** |  | [optional]
+**web_template_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

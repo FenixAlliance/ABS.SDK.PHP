@@ -94,7 +94,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://localhost';
+    protected $host = 'https://absuite.net';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -473,8 +473,20 @@ class Configuration
     {
         return [
             [
-                "url" => "",
-                "description" => "No description provided",
+                "url" => "{server}",
+                "description" => "Alliance Business Suite API",
+                "variables" => [
+                    "server" => [
+                        "description" => "ABS instance base URL",
+                        "default_value" => "https://absuite.net",
+                        "enum_values" => [
+                            "https://absuite.net",
+                            "https://test.absuite.net",
+                            "https://dev.absuite.net",
+                            "https://localhost:44388"
+                        ]
+                    ]
+                ]
             ]
         ];
     }

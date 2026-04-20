@@ -111,7 +111,9 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'allow_trackbacks' => 'bool',
         'cornerstone_content' => 'bool',
         'is_essential_content' => 'bool',
-        'allow_search_engine_indexing' => 'bool'
+        'allow_search_engine_indexing' => 'bool',
+        'blog_post_category_id' => 'string',
+        'web_template_id' => 'string'
     ];
 
     /**
@@ -175,7 +177,9 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'allow_trackbacks' => null,
         'cornerstone_content' => null,
         'is_essential_content' => null,
-        'allow_search_engine_indexing' => null
+        'allow_search_engine_indexing' => null,
+        'blog_post_category_id' => null,
+        'web_template_id' => null
     ];
 
     /**
@@ -237,7 +241,9 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'allow_trackbacks' => false,
         'cornerstone_content' => false,
         'is_essential_content' => false,
-        'allow_search_engine_indexing' => false
+        'allow_search_engine_indexing' => false,
+        'blog_post_category_id' => true,
+        'web_template_id' => true
     ];
 
     /**
@@ -379,7 +385,9 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'allow_trackbacks' => 'allowTrackbacks',
         'cornerstone_content' => 'cornerstoneContent',
         'is_essential_content' => 'isEssentialContent',
-        'allow_search_engine_indexing' => 'allowSearchEngineIndexing'
+        'allow_search_engine_indexing' => 'allowSearchEngineIndexing',
+        'blog_post_category_id' => 'blogPostCategoryId',
+        'web_template_id' => 'webTemplateId'
     ];
 
     /**
@@ -441,7 +449,9 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'allow_trackbacks' => 'setAllowTrackbacks',
         'cornerstone_content' => 'setCornerstoneContent',
         'is_essential_content' => 'setIsEssentialContent',
-        'allow_search_engine_indexing' => 'setAllowSearchEngineIndexing'
+        'allow_search_engine_indexing' => 'setAllowSearchEngineIndexing',
+        'blog_post_category_id' => 'setBlogPostCategoryId',
+        'web_template_id' => 'setWebTemplateId'
     ];
 
     /**
@@ -503,7 +513,9 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'allow_trackbacks' => 'getAllowTrackbacks',
         'cornerstone_content' => 'getCornerstoneContent',
         'is_essential_content' => 'getIsEssentialContent',
-        'allow_search_engine_indexing' => 'getAllowSearchEngineIndexing'
+        'allow_search_engine_indexing' => 'getAllowSearchEngineIndexing',
+        'blog_post_category_id' => 'getBlogPostCategoryId',
+        'web_template_id' => 'getWebTemplateId'
     ];
 
     /**
@@ -553,6 +565,7 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const CODE_TYPE_LIQUID = 'Liquid';
     public const CODE_TYPE_HTML5 = 'Html5';
     public const CODE_TYPE_MARKDOWN = 'Markdown';
+    public const CODE_TYPE_MARKUP = 'Markup';
 
     /**
      * Gets allowable values of the enum
@@ -568,6 +581,7 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::CODE_TYPE_LIQUID,
             self::CODE_TYPE_HTML5,
             self::CODE_TYPE_MARKDOWN,
+            self::CODE_TYPE_MARKUP,
         ];
     }
 
@@ -640,6 +654,8 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('cornerstone_content', $data ?? [], null);
         $this->setIfExists('is_essential_content', $data ?? [], null);
         $this->setIfExists('allow_search_engine_indexing', $data ?? [], null);
+        $this->setIfExists('blog_post_category_id', $data ?? [], null);
+        $this->setIfExists('web_template_id', $data ?? [], null);
     }
 
     /**
@@ -2402,6 +2418,74 @@ class BlogPostUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable allow_search_engine_indexing cannot be null');
         }
         $this->container['allow_search_engine_indexing'] = $allow_search_engine_indexing;
+
+        return $this;
+    }
+
+    /**
+     * Gets blog_post_category_id
+     *
+     * @return string|null
+     */
+    public function getBlogPostCategoryId()
+    {
+        return $this->container['blog_post_category_id'];
+    }
+
+    /**
+     * Sets blog_post_category_id
+     *
+     * @param string|null $blog_post_category_id blog_post_category_id
+     *
+     * @return self
+     */
+    public function setBlogPostCategoryId($blog_post_category_id)
+    {
+        if (is_null($blog_post_category_id)) {
+            array_push($this->openAPINullablesSetToNull, 'blog_post_category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('blog_post_category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['blog_post_category_id'] = $blog_post_category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets web_template_id
+     *
+     * @return string|null
+     */
+    public function getWebTemplateId()
+    {
+        return $this->container['web_template_id'];
+    }
+
+    /**
+     * Sets web_template_id
+     *
+     * @param string|null $web_template_id web_template_id
+     *
+     * @return self
+     */
+    public function setWebTemplateId($web_template_id)
+    {
+        if (is_null($web_template_id)) {
+            array_push($this->openAPINullablesSetToNull, 'web_template_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('web_template_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['web_template_id'] = $web_template_id;
 
         return $this;
     }

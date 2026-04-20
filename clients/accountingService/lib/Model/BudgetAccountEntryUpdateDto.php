@@ -356,8 +356,8 @@ class BudgetAccountEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonS
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['amount']) && ($this->container['amount'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'amount', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['amount']) && ($this->container['amount'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'amount', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['amount']) && ($this->container['amount'] < 0.01)) {
@@ -476,8 +476,8 @@ class BudgetAccountEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
 
-        if (($amount > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $amount when calling BudgetAccountEntryUpdateDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (($amount > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $amount when calling BudgetAccountEntryUpdateDto., must be smaller than or equal to 999999999999999.');
         }
         if (($amount < 0.01)) {
             throw new \InvalidArgumentException('invalid value for $amount when calling BudgetAccountEntryUpdateDto., must be bigger than or equal to 0.01.');

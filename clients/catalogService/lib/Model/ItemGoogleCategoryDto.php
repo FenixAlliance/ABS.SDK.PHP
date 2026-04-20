@@ -391,8 +391,8 @@ class ItemGoogleCategoryDto implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['starting_at_amount_in_usd']) && ($this->container['starting_at_amount_in_usd'] > 1.7976931348623157E+308)) {
-            $invalidProperties[] = "invalid value for 'starting_at_amount_in_usd', must be smaller than or equal to 1.7976931348623157E+308.";
+        if (!is_null($this->container['starting_at_amount_in_usd']) && ($this->container['starting_at_amount_in_usd'] > 999999999999999)) {
+            $invalidProperties[] = "invalid value for 'starting_at_amount_in_usd', must be smaller than or equal to 999999999999999.";
         }
 
         if (!is_null($this->container['starting_at_amount_in_usd']) && ($this->container['starting_at_amount_in_usd'] < 0)) {
@@ -890,8 +890,8 @@ class ItemGoogleCategoryDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
 
-        if (!is_null($starting_at_amount_in_usd) && ($starting_at_amount_in_usd > 1.7976931348623157E+308)) {
-            throw new \InvalidArgumentException('invalid value for $starting_at_amount_in_usd when calling ItemGoogleCategoryDto., must be smaller than or equal to 1.7976931348623157E+308.');
+        if (!is_null($starting_at_amount_in_usd) && ($starting_at_amount_in_usd > 999999999999999)) {
+            throw new \InvalidArgumentException('invalid value for $starting_at_amount_in_usd when calling ItemGoogleCategoryDto., must be smaller than or equal to 999999999999999.');
         }
         if (!is_null($starting_at_amount_in_usd) && ($starting_at_amount_in_usd < 0)) {
             throw new \InvalidArgumentException('invalid value for $starting_at_amount_in_usd when calling ItemGoogleCategoryDto., must be bigger than or equal to 0.');

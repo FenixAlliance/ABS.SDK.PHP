@@ -406,8 +406,8 @@ class BlogPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'social_profile_id' => 'socialProfileId',
         'parent_web_content_id' => 'parentWebContentId',
         'parent_web_content_version_id' => 'parentWebContentVersionId',
-        'blog_post_category_id' => 'blogPostCategoryID',
-        'web_template_id' => 'webTemplateID'
+        'blog_post_category_id' => 'blogPostCategoryId',
+        'web_template_id' => 'webTemplateId'
     ];
 
     /**
@@ -595,6 +595,7 @@ class BlogPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CODE_TYPE_LIQUID = 'Liquid';
     public const CODE_TYPE_HTML5 = 'Html5';
     public const CODE_TYPE_MARKDOWN = 'Markdown';
+    public const CODE_TYPE_MARKUP = 'Markup';
 
     /**
      * Gets allowable values of the enum
@@ -610,6 +611,7 @@ class BlogPostDto implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CODE_TYPE_LIQUID,
             self::CODE_TYPE_HTML5,
             self::CODE_TYPE_MARKDOWN,
+            self::CODE_TYPE_MARKUP,
         ];
     }
 
