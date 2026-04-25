@@ -5,7 +5,7 @@ README.md
 composer.json
 docs/Api/ApplicationsApi.md
 docs/Api/CheckerApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/OAuthApi.md
 docs/Api/ResourceApi.md
 docs/Api/UserInfoApi.md
@@ -41,7 +41,7 @@ docs/Model/UserCreateDtoEnvelope.md
 git_push.sh
 lib/Api/ApplicationsApi.php
 lib/Api/CheckerApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/OAuthApi.php
 lib/Api/ResourceApi.php
 lib/Api/UserInfoApi.php

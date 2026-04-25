@@ -5,7 +5,7 @@ README.md
 composer.json
 docs/Api/ExchangeApi.md
 docs/Api/ExchangeVApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/RatesApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/CurrencyId.md
@@ -30,7 +30,7 @@ docs/Model/TwoFactorResponse.md
 git_push.sh
 lib/Api/ExchangeApi.php
 lib/Api/ExchangeVApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/RatesApi.php
 lib/ApiException.php
 lib/Configuration.php

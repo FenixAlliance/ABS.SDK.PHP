@@ -5,7 +5,7 @@ README.md
 composer.json
 docs/Api/CartsApi.md
 docs/Api/CompareApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/RecordsApi.md
 docs/Api/WishListsApi.md
 docs/Model/AccessTokenResponse.md
@@ -53,7 +53,7 @@ docs/Model/WishListUpdateDto.md
 git_push.sh
 lib/Api/CartsApi.php
 lib/Api/CompareApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/RecordsApi.php
 lib/Api/WishListsApi.php
 lib/ApiException.php
@@ -104,3 +104,4 @@ lib/Model/WishListItemRecordDto.php
 lib/Model/WishListUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

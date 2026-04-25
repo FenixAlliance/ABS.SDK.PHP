@@ -11,7 +11,7 @@ docs/Api/BillingProfilesApi.md
 docs/Api/BudgetsApi.md
 docs/Api/CommissionsApi.md
 docs/Api/CostCentresApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/FinancialBooksApi.md
 docs/Api/FiscalAuthoritiesApi.md
 docs/Api/FiscalAuthorityYearsApi.md
@@ -287,7 +287,7 @@ lib/Api/BillingProfilesApi.php
 lib/Api/BudgetsApi.php
 lib/Api/CommissionsApi.php
 lib/Api/CostCentresApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/FinancialBooksApi.php
 lib/Api/FiscalAuthoritiesApi.php
 lib/Api/FiscalAuthorityYearsApi.php
@@ -560,3 +560,4 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UpdateLedgerDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

@@ -5,7 +5,7 @@ README.md
 composer.json
 docs/Api/EmployeesApi.md
 docs/Api/EmployersApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/GigsApi.md
 docs/Api/JobOffersApi.md
 docs/Model/AccessTokenResponse.md
@@ -43,7 +43,7 @@ docs/Model/TwoFactorResponse.md
 git_push.sh
 lib/Api/EmployeesApi.php
 lib/Api/EmployersApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/GigsApi.php
 lib/Api/JobOffersApi.php
 lib/ApiException.php

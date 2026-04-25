@@ -4,7 +4,7 @@
 README.md
 composer.json
 docs/Api/DiscountListsApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/PriceListsApi.md
 docs/Api/PricesApi.md
 docs/Model/AccessTokenResponse.md
@@ -49,7 +49,7 @@ docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
 lib/Api/DiscountListsApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/PriceListsApi.php
 lib/Api/PricesApi.php
 lib/ApiException.php
@@ -98,3 +98,4 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

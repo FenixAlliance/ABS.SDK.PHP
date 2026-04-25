@@ -7,7 +7,7 @@ docs/Api/AssetCategoriesApi.md
 docs/Api/AssetTransfersApi.md
 docs/Api/AssetTypesApi.md
 docs/Api/AssetsApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/AssetCategoryCreateDto.md
 docs/Model/AssetCategoryDto.md
@@ -63,7 +63,7 @@ lib/Api/AssetCategoriesApi.php
 lib/Api/AssetTransfersApi.php
 lib/Api/AssetTypesApi.php
 lib/Api/AssetsApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
@@ -120,3 +120,4 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

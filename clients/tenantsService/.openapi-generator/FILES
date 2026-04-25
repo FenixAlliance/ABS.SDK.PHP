@@ -6,7 +6,7 @@ composer.json
 docs/Api/DepartmentsApi.md
 docs/Api/EmployeeEnrollmentsApi.md
 docs/Api/EnrollmentsApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/IndustriesApi.md
 docs/Api/InvitationsApi.md
 docs/Api/OptionsApi.md
@@ -160,7 +160,7 @@ git_push.sh
 lib/Api/DepartmentsApi.php
 lib/Api/EmployeeEnrollmentsApi.php
 lib/Api/EnrollmentsApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/IndustriesApi.php
 lib/Api/InvitationsApi.php
 lib/Api/OptionsApi.php
@@ -316,3 +316,4 @@ lib/Model/WebPortalDto.php
 lib/Model/WebPortalDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

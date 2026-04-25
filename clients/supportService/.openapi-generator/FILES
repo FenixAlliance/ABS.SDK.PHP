@@ -3,7 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/SupportEntitlementsApi.md
 docs/Api/SupportRequestAttachmentsApi.md
 docs/Api/SupportRequestsApi.md
@@ -62,7 +62,7 @@ docs/Model/SupportTicketUpdateDto.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/SupportEntitlementsApi.php
 lib/Api/SupportRequestAttachmentsApi.php
 lib/Api/SupportRequestsApi.php
@@ -126,3 +126,4 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

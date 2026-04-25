@@ -5,7 +5,7 @@ README.md
 composer.json
 docs/Api/AntiforgeryApi.md
 docs/Api/EmailsApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/LicensingApi.md
 docs/Api/MigrationsApi.md
 docs/Api/ModulesApi.md
@@ -74,7 +74,7 @@ docs/Model/WalletDto.md
 git_push.sh
 lib/Api/AntiforgeryApi.php
 lib/Api/EmailsApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/LicensingApi.php
 lib/Api/MigrationsApi.php
 lib/Api/ModulesApi.php
@@ -146,3 +146,4 @@ lib/Model/UserUpdateDto.php
 lib/Model/WalletDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

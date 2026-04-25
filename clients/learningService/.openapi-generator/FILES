@@ -21,7 +21,7 @@ docs/Api/CourseUnitsApi.md
 docs/Api/CourseUpdatesApi.md
 docs/Api/CourseWikisApi.md
 docs/Api/CoursesApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/InstructorProfilesApi.md
 docs/Api/StudentProfilesApi.md
 docs/Model/AccessTokenResponse.md
@@ -120,7 +120,7 @@ lib/Api/CourseUnitsApi.php
 lib/Api/CourseUpdatesApi.php
 lib/Api/CourseWikisApi.php
 lib/Api/CoursesApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/InstructorProfilesApi.php
 lib/Api/StudentProfilesApi.php
 lib/ApiException.php

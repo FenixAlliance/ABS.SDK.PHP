@@ -5,7 +5,7 @@ README.md
 composer.json
 docs/Api/DealUnitFlowsApi.md
 docs/Api/DealUnitsApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/SalesLiteraturesApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/ContactDto.md
@@ -63,7 +63,7 @@ docs/Model/UserDto.md
 git_push.sh
 lib/Api/DealUnitFlowsApi.php
 lib/Api/DealUnitsApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/SalesLiteraturesApi.php
 lib/ApiException.php
 lib/Configuration.php

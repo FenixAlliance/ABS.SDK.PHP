@@ -3,7 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/InvoicesApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/CurrencyId.md
@@ -60,7 +60,7 @@ docs/Model/TenantDto.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/InvoicesApi.php
 lib/ApiException.php
 lib/Configuration.php

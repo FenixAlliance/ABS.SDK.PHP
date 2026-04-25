@@ -4,7 +4,7 @@
 README.md
 composer.json
 docs/Api/ContactsApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/OptionsApi.md
 docs/Api/SyncApi.md
 docs/Model/AccessTokenResponse.md
@@ -50,7 +50,7 @@ docs/Model/WalletDto.md
 docs/Model/WalletDtoEnvelope.md
 git_push.sh
 lib/Api/ContactsApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/OptionsApi.php
 lib/Api/SyncApi.php
 lib/ApiException.php

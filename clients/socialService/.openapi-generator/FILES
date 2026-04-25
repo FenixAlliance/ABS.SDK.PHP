@@ -3,7 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/SocialFeedsApi.md
 docs/Api/SocialGroupsApi.md
 docs/Api/SocialPostsApi.md
@@ -72,7 +72,7 @@ docs/Model/SocialReactionUpdateDto.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/SocialFeedsApi.php
 lib/Api/SocialGroupsApi.php
 lib/Api/SocialPostsApi.php
@@ -146,3 +146,4 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

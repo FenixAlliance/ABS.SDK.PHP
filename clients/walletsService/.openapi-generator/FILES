@@ -3,7 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/WalletsApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/ContactDto.md
@@ -40,7 +40,7 @@ docs/Model/UserDto.md
 docs/Model/WalletDto.md
 docs/Model/WalletDtoEnvelope.md
 git_push.sh
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/WalletsApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -82,3 +82,4 @@ lib/Model/WalletDto.php
 lib/Model/WalletDtoEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

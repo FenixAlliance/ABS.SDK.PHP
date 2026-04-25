@@ -5,7 +5,7 @@ README.md
 composer.json
 docs/Api/CountriesApi.md
 docs/Api/CurrenciesApi.md
-docs/Api/FenixAllianceABPWebApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/LanguagesApi.md
 docs/Api/TimezonesApi.md
 docs/Model/AccessTokenResponse.md
@@ -46,7 +46,7 @@ docs/Model/TwoFactorResponse.md
 git_push.sh
 lib/Api/CountriesApi.php
 lib/Api/CurrenciesApi.php
-lib/Api/FenixAllianceABPWebApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/LanguagesApi.php
 lib/Api/TimezonesApi.php
 lib/ApiException.php

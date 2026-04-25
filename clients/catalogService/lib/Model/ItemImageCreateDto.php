@@ -477,6 +477,10 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'content_type', the character length must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['file_length']) && ($this->container['file_length'] > -9223372036854775616)) {
+            $invalidProperties[] = "invalid value for 'file_length', must be smaller than or equal to -9223372036854775616.";
+        }
+
         if (!is_null($this->container['file_length']) && ($this->container['file_length'] < 0)) {
             $invalidProperties[] = "invalid value for 'file_length', must be bigger than or equal to 0.";
         }
@@ -1053,6 +1057,9 @@ class ItemImageCreateDto implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable file_length cannot be null');
         }
 
+        if (($file_length > -9223372036854775616)) {
+            throw new \InvalidArgumentException('invalid value for $file_length when calling ItemImageCreateDto., must be smaller than or equal to -9223372036854775616.');
+        }
         if (($file_length < 0)) {
             throw new \InvalidArgumentException('invalid value for $file_length when calling ItemImageCreateDto., must be bigger than or equal to 0.');
         }
