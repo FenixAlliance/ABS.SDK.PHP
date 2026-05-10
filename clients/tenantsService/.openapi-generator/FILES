@@ -316,4 +316,3 @@ lib/Model/WebPortalDto.php
 lib/Model/WebPortalDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/FenixAllianceABSWebApiTest.php

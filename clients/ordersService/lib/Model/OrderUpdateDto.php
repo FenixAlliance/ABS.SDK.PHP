@@ -58,6 +58,15 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'closed' => 'bool',
+        'title' => 'string',
+        'user_id' => 'string',
+        'price_list_id' => 'string',
+        'description' => 'string',
+        'individual_id' => 'string',
+        'payment_term_id' => 'string',
+        'organization_id' => 'string',
+        'receiver_tenant_id' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'company_name' => 'string',
@@ -71,6 +80,8 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'billing_location_id' => 'string',
         'shipping_location_id' => 'string',
         'shipping_method_id' => 'string',
+        'forex_rate' => 'float',
+        'currency_id' => 'string',
         'total_detail' => 'float',
         'total_detail_currency_id' => 'string',
         'total_profit' => 'float',
@@ -98,22 +109,11 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'string',
         'tax_calculation_method' => 'string',
         'cart_id' => 'string',
-        'user_id' => 'string',
-        'forex_rate' => 'float',
-        'currency_id' => 'string',
-        'individual_id' => 'string',
-        'organization_id' => 'string',
         'total_amount_in_usd' => 'float',
         'total_taxes_in_usd' => 'float',
-        'receiver_tenant_id' => 'string',
-        'closed' => 'bool',
-        'price_list_id' => 'string',
-        'payment_term_id' => 'string',
         'quote_status' => 'string',
         'effective_to' => '\DateTime',
-        'effective_from' => '\DateTime',
-        'description' => 'string',
-        'title' => 'string'
+        'effective_from' => '\DateTime'
     ];
 
     /**
@@ -124,6 +124,15 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'closed' => null,
+        'title' => null,
+        'user_id' => null,
+        'price_list_id' => null,
+        'description' => null,
+        'individual_id' => null,
+        'payment_term_id' => null,
+        'organization_id' => null,
+        'receiver_tenant_id' => null,
         'first_name' => null,
         'last_name' => null,
         'company_name' => null,
@@ -137,6 +146,8 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'billing_location_id' => null,
         'shipping_location_id' => null,
         'shipping_method_id' => null,
+        'forex_rate' => 'double',
+        'currency_id' => null,
         'total_detail' => 'double',
         'total_detail_currency_id' => null,
         'total_profit' => 'double',
@@ -164,22 +175,11 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => null,
         'tax_calculation_method' => null,
         'cart_id' => null,
-        'user_id' => null,
-        'forex_rate' => 'double',
-        'currency_id' => null,
-        'individual_id' => null,
-        'organization_id' => null,
         'total_amount_in_usd' => 'double',
         'total_taxes_in_usd' => 'double',
-        'receiver_tenant_id' => null,
-        'closed' => null,
-        'price_list_id' => null,
-        'payment_term_id' => null,
         'quote_status' => null,
         'effective_to' => 'date-time',
-        'effective_from' => 'date-time',
-        'description' => null,
-        'title' => null
+        'effective_from' => 'date-time'
     ];
 
     /**
@@ -188,6 +188,15 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'closed' => false,
+        'title' => true,
+        'user_id' => true,
+        'price_list_id' => true,
+        'description' => true,
+        'individual_id' => true,
+        'payment_term_id' => true,
+        'organization_id' => true,
+        'receiver_tenant_id' => true,
         'first_name' => true,
         'last_name' => true,
         'company_name' => true,
@@ -201,6 +210,8 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'billing_location_id' => true,
         'shipping_location_id' => true,
         'shipping_method_id' => true,
+        'forex_rate' => false,
+        'currency_id' => true,
         'total_detail' => false,
         'total_detail_currency_id' => true,
         'total_profit' => false,
@@ -228,22 +239,11 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => false,
         'tax_calculation_method' => false,
         'cart_id' => true,
-        'user_id' => true,
-        'forex_rate' => false,
-        'currency_id' => true,
-        'individual_id' => true,
-        'organization_id' => true,
         'total_amount_in_usd' => false,
         'total_taxes_in_usd' => false,
-        'receiver_tenant_id' => true,
-        'closed' => false,
-        'price_list_id' => true,
-        'payment_term_id' => true,
         'quote_status' => true,
         'effective_to' => true,
-        'effective_from' => true,
-        'description' => true,
-        'title' => true
+        'effective_from' => true
     ];
 
     /**
@@ -332,6 +332,15 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'closed' => 'closed',
+        'title' => 'title',
+        'user_id' => 'userId',
+        'price_list_id' => 'priceListId',
+        'description' => 'description',
+        'individual_id' => 'individualId',
+        'payment_term_id' => 'paymentTermId',
+        'organization_id' => 'organizationId',
+        'receiver_tenant_id' => 'receiverTenantId',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
         'company_name' => 'companyName',
@@ -345,6 +354,8 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'billing_location_id' => 'billingLocationId',
         'shipping_location_id' => 'shippingLocationId',
         'shipping_method_id' => 'shippingMethodId',
+        'forex_rate' => 'forexRate',
+        'currency_id' => 'currencyId',
         'total_detail' => 'totalDetail',
         'total_detail_currency_id' => 'totalDetailCurrencyId',
         'total_profit' => 'totalProfit',
@@ -372,22 +383,11 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'costCalculationMethod',
         'tax_calculation_method' => 'taxCalculationMethod',
         'cart_id' => 'cartId',
-        'user_id' => 'userId',
-        'forex_rate' => 'forexRate',
-        'currency_id' => 'currencyId',
-        'individual_id' => 'individualId',
-        'organization_id' => 'organizationId',
         'total_amount_in_usd' => 'totalAmountInUsd',
         'total_taxes_in_usd' => 'totalTaxesInUsd',
-        'receiver_tenant_id' => 'receiverTenantId',
-        'closed' => 'closed',
-        'price_list_id' => 'priceListId',
-        'payment_term_id' => 'paymentTermId',
         'quote_status' => 'quoteStatus',
         'effective_to' => 'effectiveTo',
-        'effective_from' => 'effectiveFrom',
-        'description' => 'description',
-        'title' => 'title'
+        'effective_from' => 'effectiveFrom'
     ];
 
     /**
@@ -396,6 +396,15 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'closed' => 'setClosed',
+        'title' => 'setTitle',
+        'user_id' => 'setUserId',
+        'price_list_id' => 'setPriceListId',
+        'description' => 'setDescription',
+        'individual_id' => 'setIndividualId',
+        'payment_term_id' => 'setPaymentTermId',
+        'organization_id' => 'setOrganizationId',
+        'receiver_tenant_id' => 'setReceiverTenantId',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'company_name' => 'setCompanyName',
@@ -409,6 +418,8 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'billing_location_id' => 'setBillingLocationId',
         'shipping_location_id' => 'setShippingLocationId',
         'shipping_method_id' => 'setShippingMethodId',
+        'forex_rate' => 'setForexRate',
+        'currency_id' => 'setCurrencyId',
         'total_detail' => 'setTotalDetail',
         'total_detail_currency_id' => 'setTotalDetailCurrencyId',
         'total_profit' => 'setTotalProfit',
@@ -436,22 +447,11 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'setCostCalculationMethod',
         'tax_calculation_method' => 'setTaxCalculationMethod',
         'cart_id' => 'setCartId',
-        'user_id' => 'setUserId',
-        'forex_rate' => 'setForexRate',
-        'currency_id' => 'setCurrencyId',
-        'individual_id' => 'setIndividualId',
-        'organization_id' => 'setOrganizationId',
         'total_amount_in_usd' => 'setTotalAmountInUsd',
         'total_taxes_in_usd' => 'setTotalTaxesInUsd',
-        'receiver_tenant_id' => 'setReceiverTenantId',
-        'closed' => 'setClosed',
-        'price_list_id' => 'setPriceListId',
-        'payment_term_id' => 'setPaymentTermId',
         'quote_status' => 'setQuoteStatus',
         'effective_to' => 'setEffectiveTo',
-        'effective_from' => 'setEffectiveFrom',
-        'description' => 'setDescription',
-        'title' => 'setTitle'
+        'effective_from' => 'setEffectiveFrom'
     ];
 
     /**
@@ -460,6 +460,15 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'closed' => 'getClosed',
+        'title' => 'getTitle',
+        'user_id' => 'getUserId',
+        'price_list_id' => 'getPriceListId',
+        'description' => 'getDescription',
+        'individual_id' => 'getIndividualId',
+        'payment_term_id' => 'getPaymentTermId',
+        'organization_id' => 'getOrganizationId',
+        'receiver_tenant_id' => 'getReceiverTenantId',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'company_name' => 'getCompanyName',
@@ -473,6 +482,8 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'billing_location_id' => 'getBillingLocationId',
         'shipping_location_id' => 'getShippingLocationId',
         'shipping_method_id' => 'getShippingMethodId',
+        'forex_rate' => 'getForexRate',
+        'currency_id' => 'getCurrencyId',
         'total_detail' => 'getTotalDetail',
         'total_detail_currency_id' => 'getTotalDetailCurrencyId',
         'total_profit' => 'getTotalProfit',
@@ -500,22 +511,11 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'cost_calculation_method' => 'getCostCalculationMethod',
         'tax_calculation_method' => 'getTaxCalculationMethod',
         'cart_id' => 'getCartId',
-        'user_id' => 'getUserId',
-        'forex_rate' => 'getForexRate',
-        'currency_id' => 'getCurrencyId',
-        'individual_id' => 'getIndividualId',
-        'organization_id' => 'getOrganizationId',
         'total_amount_in_usd' => 'getTotalAmountInUsd',
         'total_taxes_in_usd' => 'getTotalTaxesInUsd',
-        'receiver_tenant_id' => 'getReceiverTenantId',
-        'closed' => 'getClosed',
-        'price_list_id' => 'getPriceListId',
-        'payment_term_id' => 'getPaymentTermId',
         'quote_status' => 'getQuoteStatus',
         'effective_to' => 'getEffectiveTo',
-        'effective_from' => 'getEffectiveFrom',
-        'description' => 'getDescription',
-        'title' => 'getTitle'
+        'effective_from' => 'getEffectiveFrom'
     ];
 
     /**
@@ -605,6 +605,15 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('closed', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('user_id', $data ?? [], null);
+        $this->setIfExists('price_list_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('individual_id', $data ?? [], null);
+        $this->setIfExists('payment_term_id', $data ?? [], null);
+        $this->setIfExists('organization_id', $data ?? [], null);
+        $this->setIfExists('receiver_tenant_id', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('company_name', $data ?? [], null);
@@ -618,6 +627,8 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('billing_location_id', $data ?? [], null);
         $this->setIfExists('shipping_location_id', $data ?? [], null);
         $this->setIfExists('shipping_method_id', $data ?? [], null);
+        $this->setIfExists('forex_rate', $data ?? [], null);
+        $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('total_detail', $data ?? [], null);
         $this->setIfExists('total_detail_currency_id', $data ?? [], null);
         $this->setIfExists('total_profit', $data ?? [], null);
@@ -645,22 +656,11 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('cost_calculation_method', $data ?? [], null);
         $this->setIfExists('tax_calculation_method', $data ?? [], null);
         $this->setIfExists('cart_id', $data ?? [], null);
-        $this->setIfExists('user_id', $data ?? [], null);
-        $this->setIfExists('forex_rate', $data ?? [], null);
-        $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('individual_id', $data ?? [], null);
-        $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('total_amount_in_usd', $data ?? [], null);
         $this->setIfExists('total_taxes_in_usd', $data ?? [], null);
-        $this->setIfExists('receiver_tenant_id', $data ?? [], null);
-        $this->setIfExists('closed', $data ?? [], null);
-        $this->setIfExists('price_list_id', $data ?? [], null);
-        $this->setIfExists('payment_term_id', $data ?? [], null);
         $this->setIfExists('quote_status', $data ?? [], null);
         $this->setIfExists('effective_to', $data ?? [], null);
         $this->setIfExists('effective_from', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
     }
 
     /**
@@ -722,6 +722,305 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets closed
+     *
+     * @return bool|null
+     */
+    public function getClosed()
+    {
+        return $this->container['closed'];
+    }
+
+    /**
+     * Sets closed
+     *
+     * @param bool|null $closed closed
+     *
+     * @return self
+     */
+    public function setClosed($closed)
+    {
+        if (is_null($closed)) {
+            throw new \InvalidArgumentException('non-nullable closed cannot be null');
+        }
+        $this->container['closed'] = $closed;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string|null $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        if (is_null($user_id)) {
+            array_push($this->openAPINullablesSetToNull, 'user_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('user_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_list_id
+     *
+     * @return string|null
+     */
+    public function getPriceListId()
+    {
+        return $this->container['price_list_id'];
+    }
+
+    /**
+     * Sets price_list_id
+     *
+     * @param string|null $price_list_id price_list_id
+     *
+     * @return self
+     */
+    public function setPriceListId($price_list_id)
+    {
+        if (is_null($price_list_id)) {
+            array_push($this->openAPINullablesSetToNull, 'price_list_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_list_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['price_list_id'] = $price_list_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets individual_id
+     *
+     * @return string|null
+     */
+    public function getIndividualId()
+    {
+        return $this->container['individual_id'];
+    }
+
+    /**
+     * Sets individual_id
+     *
+     * @param string|null $individual_id individual_id
+     *
+     * @return self
+     */
+    public function setIndividualId($individual_id)
+    {
+        if (is_null($individual_id)) {
+            array_push($this->openAPINullablesSetToNull, 'individual_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('individual_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['individual_id'] = $individual_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_term_id
+     *
+     * @return string|null
+     */
+    public function getPaymentTermId()
+    {
+        return $this->container['payment_term_id'];
+    }
+
+    /**
+     * Sets payment_term_id
+     *
+     * @param string|null $payment_term_id payment_term_id
+     *
+     * @return self
+     */
+    public function setPaymentTermId($payment_term_id)
+    {
+        if (is_null($payment_term_id)) {
+            array_push($this->openAPINullablesSetToNull, 'payment_term_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('payment_term_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['payment_term_id'] = $payment_term_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization_id
+     *
+     * @return string|null
+     */
+    public function getOrganizationId()
+    {
+        return $this->container['organization_id'];
+    }
+
+    /**
+     * Sets organization_id
+     *
+     * @param string|null $organization_id organization_id
+     *
+     * @return self
+     */
+    public function setOrganizationId($organization_id)
+    {
+        if (is_null($organization_id)) {
+            array_push($this->openAPINullablesSetToNull, 'organization_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['organization_id'] = $organization_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver_tenant_id
+     *
+     * @return string|null
+     */
+    public function getReceiverTenantId()
+    {
+        return $this->container['receiver_tenant_id'];
+    }
+
+    /**
+     * Sets receiver_tenant_id
+     *
+     * @param string|null $receiver_tenant_id receiver_tenant_id
+     *
+     * @return self
+     */
+    public function setReceiverTenantId($receiver_tenant_id)
+    {
+        if (is_null($receiver_tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'receiver_tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('receiver_tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['receiver_tenant_id'] = $receiver_tenant_id;
+
+        return $this;
+    }
 
     /**
      * Gets first_name
@@ -1161,6 +1460,67 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['shipping_method_id'] = $shipping_method_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets forex_rate
+     *
+     * @return float|null
+     */
+    public function getForexRate()
+    {
+        return $this->container['forex_rate'];
+    }
+
+    /**
+     * Sets forex_rate
+     *
+     * @param float|null $forex_rate forex_rate
+     *
+     * @return self
+     */
+    public function setForexRate($forex_rate)
+    {
+        if (is_null($forex_rate)) {
+            throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
+        }
+        $this->container['forex_rate'] = $forex_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_id
+     *
+     * @return string|null
+     */
+    public function getCurrencyId()
+    {
+        return $this->container['currency_id'];
+    }
+
+    /**
+     * Sets currency_id
+     *
+     * @param string|null $currency_id currency_id
+     *
+     * @return self
+     */
+    public function setCurrencyId($currency_id)
+    {
+        if (is_null($currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['currency_id'] = $currency_id;
 
         return $this;
     }
@@ -2006,169 +2366,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets user_id
-     *
-     * @return string|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string|null $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        if (is_null($user_id)) {
-            array_push($this->openAPINullablesSetToNull, 'user_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('user_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets forex_rate
-     *
-     * @return float|null
-     */
-    public function getForexRate()
-    {
-        return $this->container['forex_rate'];
-    }
-
-    /**
-     * Sets forex_rate
-     *
-     * @param float|null $forex_rate forex_rate
-     *
-     * @return self
-     */
-    public function setForexRate($forex_rate)
-    {
-        if (is_null($forex_rate)) {
-            throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
-        }
-        $this->container['forex_rate'] = $forex_rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency_id
-     *
-     * @return string|null
-     */
-    public function getCurrencyId()
-    {
-        return $this->container['currency_id'];
-    }
-
-    /**
-     * Sets currency_id
-     *
-     * @param string|null $currency_id currency_id
-     *
-     * @return self
-     */
-    public function setCurrencyId($currency_id)
-    {
-        if (is_null($currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets individual_id
-     *
-     * @return string|null
-     */
-    public function getIndividualId()
-    {
-        return $this->container['individual_id'];
-    }
-
-    /**
-     * Sets individual_id
-     *
-     * @param string|null $individual_id individual_id
-     *
-     * @return self
-     */
-    public function setIndividualId($individual_id)
-    {
-        if (is_null($individual_id)) {
-            array_push($this->openAPINullablesSetToNull, 'individual_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('individual_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['individual_id'] = $individual_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets organization_id
-     *
-     * @return string|null
-     */
-    public function getOrganizationId()
-    {
-        return $this->container['organization_id'];
-    }
-
-    /**
-     * Sets organization_id
-     *
-     * @param string|null $organization_id organization_id
-     *
-     * @return self
-     */
-    public function setOrganizationId($organization_id)
-    {
-        if (is_null($organization_id)) {
-            array_push($this->openAPINullablesSetToNull, 'organization_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('organization_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['organization_id'] = $organization_id;
-
-        return $this;
-    }
-
-    /**
      * Gets total_amount_in_usd
      *
      * @return float|null
@@ -2218,135 +2415,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable total_taxes_in_usd cannot be null');
         }
         $this->container['total_taxes_in_usd'] = $total_taxes_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets receiver_tenant_id
-     *
-     * @return string|null
-     */
-    public function getReceiverTenantId()
-    {
-        return $this->container['receiver_tenant_id'];
-    }
-
-    /**
-     * Sets receiver_tenant_id
-     *
-     * @param string|null $receiver_tenant_id receiver_tenant_id
-     *
-     * @return self
-     */
-    public function setReceiverTenantId($receiver_tenant_id)
-    {
-        if (is_null($receiver_tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'receiver_tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('receiver_tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['receiver_tenant_id'] = $receiver_tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets closed
-     *
-     * @return bool|null
-     */
-    public function getClosed()
-    {
-        return $this->container['closed'];
-    }
-
-    /**
-     * Sets closed
-     *
-     * @param bool|null $closed closed
-     *
-     * @return self
-     */
-    public function setClosed($closed)
-    {
-        if (is_null($closed)) {
-            throw new \InvalidArgumentException('non-nullable closed cannot be null');
-        }
-        $this->container['closed'] = $closed;
-
-        return $this;
-    }
-
-    /**
-     * Gets price_list_id
-     *
-     * @return string|null
-     */
-    public function getPriceListId()
-    {
-        return $this->container['price_list_id'];
-    }
-
-    /**
-     * Sets price_list_id
-     *
-     * @param string|null $price_list_id price_list_id
-     *
-     * @return self
-     */
-    public function setPriceListId($price_list_id)
-    {
-        if (is_null($price_list_id)) {
-            array_push($this->openAPINullablesSetToNull, 'price_list_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('price_list_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['price_list_id'] = $price_list_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_term_id
-     *
-     * @return string|null
-     */
-    public function getPaymentTermId()
-    {
-        return $this->container['payment_term_id'];
-    }
-
-    /**
-     * Sets payment_term_id
-     *
-     * @param string|null $payment_term_id payment_term_id
-     *
-     * @return self
-     */
-    public function setPaymentTermId($payment_term_id)
-    {
-        if (is_null($payment_term_id)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_term_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_term_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['payment_term_id'] = $payment_term_id;
 
         return $this;
     }
@@ -2449,74 +2517,6 @@ class OrderUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['effective_from'] = $effective_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title title
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['title'] = $title;
 
         return $this;
     }

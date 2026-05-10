@@ -61,15 +61,73 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'timestamp' => '\DateTime',
         'closed' => 'bool',
+        'type' => 'string',
+        'title' => 'string',
+        'user_id' => 'string',
+        'tenant_id' => 'string',
+        'description' => 'string',
+        'price_list_id' => 'string',
+        'enrollment_id' => 'string',
+        'individual_id' => 'string',
+        'organization_id' => 'string',
+        'receiver_tenant_id' => 'string',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'company_name' => 'string',
+        'billing_email' => 'string',
+        'address_line1' => 'string',
+        'address_line2' => 'string',
+        'postal_code' => 'string',
+        'country_id' => 'string',
+        'state_id' => 'string',
+        'city_id' => 'string',
+        'customer_notes' => 'string',
+        'tax_calculation_method' => 'string',
+        'cost_calculation_method' => 'string',
+        'forex_rate' => 'float',
+        'forex_rates_snapshot' => 'string',
+        'currency_id' => 'string',
+        'total_detail' => 'float',
+        'total_detail_currency_id' => 'string',
+        'total_profit' => 'float',
+        'total_profit_currency_id' => 'string',
+        'total_discounts' => 'float',
+        'total_discounts_currency_id' => 'string',
+        'total_surcharges' => 'float',
+        'total_surcharges_currency_id' => 'string',
+        'total_tax_base' => 'float',
+        'total_tax_base_currency_id' => 'string',
+        'total_taxes' => 'float',
+        'total_taxes_currency_id' => 'string',
+        'total_shipping_cost' => 'float',
+        'total_shipping_cost_currency_id' => 'string',
+        'total_shipping_tax' => 'float',
+        'total_shipping_tax_currency_id' => 'string',
+        'total_withheld_tax' => 'float',
+        'total_withheld_tax_currency_id' => 'string',
+        'total_global_discounts' => 'float',
+        'total_global_discounts_currency_id' => 'string',
+        'total_global_surcharges' => 'float',
+        'total_global_surcharges_currency_id' => 'string',
+        'total' => 'float',
+        'total_currency_id' => 'string',
+        'total_detail_in_usd' => 'float',
+        'total_profit_in_usd' => 'float',
+        'total_discounts_in_usd' => 'float',
+        'total_surcharges_in_usd' => 'float',
+        'total_tax_base_in_usd' => 'float',
+        'total_taxes_in_usd' => 'float',
+        'total_withheld_taxes_in_usd' => 'float',
+        'total_shipping_cost_in_usd' => 'float',
+        'total_shipping_taxes_in_usd' => 'float',
+        'total_global_discounts_in_usd' => 'float',
+        'total_global_surcharges_in_usd' => 'float',
+        'total_in_usd' => 'float',
         'item_id' => 'string',
         'item_title' => 'string',
         'item_short_description' => 'string',
         'item_primary_image_url' => 'string',
         'shipping_policy_id' => 'string',
-        'tenant_id' => 'string',
-        'enrollment_id' => 'string',
-        'currency_id' => 'string',
-        'description' => 'string',
         'quantity' => 'float',
         'free' => 'bool',
         'free_reason' => 'string',
@@ -98,25 +156,9 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'price_list_item_id' => 'string',
         'unit_id' => 'string',
         'unit_group_id' => 'string',
-        'tax_calculation_method' => 'string',
-        'cost_calculation_method' => 'string',
-        'forex_rates' => '\OpenAPI\Client\Model\ForexRates',
-        'forex_rate' => 'float',
-        'total_detail_in_usd' => 'float',
-        'total_profit_in_usd' => 'float',
-        'total_discounts_in_usd' => 'float',
-        'total_surcharges_in_usd' => 'float',
-        'total_tax_base_in_usd' => 'float',
-        'total_taxes_in_usd' => 'float',
-        'total_withheld_taxes_in_usd' => 'float',
-        'total_shipping_cost_in_usd' => 'float',
-        'total_shipping_taxes_in_usd' => 'float',
         'total_warranty_cost_in_usd' => 'float',
         'total_return_cost_in_usd' => 'float',
         'total_refund_cost_in_usd' => 'float',
-        'total_in_usd' => 'float',
-        'total_global_discounts_in_usd' => 'float',
-        'total_global_surcharges_in_usd' => 'float',
         'custom_global_surcharges_amount' => 'float',
         'custom_global_discounts_amount' => 'float',
         'return_policy_id' => 'string',
@@ -128,43 +170,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'quote_item_record_id' => 'string',
         'business_profile_record_id' => 'string',
         'parent_billing_item_record_id' => 'string',
-        'currency' => '\OpenAPI\Client\Model\CurrencyId',
-        'total_detail' => 'float',
-        'total_detail_currency_id' => 'string',
-        'total_detail_amount' => '\OpenAPI\Client\Model\Money',
-        'total_profit' => 'float',
-        'total_profit_currency_id' => 'string',
-        'total_profit_amount' => '\OpenAPI\Client\Model\Money',
-        'total_discounts' => 'float',
-        'total_discounts_currency_id' => 'string',
-        'total_discounts_amount' => '\OpenAPI\Client\Model\Money',
-        'total_surcharges' => 'float',
-        'total_surcharges_currency_id' => 'string',
-        'total_surcharges_amount' => '\OpenAPI\Client\Model\Money',
-        'total_tax_base' => 'float',
-        'total_tax_base_currency_id' => 'string',
-        'total_tax_base_amount' => '\OpenAPI\Client\Model\Money',
-        'total_taxes' => 'float',
-        'total_taxes_currency_id' => 'string',
-        'total_taxes_amount' => '\OpenAPI\Client\Model\Money',
-        'total_shipping_cost' => 'float',
-        'total_shipping_cost_currency_id' => 'string',
-        'total_shipping_cost_amount' => '\OpenAPI\Client\Model\Money',
-        'total_shipping_tax' => 'float',
-        'total_shipping_tax_currency_id' => 'string',
-        'total_shipping_tax_amount' => '\OpenAPI\Client\Model\Money',
-        'total_withheld_tax' => 'float',
-        'total_withheld_tax_currency_id' => 'string',
-        'total_withheld_tax_amount' => '\OpenAPI\Client\Model\Money',
-        'total_global_discounts' => 'float',
-        'total_global_discounts_currency_id' => 'string',
-        'total_global_discounts_amount' => '\OpenAPI\Client\Model\Money',
-        'total_global_surcharges' => 'float',
-        'total_global_surcharges_currency_id' => 'string',
-        'total_global_surcharges_amount' => '\OpenAPI\Client\Model\Money',
-        'total' => 'float',
-        'total_currency_id' => 'string',
-        'total_amount' => '\OpenAPI\Client\Model\Money',
         'deal_unit_id' => 'string'
     ];
 
@@ -179,15 +184,73 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'timestamp' => 'date-time',
         'closed' => null,
+        'type' => null,
+        'title' => null,
+        'user_id' => null,
+        'tenant_id' => null,
+        'description' => null,
+        'price_list_id' => null,
+        'enrollment_id' => null,
+        'individual_id' => null,
+        'organization_id' => null,
+        'receiver_tenant_id' => null,
+        'first_name' => null,
+        'last_name' => null,
+        'company_name' => null,
+        'billing_email' => null,
+        'address_line1' => null,
+        'address_line2' => null,
+        'postal_code' => null,
+        'country_id' => null,
+        'state_id' => null,
+        'city_id' => null,
+        'customer_notes' => null,
+        'tax_calculation_method' => null,
+        'cost_calculation_method' => null,
+        'forex_rate' => 'double',
+        'forex_rates_snapshot' => null,
+        'currency_id' => null,
+        'total_detail' => 'double',
+        'total_detail_currency_id' => null,
+        'total_profit' => 'double',
+        'total_profit_currency_id' => null,
+        'total_discounts' => 'double',
+        'total_discounts_currency_id' => null,
+        'total_surcharges' => 'double',
+        'total_surcharges_currency_id' => null,
+        'total_tax_base' => 'double',
+        'total_tax_base_currency_id' => null,
+        'total_taxes' => 'double',
+        'total_taxes_currency_id' => null,
+        'total_shipping_cost' => 'double',
+        'total_shipping_cost_currency_id' => null,
+        'total_shipping_tax' => 'double',
+        'total_shipping_tax_currency_id' => null,
+        'total_withheld_tax' => 'double',
+        'total_withheld_tax_currency_id' => null,
+        'total_global_discounts' => 'double',
+        'total_global_discounts_currency_id' => null,
+        'total_global_surcharges' => 'double',
+        'total_global_surcharges_currency_id' => null,
+        'total' => 'double',
+        'total_currency_id' => null,
+        'total_detail_in_usd' => 'double',
+        'total_profit_in_usd' => 'double',
+        'total_discounts_in_usd' => 'double',
+        'total_surcharges_in_usd' => 'double',
+        'total_tax_base_in_usd' => 'double',
+        'total_taxes_in_usd' => 'double',
+        'total_withheld_taxes_in_usd' => 'double',
+        'total_shipping_cost_in_usd' => 'double',
+        'total_shipping_taxes_in_usd' => 'double',
+        'total_global_discounts_in_usd' => 'double',
+        'total_global_surcharges_in_usd' => 'double',
+        'total_in_usd' => 'double',
         'item_id' => null,
         'item_title' => null,
         'item_short_description' => null,
         'item_primary_image_url' => null,
         'shipping_policy_id' => null,
-        'tenant_id' => null,
-        'enrollment_id' => null,
-        'currency_id' => null,
-        'description' => null,
         'quantity' => 'double',
         'free' => null,
         'free_reason' => null,
@@ -216,25 +279,9 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'price_list_item_id' => null,
         'unit_id' => null,
         'unit_group_id' => null,
-        'tax_calculation_method' => null,
-        'cost_calculation_method' => null,
-        'forex_rates' => null,
-        'forex_rate' => 'double',
-        'total_detail_in_usd' => 'double',
-        'total_profit_in_usd' => 'double',
-        'total_discounts_in_usd' => 'double',
-        'total_surcharges_in_usd' => 'double',
-        'total_tax_base_in_usd' => 'double',
-        'total_taxes_in_usd' => 'double',
-        'total_withheld_taxes_in_usd' => 'double',
-        'total_shipping_cost_in_usd' => 'double',
-        'total_shipping_taxes_in_usd' => 'double',
         'total_warranty_cost_in_usd' => 'double',
         'total_return_cost_in_usd' => 'double',
         'total_refund_cost_in_usd' => 'double',
-        'total_in_usd' => 'double',
-        'total_global_discounts_in_usd' => 'double',
-        'total_global_surcharges_in_usd' => 'double',
         'custom_global_surcharges_amount' => 'double',
         'custom_global_discounts_amount' => 'double',
         'return_policy_id' => null,
@@ -246,43 +293,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'quote_item_record_id' => null,
         'business_profile_record_id' => null,
         'parent_billing_item_record_id' => null,
-        'currency' => null,
-        'total_detail' => 'double',
-        'total_detail_currency_id' => null,
-        'total_detail_amount' => null,
-        'total_profit' => 'double',
-        'total_profit_currency_id' => null,
-        'total_profit_amount' => null,
-        'total_discounts' => 'double',
-        'total_discounts_currency_id' => null,
-        'total_discounts_amount' => null,
-        'total_surcharges' => 'double',
-        'total_surcharges_currency_id' => null,
-        'total_surcharges_amount' => null,
-        'total_tax_base' => 'double',
-        'total_tax_base_currency_id' => null,
-        'total_tax_base_amount' => null,
-        'total_taxes' => 'double',
-        'total_taxes_currency_id' => null,
-        'total_taxes_amount' => null,
-        'total_shipping_cost' => 'double',
-        'total_shipping_cost_currency_id' => null,
-        'total_shipping_cost_amount' => null,
-        'total_shipping_tax' => 'double',
-        'total_shipping_tax_currency_id' => null,
-        'total_shipping_tax_amount' => null,
-        'total_withheld_tax' => 'double',
-        'total_withheld_tax_currency_id' => null,
-        'total_withheld_tax_amount' => null,
-        'total_global_discounts' => 'double',
-        'total_global_discounts_currency_id' => null,
-        'total_global_discounts_amount' => null,
-        'total_global_surcharges' => 'double',
-        'total_global_surcharges_currency_id' => null,
-        'total_global_surcharges_amount' => null,
-        'total' => 'double',
-        'total_currency_id' => null,
-        'total_amount' => null,
         'deal_unit_id' => null
     ];
 
@@ -295,15 +305,73 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => true,
         'timestamp' => true,
         'closed' => false,
+        'type' => true,
+        'title' => true,
+        'user_id' => true,
+        'tenant_id' => true,
+        'description' => true,
+        'price_list_id' => true,
+        'enrollment_id' => true,
+        'individual_id' => true,
+        'organization_id' => true,
+        'receiver_tenant_id' => true,
+        'first_name' => true,
+        'last_name' => true,
+        'company_name' => true,
+        'billing_email' => true,
+        'address_line1' => true,
+        'address_line2' => true,
+        'postal_code' => true,
+        'country_id' => true,
+        'state_id' => true,
+        'city_id' => true,
+        'customer_notes' => true,
+        'tax_calculation_method' => false,
+        'cost_calculation_method' => false,
+        'forex_rate' => false,
+        'forex_rates_snapshot' => true,
+        'currency_id' => true,
+        'total_detail' => false,
+        'total_detail_currency_id' => true,
+        'total_profit' => false,
+        'total_profit_currency_id' => true,
+        'total_discounts' => false,
+        'total_discounts_currency_id' => true,
+        'total_surcharges' => false,
+        'total_surcharges_currency_id' => true,
+        'total_tax_base' => false,
+        'total_tax_base_currency_id' => true,
+        'total_taxes' => false,
+        'total_taxes_currency_id' => true,
+        'total_shipping_cost' => false,
+        'total_shipping_cost_currency_id' => true,
+        'total_shipping_tax' => false,
+        'total_shipping_tax_currency_id' => true,
+        'total_withheld_tax' => false,
+        'total_withheld_tax_currency_id' => true,
+        'total_global_discounts' => false,
+        'total_global_discounts_currency_id' => true,
+        'total_global_surcharges' => false,
+        'total_global_surcharges_currency_id' => true,
+        'total' => false,
+        'total_currency_id' => true,
+        'total_detail_in_usd' => false,
+        'total_profit_in_usd' => false,
+        'total_discounts_in_usd' => false,
+        'total_surcharges_in_usd' => false,
+        'total_tax_base_in_usd' => false,
+        'total_taxes_in_usd' => false,
+        'total_withheld_taxes_in_usd' => false,
+        'total_shipping_cost_in_usd' => false,
+        'total_shipping_taxes_in_usd' => false,
+        'total_global_discounts_in_usd' => false,
+        'total_global_surcharges_in_usd' => false,
+        'total_in_usd' => false,
         'item_id' => true,
         'item_title' => true,
         'item_short_description' => true,
         'item_primary_image_url' => true,
         'shipping_policy_id' => true,
-        'tenant_id' => true,
-        'enrollment_id' => true,
-        'currency_id' => true,
-        'description' => true,
         'quantity' => false,
         'free' => false,
         'free_reason' => true,
@@ -332,25 +400,9 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'price_list_item_id' => true,
         'unit_id' => true,
         'unit_group_id' => true,
-        'tax_calculation_method' => false,
-        'cost_calculation_method' => false,
-        'forex_rates' => false,
-        'forex_rate' => false,
-        'total_detail_in_usd' => false,
-        'total_profit_in_usd' => false,
-        'total_discounts_in_usd' => false,
-        'total_surcharges_in_usd' => false,
-        'total_tax_base_in_usd' => false,
-        'total_taxes_in_usd' => false,
-        'total_withheld_taxes_in_usd' => false,
-        'total_shipping_cost_in_usd' => false,
-        'total_shipping_taxes_in_usd' => false,
         'total_warranty_cost_in_usd' => false,
         'total_return_cost_in_usd' => false,
         'total_refund_cost_in_usd' => false,
-        'total_in_usd' => false,
-        'total_global_discounts_in_usd' => false,
-        'total_global_surcharges_in_usd' => false,
         'custom_global_surcharges_amount' => false,
         'custom_global_discounts_amount' => false,
         'return_policy_id' => true,
@@ -362,43 +414,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'quote_item_record_id' => true,
         'business_profile_record_id' => true,
         'parent_billing_item_record_id' => true,
-        'currency' => false,
-        'total_detail' => false,
-        'total_detail_currency_id' => true,
-        'total_detail_amount' => false,
-        'total_profit' => false,
-        'total_profit_currency_id' => true,
-        'total_profit_amount' => false,
-        'total_discounts' => false,
-        'total_discounts_currency_id' => true,
-        'total_discounts_amount' => false,
-        'total_surcharges' => false,
-        'total_surcharges_currency_id' => true,
-        'total_surcharges_amount' => false,
-        'total_tax_base' => false,
-        'total_tax_base_currency_id' => true,
-        'total_tax_base_amount' => false,
-        'total_taxes' => false,
-        'total_taxes_currency_id' => true,
-        'total_taxes_amount' => false,
-        'total_shipping_cost' => false,
-        'total_shipping_cost_currency_id' => true,
-        'total_shipping_cost_amount' => false,
-        'total_shipping_tax' => false,
-        'total_shipping_tax_currency_id' => true,
-        'total_shipping_tax_amount' => false,
-        'total_withheld_tax' => false,
-        'total_withheld_tax_currency_id' => true,
-        'total_withheld_tax_amount' => false,
-        'total_global_discounts' => false,
-        'total_global_discounts_currency_id' => true,
-        'total_global_discounts_amount' => false,
-        'total_global_surcharges' => false,
-        'total_global_surcharges_currency_id' => true,
-        'total_global_surcharges_amount' => false,
-        'total' => false,
-        'total_currency_id' => true,
-        'total_amount' => false,
         'deal_unit_id' => true
     ];
 
@@ -491,15 +506,73 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'timestamp' => 'timestamp',
         'closed' => 'closed',
+        'type' => 'type',
+        'title' => 'title',
+        'user_id' => 'userId',
+        'tenant_id' => 'tenantId',
+        'description' => 'description',
+        'price_list_id' => 'priceListId',
+        'enrollment_id' => 'enrollmentId',
+        'individual_id' => 'individualId',
+        'organization_id' => 'organizationId',
+        'receiver_tenant_id' => 'receiverTenantId',
+        'first_name' => 'firstName',
+        'last_name' => 'lastName',
+        'company_name' => 'companyName',
+        'billing_email' => 'billingEmail',
+        'address_line1' => 'addressLine1',
+        'address_line2' => 'addressLine2',
+        'postal_code' => 'postalCode',
+        'country_id' => 'countryId',
+        'state_id' => 'stateId',
+        'city_id' => 'cityId',
+        'customer_notes' => 'customerNotes',
+        'tax_calculation_method' => 'taxCalculationMethod',
+        'cost_calculation_method' => 'costCalculationMethod',
+        'forex_rate' => 'forexRate',
+        'forex_rates_snapshot' => 'forexRatesSnapshot',
+        'currency_id' => 'currencyId',
+        'total_detail' => 'totalDetail',
+        'total_detail_currency_id' => 'totalDetailCurrencyId',
+        'total_profit' => 'totalProfit',
+        'total_profit_currency_id' => 'totalProfitCurrencyId',
+        'total_discounts' => 'totalDiscounts',
+        'total_discounts_currency_id' => 'totalDiscountsCurrencyId',
+        'total_surcharges' => 'totalSurcharges',
+        'total_surcharges_currency_id' => 'totalSurchargesCurrencyId',
+        'total_tax_base' => 'totalTaxBase',
+        'total_tax_base_currency_id' => 'totalTaxBaseCurrencyId',
+        'total_taxes' => 'totalTaxes',
+        'total_taxes_currency_id' => 'totalTaxesCurrencyId',
+        'total_shipping_cost' => 'totalShippingCost',
+        'total_shipping_cost_currency_id' => 'totalShippingCostCurrencyId',
+        'total_shipping_tax' => 'totalShippingTax',
+        'total_shipping_tax_currency_id' => 'totalShippingTaxCurrencyId',
+        'total_withheld_tax' => 'totalWithheldTax',
+        'total_withheld_tax_currency_id' => 'totalWithheldTaxCurrencyId',
+        'total_global_discounts' => 'totalGlobalDiscounts',
+        'total_global_discounts_currency_id' => 'totalGlobalDiscountsCurrencyId',
+        'total_global_surcharges' => 'totalGlobalSurcharges',
+        'total_global_surcharges_currency_id' => 'totalGlobalSurchargesCurrencyId',
+        'total' => 'total',
+        'total_currency_id' => 'totalCurrencyId',
+        'total_detail_in_usd' => 'totalDetailInUsd',
+        'total_profit_in_usd' => 'totalProfitInUsd',
+        'total_discounts_in_usd' => 'totalDiscountsInUsd',
+        'total_surcharges_in_usd' => 'totalSurchargesInUsd',
+        'total_tax_base_in_usd' => 'totalTaxBaseInUsd',
+        'total_taxes_in_usd' => 'totalTaxesInUsd',
+        'total_withheld_taxes_in_usd' => 'totalWithheldTaxesInUsd',
+        'total_shipping_cost_in_usd' => 'totalShippingCostInUsd',
+        'total_shipping_taxes_in_usd' => 'totalShippingTaxesInUsd',
+        'total_global_discounts_in_usd' => 'totalGlobalDiscountsInUsd',
+        'total_global_surcharges_in_usd' => 'totalGlobalSurchargesInUsd',
+        'total_in_usd' => 'totalInUsd',
         'item_id' => 'itemId',
         'item_title' => 'itemTitle',
         'item_short_description' => 'itemShortDescription',
         'item_primary_image_url' => 'itemPrimaryImageUrl',
         'shipping_policy_id' => 'shippingPolicyId',
-        'tenant_id' => 'tenantId',
-        'enrollment_id' => 'enrollmentId',
-        'currency_id' => 'currencyId',
-        'description' => 'description',
         'quantity' => 'quantity',
         'free' => 'free',
         'free_reason' => 'freeReason',
@@ -528,25 +601,9 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'price_list_item_id' => 'priceListItemId',
         'unit_id' => 'unitId',
         'unit_group_id' => 'unitGroupId',
-        'tax_calculation_method' => 'taxCalculationMethod',
-        'cost_calculation_method' => 'costCalculationMethod',
-        'forex_rates' => 'forexRates',
-        'forex_rate' => 'forexRate',
-        'total_detail_in_usd' => 'totalDetailInUsd',
-        'total_profit_in_usd' => 'totalProfitInUsd',
-        'total_discounts_in_usd' => 'totalDiscountsInUsd',
-        'total_surcharges_in_usd' => 'totalSurchargesInUsd',
-        'total_tax_base_in_usd' => 'totalTaxBaseInUsd',
-        'total_taxes_in_usd' => 'totalTaxesInUsd',
-        'total_withheld_taxes_in_usd' => 'totalWithheldTaxesInUsd',
-        'total_shipping_cost_in_usd' => 'totalShippingCostInUsd',
-        'total_shipping_taxes_in_usd' => 'totalShippingTaxesInUsd',
         'total_warranty_cost_in_usd' => 'totalWarrantyCostInUsd',
         'total_return_cost_in_usd' => 'totalReturnCostInUsd',
         'total_refund_cost_in_usd' => 'totalRefundCostInUsd',
-        'total_in_usd' => 'totalInUsd',
-        'total_global_discounts_in_usd' => 'totalGlobalDiscountsInUsd',
-        'total_global_surcharges_in_usd' => 'totalGlobalSurchargesInUsd',
         'custom_global_surcharges_amount' => 'customGlobalSurchargesAmount',
         'custom_global_discounts_amount' => 'customGlobalDiscountsAmount',
         'return_policy_id' => 'returnPolicyId',
@@ -558,43 +615,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'quote_item_record_id' => 'quoteItemRecordId',
         'business_profile_record_id' => 'businessProfileRecordId',
         'parent_billing_item_record_id' => 'parentBillingItemRecordId',
-        'currency' => 'currency',
-        'total_detail' => 'totalDetail',
-        'total_detail_currency_id' => 'totalDetailCurrencyId',
-        'total_detail_amount' => 'totalDetailAmount',
-        'total_profit' => 'totalProfit',
-        'total_profit_currency_id' => 'totalProfitCurrencyId',
-        'total_profit_amount' => 'totalProfitAmount',
-        'total_discounts' => 'totalDiscounts',
-        'total_discounts_currency_id' => 'totalDiscountsCurrencyId',
-        'total_discounts_amount' => 'totalDiscountsAmount',
-        'total_surcharges' => 'totalSurcharges',
-        'total_surcharges_currency_id' => 'totalSurchargesCurrencyId',
-        'total_surcharges_amount' => 'totalSurchargesAmount',
-        'total_tax_base' => 'totalTaxBase',
-        'total_tax_base_currency_id' => 'totalTaxBaseCurrencyId',
-        'total_tax_base_amount' => 'totalTaxBaseAmount',
-        'total_taxes' => 'totalTaxes',
-        'total_taxes_currency_id' => 'totalTaxesCurrencyId',
-        'total_taxes_amount' => 'totalTaxesAmount',
-        'total_shipping_cost' => 'totalShippingCost',
-        'total_shipping_cost_currency_id' => 'totalShippingCostCurrencyId',
-        'total_shipping_cost_amount' => 'totalShippingCostAmount',
-        'total_shipping_tax' => 'totalShippingTax',
-        'total_shipping_tax_currency_id' => 'totalShippingTaxCurrencyId',
-        'total_shipping_tax_amount' => 'totalShippingTaxAmount',
-        'total_withheld_tax' => 'totalWithheldTax',
-        'total_withheld_tax_currency_id' => 'totalWithheldTaxCurrencyId',
-        'total_withheld_tax_amount' => 'totalWithheldTaxAmount',
-        'total_global_discounts' => 'totalGlobalDiscounts',
-        'total_global_discounts_currency_id' => 'totalGlobalDiscountsCurrencyId',
-        'total_global_discounts_amount' => 'totalGlobalDiscountsAmount',
-        'total_global_surcharges' => 'totalGlobalSurcharges',
-        'total_global_surcharges_currency_id' => 'totalGlobalSurchargesCurrencyId',
-        'total_global_surcharges_amount' => 'totalGlobalSurchargesAmount',
-        'total' => 'total',
-        'total_currency_id' => 'totalCurrencyId',
-        'total_amount' => 'totalAmount',
         'deal_unit_id' => 'dealUnitId'
     ];
 
@@ -607,15 +627,73 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'closed' => 'setClosed',
+        'type' => 'setType',
+        'title' => 'setTitle',
+        'user_id' => 'setUserId',
+        'tenant_id' => 'setTenantId',
+        'description' => 'setDescription',
+        'price_list_id' => 'setPriceListId',
+        'enrollment_id' => 'setEnrollmentId',
+        'individual_id' => 'setIndividualId',
+        'organization_id' => 'setOrganizationId',
+        'receiver_tenant_id' => 'setReceiverTenantId',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName',
+        'company_name' => 'setCompanyName',
+        'billing_email' => 'setBillingEmail',
+        'address_line1' => 'setAddressLine1',
+        'address_line2' => 'setAddressLine2',
+        'postal_code' => 'setPostalCode',
+        'country_id' => 'setCountryId',
+        'state_id' => 'setStateId',
+        'city_id' => 'setCityId',
+        'customer_notes' => 'setCustomerNotes',
+        'tax_calculation_method' => 'setTaxCalculationMethod',
+        'cost_calculation_method' => 'setCostCalculationMethod',
+        'forex_rate' => 'setForexRate',
+        'forex_rates_snapshot' => 'setForexRatesSnapshot',
+        'currency_id' => 'setCurrencyId',
+        'total_detail' => 'setTotalDetail',
+        'total_detail_currency_id' => 'setTotalDetailCurrencyId',
+        'total_profit' => 'setTotalProfit',
+        'total_profit_currency_id' => 'setTotalProfitCurrencyId',
+        'total_discounts' => 'setTotalDiscounts',
+        'total_discounts_currency_id' => 'setTotalDiscountsCurrencyId',
+        'total_surcharges' => 'setTotalSurcharges',
+        'total_surcharges_currency_id' => 'setTotalSurchargesCurrencyId',
+        'total_tax_base' => 'setTotalTaxBase',
+        'total_tax_base_currency_id' => 'setTotalTaxBaseCurrencyId',
+        'total_taxes' => 'setTotalTaxes',
+        'total_taxes_currency_id' => 'setTotalTaxesCurrencyId',
+        'total_shipping_cost' => 'setTotalShippingCost',
+        'total_shipping_cost_currency_id' => 'setTotalShippingCostCurrencyId',
+        'total_shipping_tax' => 'setTotalShippingTax',
+        'total_shipping_tax_currency_id' => 'setTotalShippingTaxCurrencyId',
+        'total_withheld_tax' => 'setTotalWithheldTax',
+        'total_withheld_tax_currency_id' => 'setTotalWithheldTaxCurrencyId',
+        'total_global_discounts' => 'setTotalGlobalDiscounts',
+        'total_global_discounts_currency_id' => 'setTotalGlobalDiscountsCurrencyId',
+        'total_global_surcharges' => 'setTotalGlobalSurcharges',
+        'total_global_surcharges_currency_id' => 'setTotalGlobalSurchargesCurrencyId',
+        'total' => 'setTotal',
+        'total_currency_id' => 'setTotalCurrencyId',
+        'total_detail_in_usd' => 'setTotalDetailInUsd',
+        'total_profit_in_usd' => 'setTotalProfitInUsd',
+        'total_discounts_in_usd' => 'setTotalDiscountsInUsd',
+        'total_surcharges_in_usd' => 'setTotalSurchargesInUsd',
+        'total_tax_base_in_usd' => 'setTotalTaxBaseInUsd',
+        'total_taxes_in_usd' => 'setTotalTaxesInUsd',
+        'total_withheld_taxes_in_usd' => 'setTotalWithheldTaxesInUsd',
+        'total_shipping_cost_in_usd' => 'setTotalShippingCostInUsd',
+        'total_shipping_taxes_in_usd' => 'setTotalShippingTaxesInUsd',
+        'total_global_discounts_in_usd' => 'setTotalGlobalDiscountsInUsd',
+        'total_global_surcharges_in_usd' => 'setTotalGlobalSurchargesInUsd',
+        'total_in_usd' => 'setTotalInUsd',
         'item_id' => 'setItemId',
         'item_title' => 'setItemTitle',
         'item_short_description' => 'setItemShortDescription',
         'item_primary_image_url' => 'setItemPrimaryImageUrl',
         'shipping_policy_id' => 'setShippingPolicyId',
-        'tenant_id' => 'setTenantId',
-        'enrollment_id' => 'setEnrollmentId',
-        'currency_id' => 'setCurrencyId',
-        'description' => 'setDescription',
         'quantity' => 'setQuantity',
         'free' => 'setFree',
         'free_reason' => 'setFreeReason',
@@ -644,25 +722,9 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'price_list_item_id' => 'setPriceListItemId',
         'unit_id' => 'setUnitId',
         'unit_group_id' => 'setUnitGroupId',
-        'tax_calculation_method' => 'setTaxCalculationMethod',
-        'cost_calculation_method' => 'setCostCalculationMethod',
-        'forex_rates' => 'setForexRates',
-        'forex_rate' => 'setForexRate',
-        'total_detail_in_usd' => 'setTotalDetailInUsd',
-        'total_profit_in_usd' => 'setTotalProfitInUsd',
-        'total_discounts_in_usd' => 'setTotalDiscountsInUsd',
-        'total_surcharges_in_usd' => 'setTotalSurchargesInUsd',
-        'total_tax_base_in_usd' => 'setTotalTaxBaseInUsd',
-        'total_taxes_in_usd' => 'setTotalTaxesInUsd',
-        'total_withheld_taxes_in_usd' => 'setTotalWithheldTaxesInUsd',
-        'total_shipping_cost_in_usd' => 'setTotalShippingCostInUsd',
-        'total_shipping_taxes_in_usd' => 'setTotalShippingTaxesInUsd',
         'total_warranty_cost_in_usd' => 'setTotalWarrantyCostInUsd',
         'total_return_cost_in_usd' => 'setTotalReturnCostInUsd',
         'total_refund_cost_in_usd' => 'setTotalRefundCostInUsd',
-        'total_in_usd' => 'setTotalInUsd',
-        'total_global_discounts_in_usd' => 'setTotalGlobalDiscountsInUsd',
-        'total_global_surcharges_in_usd' => 'setTotalGlobalSurchargesInUsd',
         'custom_global_surcharges_amount' => 'setCustomGlobalSurchargesAmount',
         'custom_global_discounts_amount' => 'setCustomGlobalDiscountsAmount',
         'return_policy_id' => 'setReturnPolicyId',
@@ -674,43 +736,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'quote_item_record_id' => 'setQuoteItemRecordId',
         'business_profile_record_id' => 'setBusinessProfileRecordId',
         'parent_billing_item_record_id' => 'setParentBillingItemRecordId',
-        'currency' => 'setCurrency',
-        'total_detail' => 'setTotalDetail',
-        'total_detail_currency_id' => 'setTotalDetailCurrencyId',
-        'total_detail_amount' => 'setTotalDetailAmount',
-        'total_profit' => 'setTotalProfit',
-        'total_profit_currency_id' => 'setTotalProfitCurrencyId',
-        'total_profit_amount' => 'setTotalProfitAmount',
-        'total_discounts' => 'setTotalDiscounts',
-        'total_discounts_currency_id' => 'setTotalDiscountsCurrencyId',
-        'total_discounts_amount' => 'setTotalDiscountsAmount',
-        'total_surcharges' => 'setTotalSurcharges',
-        'total_surcharges_currency_id' => 'setTotalSurchargesCurrencyId',
-        'total_surcharges_amount' => 'setTotalSurchargesAmount',
-        'total_tax_base' => 'setTotalTaxBase',
-        'total_tax_base_currency_id' => 'setTotalTaxBaseCurrencyId',
-        'total_tax_base_amount' => 'setTotalTaxBaseAmount',
-        'total_taxes' => 'setTotalTaxes',
-        'total_taxes_currency_id' => 'setTotalTaxesCurrencyId',
-        'total_taxes_amount' => 'setTotalTaxesAmount',
-        'total_shipping_cost' => 'setTotalShippingCost',
-        'total_shipping_cost_currency_id' => 'setTotalShippingCostCurrencyId',
-        'total_shipping_cost_amount' => 'setTotalShippingCostAmount',
-        'total_shipping_tax' => 'setTotalShippingTax',
-        'total_shipping_tax_currency_id' => 'setTotalShippingTaxCurrencyId',
-        'total_shipping_tax_amount' => 'setTotalShippingTaxAmount',
-        'total_withheld_tax' => 'setTotalWithheldTax',
-        'total_withheld_tax_currency_id' => 'setTotalWithheldTaxCurrencyId',
-        'total_withheld_tax_amount' => 'setTotalWithheldTaxAmount',
-        'total_global_discounts' => 'setTotalGlobalDiscounts',
-        'total_global_discounts_currency_id' => 'setTotalGlobalDiscountsCurrencyId',
-        'total_global_discounts_amount' => 'setTotalGlobalDiscountsAmount',
-        'total_global_surcharges' => 'setTotalGlobalSurcharges',
-        'total_global_surcharges_currency_id' => 'setTotalGlobalSurchargesCurrencyId',
-        'total_global_surcharges_amount' => 'setTotalGlobalSurchargesAmount',
-        'total' => 'setTotal',
-        'total_currency_id' => 'setTotalCurrencyId',
-        'total_amount' => 'setTotalAmount',
         'deal_unit_id' => 'setDealUnitId'
     ];
 
@@ -723,15 +748,73 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'closed' => 'getClosed',
+        'type' => 'getType',
+        'title' => 'getTitle',
+        'user_id' => 'getUserId',
+        'tenant_id' => 'getTenantId',
+        'description' => 'getDescription',
+        'price_list_id' => 'getPriceListId',
+        'enrollment_id' => 'getEnrollmentId',
+        'individual_id' => 'getIndividualId',
+        'organization_id' => 'getOrganizationId',
+        'receiver_tenant_id' => 'getReceiverTenantId',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName',
+        'company_name' => 'getCompanyName',
+        'billing_email' => 'getBillingEmail',
+        'address_line1' => 'getAddressLine1',
+        'address_line2' => 'getAddressLine2',
+        'postal_code' => 'getPostalCode',
+        'country_id' => 'getCountryId',
+        'state_id' => 'getStateId',
+        'city_id' => 'getCityId',
+        'customer_notes' => 'getCustomerNotes',
+        'tax_calculation_method' => 'getTaxCalculationMethod',
+        'cost_calculation_method' => 'getCostCalculationMethod',
+        'forex_rate' => 'getForexRate',
+        'forex_rates_snapshot' => 'getForexRatesSnapshot',
+        'currency_id' => 'getCurrencyId',
+        'total_detail' => 'getTotalDetail',
+        'total_detail_currency_id' => 'getTotalDetailCurrencyId',
+        'total_profit' => 'getTotalProfit',
+        'total_profit_currency_id' => 'getTotalProfitCurrencyId',
+        'total_discounts' => 'getTotalDiscounts',
+        'total_discounts_currency_id' => 'getTotalDiscountsCurrencyId',
+        'total_surcharges' => 'getTotalSurcharges',
+        'total_surcharges_currency_id' => 'getTotalSurchargesCurrencyId',
+        'total_tax_base' => 'getTotalTaxBase',
+        'total_tax_base_currency_id' => 'getTotalTaxBaseCurrencyId',
+        'total_taxes' => 'getTotalTaxes',
+        'total_taxes_currency_id' => 'getTotalTaxesCurrencyId',
+        'total_shipping_cost' => 'getTotalShippingCost',
+        'total_shipping_cost_currency_id' => 'getTotalShippingCostCurrencyId',
+        'total_shipping_tax' => 'getTotalShippingTax',
+        'total_shipping_tax_currency_id' => 'getTotalShippingTaxCurrencyId',
+        'total_withheld_tax' => 'getTotalWithheldTax',
+        'total_withheld_tax_currency_id' => 'getTotalWithheldTaxCurrencyId',
+        'total_global_discounts' => 'getTotalGlobalDiscounts',
+        'total_global_discounts_currency_id' => 'getTotalGlobalDiscountsCurrencyId',
+        'total_global_surcharges' => 'getTotalGlobalSurcharges',
+        'total_global_surcharges_currency_id' => 'getTotalGlobalSurchargesCurrencyId',
+        'total' => 'getTotal',
+        'total_currency_id' => 'getTotalCurrencyId',
+        'total_detail_in_usd' => 'getTotalDetailInUsd',
+        'total_profit_in_usd' => 'getTotalProfitInUsd',
+        'total_discounts_in_usd' => 'getTotalDiscountsInUsd',
+        'total_surcharges_in_usd' => 'getTotalSurchargesInUsd',
+        'total_tax_base_in_usd' => 'getTotalTaxBaseInUsd',
+        'total_taxes_in_usd' => 'getTotalTaxesInUsd',
+        'total_withheld_taxes_in_usd' => 'getTotalWithheldTaxesInUsd',
+        'total_shipping_cost_in_usd' => 'getTotalShippingCostInUsd',
+        'total_shipping_taxes_in_usd' => 'getTotalShippingTaxesInUsd',
+        'total_global_discounts_in_usd' => 'getTotalGlobalDiscountsInUsd',
+        'total_global_surcharges_in_usd' => 'getTotalGlobalSurchargesInUsd',
+        'total_in_usd' => 'getTotalInUsd',
         'item_id' => 'getItemId',
         'item_title' => 'getItemTitle',
         'item_short_description' => 'getItemShortDescription',
         'item_primary_image_url' => 'getItemPrimaryImageUrl',
         'shipping_policy_id' => 'getShippingPolicyId',
-        'tenant_id' => 'getTenantId',
-        'enrollment_id' => 'getEnrollmentId',
-        'currency_id' => 'getCurrencyId',
-        'description' => 'getDescription',
         'quantity' => 'getQuantity',
         'free' => 'getFree',
         'free_reason' => 'getFreeReason',
@@ -760,25 +843,9 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'price_list_item_id' => 'getPriceListItemId',
         'unit_id' => 'getUnitId',
         'unit_group_id' => 'getUnitGroupId',
-        'tax_calculation_method' => 'getTaxCalculationMethod',
-        'cost_calculation_method' => 'getCostCalculationMethod',
-        'forex_rates' => 'getForexRates',
-        'forex_rate' => 'getForexRate',
-        'total_detail_in_usd' => 'getTotalDetailInUsd',
-        'total_profit_in_usd' => 'getTotalProfitInUsd',
-        'total_discounts_in_usd' => 'getTotalDiscountsInUsd',
-        'total_surcharges_in_usd' => 'getTotalSurchargesInUsd',
-        'total_tax_base_in_usd' => 'getTotalTaxBaseInUsd',
-        'total_taxes_in_usd' => 'getTotalTaxesInUsd',
-        'total_withheld_taxes_in_usd' => 'getTotalWithheldTaxesInUsd',
-        'total_shipping_cost_in_usd' => 'getTotalShippingCostInUsd',
-        'total_shipping_taxes_in_usd' => 'getTotalShippingTaxesInUsd',
         'total_warranty_cost_in_usd' => 'getTotalWarrantyCostInUsd',
         'total_return_cost_in_usd' => 'getTotalReturnCostInUsd',
         'total_refund_cost_in_usd' => 'getTotalRefundCostInUsd',
-        'total_in_usd' => 'getTotalInUsd',
-        'total_global_discounts_in_usd' => 'getTotalGlobalDiscountsInUsd',
-        'total_global_surcharges_in_usd' => 'getTotalGlobalSurchargesInUsd',
         'custom_global_surcharges_amount' => 'getCustomGlobalSurchargesAmount',
         'custom_global_discounts_amount' => 'getCustomGlobalDiscountsAmount',
         'return_policy_id' => 'getReturnPolicyId',
@@ -790,43 +857,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'quote_item_record_id' => 'getQuoteItemRecordId',
         'business_profile_record_id' => 'getBusinessProfileRecordId',
         'parent_billing_item_record_id' => 'getParentBillingItemRecordId',
-        'currency' => 'getCurrency',
-        'total_detail' => 'getTotalDetail',
-        'total_detail_currency_id' => 'getTotalDetailCurrencyId',
-        'total_detail_amount' => 'getTotalDetailAmount',
-        'total_profit' => 'getTotalProfit',
-        'total_profit_currency_id' => 'getTotalProfitCurrencyId',
-        'total_profit_amount' => 'getTotalProfitAmount',
-        'total_discounts' => 'getTotalDiscounts',
-        'total_discounts_currency_id' => 'getTotalDiscountsCurrencyId',
-        'total_discounts_amount' => 'getTotalDiscountsAmount',
-        'total_surcharges' => 'getTotalSurcharges',
-        'total_surcharges_currency_id' => 'getTotalSurchargesCurrencyId',
-        'total_surcharges_amount' => 'getTotalSurchargesAmount',
-        'total_tax_base' => 'getTotalTaxBase',
-        'total_tax_base_currency_id' => 'getTotalTaxBaseCurrencyId',
-        'total_tax_base_amount' => 'getTotalTaxBaseAmount',
-        'total_taxes' => 'getTotalTaxes',
-        'total_taxes_currency_id' => 'getTotalTaxesCurrencyId',
-        'total_taxes_amount' => 'getTotalTaxesAmount',
-        'total_shipping_cost' => 'getTotalShippingCost',
-        'total_shipping_cost_currency_id' => 'getTotalShippingCostCurrencyId',
-        'total_shipping_cost_amount' => 'getTotalShippingCostAmount',
-        'total_shipping_tax' => 'getTotalShippingTax',
-        'total_shipping_tax_currency_id' => 'getTotalShippingTaxCurrencyId',
-        'total_shipping_tax_amount' => 'getTotalShippingTaxAmount',
-        'total_withheld_tax' => 'getTotalWithheldTax',
-        'total_withheld_tax_currency_id' => 'getTotalWithheldTaxCurrencyId',
-        'total_withheld_tax_amount' => 'getTotalWithheldTaxAmount',
-        'total_global_discounts' => 'getTotalGlobalDiscounts',
-        'total_global_discounts_currency_id' => 'getTotalGlobalDiscountsCurrencyId',
-        'total_global_discounts_amount' => 'getTotalGlobalDiscountsAmount',
-        'total_global_surcharges' => 'getTotalGlobalSurcharges',
-        'total_global_surcharges_currency_id' => 'getTotalGlobalSurchargesCurrencyId',
-        'total_global_surcharges_amount' => 'getTotalGlobalSurchargesAmount',
-        'total' => 'getTotal',
-        'total_currency_id' => 'getTotalCurrencyId',
-        'total_amount' => 'getTotalAmount',
         'deal_unit_id' => 'getDealUnitId'
     ];
 
@@ -920,15 +950,73 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('closed', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('user_id', $data ?? [], null);
+        $this->setIfExists('tenant_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('price_list_id', $data ?? [], null);
+        $this->setIfExists('enrollment_id', $data ?? [], null);
+        $this->setIfExists('individual_id', $data ?? [], null);
+        $this->setIfExists('organization_id', $data ?? [], null);
+        $this->setIfExists('receiver_tenant_id', $data ?? [], null);
+        $this->setIfExists('first_name', $data ?? [], null);
+        $this->setIfExists('last_name', $data ?? [], null);
+        $this->setIfExists('company_name', $data ?? [], null);
+        $this->setIfExists('billing_email', $data ?? [], null);
+        $this->setIfExists('address_line1', $data ?? [], null);
+        $this->setIfExists('address_line2', $data ?? [], null);
+        $this->setIfExists('postal_code', $data ?? [], null);
+        $this->setIfExists('country_id', $data ?? [], null);
+        $this->setIfExists('state_id', $data ?? [], null);
+        $this->setIfExists('city_id', $data ?? [], null);
+        $this->setIfExists('customer_notes', $data ?? [], null);
+        $this->setIfExists('tax_calculation_method', $data ?? [], null);
+        $this->setIfExists('cost_calculation_method', $data ?? [], null);
+        $this->setIfExists('forex_rate', $data ?? [], null);
+        $this->setIfExists('forex_rates_snapshot', $data ?? [], null);
+        $this->setIfExists('currency_id', $data ?? [], null);
+        $this->setIfExists('total_detail', $data ?? [], null);
+        $this->setIfExists('total_detail_currency_id', $data ?? [], null);
+        $this->setIfExists('total_profit', $data ?? [], null);
+        $this->setIfExists('total_profit_currency_id', $data ?? [], null);
+        $this->setIfExists('total_discounts', $data ?? [], null);
+        $this->setIfExists('total_discounts_currency_id', $data ?? [], null);
+        $this->setIfExists('total_surcharges', $data ?? [], null);
+        $this->setIfExists('total_surcharges_currency_id', $data ?? [], null);
+        $this->setIfExists('total_tax_base', $data ?? [], null);
+        $this->setIfExists('total_tax_base_currency_id', $data ?? [], null);
+        $this->setIfExists('total_taxes', $data ?? [], null);
+        $this->setIfExists('total_taxes_currency_id', $data ?? [], null);
+        $this->setIfExists('total_shipping_cost', $data ?? [], null);
+        $this->setIfExists('total_shipping_cost_currency_id', $data ?? [], null);
+        $this->setIfExists('total_shipping_tax', $data ?? [], null);
+        $this->setIfExists('total_shipping_tax_currency_id', $data ?? [], null);
+        $this->setIfExists('total_withheld_tax', $data ?? [], null);
+        $this->setIfExists('total_withheld_tax_currency_id', $data ?? [], null);
+        $this->setIfExists('total_global_discounts', $data ?? [], null);
+        $this->setIfExists('total_global_discounts_currency_id', $data ?? [], null);
+        $this->setIfExists('total_global_surcharges', $data ?? [], null);
+        $this->setIfExists('total_global_surcharges_currency_id', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('total_currency_id', $data ?? [], null);
+        $this->setIfExists('total_detail_in_usd', $data ?? [], null);
+        $this->setIfExists('total_profit_in_usd', $data ?? [], null);
+        $this->setIfExists('total_discounts_in_usd', $data ?? [], null);
+        $this->setIfExists('total_surcharges_in_usd', $data ?? [], null);
+        $this->setIfExists('total_tax_base_in_usd', $data ?? [], null);
+        $this->setIfExists('total_taxes_in_usd', $data ?? [], null);
+        $this->setIfExists('total_withheld_taxes_in_usd', $data ?? [], null);
+        $this->setIfExists('total_shipping_cost_in_usd', $data ?? [], null);
+        $this->setIfExists('total_shipping_taxes_in_usd', $data ?? [], null);
+        $this->setIfExists('total_global_discounts_in_usd', $data ?? [], null);
+        $this->setIfExists('total_global_surcharges_in_usd', $data ?? [], null);
+        $this->setIfExists('total_in_usd', $data ?? [], null);
         $this->setIfExists('item_id', $data ?? [], null);
         $this->setIfExists('item_title', $data ?? [], null);
         $this->setIfExists('item_short_description', $data ?? [], null);
         $this->setIfExists('item_primary_image_url', $data ?? [], null);
         $this->setIfExists('shipping_policy_id', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('enrollment_id', $data ?? [], null);
-        $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('free', $data ?? [], null);
         $this->setIfExists('free_reason', $data ?? [], null);
@@ -957,25 +1045,9 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('price_list_item_id', $data ?? [], null);
         $this->setIfExists('unit_id', $data ?? [], null);
         $this->setIfExists('unit_group_id', $data ?? [], null);
-        $this->setIfExists('tax_calculation_method', $data ?? [], null);
-        $this->setIfExists('cost_calculation_method', $data ?? [], null);
-        $this->setIfExists('forex_rates', $data ?? [], null);
-        $this->setIfExists('forex_rate', $data ?? [], null);
-        $this->setIfExists('total_detail_in_usd', $data ?? [], null);
-        $this->setIfExists('total_profit_in_usd', $data ?? [], null);
-        $this->setIfExists('total_discounts_in_usd', $data ?? [], null);
-        $this->setIfExists('total_surcharges_in_usd', $data ?? [], null);
-        $this->setIfExists('total_tax_base_in_usd', $data ?? [], null);
-        $this->setIfExists('total_taxes_in_usd', $data ?? [], null);
-        $this->setIfExists('total_withheld_taxes_in_usd', $data ?? [], null);
-        $this->setIfExists('total_shipping_cost_in_usd', $data ?? [], null);
-        $this->setIfExists('total_shipping_taxes_in_usd', $data ?? [], null);
         $this->setIfExists('total_warranty_cost_in_usd', $data ?? [], null);
         $this->setIfExists('total_return_cost_in_usd', $data ?? [], null);
         $this->setIfExists('total_refund_cost_in_usd', $data ?? [], null);
-        $this->setIfExists('total_in_usd', $data ?? [], null);
-        $this->setIfExists('total_global_discounts_in_usd', $data ?? [], null);
-        $this->setIfExists('total_global_surcharges_in_usd', $data ?? [], null);
         $this->setIfExists('custom_global_surcharges_amount', $data ?? [], null);
         $this->setIfExists('custom_global_discounts_amount', $data ?? [], null);
         $this->setIfExists('return_policy_id', $data ?? [], null);
@@ -987,43 +1059,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('quote_item_record_id', $data ?? [], null);
         $this->setIfExists('business_profile_record_id', $data ?? [], null);
         $this->setIfExists('parent_billing_item_record_id', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('total_detail', $data ?? [], null);
-        $this->setIfExists('total_detail_currency_id', $data ?? [], null);
-        $this->setIfExists('total_detail_amount', $data ?? [], null);
-        $this->setIfExists('total_profit', $data ?? [], null);
-        $this->setIfExists('total_profit_currency_id', $data ?? [], null);
-        $this->setIfExists('total_profit_amount', $data ?? [], null);
-        $this->setIfExists('total_discounts', $data ?? [], null);
-        $this->setIfExists('total_discounts_currency_id', $data ?? [], null);
-        $this->setIfExists('total_discounts_amount', $data ?? [], null);
-        $this->setIfExists('total_surcharges', $data ?? [], null);
-        $this->setIfExists('total_surcharges_currency_id', $data ?? [], null);
-        $this->setIfExists('total_surcharges_amount', $data ?? [], null);
-        $this->setIfExists('total_tax_base', $data ?? [], null);
-        $this->setIfExists('total_tax_base_currency_id', $data ?? [], null);
-        $this->setIfExists('total_tax_base_amount', $data ?? [], null);
-        $this->setIfExists('total_taxes', $data ?? [], null);
-        $this->setIfExists('total_taxes_currency_id', $data ?? [], null);
-        $this->setIfExists('total_taxes_amount', $data ?? [], null);
-        $this->setIfExists('total_shipping_cost', $data ?? [], null);
-        $this->setIfExists('total_shipping_cost_currency_id', $data ?? [], null);
-        $this->setIfExists('total_shipping_cost_amount', $data ?? [], null);
-        $this->setIfExists('total_shipping_tax', $data ?? [], null);
-        $this->setIfExists('total_shipping_tax_currency_id', $data ?? [], null);
-        $this->setIfExists('total_shipping_tax_amount', $data ?? [], null);
-        $this->setIfExists('total_withheld_tax', $data ?? [], null);
-        $this->setIfExists('total_withheld_tax_currency_id', $data ?? [], null);
-        $this->setIfExists('total_withheld_tax_amount', $data ?? [], null);
-        $this->setIfExists('total_global_discounts', $data ?? [], null);
-        $this->setIfExists('total_global_discounts_currency_id', $data ?? [], null);
-        $this->setIfExists('total_global_discounts_amount', $data ?? [], null);
-        $this->setIfExists('total_global_surcharges', $data ?? [], null);
-        $this->setIfExists('total_global_surcharges_currency_id', $data ?? [], null);
-        $this->setIfExists('total_global_surcharges_amount', $data ?? [], null);
-        $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('total_currency_id', $data ?? [], null);
-        $this->setIfExists('total_amount', $data ?? [], null);
         $this->setIfExists('deal_unit_id', $data ?? [], null);
     }
 
@@ -1178,6 +1213,1945 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable closed cannot be null');
         }
         $this->container['closed'] = $closed;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string|null $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        if (is_null($user_id)) {
+            array_push($this->openAPINullablesSetToNull, 'user_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('user_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tenant_id
+     *
+     * @return string|null
+     */
+    public function getTenantId()
+    {
+        return $this->container['tenant_id'];
+    }
+
+    /**
+     * Sets tenant_id
+     *
+     * @param string|null $tenant_id tenant_id
+     *
+     * @return self
+     */
+    public function setTenantId($tenant_id)
+    {
+        if (is_null($tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tenant_id'] = $tenant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_list_id
+     *
+     * @return string|null
+     */
+    public function getPriceListId()
+    {
+        return $this->container['price_list_id'];
+    }
+
+    /**
+     * Sets price_list_id
+     *
+     * @param string|null $price_list_id price_list_id
+     *
+     * @return self
+     */
+    public function setPriceListId($price_list_id)
+    {
+        if (is_null($price_list_id)) {
+            array_push($this->openAPINullablesSetToNull, 'price_list_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_list_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['price_list_id'] = $price_list_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets enrollment_id
+     *
+     * @return string|null
+     */
+    public function getEnrollmentId()
+    {
+        return $this->container['enrollment_id'];
+    }
+
+    /**
+     * Sets enrollment_id
+     *
+     * @param string|null $enrollment_id enrollment_id
+     *
+     * @return self
+     */
+    public function setEnrollmentId($enrollment_id)
+    {
+        if (is_null($enrollment_id)) {
+            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enrollment_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enrollment_id'] = $enrollment_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets individual_id
+     *
+     * @return string|null
+     */
+    public function getIndividualId()
+    {
+        return $this->container['individual_id'];
+    }
+
+    /**
+     * Sets individual_id
+     *
+     * @param string|null $individual_id individual_id
+     *
+     * @return self
+     */
+    public function setIndividualId($individual_id)
+    {
+        if (is_null($individual_id)) {
+            array_push($this->openAPINullablesSetToNull, 'individual_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('individual_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['individual_id'] = $individual_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization_id
+     *
+     * @return string|null
+     */
+    public function getOrganizationId()
+    {
+        return $this->container['organization_id'];
+    }
+
+    /**
+     * Sets organization_id
+     *
+     * @param string|null $organization_id organization_id
+     *
+     * @return self
+     */
+    public function setOrganizationId($organization_id)
+    {
+        if (is_null($organization_id)) {
+            array_push($this->openAPINullablesSetToNull, 'organization_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['organization_id'] = $organization_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver_tenant_id
+     *
+     * @return string|null
+     */
+    public function getReceiverTenantId()
+    {
+        return $this->container['receiver_tenant_id'];
+    }
+
+    /**
+     * Sets receiver_tenant_id
+     *
+     * @param string|null $receiver_tenant_id receiver_tenant_id
+     *
+     * @return self
+     */
+    public function setReceiverTenantId($receiver_tenant_id)
+    {
+        if (is_null($receiver_tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'receiver_tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('receiver_tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['receiver_tenant_id'] = $receiver_tenant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name first_name
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        if (is_null($first_name)) {
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name last_name
+     *
+     * @return self
+     */
+    public function setLastName($last_name)
+    {
+        if (is_null($last_name)) {
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_name
+     *
+     * @return string|null
+     */
+    public function getCompanyName()
+    {
+        return $this->container['company_name'];
+    }
+
+    /**
+     * Sets company_name
+     *
+     * @param string|null $company_name company_name
+     *
+     * @return self
+     */
+    public function setCompanyName($company_name)
+    {
+        if (is_null($company_name)) {
+            array_push($this->openAPINullablesSetToNull, 'company_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('company_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['company_name'] = $company_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_email
+     *
+     * @return string|null
+     */
+    public function getBillingEmail()
+    {
+        return $this->container['billing_email'];
+    }
+
+    /**
+     * Sets billing_email
+     *
+     * @param string|null $billing_email billing_email
+     *
+     * @return self
+     */
+    public function setBillingEmail($billing_email)
+    {
+        if (is_null($billing_email)) {
+            array_push($this->openAPINullablesSetToNull, 'billing_email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('billing_email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['billing_email'] = $billing_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_line1
+     *
+     * @return string|null
+     */
+    public function getAddressLine1()
+    {
+        return $this->container['address_line1'];
+    }
+
+    /**
+     * Sets address_line1
+     *
+     * @param string|null $address_line1 address_line1
+     *
+     * @return self
+     */
+    public function setAddressLine1($address_line1)
+    {
+        if (is_null($address_line1)) {
+            array_push($this->openAPINullablesSetToNull, 'address_line1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address_line1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['address_line1'] = $address_line1;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_line2
+     *
+     * @return string|null
+     */
+    public function getAddressLine2()
+    {
+        return $this->container['address_line2'];
+    }
+
+    /**
+     * Sets address_line2
+     *
+     * @param string|null $address_line2 address_line2
+     *
+     * @return self
+     */
+    public function setAddressLine2($address_line2)
+    {
+        if (is_null($address_line2)) {
+            array_push($this->openAPINullablesSetToNull, 'address_line2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address_line2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['address_line2'] = $address_line2;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code postal_code
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code)
+    {
+        if (is_null($postal_code)) {
+            array_push($this->openAPINullablesSetToNull, 'postal_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('postal_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_id
+     *
+     * @return string|null
+     */
+    public function getCountryId()
+    {
+        return $this->container['country_id'];
+    }
+
+    /**
+     * Sets country_id
+     *
+     * @param string|null $country_id country_id
+     *
+     * @return self
+     */
+    public function setCountryId($country_id)
+    {
+        if (is_null($country_id)) {
+            array_push($this->openAPINullablesSetToNull, 'country_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['country_id'] = $country_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_id
+     *
+     * @return string|null
+     */
+    public function getStateId()
+    {
+        return $this->container['state_id'];
+    }
+
+    /**
+     * Sets state_id
+     *
+     * @param string|null $state_id state_id
+     *
+     * @return self
+     */
+    public function setStateId($state_id)
+    {
+        if (is_null($state_id)) {
+            array_push($this->openAPINullablesSetToNull, 'state_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['state_id'] = $state_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets city_id
+     *
+     * @return string|null
+     */
+    public function getCityId()
+    {
+        return $this->container['city_id'];
+    }
+
+    /**
+     * Sets city_id
+     *
+     * @param string|null $city_id city_id
+     *
+     * @return self
+     */
+    public function setCityId($city_id)
+    {
+        if (is_null($city_id)) {
+            array_push($this->openAPINullablesSetToNull, 'city_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('city_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['city_id'] = $city_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_notes
+     *
+     * @return string|null
+     */
+    public function getCustomerNotes()
+    {
+        return $this->container['customer_notes'];
+    }
+
+    /**
+     * Sets customer_notes
+     *
+     * @param string|null $customer_notes customer_notes
+     *
+     * @return self
+     */
+    public function setCustomerNotes($customer_notes)
+    {
+        if (is_null($customer_notes)) {
+            array_push($this->openAPINullablesSetToNull, 'customer_notes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_notes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customer_notes'] = $customer_notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_calculation_method
+     *
+     * @return string|null
+     */
+    public function getTaxCalculationMethod()
+    {
+        return $this->container['tax_calculation_method'];
+    }
+
+    /**
+     * Sets tax_calculation_method
+     *
+     * @param string|null $tax_calculation_method tax_calculation_method
+     *
+     * @return self
+     */
+    public function setTaxCalculationMethod($tax_calculation_method)
+    {
+        if (is_null($tax_calculation_method)) {
+            throw new \InvalidArgumentException('non-nullable tax_calculation_method cannot be null');
+        }
+        $allowedValues = $this->getTaxCalculationMethodAllowableValues();
+        if (!in_array($tax_calculation_method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tax_calculation_method', must be one of '%s'",
+                    $tax_calculation_method,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tax_calculation_method'] = $tax_calculation_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_calculation_method
+     *
+     * @return string|null
+     */
+    public function getCostCalculationMethod()
+    {
+        return $this->container['cost_calculation_method'];
+    }
+
+    /**
+     * Sets cost_calculation_method
+     *
+     * @param string|null $cost_calculation_method cost_calculation_method
+     *
+     * @return self
+     */
+    public function setCostCalculationMethod($cost_calculation_method)
+    {
+        if (is_null($cost_calculation_method)) {
+            throw new \InvalidArgumentException('non-nullable cost_calculation_method cannot be null');
+        }
+        $allowedValues = $this->getCostCalculationMethodAllowableValues();
+        if (!in_array($cost_calculation_method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'cost_calculation_method', must be one of '%s'",
+                    $cost_calculation_method,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['cost_calculation_method'] = $cost_calculation_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets forex_rate
+     *
+     * @return float|null
+     */
+    public function getForexRate()
+    {
+        return $this->container['forex_rate'];
+    }
+
+    /**
+     * Sets forex_rate
+     *
+     * @param float|null $forex_rate forex_rate
+     *
+     * @return self
+     */
+    public function setForexRate($forex_rate)
+    {
+        if (is_null($forex_rate)) {
+            throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
+        }
+        $this->container['forex_rate'] = $forex_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets forex_rates_snapshot
+     *
+     * @return string|null
+     */
+    public function getForexRatesSnapshot()
+    {
+        return $this->container['forex_rates_snapshot'];
+    }
+
+    /**
+     * Sets forex_rates_snapshot
+     *
+     * @param string|null $forex_rates_snapshot forex_rates_snapshot
+     *
+     * @return self
+     */
+    public function setForexRatesSnapshot($forex_rates_snapshot)
+    {
+        if (is_null($forex_rates_snapshot)) {
+            array_push($this->openAPINullablesSetToNull, 'forex_rates_snapshot');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('forex_rates_snapshot', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['forex_rates_snapshot'] = $forex_rates_snapshot;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_id
+     *
+     * @return string|null
+     */
+    public function getCurrencyId()
+    {
+        return $this->container['currency_id'];
+    }
+
+    /**
+     * Sets currency_id
+     *
+     * @param string|null $currency_id currency_id
+     *
+     * @return self
+     */
+    public function setCurrencyId($currency_id)
+    {
+        if (is_null($currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['currency_id'] = $currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_detail
+     *
+     * @return float|null
+     */
+    public function getTotalDetail()
+    {
+        return $this->container['total_detail'];
+    }
+
+    /**
+     * Sets total_detail
+     *
+     * @param float|null $total_detail total_detail
+     *
+     * @return self
+     */
+    public function setTotalDetail($total_detail)
+    {
+        if (is_null($total_detail)) {
+            throw new \InvalidArgumentException('non-nullable total_detail cannot be null');
+        }
+        $this->container['total_detail'] = $total_detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_detail_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalDetailCurrencyId()
+    {
+        return $this->container['total_detail_currency_id'];
+    }
+
+    /**
+     * Sets total_detail_currency_id
+     *
+     * @param string|null $total_detail_currency_id total_detail_currency_id
+     *
+     * @return self
+     */
+    public function setTotalDetailCurrencyId($total_detail_currency_id)
+    {
+        if (is_null($total_detail_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_detail_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_detail_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_detail_currency_id'] = $total_detail_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_profit
+     *
+     * @return float|null
+     */
+    public function getTotalProfit()
+    {
+        return $this->container['total_profit'];
+    }
+
+    /**
+     * Sets total_profit
+     *
+     * @param float|null $total_profit total_profit
+     *
+     * @return self
+     */
+    public function setTotalProfit($total_profit)
+    {
+        if (is_null($total_profit)) {
+            throw new \InvalidArgumentException('non-nullable total_profit cannot be null');
+        }
+        $this->container['total_profit'] = $total_profit;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_profit_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalProfitCurrencyId()
+    {
+        return $this->container['total_profit_currency_id'];
+    }
+
+    /**
+     * Sets total_profit_currency_id
+     *
+     * @param string|null $total_profit_currency_id total_profit_currency_id
+     *
+     * @return self
+     */
+    public function setTotalProfitCurrencyId($total_profit_currency_id)
+    {
+        if (is_null($total_profit_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_profit_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_profit_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_profit_currency_id'] = $total_profit_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_discounts
+     *
+     * @return float|null
+     */
+    public function getTotalDiscounts()
+    {
+        return $this->container['total_discounts'];
+    }
+
+    /**
+     * Sets total_discounts
+     *
+     * @param float|null $total_discounts total_discounts
+     *
+     * @return self
+     */
+    public function setTotalDiscounts($total_discounts)
+    {
+        if (is_null($total_discounts)) {
+            throw new \InvalidArgumentException('non-nullable total_discounts cannot be null');
+        }
+        $this->container['total_discounts'] = $total_discounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_discounts_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalDiscountsCurrencyId()
+    {
+        return $this->container['total_discounts_currency_id'];
+    }
+
+    /**
+     * Sets total_discounts_currency_id
+     *
+     * @param string|null $total_discounts_currency_id total_discounts_currency_id
+     *
+     * @return self
+     */
+    public function setTotalDiscountsCurrencyId($total_discounts_currency_id)
+    {
+        if (is_null($total_discounts_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_discounts_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_discounts_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_discounts_currency_id'] = $total_discounts_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_surcharges
+     *
+     * @return float|null
+     */
+    public function getTotalSurcharges()
+    {
+        return $this->container['total_surcharges'];
+    }
+
+    /**
+     * Sets total_surcharges
+     *
+     * @param float|null $total_surcharges total_surcharges
+     *
+     * @return self
+     */
+    public function setTotalSurcharges($total_surcharges)
+    {
+        if (is_null($total_surcharges)) {
+            throw new \InvalidArgumentException('non-nullable total_surcharges cannot be null');
+        }
+        $this->container['total_surcharges'] = $total_surcharges;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_surcharges_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalSurchargesCurrencyId()
+    {
+        return $this->container['total_surcharges_currency_id'];
+    }
+
+    /**
+     * Sets total_surcharges_currency_id
+     *
+     * @param string|null $total_surcharges_currency_id total_surcharges_currency_id
+     *
+     * @return self
+     */
+    public function setTotalSurchargesCurrencyId($total_surcharges_currency_id)
+    {
+        if (is_null($total_surcharges_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_surcharges_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_surcharges_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_surcharges_currency_id'] = $total_surcharges_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tax_base
+     *
+     * @return float|null
+     */
+    public function getTotalTaxBase()
+    {
+        return $this->container['total_tax_base'];
+    }
+
+    /**
+     * Sets total_tax_base
+     *
+     * @param float|null $total_tax_base total_tax_base
+     *
+     * @return self
+     */
+    public function setTotalTaxBase($total_tax_base)
+    {
+        if (is_null($total_tax_base)) {
+            throw new \InvalidArgumentException('non-nullable total_tax_base cannot be null');
+        }
+        $this->container['total_tax_base'] = $total_tax_base;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tax_base_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalTaxBaseCurrencyId()
+    {
+        return $this->container['total_tax_base_currency_id'];
+    }
+
+    /**
+     * Sets total_tax_base_currency_id
+     *
+     * @param string|null $total_tax_base_currency_id total_tax_base_currency_id
+     *
+     * @return self
+     */
+    public function setTotalTaxBaseCurrencyId($total_tax_base_currency_id)
+    {
+        if (is_null($total_tax_base_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_tax_base_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_tax_base_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_tax_base_currency_id'] = $total_tax_base_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_taxes
+     *
+     * @return float|null
+     */
+    public function getTotalTaxes()
+    {
+        return $this->container['total_taxes'];
+    }
+
+    /**
+     * Sets total_taxes
+     *
+     * @param float|null $total_taxes total_taxes
+     *
+     * @return self
+     */
+    public function setTotalTaxes($total_taxes)
+    {
+        if (is_null($total_taxes)) {
+            throw new \InvalidArgumentException('non-nullable total_taxes cannot be null');
+        }
+        $this->container['total_taxes'] = $total_taxes;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_taxes_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalTaxesCurrencyId()
+    {
+        return $this->container['total_taxes_currency_id'];
+    }
+
+    /**
+     * Sets total_taxes_currency_id
+     *
+     * @param string|null $total_taxes_currency_id total_taxes_currency_id
+     *
+     * @return self
+     */
+    public function setTotalTaxesCurrencyId($total_taxes_currency_id)
+    {
+        if (is_null($total_taxes_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_taxes_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_taxes_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_taxes_currency_id'] = $total_taxes_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shipping_cost
+     *
+     * @return float|null
+     */
+    public function getTotalShippingCost()
+    {
+        return $this->container['total_shipping_cost'];
+    }
+
+    /**
+     * Sets total_shipping_cost
+     *
+     * @param float|null $total_shipping_cost total_shipping_cost
+     *
+     * @return self
+     */
+    public function setTotalShippingCost($total_shipping_cost)
+    {
+        if (is_null($total_shipping_cost)) {
+            throw new \InvalidArgumentException('non-nullable total_shipping_cost cannot be null');
+        }
+        $this->container['total_shipping_cost'] = $total_shipping_cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shipping_cost_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalShippingCostCurrencyId()
+    {
+        return $this->container['total_shipping_cost_currency_id'];
+    }
+
+    /**
+     * Sets total_shipping_cost_currency_id
+     *
+     * @param string|null $total_shipping_cost_currency_id total_shipping_cost_currency_id
+     *
+     * @return self
+     */
+    public function setTotalShippingCostCurrencyId($total_shipping_cost_currency_id)
+    {
+        if (is_null($total_shipping_cost_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_shipping_cost_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_shipping_cost_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_shipping_cost_currency_id'] = $total_shipping_cost_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shipping_tax
+     *
+     * @return float|null
+     */
+    public function getTotalShippingTax()
+    {
+        return $this->container['total_shipping_tax'];
+    }
+
+    /**
+     * Sets total_shipping_tax
+     *
+     * @param float|null $total_shipping_tax total_shipping_tax
+     *
+     * @return self
+     */
+    public function setTotalShippingTax($total_shipping_tax)
+    {
+        if (is_null($total_shipping_tax)) {
+            throw new \InvalidArgumentException('non-nullable total_shipping_tax cannot be null');
+        }
+        $this->container['total_shipping_tax'] = $total_shipping_tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shipping_tax_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalShippingTaxCurrencyId()
+    {
+        return $this->container['total_shipping_tax_currency_id'];
+    }
+
+    /**
+     * Sets total_shipping_tax_currency_id
+     *
+     * @param string|null $total_shipping_tax_currency_id total_shipping_tax_currency_id
+     *
+     * @return self
+     */
+    public function setTotalShippingTaxCurrencyId($total_shipping_tax_currency_id)
+    {
+        if (is_null($total_shipping_tax_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_shipping_tax_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_shipping_tax_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_shipping_tax_currency_id'] = $total_shipping_tax_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_withheld_tax
+     *
+     * @return float|null
+     */
+    public function getTotalWithheldTax()
+    {
+        return $this->container['total_withheld_tax'];
+    }
+
+    /**
+     * Sets total_withheld_tax
+     *
+     * @param float|null $total_withheld_tax total_withheld_tax
+     *
+     * @return self
+     */
+    public function setTotalWithheldTax($total_withheld_tax)
+    {
+        if (is_null($total_withheld_tax)) {
+            throw new \InvalidArgumentException('non-nullable total_withheld_tax cannot be null');
+        }
+        $this->container['total_withheld_tax'] = $total_withheld_tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_withheld_tax_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalWithheldTaxCurrencyId()
+    {
+        return $this->container['total_withheld_tax_currency_id'];
+    }
+
+    /**
+     * Sets total_withheld_tax_currency_id
+     *
+     * @param string|null $total_withheld_tax_currency_id total_withheld_tax_currency_id
+     *
+     * @return self
+     */
+    public function setTotalWithheldTaxCurrencyId($total_withheld_tax_currency_id)
+    {
+        if (is_null($total_withheld_tax_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_withheld_tax_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_withheld_tax_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_withheld_tax_currency_id'] = $total_withheld_tax_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_discounts
+     *
+     * @return float|null
+     */
+    public function getTotalGlobalDiscounts()
+    {
+        return $this->container['total_global_discounts'];
+    }
+
+    /**
+     * Sets total_global_discounts
+     *
+     * @param float|null $total_global_discounts total_global_discounts
+     *
+     * @return self
+     */
+    public function setTotalGlobalDiscounts($total_global_discounts)
+    {
+        if (is_null($total_global_discounts)) {
+            throw new \InvalidArgumentException('non-nullable total_global_discounts cannot be null');
+        }
+        $this->container['total_global_discounts'] = $total_global_discounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_discounts_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalGlobalDiscountsCurrencyId()
+    {
+        return $this->container['total_global_discounts_currency_id'];
+    }
+
+    /**
+     * Sets total_global_discounts_currency_id
+     *
+     * @param string|null $total_global_discounts_currency_id total_global_discounts_currency_id
+     *
+     * @return self
+     */
+    public function setTotalGlobalDiscountsCurrencyId($total_global_discounts_currency_id)
+    {
+        if (is_null($total_global_discounts_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_global_discounts_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_global_discounts_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_global_discounts_currency_id'] = $total_global_discounts_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_surcharges
+     *
+     * @return float|null
+     */
+    public function getTotalGlobalSurcharges()
+    {
+        return $this->container['total_global_surcharges'];
+    }
+
+    /**
+     * Sets total_global_surcharges
+     *
+     * @param float|null $total_global_surcharges total_global_surcharges
+     *
+     * @return self
+     */
+    public function setTotalGlobalSurcharges($total_global_surcharges)
+    {
+        if (is_null($total_global_surcharges)) {
+            throw new \InvalidArgumentException('non-nullable total_global_surcharges cannot be null');
+        }
+        $this->container['total_global_surcharges'] = $total_global_surcharges;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_surcharges_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalGlobalSurchargesCurrencyId()
+    {
+        return $this->container['total_global_surcharges_currency_id'];
+    }
+
+    /**
+     * Sets total_global_surcharges_currency_id
+     *
+     * @param string|null $total_global_surcharges_currency_id total_global_surcharges_currency_id
+     *
+     * @return self
+     */
+    public function setTotalGlobalSurchargesCurrencyId($total_global_surcharges_currency_id)
+    {
+        if (is_null($total_global_surcharges_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_global_surcharges_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_global_surcharges_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_global_surcharges_currency_id'] = $total_global_surcharges_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return float|null
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param float|null $total total
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_currency_id
+     *
+     * @return string|null
+     */
+    public function getTotalCurrencyId()
+    {
+        return $this->container['total_currency_id'];
+    }
+
+    /**
+     * Sets total_currency_id
+     *
+     * @param string|null $total_currency_id total_currency_id
+     *
+     * @return self
+     */
+    public function setTotalCurrencyId($total_currency_id)
+    {
+        if (is_null($total_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'total_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_currency_id'] = $total_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_detail_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalDetailInUsd()
+    {
+        return $this->container['total_detail_in_usd'];
+    }
+
+    /**
+     * Sets total_detail_in_usd
+     *
+     * @param float|null $total_detail_in_usd total_detail_in_usd
+     *
+     * @return self
+     */
+    public function setTotalDetailInUsd($total_detail_in_usd)
+    {
+        if (is_null($total_detail_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_detail_in_usd cannot be null');
+        }
+        $this->container['total_detail_in_usd'] = $total_detail_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_profit_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalProfitInUsd()
+    {
+        return $this->container['total_profit_in_usd'];
+    }
+
+    /**
+     * Sets total_profit_in_usd
+     *
+     * @param float|null $total_profit_in_usd total_profit_in_usd
+     *
+     * @return self
+     */
+    public function setTotalProfitInUsd($total_profit_in_usd)
+    {
+        if (is_null($total_profit_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_profit_in_usd cannot be null');
+        }
+        $this->container['total_profit_in_usd'] = $total_profit_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_discounts_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalDiscountsInUsd()
+    {
+        return $this->container['total_discounts_in_usd'];
+    }
+
+    /**
+     * Sets total_discounts_in_usd
+     *
+     * @param float|null $total_discounts_in_usd total_discounts_in_usd
+     *
+     * @return self
+     */
+    public function setTotalDiscountsInUsd($total_discounts_in_usd)
+    {
+        if (is_null($total_discounts_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_discounts_in_usd cannot be null');
+        }
+        $this->container['total_discounts_in_usd'] = $total_discounts_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_surcharges_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalSurchargesInUsd()
+    {
+        return $this->container['total_surcharges_in_usd'];
+    }
+
+    /**
+     * Sets total_surcharges_in_usd
+     *
+     * @param float|null $total_surcharges_in_usd total_surcharges_in_usd
+     *
+     * @return self
+     */
+    public function setTotalSurchargesInUsd($total_surcharges_in_usd)
+    {
+        if (is_null($total_surcharges_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_surcharges_in_usd cannot be null');
+        }
+        $this->container['total_surcharges_in_usd'] = $total_surcharges_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tax_base_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalTaxBaseInUsd()
+    {
+        return $this->container['total_tax_base_in_usd'];
+    }
+
+    /**
+     * Sets total_tax_base_in_usd
+     *
+     * @param float|null $total_tax_base_in_usd total_tax_base_in_usd
+     *
+     * @return self
+     */
+    public function setTotalTaxBaseInUsd($total_tax_base_in_usd)
+    {
+        if (is_null($total_tax_base_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_tax_base_in_usd cannot be null');
+        }
+        $this->container['total_tax_base_in_usd'] = $total_tax_base_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_taxes_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalTaxesInUsd()
+    {
+        return $this->container['total_taxes_in_usd'];
+    }
+
+    /**
+     * Sets total_taxes_in_usd
+     *
+     * @param float|null $total_taxes_in_usd total_taxes_in_usd
+     *
+     * @return self
+     */
+    public function setTotalTaxesInUsd($total_taxes_in_usd)
+    {
+        if (is_null($total_taxes_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_taxes_in_usd cannot be null');
+        }
+        $this->container['total_taxes_in_usd'] = $total_taxes_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_withheld_taxes_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalWithheldTaxesInUsd()
+    {
+        return $this->container['total_withheld_taxes_in_usd'];
+    }
+
+    /**
+     * Sets total_withheld_taxes_in_usd
+     *
+     * @param float|null $total_withheld_taxes_in_usd total_withheld_taxes_in_usd
+     *
+     * @return self
+     */
+    public function setTotalWithheldTaxesInUsd($total_withheld_taxes_in_usd)
+    {
+        if (is_null($total_withheld_taxes_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_withheld_taxes_in_usd cannot be null');
+        }
+        $this->container['total_withheld_taxes_in_usd'] = $total_withheld_taxes_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shipping_cost_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalShippingCostInUsd()
+    {
+        return $this->container['total_shipping_cost_in_usd'];
+    }
+
+    /**
+     * Sets total_shipping_cost_in_usd
+     *
+     * @param float|null $total_shipping_cost_in_usd total_shipping_cost_in_usd
+     *
+     * @return self
+     */
+    public function setTotalShippingCostInUsd($total_shipping_cost_in_usd)
+    {
+        if (is_null($total_shipping_cost_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_shipping_cost_in_usd cannot be null');
+        }
+        $this->container['total_shipping_cost_in_usd'] = $total_shipping_cost_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shipping_taxes_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalShippingTaxesInUsd()
+    {
+        return $this->container['total_shipping_taxes_in_usd'];
+    }
+
+    /**
+     * Sets total_shipping_taxes_in_usd
+     *
+     * @param float|null $total_shipping_taxes_in_usd total_shipping_taxes_in_usd
+     *
+     * @return self
+     */
+    public function setTotalShippingTaxesInUsd($total_shipping_taxes_in_usd)
+    {
+        if (is_null($total_shipping_taxes_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_shipping_taxes_in_usd cannot be null');
+        }
+        $this->container['total_shipping_taxes_in_usd'] = $total_shipping_taxes_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_discounts_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalGlobalDiscountsInUsd()
+    {
+        return $this->container['total_global_discounts_in_usd'];
+    }
+
+    /**
+     * Sets total_global_discounts_in_usd
+     *
+     * @param float|null $total_global_discounts_in_usd total_global_discounts_in_usd
+     *
+     * @return self
+     */
+    public function setTotalGlobalDiscountsInUsd($total_global_discounts_in_usd)
+    {
+        if (is_null($total_global_discounts_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_global_discounts_in_usd cannot be null');
+        }
+        $this->container['total_global_discounts_in_usd'] = $total_global_discounts_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_global_surcharges_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalGlobalSurchargesInUsd()
+    {
+        return $this->container['total_global_surcharges_in_usd'];
+    }
+
+    /**
+     * Sets total_global_surcharges_in_usd
+     *
+     * @param float|null $total_global_surcharges_in_usd total_global_surcharges_in_usd
+     *
+     * @return self
+     */
+    public function setTotalGlobalSurchargesInUsd($total_global_surcharges_in_usd)
+    {
+        if (is_null($total_global_surcharges_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_global_surcharges_in_usd cannot be null');
+        }
+        $this->container['total_global_surcharges_in_usd'] = $total_global_surcharges_in_usd;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_in_usd
+     *
+     * @return float|null
+     */
+    public function getTotalInUsd()
+    {
+        return $this->container['total_in_usd'];
+    }
+
+    /**
+     * Sets total_in_usd
+     *
+     * @param float|null $total_in_usd total_in_usd
+     *
+     * @return self
+     */
+    public function setTotalInUsd($total_in_usd)
+    {
+        if (is_null($total_in_usd)) {
+            throw new \InvalidArgumentException('non-nullable total_in_usd cannot be null');
+        }
+        $this->container['total_in_usd'] = $total_in_usd;
 
         return $this;
     }
@@ -1348,142 +3322,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['shipping_policy_id'] = $shipping_policy_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency_id
-     *
-     * @return string|null
-     */
-    public function getCurrencyId()
-    {
-        return $this->container['currency_id'];
-    }
-
-    /**
-     * Sets currency_id
-     *
-     * @param string|null $currency_id currency_id
-     *
-     * @return self
-     */
-    public function setCurrencyId($currency_id)
-    {
-        if (is_null($currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
 
         return $this;
     }
@@ -2427,377 +4265,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tax_calculation_method
-     *
-     * @return string|null
-     */
-    public function getTaxCalculationMethod()
-    {
-        return $this->container['tax_calculation_method'];
-    }
-
-    /**
-     * Sets tax_calculation_method
-     *
-     * @param string|null $tax_calculation_method tax_calculation_method
-     *
-     * @return self
-     */
-    public function setTaxCalculationMethod($tax_calculation_method)
-    {
-        if (is_null($tax_calculation_method)) {
-            throw new \InvalidArgumentException('non-nullable tax_calculation_method cannot be null');
-        }
-        $allowedValues = $this->getTaxCalculationMethodAllowableValues();
-        if (!in_array($tax_calculation_method, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'tax_calculation_method', must be one of '%s'",
-                    $tax_calculation_method,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tax_calculation_method'] = $tax_calculation_method;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_calculation_method
-     *
-     * @return string|null
-     */
-    public function getCostCalculationMethod()
-    {
-        return $this->container['cost_calculation_method'];
-    }
-
-    /**
-     * Sets cost_calculation_method
-     *
-     * @param string|null $cost_calculation_method cost_calculation_method
-     *
-     * @return self
-     */
-    public function setCostCalculationMethod($cost_calculation_method)
-    {
-        if (is_null($cost_calculation_method)) {
-            throw new \InvalidArgumentException('non-nullable cost_calculation_method cannot be null');
-        }
-        $allowedValues = $this->getCostCalculationMethodAllowableValues();
-        if (!in_array($cost_calculation_method, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'cost_calculation_method', must be one of '%s'",
-                    $cost_calculation_method,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['cost_calculation_method'] = $cost_calculation_method;
-
-        return $this;
-    }
-
-    /**
-     * Gets forex_rates
-     *
-     * @return \OpenAPI\Client\Model\ForexRates|null
-     */
-    public function getForexRates()
-    {
-        return $this->container['forex_rates'];
-    }
-
-    /**
-     * Sets forex_rates
-     *
-     * @param \OpenAPI\Client\Model\ForexRates|null $forex_rates forex_rates
-     *
-     * @return self
-     */
-    public function setForexRates($forex_rates)
-    {
-        if (is_null($forex_rates)) {
-            throw new \InvalidArgumentException('non-nullable forex_rates cannot be null');
-        }
-        $this->container['forex_rates'] = $forex_rates;
-
-        return $this;
-    }
-
-    /**
-     * Gets forex_rate
-     *
-     * @return float|null
-     */
-    public function getForexRate()
-    {
-        return $this->container['forex_rate'];
-    }
-
-    /**
-     * Sets forex_rate
-     *
-     * @param float|null $forex_rate forex_rate
-     *
-     * @return self
-     */
-    public function setForexRate($forex_rate)
-    {
-        if (is_null($forex_rate)) {
-            throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
-        }
-        $this->container['forex_rate'] = $forex_rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_detail_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalDetailInUsd()
-    {
-        return $this->container['total_detail_in_usd'];
-    }
-
-    /**
-     * Sets total_detail_in_usd
-     *
-     * @param float|null $total_detail_in_usd total_detail_in_usd
-     *
-     * @return self
-     */
-    public function setTotalDetailInUsd($total_detail_in_usd)
-    {
-        if (is_null($total_detail_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_detail_in_usd cannot be null');
-        }
-        $this->container['total_detail_in_usd'] = $total_detail_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_profit_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalProfitInUsd()
-    {
-        return $this->container['total_profit_in_usd'];
-    }
-
-    /**
-     * Sets total_profit_in_usd
-     *
-     * @param float|null $total_profit_in_usd total_profit_in_usd
-     *
-     * @return self
-     */
-    public function setTotalProfitInUsd($total_profit_in_usd)
-    {
-        if (is_null($total_profit_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_profit_in_usd cannot be null');
-        }
-        $this->container['total_profit_in_usd'] = $total_profit_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_discounts_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalDiscountsInUsd()
-    {
-        return $this->container['total_discounts_in_usd'];
-    }
-
-    /**
-     * Sets total_discounts_in_usd
-     *
-     * @param float|null $total_discounts_in_usd total_discounts_in_usd
-     *
-     * @return self
-     */
-    public function setTotalDiscountsInUsd($total_discounts_in_usd)
-    {
-        if (is_null($total_discounts_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_discounts_in_usd cannot be null');
-        }
-        $this->container['total_discounts_in_usd'] = $total_discounts_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_surcharges_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalSurchargesInUsd()
-    {
-        return $this->container['total_surcharges_in_usd'];
-    }
-
-    /**
-     * Sets total_surcharges_in_usd
-     *
-     * @param float|null $total_surcharges_in_usd total_surcharges_in_usd
-     *
-     * @return self
-     */
-    public function setTotalSurchargesInUsd($total_surcharges_in_usd)
-    {
-        if (is_null($total_surcharges_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_surcharges_in_usd cannot be null');
-        }
-        $this->container['total_surcharges_in_usd'] = $total_surcharges_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_tax_base_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalTaxBaseInUsd()
-    {
-        return $this->container['total_tax_base_in_usd'];
-    }
-
-    /**
-     * Sets total_tax_base_in_usd
-     *
-     * @param float|null $total_tax_base_in_usd total_tax_base_in_usd
-     *
-     * @return self
-     */
-    public function setTotalTaxBaseInUsd($total_tax_base_in_usd)
-    {
-        if (is_null($total_tax_base_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_tax_base_in_usd cannot be null');
-        }
-        $this->container['total_tax_base_in_usd'] = $total_tax_base_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_taxes_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalTaxesInUsd()
-    {
-        return $this->container['total_taxes_in_usd'];
-    }
-
-    /**
-     * Sets total_taxes_in_usd
-     *
-     * @param float|null $total_taxes_in_usd total_taxes_in_usd
-     *
-     * @return self
-     */
-    public function setTotalTaxesInUsd($total_taxes_in_usd)
-    {
-        if (is_null($total_taxes_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_taxes_in_usd cannot be null');
-        }
-        $this->container['total_taxes_in_usd'] = $total_taxes_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_withheld_taxes_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalWithheldTaxesInUsd()
-    {
-        return $this->container['total_withheld_taxes_in_usd'];
-    }
-
-    /**
-     * Sets total_withheld_taxes_in_usd
-     *
-     * @param float|null $total_withheld_taxes_in_usd total_withheld_taxes_in_usd
-     *
-     * @return self
-     */
-    public function setTotalWithheldTaxesInUsd($total_withheld_taxes_in_usd)
-    {
-        if (is_null($total_withheld_taxes_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_withheld_taxes_in_usd cannot be null');
-        }
-        $this->container['total_withheld_taxes_in_usd'] = $total_withheld_taxes_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_cost_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalShippingCostInUsd()
-    {
-        return $this->container['total_shipping_cost_in_usd'];
-    }
-
-    /**
-     * Sets total_shipping_cost_in_usd
-     *
-     * @param float|null $total_shipping_cost_in_usd total_shipping_cost_in_usd
-     *
-     * @return self
-     */
-    public function setTotalShippingCostInUsd($total_shipping_cost_in_usd)
-    {
-        if (is_null($total_shipping_cost_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_shipping_cost_in_usd cannot be null');
-        }
-        $this->container['total_shipping_cost_in_usd'] = $total_shipping_cost_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_taxes_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalShippingTaxesInUsd()
-    {
-        return $this->container['total_shipping_taxes_in_usd'];
-    }
-
-    /**
-     * Sets total_shipping_taxes_in_usd
-     *
-     * @param float|null $total_shipping_taxes_in_usd total_shipping_taxes_in_usd
-     *
-     * @return self
-     */
-    public function setTotalShippingTaxesInUsd($total_shipping_taxes_in_usd)
-    {
-        if (is_null($total_shipping_taxes_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_shipping_taxes_in_usd cannot be null');
-        }
-        $this->container['total_shipping_taxes_in_usd'] = $total_shipping_taxes_in_usd;
-
-        return $this;
-    }
-
-    /**
      * Gets total_warranty_cost_in_usd
      *
      * @return float|null
@@ -2874,87 +4341,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable total_refund_cost_in_usd cannot be null');
         }
         $this->container['total_refund_cost_in_usd'] = $total_refund_cost_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalInUsd()
-    {
-        return $this->container['total_in_usd'];
-    }
-
-    /**
-     * Sets total_in_usd
-     *
-     * @param float|null $total_in_usd total_in_usd
-     *
-     * @return self
-     */
-    public function setTotalInUsd($total_in_usd)
-    {
-        if (is_null($total_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_in_usd cannot be null');
-        }
-        $this->container['total_in_usd'] = $total_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_discounts_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalGlobalDiscountsInUsd()
-    {
-        return $this->container['total_global_discounts_in_usd'];
-    }
-
-    /**
-     * Sets total_global_discounts_in_usd
-     *
-     * @param float|null $total_global_discounts_in_usd total_global_discounts_in_usd
-     *
-     * @return self
-     */
-    public function setTotalGlobalDiscountsInUsd($total_global_discounts_in_usd)
-    {
-        if (is_null($total_global_discounts_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_global_discounts_in_usd cannot be null');
-        }
-        $this->container['total_global_discounts_in_usd'] = $total_global_discounts_in_usd;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_surcharges_in_usd
-     *
-     * @return float|null
-     */
-    public function getTotalGlobalSurchargesInUsd()
-    {
-        return $this->container['total_global_surcharges_in_usd'];
-    }
-
-    /**
-     * Sets total_global_surcharges_in_usd
-     *
-     * @param float|null $total_global_surcharges_in_usd total_global_surcharges_in_usd
-     *
-     * @return self
-     */
-    public function setTotalGlobalSurchargesInUsd($total_global_surcharges_in_usd)
-    {
-        if (is_null($total_global_surcharges_in_usd)) {
-            throw new \InvalidArgumentException('non-nullable total_global_surcharges_in_usd cannot be null');
-        }
-        $this->container['total_global_surcharges_in_usd'] = $total_global_surcharges_in_usd;
 
         return $this;
     }
@@ -3315,1089 +4701,6 @@ class DealUnitLineDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['parent_billing_item_record_id'] = $parent_billing_item_record_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return \OpenAPI\Client\Model\CurrencyId|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param \OpenAPI\Client\Model\CurrencyId|null $currency currency
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_detail
-     *
-     * @return float|null
-     */
-    public function getTotalDetail()
-    {
-        return $this->container['total_detail'];
-    }
-
-    /**
-     * Sets total_detail
-     *
-     * @param float|null $total_detail total_detail
-     *
-     * @return self
-     */
-    public function setTotalDetail($total_detail)
-    {
-        if (is_null($total_detail)) {
-            throw new \InvalidArgumentException('non-nullable total_detail cannot be null');
-        }
-        $this->container['total_detail'] = $total_detail;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_detail_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalDetailCurrencyId()
-    {
-        return $this->container['total_detail_currency_id'];
-    }
-
-    /**
-     * Sets total_detail_currency_id
-     *
-     * @param string|null $total_detail_currency_id total_detail_currency_id
-     *
-     * @return self
-     */
-    public function setTotalDetailCurrencyId($total_detail_currency_id)
-    {
-        if (is_null($total_detail_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_detail_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_detail_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_detail_currency_id'] = $total_detail_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_detail_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalDetailAmount()
-    {
-        return $this->container['total_detail_amount'];
-    }
-
-    /**
-     * Sets total_detail_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_detail_amount total_detail_amount
-     *
-     * @return self
-     */
-    public function setTotalDetailAmount($total_detail_amount)
-    {
-        if (is_null($total_detail_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_detail_amount cannot be null');
-        }
-        $this->container['total_detail_amount'] = $total_detail_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_profit
-     *
-     * @return float|null
-     */
-    public function getTotalProfit()
-    {
-        return $this->container['total_profit'];
-    }
-
-    /**
-     * Sets total_profit
-     *
-     * @param float|null $total_profit total_profit
-     *
-     * @return self
-     */
-    public function setTotalProfit($total_profit)
-    {
-        if (is_null($total_profit)) {
-            throw new \InvalidArgumentException('non-nullable total_profit cannot be null');
-        }
-        $this->container['total_profit'] = $total_profit;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_profit_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalProfitCurrencyId()
-    {
-        return $this->container['total_profit_currency_id'];
-    }
-
-    /**
-     * Sets total_profit_currency_id
-     *
-     * @param string|null $total_profit_currency_id total_profit_currency_id
-     *
-     * @return self
-     */
-    public function setTotalProfitCurrencyId($total_profit_currency_id)
-    {
-        if (is_null($total_profit_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_profit_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_profit_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_profit_currency_id'] = $total_profit_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_profit_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalProfitAmount()
-    {
-        return $this->container['total_profit_amount'];
-    }
-
-    /**
-     * Sets total_profit_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_profit_amount total_profit_amount
-     *
-     * @return self
-     */
-    public function setTotalProfitAmount($total_profit_amount)
-    {
-        if (is_null($total_profit_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_profit_amount cannot be null');
-        }
-        $this->container['total_profit_amount'] = $total_profit_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_discounts
-     *
-     * @return float|null
-     */
-    public function getTotalDiscounts()
-    {
-        return $this->container['total_discounts'];
-    }
-
-    /**
-     * Sets total_discounts
-     *
-     * @param float|null $total_discounts total_discounts
-     *
-     * @return self
-     */
-    public function setTotalDiscounts($total_discounts)
-    {
-        if (is_null($total_discounts)) {
-            throw new \InvalidArgumentException('non-nullable total_discounts cannot be null');
-        }
-        $this->container['total_discounts'] = $total_discounts;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_discounts_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalDiscountsCurrencyId()
-    {
-        return $this->container['total_discounts_currency_id'];
-    }
-
-    /**
-     * Sets total_discounts_currency_id
-     *
-     * @param string|null $total_discounts_currency_id total_discounts_currency_id
-     *
-     * @return self
-     */
-    public function setTotalDiscountsCurrencyId($total_discounts_currency_id)
-    {
-        if (is_null($total_discounts_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_discounts_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_discounts_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_discounts_currency_id'] = $total_discounts_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_discounts_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalDiscountsAmount()
-    {
-        return $this->container['total_discounts_amount'];
-    }
-
-    /**
-     * Sets total_discounts_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_discounts_amount total_discounts_amount
-     *
-     * @return self
-     */
-    public function setTotalDiscountsAmount($total_discounts_amount)
-    {
-        if (is_null($total_discounts_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_discounts_amount cannot be null');
-        }
-        $this->container['total_discounts_amount'] = $total_discounts_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_surcharges
-     *
-     * @return float|null
-     */
-    public function getTotalSurcharges()
-    {
-        return $this->container['total_surcharges'];
-    }
-
-    /**
-     * Sets total_surcharges
-     *
-     * @param float|null $total_surcharges total_surcharges
-     *
-     * @return self
-     */
-    public function setTotalSurcharges($total_surcharges)
-    {
-        if (is_null($total_surcharges)) {
-            throw new \InvalidArgumentException('non-nullable total_surcharges cannot be null');
-        }
-        $this->container['total_surcharges'] = $total_surcharges;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_surcharges_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalSurchargesCurrencyId()
-    {
-        return $this->container['total_surcharges_currency_id'];
-    }
-
-    /**
-     * Sets total_surcharges_currency_id
-     *
-     * @param string|null $total_surcharges_currency_id total_surcharges_currency_id
-     *
-     * @return self
-     */
-    public function setTotalSurchargesCurrencyId($total_surcharges_currency_id)
-    {
-        if (is_null($total_surcharges_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_surcharges_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_surcharges_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_surcharges_currency_id'] = $total_surcharges_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_surcharges_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalSurchargesAmount()
-    {
-        return $this->container['total_surcharges_amount'];
-    }
-
-    /**
-     * Sets total_surcharges_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_surcharges_amount total_surcharges_amount
-     *
-     * @return self
-     */
-    public function setTotalSurchargesAmount($total_surcharges_amount)
-    {
-        if (is_null($total_surcharges_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_surcharges_amount cannot be null');
-        }
-        $this->container['total_surcharges_amount'] = $total_surcharges_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_tax_base
-     *
-     * @return float|null
-     */
-    public function getTotalTaxBase()
-    {
-        return $this->container['total_tax_base'];
-    }
-
-    /**
-     * Sets total_tax_base
-     *
-     * @param float|null $total_tax_base total_tax_base
-     *
-     * @return self
-     */
-    public function setTotalTaxBase($total_tax_base)
-    {
-        if (is_null($total_tax_base)) {
-            throw new \InvalidArgumentException('non-nullable total_tax_base cannot be null');
-        }
-        $this->container['total_tax_base'] = $total_tax_base;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_tax_base_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalTaxBaseCurrencyId()
-    {
-        return $this->container['total_tax_base_currency_id'];
-    }
-
-    /**
-     * Sets total_tax_base_currency_id
-     *
-     * @param string|null $total_tax_base_currency_id total_tax_base_currency_id
-     *
-     * @return self
-     */
-    public function setTotalTaxBaseCurrencyId($total_tax_base_currency_id)
-    {
-        if (is_null($total_tax_base_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_tax_base_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_tax_base_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_tax_base_currency_id'] = $total_tax_base_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_tax_base_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalTaxBaseAmount()
-    {
-        return $this->container['total_tax_base_amount'];
-    }
-
-    /**
-     * Sets total_tax_base_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_tax_base_amount total_tax_base_amount
-     *
-     * @return self
-     */
-    public function setTotalTaxBaseAmount($total_tax_base_amount)
-    {
-        if (is_null($total_tax_base_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_tax_base_amount cannot be null');
-        }
-        $this->container['total_tax_base_amount'] = $total_tax_base_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_taxes
-     *
-     * @return float|null
-     */
-    public function getTotalTaxes()
-    {
-        return $this->container['total_taxes'];
-    }
-
-    /**
-     * Sets total_taxes
-     *
-     * @param float|null $total_taxes total_taxes
-     *
-     * @return self
-     */
-    public function setTotalTaxes($total_taxes)
-    {
-        if (is_null($total_taxes)) {
-            throw new \InvalidArgumentException('non-nullable total_taxes cannot be null');
-        }
-        $this->container['total_taxes'] = $total_taxes;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_taxes_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalTaxesCurrencyId()
-    {
-        return $this->container['total_taxes_currency_id'];
-    }
-
-    /**
-     * Sets total_taxes_currency_id
-     *
-     * @param string|null $total_taxes_currency_id total_taxes_currency_id
-     *
-     * @return self
-     */
-    public function setTotalTaxesCurrencyId($total_taxes_currency_id)
-    {
-        if (is_null($total_taxes_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_taxes_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_taxes_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_taxes_currency_id'] = $total_taxes_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_taxes_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalTaxesAmount()
-    {
-        return $this->container['total_taxes_amount'];
-    }
-
-    /**
-     * Sets total_taxes_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_taxes_amount total_taxes_amount
-     *
-     * @return self
-     */
-    public function setTotalTaxesAmount($total_taxes_amount)
-    {
-        if (is_null($total_taxes_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_taxes_amount cannot be null');
-        }
-        $this->container['total_taxes_amount'] = $total_taxes_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_cost
-     *
-     * @return float|null
-     */
-    public function getTotalShippingCost()
-    {
-        return $this->container['total_shipping_cost'];
-    }
-
-    /**
-     * Sets total_shipping_cost
-     *
-     * @param float|null $total_shipping_cost total_shipping_cost
-     *
-     * @return self
-     */
-    public function setTotalShippingCost($total_shipping_cost)
-    {
-        if (is_null($total_shipping_cost)) {
-            throw new \InvalidArgumentException('non-nullable total_shipping_cost cannot be null');
-        }
-        $this->container['total_shipping_cost'] = $total_shipping_cost;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_cost_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalShippingCostCurrencyId()
-    {
-        return $this->container['total_shipping_cost_currency_id'];
-    }
-
-    /**
-     * Sets total_shipping_cost_currency_id
-     *
-     * @param string|null $total_shipping_cost_currency_id total_shipping_cost_currency_id
-     *
-     * @return self
-     */
-    public function setTotalShippingCostCurrencyId($total_shipping_cost_currency_id)
-    {
-        if (is_null($total_shipping_cost_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_shipping_cost_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_shipping_cost_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_shipping_cost_currency_id'] = $total_shipping_cost_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_cost_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalShippingCostAmount()
-    {
-        return $this->container['total_shipping_cost_amount'];
-    }
-
-    /**
-     * Sets total_shipping_cost_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_shipping_cost_amount total_shipping_cost_amount
-     *
-     * @return self
-     */
-    public function setTotalShippingCostAmount($total_shipping_cost_amount)
-    {
-        if (is_null($total_shipping_cost_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_shipping_cost_amount cannot be null');
-        }
-        $this->container['total_shipping_cost_amount'] = $total_shipping_cost_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_tax
-     *
-     * @return float|null
-     */
-    public function getTotalShippingTax()
-    {
-        return $this->container['total_shipping_tax'];
-    }
-
-    /**
-     * Sets total_shipping_tax
-     *
-     * @param float|null $total_shipping_tax total_shipping_tax
-     *
-     * @return self
-     */
-    public function setTotalShippingTax($total_shipping_tax)
-    {
-        if (is_null($total_shipping_tax)) {
-            throw new \InvalidArgumentException('non-nullable total_shipping_tax cannot be null');
-        }
-        $this->container['total_shipping_tax'] = $total_shipping_tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_tax_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalShippingTaxCurrencyId()
-    {
-        return $this->container['total_shipping_tax_currency_id'];
-    }
-
-    /**
-     * Sets total_shipping_tax_currency_id
-     *
-     * @param string|null $total_shipping_tax_currency_id total_shipping_tax_currency_id
-     *
-     * @return self
-     */
-    public function setTotalShippingTaxCurrencyId($total_shipping_tax_currency_id)
-    {
-        if (is_null($total_shipping_tax_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_shipping_tax_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_shipping_tax_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_shipping_tax_currency_id'] = $total_shipping_tax_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_shipping_tax_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalShippingTaxAmount()
-    {
-        return $this->container['total_shipping_tax_amount'];
-    }
-
-    /**
-     * Sets total_shipping_tax_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_shipping_tax_amount total_shipping_tax_amount
-     *
-     * @return self
-     */
-    public function setTotalShippingTaxAmount($total_shipping_tax_amount)
-    {
-        if (is_null($total_shipping_tax_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_shipping_tax_amount cannot be null');
-        }
-        $this->container['total_shipping_tax_amount'] = $total_shipping_tax_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_withheld_tax
-     *
-     * @return float|null
-     */
-    public function getTotalWithheldTax()
-    {
-        return $this->container['total_withheld_tax'];
-    }
-
-    /**
-     * Sets total_withheld_tax
-     *
-     * @param float|null $total_withheld_tax total_withheld_tax
-     *
-     * @return self
-     */
-    public function setTotalWithheldTax($total_withheld_tax)
-    {
-        if (is_null($total_withheld_tax)) {
-            throw new \InvalidArgumentException('non-nullable total_withheld_tax cannot be null');
-        }
-        $this->container['total_withheld_tax'] = $total_withheld_tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_withheld_tax_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalWithheldTaxCurrencyId()
-    {
-        return $this->container['total_withheld_tax_currency_id'];
-    }
-
-    /**
-     * Sets total_withheld_tax_currency_id
-     *
-     * @param string|null $total_withheld_tax_currency_id total_withheld_tax_currency_id
-     *
-     * @return self
-     */
-    public function setTotalWithheldTaxCurrencyId($total_withheld_tax_currency_id)
-    {
-        if (is_null($total_withheld_tax_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_withheld_tax_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_withheld_tax_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_withheld_tax_currency_id'] = $total_withheld_tax_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_withheld_tax_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalWithheldTaxAmount()
-    {
-        return $this->container['total_withheld_tax_amount'];
-    }
-
-    /**
-     * Sets total_withheld_tax_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_withheld_tax_amount total_withheld_tax_amount
-     *
-     * @return self
-     */
-    public function setTotalWithheldTaxAmount($total_withheld_tax_amount)
-    {
-        if (is_null($total_withheld_tax_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_withheld_tax_amount cannot be null');
-        }
-        $this->container['total_withheld_tax_amount'] = $total_withheld_tax_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_discounts
-     *
-     * @return float|null
-     */
-    public function getTotalGlobalDiscounts()
-    {
-        return $this->container['total_global_discounts'];
-    }
-
-    /**
-     * Sets total_global_discounts
-     *
-     * @param float|null $total_global_discounts total_global_discounts
-     *
-     * @return self
-     */
-    public function setTotalGlobalDiscounts($total_global_discounts)
-    {
-        if (is_null($total_global_discounts)) {
-            throw new \InvalidArgumentException('non-nullable total_global_discounts cannot be null');
-        }
-        $this->container['total_global_discounts'] = $total_global_discounts;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_discounts_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalGlobalDiscountsCurrencyId()
-    {
-        return $this->container['total_global_discounts_currency_id'];
-    }
-
-    /**
-     * Sets total_global_discounts_currency_id
-     *
-     * @param string|null $total_global_discounts_currency_id total_global_discounts_currency_id
-     *
-     * @return self
-     */
-    public function setTotalGlobalDiscountsCurrencyId($total_global_discounts_currency_id)
-    {
-        if (is_null($total_global_discounts_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_global_discounts_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_global_discounts_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_global_discounts_currency_id'] = $total_global_discounts_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_discounts_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalGlobalDiscountsAmount()
-    {
-        return $this->container['total_global_discounts_amount'];
-    }
-
-    /**
-     * Sets total_global_discounts_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_global_discounts_amount total_global_discounts_amount
-     *
-     * @return self
-     */
-    public function setTotalGlobalDiscountsAmount($total_global_discounts_amount)
-    {
-        if (is_null($total_global_discounts_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_global_discounts_amount cannot be null');
-        }
-        $this->container['total_global_discounts_amount'] = $total_global_discounts_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_surcharges
-     *
-     * @return float|null
-     */
-    public function getTotalGlobalSurcharges()
-    {
-        return $this->container['total_global_surcharges'];
-    }
-
-    /**
-     * Sets total_global_surcharges
-     *
-     * @param float|null $total_global_surcharges total_global_surcharges
-     *
-     * @return self
-     */
-    public function setTotalGlobalSurcharges($total_global_surcharges)
-    {
-        if (is_null($total_global_surcharges)) {
-            throw new \InvalidArgumentException('non-nullable total_global_surcharges cannot be null');
-        }
-        $this->container['total_global_surcharges'] = $total_global_surcharges;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_surcharges_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalGlobalSurchargesCurrencyId()
-    {
-        return $this->container['total_global_surcharges_currency_id'];
-    }
-
-    /**
-     * Sets total_global_surcharges_currency_id
-     *
-     * @param string|null $total_global_surcharges_currency_id total_global_surcharges_currency_id
-     *
-     * @return self
-     */
-    public function setTotalGlobalSurchargesCurrencyId($total_global_surcharges_currency_id)
-    {
-        if (is_null($total_global_surcharges_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_global_surcharges_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_global_surcharges_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_global_surcharges_currency_id'] = $total_global_surcharges_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_global_surcharges_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalGlobalSurchargesAmount()
-    {
-        return $this->container['total_global_surcharges_amount'];
-    }
-
-    /**
-     * Sets total_global_surcharges_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_global_surcharges_amount total_global_surcharges_amount
-     *
-     * @return self
-     */
-    public function setTotalGlobalSurchargesAmount($total_global_surcharges_amount)
-    {
-        if (is_null($total_global_surcharges_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_global_surcharges_amount cannot be null');
-        }
-        $this->container['total_global_surcharges_amount'] = $total_global_surcharges_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return float|null
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param float|null $total total
-     *
-     * @return self
-     */
-    public function setTotal($total)
-    {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
-        }
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_currency_id
-     *
-     * @return string|null
-     */
-    public function getTotalCurrencyId()
-    {
-        return $this->container['total_currency_id'];
-    }
-
-    /**
-     * Sets total_currency_id
-     *
-     * @param string|null $total_currency_id total_currency_id
-     *
-     * @return self
-     */
-    public function setTotalCurrencyId($total_currency_id)
-    {
-        if (is_null($total_currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'total_currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_currency_id'] = $total_currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getTotalAmount()
-    {
-        return $this->container['total_amount'];
-    }
-
-    /**
-     * Sets total_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $total_amount total_amount
-     *
-     * @return self
-     */
-    public function setTotalAmount($total_amount)
-    {
-        if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
-        }
-        $this->container['total_amount'] = $total_amount;
 
         return $this;
     }

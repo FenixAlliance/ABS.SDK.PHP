@@ -9,7 +9,6 @@ docs/Api/FenixAllianceABSWebApi.md
 docs/Api/SalesLiteraturesApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/ContactDto.md
-docs/Model/CurrencyId.md
 docs/Model/DealUnitCreateDto.md
 docs/Model/DealUnitDto.md
 docs/Model/DealUnitDtoEnvelope.md
@@ -37,14 +36,12 @@ docs/Model/ExtendedDealUnitDtoEnvelope.md
 docs/Model/ExtendedDealUnitDtoListEnvelope.md
 docs/Model/ExtendedSalesLiteratureDto.md
 docs/Model/ExtendedSalesLiteratureDtoListEnvelope.md
-docs/Model/ForexRates.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
 docs/Model/InfoRequest.md
 docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
-docs/Model/Money.md
 docs/Model/RefreshRequest.md
 docs/Model/RegisterRequest.md
 docs/Model/ResendConfirmationEmailRequest.md
@@ -70,7 +67,6 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/ContactDto.php
-lib/Model/CurrencyId.php
 lib/Model/DealUnitCreateDto.php
 lib/Model/DealUnitDto.php
 lib/Model/DealUnitDtoEnvelope.php
@@ -98,7 +94,6 @@ lib/Model/ExtendedDealUnitDtoEnvelope.php
 lib/Model/ExtendedDealUnitDtoListEnvelope.php
 lib/Model/ExtendedSalesLiteratureDto.php
 lib/Model/ExtendedSalesLiteratureDtoListEnvelope.php
-lib/Model/ForexRates.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
 lib/Model/InfoRequest.php
@@ -106,7 +101,6 @@ lib/Model/InfoResponse.php
 lib/Model/Int32Envelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
-lib/Model/Money.php
 lib/Model/RefreshRequest.php
 lib/Model/RegisterRequest.php
 lib/Model/ResendConfirmationEmailRequest.php

@@ -35,7 +35,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalEnumerationRangesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $invoice_enumeration_range_create_dto = new \OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto(); // \OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto
@@ -52,7 +52,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **invoice_enumeration_range_create_dto** | [**\OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto**](../Model/InvoiceEnumerationRangeCreateDto.md)|  | [optional] |
@@ -97,7 +97,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalEnumerationRangesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $enumeration_range_id = 'enumeration_range_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
@@ -114,7 +114,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **enumeration_range_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -159,7 +159,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalEnumerationRangesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $enumeration_range_id = 'enumeration_range_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -177,7 +177,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **fiscal_authority_id** | **string**|  | |
 | **enumeration_range_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
@@ -345,7 +345,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalEnumerationRangesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $enumeration_range_id = 'enumeration_range_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
@@ -363,7 +363,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **enumeration_range_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

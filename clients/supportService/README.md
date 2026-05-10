@@ -89,6 +89,60 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
 *FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
 *FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*HelpdeskApi* | [**createInquiryRequestAsync**](docs/Api/HelpdeskApi.md#createinquiryrequestasync) | **POST** /api/v2/SupportService/InquiryRequests | Create an inquiry request
+*HelpdeskApi* | [**createKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#createknowledgearticleasync) | **POST** /api/v2/SupportService/KnowledgeArticles | Create a knowledge article
+*HelpdeskApi* | [**createMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#createmaintenancevisitasync) | **POST** /api/v2/SupportService/MaintenanceVisits | Create a maintenance visit
+*HelpdeskApi* | [**createRefundRequestAsync**](docs/Api/HelpdeskApi.md#createrefundrequestasync) | **POST** /api/v2/SupportService/RefundRequests | Create a refund request
+*HelpdeskApi* | [**createReturnRequestAsync**](docs/Api/HelpdeskApi.md#createreturnrequestasync) | **POST** /api/v2/SupportService/ReturnRequests | Create a return request
+*HelpdeskApi* | [**createWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#createwarrantyrequestasync) | **POST** /api/v2/SupportService/WarrantyRequests | Create a warranty request
+*HelpdeskApi* | [**deleteInquiryRequestAsync**](docs/Api/HelpdeskApi.md#deleteinquiryrequestasync) | **DELETE** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Delete an inquiry request
+*HelpdeskApi* | [**deleteKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#deleteknowledgearticleasync) | **DELETE** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Delete a knowledge article
+*HelpdeskApi* | [**deleteMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#deletemaintenancevisitasync) | **DELETE** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Delete a maintenance visit
+*HelpdeskApi* | [**deleteRefundRequestAsync**](docs/Api/HelpdeskApi.md#deleterefundrequestasync) | **DELETE** /api/v2/SupportService/RefundRequests/{refundRequestId} | Delete a refund request
+*HelpdeskApi* | [**deleteReturnRequestAsync**](docs/Api/HelpdeskApi.md#deletereturnrequestasync) | **DELETE** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Delete a return request
+*HelpdeskApi* | [**deleteWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#deletewarrantyrequestasync) | **DELETE** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Delete a warranty request
+*HelpdeskApi* | [**getInquiryRequestAsync**](docs/Api/HelpdeskApi.md#getinquiryrequestasync) | **GET** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Retrieve an inquiry request by ID
+*HelpdeskApi* | [**getInquiryRequestsAsync**](docs/Api/HelpdeskApi.md#getinquiryrequestsasync) | **GET** /api/v2/SupportService/InquiryRequests | Retrieve inquiry requests
+*HelpdeskApi* | [**getInquiryRequestsCountAsync**](docs/Api/HelpdeskApi.md#getinquiryrequestscountasync) | **GET** /api/v2/SupportService/InquiryRequests/Count | Get inquiry requests count
+*HelpdeskApi* | [**getKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#getknowledgearticleasync) | **GET** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Retrieve a knowledge article by ID
+*HelpdeskApi* | [**getKnowledgeArticlesAsync**](docs/Api/HelpdeskApi.md#getknowledgearticlesasync) | **GET** /api/v2/SupportService/KnowledgeArticles | Retrieve knowledge articles
+*HelpdeskApi* | [**getKnowledgeArticlesCountAsync**](docs/Api/HelpdeskApi.md#getknowledgearticlescountasync) | **GET** /api/v2/SupportService/KnowledgeArticles/Count | Get knowledge articles count
+*HelpdeskApi* | [**getMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#getmaintenancevisitasync) | **GET** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Retrieve a maintenance visit by ID
+*HelpdeskApi* | [**getMaintenanceVisitsAsync**](docs/Api/HelpdeskApi.md#getmaintenancevisitsasync) | **GET** /api/v2/SupportService/MaintenanceVisits | Retrieve maintenance visits
+*HelpdeskApi* | [**getMaintenanceVisitsCountAsync**](docs/Api/HelpdeskApi.md#getmaintenancevisitscountasync) | **GET** /api/v2/SupportService/MaintenanceVisits/Count | Get maintenance visits count
+*HelpdeskApi* | [**getRefundRequestAsync**](docs/Api/HelpdeskApi.md#getrefundrequestasync) | **GET** /api/v2/SupportService/RefundRequests/{refundRequestId} | Retrieve a refund request by ID
+*HelpdeskApi* | [**getRefundRequestsAsync**](docs/Api/HelpdeskApi.md#getrefundrequestsasync) | **GET** /api/v2/SupportService/RefundRequests | Retrieve refund requests
+*HelpdeskApi* | [**getRefundRequestsCountAsync**](docs/Api/HelpdeskApi.md#getrefundrequestscountasync) | **GET** /api/v2/SupportService/RefundRequests/Count | Get refund requests count
+*HelpdeskApi* | [**getReturnRequestAsync**](docs/Api/HelpdeskApi.md#getreturnrequestasync) | **GET** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Retrieve a return request by ID
+*HelpdeskApi* | [**getReturnRequestsAsync**](docs/Api/HelpdeskApi.md#getreturnrequestsasync) | **GET** /api/v2/SupportService/ReturnRequests | Retrieve return requests
+*HelpdeskApi* | [**getReturnRequestsCountAsync**](docs/Api/HelpdeskApi.md#getreturnrequestscountasync) | **GET** /api/v2/SupportService/ReturnRequests/Count | Get return requests count
+*HelpdeskApi* | [**getWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#getwarrantyrequestasync) | **GET** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Retrieve a warranty request by ID
+*HelpdeskApi* | [**getWarrantyRequestsAsync**](docs/Api/HelpdeskApi.md#getwarrantyrequestsasync) | **GET** /api/v2/SupportService/WarrantyRequests | Retrieve warranty requests
+*HelpdeskApi* | [**getWarrantyRequestsCountAsync**](docs/Api/HelpdeskApi.md#getwarrantyrequestscountasync) | **GET** /api/v2/SupportService/WarrantyRequests/Count | Get warranty requests count
+*HelpdeskApi* | [**updateInquiryRequestAsync**](docs/Api/HelpdeskApi.md#updateinquiryrequestasync) | **PUT** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Update an inquiry request
+*HelpdeskApi* | [**updateKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#updateknowledgearticleasync) | **PUT** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Update a knowledge article
+*HelpdeskApi* | [**updateMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#updatemaintenancevisitasync) | **PUT** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Update a maintenance visit
+*HelpdeskApi* | [**updateRefundRequestAsync**](docs/Api/HelpdeskApi.md#updaterefundrequestasync) | **PUT** /api/v2/SupportService/RefundRequests/{refundRequestId} | Update a refund request
+*HelpdeskApi* | [**updateReturnRequestAsync**](docs/Api/HelpdeskApi.md#updatereturnrequestasync) | **PUT** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Update a return request
+*HelpdeskApi* | [**updateWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#updatewarrantyrequestasync) | **PUT** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Update a warranty request
+*PoliciesApi* | [**createRefundPolicyAsync**](docs/Api/PoliciesApi.md#createrefundpolicyasync) | **POST** /api/v2/SupportService/RefundPolicies | Create a new refund policy
+*PoliciesApi* | [**createReturnPolicyAsync**](docs/Api/PoliciesApi.md#createreturnpolicyasync) | **POST** /api/v2/SupportService/ReturnPolicies | Create a new return policy
+*PoliciesApi* | [**createWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#createwarrantypolicyasync) | **POST** /api/v2/SupportService/WarrantyPolicies | Create a new warranty policy
+*PoliciesApi* | [**deleteRefundPolicyAsync**](docs/Api/PoliciesApi.md#deleterefundpolicyasync) | **DELETE** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Delete a refund policy
+*PoliciesApi* | [**deleteReturnPolicyAsync**](docs/Api/PoliciesApi.md#deletereturnpolicyasync) | **DELETE** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Delete a return policy
+*PoliciesApi* | [**deleteWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#deletewarrantypolicyasync) | **DELETE** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Delete a warranty policy
+*PoliciesApi* | [**getRefundPoliciesAsync**](docs/Api/PoliciesApi.md#getrefundpoliciesasync) | **GET** /api/v2/SupportService/RefundPolicies | Retrieve a list of refund policies
+*PoliciesApi* | [**getRefundPoliciesCountAsync**](docs/Api/PoliciesApi.md#getrefundpoliciescountasync) | **GET** /api/v2/SupportService/RefundPolicies/Count | Get the count of refund policies
+*PoliciesApi* | [**getRefundPolicyAsync**](docs/Api/PoliciesApi.md#getrefundpolicyasync) | **GET** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Retrieve a refund policy by ID
+*PoliciesApi* | [**getReturnPoliciesAsync**](docs/Api/PoliciesApi.md#getreturnpoliciesasync) | **GET** /api/v2/SupportService/ReturnPolicies | Retrieve a list of return policies
+*PoliciesApi* | [**getReturnPoliciesCountAsync**](docs/Api/PoliciesApi.md#getreturnpoliciescountasync) | **GET** /api/v2/SupportService/ReturnPolicies/Count | Get the count of return policies
+*PoliciesApi* | [**getReturnPolicyAsync**](docs/Api/PoliciesApi.md#getreturnpolicyasync) | **GET** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Retrieve a return policy by ID
+*PoliciesApi* | [**getWarrantyPoliciesAsync**](docs/Api/PoliciesApi.md#getwarrantypoliciesasync) | **GET** /api/v2/SupportService/WarrantyPolicies | Retrieve a list of warranty policies
+*PoliciesApi* | [**getWarrantyPoliciesCountAsync**](docs/Api/PoliciesApi.md#getwarrantypoliciescountasync) | **GET** /api/v2/SupportService/WarrantyPolicies/Count | Get the count of warranty policies
+*PoliciesApi* | [**getWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#getwarrantypolicyasync) | **GET** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Retrieve a warranty policy by ID
+*PoliciesApi* | [**updateRefundPolicyAsync**](docs/Api/PoliciesApi.md#updaterefundpolicyasync) | **PUT** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Update a refund policy
+*PoliciesApi* | [**updateReturnPolicyAsync**](docs/Api/PoliciesApi.md#updatereturnpolicyasync) | **PUT** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Update a return policy
+*PoliciesApi* | [**updateWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#updatewarrantypolicyasync) | **PUT** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Update a warranty policy
 *SupportEntitlementsApi* | [**createSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#createsupportentitlementasync) | **POST** /api/v2/SupportService/SupportEntitlements | Create a new support entitlement
 *SupportEntitlementsApi* | [**deleteSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#deletesupportentitlementasync) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Delete a support entitlement
 *SupportEntitlementsApi* | [**getSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#getsupportentitlementasync) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Retrieve a support entitlement by ID
@@ -145,14 +199,53 @@ Class | Method | HTTP request | Description
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
 - [InfoRequest](docs/Model/InfoRequest.md)
 - [InfoResponse](docs/Model/InfoResponse.md)
+- [InquiryRequestCreateDto](docs/Model/InquiryRequestCreateDto.md)
+- [InquiryRequestDto](docs/Model/InquiryRequestDto.md)
+- [InquiryRequestDtoEnvelope](docs/Model/InquiryRequestDtoEnvelope.md)
+- [InquiryRequestDtoListEnvelope](docs/Model/InquiryRequestDtoListEnvelope.md)
+- [InquiryRequestUpdateDto](docs/Model/InquiryRequestUpdateDto.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
+- [ItemRefundPolicyCreateDto](docs/Model/ItemRefundPolicyCreateDto.md)
+- [ItemRefundPolicyDto](docs/Model/ItemRefundPolicyDto.md)
+- [ItemRefundPolicyDtoEnvelope](docs/Model/ItemRefundPolicyDtoEnvelope.md)
+- [ItemRefundPolicyDtoListEnvelope](docs/Model/ItemRefundPolicyDtoListEnvelope.md)
+- [ItemRefundPolicyUpdateDto](docs/Model/ItemRefundPolicyUpdateDto.md)
+- [ItemReturnPolicyCreateDto](docs/Model/ItemReturnPolicyCreateDto.md)
+- [ItemReturnPolicyDto](docs/Model/ItemReturnPolicyDto.md)
+- [ItemReturnPolicyDtoEnvelope](docs/Model/ItemReturnPolicyDtoEnvelope.md)
+- [ItemReturnPolicyDtoListEnvelope](docs/Model/ItemReturnPolicyDtoListEnvelope.md)
+- [ItemReturnPolicyUpdateDto](docs/Model/ItemReturnPolicyUpdateDto.md)
+- [ItemWarrantyPolicyCreateDto](docs/Model/ItemWarrantyPolicyCreateDto.md)
+- [ItemWarrantyPolicyDto](docs/Model/ItemWarrantyPolicyDto.md)
+- [ItemWarrantyPolicyDtoEnvelope](docs/Model/ItemWarrantyPolicyDtoEnvelope.md)
+- [ItemWarrantyPolicyDtoListEnvelope](docs/Model/ItemWarrantyPolicyDtoListEnvelope.md)
+- [ItemWarrantyPolicyUpdateDto](docs/Model/ItemWarrantyPolicyUpdateDto.md)
+- [KnowledgeArticleCreateDto](docs/Model/KnowledgeArticleCreateDto.md)
+- [KnowledgeArticleDto](docs/Model/KnowledgeArticleDto.md)
+- [KnowledgeArticleDtoEnvelope](docs/Model/KnowledgeArticleDtoEnvelope.md)
+- [KnowledgeArticleDtoListEnvelope](docs/Model/KnowledgeArticleDtoListEnvelope.md)
+- [KnowledgeArticleUpdateDto](docs/Model/KnowledgeArticleUpdateDto.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
+- [MaintenanceVisitCreateDto](docs/Model/MaintenanceVisitCreateDto.md)
+- [MaintenanceVisitDto](docs/Model/MaintenanceVisitDto.md)
+- [MaintenanceVisitDtoEnvelope](docs/Model/MaintenanceVisitDtoEnvelope.md)
+- [MaintenanceVisitDtoListEnvelope](docs/Model/MaintenanceVisitDtoListEnvelope.md)
 - [PrivateMessageDto](docs/Model/PrivateMessageDto.md)
 - [PrivateMessageDtoListEnvelope](docs/Model/PrivateMessageDtoListEnvelope.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
+- [RefundRequestCreateDto](docs/Model/RefundRequestCreateDto.md)
+- [RefundRequestDto](docs/Model/RefundRequestDto.md)
+- [RefundRequestDtoEnvelope](docs/Model/RefundRequestDtoEnvelope.md)
+- [RefundRequestDtoListEnvelope](docs/Model/RefundRequestDtoListEnvelope.md)
+- [RefundRequestUpdateDto](docs/Model/RefundRequestUpdateDto.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [ReturnRequestCreateDto](docs/Model/ReturnRequestCreateDto.md)
+- [ReturnRequestDto](docs/Model/ReturnRequestDto.md)
+- [ReturnRequestDtoEnvelope](docs/Model/ReturnRequestDtoEnvelope.md)
+- [ReturnRequestDtoListEnvelope](docs/Model/ReturnRequestDtoListEnvelope.md)
+- [ReturnRequestUpdateDto](docs/Model/ReturnRequestUpdateDto.md)
 - [SupportEntitlementCreateDto](docs/Model/SupportEntitlementCreateDto.md)
 - [SupportEntitlementDto](docs/Model/SupportEntitlementDto.md)
 - [SupportEntitlementDtoEnvelope](docs/Model/SupportEntitlementDtoEnvelope.md)
@@ -189,6 +282,11 @@ Class | Method | HTTP request | Description
 - [SupportTicketUpdateDto](docs/Model/SupportTicketUpdateDto.md)
 - [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
 - [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
+- [WarrantyRequestCreateDto](docs/Model/WarrantyRequestCreateDto.md)
+- [WarrantyRequestDto](docs/Model/WarrantyRequestDto.md)
+- [WarrantyRequestDtoEnvelope](docs/Model/WarrantyRequestDtoEnvelope.md)
+- [WarrantyRequestDtoListEnvelope](docs/Model/WarrantyRequestDtoListEnvelope.md)
+- [WarrantyRequestUpdateDto](docs/Model/WarrantyRequestUpdateDto.md)
 
 ## Authorization
 Endpoints do not require authorization.

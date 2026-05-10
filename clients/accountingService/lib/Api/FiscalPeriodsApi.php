@@ -145,7 +145,7 @@ class FiscalPeriodsApi
      *
      * Create a fiscal period
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalPeriodCreateDto $fiscal_period_create_dto fiscal_period_create_dto (optional)
@@ -166,7 +166,7 @@ class FiscalPeriodsApi
      *
      * Create a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalPeriodCreateDto $fiscal_period_create_dto (optional)
@@ -364,7 +364,7 @@ class FiscalPeriodsApi
      *
      * Create a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalPeriodCreateDto $fiscal_period_create_dto (optional)
@@ -388,7 +388,7 @@ class FiscalPeriodsApi
      *
      * Create a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalPeriodCreateDto $fiscal_period_create_dto (optional)
@@ -441,7 +441,7 @@ class FiscalPeriodsApi
     /**
      * Create request for operation 'createFiscalPeriod'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalPeriodCreateDto $fiscal_period_create_dto (optional)
@@ -475,7 +475,7 @@ class FiscalPeriodsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -562,7 +562,7 @@ class FiscalPeriodsApi
      *
      * Delete a fiscal period
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_period_id fiscal_period_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -583,7 +583,7 @@ class FiscalPeriodsApi
      *
      * Delete a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -781,7 +781,7 @@ class FiscalPeriodsApi
      *
      * Delete a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -805,7 +805,7 @@ class FiscalPeriodsApi
      *
      * Delete a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -858,7 +858,7 @@ class FiscalPeriodsApi
     /**
      * Create request for operation 'deleteFiscalPeriod'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -898,7 +898,7 @@ class FiscalPeriodsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -986,7 +986,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal period by ID
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $fiscal_period_id fiscal_period_id (required)
@@ -1009,7 +1009,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal period by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $fiscal_period_id (required)
@@ -1209,7 +1209,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal period by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $fiscal_period_id (required)
@@ -1235,7 +1235,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal period by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $fiscal_period_id (required)
@@ -1290,7 +1290,7 @@ class FiscalPeriodsApi
     /**
      * Create request for operation 'getFiscalPeriod'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $fiscal_period_id (required)
@@ -1346,7 +1346,7 @@ class FiscalPeriodsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -1450,7 +1450,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods for a fiscal year
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $authority_id authority_id (required)
@@ -1473,7 +1473,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods for a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $authority_id (required)
@@ -1673,7 +1673,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods for a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $authority_id (required)
@@ -1699,7 +1699,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods for a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $authority_id (required)
@@ -1754,7 +1754,7 @@ class FiscalPeriodsApi
     /**
      * Create request for operation 'getFiscalPeriods'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $authority_id (required)
@@ -1810,7 +1810,7 @@ class FiscalPeriodsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -1915,7 +1915,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods count
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $api_version api_version (optional)
@@ -1937,7 +1937,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods count
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -2136,7 +2136,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods count
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -2161,7 +2161,7 @@ class FiscalPeriodsApi
      *
      * Get fiscal periods count
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -2215,7 +2215,7 @@ class FiscalPeriodsApi
     /**
      * Create request for operation 'getFiscalPeriodsCount'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -2263,7 +2263,7 @@ class FiscalPeriodsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -2359,7 +2359,7 @@ class FiscalPeriodsApi
      *
      * Update a fiscal period
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_period_id fiscal_period_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -2381,7 +2381,7 @@ class FiscalPeriodsApi
      *
      * Update a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2580,7 +2580,7 @@ class FiscalPeriodsApi
      *
      * Update a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2605,7 +2605,7 @@ class FiscalPeriodsApi
      *
      * Update a fiscal period
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2659,7 +2659,7 @@ class FiscalPeriodsApi
     /**
      * Create request for operation 'updateFiscalPeriod'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_period_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2701,7 +2701,7 @@ class FiscalPeriodsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required

@@ -128,4 +128,3 @@ lib/Model/WebhookRequestDto.php
 lib/Model/WebhookRequestDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/FenixAllianceABSWebApiTest.php

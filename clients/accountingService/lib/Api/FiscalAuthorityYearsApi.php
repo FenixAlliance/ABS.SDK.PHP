@@ -145,7 +145,7 @@ class FiscalAuthorityYearsApi
      *
      * Create a fiscal year
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalYearCreateDto $fiscal_year_create_dto fiscal_year_create_dto (optional)
@@ -166,7 +166,7 @@ class FiscalAuthorityYearsApi
      *
      * Create a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalYearCreateDto $fiscal_year_create_dto (optional)
@@ -364,7 +364,7 @@ class FiscalAuthorityYearsApi
      *
      * Create a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalYearCreateDto $fiscal_year_create_dto (optional)
@@ -388,7 +388,7 @@ class FiscalAuthorityYearsApi
      *
      * Create a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalYearCreateDto $fiscal_year_create_dto (optional)
@@ -441,7 +441,7 @@ class FiscalAuthorityYearsApi
     /**
      * Create request for operation 'createFiscalYear'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalYearCreateDto $fiscal_year_create_dto (optional)
@@ -475,7 +475,7 @@ class FiscalAuthorityYearsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -562,7 +562,7 @@ class FiscalAuthorityYearsApi
      *
      * Delete a fiscal year
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -583,7 +583,7 @@ class FiscalAuthorityYearsApi
      *
      * Delete a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -781,7 +781,7 @@ class FiscalAuthorityYearsApi
      *
      * Delete a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -805,7 +805,7 @@ class FiscalAuthorityYearsApi
      *
      * Delete a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -858,7 +858,7 @@ class FiscalAuthorityYearsApi
     /**
      * Create request for operation 'deleteFiscalYear'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -898,7 +898,7 @@ class FiscalAuthorityYearsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -986,7 +986,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal year by ID for an authority
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $api_version api_version (optional)
@@ -1008,7 +1008,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal year by ID for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -1207,7 +1207,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal year by ID for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -1232,7 +1232,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal year by ID for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -1286,7 +1286,7 @@ class FiscalAuthorityYearsApi
     /**
      * Create request for operation 'getFiscalYear'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
@@ -1334,7 +1334,7 @@ class FiscalAuthorityYearsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -1430,7 +1430,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years for an authority
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $authority_id authority_id (required)
      * @param  string $api_version api_version (optional)
@@ -1452,7 +1452,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
@@ -1651,7 +1651,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
@@ -1676,7 +1676,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
@@ -1730,7 +1730,7 @@ class FiscalAuthorityYearsApi
     /**
      * Create request for operation 'getFiscalYears'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $authority_id (required)
      * @param  string $api_version (optional)
@@ -1778,7 +1778,7 @@ class FiscalAuthorityYearsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -1875,7 +1875,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years count for an authority
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -1896,7 +1896,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years count for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2094,7 +2094,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years count for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2118,7 +2118,7 @@ class FiscalAuthorityYearsApi
      *
      * Get fiscal years count for an authority
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2171,7 +2171,7 @@ class FiscalAuthorityYearsApi
     /**
      * Create request for operation 'getFiscalYearsCount'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2211,7 +2211,7 @@ class FiscalAuthorityYearsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -2299,7 +2299,7 @@ class FiscalAuthorityYearsApi
      *
      * Update a fiscal year
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_year_id fiscal_year_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -2321,7 +2321,7 @@ class FiscalAuthorityYearsApi
      *
      * Update a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2520,7 +2520,7 @@ class FiscalAuthorityYearsApi
      *
      * Update a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2545,7 +2545,7 @@ class FiscalAuthorityYearsApi
      *
      * Update a fiscal year
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2599,7 +2599,7 @@ class FiscalAuthorityYearsApi
     /**
      * Create request for operation 'updateFiscalYear'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_year_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2641,7 +2641,7 @@ class FiscalAuthorityYearsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required

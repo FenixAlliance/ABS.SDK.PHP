@@ -7,20 +7,17 @@ docs/Api/FenixAllianceABSWebApi.md
 docs/Api/OrdersApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/ContactDto.md
-docs/Model/CurrencyId.md
 docs/Model/EmailDispatchRequest.md
 docs/Model/EmptyEnvelope.md
 docs/Model/ErrorEnvelope.md
 docs/Model/ExtendedOrderDto.md
 docs/Model/ExtendedOrderDtoListEnvelope.md
-docs/Model/ForexRates.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
 docs/Model/InfoRequest.md
 docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
-docs/Model/Money.md
 docs/Model/OrderCreateDto.md
 docs/Model/OrderDto.md
 docs/Model/OrderDtoEnvelope.md
@@ -48,13 +45,11 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/ContactDto.php
-lib/Model/CurrencyId.php
 lib/Model/EmailDispatchRequest.php
 lib/Model/EmptyEnvelope.php
 lib/Model/ErrorEnvelope.php
 lib/Model/ExtendedOrderDto.php
 lib/Model/ExtendedOrderDtoListEnvelope.php
-lib/Model/ForexRates.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
 lib/Model/InfoRequest.php
@@ -62,7 +57,6 @@ lib/Model/InfoResponse.php
 lib/Model/Int32Envelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
-lib/Model/Money.php
 lib/Model/OrderCreateDto.php
 lib/Model/OrderDto.php
 lib/Model/OrderDtoEnvelope.php
@@ -84,4 +78,3 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UserDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/FenixAllianceABSWebApiTest.php

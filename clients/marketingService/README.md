@@ -117,6 +117,12 @@ Class | Method | HTTP request | Description
 *MarketingCampaignsApi* | [**getMarketingCampaignODataAsync**](docs/Api/MarketingCampaignsApi.md#getmarketingcampaignodataasync) | **GET** /api/v2/MarketingService/MarketingCampaigns | Get marketing campaigns
 *MarketingCampaignsApi* | [**getMarketingCampaignsCountAsync**](docs/Api/MarketingCampaignsApi.md#getmarketingcampaignscountasync) | **GET** /api/v2/MarketingService/MarketingCampaigns/Count | Get marketing campaigns count
 *MarketingCampaignsApi* | [**updateMarketingCampaignAsync**](docs/Api/MarketingCampaignsApi.md#updatemarketingcampaignasync) | **PUT** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Update a marketing campaign
+*MarketingLeadsApi* | [**createMarketingLeadAsync**](docs/Api/MarketingLeadsApi.md#createmarketingleadasync) | **POST** /api/v2/MarketingService/MarketingLeads | Create a marketing lead
+*MarketingLeadsApi* | [**deleteMarketingLeadAsync**](docs/Api/MarketingLeadsApi.md#deletemarketingleadasync) | **DELETE** /api/v2/MarketingService/MarketingLeads/{marketingLeadId} | Delete a marketing lead
+*MarketingLeadsApi* | [**getMarketingLeadDetailsAsync**](docs/Api/MarketingLeadsApi.md#getmarketingleaddetailsasync) | **GET** /api/v2/MarketingService/MarketingLeads/{marketingLeadId} | Get marketing lead by ID
+*MarketingLeadsApi* | [**getMarketingLeadsCountAsync**](docs/Api/MarketingLeadsApi.md#getmarketingleadscountasync) | **GET** /api/v2/MarketingService/MarketingLeads/Count | Get marketing leads count
+*MarketingLeadsApi* | [**getMarketingLeadsODataAsync**](docs/Api/MarketingLeadsApi.md#getmarketingleadsodataasync) | **GET** /api/v2/MarketingService/MarketingLeads | Get marketing leads
+*MarketingLeadsApi* | [**updateMarketingLeadAsync**](docs/Api/MarketingLeadsApi.md#updatemarketingleadasync) | **PUT** /api/v2/MarketingService/MarketingLeads/{marketingLeadId} | Update a marketing lead
 *MarketingListsApi* | [**createMarketingListAsync**](docs/Api/MarketingListsApi.md#createmarketinglistasync) | **POST** /api/v2/MarketingService/MarketingLists | Create a marketing list
 *MarketingListsApi* | [**deleteMarketingListAsync**](docs/Api/MarketingListsApi.md#deletemarketinglistasync) | **DELETE** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Delete a marketing list
 *MarketingListsApi* | [**getMarketingListDetailsAsync**](docs/Api/MarketingListsApi.md#getmarketinglistdetailsasync) | **GET** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Get marketing list by ID
@@ -173,6 +179,11 @@ Class | Method | HTTP request | Description
 - [MarketingCampaignDto](docs/Model/MarketingCampaignDto.md)
 - [MarketingCampaignDtoEnvelope](docs/Model/MarketingCampaignDtoEnvelope.md)
 - [MarketingCampaignUpdateDto](docs/Model/MarketingCampaignUpdateDto.md)
+- [MarketingLeadCreateDto](docs/Model/MarketingLeadCreateDto.md)
+- [MarketingLeadDto](docs/Model/MarketingLeadDto.md)
+- [MarketingLeadDtoEnvelope](docs/Model/MarketingLeadDtoEnvelope.md)
+- [MarketingLeadDtoListEnvelope](docs/Model/MarketingLeadDtoListEnvelope.md)
+- [MarketingLeadUpdateDto](docs/Model/MarketingLeadUpdateDto.md)
 - [MarketingListCreateDto](docs/Model/MarketingListCreateDto.md)
 - [MarketingListDto](docs/Model/MarketingListDto.md)
 - [MarketingListDtoEnvelope](docs/Model/MarketingListDtoEnvelope.md)

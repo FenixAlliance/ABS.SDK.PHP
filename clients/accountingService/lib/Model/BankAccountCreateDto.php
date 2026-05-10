@@ -60,16 +60,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'group' => 'bool',
-        'frozen' => 'bool',
         'name' => 'string',
-        'code' => 'string',
-        'path' => 'string',
-        'prefix' => 'string',
-        'currency_id' => 'string',
-        'account_type_id' => 'string',
-        'parent_account_id' => 'string',
-        'account_category' => 'string',
         'iban' => 'string',
         'swift' => 'string',
         'branch_code' => 'string',
@@ -89,16 +80,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'group' => null,
-        'frozen' => null,
         'name' => null,
-        'code' => null,
-        'path' => null,
-        'prefix' => null,
-        'currency_id' => null,
-        'account_type_id' => null,
-        'parent_account_id' => null,
-        'account_category' => null,
         'iban' => null,
         'swift' => null,
         'branch_code' => null,
@@ -116,16 +98,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'group' => false,
-        'frozen' => false,
-        'name' => false,
-        'code' => true,
-        'path' => true,
-        'prefix' => true,
-        'currency_id' => false,
-        'account_type_id' => true,
-        'parent_account_id' => true,
-        'account_category' => false,
+        'name' => true,
         'iban' => true,
         'swift' => true,
         'branch_code' => true,
@@ -223,16 +196,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'group' => 'group',
-        'frozen' => 'frozen',
         'name' => 'name',
-        'code' => 'code',
-        'path' => 'path',
-        'prefix' => 'prefix',
-        'currency_id' => 'currencyId',
-        'account_type_id' => 'accountTypeId',
-        'parent_account_id' => 'parentAccountId',
-        'account_category' => 'accountCategory',
         'iban' => 'iban',
         'swift' => 'swift',
         'branch_code' => 'branchCode',
@@ -250,16 +214,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'group' => 'setGroup',
-        'frozen' => 'setFrozen',
         'name' => 'setName',
-        'code' => 'setCode',
-        'path' => 'setPath',
-        'prefix' => 'setPrefix',
-        'currency_id' => 'setCurrencyId',
-        'account_type_id' => 'setAccountTypeId',
-        'parent_account_id' => 'setParentAccountId',
-        'account_category' => 'setAccountCategory',
         'iban' => 'setIban',
         'swift' => 'setSwift',
         'branch_code' => 'setBranchCode',
@@ -277,16 +232,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'group' => 'getGroup',
-        'frozen' => 'getFrozen',
         'name' => 'getName',
-        'code' => 'getCode',
-        'path' => 'getPath',
-        'prefix' => 'getPrefix',
-        'currency_id' => 'getCurrencyId',
-        'account_type_id' => 'getAccountTypeId',
-        'parent_account_id' => 'getParentAccountId',
-        'account_category' => 'getAccountCategory',
         'iban' => 'getIban',
         'swift' => 'getSwift',
         'branch_code' => 'getBranchCode',
@@ -337,27 +283,6 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
-    public const ACCOUNT_CATEGORY_ASSETS = 'Assets';
-    public const ACCOUNT_CATEGORY_EQUITY = 'Equity';
-    public const ACCOUNT_CATEGORY_REVENUE = 'Revenue';
-    public const ACCOUNT_CATEGORY_EXPENSE = 'Expense';
-    public const ACCOUNT_CATEGORY_LIABILITIES = 'Liabilities';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccountCategoryAllowableValues()
-    {
-        return [
-            self::ACCOUNT_CATEGORY_ASSETS,
-            self::ACCOUNT_CATEGORY_EQUITY,
-            self::ACCOUNT_CATEGORY_REVENUE,
-            self::ACCOUNT_CATEGORY_EXPENSE,
-            self::ACCOUNT_CATEGORY_LIABILITIES,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -376,16 +301,7 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('group', $data ?? [], null);
-        $this->setIfExists('frozen', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('code', $data ?? [], null);
-        $this->setIfExists('path', $data ?? [], null);
-        $this->setIfExists('prefix', $data ?? [], null);
-        $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('account_type_id', $data ?? [], null);
-        $this->setIfExists('parent_account_id', $data ?? [], null);
-        $this->setIfExists('account_category', $data ?? [], null);
         $this->setIfExists('iban', $data ?? [], null);
         $this->setIfExists('swift', $data ?? [], null);
         $this->setIfExists('branch_code', $data ?? [], null);
@@ -421,32 +337,6 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['currency_id'] === null) {
-            $invalidProperties[] = "'currency_id' can't be null";
-        }
-        if ((mb_strlen($this->container['currency_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'currency_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['account_category'] === null) {
-            $invalidProperties[] = "'account_category' can't be null";
-        }
-        $allowedValues = $this->getAccountCategoryAllowableValues();
-        if (!is_null($this->container['account_category']) && !in_array($this->container['account_category'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'account_category', must be one of '%s'",
-                $this->container['account_category'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         if (!is_null($this->container['bank_id']) && (mb_strlen($this->container['bank_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'bank_id', the character length must be smaller than or equal to 36.";
@@ -534,63 +424,9 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets group
-     *
-     * @return bool|null
-     */
-    public function getGroup()
-    {
-        return $this->container['group'];
-    }
-
-    /**
-     * Sets group
-     *
-     * @param bool|null $group group
-     *
-     * @return self
-     */
-    public function setGroup($group)
-    {
-        if (is_null($group)) {
-            throw new \InvalidArgumentException('non-nullable group cannot be null');
-        }
-        $this->container['group'] = $group;
-
-        return $this;
-    }
-
-    /**
-     * Gets frozen
-     *
-     * @return bool|null
-     */
-    public function getFrozen()
-    {
-        return $this->container['frozen'];
-    }
-
-    /**
-     * Sets frozen
-     *
-     * @param bool|null $frozen frozen
-     *
-     * @return self
-     */
-    public function setFrozen($frozen)
-    {
-        if (is_null($frozen)) {
-            throw new \InvalidArgumentException('non-nullable frozen cannot be null');
-        }
-        $this->container['frozen'] = $frozen;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -600,260 +436,23 @@ class BankAccountCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling BankAccountCreateDto., must be bigger than or equal to 1.');
-        }
-
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return string|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param string|null $code code
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            array_push($this->openAPINullablesSetToNull, 'code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
-     *
-     * @return string|null
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string|null $path path
-     *
-     * @return self
-     */
-    public function setPath($path)
-    {
-        if (is_null($path)) {
-            array_push($this->openAPINullablesSetToNull, 'path');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('path', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets prefix
-     *
-     * @return string|null
-     */
-    public function getPrefix()
-    {
-        return $this->container['prefix'];
-    }
-
-    /**
-     * Sets prefix
-     *
-     * @param string|null $prefix prefix
-     *
-     * @return self
-     */
-    public function setPrefix($prefix)
-    {
-        if (is_null($prefix)) {
-            array_push($this->openAPINullablesSetToNull, 'prefix');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('prefix', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['prefix'] = $prefix;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency_id
-     *
-     * @return string
-     */
-    public function getCurrencyId()
-    {
-        return $this->container['currency_id'];
-    }
-
-    /**
-     * Sets currency_id
-     *
-     * @param string $currency_id currency_id
-     *
-     * @return self
-     */
-    public function setCurrencyId($currency_id)
-    {
-        if (is_null($currency_id)) {
-            throw new \InvalidArgumentException('non-nullable currency_id cannot be null');
-        }
-
-        if ((mb_strlen($currency_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $currency_id when calling BankAccountCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_type_id
-     *
-     * @return string|null
-     */
-    public function getAccountTypeId()
-    {
-        return $this->container['account_type_id'];
-    }
-
-    /**
-     * Sets account_type_id
-     *
-     * @param string|null $account_type_id account_type_id
-     *
-     * @return self
-     */
-    public function setAccountTypeId($account_type_id)
-    {
-        if (is_null($account_type_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_type_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_type_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_type_id'] = $account_type_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets parent_account_id
-     *
-     * @return string|null
-     */
-    public function getParentAccountId()
-    {
-        return $this->container['parent_account_id'];
-    }
-
-    /**
-     * Sets parent_account_id
-     *
-     * @param string|null $parent_account_id parent_account_id
-     *
-     * @return self
-     */
-    public function setParentAccountId($parent_account_id)
-    {
-        if (is_null($parent_account_id)) {
-            array_push($this->openAPINullablesSetToNull, 'parent_account_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('parent_account_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['parent_account_id'] = $parent_account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_category
-     *
-     * @return string
-     */
-    public function getAccountCategory()
-    {
-        return $this->container['account_category'];
-    }
-
-    /**
-     * Sets account_category
-     *
-     * @param string $account_category account_category
-     *
-     * @return self
-     */
-    public function setAccountCategory($account_category)
-    {
-        if (is_null($account_category)) {
-            throw new \InvalidArgumentException('non-nullable account_category cannot be null');
-        }
-        $allowedValues = $this->getAccountCategoryAllowableValues();
-        if (!in_array($account_category, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'account_category', must be one of '%s'",
-                    $account_category,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['account_category'] = $account_category;
 
         return $this;
     }

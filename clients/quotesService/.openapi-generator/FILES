@@ -8,20 +8,17 @@ docs/Api/QuotesApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/BooleanEnvelope.md
 docs/Model/ContactDto.md
-docs/Model/CurrencyId.md
 docs/Model/EmailDispatchRequest.md
 docs/Model/EmptyEnvelope.md
 docs/Model/ErrorEnvelope.md
 docs/Model/ExtendedQuoteDto.md
 docs/Model/ExtendedQuoteDtoListEnvelope.md
-docs/Model/ForexRates.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
 docs/Model/InfoRequest.md
 docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
-docs/Model/Money.md
 docs/Model/QuoteCreateDto.md
 docs/Model/QuoteDto.md
 docs/Model/QuoteDtoEnvelope.md
@@ -51,13 +48,11 @@ lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/BooleanEnvelope.php
 lib/Model/ContactDto.php
-lib/Model/CurrencyId.php
 lib/Model/EmailDispatchRequest.php
 lib/Model/EmptyEnvelope.php
 lib/Model/ErrorEnvelope.php
 lib/Model/ExtendedQuoteDto.php
 lib/Model/ExtendedQuoteDtoListEnvelope.php
-lib/Model/ForexRates.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
 lib/Model/InfoRequest.php
@@ -65,7 +60,6 @@ lib/Model/InfoResponse.php
 lib/Model/Int32Envelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
-lib/Model/Money.php
 lib/Model/QuoteCreateDto.php
 lib/Model/QuoteDto.php
 lib/Model/QuoteDtoEnvelope.php
@@ -88,4 +82,3 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UserDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/FenixAllianceABSWebApiTest.php

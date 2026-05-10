@@ -416,7 +416,7 @@ No authorization required
 ## `getCourseByIdAsync()`
 
 ```php
-getCourseByIdAsync($tenant_id, $course_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseDto
+getCourseByIdAsync($course_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\CourseDto
 ```
 
 Get course by ID
@@ -436,13 +436,13 @@ $apiInstance = new OpenAPI\Client\Api\CoursesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = 'tenant_id_example'; // string
 $course_id = 'course_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getCourseByIdAsync($tenant_id, $course_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCourseByIdAsync($course_id, $tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoursesApi->getCourseByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -453,8 +453,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
 | **course_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

@@ -85,6 +85,7 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'string',
         'cost_calculation_method' => 'string',
         'forex_rate' => 'float',
+        'forex_rates_snapshot' => 'string',
         'currency_id' => 'string',
         'total_detail' => 'float',
         'total_detail_currency_id' => 'string',
@@ -189,6 +190,7 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => null,
         'cost_calculation_method' => null,
         'forex_rate' => 'double',
+        'forex_rates_snapshot' => null,
         'currency_id' => null,
         'total_detail' => 'double',
         'total_detail_currency_id' => null,
@@ -291,6 +293,7 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => false,
         'cost_calculation_method' => false,
         'forex_rate' => false,
+        'forex_rates_snapshot' => true,
         'currency_id' => true,
         'total_detail' => false,
         'total_detail_currency_id' => true,
@@ -473,6 +476,7 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'taxCalculationMethod',
         'cost_calculation_method' => 'costCalculationMethod',
         'forex_rate' => 'forexRate',
+        'forex_rates_snapshot' => 'forexRatesSnapshot',
         'currency_id' => 'currencyId',
         'total_detail' => 'totalDetail',
         'total_detail_currency_id' => 'totalDetailCurrencyId',
@@ -575,6 +579,7 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'setTaxCalculationMethod',
         'cost_calculation_method' => 'setCostCalculationMethod',
         'forex_rate' => 'setForexRate',
+        'forex_rates_snapshot' => 'setForexRatesSnapshot',
         'currency_id' => 'setCurrencyId',
         'total_detail' => 'setTotalDetail',
         'total_detail_currency_id' => 'setTotalDetailCurrencyId',
@@ -677,6 +682,7 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_calculation_method' => 'getTaxCalculationMethod',
         'cost_calculation_method' => 'getCostCalculationMethod',
         'forex_rate' => 'getForexRate',
+        'forex_rates_snapshot' => 'getForexRatesSnapshot',
         'currency_id' => 'getCurrencyId',
         'total_detail' => 'getTotalDetail',
         'total_detail_currency_id' => 'getTotalDetailCurrencyId',
@@ -938,6 +944,7 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('tax_calculation_method', $data ?? [], null);
         $this->setIfExists('cost_calculation_method', $data ?? [], null);
         $this->setIfExists('forex_rate', $data ?? [], null);
+        $this->setIfExists('forex_rates_snapshot', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('total_detail', $data ?? [], null);
         $this->setIfExists('total_detail_currency_id', $data ?? [], null);
@@ -2009,6 +2016,40 @@ class DealUnitDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
         }
         $this->container['forex_rate'] = $forex_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets forex_rates_snapshot
+     *
+     * @return string|null
+     */
+    public function getForexRatesSnapshot()
+    {
+        return $this->container['forex_rates_snapshot'];
+    }
+
+    /**
+     * Sets forex_rates_snapshot
+     *
+     * @param string|null $forex_rates_snapshot forex_rates_snapshot
+     *
+     * @return self
+     */
+    public function setForexRatesSnapshot($forex_rates_snapshot)
+    {
+        if (is_null($forex_rates_snapshot)) {
+            array_push($this->openAPINullablesSetToNull, 'forex_rates_snapshot');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('forex_rates_snapshot', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['forex_rates_snapshot'] = $forex_rates_snapshot;
 
         return $this;
     }

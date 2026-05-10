@@ -145,7 +145,7 @@ class FiscalResponsibilitiesApi
      *
      * Create a fiscal responsibility
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalResponsibilityCreateDto $fiscal_responsibility_create_dto fiscal_responsibility_create_dto (optional)
@@ -166,7 +166,7 @@ class FiscalResponsibilitiesApi
      *
      * Create a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalResponsibilityCreateDto $fiscal_responsibility_create_dto (optional)
@@ -364,7 +364,7 @@ class FiscalResponsibilitiesApi
      *
      * Create a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalResponsibilityCreateDto $fiscal_responsibility_create_dto (optional)
@@ -388,7 +388,7 @@ class FiscalResponsibilitiesApi
      *
      * Create a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalResponsibilityCreateDto $fiscal_responsibility_create_dto (optional)
@@ -441,7 +441,7 @@ class FiscalResponsibilitiesApi
     /**
      * Create request for operation 'createFiscalResponsibility'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalResponsibilityCreateDto $fiscal_responsibility_create_dto (optional)
@@ -475,7 +475,7 @@ class FiscalResponsibilitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -562,7 +562,7 @@ class FiscalResponsibilitiesApi
      *
      * Delete a fiscal responsibility
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_responsibility_id fiscal_responsibility_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -583,7 +583,7 @@ class FiscalResponsibilitiesApi
      *
      * Delete a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -781,7 +781,7 @@ class FiscalResponsibilitiesApi
      *
      * Delete a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -805,7 +805,7 @@ class FiscalResponsibilitiesApi
      *
      * Delete a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -858,7 +858,7 @@ class FiscalResponsibilitiesApi
     /**
      * Create request for operation 'deleteFiscalResponsibility'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -898,7 +898,7 @@ class FiscalResponsibilitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -1813,7 +1813,7 @@ class FiscalResponsibilitiesApi
      *
      * Get fiscal responsibility by ID
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $fiscal_responsibility_id fiscal_responsibility_id (required)
      * @param  string $api_version api_version (optional)
@@ -1835,7 +1835,7 @@ class FiscalResponsibilitiesApi
      *
      * Get fiscal responsibility by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
@@ -2034,7 +2034,7 @@ class FiscalResponsibilitiesApi
      *
      * Get fiscal responsibility by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
@@ -2059,7 +2059,7 @@ class FiscalResponsibilitiesApi
      *
      * Get fiscal responsibility by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
@@ -2113,7 +2113,7 @@ class FiscalResponsibilitiesApi
     /**
      * Create request for operation 'getFiscalResponsibility'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
@@ -2161,7 +2161,7 @@ class FiscalResponsibilitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -2257,7 +2257,7 @@ class FiscalResponsibilitiesApi
      *
      * Update a fiscal responsibility
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_responsibility_id fiscal_responsibility_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -2279,7 +2279,7 @@ class FiscalResponsibilitiesApi
      *
      * Update a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2478,7 +2478,7 @@ class FiscalResponsibilitiesApi
      *
      * Update a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2503,7 +2503,7 @@ class FiscalResponsibilitiesApi
      *
      * Update a fiscal responsibility
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2557,7 +2557,7 @@ class FiscalResponsibilitiesApi
     /**
      * Create request for operation 'updateFiscalResponsibility'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_responsibility_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2599,7 +2599,7 @@ class FiscalResponsibilitiesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required

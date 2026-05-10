@@ -89,8 +89,14 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
 *FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
 *FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*WalletsApi* | [**createWalletBankAccountAsync**](docs/Api/WalletsApi.md#createwalletbankaccountasync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts | Create Wallet Bank Account
 *WalletsApi* | [**createWalletLocationAsync**](docs/Api/WalletsApi.md#createwalletlocationasync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location
+*WalletsApi* | [**createWalletPaymentAsync**](docs/Api/WalletsApi.md#createwalletpaymentasync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Payments | Create Wallet Payment
+*WalletsApi* | [**createWalletTokenAsync**](docs/Api/WalletsApi.md#createwallettokenasync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Tokens | Create Wallet Token
+*WalletsApi* | [**createWalletWithdrawRequestAsync**](docs/Api/WalletsApi.md#createwalletwithdrawrequestasync) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Withdraws | Create Wallet Withdraw Request
+*WalletsApi* | [**deleteWalletBankAccountAsync**](docs/Api/WalletsApi.md#deletewalletbankaccountasync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Delete Wallet Bank Account
 *WalletsApi* | [**deleteWalletLocationAsync**](docs/Api/WalletsApi.md#deletewalletlocationasync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location
+*WalletsApi* | [**deleteWalletTokenAsync**](docs/Api/WalletsApi.md#deletewallettokenasync) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Delete Wallet Token
 *WalletsApi* | [**getIncomingPaymentsAsync**](docs/Api/WalletsApi.md#getincomingpaymentsasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming | Get Incoming Payments
 *WalletsApi* | [**getIncomingPaymentsCountAsync**](docs/Api/WalletsApi.md#getincomingpaymentscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count | Get Incoming Payments Count
 *WalletsApi* | [**getIncomingWalletInvoicesAsync**](docs/Api/WalletsApi.md#getincomingwalletinvoicesasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming | Get Incoming Wallet Invoices
@@ -99,6 +105,11 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**getOutgoingPaymentsCountAsync**](docs/Api/WalletsApi.md#getoutgoingpaymentscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count | Get Outgoing Payments Count
 *WalletsApi* | [**getOutgoingWalletInvoicesAsync**](docs/Api/WalletsApi.md#getoutgoingwalletinvoicesasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing | Get Outgoing Wallet Invoices
 *WalletsApi* | [**getOutgoingWalletInvoicesCountAsync**](docs/Api/WalletsApi.md#getoutgoingwalletinvoicescountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing/Count | Get Outgoing Wallet Invoices Count
+*WalletsApi* | [**getWalletBankAccountAsync**](docs/Api/WalletsApi.md#getwalletbankaccountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Get Wallet Bank Account
+*WalletsApi* | [**getWalletBankAccountsAsync**](docs/Api/WalletsApi.md#getwalletbankaccountsasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts | Get Wallet Bank Accounts
+*WalletsApi* | [**getWalletBankAccountsCountAsync**](docs/Api/WalletsApi.md#getwalletbankaccountscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/Count | Get Wallet Bank Accounts Count
+*WalletsApi* | [**getWalletChargebacksAsync**](docs/Api/WalletsApi.md#getwalletchargebacksasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Chargebacks | Get Wallet Chargebacks
+*WalletsApi* | [**getWalletChargebacksCountAsync**](docs/Api/WalletsApi.md#getwalletchargebackscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Chargebacks/Count | Get Wallet Chargebacks Count
 *WalletsApi* | [**getWalletDetailsAsync**](docs/Api/WalletsApi.md#getwalletdetailsasync) | **GET** /api/v2/WalletsService/Wallets/{walletId} | Get Wallet Details
 *WalletsApi* | [**getWalletExtendedOrdersAsync**](docs/Api/WalletsApi.md#getwalletextendedordersasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Extended | Get Wallet Extended Orders
 *WalletsApi* | [**getWalletInvoicesAsync**](docs/Api/WalletsApi.md#getwalletinvoicesasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices | Get Wallet Invoices
@@ -110,11 +121,29 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**getWalletOrdersCountAsync**](docs/Api/WalletsApi.md#getwalletorderscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Count | Get Wallet Orders Count
 *WalletsApi* | [**getWalletPaymentsAsync**](docs/Api/WalletsApi.md#getwalletpaymentsasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments | Get Wallet Payments
 *WalletsApi* | [**getWalletPaymentsCountAsync**](docs/Api/WalletsApi.md#getwalletpaymentscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Count | Get Wallet Payments Count
+*WalletsApi* | [**getWalletQuotesAsync**](docs/Api/WalletsApi.md#getwalletquotesasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Quotes | Get Wallet Quotes
+*WalletsApi* | [**getWalletQuotesCountAsync**](docs/Api/WalletsApi.md#getwalletquotescountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Quotes/Count | Get Wallet Quotes Count
+*WalletsApi* | [**getWalletRefundsAsync**](docs/Api/WalletsApi.md#getwalletrefundsasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Refunds | Get Wallet Refunds
+*WalletsApi* | [**getWalletRefundsCountAsync**](docs/Api/WalletsApi.md#getwalletrefundscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Refunds/Count | Get Wallet Refunds Count
+*WalletsApi* | [**getWalletTokenAsync**](docs/Api/WalletsApi.md#getwallettokenasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Get Wallet Token
+*WalletsApi* | [**getWalletTokensAsync**](docs/Api/WalletsApi.md#getwallettokensasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Tokens | Get Wallet Tokens
+*WalletsApi* | [**getWalletTokensCountAsync**](docs/Api/WalletsApi.md#getwallettokenscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Tokens/Count | Get Wallet Tokens Count
+*WalletsApi* | [**getWalletWithdrawRequestsAsync**](docs/Api/WalletsApi.md#getwalletwithdrawrequestsasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests | Get Wallet Withdraw Requests
+*WalletsApi* | [**getWalletWithdrawRequestsCountAsync**](docs/Api/WalletsApi.md#getwalletwithdrawrequestscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests/Count | Get Wallet Withdraw Requests Count
+*WalletsApi* | [**getWalletWithdrawsAsync**](docs/Api/WalletsApi.md#getwalletwithdrawsasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Withdraws | Get Wallet Withdraws
+*WalletsApi* | [**getWalletWithdrawsCountAsync**](docs/Api/WalletsApi.md#getwalletwithdrawscountasync) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count | Get Wallet Withdraws Count
+*WalletsApi* | [**updateWalletBankAccountAsync**](docs/Api/WalletsApi.md#updatewalletbankaccountasync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Update Wallet Bank Account
 *WalletsApi* | [**updateWalletLocationAsync**](docs/Api/WalletsApi.md#updatewalletlocationasync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location
+*WalletsApi* | [**updateWalletTokenAsync**](docs/Api/WalletsApi.md#updatewallettokenasync) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Update Wallet Token
 
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [BankAccountCreateDto](docs/Model/BankAccountCreateDto.md)
+- [BankAccountDto](docs/Model/BankAccountDto.md)
+- [BankAccountDtoEnvelope](docs/Model/BankAccountDtoEnvelope.md)
+- [BankAccountDtoListEnvelope](docs/Model/BankAccountDtoListEnvelope.md)
+- [BankAccountUpdateDto](docs/Model/BankAccountUpdateDto.md)
 - [ContactDto](docs/Model/ContactDto.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
@@ -135,8 +164,20 @@ Class | Method | HTTP request | Description
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [OrderDto](docs/Model/OrderDto.md)
 - [OrderDtoListEnvelope](docs/Model/OrderDtoListEnvelope.md)
+- [PaymentChargebackDto](docs/Model/PaymentChargebackDto.md)
+- [PaymentChargebackDtoListEnvelope](docs/Model/PaymentChargebackDtoListEnvelope.md)
+- [PaymentCreateDto](docs/Model/PaymentCreateDto.md)
 - [PaymentDto](docs/Model/PaymentDto.md)
 - [PaymentDtoListEnvelope](docs/Model/PaymentDtoListEnvelope.md)
+- [PaymentRefundDto](docs/Model/PaymentRefundDto.md)
+- [PaymentRefundDtoListEnvelope](docs/Model/PaymentRefundDtoListEnvelope.md)
+- [PaymentTokenCreateDto](docs/Model/PaymentTokenCreateDto.md)
+- [PaymentTokenDto](docs/Model/PaymentTokenDto.md)
+- [PaymentTokenDtoEnvelope](docs/Model/PaymentTokenDtoEnvelope.md)
+- [PaymentTokenDtoListEnvelope](docs/Model/PaymentTokenDtoListEnvelope.md)
+- [PaymentTokenUpdateDto](docs/Model/PaymentTokenUpdateDto.md)
+- [QuoteDto](docs/Model/QuoteDto.md)
+- [QuoteDtoListEnvelope](docs/Model/QuoteDtoListEnvelope.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
@@ -148,6 +189,11 @@ Class | Method | HTTP request | Description
 - [UserDto](docs/Model/UserDto.md)
 - [WalletDto](docs/Model/WalletDto.md)
 - [WalletDtoEnvelope](docs/Model/WalletDtoEnvelope.md)
+- [WalletWithdrawDto](docs/Model/WalletWithdrawDto.md)
+- [WalletWithdrawDtoListEnvelope](docs/Model/WalletWithdrawDtoListEnvelope.md)
+- [WalletWithdrawRequestCreateDto](docs/Model/WalletWithdrawRequestCreateDto.md)
+- [WalletWithdrawRequestDto](docs/Model/WalletWithdrawRequestDto.md)
+- [WalletWithdrawRequestDtoListEnvelope](docs/Model/WalletWithdrawRequestDtoListEnvelope.md)
 
 ## Authorization
 Endpoints do not require authorization.

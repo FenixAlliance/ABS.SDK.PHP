@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **customer_notes** | **string** |  | [optional]
 **tax_calculation_method** | **string** |  | [optional]
 **forex_rate** | **float** |  | [optional]
+**forex_rates_snapshot** | **string** |  | [optional]
 **currency_id** | **string** |  | [optional]
 **total_detail** | **float** |  | [optional]
 **total_detail_currency_id** | **string** |  | [optional]

@@ -2297,8 +2297,8 @@ class CoursesApi
      *
      * Get course by ID
      *
-     * @param  string $tenant_id tenant_id (required)
      * @param  string $course_id course_id (required)
+     * @param  string $tenant_id tenant_id (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseByIdAsync'] to see the possible values for this operation
@@ -2307,9 +2307,9 @@ class CoursesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseDto
      */
-    public function getCourseByIdAsync($tenant_id, $course_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
+    public function getCourseByIdAsync($course_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
     {
-        list($response) = $this->getCourseByIdAsyncWithHttpInfo($tenant_id, $course_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getCourseByIdAsyncWithHttpInfo($course_id, $tenant_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -2318,8 +2318,8 @@ class CoursesApi
      *
      * Get course by ID
      *
-     * @param  string $tenant_id (required)
      * @param  string $course_id (required)
+     * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseByIdAsync'] to see the possible values for this operation
@@ -2328,9 +2328,9 @@ class CoursesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\CourseDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCourseByIdAsyncWithHttpInfo($tenant_id, $course_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
+    public function getCourseByIdAsyncWithHttpInfo($course_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
     {
-        $request = $this->getCourseByIdAsyncRequest($tenant_id, $course_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseByIdAsyncRequest($course_id, $tenant_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2481,8 +2481,8 @@ class CoursesApi
      *
      * Get course by ID
      *
-     * @param  string $tenant_id (required)
      * @param  string $course_id (required)
+     * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseByIdAsync'] to see the possible values for this operation
@@ -2490,9 +2490,9 @@ class CoursesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseByIdAsyncAsync($tenant_id, $course_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
+    public function getCourseByIdAsyncAsync($course_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
     {
-        return $this->getCourseByIdAsyncAsyncWithHttpInfo($tenant_id, $course_id, $api_version, $x_api_version, $contentType)
+        return $this->getCourseByIdAsyncAsyncWithHttpInfo($course_id, $tenant_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2505,8 +2505,8 @@ class CoursesApi
      *
      * Get course by ID
      *
-     * @param  string $tenant_id (required)
      * @param  string $course_id (required)
+     * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseByIdAsync'] to see the possible values for this operation
@@ -2514,10 +2514,10 @@ class CoursesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCourseByIdAsyncAsyncWithHttpInfo($tenant_id, $course_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
+    public function getCourseByIdAsyncAsyncWithHttpInfo($course_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CourseDto';
-        $request = $this->getCourseByIdAsyncRequest($tenant_id, $course_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getCourseByIdAsyncRequest($course_id, $tenant_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2558,8 +2558,8 @@ class CoursesApi
     /**
      * Create request for operation 'getCourseByIdAsync'
      *
-     * @param  string $tenant_id (required)
      * @param  string $course_id (required)
+     * @param  string $tenant_id (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCourseByIdAsync'] to see the possible values for this operation
@@ -2567,15 +2567,8 @@ class CoursesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCourseByIdAsyncRequest($tenant_id, $course_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
+    public function getCourseByIdAsyncRequest($course_id, $tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getCourseByIdAsync'][0])
     {
-
-        // verify the required parameter 'tenant_id' is set
-        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling getCourseByIdAsync'
-            );
-        }
 
         // verify the required parameter 'course_id' is set
         if ($course_id === null || (is_array($course_id) && count($course_id) === 0)) {
@@ -2583,6 +2576,7 @@ class CoursesApi
                 'Missing the required parameter $course_id when calling getCourseByIdAsync'
             );
         }
+
 
 
 
@@ -2601,7 +2595,7 @@ class CoursesApi
             'string', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(

@@ -98,4 +98,3 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/FenixAllianceABSWebApiTest.php

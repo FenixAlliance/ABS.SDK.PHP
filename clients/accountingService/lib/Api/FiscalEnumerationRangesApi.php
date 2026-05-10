@@ -145,7 +145,7 @@ class FiscalEnumerationRangesApi
      *
      * Create an invoice enumeration range
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto $invoice_enumeration_range_create_dto invoice_enumeration_range_create_dto (optional)
@@ -166,7 +166,7 @@ class FiscalEnumerationRangesApi
      *
      * Create an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto $invoice_enumeration_range_create_dto (optional)
@@ -364,7 +364,7 @@ class FiscalEnumerationRangesApi
      *
      * Create an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto $invoice_enumeration_range_create_dto (optional)
@@ -388,7 +388,7 @@ class FiscalEnumerationRangesApi
      *
      * Create an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto $invoice_enumeration_range_create_dto (optional)
@@ -441,7 +441,7 @@ class FiscalEnumerationRangesApi
     /**
      * Create request for operation 'createInvoiceEnumerationRange'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\InvoiceEnumerationRangeCreateDto $invoice_enumeration_range_create_dto (optional)
@@ -475,7 +475,7 @@ class FiscalEnumerationRangesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -562,7 +562,7 @@ class FiscalEnumerationRangesApi
      *
      * Delete an invoice enumeration range
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $enumeration_range_id enumeration_range_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -583,7 +583,7 @@ class FiscalEnumerationRangesApi
      *
      * Delete an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -781,7 +781,7 @@ class FiscalEnumerationRangesApi
      *
      * Delete an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -805,7 +805,7 @@ class FiscalEnumerationRangesApi
      *
      * Delete an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -858,7 +858,7 @@ class FiscalEnumerationRangesApi
     /**
      * Create request for operation 'deleteInvoiceEnumerationRange'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -898,7 +898,7 @@ class FiscalEnumerationRangesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -986,7 +986,7 @@ class FiscalEnumerationRangesApi
      *
      * Get invoice enumeration range by ID
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $enumeration_range_id enumeration_range_id (required)
      * @param  string $api_version api_version (optional)
@@ -1008,7 +1008,7 @@ class FiscalEnumerationRangesApi
      *
      * Get invoice enumeration range by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
@@ -1207,7 +1207,7 @@ class FiscalEnumerationRangesApi
      *
      * Get invoice enumeration range by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
@@ -1232,7 +1232,7 @@ class FiscalEnumerationRangesApi
      *
      * Get invoice enumeration range by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
@@ -1286,7 +1286,7 @@ class FiscalEnumerationRangesApi
     /**
      * Create request for operation 'getInvoiceEnumerationRange'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
@@ -1334,7 +1334,7 @@ class FiscalEnumerationRangesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -2257,7 +2257,7 @@ class FiscalEnumerationRangesApi
      *
      * Update an invoice enumeration range
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $enumeration_range_id enumeration_range_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -2279,7 +2279,7 @@ class FiscalEnumerationRangesApi
      *
      * Update an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2478,7 +2478,7 @@ class FiscalEnumerationRangesApi
      *
      * Update an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2503,7 +2503,7 @@ class FiscalEnumerationRangesApi
      *
      * Update an invoice enumeration range
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2557,7 +2557,7 @@ class FiscalEnumerationRangesApi
     /**
      * Create request for operation 'updateInvoiceEnumerationRange'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $enumeration_range_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2599,7 +2599,7 @@ class FiscalEnumerationRangesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required

@@ -145,7 +145,7 @@ class FiscalIdentificationTypesApi
      *
      * Create a fiscal identification type
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto $fiscal_identification_type_create_dto fiscal_identification_type_create_dto (optional)
@@ -166,7 +166,7 @@ class FiscalIdentificationTypesApi
      *
      * Create a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto $fiscal_identification_type_create_dto (optional)
@@ -364,7 +364,7 @@ class FiscalIdentificationTypesApi
      *
      * Create a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto $fiscal_identification_type_create_dto (optional)
@@ -388,7 +388,7 @@ class FiscalIdentificationTypesApi
      *
      * Create a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto $fiscal_identification_type_create_dto (optional)
@@ -441,7 +441,7 @@ class FiscalIdentificationTypesApi
     /**
      * Create request for operation 'createFiscalIdentificationType'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto $fiscal_identification_type_create_dto (optional)
@@ -475,7 +475,7 @@ class FiscalIdentificationTypesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -562,7 +562,7 @@ class FiscalIdentificationTypesApi
      *
      * Delete a fiscal identification type
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $identification_type_id identification_type_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -583,7 +583,7 @@ class FiscalIdentificationTypesApi
      *
      * Delete a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -781,7 +781,7 @@ class FiscalIdentificationTypesApi
      *
      * Delete a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -805,7 +805,7 @@ class FiscalIdentificationTypesApi
      *
      * Delete a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -858,7 +858,7 @@ class FiscalIdentificationTypesApi
     /**
      * Create request for operation 'deleteFiscalIdentificationType'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -898,7 +898,7 @@ class FiscalIdentificationTypesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -986,7 +986,7 @@ class FiscalIdentificationTypesApi
      *
      * Get fiscal identification type by ID
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $fiscal_authority_id fiscal_authority_id (required)
      * @param  string $identification_type_id identification_type_id (required)
      * @param  string $api_version api_version (optional)
@@ -1008,7 +1008,7 @@ class FiscalIdentificationTypesApi
      *
      * Get fiscal identification type by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
@@ -1207,7 +1207,7 @@ class FiscalIdentificationTypesApi
      *
      * Get fiscal identification type by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
@@ -1232,7 +1232,7 @@ class FiscalIdentificationTypesApi
      *
      * Get fiscal identification type by ID
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
@@ -1286,7 +1286,7 @@ class FiscalIdentificationTypesApi
     /**
      * Create request for operation 'getFiscalIdentificationType'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $fiscal_authority_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
@@ -1334,7 +1334,7 @@ class FiscalIdentificationTypesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -2236,7 +2236,7 @@ class FiscalIdentificationTypesApi
      *
      * Update a fiscal identification type
      *
-     * @param  object $tenant_id tenant_id (required)
+     * @param  string $tenant_id tenant_id (required)
      * @param  string $identification_type_id identification_type_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
@@ -2258,7 +2258,7 @@ class FiscalIdentificationTypesApi
      *
      * Update a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2457,7 +2457,7 @@ class FiscalIdentificationTypesApi
      *
      * Update a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2482,7 +2482,7 @@ class FiscalIdentificationTypesApi
      *
      * Update a fiscal identification type
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2536,7 +2536,7 @@ class FiscalIdentificationTypesApi
     /**
      * Create request for operation 'updateFiscalIdentificationType'
      *
-     * @param  object $tenant_id (required)
+     * @param  string $tenant_id (required)
      * @param  string $identification_type_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
@@ -2578,7 +2578,7 @@ class FiscalIdentificationTypesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $tenant_id,
             'tenantId', // param base name
-            'object', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required

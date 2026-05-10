@@ -35,7 +35,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalIdentificationTypesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $fiscal_identification_type_create_dto = new \OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto(); // \OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto
@@ -52,7 +52,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **fiscal_identification_type_create_dto** | [**\OpenAPI\Client\Model\FiscalIdentificationTypeCreateDto**](../Model/FiscalIdentificationTypeCreateDto.md)|  | [optional] |
@@ -97,7 +97,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalIdentificationTypesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $identification_type_id = 'identification_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
@@ -114,7 +114,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **identification_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -159,7 +159,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalIdentificationTypesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $identification_type_id = 'identification_type_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -177,7 +177,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **fiscal_authority_id** | **string**|  | |
 | **identification_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
@@ -343,7 +343,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalIdentificationTypesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $identification_type_id = 'identification_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
@@ -361,7 +361,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **identification_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

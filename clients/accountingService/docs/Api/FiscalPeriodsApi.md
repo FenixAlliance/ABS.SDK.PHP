@@ -35,7 +35,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalPeriodsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $fiscal_period_create_dto = new \OpenAPI\Client\Model\FiscalPeriodCreateDto(); // \OpenAPI\Client\Model\FiscalPeriodCreateDto
@@ -52,7 +52,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **fiscal_period_create_dto** | [**\OpenAPI\Client\Model\FiscalPeriodCreateDto**](../Model/FiscalPeriodCreateDto.md)|  | [optional] |
@@ -97,7 +97,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalPeriodsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_period_id = 'fiscal_period_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
@@ -114,7 +114,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **fiscal_period_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -159,7 +159,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalPeriodsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $fiscal_year_id = 'fiscal_year_id_example'; // string
 $fiscal_period_id = 'fiscal_period_id_example'; // string
@@ -178,7 +178,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **fiscal_authority_id** | **string**|  | |
 | **fiscal_year_id** | **string**|  | |
 | **fiscal_period_id** | **string**|  | |
@@ -225,7 +225,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalPeriodsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $fiscal_year_id = 'fiscal_year_id_example'; // string
 $authority_id = 'authority_id_example'; // string
@@ -244,7 +244,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **fiscal_authority_id** | **string**|  | |
 | **fiscal_year_id** | **string**|  | |
 | **authority_id** | **string**|  | |
@@ -291,7 +291,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalPeriodsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $fiscal_year_id = 'fiscal_year_id_example'; // string
 $api_version = 'api_version_example'; // string
@@ -309,7 +309,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **fiscal_authority_id** | **string**|  | |
 | **fiscal_year_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
@@ -355,7 +355,7 @@ $apiInstance = new OpenAPI\Client\Api\FiscalPeriodsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = array('key' => new \stdClass); // object
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_period_id = 'fiscal_period_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
@@ -373,7 +373,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | [**object**](../Model/.md)|  | |
+| **tenant_id** | **string**|  | |
 | **fiscal_period_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

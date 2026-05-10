@@ -13,7 +13,6 @@ docs/Model/Envelope.md
 docs/Model/ErrorEnvelope.md
 docs/Model/ExtendedInvoiceDto.md
 docs/Model/ExtendedInvoiceDtoListEnvelope.md
-docs/Model/ForexRates.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
 docs/Model/InfoRequest.md
@@ -73,7 +72,6 @@ lib/Model/Envelope.php
 lib/Model/ErrorEnvelope.php
 lib/Model/ExtendedInvoiceDto.php
 lib/Model/ExtendedInvoiceDtoListEnvelope.php
-lib/Model/ForexRates.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
 lib/Model/InfoRequest.php

@@ -7,6 +7,7 @@ docs/Api/AccountGroupsApi.md
 docs/Api/AccountingPeriodsApi.md
 docs/Api/AccountsApi.md
 docs/Api/BankingApi.md
+docs/Api/BillableLineTaxesApi.md
 docs/Api/BillingProfilesApi.md
 docs/Api/BudgetsApi.md
 docs/Api/CommissionsApi.md
@@ -63,6 +64,10 @@ docs/Model/AccountingPeriodDto.md
 docs/Model/AccountingPeriodDtoEnvelope.md
 docs/Model/AccountingPeriodDtoListEnvelope.md
 docs/Model/AccountingPeriodUpdateDto.md
+docs/Model/AppliedItemTaxRecordCreateDto.md
+docs/Model/AppliedItemTaxRecordDto.md
+docs/Model/AppliedItemTaxRecordDtoIReadOnlyListEnvelope.md
+docs/Model/AppliedItemTaxRecordUpdateDto.md
 docs/Model/AppliedTaxPolicyRecordCreateDto.md
 docs/Model/AppliedTaxPolicyRecordDto.md
 docs/Model/AppliedTaxPolicyRecordDtoEnvelope.md
@@ -283,6 +288,7 @@ lib/Api/AccountGroupsApi.php
 lib/Api/AccountingPeriodsApi.php
 lib/Api/AccountsApi.php
 lib/Api/BankingApi.php
+lib/Api/BillableLineTaxesApi.php
 lib/Api/BillingProfilesApi.php
 lib/Api/BudgetsApi.php
 lib/Api/CommissionsApi.php
@@ -342,6 +348,10 @@ lib/Model/AccountingPeriodDto.php
 lib/Model/AccountingPeriodDtoEnvelope.php
 lib/Model/AccountingPeriodDtoListEnvelope.php
 lib/Model/AccountingPeriodUpdateDto.php
+lib/Model/AppliedItemTaxRecordCreateDto.php
+lib/Model/AppliedItemTaxRecordDto.php
+lib/Model/AppliedItemTaxRecordDtoIReadOnlyListEnvelope.php
+lib/Model/AppliedItemTaxRecordUpdateDto.php
 lib/Model/AppliedTaxPolicyRecordCreateDto.php
 lib/Model/AppliedTaxPolicyRecordDto.php
 lib/Model/AppliedTaxPolicyRecordDtoEnvelope.php
@@ -560,4 +570,8 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UpdateLedgerDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/FenixAllianceABSWebApiTest.php
+test/Api/BillableLineTaxesApiTest.php
+test/Model/AppliedItemTaxRecordCreateDtoTest.php
+test/Model/AppliedItemTaxRecordDtoIReadOnlyListEnvelopeTest.php
+test/Model/AppliedItemTaxRecordDtoTest.php
+test/Model/AppliedItemTaxRecordUpdateDtoTest.php

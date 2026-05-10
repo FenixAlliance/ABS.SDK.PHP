@@ -1,0 +1,16 @@
+# # ShippingZoneDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
+**name** | **string** |  | [optional]
+**default** | **bool** |  | [optional]
+**everywhere** | **bool** |  | [optional]
+**postal_codes** | **string** |  | [optional]
+**country_codes** | **string** |  | [optional]
+**business_id** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

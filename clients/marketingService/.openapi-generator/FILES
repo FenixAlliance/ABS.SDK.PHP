@@ -8,6 +8,7 @@ docs/Api/EmailSignaturesApi.md
 docs/Api/EmailTemplatesApi.md
 docs/Api/FenixAllianceABSWebApi.md
 docs/Api/MarketingCampaignsApi.md
+docs/Api/MarketingLeadsApi.md
 docs/Api/MarketingListsApi.md
 docs/Api/NewslettersApi.md
 docs/Api/SocialMediaPostsApi.md
@@ -41,6 +42,11 @@ docs/Model/MarketingCampaignCreateDto.md
 docs/Model/MarketingCampaignDto.md
 docs/Model/MarketingCampaignDtoEnvelope.md
 docs/Model/MarketingCampaignUpdateDto.md
+docs/Model/MarketingLeadCreateDto.md
+docs/Model/MarketingLeadDto.md
+docs/Model/MarketingLeadDtoEnvelope.md
+docs/Model/MarketingLeadDtoListEnvelope.md
+docs/Model/MarketingLeadUpdateDto.md
 docs/Model/MarketingListCreateDto.md
 docs/Model/MarketingListDto.md
 docs/Model/MarketingListDtoEnvelope.md
@@ -74,6 +80,7 @@ lib/Api/EmailSignaturesApi.php
 lib/Api/EmailTemplatesApi.php
 lib/Api/FenixAllianceABSWebApi.php
 lib/Api/MarketingCampaignsApi.php
+lib/Api/MarketingLeadsApi.php
 lib/Api/MarketingListsApi.php
 lib/Api/NewslettersApi.php
 lib/Api/SocialMediaPostsApi.php
@@ -110,6 +117,11 @@ lib/Model/MarketingCampaignCreateDto.php
 lib/Model/MarketingCampaignDto.php
 lib/Model/MarketingCampaignDtoEnvelope.php
 lib/Model/MarketingCampaignUpdateDto.php
+lib/Model/MarketingLeadCreateDto.php
+lib/Model/MarketingLeadDto.php
+lib/Model/MarketingLeadDtoEnvelope.php
+lib/Model/MarketingLeadDtoListEnvelope.php
+lib/Model/MarketingLeadUpdateDto.php
 lib/Model/MarketingListCreateDto.php
 lib/Model/MarketingListDto.php
 lib/Model/MarketingListDtoEnvelope.php
@@ -140,4 +152,9 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/FenixAllianceABSWebApiTest.php
+test/Api/MarketingLeadsApiTest.php
+test/Model/MarketingLeadCreateDtoTest.php
+test/Model/MarketingLeadDtoEnvelopeTest.php
+test/Model/MarketingLeadDtoListEnvelopeTest.php
+test/Model/MarketingLeadDtoTest.php
+test/Model/MarketingLeadUpdateDtoTest.php

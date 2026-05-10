@@ -147,6 +147,11 @@ Class | Method | HTTP request | Description
 *BankingApi* | [**updateBankAccount**](docs/Api/BankingApi.md#updatebankaccount) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId} | Updates a bank account
 *BankingApi* | [**updateBankGuarantee**](docs/Api/BankingApi.md#updatebankguarantee) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId} | Updates a bank guarantee
 *BankingApi* | [**updateBankTransaction**](docs/Api/BankingApi.md#updatebanktransaction) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Transactions/{transactionId} | Updates a bank transaction
+*BillableLineTaxesApi* | [**createBillableLineTax**](docs/Api/BillableLineTaxesApi.md#createbillablelinetax) | **POST** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes | Create a new tax for a billable line.
+*BillableLineTaxesApi* | [**deleteBillableLineTax**](docs/Api/BillableLineTaxesApi.md#deletebillablelinetax) | **DELETE** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Delete a tax from a billable line.
+*BillableLineTaxesApi* | [**getBillableLineTaxes**](docs/Api/BillableLineTaxesApi.md#getbillablelinetaxes) | **GET** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes | Get taxes for a billable line.
+*BillableLineTaxesApi* | [**getBillableLineTaxesCount**](docs/Api/BillableLineTaxesApi.md#getbillablelinetaxescount) | **GET** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/Count | Get the count of taxes for a billable line.
+*BillableLineTaxesApi* | [**updateBillableLineTax**](docs/Api/BillableLineTaxesApi.md#updatebillablelinetax) | **PUT** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Update a tax for a billable line.
 *BillingProfilesApi* | [**createBillingProfileAsync**](docs/Api/BillingProfilesApi.md#createbillingprofileasync) | **POST** /api/v2/AccountingService/BillingProfiles | Creates a new billing profile
 *BillingProfilesApi* | [**deleteBillingProfileAsync**](docs/Api/BillingProfilesApi.md#deletebillingprofileasync) | **DELETE** /api/v2/AccountingService/BillingProfiles/{billingProfileId} | Deletes a billing profile
 *BillingProfilesApi* | [**getBillingProfileByIdAsync**](docs/Api/BillingProfilesApi.md#getbillingprofilebyidasync) | **GET** /api/v2/AccountingService/BillingProfiles/{billingProfileId} | Gets a billing profile by id
@@ -419,6 +424,10 @@ Class | Method | HTTP request | Description
 - [AccountingPeriodDtoEnvelope](docs/Model/AccountingPeriodDtoEnvelope.md)
 - [AccountingPeriodDtoListEnvelope](docs/Model/AccountingPeriodDtoListEnvelope.md)
 - [AccountingPeriodUpdateDto](docs/Model/AccountingPeriodUpdateDto.md)
+- [AppliedItemTaxRecordCreateDto](docs/Model/AppliedItemTaxRecordCreateDto.md)
+- [AppliedItemTaxRecordDto](docs/Model/AppliedItemTaxRecordDto.md)
+- [AppliedItemTaxRecordDtoIReadOnlyListEnvelope](docs/Model/AppliedItemTaxRecordDtoIReadOnlyListEnvelope.md)
+- [AppliedItemTaxRecordUpdateDto](docs/Model/AppliedItemTaxRecordUpdateDto.md)
 - [AppliedTaxPolicyRecordCreateDto](docs/Model/AppliedTaxPolicyRecordCreateDto.md)
 - [AppliedTaxPolicyRecordDto](docs/Model/AppliedTaxPolicyRecordDto.md)
 - [AppliedTaxPolicyRecordDtoEnvelope](docs/Model/AppliedTaxPolicyRecordDtoEnvelope.md)

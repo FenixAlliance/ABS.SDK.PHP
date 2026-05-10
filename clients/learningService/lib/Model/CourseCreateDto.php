@@ -60,7 +60,24 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'title' => 'string'
+        'title' => 'string',
+        'description' => 'string',
+        'sku' => 'string',
+        'summary' => 'string',
+        'code' => 'string',
+        'version' => 'string',
+        'course_category_id' => 'string',
+        'instructor_profile_id' => 'string',
+        'currency_id' => 'string',
+        'regular_price' => 'float',
+        'max_course_enrollments' => 'int',
+        'total_effort_in_weeks' => 'int',
+        'total_hours_per_week' => 'int',
+        'total_effort_in_hours' => 'int',
+        'start_date_time' => '\DateTime',
+        'end_date_time' => '\DateTime',
+        'inscriptions_start_date_time' => '\DateTime',
+        'inscriptions_end_date_time' => '\DateTime'
     ];
 
     /**
@@ -73,7 +90,24 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'title' => null
+        'title' => null,
+        'description' => null,
+        'sku' => null,
+        'summary' => null,
+        'code' => null,
+        'version' => null,
+        'course_category_id' => null,
+        'instructor_profile_id' => null,
+        'currency_id' => null,
+        'regular_price' => 'double',
+        'max_course_enrollments' => 'int32',
+        'total_effort_in_weeks' => 'int32',
+        'total_hours_per_week' => 'int32',
+        'total_effort_in_hours' => 'int32',
+        'start_date_time' => 'date-time',
+        'end_date_time' => 'date-time',
+        'inscriptions_start_date_time' => 'date-time',
+        'inscriptions_end_date_time' => 'date-time'
     ];
 
     /**
@@ -84,7 +118,24 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'title' => true
+        'title' => false,
+        'description' => false,
+        'sku' => true,
+        'summary' => true,
+        'code' => true,
+        'version' => true,
+        'course_category_id' => true,
+        'instructor_profile_id' => true,
+        'currency_id' => true,
+        'regular_price' => false,
+        'max_course_enrollments' => false,
+        'total_effort_in_weeks' => false,
+        'total_hours_per_week' => false,
+        'total_effort_in_hours' => false,
+        'start_date_time' => true,
+        'end_date_time' => true,
+        'inscriptions_start_date_time' => true,
+        'inscriptions_end_date_time' => true
     ];
 
     /**
@@ -175,7 +226,24 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'title' => 'title'
+        'title' => 'title',
+        'description' => 'description',
+        'sku' => 'sku',
+        'summary' => 'summary',
+        'code' => 'code',
+        'version' => 'version',
+        'course_category_id' => 'courseCategoryID',
+        'instructor_profile_id' => 'instructorProfileID',
+        'currency_id' => 'currencyID',
+        'regular_price' => 'regularPrice',
+        'max_course_enrollments' => 'maxCourseEnrollments',
+        'total_effort_in_weeks' => 'totalEffortInWeeks',
+        'total_hours_per_week' => 'totalHoursPerWeek',
+        'total_effort_in_hours' => 'totalEffortInHours',
+        'start_date_time' => 'startDateTime',
+        'end_date_time' => 'endDateTime',
+        'inscriptions_start_date_time' => 'inscriptionsStartDateTime',
+        'inscriptions_end_date_time' => 'inscriptionsEndDateTime'
     ];
 
     /**
@@ -186,7 +254,24 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'title' => 'setTitle'
+        'title' => 'setTitle',
+        'description' => 'setDescription',
+        'sku' => 'setSku',
+        'summary' => 'setSummary',
+        'code' => 'setCode',
+        'version' => 'setVersion',
+        'course_category_id' => 'setCourseCategoryId',
+        'instructor_profile_id' => 'setInstructorProfileId',
+        'currency_id' => 'setCurrencyId',
+        'regular_price' => 'setRegularPrice',
+        'max_course_enrollments' => 'setMaxCourseEnrollments',
+        'total_effort_in_weeks' => 'setTotalEffortInWeeks',
+        'total_hours_per_week' => 'setTotalHoursPerWeek',
+        'total_effort_in_hours' => 'setTotalEffortInHours',
+        'start_date_time' => 'setStartDateTime',
+        'end_date_time' => 'setEndDateTime',
+        'inscriptions_start_date_time' => 'setInscriptionsStartDateTime',
+        'inscriptions_end_date_time' => 'setInscriptionsEndDateTime'
     ];
 
     /**
@@ -197,7 +282,24 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'title' => 'getTitle'
+        'title' => 'getTitle',
+        'description' => 'getDescription',
+        'sku' => 'getSku',
+        'summary' => 'getSummary',
+        'code' => 'getCode',
+        'version' => 'getVersion',
+        'course_category_id' => 'getCourseCategoryId',
+        'instructor_profile_id' => 'getInstructorProfileId',
+        'currency_id' => 'getCurrencyId',
+        'regular_price' => 'getRegularPrice',
+        'max_course_enrollments' => 'getMaxCourseEnrollments',
+        'total_effort_in_weeks' => 'getTotalEffortInWeeks',
+        'total_hours_per_week' => 'getTotalHoursPerWeek',
+        'total_effort_in_hours' => 'getTotalEffortInHours',
+        'start_date_time' => 'getStartDateTime',
+        'end_date_time' => 'getEndDateTime',
+        'inscriptions_start_date_time' => 'getInscriptionsStartDateTime',
+        'inscriptions_end_date_time' => 'getInscriptionsEndDateTime'
     ];
 
     /**
@@ -260,6 +362,23 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('sku', $data ?? [], null);
+        $this->setIfExists('summary', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('version', $data ?? [], null);
+        $this->setIfExists('course_category_id', $data ?? [], null);
+        $this->setIfExists('instructor_profile_id', $data ?? [], null);
+        $this->setIfExists('currency_id', $data ?? [], null);
+        $this->setIfExists('regular_price', $data ?? [], null);
+        $this->setIfExists('max_course_enrollments', $data ?? [], null);
+        $this->setIfExists('total_effort_in_weeks', $data ?? [], null);
+        $this->setIfExists('total_hours_per_week', $data ?? [], null);
+        $this->setIfExists('total_effort_in_hours', $data ?? [], null);
+        $this->setIfExists('start_date_time', $data ?? [], null);
+        $this->setIfExists('end_date_time', $data ?? [], null);
+        $this->setIfExists('inscriptions_start_date_time', $data ?? [], null);
+        $this->setIfExists('inscriptions_end_date_time', $data ?? [], null);
     }
 
     /**
@@ -288,6 +407,20 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ((mb_strlen($this->container['title']) < 1)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ((mb_strlen($this->container['description']) < 1)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -361,7 +494,7 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -371,23 +504,562 @@ class CourseCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string $title title
      *
      * @return self
      */
     public function setTitle($title)
     {
         if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+
+        if ((mb_strlen($title) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling CourseCreateDto., must be bigger than or equal to 1.');
+        }
+
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+
+        if ((mb_strlen($description) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling CourseCreateDto., must be bigger than or equal to 1.');
+        }
+
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets sku
+     *
+     * @return string|null
+     */
+    public function getSku()
+    {
+        return $this->container['sku'];
+    }
+
+    /**
+     * Sets sku
+     *
+     * @param string|null $sku sku
+     *
+     * @return self
+     */
+    public function setSku($sku)
+    {
+        if (is_null($sku)) {
+            array_push($this->openAPINullablesSetToNull, 'sku');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
+            $index = array_search('sku', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['title'] = $title;
+        $this->container['sku'] = $sku;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary
+     *
+     * @return string|null
+     */
+    public function getSummary()
+    {
+        return $this->container['summary'];
+    }
+
+    /**
+     * Sets summary
+     *
+     * @param string|null $summary summary
+     *
+     * @return self
+     */
+    public function setSummary($summary)
+    {
+        if (is_null($summary)) {
+            array_push($this->openAPINullablesSetToNull, 'summary');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('summary', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['summary'] = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code code
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return string|null
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string|null $version version
+     *
+     * @return self
+     */
+    public function setVersion($version)
+    {
+        if (is_null($version)) {
+            array_push($this->openAPINullablesSetToNull, 'version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets course_category_id
+     *
+     * @return string|null
+     */
+    public function getCourseCategoryId()
+    {
+        return $this->container['course_category_id'];
+    }
+
+    /**
+     * Sets course_category_id
+     *
+     * @param string|null $course_category_id course_category_id
+     *
+     * @return self
+     */
+    public function setCourseCategoryId($course_category_id)
+    {
+        if (is_null($course_category_id)) {
+            array_push($this->openAPINullablesSetToNull, 'course_category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('course_category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['course_category_id'] = $course_category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets instructor_profile_id
+     *
+     * @return string|null
+     */
+    public function getInstructorProfileId()
+    {
+        return $this->container['instructor_profile_id'];
+    }
+
+    /**
+     * Sets instructor_profile_id
+     *
+     * @param string|null $instructor_profile_id instructor_profile_id
+     *
+     * @return self
+     */
+    public function setInstructorProfileId($instructor_profile_id)
+    {
+        if (is_null($instructor_profile_id)) {
+            array_push($this->openAPINullablesSetToNull, 'instructor_profile_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instructor_profile_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['instructor_profile_id'] = $instructor_profile_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_id
+     *
+     * @return string|null
+     */
+    public function getCurrencyId()
+    {
+        return $this->container['currency_id'];
+    }
+
+    /**
+     * Sets currency_id
+     *
+     * @param string|null $currency_id currency_id
+     *
+     * @return self
+     */
+    public function setCurrencyId($currency_id)
+    {
+        if (is_null($currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['currency_id'] = $currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets regular_price
+     *
+     * @return float|null
+     */
+    public function getRegularPrice()
+    {
+        return $this->container['regular_price'];
+    }
+
+    /**
+     * Sets regular_price
+     *
+     * @param float|null $regular_price regular_price
+     *
+     * @return self
+     */
+    public function setRegularPrice($regular_price)
+    {
+        if (is_null($regular_price)) {
+            throw new \InvalidArgumentException('non-nullable regular_price cannot be null');
+        }
+        $this->container['regular_price'] = $regular_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_course_enrollments
+     *
+     * @return int|null
+     */
+    public function getMaxCourseEnrollments()
+    {
+        return $this->container['max_course_enrollments'];
+    }
+
+    /**
+     * Sets max_course_enrollments
+     *
+     * @param int|null $max_course_enrollments max_course_enrollments
+     *
+     * @return self
+     */
+    public function setMaxCourseEnrollments($max_course_enrollments)
+    {
+        if (is_null($max_course_enrollments)) {
+            throw new \InvalidArgumentException('non-nullable max_course_enrollments cannot be null');
+        }
+        $this->container['max_course_enrollments'] = $max_course_enrollments;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_effort_in_weeks
+     *
+     * @return int|null
+     */
+    public function getTotalEffortInWeeks()
+    {
+        return $this->container['total_effort_in_weeks'];
+    }
+
+    /**
+     * Sets total_effort_in_weeks
+     *
+     * @param int|null $total_effort_in_weeks total_effort_in_weeks
+     *
+     * @return self
+     */
+    public function setTotalEffortInWeeks($total_effort_in_weeks)
+    {
+        if (is_null($total_effort_in_weeks)) {
+            throw new \InvalidArgumentException('non-nullable total_effort_in_weeks cannot be null');
+        }
+        $this->container['total_effort_in_weeks'] = $total_effort_in_weeks;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_hours_per_week
+     *
+     * @return int|null
+     */
+    public function getTotalHoursPerWeek()
+    {
+        return $this->container['total_hours_per_week'];
+    }
+
+    /**
+     * Sets total_hours_per_week
+     *
+     * @param int|null $total_hours_per_week total_hours_per_week
+     *
+     * @return self
+     */
+    public function setTotalHoursPerWeek($total_hours_per_week)
+    {
+        if (is_null($total_hours_per_week)) {
+            throw new \InvalidArgumentException('non-nullable total_hours_per_week cannot be null');
+        }
+        $this->container['total_hours_per_week'] = $total_hours_per_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_effort_in_hours
+     *
+     * @return int|null
+     */
+    public function getTotalEffortInHours()
+    {
+        return $this->container['total_effort_in_hours'];
+    }
+
+    /**
+     * Sets total_effort_in_hours
+     *
+     * @param int|null $total_effort_in_hours total_effort_in_hours
+     *
+     * @return self
+     */
+    public function setTotalEffortInHours($total_effort_in_hours)
+    {
+        if (is_null($total_effort_in_hours)) {
+            throw new \InvalidArgumentException('non-nullable total_effort_in_hours cannot be null');
+        }
+        $this->container['total_effort_in_hours'] = $total_effort_in_hours;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date_time
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDateTime()
+    {
+        return $this->container['start_date_time'];
+    }
+
+    /**
+     * Sets start_date_time
+     *
+     * @param \DateTime|null $start_date_time start_date_time
+     *
+     * @return self
+     */
+    public function setStartDateTime($start_date_time)
+    {
+        if (is_null($start_date_time)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date_time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date_time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['start_date_time'] = $start_date_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date_time
+     *
+     * @return \DateTime|null
+     */
+    public function getEndDateTime()
+    {
+        return $this->container['end_date_time'];
+    }
+
+    /**
+     * Sets end_date_time
+     *
+     * @param \DateTime|null $end_date_time end_date_time
+     *
+     * @return self
+     */
+    public function setEndDateTime($end_date_time)
+    {
+        if (is_null($end_date_time)) {
+            array_push($this->openAPINullablesSetToNull, 'end_date_time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('end_date_time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['end_date_time'] = $end_date_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets inscriptions_start_date_time
+     *
+     * @return \DateTime|null
+     */
+    public function getInscriptionsStartDateTime()
+    {
+        return $this->container['inscriptions_start_date_time'];
+    }
+
+    /**
+     * Sets inscriptions_start_date_time
+     *
+     * @param \DateTime|null $inscriptions_start_date_time inscriptions_start_date_time
+     *
+     * @return self
+     */
+    public function setInscriptionsStartDateTime($inscriptions_start_date_time)
+    {
+        if (is_null($inscriptions_start_date_time)) {
+            array_push($this->openAPINullablesSetToNull, 'inscriptions_start_date_time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inscriptions_start_date_time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['inscriptions_start_date_time'] = $inscriptions_start_date_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets inscriptions_end_date_time
+     *
+     * @return \DateTime|null
+     */
+    public function getInscriptionsEndDateTime()
+    {
+        return $this->container['inscriptions_end_date_time'];
+    }
+
+    /**
+     * Sets inscriptions_end_date_time
+     *
+     * @param \DateTime|null $inscriptions_end_date_time inscriptions_end_date_time
+     *
+     * @return self
+     */
+    public function setInscriptionsEndDateTime($inscriptions_end_date_time)
+    {
+        if (is_null($inscriptions_end_date_time)) {
+            array_push($this->openAPINullablesSetToNull, 'inscriptions_end_date_time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inscriptions_end_date_time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['inscriptions_end_date_time'] = $inscriptions_end_date_time;
 
         return $this;
     }

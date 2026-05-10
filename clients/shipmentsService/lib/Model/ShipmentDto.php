@@ -59,12 +59,18 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'timestamp' => '\DateTime',
         'tracking_code' => 'string',
         'is_international' => 'bool',
+        'shipped' => 'bool',
+        'delivered' => 'bool',
         'shipment_timestamp' => '\DateTime',
         'delivery_timestamp' => '\DateTime',
         'expected_shipping_date' => '\DateTime',
-        'expected_delivery_date' => '\DateTime'
+        'expected_delivery_date' => '\DateTime',
+        'shipping_terms' => 'string',
+        'order_id' => 'string',
+        'business_id' => 'string'
     ];
 
     /**
@@ -76,12 +82,18 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'timestamp' => 'date-time',
         'tracking_code' => null,
         'is_international' => null,
+        'shipped' => null,
+        'delivered' => null,
         'shipment_timestamp' => 'date-time',
         'delivery_timestamp' => 'date-time',
         'expected_shipping_date' => 'date-time',
-        'expected_delivery_date' => 'date-time'
+        'expected_delivery_date' => 'date-time',
+        'shipping_terms' => null,
+        'order_id' => null,
+        'business_id' => null
     ];
 
     /**
@@ -91,12 +103,18 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => true,
+        'timestamp' => true,
         'tracking_code' => true,
         'is_international' => false,
+        'shipped' => false,
+        'delivered' => false,
         'shipment_timestamp' => false,
         'delivery_timestamp' => false,
         'expected_shipping_date' => false,
-        'expected_delivery_date' => false
+        'expected_delivery_date' => false,
+        'shipping_terms' => false,
+        'order_id' => true,
+        'business_id' => true
     ];
 
     /**
@@ -186,12 +204,18 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'timestamp' => 'timestamp',
         'tracking_code' => 'trackingCode',
         'is_international' => 'isInternational',
+        'shipped' => 'shipped',
+        'delivered' => 'delivered',
         'shipment_timestamp' => 'shipmentTimestamp',
         'delivery_timestamp' => 'deliveryTimestamp',
         'expected_shipping_date' => 'expectedShippingDate',
-        'expected_delivery_date' => 'expectedDeliveryDate'
+        'expected_delivery_date' => 'expectedDeliveryDate',
+        'shipping_terms' => 'shippingTerms',
+        'order_id' => 'orderID',
+        'business_id' => 'businessID'
     ];
 
     /**
@@ -201,12 +225,18 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
+        'timestamp' => 'setTimestamp',
         'tracking_code' => 'setTrackingCode',
         'is_international' => 'setIsInternational',
+        'shipped' => 'setShipped',
+        'delivered' => 'setDelivered',
         'shipment_timestamp' => 'setShipmentTimestamp',
         'delivery_timestamp' => 'setDeliveryTimestamp',
         'expected_shipping_date' => 'setExpectedShippingDate',
-        'expected_delivery_date' => 'setExpectedDeliveryDate'
+        'expected_delivery_date' => 'setExpectedDeliveryDate',
+        'shipping_terms' => 'setShippingTerms',
+        'order_id' => 'setOrderId',
+        'business_id' => 'setBusinessId'
     ];
 
     /**
@@ -216,12 +246,18 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
+        'timestamp' => 'getTimestamp',
         'tracking_code' => 'getTrackingCode',
         'is_international' => 'getIsInternational',
+        'shipped' => 'getShipped',
+        'delivered' => 'getDelivered',
         'shipment_timestamp' => 'getShipmentTimestamp',
         'delivery_timestamp' => 'getDeliveryTimestamp',
         'expected_shipping_date' => 'getExpectedShippingDate',
-        'expected_delivery_date' => 'getExpectedDeliveryDate'
+        'expected_delivery_date' => 'getExpectedDeliveryDate',
+        'shipping_terms' => 'getShippingTerms',
+        'order_id' => 'getOrderId',
+        'business_id' => 'getBusinessId'
     ];
 
     /**
@@ -265,6 +301,41 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const SHIPPING_TERMS_NC = 'NC';
+    public const SHIPPING_TERMS_EXW = 'EXW';
+    public const SHIPPING_TERMS_FCA = 'FCA';
+    public const SHIPPING_TERMS_FOB = 'FOB';
+    public const SHIPPING_TERMS_FAS = 'FAS';
+    public const SHIPPING_TERMS_CFR = 'CFR';
+    public const SHIPPING_TERMS_CIF = 'CIF';
+    public const SHIPPING_TERMS_CPT = 'CPT';
+    public const SHIPPING_TERMS_CIP = 'CIP';
+    public const SHIPPING_TERMS_DDP = 'DDP';
+    public const SHIPPING_TERMS_DAP = 'DAP';
+    public const SHIPPING_TERMS_DPU = 'DPU';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getShippingTermsAllowableValues()
+    {
+        return [
+            self::SHIPPING_TERMS_NC,
+            self::SHIPPING_TERMS_EXW,
+            self::SHIPPING_TERMS_FCA,
+            self::SHIPPING_TERMS_FOB,
+            self::SHIPPING_TERMS_FAS,
+            self::SHIPPING_TERMS_CFR,
+            self::SHIPPING_TERMS_CIF,
+            self::SHIPPING_TERMS_CPT,
+            self::SHIPPING_TERMS_CIP,
+            self::SHIPPING_TERMS_DDP,
+            self::SHIPPING_TERMS_DAP,
+            self::SHIPPING_TERMS_DPU,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -282,12 +353,18 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('tracking_code', $data ?? [], null);
         $this->setIfExists('is_international', $data ?? [], null);
+        $this->setIfExists('shipped', $data ?? [], null);
+        $this->setIfExists('delivered', $data ?? [], null);
         $this->setIfExists('shipment_timestamp', $data ?? [], null);
         $this->setIfExists('delivery_timestamp', $data ?? [], null);
         $this->setIfExists('expected_shipping_date', $data ?? [], null);
         $this->setIfExists('expected_delivery_date', $data ?? [], null);
+        $this->setIfExists('shipping_terms', $data ?? [], null);
+        $this->setIfExists('order_id', $data ?? [], null);
+        $this->setIfExists('business_id', $data ?? [], null);
     }
 
     /**
@@ -316,6 +393,15 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getShippingTermsAllowableValues();
+        if (!is_null($this->container['shipping_terms']) && !in_array($this->container['shipping_terms'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'shipping_terms', must be one of '%s'",
+                $this->container['shipping_terms'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -362,6 +448,40 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp timestamp
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            array_push($this->openAPINullablesSetToNull, 'timestamp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timestamp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }
@@ -423,6 +543,60 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_international cannot be null');
         }
         $this->container['is_international'] = $is_international;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipped
+     *
+     * @return bool|null
+     */
+    public function getShipped()
+    {
+        return $this->container['shipped'];
+    }
+
+    /**
+     * Sets shipped
+     *
+     * @param bool|null $shipped shipped
+     *
+     * @return self
+     */
+    public function setShipped($shipped)
+    {
+        if (is_null($shipped)) {
+            throw new \InvalidArgumentException('non-nullable shipped cannot be null');
+        }
+        $this->container['shipped'] = $shipped;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivered
+     *
+     * @return bool|null
+     */
+    public function getDelivered()
+    {
+        return $this->container['delivered'];
+    }
+
+    /**
+     * Sets delivered
+     *
+     * @param bool|null $delivered delivered
+     *
+     * @return self
+     */
+    public function setDelivered($delivered)
+    {
+        if (is_null($delivered)) {
+            throw new \InvalidArgumentException('non-nullable delivered cannot be null');
+        }
+        $this->container['delivered'] = $delivered;
 
         return $this;
     }
@@ -531,6 +705,111 @@ class ShipmentDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable expected_delivery_date cannot be null');
         }
         $this->container['expected_delivery_date'] = $expected_delivery_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_terms
+     *
+     * @return string|null
+     */
+    public function getShippingTerms()
+    {
+        return $this->container['shipping_terms'];
+    }
+
+    /**
+     * Sets shipping_terms
+     *
+     * @param string|null $shipping_terms shipping_terms
+     *
+     * @return self
+     */
+    public function setShippingTerms($shipping_terms)
+    {
+        if (is_null($shipping_terms)) {
+            throw new \InvalidArgumentException('non-nullable shipping_terms cannot be null');
+        }
+        $allowedValues = $this->getShippingTermsAllowableValues();
+        if (!in_array($shipping_terms, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'shipping_terms', must be one of '%s'",
+                    $shipping_terms,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['shipping_terms'] = $shipping_terms;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return string|null
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param string|null $order_id order_id
+     *
+     * @return self
+     */
+    public function setOrderId($order_id)
+    {
+        if (is_null($order_id)) {
+            array_push($this->openAPINullablesSetToNull, 'order_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets business_id
+     *
+     * @return string|null
+     */
+    public function getBusinessId()
+    {
+        return $this->container['business_id'];
+    }
+
+    /**
+     * Sets business_id
+     *
+     * @param string|null $business_id business_id
+     *
+     * @return self
+     */
+    public function setBusinessId($business_id)
+    {
+        if (is_null($business_id)) {
+            array_push($this->openAPINullablesSetToNull, 'business_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('business_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['business_id'] = $business_id;
 
         return $this;
     }
