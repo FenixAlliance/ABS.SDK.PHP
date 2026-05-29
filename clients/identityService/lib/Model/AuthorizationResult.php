@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthorizationResult
+ * AuthResult
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * AuthorizationResult Class Doc Comment
+ * AuthResult Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AuthorizationResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class AuthResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AuthorizationResult implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AuthorizationResult';
+    protected static $openAPIModelName = 'AuthResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

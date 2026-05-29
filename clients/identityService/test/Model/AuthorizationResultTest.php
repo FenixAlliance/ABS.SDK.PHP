@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AuthorizationResultTest Class Doc Comment
  *
  * @category    Class
- * @description AuthorizationResult
+ * @description AuthResult
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -72,7 +72,7 @@ class AuthorizationResultTest extends TestCase
     }
 
     /**
-     * Test "AuthorizationResult"
+     * Test "AuthResult"
      */
     public function testAuthorizationResult()
     {

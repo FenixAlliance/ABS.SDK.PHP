@@ -63,7 +63,7 @@ class AuthorizationResultEnvelope implements ModelInterface, ArrayAccess, \JsonS
         'correlation_id' => 'string',
         'timestamp' => '\DateTime',
         'activity_id' => 'string',
-        'result' => '\OpenAPI\Client\Model\AuthorizationResult'
+        'result' => '\OpenAPI\Client\Model\AuthResult'
     ];
 
     /**
@@ -484,7 +484,7 @@ class AuthorizationResultEnvelope implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets result
      *
-     * @return \OpenAPI\Client\Model\AuthorizationResult|null
+     * @return \OpenAPI\Client\Model\AuthResult|null
      */
     public function getResult()
     {
@@ -494,7 +494,7 @@ class AuthorizationResultEnvelope implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets result
      *
-     * @param \OpenAPI\Client\Model\AuthorizationResult|null $result result
+     * @param \OpenAPI\Client\Model\AuthResult|null $result result
      *
      * @return self
      */

@@ -111,7 +111,7 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
-- [AuthorizationResult](docs/Model/AuthorizationResult.md)
+- [AuthResult](docs/Model/AuthResult.md)
 - [AuthorizationResultEnvelope](docs/Model/AuthorizationResultEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
