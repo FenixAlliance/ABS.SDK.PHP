@@ -5,13 +5,14 @@ README.md
 composer.json
 docs/Api/ApplicationsApi.md
 docs/Api/CheckerApi.md
-docs/Api/FenixAllianceABSWebApi.md
+docs/Api/CompletionsApi.md
+docs/Api/FenixAlliancePortalsWebsiteApi.md
 docs/Api/OAuthApi.md
 docs/Api/ResourceApi.md
 docs/Api/UserInfoApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/AuthResult.md
-docs/Model/AuthorizationResultEnvelope.md
+docs/Model/AuthResultEnvelope.md
 docs/Model/ErrorEnvelope.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
@@ -41,7 +42,8 @@ docs/Model/UserCreateDtoEnvelope.md
 git_push.sh
 lib/Api/ApplicationsApi.php
 lib/Api/CheckerApi.php
-lib/Api/FenixAllianceABSWebApi.php
+lib/Api/CompletionsApi.php
+lib/Api/FenixAlliancePortalsWebsiteApi.php
 lib/Api/OAuthApi.php
 lib/Api/ResourceApi.php
 lib/Api/UserInfoApi.php
@@ -50,7 +52,7 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/AuthResult.php
-lib/Model/AuthorizationResultEnvelope.php
+lib/Model/AuthResultEnvelope.php
 lib/Model/ErrorEnvelope.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
@@ -80,3 +82,7 @@ lib/Model/UserCreateDto.php
 lib/Model/UserCreateDtoEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/CompletionsApiTest.php
+test/Api/FenixAlliancePortalsWebsiteApiTest.php
+test/Model/AuthResultEnvelopeTest.php
+test/Model/AuthResultTest.php

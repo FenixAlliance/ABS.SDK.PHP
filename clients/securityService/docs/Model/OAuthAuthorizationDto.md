@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **concurrency_token** | **string** |  | [optional]
 **creation_date** | **\DateTime** |  | [optional]
 **properties** | **string** |  | [optional]

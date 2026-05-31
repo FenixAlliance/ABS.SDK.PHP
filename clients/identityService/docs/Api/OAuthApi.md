@@ -1,6 +1,6 @@
 # OpenAPI\Client\OAuthApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -74,7 +74,7 @@ No authorization required
 ## `get()`
 
 ```php
-get($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AuthorizationResultEnvelope
+get($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AuthResultEnvelope
 ```
 
 Get current user identity
@@ -116,7 +116,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthorizationResultEnvelope**](../Model/AuthorizationResultEnvelope.md)
+[**\OpenAPI\Client\Model\AuthResultEnvelope**](../Model/AuthResultEnvelope.md)
 
 ### Authorization
 

@@ -4,7 +4,8 @@
 README.md
 composer.json
 docs/Api/ApplicationsApi.md
-docs/Api/FenixAllianceABSWebApi.md
+docs/Api/CompletionsApi.md
+docs/Api/FenixAlliancePortalsWebsiteApi.md
 docs/Api/LogsApi.md
 docs/Api/OAuthApplicationsApi.md
 docs/Api/PermissionsApi.md
@@ -64,7 +65,8 @@ docs/Model/WebhookRequestDto.md
 docs/Model/WebhookRequestDtoListEnvelope.md
 git_push.sh
 lib/Api/ApplicationsApi.php
-lib/Api/FenixAllianceABSWebApi.php
+lib/Api/CompletionsApi.php
+lib/Api/FenixAlliancePortalsWebsiteApi.php
 lib/Api/LogsApi.php
 lib/Api/OAuthApplicationsApi.php
 lib/Api/PermissionsApi.php
@@ -128,3 +130,5 @@ lib/Model/WebhookRequestDto.php
 lib/Model/WebhookRequestDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/CompletionsApiTest.php
+test/Api/FenixAlliancePortalsWebsiteApiTest.php

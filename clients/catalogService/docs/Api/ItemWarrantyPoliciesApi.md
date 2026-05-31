@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemWarrantyPoliciesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -14,7 +14,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countItemWarrantyPoliciesAsync()`
 
 ```php
-countItemWarrantyPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countItemWarrantyPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count item warranty policies
@@ -34,12 +34,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemWarrantyPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->countItemWarrantyPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->countItemWarrantyPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemWarrantyPoliciesApi->countItemWarrantyPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -74,7 +76,7 @@ No authorization required
 ## `getItemWarrantyPoliciesAsync()`
 
 ```php
-getItemWarrantyPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope
+getItemWarrantyPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemWarrantyPolicyDtoListEnvelope
 ```
 
 Get item warranty policies
@@ -94,12 +96,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemWarrantyPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemWarrantyPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemWarrantyPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemWarrantyPoliciesApi->getItemWarrantyPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -110,6 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -134,7 +138,7 @@ No authorization required
 ## `getItemWarrantyPolicyByIdAsync()`
 
 ```php
-getItemWarrantyPolicyByIdAsync($item_warranty_policy_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemWarrantyPolicyDtoEnvelope
+getItemWarrantyPolicyByIdAsync($item_warranty_policy_id, $tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemWarrantyPolicyDtoEnvelope
 ```
 
 Get item warranty policy by ID
@@ -155,12 +159,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemWarrantyPoliciesApi(
     new GuzzleHttp\Client()
 );
 $item_warranty_policy_id = 'item_warranty_policy_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemWarrantyPolicyByIdAsync($item_warranty_policy_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemWarrantyPolicyByIdAsync($item_warranty_policy_id, $tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemWarrantyPoliciesApi->getItemWarrantyPolicyByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -172,6 +177,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_warranty_policy_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

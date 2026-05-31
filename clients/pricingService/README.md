@@ -51,29 +51,30 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DiscountListsApi(
+$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$discount_list_create_dto = new \OpenAPI\Client\Model\DiscountListCreateDto(); // \OpenAPI\Client\Model\DiscountListCreateDto
+$conversation_id = 'conversation_id_example'; // string
+$message = 'message_example'; // string
 
 try {
-    $result = $apiInstance->createDiscountList($tenant_id, $discount_list_create_dto);
-    print_r($result);
+    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
 } catch (Exception $e) {
-    echo 'Exception when calling DiscountListsApi->createDiscountList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
 *DiscountListsApi* | [**createDiscountList**](docs/Api/DiscountListsApi.md#creatediscountlist) | **POST** /api/v2/PricingService/DiscountLists | Creates a new discount list
 *DiscountListsApi* | [**createDiscountListEntry**](docs/Api/DiscountListsApi.md#creatediscountlistentry) | **POST** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts | Creates a discount list entry
 *DiscountListsApi* | [**deleteDiscountList**](docs/Api/DiscountListsApi.md#deletediscountlist) | **DELETE** /api/v2/PricingService/DiscountLists/{discountListId} | Deletes a discount list
@@ -86,23 +87,23 @@ Class | Method | HTTP request | Description
 *DiscountListsApi* | [**getDiscountListsCount**](docs/Api/DiscountListsApi.md#getdiscountlistscount) | **GET** /api/v2/PricingService/DiscountLists/Count | Counts discount lists
 *DiscountListsApi* | [**updateDiscountList**](docs/Api/DiscountListsApi.md#updatediscountlist) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId} | Updates a discount list
 *DiscountListsApi* | [**updateDiscountListEntry**](docs/Api/DiscountListsApi.md#updatediscountlistentry) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Updates a discount list entry
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
 *PriceListsApi* | [**createPriceListAsync**](docs/Api/PriceListsApi.md#createpricelistasync) | **POST** /api/v2/PricingService/PriceLists | Creates a new price list
 *PriceListsApi* | [**createPriceListPricesAsync**](docs/Api/PriceListsApi.md#createpricelistpricesasync) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Creates a price list entry
 *PriceListsApi* | [**deletePriceListAsync**](docs/Api/PriceListsApi.md#deletepricelistasync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} | Deletes a price list
@@ -118,6 +119,18 @@ Class | Method | HTTP request | Description
 *PricesApi* | [**getPrice**](docs/Api/PricesApi.md#getprice) | **GET** /api/v2/PricingService/Prices/{itemId}/Price | Gets the calculated price for an item
 *PricesApi* | [**getTotalSavingsInUsd**](docs/Api/PricesApi.md#gettotalsavingsinusd) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalSavings | Gets total savings for an item
 *PricesApi* | [**getTotalTaxesInUsd**](docs/Api/PricesApi.md#gettotaltaxesinusd) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalTaxes | Gets total taxes for an item
+*PricingRulesApi* | [**createPricingRule**](docs/Api/PricingRulesApi.md#createpricingrule) | **POST** /api/v2/PricingService/PricingRules | Create a new pricing rule
+*PricingRulesApi* | [**deletePricingRule**](docs/Api/PricingRulesApi.md#deletepricingrule) | **DELETE** /api/v2/PricingService/PricingRules/{pricingRuleId} | Delete a pricing rule
+*PricingRulesApi* | [**getPricingRuleById**](docs/Api/PricingRulesApi.md#getpricingrulebyid) | **GET** /api/v2/PricingService/PricingRules/{pricingRuleId} | Get pricing rule by ID
+*PricingRulesApi* | [**getPricingRules**](docs/Api/PricingRulesApi.md#getpricingrules) | **GET** /api/v2/PricingService/PricingRules | Get all pricing rules
+*PricingRulesApi* | [**getPricingRulesCountAsync**](docs/Api/PricingRulesApi.md#getpricingrulescountasync) | **GET** /api/v2/PricingService/PricingRules/Count | Counts pricing rules
+*PricingRulesApi* | [**updatePricingRule**](docs/Api/PricingRulesApi.md#updatepricingrule) | **PUT** /api/v2/PricingService/PricingRules/Update | Update a pricing rule
+*RoundingPoliciesApi* | [**createRoundingPolicyAsync**](docs/Api/RoundingPoliciesApi.md#createroundingpolicyasync) | **POST** /api/v2/PricingService/RoundingPolicies | Creates a rounding policy
+*RoundingPoliciesApi* | [**deleteRoundingPolicyAsync**](docs/Api/RoundingPoliciesApi.md#deleteroundingpolicyasync) | **DELETE** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Deletes a rounding policy
+*RoundingPoliciesApi* | [**getRoundingPoliciesAsync**](docs/Api/RoundingPoliciesApi.md#getroundingpoliciesasync) | **GET** /api/v2/PricingService/RoundingPolicies | Gets all rounding policies
+*RoundingPoliciesApi* | [**getRoundingPoliciesCountAsync**](docs/Api/RoundingPoliciesApi.md#getroundingpoliciescountasync) | **GET** /api/v2/PricingService/RoundingPolicies/Count | Counts rounding policies
+*RoundingPoliciesApi* | [**getRoundingPolicyByIdAsync**](docs/Api/RoundingPoliciesApi.md#getroundingpolicybyidasync) | **GET** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Gets a rounding policy by ID
+*RoundingPoliciesApi* | [**updateRoundingPolicyAsync**](docs/Api/RoundingPoliciesApi.md#updateroundingpolicyasync) | **PUT** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Updates a rounding policy
 
 ## Models
 
@@ -155,10 +168,20 @@ Class | Method | HTTP request | Description
 - [PriceListDtoEnvelope](docs/Model/PriceListDtoEnvelope.md)
 - [PriceListDtoListEnvelope](docs/Model/PriceListDtoListEnvelope.md)
 - [PriceListUpdateDto](docs/Model/PriceListUpdateDto.md)
+- [PricingRuleCreateDto](docs/Model/PricingRuleCreateDto.md)
+- [PricingRuleDto](docs/Model/PricingRuleDto.md)
+- [PricingRuleDtoEnvelope](docs/Model/PricingRuleDtoEnvelope.md)
+- [PricingRuleDtoListEnvelope](docs/Model/PricingRuleDtoListEnvelope.md)
+- [PricingRuleUpdateDto](docs/Model/PricingRuleUpdateDto.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [RoundingPolicyCreateDto](docs/Model/RoundingPolicyCreateDto.md)
+- [RoundingPolicyDto](docs/Model/RoundingPolicyDto.md)
+- [RoundingPolicyDtoEnvelope](docs/Model/RoundingPolicyDtoEnvelope.md)
+- [RoundingPolicyDtoListEnvelope](docs/Model/RoundingPolicyDtoListEnvelope.md)
+- [RoundingPolicyUpdateDto](docs/Model/RoundingPolicyUpdateDto.md)
 - [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
 - [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
@@ -182,6 +205,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

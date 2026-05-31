@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemShippingPoliciesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -14,7 +14,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countItemShippingPoliciesAsync()`
 
 ```php
-countItemShippingPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count item shipping policies
@@ -34,12 +34,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemShippingPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->countItemShippingPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->countItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemShippingPoliciesApi->countItemShippingPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -74,7 +76,7 @@ No authorization required
 ## `getItemShippingPoliciesAsync()`
 
 ```php
-getItemShippingPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
+getItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
 ```
 
 Get item shipping policies
@@ -94,12 +96,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemShippingPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemShippingPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemShippingPoliciesApi->getItemShippingPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -110,6 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -134,7 +138,7 @@ No authorization required
 ## `getItemShippingPolicyByIdAsync()`
 
 ```php
-getItemShippingPolicyByIdAsync($item_shipping_policy_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoEnvelope
+getItemShippingPolicyByIdAsync($item_shipping_policy_id, $tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoEnvelope
 ```
 
 Get item shipping policy by ID
@@ -155,12 +159,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemShippingPoliciesApi(
     new GuzzleHttp\Client()
 );
 $item_shipping_policy_id = 'item_shipping_policy_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemShippingPolicyByIdAsync($item_shipping_policy_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemShippingPolicyByIdAsync($item_shipping_policy_id, $tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemShippingPoliciesApi->getItemShippingPolicyByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -172,6 +177,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_shipping_policy_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

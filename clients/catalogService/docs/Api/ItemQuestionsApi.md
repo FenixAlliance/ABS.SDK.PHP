@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemQuestionsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -137,7 +137,7 @@ No authorization required
 ## `getItemQuestionByIdAsync()`
 
 ```php
-getItemQuestionByIdAsync($item_question_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemQuestionDtoEnvelope
+getItemQuestionByIdAsync($item_question_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemQuestionDtoEnvelope
 ```
 
 Get item question by ID
@@ -158,11 +158,12 @@ $apiInstance = new OpenAPI\Client\Api\ItemQuestionsApi(
     new GuzzleHttp\Client()
 );
 $item_question_id = 'item_question_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemQuestionByIdAsync($item_question_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemQuestionByIdAsync($item_question_id, $tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemQuestionsApi->getItemQuestionByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +175,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_question_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -233,7 +235,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

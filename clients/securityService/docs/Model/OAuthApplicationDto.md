@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **application_type** | **string** |  | [optional]
 **client_id** | **string** |  | [optional]
 **concurrency_token** | **string** |  | [optional]

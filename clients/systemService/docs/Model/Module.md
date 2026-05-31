@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **swagger_specs** | [**\OpenAPI\Client\Model\ISwaggerSpec[]**](ISwaggerSpec.md) |  | [optional]
 **url** | **string** |  | [optional]
 **assembly_paths** | **string[]** |  | [optional]
+**required_permissions** | **string[]** |  | [optional] [readonly]
 **marked_for_deletion** | **bool** |  | [optional]
 **version** | **string** |  | [optional]
 

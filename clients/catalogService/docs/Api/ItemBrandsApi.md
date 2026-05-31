@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemBrandsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -137,7 +137,7 @@ No authorization required
 ## `getItemBrandByIdAsync()`
 
 ```php
-getItemBrandByIdAsync($item_brand_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemBrandDtoEnvelope
+getItemBrandByIdAsync($item_brand_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemBrandDtoEnvelope
 ```
 
 Get item brand by ID
@@ -158,11 +158,12 @@ $apiInstance = new OpenAPI\Client\Api\ItemBrandsApi(
     new GuzzleHttp\Client()
 );
 $item_brand_id = 'item_brand_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemBrandByIdAsync($item_brand_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemBrandByIdAsync($item_brand_id, $tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemBrandsApi->getItemBrandByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +175,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_brand_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -233,7 +235,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

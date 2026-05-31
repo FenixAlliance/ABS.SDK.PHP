@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **type** | **string** |  | [optional]
 **follower_id** | **string** |  | [optional]
 **followed_id** | **string** |  | [optional]

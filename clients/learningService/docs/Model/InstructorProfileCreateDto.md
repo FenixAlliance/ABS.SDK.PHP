@@ -6,13 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**authorized** | **bool** |  | [optional]
+**type** | **string** |  | [optional]
+**contact_id** | **string** |  | [optional]
 **about** | **string** |  | [optional]
-**verified** | **bool** |  | [optional]
-**submitted** | **bool** |  | [optional]
 **avatar_url** | **string** |  | [optional]
-**qualified_name** | **string** |  | [optional]
-**verification_timestamp** | **\DateTime** |  | [optional]
 **data** | **string** |  | [optional]
 **data_label** | **string** |  | [optional]
 **data1** | **string** |  | [optional]
@@ -33,6 +30,7 @@ Name | Type | Description | Notes
 **data8_label** | **string** |  | [optional]
 **data9** | **string** |  | [optional]
 **data9_label** | **string** |  | [optional]
+**authorized** | **bool** |  | [optional]
 **contact_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

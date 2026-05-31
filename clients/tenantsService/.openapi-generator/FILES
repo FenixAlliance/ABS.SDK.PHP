@@ -3,10 +3,11 @@
 .travis.yml
 README.md
 composer.json
+docs/Api/CompletionsApi.md
 docs/Api/DepartmentsApi.md
 docs/Api/EmployeeEnrollmentsApi.md
 docs/Api/EnrollmentsApi.md
-docs/Api/FenixAllianceABSWebApi.md
+docs/Api/FenixAlliancePortalsWebsiteApi.md
 docs/Api/IndustriesApi.md
 docs/Api/InvitationsApi.md
 docs/Api/OptionsApi.md
@@ -157,10 +158,11 @@ docs/Model/WalletDtoEnvelope.md
 docs/Model/WebPortalDto.md
 docs/Model/WebPortalDtoListEnvelope.md
 git_push.sh
+lib/Api/CompletionsApi.php
 lib/Api/DepartmentsApi.php
 lib/Api/EmployeeEnrollmentsApi.php
 lib/Api/EnrollmentsApi.php
-lib/Api/FenixAllianceABSWebApi.php
+lib/Api/FenixAlliancePortalsWebsiteApi.php
 lib/Api/IndustriesApi.php
 lib/Api/InvitationsApi.php
 lib/Api/OptionsApi.php
@@ -316,3 +318,5 @@ lib/Model/WebPortalDto.php
 lib/Model/WebPortalDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/CompletionsApiTest.php
+test/Api/FenixAlliancePortalsWebsiteApiTest.php

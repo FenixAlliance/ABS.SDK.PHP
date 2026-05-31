@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **code** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **symbol** | **string** |  | [optional]

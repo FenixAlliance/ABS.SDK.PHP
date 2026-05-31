@@ -1,6 +1,6 @@
 # OpenAPI\Client\FiscalEnumerationRangesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -203,7 +203,7 @@ No authorization required
 ## `getInvoiceEnumerationRanges()`
 
 ```php
-getInvoiceEnumerationRanges($fiscal_authority_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoListEnvelope
+getInvoiceEnumerationRanges($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\InvoiceEnumerationRangeDtoListEnvelope
 ```
 
 Get invoice enumeration ranges for an authority
@@ -223,13 +223,14 @@ $apiInstance = new OpenAPI\Client\Api\FiscalEnumerationRangesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getInvoiceEnumerationRanges($fiscal_authority_id, $authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getInvoiceEnumerationRanges($tenant_id, $fiscal_authority_id, $authority_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalEnumerationRangesApi->getInvoiceEnumerationRanges: ', $e->getMessage(), PHP_EOL;
@@ -240,6 +241,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **fiscal_authority_id** | **string**|  | |
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
@@ -265,7 +267,7 @@ No authorization required
 ## `getInvoiceEnumerationRangesCount()`
 
 ```php
-getInvoiceEnumerationRangesCount($fiscal_authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getInvoiceEnumerationRangesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get invoice enumeration ranges count
@@ -285,12 +287,13 @@ $apiInstance = new OpenAPI\Client\Api\FiscalEnumerationRangesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $fiscal_authority_id = 'fiscal_authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getInvoiceEnumerationRangesCount($fiscal_authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getInvoiceEnumerationRangesCount($tenant_id, $fiscal_authority_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalEnumerationRangesApi->getInvoiceEnumerationRangesCount: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +304,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **fiscal_authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

@@ -1,9 +1,10 @@
 # OpenAPI\Client\AccountsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**aggregateAccountsBalanceAsync()**](AccountsApi.md#aggregateAccountsBalanceAsync) | **GET** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance |
 | [**balanceAccountAsync()**](AccountsApi.md#balanceAccountAsync) | **POST** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account |
 | [**balanceRootAccountAsync()**](AccountsApi.md#balanceRootAccountAsync) | **POST** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account |
 | [**createAccountAsync()**](AccountsApi.md#createAccountAsync) | **POST** /api/v2/AccountingService/Accounts | Get root accounts |
@@ -26,20 +27,85 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getAccountEntryAsync()**](AccountsApi.md#getAccountEntryAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Get account entry |
 | [**getAccountRelationsAsync()**](AccountsApi.md#getAccountRelationsAsync) | **GET** /api/v2/AccountingService/Accounts/Relations | Get account relations |
 | [**getAccountRelationsCountAsync()**](AccountsApi.md#getAccountRelationsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Relations/Count | Get account relations count |
+| [**getAccountTypeByIdAsync()**](AccountsApi.md#getAccountTypeByIdAsync) | **GET** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Get account type by ID |
 | [**getAccountTypesAsync()**](AccountsApi.md#getAccountTypesAsync) | **GET** /api/v2/AccountingService/Accounts/Types | Get account types |
 | [**getAccountTypesCountAsync()**](AccountsApi.md#getAccountTypesCountAsync) | **GET** /api/v2/AccountingService/Accounts/Types/Count | Get account types count |
 | [**getAccountsAsync()**](AccountsApi.md#getAccountsAsync) | **GET** /api/v2/AccountingService/Accounts | Creates a new account |
 | [**getAccountsCountAsync()**](AccountsApi.md#getAccountsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Count | Get the number of accounts |
+| [**getChartsOfAccountsAsync()**](AccountsApi.md#getChartsOfAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/ChartsOfAccounts | Get charts of accounts |
 | [**getChildAccountsAsync()**](AccountsApi.md#getChildAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Children | Get child accounts |
 | [**getCreditAccountEntriesAsync()**](AccountsApi.md#getCreditAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Credit | Get credit account entries |
 | [**getDebitAccountEntriesAsync()**](AccountsApi.md#getDebitAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries |
 | [**getRootAccountsAsync()**](AccountsApi.md#getRootAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts |
 | [**patchAccountAsync()**](AccountsApi.md#patchAccountAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account |
+| [**seedChartOfAccountsAsync()**](AccountsApi.md#seedChartOfAccountsAsync) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts |
 | [**updateAccountAsync()**](AccountsApi.md#updateAccountAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account |
 | [**updateAccountEntryAsync()**](AccountsApi.md#updateAccountEntryAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry |
 | [**updateAccountRelationAsync()**](AccountsApi.md#updateAccountRelationAsync) | **PUT** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Update account relation |
 | [**updateAccountTypeAsync()**](AccountsApi.md#updateAccountTypeAsync) | **PUT** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Update account type |
 
+
+## `aggregateAccountsBalanceAsync()`
+
+```php
+aggregateAccountsBalanceAsync($tenant_id, $currency_id, $api_version, $x_api_version): \OpenAPI\Client\Model\MoneyEnvelope
+```
+
+Aggregate accounts balance
+
+Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$currency_id = 'currency_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->aggregateAccountsBalanceAsync($tenant_id, $currency_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->aggregateAccountsBalanceAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **currency_id** | **string**|  | [optional] |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\MoneyEnvelope**](../Model/MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `balanceAccountAsync()`
 
@@ -484,7 +550,7 @@ No authorization required
 ## `createAccountTypeAsync()`
 
 ```php
-createAccountTypeAsync($tenant_id, $account_id, $api_version, $x_api_version, $account_type_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
+createAccountTypeAsync($tenant_id, $api_version, $x_api_version, $account_type_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Create account type
@@ -505,13 +571,12 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $account_type_create_dto = new \OpenAPI\Client\Model\AccountTypeCreateDto(); // \OpenAPI\Client\Model\AccountTypeCreateDto
 
 try {
-    $result = $apiInstance->createAccountTypeAsync($tenant_id, $account_id, $api_version, $x_api_version, $account_type_create_dto);
+    $result = $apiInstance->createAccountTypeAsync($tenant_id, $api_version, $x_api_version, $account_type_create_dto);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->createAccountTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -523,7 +588,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **account_type_create_dto** | [**\OpenAPI\Client\Model\AccountTypeCreateDto**](../Model/AccountTypeCreateDto.md)|  | [optional] |
@@ -738,7 +802,7 @@ No authorization required
 ## `deleteAccountTypeAsync()`
 
 ```php
-deleteAccountTypeAsync($tenant_id, $account_type_id, $account_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Delete account type
@@ -760,12 +824,11 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $account_type_id = 'account_type_id_example'; // string
-$account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->deleteAccountTypeAsync($tenant_id, $account_type_id, $account_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->deleteAccountTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -778,7 +841,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **account_type_id** | **string**|  | |
-| **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -1423,15 +1485,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAccountTypesAsync()`
+## `getAccountTypeByIdAsync()`
 
 ```php
-getAccountTypesAsync($tenant_id, $account_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountTypeDtoListEnvelope
+getAccountTypeByIdAsync($tenant_id, $account_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountTypeDtoEnvelope
 ```
 
-Get account types
+Get account type by ID
 
-Get account types.
+Get account type by ID.
 
 ### Example
 
@@ -1452,7 +1514,68 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getAccountTypesAsync($tenant_id, $account_type_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountTypeByIdAsync($tenant_id, $account_type_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->getAccountTypeByIdAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **account_type_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\AccountTypeDtoEnvelope**](../Model/AccountTypeDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAccountTypesAsync()`
+
+```php
+getAccountTypesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\AccountTypeDtoListEnvelope
+```
+
+Get account types
+
+Get account types.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getAccountTypesAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountTypesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1464,7 +1587,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **account_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -1488,7 +1610,7 @@ No authorization required
 ## `getAccountTypesCountAsync()`
 
 ```php
-getAccountTypesCountAsync($tenant_id, $account_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getAccountTypesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get account types count
@@ -1509,12 +1631,11 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$account_type_id = 'account_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getAccountTypesCountAsync($tenant_id, $account_type_id, $api_version, $x_api_version);
+    $result = $apiInstance->getAccountTypesCountAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->getAccountTypesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -1526,7 +1647,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **account_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -1653,6 +1773,64 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getChartsOfAccountsAsync()`
+
+```php
+getChartsOfAccountsAsync($api_version, $x_api_version): \OpenAPI\Client\Model\ChartOfAccountsListEnvelope
+```
+
+Get charts of accounts
+
+Get available charts of accounts.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getChartsOfAccountsAsync($api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->getChartsOfAccountsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ChartOfAccountsListEnvelope**](../Model/ChartOfAccountsListEnvelope.md)
 
 ### Authorization
 
@@ -1977,6 +2155,68 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `seedChartOfAccountsAsync()`
+
+```php
+seedChartOfAccountsAsync($tenant_id, $api_version, $x_api_version, $seed_chart_of_accounts_request): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Seed chart of accounts
+
+Seed a chart of accounts from a file URL.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AccountsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$seed_chart_of_accounts_request = new \OpenAPI\Client\Model\SeedChartOfAccountsRequest(); // \OpenAPI\Client\Model\SeedChartOfAccountsRequest
+
+try {
+    $result = $apiInstance->seedChartOfAccountsAsync($tenant_id, $api_version, $x_api_version, $seed_chart_of_accounts_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->seedChartOfAccountsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **seed_chart_of_accounts_request** | [**\OpenAPI\Client\Model\SeedChartOfAccountsRequest**](../Model/SeedChartOfAccountsRequest.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateAccountAsync()`
 
 ```php
@@ -2176,7 +2416,7 @@ No authorization required
 ## `updateAccountTypeAsync()`
 
 ```php
-updateAccountTypeAsync($tenant_id, $account_type_id, $account_id, $api_version, $x_api_version, $account_type_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+updateAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version, $account_type_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Update account type
@@ -2198,13 +2438,12 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $account_type_id = 'account_type_id_example'; // string
-$account_id = 'account_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $account_type_update_dto = new \OpenAPI\Client\Model\AccountTypeUpdateDto(); // \OpenAPI\Client\Model\AccountTypeUpdateDto
 
 try {
-    $result = $apiInstance->updateAccountTypeAsync($tenant_id, $account_type_id, $account_id, $api_version, $x_api_version, $account_type_update_dto);
+    $result = $apiInstance->updateAccountTypeAsync($tenant_id, $account_type_id, $api_version, $x_api_version, $account_type_update_dto);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->updateAccountTypeAsync: ', $e->getMessage(), PHP_EOL;
@@ -2217,7 +2456,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **account_type_id** | **string**|  | |
-| **account_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **account_type_update_dto** | [**\OpenAPI\Client\Model\AccountTypeUpdateDto**](../Model/AccountTypeUpdateDto.md)|  | [optional] |

@@ -51,29 +51,30 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DealUnitFlowsApi(
+$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$deal_unit_flow_create_dto = new \OpenAPI\Client\Model\DealUnitFlowCreateDto(); // \OpenAPI\Client\Model\DealUnitFlowCreateDto
+$conversation_id = 'conversation_id_example'; // string
+$message = 'message_example'; // string
 
 try {
-    $result = $apiInstance->createDealUnitFlowAsync($tenant_id, $deal_unit_flow_create_dto);
-    print_r($result);
+    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
 } catch (Exception $e) {
-    echo 'Exception when calling DealUnitFlowsApi->createDealUnitFlowAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
 *DealUnitFlowsApi* | [**createDealUnitFlowAsync**](docs/Api/DealUnitFlowsApi.md#createdealunitflowasync) | **POST** /api/v2/DealsService/DealUnitFlows | Create a deal unit flow
 *DealUnitFlowsApi* | [**createDealUnitFlowStageAsync**](docs/Api/DealUnitFlowsApi.md#createdealunitflowstageasync) | **POST** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | Create a deal unit flow stage
 *DealUnitFlowsApi* | [**deleteDealUnitFlowAsync**](docs/Api/DealUnitFlowsApi.md#deletedealunitflowasync) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Delete a deal unit flow
@@ -102,30 +103,23 @@ Class | Method | HTTP request | Description
 *DealUnitsApi* | [**getExtendedDealUnitsAsync**](docs/Api/DealUnitsApi.md#getextendeddealunitsasync) | **GET** /api/v2/DealsService/DealUnits/Extended | Get extended deal units
 *DealUnitsApi* | [**updateDealUnitAsync**](docs/Api/DealUnitsApi.md#updatedealunitasync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId} | Update a deal unit
 *DealUnitsApi* | [**updateDealUnitPriceAsync**](docs/Api/DealUnitsApi.md#updatedealunitpriceasync) | **PUT** /api/v2/DealsService/DealUnits/{dealUnitId}/Lines/{dealUnitLineId} | Update a deal unit line
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
-*SalesLiteraturesApi* | [**countSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#countsalesliteraturesasync) | **GET** /api/v2/DealsService/SalesLiteratures/Count | Get sales literatures count
-*SalesLiteraturesApi* | [**createSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#createsalesliteratureasync) | **POST** /api/v2/DealsService/SalesLiteratures | Create a sales literature
-*SalesLiteraturesApi* | [**deleteSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#deletesalesliteratureasync) | **DELETE** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Delete a sales literature
-*SalesLiteraturesApi* | [**getExtendedSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#getextendedsalesliteraturesasync) | **GET** /api/v2/DealsService/SalesLiteratures/Extended | Get extended sales literatures
-*SalesLiteraturesApi* | [**getSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#getsalesliteratureasync) | **GET** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID
-*SalesLiteraturesApi* | [**getSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#getsalesliteraturesasync) | **GET** /api/v2/DealsService/SalesLiteratures | Get sales literatures
-*SalesLiteraturesApi* | [**updateSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#updatesalesliteratureasync) | **PUT** /api/v2/DealsService/SalesLiteratures/{salesLiteratureId} | Update a sales literature
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
 
 ## Models
 
@@ -156,8 +150,6 @@ Class | Method | HTTP request | Description
 - [ExtendedDealUnitDto](docs/Model/ExtendedDealUnitDto.md)
 - [ExtendedDealUnitDtoEnvelope](docs/Model/ExtendedDealUnitDtoEnvelope.md)
 - [ExtendedDealUnitDtoListEnvelope](docs/Model/ExtendedDealUnitDtoListEnvelope.md)
-- [ExtendedSalesLiteratureDto](docs/Model/ExtendedSalesLiteratureDto.md)
-- [ExtendedSalesLiteratureDtoListEnvelope](docs/Model/ExtendedSalesLiteratureDtoListEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
 - [InfoRequest](docs/Model/InfoRequest.md)
@@ -168,12 +160,6 @@ Class | Method | HTTP request | Description
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
-- [SalesLiteratureCreateDto](docs/Model/SalesLiteratureCreateDto.md)
-- [SalesLiteratureDto](docs/Model/SalesLiteratureDto.md)
-- [SalesLiteratureDtoEnvelope](docs/Model/SalesLiteratureDtoEnvelope.md)
-- [SalesLiteratureDtoListEnvelope](docs/Model/SalesLiteratureDtoListEnvelope.md)
-- [SalesLiteratureTypeDto](docs/Model/SalesLiteratureTypeDto.md)
-- [SalesLiteratureUpdateDto](docs/Model/SalesLiteratureUpdateDto.md)
 - [TenantDto](docs/Model/TenantDto.md)
 - [TenantEnrollmentDto](docs/Model/TenantEnrollmentDto.md)
 - [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
@@ -200,6 +186,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

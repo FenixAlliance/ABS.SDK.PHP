@@ -1,6 +1,6 @@
 # OpenAPI\Client\UsersApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -25,7 +25,7 @@ adminPreviewUserEmailTemplate($user_id, $api_version, $x_api_version, $email_dis
 
 Preview the rendered email for a user.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -86,7 +86,7 @@ adminSendUserEmail($user_id, $api_version, $x_api_version, $email_dispatch_reque
 
 Send an email to a user.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -148,7 +148,7 @@ createAccountHolderAsync($api_version, $x_api_version, $user_create_dto): \OpenA
 
 Create a new user
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -208,7 +208,7 @@ deleteAccountHolderAsync($user_id, $api_version, $x_api_version): \OpenAPI\Clien
 
 Delete a user
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -268,7 +268,7 @@ getExtendedAccountHolderAsync($user_id, $api_version, $x_api_version): \OpenAPI\
 
 Retrieve an extended user by ID
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -328,7 +328,7 @@ getExtendedUsersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Exten
 
 Retrieve a list of extended users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -386,7 +386,7 @@ getExtendedUsersCountAsync($api_version, $x_api_version): \OpenAPI\Client\Model\
 
 Get the count of extended users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -444,7 +444,7 @@ getUserAsync($user_id, $api_version, $x_api_version): \OpenAPI\Client\Model\User
 
 Retrieve a user by ID
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -504,7 +504,7 @@ getUsersAsync($api_version, $x_api_version): \OpenAPI\Client\Model\UserDtoListEn
 
 Retrieve a list of users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -562,7 +562,7 @@ getUsersCountAsync($api_version, $x_api_version): \OpenAPI\Client\Model\Int32Env
 
 Get the count of users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 
@@ -620,7 +620,7 @@ updateAccountHolderAsync($user_id, $api_version, $x_api_version, $user_update_dt
 
 Update a user
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 

@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemTaxPoliciesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -14,7 +14,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countItemTaxPoliciesAsync()`
 
 ```php
-countItemTaxPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countItemTaxPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count item tax policies
@@ -34,12 +34,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemTaxPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->countItemTaxPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->countItemTaxPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemTaxPoliciesApi->countItemTaxPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -74,7 +76,7 @@ No authorization required
 ## `getItemTaxPoliciesAsync()`
 
 ```php
-getItemTaxPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope
+getItemTaxPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTaxPolicyDtoListEnvelope
 ```
 
 Get item tax policies
@@ -94,12 +96,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemTaxPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemTaxPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemTaxPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemTaxPoliciesApi->getItemTaxPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -110,6 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -134,7 +138,7 @@ No authorization required
 ## `getItemTaxPolicyByIdAsync()`
 
 ```php
-getItemTaxPolicyByIdAsync($item_tax_policy_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTaxPolicyDtoEnvelope
+getItemTaxPolicyByIdAsync($item_tax_policy_id, $tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTaxPolicyDtoEnvelope
 ```
 
 Get item tax policy by ID
@@ -155,12 +159,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemTaxPoliciesApi(
     new GuzzleHttp\Client()
 );
 $item_tax_policy_id = 'item_tax_policy_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemTaxPolicyByIdAsync($item_tax_policy_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemTaxPolicyByIdAsync($item_tax_policy_id, $tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemTaxPoliciesApi->getItemTaxPolicyByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -172,6 +177,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_tax_policy_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

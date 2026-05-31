@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **forex_rate** | **float** |  | [optional]
 **credit** | **float** |  | [optional]
 **debit** | **float** |  | [optional]
+**credit_in_usd** | **float** |  | [optional]
+**debit_in_usd** | **float** |  | [optional]
 **currency_id** | **string** |  | [optional]
 **tenant_id** | **string** |  | [optional]
 **enrollment_id** | **string** |  | [optional]
@@ -28,5 +30,7 @@ Name | Type | Description | Notes
 **parent_journal_entry_id** | **string** |  | [optional]
 **credit_amount** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
 **debit_amount** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
+**credit_amount_in_usd** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
+**debit_amount_in_usd** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

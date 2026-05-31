@@ -1,6 +1,6 @@
 # OpenAPI\Client\SocialGroupsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -75,7 +75,7 @@ No authorization required
 ## `createSocialGroupAsync()`
 
 ```php
-createSocialGroupAsync($tenant_id, $api_version, $x_api_version, $social_group_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
+createSocialGroupAsync($tenant_id, $social_profile_id, $api_version, $x_api_version, $social_group_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Create a social group
@@ -96,12 +96,13 @@ $apiInstance = new OpenAPI\Client\Api\SocialGroupsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $social_group_create_dto = new \OpenAPI\Client\Model\SocialGroupCreateDto(); // \OpenAPI\Client\Model\SocialGroupCreateDto
 
 try {
-    $result = $apiInstance->createSocialGroupAsync($tenant_id, $api_version, $x_api_version, $social_group_create_dto);
+    $result = $apiInstance->createSocialGroupAsync($tenant_id, $social_profile_id, $api_version, $x_api_version, $social_group_create_dto);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialGroupsApi->createSocialGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -113,6 +114,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **social_group_create_dto** | [**\OpenAPI\Client\Model\SocialGroupCreateDto**](../Model/SocialGroupCreateDto.md)|  | [optional] |
@@ -137,7 +139,7 @@ No authorization required
 ## `deleteSocialGroupAsync()`
 
 ```php
-deleteSocialGroupAsync($tenant_id, $social_group_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+deleteSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Delete a social group
@@ -158,12 +160,13 @@ $apiInstance = new OpenAPI\Client\Api\SocialGroupsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
 $social_group_id = 'social_group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->deleteSocialGroupAsync($tenant_id, $social_group_id, $api_version, $x_api_version);
+    $result = $apiInstance->deleteSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialGroupsApi->deleteSocialGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -175,6 +178,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
 | **social_group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -321,7 +325,7 @@ No authorization required
 ## `updateSocialGroupAsync()`
 
 ```php
-updateSocialGroupAsync($tenant_id, $social_group_id, $api_version, $x_api_version, $social_group_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+updateSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version, $social_group_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Update a social group
@@ -342,13 +346,14 @@ $apiInstance = new OpenAPI\Client\Api\SocialGroupsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
 $social_group_id = 'social_group_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $social_group_update_dto = new \OpenAPI\Client\Model\SocialGroupUpdateDto(); // \OpenAPI\Client\Model\SocialGroupUpdateDto
 
 try {
-    $result = $apiInstance->updateSocialGroupAsync($tenant_id, $social_group_id, $api_version, $x_api_version, $social_group_update_dto);
+    $result = $apiInstance->updateSocialGroupAsync($tenant_id, $social_profile_id, $social_group_id, $api_version, $x_api_version, $social_group_update_dto);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialGroupsApi->updateSocialGroupAsync: ', $e->getMessage(), PHP_EOL;
@@ -360,6 +365,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
+| **social_profile_id** | **string**|  | |
 | **social_group_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

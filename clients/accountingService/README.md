@@ -72,7 +72,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *AccountingPeriodsApi* | [**getAccountingPeriods**](docs/Api/AccountingPeriodsApi.md#getaccountingperiods) | **GET** /api/v2/AccountingService/AccountingPeriods | Get all accounting periods for a tenant
 *AccountingPeriodsApi* | [**getAccountingPeriodsCountAsync**](docs/Api/AccountingPeriodsApi.md#getaccountingperiodscountasync) | **GET** /api/v2/AccountingService/AccountingPeriods/Count | Gets the current tenant accounting periods count
 *AccountingPeriodsApi* | [**updateAccountingPeriod**](docs/Api/AccountingPeriodsApi.md#updateaccountingperiod) | **PUT** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Updates an existing accounting period
+*AccountsApi* | [**aggregateAccountsBalanceAsync**](docs/Api/AccountsApi.md#aggregateaccountsbalanceasync) | **GET** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance
 *AccountsApi* | [**balanceAccountAsync**](docs/Api/AccountsApi.md#balanceaccountasync) | **POST** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account
 *AccountsApi* | [**balanceRootAccountAsync**](docs/Api/AccountsApi.md#balancerootaccountasync) | **POST** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account
 *AccountsApi* | [**createAccountAsync**](docs/Api/AccountsApi.md#createaccountasync) | **POST** /api/v2/AccountingService/Accounts | Get root accounts
@@ -110,19 +111,24 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**getAccountEntryAsync**](docs/Api/AccountsApi.md#getaccountentryasync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Get account entry
 *AccountsApi* | [**getAccountRelationsAsync**](docs/Api/AccountsApi.md#getaccountrelationsasync) | **GET** /api/v2/AccountingService/Accounts/Relations | Get account relations
 *AccountsApi* | [**getAccountRelationsCountAsync**](docs/Api/AccountsApi.md#getaccountrelationscountasync) | **GET** /api/v2/AccountingService/Accounts/Relations/Count | Get account relations count
+*AccountsApi* | [**getAccountTypeByIdAsync**](docs/Api/AccountsApi.md#getaccounttypebyidasync) | **GET** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Get account type by ID
 *AccountsApi* | [**getAccountTypesAsync**](docs/Api/AccountsApi.md#getaccounttypesasync) | **GET** /api/v2/AccountingService/Accounts/Types | Get account types
 *AccountsApi* | [**getAccountTypesCountAsync**](docs/Api/AccountsApi.md#getaccounttypescountasync) | **GET** /api/v2/AccountingService/Accounts/Types/Count | Get account types count
 *AccountsApi* | [**getAccountsAsync**](docs/Api/AccountsApi.md#getaccountsasync) | **GET** /api/v2/AccountingService/Accounts | Creates a new account
 *AccountsApi* | [**getAccountsCountAsync**](docs/Api/AccountsApi.md#getaccountscountasync) | **GET** /api/v2/AccountingService/Accounts/Count | Get the number of accounts
+*AccountsApi* | [**getChartsOfAccountsAsync**](docs/Api/AccountsApi.md#getchartsofaccountsasync) | **GET** /api/v2/AccountingService/Accounts/ChartsOfAccounts | Get charts of accounts
 *AccountsApi* | [**getChildAccountsAsync**](docs/Api/AccountsApi.md#getchildaccountsasync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Children | Get child accounts
 *AccountsApi* | [**getCreditAccountEntriesAsync**](docs/Api/AccountsApi.md#getcreditaccountentriesasync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Credit | Get credit account entries
 *AccountsApi* | [**getDebitAccountEntriesAsync**](docs/Api/AccountsApi.md#getdebitaccountentriesasync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries
 *AccountsApi* | [**getRootAccountsAsync**](docs/Api/AccountsApi.md#getrootaccountsasync) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts
 *AccountsApi* | [**patchAccountAsync**](docs/Api/AccountsApi.md#patchaccountasync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account
+*AccountsApi* | [**seedChartOfAccountsAsync**](docs/Api/AccountsApi.md#seedchartofaccountsasync) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts
 *AccountsApi* | [**updateAccountAsync**](docs/Api/AccountsApi.md#updateaccountasync) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account
 *AccountsApi* | [**updateAccountEntryAsync**](docs/Api/AccountsApi.md#updateaccountentryasync) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry
 *AccountsApi* | [**updateAccountRelationAsync**](docs/Api/AccountsApi.md#updateaccountrelationasync) | **PUT** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Update account relation
 *AccountsApi* | [**updateAccountTypeAsync**](docs/Api/AccountsApi.md#updateaccounttypeasync) | **PUT** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Update account type
+*BankProfilesApi* | [**getBankProfiles**](docs/Api/BankProfilesApi.md#getbankprofiles) | **GET** /api/v2/AccountingService/BankProfiles | Get all bank profiles for a tenant
+*BankProfilesApi* | [**getBankProfilesCount**](docs/Api/BankProfilesApi.md#getbankprofilescount) | **GET** /api/v2/AccountingService/BankProfiles/Count | Get bank profiles count
 *BankingApi* | [**createBank**](docs/Api/BankingApi.md#createbank) | **POST** /api/v2/AccountingService/Banking | Creates a new bank
 *BankingApi* | [**createBankAccount**](docs/Api/BankingApi.md#createbankaccount) | **POST** /api/v2/AccountingService/Banking/{bankId}/Accounts | Creates a new bank account
 *BankingApi* | [**createBankGuarantee**](docs/Api/BankingApi.md#createbankguarantee) | **POST** /api/v2/AccountingService/Banking/{bankId}/Guarantees | Creates a new bank guarantee
@@ -166,6 +172,7 @@ Class | Method | HTTP request | Description
 *BudgetsApi* | [**getBudgetAccountEntryAsync**](docs/Api/BudgetsApi.md#getbudgetaccountentryasync) | **GET** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Gets a budget account entry by id
 *BudgetsApi* | [**getBudgetDetailsAsync**](docs/Api/BudgetsApi.md#getbudgetdetailsasync) | **GET** /api/v2/AccountingService/Budgets/{budgetId} | Gets a budget by id
 *BudgetsApi* | [**getBudgetsAsync**](docs/Api/BudgetsApi.md#getbudgetsasync) | **GET** /api/v2/AccountingService/Budgets | Gets all budgets
+*BudgetsApi* | [**getBudgetsCountAsync**](docs/Api/BudgetsApi.md#getbudgetscountasync) | **GET** /api/v2/AccountingService/Budgets/Count | Get the count of budgets
 *BudgetsApi* | [**updateBudgetAccountEntryAsync**](docs/Api/BudgetsApi.md#updatebudgetaccountentryasync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Updates a budget account entry
 *BudgetsApi* | [**updateBudgetAsync**](docs/Api/BudgetsApi.md#updatebudgetasync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId} | Updates a budget
 *CommissionsApi* | [**createCommissionAsync**](docs/Api/CommissionsApi.md#createcommissionasync) | **POST** /api/v2/AccountingService/Commissions/Commissions | Create a commission
@@ -180,6 +187,7 @@ Class | Method | HTTP request | Description
 *CommissionsApi* | [**getPaymentCommissionsCountAsync**](docs/Api/CommissionsApi.md#getpaymentcommissionscountasync) | **GET** /api/v2/AccountingService/Commissions/PaymentCommissions/Count | Get the count of payment commissions for a tenant
 *CommissionsApi* | [**updateCommissionAsync**](docs/Api/CommissionsApi.md#updatecommissionasync) | **PUT** /api/v2/AccountingService/Commissions/Commissions/{commissionId} | Update a commission
 *CommissionsApi* | [**updatePaymentCommissionAsync**](docs/Api/CommissionsApi.md#updatepaymentcommissionasync) | **PUT** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Update a payment commission
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
 *CostCentresApi* | [**createCostCentre**](docs/Api/CostCentresApi.md#createcostcentre) | **POST** /api/v2/AccountingService/CostCentres | Create a cost centre
 *CostCentresApi* | [**createCostCentreBudget**](docs/Api/CostCentresApi.md#createcostcentrebudget) | **POST** /api/v2/AccountingService/CostCentres/CostCentreBudgets | Create a cost centre budget
 *CostCentresApi* | [**createCostCentreGroup**](docs/Api/CostCentresApi.md#createcostcentregroup) | **POST** /api/v2/AccountingService/CostCentres/CostCentreGroups | Create a cost centre group
@@ -197,23 +205,35 @@ Class | Method | HTTP request | Description
 *CostCentresApi* | [**updateCostCentre**](docs/Api/CostCentresApi.md#updatecostcentre) | **PUT** /api/v2/AccountingService/CostCentres/{costCentreId} | Update a cost centre
 *CostCentresApi* | [**updateCostCentreBudget**](docs/Api/CostCentresApi.md#updatecostcentrebudget) | **PUT** /api/v2/AccountingService/CostCentres/CostCentreBudgets/{budgetId} | Update a cost centre budget
 *CostCentresApi* | [**updateCostCentreGroup**](docs/Api/CostCentresApi.md#updatecostcentregroup) | **PUT** /api/v2/AccountingService/CostCentres/CostCentreGroups/{groupId} | Update a cost centre group
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*ExpenseClaimsApi* | [**createExpenseClaim**](docs/Api/ExpenseClaimsApi.md#createexpenseclaim) | **POST** /api/v2/AccountingService/ExpenseClaims | Create an expense claim
+*ExpenseClaimsApi* | [**deleteExpenseClaim**](docs/Api/ExpenseClaimsApi.md#deleteexpenseclaim) | **DELETE** /api/v2/AccountingService/ExpenseClaims/{expenseClaimId} | Delete an expense claim
+*ExpenseClaimsApi* | [**getExpenseClaim**](docs/Api/ExpenseClaimsApi.md#getexpenseclaim) | **GET** /api/v2/AccountingService/ExpenseClaims/{expenseClaimId} | Get an expense claim by id
+*ExpenseClaimsApi* | [**getExpenseClaims**](docs/Api/ExpenseClaimsApi.md#getexpenseclaims) | **GET** /api/v2/AccountingService/ExpenseClaims | Get all expense claims for a tenant
+*ExpenseClaimsApi* | [**getExpenseClaimsCount**](docs/Api/ExpenseClaimsApi.md#getexpenseclaimscount) | **GET** /api/v2/AccountingService/ExpenseClaims/Count | Get the count of expense claims for a tenant
+*ExpenseClaimsApi* | [**updateExpenseClaim**](docs/Api/ExpenseClaimsApi.md#updateexpenseclaim) | **PUT** /api/v2/AccountingService/ExpenseClaims/{expenseClaimId} | Update an expense claim
+*ExpenseTypesApi* | [**createExpenseType**](docs/Api/ExpenseTypesApi.md#createexpensetype) | **POST** /api/v2/AccountingService/ExpenseTypes | Create an expense type
+*ExpenseTypesApi* | [**deleteExpenseType**](docs/Api/ExpenseTypesApi.md#deleteexpensetype) | **DELETE** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Delete an expense type
+*ExpenseTypesApi* | [**getExpenseType**](docs/Api/ExpenseTypesApi.md#getexpensetype) | **GET** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Get an expense type by id
+*ExpenseTypesApi* | [**getExpenseTypes**](docs/Api/ExpenseTypesApi.md#getexpensetypes) | **GET** /api/v2/AccountingService/ExpenseTypes | Get all expense types for a tenant
+*ExpenseTypesApi* | [**getExpenseTypesCount**](docs/Api/ExpenseTypesApi.md#getexpensetypescount) | **GET** /api/v2/AccountingService/ExpenseTypes/Count | Get the count of expense types for a tenant
+*ExpenseTypesApi* | [**updateExpenseType**](docs/Api/ExpenseTypesApi.md#updateexpensetype) | **PUT** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Update an expense type
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
 *FinancialBooksApi* | [**createFinancialBookAsync**](docs/Api/FinancialBooksApi.md#createfinancialbookasync) | **POST** /api/v2/AccountingService/FinancialBooks | Creates a new financial book
 *FinancialBooksApi* | [**deleteFinancialBookAsync**](docs/Api/FinancialBooksApi.md#deletefinancialbookasync) | **DELETE** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Deletes an existing financial book
 *FinancialBooksApi* | [**getFinancialBookDetailsAsync**](docs/Api/FinancialBooksApi.md#getfinancialbookdetailsasync) | **GET** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Gets the details of a specific financial book
@@ -291,6 +311,8 @@ Class | Method | HTTP request | Description
 *JournalTypesApi* | [**getJournalTypesAsync**](docs/Api/JournalTypesApi.md#getjournaltypesasync) | **GET** /api/v2/AccountingService/JournalTypes | Retrieves all journal types
 *JournalTypesApi* | [**getJournalTypesCountAsync**](docs/Api/JournalTypesApi.md#getjournaltypescountasync) | **GET** /api/v2/AccountingService/JournalTypes/Count | Counts journal types
 *JournalTypesApi* | [**updateJournalTypeAsync**](docs/Api/JournalTypesApi.md#updatejournaltypeasync) | **PUT** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Updates an existing journal type
+*JournalsApi* | [**aggregateJournalEntryCreditsAsync**](docs/Api/JournalsApi.md#aggregatejournalentrycreditsasync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits
+*JournalsApi* | [**aggregateJournalEntryDebitsAsync**](docs/Api/JournalsApi.md#aggregatejournalentrydebitsasync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits
 *JournalsApi* | [**countJournalsAsync**](docs/Api/JournalsApi.md#countjournalsasync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals
 *JournalsApi* | [**createJournalAsync**](docs/Api/JournalsApi.md#createjournalasync) | **POST** /api/v2/AccountingService/Journals | Create journal
 *JournalsApi* | [**createJournalEntryAsync**](docs/Api/JournalsApi.md#createjournalentryasync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry
@@ -316,16 +338,22 @@ Class | Method | HTTP request | Description
 *LedgersApi* | [**updateLedgerAsync**](docs/Api/LedgersApi.md#updateledgerasync) | **PUT** /api/v2/AccountingService/Ledgers/{ledgerId} | Updates a ledger
 *LoansApi* | [**createLoanApplicationAsync**](docs/Api/LoansApi.md#createloanapplicationasync) | **POST** /api/v2/AccountingService/Loans/Applications | Creates a loan application
 *LoansApi* | [**createLoanAsync**](docs/Api/LoansApi.md#createloanasync) | **POST** /api/v2/AccountingService/Loans | Creates a new loan
+*LoansApi* | [**createLoanTypeAsync**](docs/Api/LoansApi.md#createloantypeasync) | **POST** /api/v2/AccountingService/Loans/Types | Creates a loan type
 *LoansApi* | [**deleteLoanApplicationAsync**](docs/Api/LoansApi.md#deleteloanapplicationasync) | **DELETE** /api/v2/AccountingService/Loans/Applications/{applicationId} | Deletes a loan application
 *LoansApi* | [**deleteLoanAsync**](docs/Api/LoansApi.md#deleteloanasync) | **DELETE** /api/v2/AccountingService/Loans/{loanId} | Deletes a loan
+*LoansApi* | [**deleteLoanTypeAsync**](docs/Api/LoansApi.md#deleteloantypeasync) | **DELETE** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Deletes a loan type
 *LoansApi* | [**getLoanApplicationDetailsAsync**](docs/Api/LoansApi.md#getloanapplicationdetailsasync) | **GET** /api/v2/AccountingService/Loans/Applications/{applicationId} | Gets a loan application by ID
 *LoansApi* | [**getLoanApplicationsAsync**](docs/Api/LoansApi.md#getloanapplicationsasync) | **GET** /api/v2/AccountingService/Loans/Applications | Gets all loan applications
 *LoansApi* | [**getLoanApplicationsCountAsync**](docs/Api/LoansApi.md#getloanapplicationscountasync) | **GET** /api/v2/AccountingService/Loans/Applications/Count | Counts loan applications
 *LoansApi* | [**getLoanDetailsAsync**](docs/Api/LoansApi.md#getloandetailsasync) | **GET** /api/v2/AccountingService/Loans/{loanId} | Gets a loan by ID
+*LoansApi* | [**getLoanTypeByIdAsync**](docs/Api/LoansApi.md#getloantypebyidasync) | **GET** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Gets a loan type by ID
+*LoansApi* | [**getLoanTypesAsync**](docs/Api/LoansApi.md#getloantypesasync) | **GET** /api/v2/AccountingService/Loans/Types | Gets all loan types
+*LoansApi* | [**getLoanTypesCountAsync**](docs/Api/LoansApi.md#getloantypescountasync) | **GET** /api/v2/AccountingService/Loans/Types/Count | Counts loan types
 *LoansApi* | [**getLoansAsync**](docs/Api/LoansApi.md#getloansasync) | **GET** /api/v2/AccountingService/Loans | Gets all loans
 *LoansApi* | [**getLoansCountAsync**](docs/Api/LoansApi.md#getloanscountasync) | **GET** /api/v2/AccountingService/Loans/Count | Counts loans
 *LoansApi* | [**updateLoanApplicationAsync**](docs/Api/LoansApi.md#updateloanapplicationasync) | **PUT** /api/v2/AccountingService/Loans/Applications/{applicationId} | Updates a loan application
 *LoansApi* | [**updateLoanAsync**](docs/Api/LoansApi.md#updateloanasync) | **PUT** /api/v2/AccountingService/Loans/{loanId} | Updates a loan
+*LoansApi* | [**updateLoanTypeAsync**](docs/Api/LoansApi.md#updateloantypeasync) | **PUT** /api/v2/AccountingService/Loans/Types/{loanTypeId} | Updates a loan type
 *ReceiptsApi* | [**createReceiptAsync**](docs/Api/ReceiptsApi.md#createreceiptasync) | **POST** /api/v2/AccountingService/Receipts | Creates a new receipt
 *ReceiptsApi* | [**deleteReceiptAsync**](docs/Api/ReceiptsApi.md#deletereceiptasync) | **DELETE** /api/v2/AccountingService/Receipts/{receiptId} | Deletes a receipt
 *ReceiptsApi* | [**getReceiptDetailsAsync**](docs/Api/ReceiptsApi.md#getreceiptdetailsasync) | **GET** /api/v2/AccountingService/Receipts/{receiptId} | Gets details of a receipt
@@ -356,6 +384,12 @@ Class | Method | HTTP request | Description
 *SharesApi* | [**updateShareIssuance**](docs/Api/SharesApi.md#updateshareissuance) | **PUT** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Updates an existing share issuance
 *SharesApi* | [**updateShareTransfer**](docs/Api/SharesApi.md#updatesharetransfer) | **PUT** /api/v2/AccountingService/Shares/Transfers/{transferId} | Updates an existing share transfer
 *SharesApi* | [**updateShareTransferReason**](docs/Api/SharesApi.md#updatesharetransferreason) | **PUT** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Updates an existing share transfer reason
+*TaxClassesApi* | [**createTaxClass**](docs/Api/TaxClassesApi.md#createtaxclass) | **POST** /api/v2/AccountingService/TaxClasses | Create a tax class
+*TaxClassesApi* | [**deleteTaxClass**](docs/Api/TaxClassesApi.md#deletetaxclass) | **DELETE** /api/v2/AccountingService/TaxClasses/{id} | Delete a tax class
+*TaxClassesApi* | [**getTaxClass**](docs/Api/TaxClassesApi.md#gettaxclass) | **GET** /api/v2/AccountingService/TaxClasses/{id} | Get tax class by ID
+*TaxClassesApi* | [**getTaxClasses**](docs/Api/TaxClassesApi.md#gettaxclasses) | **GET** /api/v2/AccountingService/TaxClasses | Get all tax classes for a tenant
+*TaxClassesApi* | [**getTaxClassesCount**](docs/Api/TaxClassesApi.md#gettaxclassescount) | **GET** /api/v2/AccountingService/TaxClasses/Count | Get tax classes count
+*TaxClassesApi* | [**updateTaxClass**](docs/Api/TaxClassesApi.md#updatetaxclass) | **PUT** /api/v2/AccountingService/TaxClasses/{id} | Update a tax class
 *TaxPoliciesApi* | [**createAppliedTaxPolicyRecord**](docs/Api/TaxPoliciesApi.md#createappliedtaxpolicyrecord) | **POST** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords | Create an applied tax policy record
 *TaxPoliciesApi* | [**createItemTaxPolicyRecord**](docs/Api/TaxPoliciesApi.md#createitemtaxpolicyrecord) | **POST** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/ItemTaxPolicyRecords | Create an item tax policy record
 *TaxPoliciesApi* | [**createTaxPolicy**](docs/Api/TaxPoliciesApi.md#createtaxpolicy) | **POST** /api/v2/AccountingService/TaxPolicies | Create a tax policy
@@ -396,6 +430,7 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [Account](docs/Model/Account.md)
 - [AccountCreateDto](docs/Model/AccountCreateDto.md)
 - [AccountDto](docs/Model/AccountDto.md)
 - [AccountDtoEnvelope](docs/Model/AccountDtoEnvelope.md)
@@ -411,6 +446,7 @@ Class | Method | HTTP request | Description
 - [AccountRelationUpdateDto](docs/Model/AccountRelationUpdateDto.md)
 - [AccountTypeCreateDto](docs/Model/AccountTypeCreateDto.md)
 - [AccountTypeDto](docs/Model/AccountTypeDto.md)
+- [AccountTypeDtoEnvelope](docs/Model/AccountTypeDtoEnvelope.md)
 - [AccountTypeDtoListEnvelope](docs/Model/AccountTypeDtoListEnvelope.md)
 - [AccountTypeUpdateDto](docs/Model/AccountTypeUpdateDto.md)
 - [AccountUpdateDto](docs/Model/AccountUpdateDto.md)
@@ -447,6 +483,8 @@ Class | Method | HTTP request | Description
 - [BankGuaranteeDtoEnvelope](docs/Model/BankGuaranteeDtoEnvelope.md)
 - [BankGuaranteeDtoListEnvelope](docs/Model/BankGuaranteeDtoListEnvelope.md)
 - [BankGuaranteeUpdateDto](docs/Model/BankGuaranteeUpdateDto.md)
+- [BankProfileDto](docs/Model/BankProfileDto.md)
+- [BankProfileDtoListEnvelope](docs/Model/BankProfileDtoListEnvelope.md)
 - [BankTransactionCreateDto](docs/Model/BankTransactionCreateDto.md)
 - [BankTransactionDto](docs/Model/BankTransactionDto.md)
 - [BankTransactionDtoEnvelope](docs/Model/BankTransactionDtoEnvelope.md)
@@ -468,11 +506,14 @@ Class | Method | HTTP request | Description
 - [BudgetDtoEnvelope](docs/Model/BudgetDtoEnvelope.md)
 - [BudgetDtoIReadOnlyListEnvelope](docs/Model/BudgetDtoIReadOnlyListEnvelope.md)
 - [BudgetUpdateDto](docs/Model/BudgetUpdateDto.md)
+- [ChartOfAccounts](docs/Model/ChartOfAccounts.md)
+- [ChartOfAccountsListEnvelope](docs/Model/ChartOfAccountsListEnvelope.md)
 - [CommissionCreateDto](docs/Model/CommissionCreateDto.md)
 - [CommissionDto](docs/Model/CommissionDto.md)
 - [CommissionDtoEnvelope](docs/Model/CommissionDtoEnvelope.md)
 - [CommissionDtoListEnvelope](docs/Model/CommissionDtoListEnvelope.md)
 - [CommissionUpdateDto](docs/Model/CommissionUpdateDto.md)
+- [ContactDto](docs/Model/ContactDto.md)
 - [CostCentreBudgetCreateDto](docs/Model/CostCentreBudgetCreateDto.md)
 - [CostCentreBudgetDto](docs/Model/CostCentreBudgetDto.md)
 - [CostCentreBudgetDtoEnvelope](docs/Model/CostCentreBudgetDtoEnvelope.md)
@@ -492,6 +533,16 @@ Class | Method | HTTP request | Description
 - [CurrencyId](docs/Model/CurrencyId.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [ExpenseClaimCreateDto](docs/Model/ExpenseClaimCreateDto.md)
+- [ExpenseClaimDto](docs/Model/ExpenseClaimDto.md)
+- [ExpenseClaimDtoEnvelope](docs/Model/ExpenseClaimDtoEnvelope.md)
+- [ExpenseClaimDtoListEnvelope](docs/Model/ExpenseClaimDtoListEnvelope.md)
+- [ExpenseClaimUpdateDto](docs/Model/ExpenseClaimUpdateDto.md)
+- [ExpenseTypeCreateDto](docs/Model/ExpenseTypeCreateDto.md)
+- [ExpenseTypeDto](docs/Model/ExpenseTypeDto.md)
+- [ExpenseTypeDtoEnvelope](docs/Model/ExpenseTypeDtoEnvelope.md)
+- [ExpenseTypeDtoListEnvelope](docs/Model/ExpenseTypeDtoListEnvelope.md)
+- [ExpenseTypeUpdateDto](docs/Model/ExpenseTypeUpdateDto.md)
 - [FinancialBookCreateDto](docs/Model/FinancialBookCreateDto.md)
 - [FinancialBookDto](docs/Model/FinancialBookDto.md)
 - [FinancialBookDtoEnvelope](docs/Model/FinancialBookDtoEnvelope.md)
@@ -582,9 +633,15 @@ Class | Method | HTTP request | Description
 - [LoanDto](docs/Model/LoanDto.md)
 - [LoanDtoEnvelope](docs/Model/LoanDtoEnvelope.md)
 - [LoanDtoIReadOnlyListEnvelope](docs/Model/LoanDtoIReadOnlyListEnvelope.md)
+- [LoanTypeCreateDto](docs/Model/LoanTypeCreateDto.md)
+- [LoanTypeDto](docs/Model/LoanTypeDto.md)
+- [LoanTypeDtoEnvelope](docs/Model/LoanTypeDtoEnvelope.md)
+- [LoanTypeDtoIReadOnlyListEnvelope](docs/Model/LoanTypeDtoIReadOnlyListEnvelope.md)
+- [LoanTypeUpdateDto](docs/Model/LoanTypeUpdateDto.md)
 - [LoanUpdateDto](docs/Model/LoanUpdateDto.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [Money](docs/Model/Money.md)
+- [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
 - [Operation](docs/Model/Operation.md)
 - [PaymentCommissionCreateDto](docs/Model/PaymentCommissionCreateDto.md)
 - [PaymentCommissionDto](docs/Model/PaymentCommissionDto.md)
@@ -600,6 +657,7 @@ Class | Method | HTTP request | Description
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [SeedChartOfAccountsRequest](docs/Model/SeedChartOfAccountsRequest.md)
 - [ShareClassCreateDto](docs/Model/ShareClassCreateDto.md)
 - [ShareClassDto](docs/Model/ShareClassDto.md)
 - [ShareClassDtoEnvelope](docs/Model/ShareClassDtoEnvelope.md)
@@ -620,6 +678,11 @@ Class | Method | HTTP request | Description
 - [ShareTransferReasonDtoListEnvelope](docs/Model/ShareTransferReasonDtoListEnvelope.md)
 - [ShareTransferReasonUpdateDto](docs/Model/ShareTransferReasonUpdateDto.md)
 - [ShareTransferUpdateDto](docs/Model/ShareTransferUpdateDto.md)
+- [TaxClassCreateDto](docs/Model/TaxClassCreateDto.md)
+- [TaxClassDto](docs/Model/TaxClassDto.md)
+- [TaxClassDtoEnvelope](docs/Model/TaxClassDtoEnvelope.md)
+- [TaxClassDtoListEnvelope](docs/Model/TaxClassDtoListEnvelope.md)
+- [TaxClassUpdateDto](docs/Model/TaxClassUpdateDto.md)
 - [TaxPolicyCreateDto](docs/Model/TaxPolicyCreateDto.md)
 - [TaxPolicyDto](docs/Model/TaxPolicyDto.md)
 - [TaxPolicyDtoEnvelope](docs/Model/TaxPolicyDtoEnvelope.md)
@@ -664,6 +727,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

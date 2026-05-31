@@ -1,6 +1,6 @@
 # OpenAPI\Client\SocialProfilesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -23,6 +23,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getFollowersAsync()**](SocialProfilesApi.md#getFollowersAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers | Get Followers |
 | [**getFollowsAsync()**](SocialProfilesApi.md#getFollowsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows | Get Follows |
 | [**getMessagesAsync()**](SocialProfilesApi.md#getMessagesAsync) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages |
+| [**getNotificationByIdAsync()**](SocialProfilesApi.md#getNotificationByIdAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification |
 | [**getNotificationsAsync()**](SocialProfilesApi.md#getNotificationsAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications |
 | [**getSocialProfileAsync()**](SocialProfilesApi.md#getSocialProfileAsync) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile |
 | [**getSocialProfilesAsync()**](SocialProfilesApi.md#getSocialProfilesAsync) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles |
@@ -333,7 +334,7 @@ No authorization required
 ## `countMessagesAsync()`
 
 ```php
-countMessagesAsync($conversation_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count Messages
@@ -353,12 +354,13 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$social_profile_id = 'social_profile_id_example'; // string
 $conversation_id = 'conversation_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->countMessagesAsync($conversation_id, $api_version, $x_api_version);
+    $result = $apiInstance->countMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->countMessagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -369,6 +371,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **social_profile_id** | **string**|  | |
 | **conversation_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -1125,7 +1128,7 @@ No authorization required
 ## `getMessagesAsync()`
 
 ```php
-getMessagesAsync($conversation_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PrivateMessageDtoListEnvelope
+getMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version): \OpenAPI\Client\Model\PrivateMessageDtoListEnvelope
 ```
 
 Get Messages
@@ -1145,12 +1148,13 @@ $apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$social_profile_id = 'social_profile_id_example'; // string
 $conversation_id = 'conversation_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getMessagesAsync($conversation_id, $api_version, $x_api_version);
+    $result = $apiInstance->getMessagesAsync($social_profile_id, $conversation_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SocialProfilesApi->getMessagesAsync: ', $e->getMessage(), PHP_EOL;
@@ -1161,6 +1165,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **social_profile_id** | **string**|  | |
 | **conversation_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -1168,6 +1173,68 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\PrivateMessageDtoListEnvelope**](../Model/PrivateMessageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getNotificationByIdAsync()`
+
+```php
+getNotificationByIdAsync($social_profile_id, $notification_id, $api_version, $x_api_version): \OpenAPI\Client\Model\NotificationDtoEnvelope
+```
+
+Get Notification
+
+Get a notification by ID for a social profile.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SocialProfilesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$social_profile_id = 'social_profile_id_example'; // string
+$notification_id = 'notification_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getNotificationByIdAsync($social_profile_id, $notification_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SocialProfilesApi->getNotificationByIdAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **social_profile_id** | **string**|  | |
+| **notification_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\NotificationDtoEnvelope**](../Model/NotificationDtoEnvelope.md)
 
 ### Authorization
 

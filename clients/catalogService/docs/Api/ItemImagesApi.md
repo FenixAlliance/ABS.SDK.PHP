@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemImagesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -137,7 +137,7 @@ No authorization required
 ## `getItemImageByIdAsync()`
 
 ```php
-getItemImageByIdAsync($item_image_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemImageDtoEnvelope
+getItemImageByIdAsync($item_image_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemImageDtoEnvelope
 ```
 
 Get item image by ID
@@ -158,11 +158,12 @@ $apiInstance = new OpenAPI\Client\Api\ItemImagesApi(
     new GuzzleHttp\Client()
 );
 $item_image_id = 'item_image_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemImageByIdAsync($item_image_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemImageByIdAsync($item_image_id, $tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemImagesApi->getItemImageByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -174,6 +175,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_image_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -233,7 +235,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

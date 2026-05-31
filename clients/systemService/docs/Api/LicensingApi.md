@@ -1,6 +1,6 @@
 # OpenAPI\Client\LicensingApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -17,7 +17,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `getLicenseAssignmentsAsync()`
 
 ```php
-getLicenseAssignmentsAsync($license_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
+getLicenseAssignmentsAsync($tenant_id, $license_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
 ```
 
 Retrieve license assignments
@@ -37,13 +37,13 @@ $apiInstance = new OpenAPI\Client\Api\LicensingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$license_id = 'license_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$license_id = 'license_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getLicenseAssignmentsAsync($license_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicenseAssignmentsAsync($tenant_id, $license_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingApi->getLicenseAssignmentsAsync: ', $e->getMessage(), PHP_EOL;
@@ -54,8 +54,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **license_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **license_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -79,7 +79,7 @@ No authorization required
 ## `getLicenseAttributesAsync()`
 
 ```php
-getLicenseAttributesAsync($license_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
+getLicenseAttributesAsync($tenant_id, $license_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
 ```
 
 Retrieve license attributes
@@ -99,13 +99,13 @@ $apiInstance = new OpenAPI\Client\Api\LicensingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$license_id = 'license_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$license_id = 'license_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getLicenseAttributesAsync($license_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicenseAttributesAsync($tenant_id, $license_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingApi->getLicenseAttributesAsync: ', $e->getMessage(), PHP_EOL;
@@ -116,8 +116,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **license_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **license_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -141,7 +141,7 @@ No authorization required
 ## `getLicenseByIdAsync()`
 
 ```php
-getLicenseByIdAsync($license_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseDtoEnvelope
+getLicenseByIdAsync($tenant_id, $license_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseDtoEnvelope
 ```
 
 Retrieve a license by ID
@@ -161,12 +161,13 @@ $apiInstance = new OpenAPI\Client\Api\LicensingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $license_id = 'license_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getLicenseByIdAsync($license_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicenseByIdAsync($tenant_id, $license_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingApi->getLicenseByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -177,6 +178,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **license_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -201,7 +203,7 @@ No authorization required
 ## `getLicenseFeaturesAsync()`
 
 ```php
-getLicenseFeaturesAsync($license_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
+getLicenseFeaturesAsync($tenant_id, $license_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
 ```
 
 Retrieve license features
@@ -221,13 +223,13 @@ $apiInstance = new OpenAPI\Client\Api\LicensingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$license_id = 'license_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$license_id = 'license_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getLicenseFeaturesAsync($license_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicenseFeaturesAsync($tenant_id, $license_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingApi->getLicenseFeaturesAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,8 +240,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **license_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **license_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -263,7 +265,7 @@ No authorization required
 ## `getLicenseRecordsQuotaAsync()`
 
 ```php
-getLicenseRecordsQuotaAsync($license_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
+getLicenseRecordsQuotaAsync($tenant_id, $license_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteLicenseAssignmentDtoListEnvelope
 ```
 
 Retrieve license record quota
@@ -283,13 +285,13 @@ $apiInstance = new OpenAPI\Client\Api\LicensingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$license_id = 'license_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
+$license_id = 'license_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getLicenseRecordsQuotaAsync($license_id, $tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->getLicenseRecordsQuotaAsync($tenant_id, $license_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LicensingApi->getLicenseRecordsQuotaAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,8 +302,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **license_id** | **string**|  | |
 | **tenant_id** | **string**|  | |
+| **license_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

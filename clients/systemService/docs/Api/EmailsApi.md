@@ -1,6 +1,6 @@
 # OpenAPI\Client\EmailsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -70,7 +70,7 @@ No authorization required
 ## `adminSendBasicEmail()`
 
 ```php
-adminSendBasicEmail($api_version, $x_api_version, $object_email_dispatch_request): \OpenAPI\Client\Model\TenantDtoListEnvelope
+adminSendBasicEmail($api_version, $x_api_version, $object_email_dispatch_request): \OpenAPI\Client\Model\Envelope
 ```
 
 Send a basic transactional email to recipients.
@@ -112,7 +112,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TenantDtoListEnvelope**](../Model/TenantDtoListEnvelope.md)
+[**\OpenAPI\Client\Model\Envelope**](../Model/Envelope.md)
 
 ### Authorization
 

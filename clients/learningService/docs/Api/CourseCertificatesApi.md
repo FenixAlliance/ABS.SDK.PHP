@@ -1,6 +1,6 @@
 # OpenAPI\Client\CourseCertificatesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -11,9 +11,11 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getCourseCertificateAsync()**](CourseCertificatesApi.md#getCourseCertificateAsync) | **GET** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Get course certificate by ID |
 | [**getCourseCertificateTemplateAsync()**](CourseCertificatesApi.md#getCourseCertificateTemplateAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Get certificate template by ID |
 | [**getCourseCertificateTemplatesAsync()**](CourseCertificatesApi.md#getCourseCertificateTemplatesAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template | Get all certificate templates |
+| [**getCourseCertificateTemplatesCountAsync()**](CourseCertificatesApi.md#getCourseCertificateTemplatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count |
 | [**getCourseCertificatesAsync()**](CourseCertificatesApi.md#getCourseCertificatesAsync) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates |
 | [**getCourseCertificatesCountAsync()**](CourseCertificatesApi.md#getCourseCertificatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count |
 | [**updateCourseCertificateAsync()**](CourseCertificatesApi.md#updateCourseCertificateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate |
+| [**updateCourseCertificateTemplateAsync()**](CourseCertificatesApi.md#updateCourseCertificateTemplateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template |
 
 
 ## `createCourseCertificateAsync()`
@@ -444,6 +446,66 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCourseCertificateTemplatesCountAsync()`
+
+```php
+getCourseCertificateTemplatesCountAsync($tenant_id, $api_version, $x_api_version): int
+```
+
+Get certificate templates count
+
+Returns the count of course certificate templates for the specified tenant.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\CourseCertificatesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getCourseCertificateTemplatesCountAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseCertificatesApi->getCourseCertificateTemplatesCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+**int**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getCourseCertificatesAsync()`
 
 ```php
@@ -609,6 +671,69 @@ try {
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **course_completion_certificate_update_dto** | [**\OpenAPI\Client\Model\CourseCompletionCertificateUpdateDto**](../Model/CourseCompletionCertificateUpdateDto.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateCourseCertificateTemplateAsync()`
+
+```php
+updateCourseCertificateTemplateAsync($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $course_certificate_template_update_dto)
+```
+
+Update a certificate template
+
+Updates an existing course certificate template for the specified tenant.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\CourseCertificatesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$course_certificate_template_id = 'course_certificate_template_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$course_certificate_template_update_dto = new \OpenAPI\Client\Model\CourseCertificateTemplateUpdateDto(); // \OpenAPI\Client\Model\CourseCertificateTemplateUpdateDto
+
+try {
+    $apiInstance->updateCourseCertificateTemplateAsync($tenant_id, $course_certificate_template_id, $api_version, $x_api_version, $course_certificate_template_update_dto);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseCertificatesApi->updateCourseCertificateTemplateAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **course_certificate_template_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **course_certificate_template_update_dto** | [**\OpenAPI\Client\Model\CourseCertificateTemplateUpdateDto**](../Model/CourseCertificateTemplateUpdateDto.md)|  | [optional] |
 
 ### Return type
 

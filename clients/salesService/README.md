@@ -51,58 +51,113 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\FenixAllianceABSWebApi(
+$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$return_url = 'return_url_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$conversation_id = 'conversation_id_example'; // string
+$message = 'message_example'; // string
 
 try {
-    $apiInstance->accountLogoutPost($return_url);
+    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
 } catch (Exception $e) {
-    echo 'Exception when calling FenixAllianceABSWebApi->accountLogoutPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*LoyaltyProgramsApi* | [**countLoyaltyProgramsAsync**](docs/Api/LoyaltyProgramsApi.md#countloyaltyprogramsasync) | **GET** /api/v2/SalesService/LoyaltyPrograms/Count | Get loyalty programs count
+*LoyaltyProgramsApi* | [**createLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#createloyaltyprogramasync) | **POST** /api/v2/SalesService/LoyaltyPrograms | Create a loyalty program
+*LoyaltyProgramsApi* | [**deleteLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#deleteloyaltyprogramasync) | **DELETE** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Delete a loyalty program
+*LoyaltyProgramsApi* | [**getLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#getloyaltyprogramasync) | **GET** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Get loyalty program by ID
+*LoyaltyProgramsApi* | [**getLoyaltyProgramsAsync**](docs/Api/LoyaltyProgramsApi.md#getloyaltyprogramsasync) | **GET** /api/v2/SalesService/LoyaltyPrograms | Get loyalty programs
+*LoyaltyProgramsApi* | [**updateLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#updateloyaltyprogramasync) | **PUT** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Update a loyalty program
 *MarginsApi* | [**getQuoteAsync**](docs/Api/MarginsApi.md#getquoteasync) | **GET** /api/v2/SalesService/Margins/{marginId}/Details | Get margin details by ID
+*PointOfSalesApi* | [**countPointOfSalesAsync**](docs/Api/PointOfSalesApi.md#countpointofsalesasync) | **GET** /api/v2/SalesService/PointOfSales/Count | Get point of sales count
+*PointOfSalesApi* | [**createPointOfSaleAsync**](docs/Api/PointOfSalesApi.md#createpointofsaleasync) | **POST** /api/v2/SalesService/PointOfSales | Create a point of sale
+*PointOfSalesApi* | [**deletePointOfSaleAsync**](docs/Api/PointOfSalesApi.md#deletepointofsaleasync) | **DELETE** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Delete a point of sale
+*PointOfSalesApi* | [**getPointOfSaleAsync**](docs/Api/PointOfSalesApi.md#getpointofsaleasync) | **GET** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Get point of sale by ID
+*PointOfSalesApi* | [**getPointOfSalesAsync**](docs/Api/PointOfSalesApi.md#getpointofsalesasync) | **GET** /api/v2/SalesService/PointOfSales | Get point of sales
+*PointOfSalesApi* | [**updatePointOfSaleAsync**](docs/Api/PointOfSalesApi.md#updatepointofsaleasync) | **PUT** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Update a point of sale
+*SalesLiteraturesApi* | [**countSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#countsalesliteraturesasync) | **GET** /api/v2/SalesService/SalesLiteratures/Count | Get sales literatures count
+*SalesLiteraturesApi* | [**createSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#createsalesliteratureasync) | **POST** /api/v2/SalesService/SalesLiteratures | Create a sales literature
+*SalesLiteraturesApi* | [**deleteSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#deletesalesliteratureasync) | **DELETE** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Delete a sales literature
+*SalesLiteraturesApi* | [**getExtendedSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#getextendedsalesliteraturesasync) | **GET** /api/v2/SalesService/SalesLiteratures/Extended | Get extended sales literatures
+*SalesLiteraturesApi* | [**getSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#getsalesliteratureasync) | **GET** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID
+*SalesLiteraturesApi* | [**getSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#getsalesliteraturesasync) | **GET** /api/v2/SalesService/SalesLiteratures | Get sales literatures
+*SalesLiteraturesApi* | [**updateSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#updatesalesliteratureasync) | **PUT** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Update a sales literature
+*StoresApi* | [**countStoresAsync**](docs/Api/StoresApi.md#countstoresasync) | **GET** /api/v2/SalesService/Stores/Count | Get stores count
+*StoresApi* | [**createStoreAsync**](docs/Api/StoresApi.md#createstoreasync) | **POST** /api/v2/SalesService/Stores | Create a store
+*StoresApi* | [**deleteStoreAsync**](docs/Api/StoresApi.md#deletestoreasync) | **DELETE** /api/v2/SalesService/Stores/{storeId} | Delete a store
+*StoresApi* | [**getStoreAsync**](docs/Api/StoresApi.md#getstoreasync) | **GET** /api/v2/SalesService/Stores/{storeId} | Get store by ID
+*StoresApi* | [**getStoresAsync**](docs/Api/StoresApi.md#getstoresasync) | **GET** /api/v2/SalesService/Stores | Get stores
+*StoresApi* | [**updateStoreAsync**](docs/Api/StoresApi.md#updatestoreasync) | **PUT** /api/v2/SalesService/Stores/{storeId} | Update a store
 
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
+- [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [ExtendedSalesLiteratureDto](docs/Model/ExtendedSalesLiteratureDto.md)
+- [ExtendedSalesLiteratureDtoListEnvelope](docs/Model/ExtendedSalesLiteratureDtoListEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
 - [InfoRequest](docs/Model/InfoRequest.md)
 - [InfoResponse](docs/Model/InfoResponse.md)
+- [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
+- [LoyaltyProgramCreateDto](docs/Model/LoyaltyProgramCreateDto.md)
+- [LoyaltyProgramDto](docs/Model/LoyaltyProgramDto.md)
+- [LoyaltyProgramDtoEnvelope](docs/Model/LoyaltyProgramDtoEnvelope.md)
+- [LoyaltyProgramDtoListEnvelope](docs/Model/LoyaltyProgramDtoListEnvelope.md)
+- [LoyaltyProgramUpdateDto](docs/Model/LoyaltyProgramUpdateDto.md)
+- [PointOfSaleCreateDto](docs/Model/PointOfSaleCreateDto.md)
+- [PointOfSaleDto](docs/Model/PointOfSaleDto.md)
+- [PointOfSaleDtoEnvelope](docs/Model/PointOfSaleDtoEnvelope.md)
+- [PointOfSaleDtoListEnvelope](docs/Model/PointOfSaleDtoListEnvelope.md)
+- [PointOfSaleUpdateDto](docs/Model/PointOfSaleUpdateDto.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [SalesLiteratureCreateDto](docs/Model/SalesLiteratureCreateDto.md)
+- [SalesLiteratureDto](docs/Model/SalesLiteratureDto.md)
+- [SalesLiteratureDtoEnvelope](docs/Model/SalesLiteratureDtoEnvelope.md)
+- [SalesLiteratureDtoListEnvelope](docs/Model/SalesLiteratureDtoListEnvelope.md)
+- [SalesLiteratureTypeDto](docs/Model/SalesLiteratureTypeDto.md)
+- [SalesLiteratureUpdateDto](docs/Model/SalesLiteratureUpdateDto.md)
+- [StoreCreateDto](docs/Model/StoreCreateDto.md)
+- [StoreDto](docs/Model/StoreDto.md)
+- [StoreDtoEnvelope](docs/Model/StoreDtoEnvelope.md)
+- [StoreDtoListEnvelope](docs/Model/StoreDtoListEnvelope.md)
+- [StoreUpdateDto](docs/Model/StoreUpdateDto.md)
+- [TenantDto](docs/Model/TenantDto.md)
 - [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
 - [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
 
@@ -126,6 +181,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

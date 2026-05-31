@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -85,7 +85,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countStockItemTagsByItemId()`
 
 ```php
-countStockItemTagsByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count tags for a stock item
@@ -105,12 +105,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->countStockItemTagsByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->countStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->countStockItemTagsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -121,6 +122,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -1971,7 +1973,7 @@ No authorization required
 ## `getStockItemTagById()`
 
 ```php
-getStockItemTagById($item_id, $item_tag_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTagDtoEnvelope
+getStockItemTagById($tenant_id, $item_id, $item_tag_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTagDtoEnvelope
 ```
 
 Get tag by ID for a stock item
@@ -1991,13 +1993,14 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $item_tag_id = 'item_tag_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getStockItemTagById($item_id, $item_tag_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemTagById($tenant_id, $item_id, $item_tag_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemTagById: ', $e->getMessage(), PHP_EOL;
@@ -2008,6 +2011,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **item_id** | **string**|  | |
 | **item_tag_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
@@ -2033,7 +2037,7 @@ No authorization required
 ## `getStockItemTagsByItemId()`
 
 ```php
-getStockItemTagsByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTagDtoListEnvelope
+getStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTagDtoListEnvelope
 ```
 
 Get tags for a stock item
@@ -2053,12 +2057,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getStockItemTagsByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemTagsByItemId($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemTagsByItemId: ', $e->getMessage(), PHP_EOL;
@@ -2069,6 +2074,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -2215,7 +2221,7 @@ No authorization required
 ## `getStockItemTypeById()`
 
 ```php
-getStockItemTypeById($item_id, $item_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTypeDtoEnvelope
+getStockItemTypeById($tenant_id, $item_id, $item_type_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTypeDtoEnvelope
 ```
 
 Get type by ID for a stock item
@@ -2235,13 +2241,14 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $item_type_id = 'item_type_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getStockItemTypeById($item_id, $item_type_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemTypeById($tenant_id, $item_id, $item_type_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemTypeById: ', $e->getMessage(), PHP_EOL;
@@ -2252,6 +2259,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **item_id** | **string**|  | |
 | **item_type_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
@@ -2277,7 +2285,7 @@ No authorization required
 ## `getStockItemTypesByItemId()`
 
 ```php
-getStockItemTypesByItemId($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTypeDtoListEnvelope
+getStockItemTypesByItemId($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemTypeDtoListEnvelope
 ```
 
 Get types for a stock item
@@ -2297,12 +2305,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getStockItemTypesByItemId($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getStockItemTypesByItemId($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemsApi->getStockItemTypesByItemId: ', $e->getMessage(), PHP_EOL;
@@ -2313,6 +2322,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **item_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

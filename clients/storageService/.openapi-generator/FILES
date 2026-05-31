@@ -5,7 +5,8 @@ README.md
 composer.json
 docs/Api/AvatarsApi.md
 docs/Api/BlobsApi.md
-docs/Api/FenixAllianceABSWebApi.md
+docs/Api/CompletionsApi.md
+docs/Api/FenixAlliancePortalsWebsiteApi.md
 docs/Api/FilesApi.md
 docs/Api/RadzenEditorApi.md
 docs/Api/UploadsApi.md
@@ -30,7 +31,8 @@ docs/Model/TwoFactorResponse.md
 git_push.sh
 lib/Api/AvatarsApi.php
 lib/Api/BlobsApi.php
-lib/Api/FenixAllianceABSWebApi.php
+lib/Api/CompletionsApi.php
+lib/Api/FenixAlliancePortalsWebsiteApi.php
 lib/Api/FilesApi.php
 lib/Api/RadzenEditorApi.php
 lib/Api/UploadsApi.php
@@ -58,3 +60,5 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/CompletionsApiTest.php
+test/Api/FenixAlliancePortalsWebsiteApiTest.php

@@ -3,7 +3,8 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/FenixAllianceABSWebApi.md
+docs/Api/CompletionsApi.md
+docs/Api/FenixAlliancePortalsWebsiteApi.md
 docs/Api/OrdersApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/ContactDto.md
@@ -38,7 +39,8 @@ docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 docs/Model/UserDto.md
 git_push.sh
-lib/Api/FenixAllianceABSWebApi.php
+lib/Api/CompletionsApi.php
+lib/Api/FenixAlliancePortalsWebsiteApi.php
 lib/Api/OrdersApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -78,3 +80,5 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UserDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/CompletionsApiTest.php
+test/Api/FenixAlliancePortalsWebsiteApiTest.php

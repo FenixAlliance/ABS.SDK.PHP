@@ -1,6 +1,6 @@
 # OpenAPI\Client\InvoicesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -52,7 +52,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `aggregateInvoiceDiscounts()`
 
 ```php
-aggregateInvoiceDiscounts($request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateInvoiceDiscounts($tenant_id, $request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate invoice discounts.
@@ -72,11 +72,12 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $request_body = array('request_body_example'); // string[]
 $currency_id = 'currency_id_example'; // string
 
 try {
-    $result = $apiInstance->aggregateInvoiceDiscounts($request_body, $currency_id);
+    $result = $apiInstance->aggregateInvoiceDiscounts($tenant_id, $request_body, $currency_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->aggregateInvoiceDiscounts: ', $e->getMessage(), PHP_EOL;
@@ -87,6 +88,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 | **currency_id** | **string**|  | [optional] |
 
@@ -110,7 +112,7 @@ No authorization required
 ## `aggregateInvoiceGlobalSurcharges()`
 
 ```php
-aggregateInvoiceGlobalSurcharges($request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateInvoiceGlobalSurcharges($tenant_id, $request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate invoice global surcharges.
@@ -130,11 +132,12 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $request_body = array('request_body_example'); // string[]
 $currency_id = 'currency_id_example'; // string
 
 try {
-    $result = $apiInstance->aggregateInvoiceGlobalSurcharges($request_body, $currency_id);
+    $result = $apiInstance->aggregateInvoiceGlobalSurcharges($tenant_id, $request_body, $currency_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->aggregateInvoiceGlobalSurcharges: ', $e->getMessage(), PHP_EOL;
@@ -145,6 +148,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 | **currency_id** | **string**|  | [optional] |
 
@@ -168,7 +172,7 @@ No authorization required
 ## `aggregateInvoiceTaxBases()`
 
 ```php
-aggregateInvoiceTaxBases($request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateInvoiceTaxBases($tenant_id, $request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate invoice tax bases.
@@ -188,11 +192,12 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $request_body = array('request_body_example'); // string[]
 $currency_id = 'currency_id_example'; // string
 
 try {
-    $result = $apiInstance->aggregateInvoiceTaxBases($request_body, $currency_id);
+    $result = $apiInstance->aggregateInvoiceTaxBases($tenant_id, $request_body, $currency_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->aggregateInvoiceTaxBases: ', $e->getMessage(), PHP_EOL;
@@ -203,6 +208,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 | **currency_id** | **string**|  | [optional] |
 
@@ -226,7 +232,7 @@ No authorization required
 ## `aggregateInvoiceTaxes()`
 
 ```php
-aggregateInvoiceTaxes($request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateInvoiceTaxes($tenant_id, $request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate invoice taxes.
@@ -246,11 +252,12 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $request_body = array('request_body_example'); // string[]
 $currency_id = 'currency_id_example'; // string
 
 try {
-    $result = $apiInstance->aggregateInvoiceTaxes($request_body, $currency_id);
+    $result = $apiInstance->aggregateInvoiceTaxes($tenant_id, $request_body, $currency_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->aggregateInvoiceTaxes: ', $e->getMessage(), PHP_EOL;
@@ -261,6 +268,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 | **currency_id** | **string**|  | [optional] |
 
@@ -284,7 +292,7 @@ No authorization required
 ## `aggregateInvoiceTotals()`
 
 ```php
-aggregateInvoiceTotals($request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
+aggregateInvoiceTotals($tenant_id, $request_body, $currency_id): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Aggregate invoice totals.
@@ -304,11 +312,12 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $request_body = array('request_body_example'); // string[]
 $currency_id = 'currency_id_example'; // string
 
 try {
-    $result = $apiInstance->aggregateInvoiceTotals($request_body, $currency_id);
+    $result = $apiInstance->aggregateInvoiceTotals($tenant_id, $request_body, $currency_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->aggregateInvoiceTotals: ', $e->getMessage(), PHP_EOL;
@@ -319,6 +328,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **request_body** | [**string[]**](../Model/string.md)|  | |
 | **currency_id** | **string**|  | [optional] |
 
@@ -1762,7 +1772,7 @@ No authorization required
 ## `getInvoicePayments()`
 
 ```php
-getInvoicePayments($invoice_id): \OpenAPI\Client\Model\PaymentDtoIReadOnlyListEnvelope
+getInvoicePayments($tenant_id, $invoice_id): \OpenAPI\Client\Model\PaymentDtoIReadOnlyListEnvelope
 ```
 
 Get payments for an invoice.
@@ -1782,10 +1792,11 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 
 try {
-    $result = $apiInstance->getInvoicePayments($invoice_id);
+    $result = $apiInstance->getInvoicePayments($tenant_id, $invoice_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoicePayments: ', $e->getMessage(), PHP_EOL;
@@ -1796,6 +1807,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 
 ### Return type
@@ -1818,7 +1830,7 @@ No authorization required
 ## `getInvoicePaymentsCount()`
 
 ```php
-getInvoicePaymentsCount($invoice_id): \OpenAPI\Client\Model\Int32Envelope
+getInvoicePaymentsCount($tenant_id, $invoice_id): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get the count of payments for an invoice.
@@ -1838,10 +1850,11 @@ $apiInstance = new OpenAPI\Client\Api\InvoicesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $invoice_id = 'invoice_id_example'; // string
 
 try {
-    $result = $apiInstance->getInvoicePaymentsCount($invoice_id);
+    $result = $apiInstance->getInvoicePaymentsCount($tenant_id, $invoice_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InvoicesApi->getInvoicePaymentsCount: ', $e->getMessage(), PHP_EOL;
@@ -1852,6 +1865,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **invoice_id** | **string**|  | |
 
 ### Return type

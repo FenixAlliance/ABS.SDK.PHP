@@ -71,7 +71,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -113,23 +113,24 @@ Class | Method | HTTP request | Description
 *BusinessDomainsApi* | [**getBusinessDomainByIdAsync**](docs/Api/BusinessDomainsApi.md#getbusinessdomainbyidasync) | **GET** /api/v2/ContentService/BusinessDomains/{businessDomainId} | Get business domain by ID
 *BusinessDomainsApi* | [**getBusinessDomainsAsync**](docs/Api/BusinessDomainsApi.md#getbusinessdomainsasync) | **GET** /api/v2/ContentService/BusinessDomains | Get business domains
 *BusinessDomainsApi* | [**getBusinessDomainsCountAsync**](docs/Api/BusinessDomainsApi.md#getbusinessdomainscountasync) | **GET** /api/v2/ContentService/BusinessDomains/Count | Get business domains count
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
 *PortalsApi* | [**countPortalsAsync**](docs/Api/PortalsApi.md#countportalsasync) | **GET** /api/v2/ContentService/Portals/Count | Count portals
 *PortalsApi* | [**createWebPortalAsync**](docs/Api/PortalsApi.md#createwebportalasync) | **POST** /api/v2/ContentService/Portals | Create a new web portal
 *PortalsApi* | [**deleteWebPortalAsync**](docs/Api/PortalsApi.md#deletewebportalasync) | **DELETE** /api/v2/ContentService/Portals/{portalId} | Delete a web portal
@@ -183,6 +184,12 @@ Class | Method | HTTP request | Description
 *WebTemplatesApi* | [**getWebTemplateByIdAsync**](docs/Api/WebTemplatesApi.md#getwebtemplatebyidasync) | **GET** /api/v2/ContentService/WebTemplates/{webTemplateId} | Get web template by ID
 *WebTemplatesApi* | [**getWebTemplatesAsync**](docs/Api/WebTemplatesApi.md#getwebtemplatesasync) | **GET** /api/v2/ContentService/WebTemplates | Get web templates
 *WebTemplatesApi* | [**updateWebTemplateAsync**](docs/Api/WebTemplatesApi.md#updatewebtemplateasync) | **PUT** /api/v2/ContentService/WebTemplates/{webTemplateId} | Update a web template
+*WebsiteThemesApi* | [**createWebsiteThemeAsync**](docs/Api/WebsiteThemesApi.md#createwebsitethemeasync) | **POST** /api/v2/ContentService/WebsiteThemes | Create a new website theme
+*WebsiteThemesApi* | [**deleteWebsiteThemeAsync**](docs/Api/WebsiteThemesApi.md#deletewebsitethemeasync) | **DELETE** /api/v2/ContentService/WebsiteThemes/{id} | Delete a website theme
+*WebsiteThemesApi* | [**getWebsiteThemeByIdAsync**](docs/Api/WebsiteThemesApi.md#getwebsitethemebyidasync) | **GET** /api/v2/ContentService/WebsiteThemes/{id} | Get website theme by ID
+*WebsiteThemesApi* | [**getWebsiteThemesAsync**](docs/Api/WebsiteThemesApi.md#getwebsitethemesasync) | **GET** /api/v2/ContentService/WebsiteThemes | Get all website themes
+*WebsiteThemesApi* | [**getWebsiteThemesCountAsync**](docs/Api/WebsiteThemesApi.md#getwebsitethemescountasync) | **GET** /api/v2/ContentService/WebsiteThemes/Count | Get website themes count
+*WebsiteThemesApi* | [**updateWebsiteThemeAsync**](docs/Api/WebsiteThemesApi.md#updatewebsitethemeasync) | **PUT** /api/v2/ContentService/WebsiteThemes/{id} | Update a website theme
 
 ## Models
 
@@ -190,6 +197,11 @@ Class | Method | HTTP request | Description
 - [AdvancedOptions](docs/Model/AdvancedOptions.md)
 - [AllianceBusinessSuiteIntegrationOptions](docs/Model/AllianceBusinessSuiteIntegrationOptions.md)
 - [AppleIcons](docs/Model/AppleIcons.md)
+- [ApplyClause](docs/Model/ApplyClause.md)
+- [ApplyQueryOption](docs/Model/ApplyQueryOption.md)
+- [AsnEncodedData](docs/Model/AsnEncodedData.md)
+- [Assembly](docs/Model/Assembly.md)
+- [AsymmetricAlgorithm](docs/Model/AsymmetricAlgorithm.md)
 - [AzureAppInsightIntegrationOptions](docs/Model/AzureAppInsightIntegrationOptions.md)
 - [AzureStorageIntegrationOptions](docs/Model/AzureStorageIntegrationOptions.md)
 - [Background](docs/Model/Background.md)
@@ -221,24 +233,46 @@ Class | Method | HTTP request | Description
 - [BusinessDomainDto](docs/Model/BusinessDomainDto.md)
 - [BusinessDomainDtoEnvelope](docs/Model/BusinessDomainDtoEnvelope.md)
 - [BusinessDomainDtoListEnvelope](docs/Model/BusinessDomainDtoListEnvelope.md)
+- [ByteReadOnlyMemory](docs/Model/ByteReadOnlyMemory.md)
+- [ByteReadOnlySpan](docs/Model/ByteReadOnlySpan.md)
+- [CancellationToken](docs/Model/CancellationToken.md)
 - [CartOptions](docs/Model/CartOptions.md)
+- [Claim](docs/Model/Claim.md)
+- [ClaimsIdentity](docs/Model/ClaimsIdentity.md)
+- [ClaimsPrincipal](docs/Model/ClaimsPrincipal.md)
 - [ColorOptions](docs/Model/ColorOptions.md)
 - [ColorScheme](docs/Model/ColorScheme.md)
+- [ComputeClause](docs/Model/ComputeClause.md)
+- [ComputeExpression](docs/Model/ComputeExpression.md)
+- [ComputeQueryOption](docs/Model/ComputeQueryOption.md)
+- [ConnectionInfo](docs/Model/ConnectionInfo.md)
+- [ConstructorInfo](docs/Model/ConstructorInfo.md)
 - [ContactOptions](docs/Model/ContactOptions.md)
 - [ContactPoint](docs/Model/ContactPoint.md)
+- [CountQueryOption](docs/Model/CountQueryOption.md)
 - [CouponsOptions](docs/Model/CouponsOptions.md)
 - [Creator](docs/Model/Creator.md)
+- [CustomAttributeData](docs/Model/CustomAttributeData.md)
+- [CustomAttributeNamedArgument](docs/Model/CustomAttributeNamedArgument.md)
+- [CustomAttributeTypedArgument](docs/Model/CustomAttributeTypedArgument.md)
 - [CustomFont](docs/Model/CustomFont.md)
 - [DashboardOptions](docs/Model/DashboardOptions.md)
+- [DefaultQueryConfigurations](docs/Model/DefaultQueryConfigurations.md)
 - [DownloadablesOptions](docs/Model/DownloadablesOptions.md)
 - [EPaycoIntegrationOptions](docs/Model/EPaycoIntegrationOptions.md)
+- [ETag](docs/Model/ETag.md)
+- [EdmReferentialConstraintPropertyPair](docs/Model/EdmReferentialConstraintPropertyPair.md)
 - [EmailOptions](docs/Model/EmailOptions.md)
 - [EmailsOptions](docs/Model/EmailsOptions.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
+- [EventInfo](docs/Model/EventInfo.md)
 - [FacebookIntegrationOptions](docs/Model/FacebookIntegrationOptions.md)
 - [Favicons](docs/Model/Favicons.md)
 - [FenixAllianceIntegrationsOptions](docs/Model/FenixAllianceIntegrationsOptions.md)
+- [FieldInfo](docs/Model/FieldInfo.md)
+- [FilterClause](docs/Model/FilterClause.md)
+- [FilterQueryOption](docs/Model/FilterQueryOption.md)
 - [FooterOptions](docs/Model/FooterOptions.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [ForumOptions](docs/Model/ForumOptions.md)
@@ -251,7 +285,32 @@ Class | Method | HTTP request | Description
 - [GoogleRecaptchaIntegrationOptions](docs/Model/GoogleRecaptchaIntegrationOptions.md)
 - [GoogleTagManagerIntegrationOptions](docs/Model/GoogleTagManagerIntegrationOptions.md)
 - [HeaderOptions](docs/Model/HeaderOptions.md)
+- [HostString](docs/Model/HostString.md)
+- [HttpContext](docs/Model/HttpContext.md)
+- [HttpRequest](docs/Model/HttpRequest.md)
+- [HttpResponse](docs/Model/HttpResponse.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
+- [IEdmEntityContainer](docs/Model/IEdmEntityContainer.md)
+- [IEdmEntityContainerElement](docs/Model/IEdmEntityContainerElement.md)
+- [IEdmEntityType](docs/Model/IEdmEntityType.md)
+- [IEdmExpression](docs/Model/IEdmExpression.md)
+- [IEdmModel](docs/Model/IEdmModel.md)
+- [IEdmNavigationProperty](docs/Model/IEdmNavigationProperty.md)
+- [IEdmNavigationPropertyBinding](docs/Model/IEdmNavigationPropertyBinding.md)
+- [IEdmNavigationSource](docs/Model/IEdmNavigationSource.md)
+- [IEdmPathExpression](docs/Model/IEdmPathExpression.md)
+- [IEdmProperty](docs/Model/IEdmProperty.md)
+- [IEdmReferentialConstraint](docs/Model/IEdmReferentialConstraint.md)
+- [IEdmSchemaElement](docs/Model/IEdmSchemaElement.md)
+- [IEdmStructuralProperty](docs/Model/IEdmStructuralProperty.md)
+- [IEdmStructuredType](docs/Model/IEdmStructuredType.md)
+- [IEdmTerm](docs/Model/IEdmTerm.md)
+- [IEdmType](docs/Model/IEdmType.md)
+- [IEdmTypeReference](docs/Model/IEdmTypeReference.md)
+- [IEdmVocabularyAnnotation](docs/Model/IEdmVocabularyAnnotation.md)
+- [IIdentity](docs/Model/IIdentity.md)
+- [IPAddress](docs/Model/IPAddress.md)
+- [ISession](docs/Model/ISession.md)
 - [IdentityAndPrivacyOptions](docs/Model/IdentityAndPrivacyOptions.md)
 - [InfinityComexIntegrationOptions](docs/Model/InfinityComexIntegrationOptions.md)
 - [InfoRequest](docs/Model/InfoRequest.md)
@@ -260,27 +319,47 @@ Class | Method | HTTP request | Description
 - [IntegrationOptions](docs/Model/IntegrationOptions.md)
 - [IntegrationsOptions](docs/Model/IntegrationsOptions.md)
 - [InventoryOptions](docs/Model/InventoryOptions.md)
+- [KeySizes](docs/Model/KeySizes.md)
 - [LayoutOptions](docs/Model/LayoutOptions.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [Logo](docs/Model/Logo.md)
 - [MSAppTile](docs/Model/MSAppTile.md)
 - [Margin](docs/Model/Margin.md)
 - [MeasurementOptions](docs/Model/MeasurementOptions.md)
+- [MemberInfo](docs/Model/MemberInfo.md)
 - [MenuOptions](docs/Model/MenuOptions.md)
+- [MethodBase](docs/Model/MethodBase.md)
+- [MethodInfo](docs/Model/MethodInfo.md)
 - [MicrosoftAzureIntegrationOptions](docs/Model/MicrosoftAzureIntegrationOptions.md)
 - [MicrosoftIntegrationsOptions](docs/Model/MicrosoftIntegrationsOptions.md)
+- [Module](docs/Model/Module.md)
+- [ModuleHandle](docs/Model/ModuleHandle.md)
+- [ODataPathSegment](docs/Model/ODataPathSegment.md)
+- [ODataQueryContext](docs/Model/ODataQueryContext.md)
+- [ODataRawQueryOptions](docs/Model/ODataRawQueryOptions.md)
+- [Oid](docs/Model/Oid.md)
 - [OpenExchangeRatesIntegrationsOptions](docs/Model/OpenExchangeRatesIntegrationsOptions.md)
 - [Operation](docs/Model/Operation.md)
+- [OrderByClause](docs/Model/OrderByClause.md)
+- [OrderByNode](docs/Model/OrderByNode.md)
+- [OrderByQueryOption](docs/Model/OrderByQueryOption.md)
 - [Organization](docs/Model/Organization.md)
 - [Padding](docs/Model/Padding.md)
+- [ParameterInfo](docs/Model/ParameterInfo.md)
+- [PathString](docs/Model/PathString.md)
 - [PaymentMethod](docs/Model/PaymentMethod.md)
 - [PaymentOptions](docs/Model/PaymentOptions.md)
+- [PipeWriter](docs/Model/PipeWriter.md)
 - [PortalOptions](docs/Model/PortalOptions.md)
 - [PortalOptionsEnvelope](docs/Model/PortalOptionsEnvelope.md)
 - [PortalSettings](docs/Model/PortalSettings.md)
 - [PortalSettingsEnvelope](docs/Model/PortalSettingsEnvelope.md)
 - [PriceCalculationOptions](docs/Model/PriceCalculationOptions.md)
 - [PrivacyOptions](docs/Model/PrivacyOptions.md)
+- [PropertyInfo](docs/Model/PropertyInfo.md)
+- [PublicKey](docs/Model/PublicKey.md)
+- [QueryString](docs/Model/QueryString.md)
+- [RangeVariable](docs/Model/RangeVariable.md)
 - [RecommendationOptions](docs/Model/RecommendationOptions.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
@@ -288,22 +367,42 @@ Class | Method | HTTP request | Description
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [ResponsiveOptions](docs/Model/ResponsiveOptions.md)
 - [ReviewsOptions](docs/Model/ReviewsOptions.md)
+- [RuntimeFieldHandle](docs/Model/RuntimeFieldHandle.md)
+- [RuntimeMethodHandle](docs/Model/RuntimeMethodHandle.md)
+- [RuntimeTypeHandle](docs/Model/RuntimeTypeHandle.md)
+- [SafeWaitHandle](docs/Model/SafeWaitHandle.md)
+- [SearchClause](docs/Model/SearchClause.md)
+- [SearchQueryOption](docs/Model/SearchQueryOption.md)
+- [SelectExpandClause](docs/Model/SelectExpandClause.md)
+- [SelectExpandQueryOption](docs/Model/SelectExpandQueryOption.md)
 - [SendgridIntegrationsOptions](docs/Model/SendgridIntegrationsOptions.md)
 - [SeoOptions](docs/Model/SeoOptions.md)
 - [ServicesOptions](docs/Model/ServicesOptions.md)
+- [SingleValueNode](docs/Model/SingleValueNode.md)
+- [SkipQueryOption](docs/Model/SkipQueryOption.md)
+- [SkipTokenQueryOption](docs/Model/SkipTokenQueryOption.md)
 - [SlidingBarOptions](docs/Model/SlidingBarOptions.md)
 - [SocialMediaOptions](docs/Model/SocialMediaOptions.md)
 - [StoreDataRetentionPolicy](docs/Model/StoreDataRetentionPolicy.md)
 - [StoreOptions](docs/Model/StoreOptions.md)
+- [StringStringKeyValuePair](docs/Model/StringStringKeyValuePair.md)
+- [StringStringValuesKeyValuePair](docs/Model/StringStringValuesKeyValuePair.md)
+- [StructLayoutAttribute](docs/Model/StructLayoutAttribute.md)
 - [StudioOptions](docs/Model/StudioOptions.md)
 - [SubscriptionsOptions](docs/Model/SubscriptionsOptions.md)
 - [TaxCalculationOptions](docs/Model/TaxCalculationOptions.md)
 - [ThemingOptions](docs/Model/ThemingOptions.md)
 - [TitleBarOptions](docs/Model/TitleBarOptions.md)
+- [TopQueryOption](docs/Model/TopQueryOption.md)
+- [TransformationNode](docs/Model/TransformationNode.md)
 - [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
 - [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
+- [Type](docs/Model/Type.md)
+- [TypeInfo](docs/Model/TypeInfo.md)
+- [TypeObjectKeyValuePair](docs/Model/TypeObjectKeyValuePair.md)
 - [Typography](docs/Model/Typography.md)
 - [TypographyOptions](docs/Model/TypographyOptions.md)
+- [WaitHandle](docs/Model/WaitHandle.md)
 - [WebContentCreateDto](docs/Model/WebContentCreateDto.md)
 - [WebContentDto](docs/Model/WebContentDto.md)
 - [WebContentDtoEnvelope](docs/Model/WebContentDtoEnvelope.md)
@@ -329,11 +428,21 @@ Class | Method | HTTP request | Description
 - [WebPortalDtoEnvelope](docs/Model/WebPortalDtoEnvelope.md)
 - [WebPortalDtoListEnvelope](docs/Model/WebPortalDtoListEnvelope.md)
 - [WebPortalUpdateDto](docs/Model/WebPortalUpdateDto.md)
+- [WebSocketManager](docs/Model/WebSocketManager.md)
 - [WebTemplateCreateDto](docs/Model/WebTemplateCreateDto.md)
 - [WebTemplateDto](docs/Model/WebTemplateDto.md)
 - [WebTemplateDtoEnvelope](docs/Model/WebTemplateDtoEnvelope.md)
 - [WebTemplateDtoListEnvelope](docs/Model/WebTemplateDtoListEnvelope.md)
 - [WebTemplateUpdateDto](docs/Model/WebTemplateUpdateDto.md)
+- [WebsiteThemeCreateDto](docs/Model/WebsiteThemeCreateDto.md)
+- [WebsiteThemeDto](docs/Model/WebsiteThemeDto.md)
+- [WebsiteThemeDtoETag](docs/Model/WebsiteThemeDtoETag.md)
+- [WebsiteThemeDtoListEnvelope](docs/Model/WebsiteThemeDtoListEnvelope.md)
+- [WebsiteThemeDtoODataQueryOptions](docs/Model/WebsiteThemeDtoODataQueryOptions.md)
+- [WebsiteThemeUpdateDto](docs/Model/WebsiteThemeUpdateDto.md)
+- [X500DistinguishedName](docs/Model/X500DistinguishedName.md)
+- [X509Certificate2](docs/Model/X509Certificate2.md)
+- [X509Extension](docs/Model/X509Extension.md)
 
 ## Authorization
 Endpoints do not require authorization.
@@ -355,6 +464,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

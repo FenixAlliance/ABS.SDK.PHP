@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
+**timestamp** | **\DateTime** |  | [optional]
 **ip** | **string** |  | [optional]
 **ua** | **string** |  | [optional]
 **city** | **string** |  | [optional]

@@ -51,99 +51,257 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\FenixAllianceABSWebApi(
+$apiInstance = new OpenAPI\Client\Api\AirwayBillsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$return_url = 'return_url_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$bill_id = 'bill_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$waybill_line_create_dto = new \OpenAPI\Client\Model\WaybillLineCreateDto(); // \OpenAPI\Client\Model\WaybillLineCreateDto
 
 try {
-    $apiInstance->accountLogoutPost($return_url);
+    $result = $apiInstance->addAirwayBillLineAsync($tenant_id, $bill_id, $api_version, $x_api_version, $waybill_line_create_dto);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FenixAllianceABSWebApi->accountLogoutPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AirwayBillsApi->addAirwayBillLineAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
-*StockApi* | [**getContactsAsync**](docs/Api/StockApi.md#getcontactsasync) | **GET** /api/v2/LogisticsService/Stock | Get all stock-related contacts
-*WarehousingApi* | [**createItemPackingSlipAsync**](docs/Api/WarehousingApi.md#createitempackingslipasync) | **POST** /api/v2/LogisticsService/ItemPackingSlips | Create an item packing slip
-*WarehousingApi* | [**createItemPackingSlipEntryAsync**](docs/Api/WarehousingApi.md#createitempackingslipentryasync) | **POST** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries | Create a packing slip entry
-*WarehousingApi* | [**createItemPickListAsync**](docs/Api/WarehousingApi.md#createitempicklistasync) | **POST** /api/v2/LogisticsService/ItemPickLists | Create an item pick list
-*WarehousingApi* | [**createItemPickListEntryAsync**](docs/Api/WarehousingApi.md#createitempicklistentryasync) | **POST** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries | Create a pick list entry
-*WarehousingApi* | [**createItemRestockAsync**](docs/Api/WarehousingApi.md#createitemrestockasync) | **POST** /api/v2/LogisticsService/ItemRestocks | Create an item restock
-*WarehousingApi* | [**createItemRestockEntryAsync**](docs/Api/WarehousingApi.md#createitemrestockentryasync) | **POST** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries | Create a restock entry
-*WarehousingApi* | [**createItemRetainSampleAsync**](docs/Api/WarehousingApi.md#createitemretainsampleasync) | **POST** /api/v2/LogisticsService/ItemRetainSamples | Create an item retain sample
-*WarehousingApi* | [**createWarehouseAsync**](docs/Api/WarehousingApi.md#createwarehouseasync) | **POST** /api/v2/LogisticsService/Warehouses | Create a warehouse
-*WarehousingApi* | [**deleteItemPackingSlipAsync**](docs/Api/WarehousingApi.md#deleteitempackingslipasync) | **DELETE** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId} | Delete an item packing slip
-*WarehousingApi* | [**deleteItemPackingSlipEntryAsync**](docs/Api/WarehousingApi.md#deleteitempackingslipentryasync) | **DELETE** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/{entryId} | Delete a packing slip entry
-*WarehousingApi* | [**deleteItemPickListAsync**](docs/Api/WarehousingApi.md#deleteitempicklistasync) | **DELETE** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Delete an item pick list
-*WarehousingApi* | [**deleteItemPickListEntryAsync**](docs/Api/WarehousingApi.md#deleteitempicklistentryasync) | **DELETE** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Delete a pick list entry
-*WarehousingApi* | [**deleteItemRestockAsync**](docs/Api/WarehousingApi.md#deleteitemrestockasync) | **DELETE** /api/v2/LogisticsService/ItemRestocks/{restockId} | Delete an item restock
-*WarehousingApi* | [**deleteItemRestockEntryAsync**](docs/Api/WarehousingApi.md#deleteitemrestockentryasync) | **DELETE** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/{entryId} | Delete a restock entry
-*WarehousingApi* | [**deleteItemRetainSampleAsync**](docs/Api/WarehousingApi.md#deleteitemretainsampleasync) | **DELETE** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Delete an item retain sample
-*WarehousingApi* | [**deleteWarehouseAsync**](docs/Api/WarehousingApi.md#deletewarehouseasync) | **DELETE** /api/v2/LogisticsService/Warehouses/{warehouseId} | Delete a warehouse
-*WarehousingApi* | [**getItemPackingSlipByIdAsync**](docs/Api/WarehousingApi.md#getitempackingslipbyidasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId} | Get item packing slip by ID
-*WarehousingApi* | [**getItemPackingSlipEntriesAsync**](docs/Api/WarehousingApi.md#getitempackingslipentriesasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries | Get packing slip entries
-*WarehousingApi* | [**getItemPackingSlipEntriesCountAsync**](docs/Api/WarehousingApi.md#getitempackingslipentriescountasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/Count | Get packing slip entries count
-*WarehousingApi* | [**getItemPackingSlipEntryByIdAsync**](docs/Api/WarehousingApi.md#getitempackingslipentrybyidasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/{entryId} | Get packing slip entry by ID
-*WarehousingApi* | [**getItemPackingSlipsAsync**](docs/Api/WarehousingApi.md#getitempackingslipsasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips | Get all item packing slips
-*WarehousingApi* | [**getItemPackingSlipsCountAsync**](docs/Api/WarehousingApi.md#getitempackingslipscountasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/Count | Get item packing slips count
-*WarehousingApi* | [**getItemPickListByIdAsync**](docs/Api/WarehousingApi.md#getitempicklistbyidasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Get item pick list by ID
-*WarehousingApi* | [**getItemPickListEntriesAsync**](docs/Api/WarehousingApi.md#getitempicklistentriesasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries | Get pick list entries
-*WarehousingApi* | [**getItemPickListEntriesCountAsync**](docs/Api/WarehousingApi.md#getitempicklistentriescountasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/Count | Get pick list entries count
-*WarehousingApi* | [**getItemPickListEntryByIdAsync**](docs/Api/WarehousingApi.md#getitempicklistentrybyidasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Get pick list entry by ID
-*WarehousingApi* | [**getItemPickListsAsync**](docs/Api/WarehousingApi.md#getitempicklistsasync) | **GET** /api/v2/LogisticsService/ItemPickLists | Get all item pick lists
-*WarehousingApi* | [**getItemPickListsCountAsync**](docs/Api/WarehousingApi.md#getitempicklistscountasync) | **GET** /api/v2/LogisticsService/ItemPickLists/Count | Get item pick lists count
-*WarehousingApi* | [**getItemRestockByIdAsync**](docs/Api/WarehousingApi.md#getitemrestockbyidasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId} | Get item restock by ID
-*WarehousingApi* | [**getItemRestockEntriesAsync**](docs/Api/WarehousingApi.md#getitemrestockentriesasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries | Get restock entries
-*WarehousingApi* | [**getItemRestockEntriesCountAsync**](docs/Api/WarehousingApi.md#getitemrestockentriescountasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/Count | Get restock entries count
-*WarehousingApi* | [**getItemRestockEntryByIdAsync**](docs/Api/WarehousingApi.md#getitemrestockentrybyidasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/{entryId} | Get restock entry by ID
-*WarehousingApi* | [**getItemRestocksAsync**](docs/Api/WarehousingApi.md#getitemrestocksasync) | **GET** /api/v2/LogisticsService/ItemRestocks | Get all item restocks
-*WarehousingApi* | [**getItemRestocksCountAsync**](docs/Api/WarehousingApi.md#getitemrestockscountasync) | **GET** /api/v2/LogisticsService/ItemRestocks/Count | Get item restocks count
-*WarehousingApi* | [**getItemRetainSampleByIdAsync**](docs/Api/WarehousingApi.md#getitemretainsamplebyidasync) | **GET** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Get item retain sample by ID
-*WarehousingApi* | [**getItemRetainSamplesAsync**](docs/Api/WarehousingApi.md#getitemretainsamplesasync) | **GET** /api/v2/LogisticsService/ItemRetainSamples | Get all item retain samples
-*WarehousingApi* | [**getItemRetainSamplesCountAsync**](docs/Api/WarehousingApi.md#getitemretainsamplescountasync) | **GET** /api/v2/LogisticsService/ItemRetainSamples/Count | Get item retain samples count
-*WarehousingApi* | [**getWarehouseByIdAsync**](docs/Api/WarehousingApi.md#getwarehousebyidasync) | **GET** /api/v2/LogisticsService/Warehouses/{warehouseId} | Get warehouse by ID
-*WarehousingApi* | [**getWarehousesAsync**](docs/Api/WarehousingApi.md#getwarehousesasync) | **GET** /api/v2/LogisticsService/Warehouses | Get all warehouses
-*WarehousingApi* | [**getWarehousesCountAsync**](docs/Api/WarehousingApi.md#getwarehousescountasync) | **GET** /api/v2/LogisticsService/Warehouses/Count | Get warehouses count
-*WarehousingApi* | [**updateItemPackingSlipAsync**](docs/Api/WarehousingApi.md#updateitempackingslipasync) | **PUT** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId} | Update an item packing slip
-*WarehousingApi* | [**updateItemPackingSlipEntryAsync**](docs/Api/WarehousingApi.md#updateitempackingslipentryasync) | **PUT** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/{entryId} | Update a packing slip entry
-*WarehousingApi* | [**updateItemPickListAsync**](docs/Api/WarehousingApi.md#updateitempicklistasync) | **PUT** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Update an item pick list
-*WarehousingApi* | [**updateItemPickListEntryAsync**](docs/Api/WarehousingApi.md#updateitempicklistentryasync) | **PUT** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Update a pick list entry
-*WarehousingApi* | [**updateItemRestockAsync**](docs/Api/WarehousingApi.md#updateitemrestockasync) | **PUT** /api/v2/LogisticsService/ItemRestocks/{restockId} | Update an item restock
-*WarehousingApi* | [**updateItemRestockEntryAsync**](docs/Api/WarehousingApi.md#updateitemrestockentryasync) | **PUT** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/{entryId} | Update a restock entry
-*WarehousingApi* | [**updateItemRetainSampleAsync**](docs/Api/WarehousingApi.md#updateitemretainsampleasync) | **PUT** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Update an item retain sample
-*WarehousingApi* | [**updateWarehouseAsync**](docs/Api/WarehousingApi.md#updatewarehouseasync) | **PUT** /api/v2/LogisticsService/Warehouses/{warehouseId} | Update a warehouse
+*AirwayBillsApi* | [**addAirwayBillLineAsync**](docs/Api/AirwayBillsApi.md#addairwaybilllineasync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/Lines | Add a line to airway bill
+*AirwayBillsApi* | [**cancelAirwayBillAsync**](docs/Api/AirwayBillsApi.md#cancelairwaybillasync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/Cancel | Cancel an airway bill
+*AirwayBillsApi* | [**createAirwayBillAsync**](docs/Api/AirwayBillsApi.md#createairwaybillasync) | **POST** /api/v2/LogisticsService/AirwayBills | Create an airway bill
+*AirwayBillsApi* | [**deleteAirwayBillAsync**](docs/Api/AirwayBillsApi.md#deleteairwaybillasync) | **DELETE** /api/v2/LogisticsService/AirwayBills/{billId} | Delete an airway bill
+*AirwayBillsApi* | [**getAirwayBillByIdAsync**](docs/Api/AirwayBillsApi.md#getairwaybillbyidasync) | **GET** /api/v2/LogisticsService/AirwayBills/{billId} | Get airway bill by ID
+*AirwayBillsApi* | [**getAirwayBillLinesAsync**](docs/Api/AirwayBillsApi.md#getairwaybilllinesasync) | **GET** /api/v2/LogisticsService/AirwayBills/{billId}/Lines | Get airway bill lines
+*AirwayBillsApi* | [**getAirwayBillLinesCountAsync**](docs/Api/AirwayBillsApi.md#getairwaybilllinescountasync) | **GET** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/Count | Get airway bill lines count
+*AirwayBillsApi* | [**getAirwayBillsAsync**](docs/Api/AirwayBillsApi.md#getairwaybillsasync) | **GET** /api/v2/LogisticsService/AirwayBills | Get all airway bills
+*AirwayBillsApi* | [**getAirwayBillsCountAsync**](docs/Api/AirwayBillsApi.md#getairwaybillscountasync) | **GET** /api/v2/LogisticsService/AirwayBills/Count | Get airway bills count
+*AirwayBillsApi* | [**issueAirwayBillAsync**](docs/Api/AirwayBillsApi.md#issueairwaybillasync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/Issue | Issue an airway bill
+*AirwayBillsApi* | [**markAirwayBillArrivedAsync**](docs/Api/AirwayBillsApi.md#markairwaybillarrivedasync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkArrived | Mark airway bill arrived
+*AirwayBillsApi* | [**markAirwayBillDeliveredAsync**](docs/Api/AirwayBillsApi.md#markairwaybilldeliveredasync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkDelivered | Mark airway bill delivered
+*AirwayBillsApi* | [**markAirwayBillInTransitAsync**](docs/Api/AirwayBillsApi.md#markairwaybillintransitasync) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkInTransit | Mark airway bill in transit
+*AirwayBillsApi* | [**removeAirwayBillLineAsync**](docs/Api/AirwayBillsApi.md#removeairwaybilllineasync) | **DELETE** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Remove an airway bill line
+*AirwayBillsApi* | [**updateAirwayBillAsync**](docs/Api/AirwayBillsApi.md#updateairwaybillasync) | **PUT** /api/v2/LogisticsService/AirwayBills/{billId} | Update an airway bill
+*AirwayBillsApi* | [**updateAirwayBillLineAsync**](docs/Api/AirwayBillsApi.md#updateairwaybilllineasync) | **PUT** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Update an airway bill line
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*DeliveryNotesApi* | [**createDeliveryNoteAsync**](docs/Api/DeliveryNotesApi.md#createdeliverynoteasync) | **POST** /api/v2/LogisticsService/DeliveryNotes | Create a delivery note
+*DeliveryNotesApi* | [**deleteDeliveryNoteAsync**](docs/Api/DeliveryNotesApi.md#deletedeliverynoteasync) | **DELETE** /api/v2/LogisticsService/DeliveryNotes/{deliveryNoteId} | Delete a delivery note
+*DeliveryNotesApi* | [**getDeliveryNoteByIdAsync**](docs/Api/DeliveryNotesApi.md#getdeliverynotebyidasync) | **GET** /api/v2/LogisticsService/DeliveryNotes/{deliveryNoteId} | Get delivery note by ID
+*DeliveryNotesApi* | [**getDeliveryNotesAsync**](docs/Api/DeliveryNotesApi.md#getdeliverynotesasync) | **GET** /api/v2/LogisticsService/DeliveryNotes | Get all delivery notes
+*DeliveryNotesApi* | [**getDeliveryNotesCountAsync**](docs/Api/DeliveryNotesApi.md#getdeliverynotescountasync) | **GET** /api/v2/LogisticsService/DeliveryNotes/Count | Get delivery notes count
+*DeliveryNotesApi* | [**updateDeliveryNoteAsync**](docs/Api/DeliveryNotesApi.md#updatedeliverynoteasync) | **PUT** /api/v2/LogisticsService/DeliveryNotes/{deliveryNoteId} | Update a delivery note
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*ItemPackingSlipsApi* | [**createItemPackingSlipAsync**](docs/Api/ItemPackingSlipsApi.md#createitempackingslipasync) | **POST** /api/v2/LogisticsService/ItemPackingSlips | Create an item packing slip
+*ItemPackingSlipsApi* | [**createItemPackingSlipEntryAsync**](docs/Api/ItemPackingSlipsApi.md#createitempackingslipentryasync) | **POST** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries | Create a packing slip entry
+*ItemPackingSlipsApi* | [**deleteItemPackingSlipAsync**](docs/Api/ItemPackingSlipsApi.md#deleteitempackingslipasync) | **DELETE** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId} | Delete an item packing slip
+*ItemPackingSlipsApi* | [**deleteItemPackingSlipEntryAsync**](docs/Api/ItemPackingSlipsApi.md#deleteitempackingslipentryasync) | **DELETE** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/{entryId} | Delete a packing slip entry
+*ItemPackingSlipsApi* | [**getItemPackingSlipByIdAsync**](docs/Api/ItemPackingSlipsApi.md#getitempackingslipbyidasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId} | Get item packing slip by ID
+*ItemPackingSlipsApi* | [**getItemPackingSlipEntriesAsync**](docs/Api/ItemPackingSlipsApi.md#getitempackingslipentriesasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries | Get packing slip entries
+*ItemPackingSlipsApi* | [**getItemPackingSlipEntriesCountAsync**](docs/Api/ItemPackingSlipsApi.md#getitempackingslipentriescountasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/Count | Get packing slip entries count
+*ItemPackingSlipsApi* | [**getItemPackingSlipEntryByIdAsync**](docs/Api/ItemPackingSlipsApi.md#getitempackingslipentrybyidasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/{entryId} | Get packing slip entry by ID
+*ItemPackingSlipsApi* | [**getItemPackingSlipsAsync**](docs/Api/ItemPackingSlipsApi.md#getitempackingslipsasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips | Get all item packing slips
+*ItemPackingSlipsApi* | [**getItemPackingSlipsCountAsync**](docs/Api/ItemPackingSlipsApi.md#getitempackingslipscountasync) | **GET** /api/v2/LogisticsService/ItemPackingSlips/Count | Get item packing slips count
+*ItemPackingSlipsApi* | [**updateItemPackingSlipAsync**](docs/Api/ItemPackingSlipsApi.md#updateitempackingslipasync) | **PUT** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId} | Update an item packing slip
+*ItemPackingSlipsApi* | [**updateItemPackingSlipEntryAsync**](docs/Api/ItemPackingSlipsApi.md#updateitempackingslipentryasync) | **PUT** /api/v2/LogisticsService/ItemPackingSlips/{packingSlipId}/Entries/{entryId} | Update a packing slip entry
+*ItemPickListsApi* | [**createItemPickListAsync**](docs/Api/ItemPickListsApi.md#createitempicklistasync) | **POST** /api/v2/LogisticsService/ItemPickLists | Create an item pick list
+*ItemPickListsApi* | [**createItemPickListEntryAsync**](docs/Api/ItemPickListsApi.md#createitempicklistentryasync) | **POST** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries | Create a pick list entry
+*ItemPickListsApi* | [**deleteItemPickListAsync**](docs/Api/ItemPickListsApi.md#deleteitempicklistasync) | **DELETE** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Delete an item pick list
+*ItemPickListsApi* | [**deleteItemPickListEntryAsync**](docs/Api/ItemPickListsApi.md#deleteitempicklistentryasync) | **DELETE** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Delete a pick list entry
+*ItemPickListsApi* | [**getItemPickListByIdAsync**](docs/Api/ItemPickListsApi.md#getitempicklistbyidasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Get item pick list by ID
+*ItemPickListsApi* | [**getItemPickListEntriesAsync**](docs/Api/ItemPickListsApi.md#getitempicklistentriesasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries | Get pick list entries
+*ItemPickListsApi* | [**getItemPickListEntriesCountAsync**](docs/Api/ItemPickListsApi.md#getitempicklistentriescountasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/Count | Get pick list entries count
+*ItemPickListsApi* | [**getItemPickListEntryByIdAsync**](docs/Api/ItemPickListsApi.md#getitempicklistentrybyidasync) | **GET** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Get pick list entry by ID
+*ItemPickListsApi* | [**getItemPickListsAsync**](docs/Api/ItemPickListsApi.md#getitempicklistsasync) | **GET** /api/v2/LogisticsService/ItemPickLists | Get all item pick lists
+*ItemPickListsApi* | [**getItemPickListsCountAsync**](docs/Api/ItemPickListsApi.md#getitempicklistscountasync) | **GET** /api/v2/LogisticsService/ItemPickLists/Count | Get item pick lists count
+*ItemPickListsApi* | [**updateItemPickListAsync**](docs/Api/ItemPickListsApi.md#updateitempicklistasync) | **PUT** /api/v2/LogisticsService/ItemPickLists/{pickListId} | Update an item pick list
+*ItemPickListsApi* | [**updateItemPickListEntryAsync**](docs/Api/ItemPickListsApi.md#updateitempicklistentryasync) | **PUT** /api/v2/LogisticsService/ItemPickLists/{pickListId}/Entries/{entryId} | Update a pick list entry
+*ItemRestocksApi* | [**createItemRestockAsync**](docs/Api/ItemRestocksApi.md#createitemrestockasync) | **POST** /api/v2/LogisticsService/ItemRestocks | Create an item restock
+*ItemRestocksApi* | [**createItemRestockEntryAsync**](docs/Api/ItemRestocksApi.md#createitemrestockentryasync) | **POST** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries | Create a restock entry
+*ItemRestocksApi* | [**deleteItemRestockAsync**](docs/Api/ItemRestocksApi.md#deleteitemrestockasync) | **DELETE** /api/v2/LogisticsService/ItemRestocks/{restockId} | Delete an item restock
+*ItemRestocksApi* | [**deleteItemRestockEntryAsync**](docs/Api/ItemRestocksApi.md#deleteitemrestockentryasync) | **DELETE** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/{entryId} | Delete a restock entry
+*ItemRestocksApi* | [**getItemRestockByIdAsync**](docs/Api/ItemRestocksApi.md#getitemrestockbyidasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId} | Get item restock by ID
+*ItemRestocksApi* | [**getItemRestockEntriesAsync**](docs/Api/ItemRestocksApi.md#getitemrestockentriesasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries | Get restock entries
+*ItemRestocksApi* | [**getItemRestockEntriesCountAsync**](docs/Api/ItemRestocksApi.md#getitemrestockentriescountasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/Count | Get restock entries count
+*ItemRestocksApi* | [**getItemRestockEntryByIdAsync**](docs/Api/ItemRestocksApi.md#getitemrestockentrybyidasync) | **GET** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/{entryId} | Get restock entry by ID
+*ItemRestocksApi* | [**getItemRestocksAsync**](docs/Api/ItemRestocksApi.md#getitemrestocksasync) | **GET** /api/v2/LogisticsService/ItemRestocks | Get all item restocks
+*ItemRestocksApi* | [**getItemRestocksCountAsync**](docs/Api/ItemRestocksApi.md#getitemrestockscountasync) | **GET** /api/v2/LogisticsService/ItemRestocks/Count | Get item restocks count
+*ItemRestocksApi* | [**updateItemRestockAsync**](docs/Api/ItemRestocksApi.md#updateitemrestockasync) | **PUT** /api/v2/LogisticsService/ItemRestocks/{restockId} | Update an item restock
+*ItemRestocksApi* | [**updateItemRestockEntryAsync**](docs/Api/ItemRestocksApi.md#updateitemrestockentryasync) | **PUT** /api/v2/LogisticsService/ItemRestocks/{restockId}/Entries/{entryId} | Update a restock entry
+*ItemRetainSamplesApi* | [**createItemRetainSampleAsync**](docs/Api/ItemRetainSamplesApi.md#createitemretainsampleasync) | **POST** /api/v2/LogisticsService/ItemRetainSamples | Create an item retain sample
+*ItemRetainSamplesApi* | [**deleteItemRetainSampleAsync**](docs/Api/ItemRetainSamplesApi.md#deleteitemretainsampleasync) | **DELETE** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Delete an item retain sample
+*ItemRetainSamplesApi* | [**getItemRetainSampleByIdAsync**](docs/Api/ItemRetainSamplesApi.md#getitemretainsamplebyidasync) | **GET** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Get item retain sample by ID
+*ItemRetainSamplesApi* | [**getItemRetainSamplesAsync**](docs/Api/ItemRetainSamplesApi.md#getitemretainsamplesasync) | **GET** /api/v2/LogisticsService/ItemRetainSamples | Get all item retain samples
+*ItemRetainSamplesApi* | [**getItemRetainSamplesCountAsync**](docs/Api/ItemRetainSamplesApi.md#getitemretainsamplescountasync) | **GET** /api/v2/LogisticsService/ItemRetainSamples/Count | Get item retain samples count
+*ItemRetainSamplesApi* | [**updateItemRetainSampleAsync**](docs/Api/ItemRetainSamplesApi.md#updateitemretainsampleasync) | **PUT** /api/v2/LogisticsService/ItemRetainSamples/{retainSampleId} | Update an item retain sample
+*PortsApi* | [**createPortAsync**](docs/Api/PortsApi.md#createportasync) | **POST** /api/v2/LogisticsService/Ports | Create a port
+*PortsApi* | [**deletePortAsync**](docs/Api/PortsApi.md#deleteportasync) | **DELETE** /api/v2/LogisticsService/Ports/{portId} | Delete a port
+*PortsApi* | [**getPortByIdAsync**](docs/Api/PortsApi.md#getportbyidasync) | **GET** /api/v2/LogisticsService/Ports/{portId} | Get port by ID
+*PortsApi* | [**getPortsAsync**](docs/Api/PortsApi.md#getportsasync) | **GET** /api/v2/LogisticsService/Ports | Get all ports
+*PortsApi* | [**getPortsCountAsync**](docs/Api/PortsApi.md#getportscountasync) | **GET** /api/v2/LogisticsService/Ports/Count | Get ports count
+*PortsApi* | [**updatePortAsync**](docs/Api/PortsApi.md#updateportasync) | **PUT** /api/v2/LogisticsService/Ports/{portId} | Update a port
+*ProofsOfDeliveryApi* | [**addProofOfDeliveryLineAsync**](docs/Api/ProofsOfDeliveryApi.md#addproofofdeliverylineasync) | **POST** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines | Add a line to proof of delivery
+*ProofsOfDeliveryApi* | [**attachDeliveryNoteAsync**](docs/Api/ProofsOfDeliveryApi.md#attachdeliverynoteasync) | **POST** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/DeliveryNotes/{noteId} | Attach a delivery note
+*ProofsOfDeliveryApi* | [**createProofOfDeliveryAsync**](docs/Api/ProofsOfDeliveryApi.md#createproofofdeliveryasync) | **POST** /api/v2/LogisticsService/ProofsOfDelivery | Create a proof of delivery
+*ProofsOfDeliveryApi* | [**deleteProofOfDeliveryAsync**](docs/Api/ProofsOfDeliveryApi.md#deleteproofofdeliveryasync) | **DELETE** /api/v2/LogisticsService/ProofsOfDelivery/{podId} | Delete a proof of delivery
+*ProofsOfDeliveryApi* | [**detachDeliveryNoteAsync**](docs/Api/ProofsOfDeliveryApi.md#detachdeliverynoteasync) | **DELETE** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/DeliveryNotes/{noteId} | Detach a delivery note
+*ProofsOfDeliveryApi* | [**disputeProofOfDeliveryAsync**](docs/Api/ProofsOfDeliveryApi.md#disputeproofofdeliveryasync) | **POST** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Dispute | Dispute a proof of delivery
+*ProofsOfDeliveryApi* | [**getProofOfDeliveryByIdAsync**](docs/Api/ProofsOfDeliveryApi.md#getproofofdeliverybyidasync) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/{podId} | Get proof of delivery by ID
+*ProofsOfDeliveryApi* | [**getProofOfDeliveryDeliveryNotesAsync**](docs/Api/ProofsOfDeliveryApi.md#getproofofdeliverydeliverynotesasync) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/DeliveryNotes | Get attached delivery notes
+*ProofsOfDeliveryApi* | [**getProofOfDeliveryDeliveryNotesCountAsync**](docs/Api/ProofsOfDeliveryApi.md#getproofofdeliverydeliverynotescountasync) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/DeliveryNotes/Count | Get delivery notes count
+*ProofsOfDeliveryApi* | [**getProofOfDeliveryLinesAsync**](docs/Api/ProofsOfDeliveryApi.md#getproofofdeliverylinesasync) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines | Get proof of delivery lines
+*ProofsOfDeliveryApi* | [**getProofOfDeliveryLinesCountAsync**](docs/Api/ProofsOfDeliveryApi.md#getproofofdeliverylinescountasync) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/Count | Get proof of delivery lines count
+*ProofsOfDeliveryApi* | [**getProofsOfDeliveryAsync**](docs/Api/ProofsOfDeliveryApi.md#getproofsofdeliveryasync) | **GET** /api/v2/LogisticsService/ProofsOfDelivery | Get all proofs of delivery
+*ProofsOfDeliveryApi* | [**getProofsOfDeliveryCountAsync**](docs/Api/ProofsOfDeliveryApi.md#getproofsofdeliverycountasync) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/Count | Get proofs of delivery count
+*ProofsOfDeliveryApi* | [**rejectProofOfDeliveryAsync**](docs/Api/ProofsOfDeliveryApi.md#rejectproofofdeliveryasync) | **POST** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Reject | Reject a proof of delivery
+*ProofsOfDeliveryApi* | [**removeProofOfDeliveryLineAsync**](docs/Api/ProofsOfDeliveryApi.md#removeproofofdeliverylineasync) | **DELETE** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/{lineId} | Remove a proof of delivery line
+*ProofsOfDeliveryApi* | [**signProofOfDeliveryAsync**](docs/Api/ProofsOfDeliveryApi.md#signproofofdeliveryasync) | **POST** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Sign | Sign a proof of delivery
+*ProofsOfDeliveryApi* | [**updateProofOfDeliveryAsync**](docs/Api/ProofsOfDeliveryApi.md#updateproofofdeliveryasync) | **PUT** /api/v2/LogisticsService/ProofsOfDelivery/{podId} | Update a proof of delivery
+*ProofsOfDeliveryApi* | [**updateProofOfDeliveryLineAsync**](docs/Api/ProofsOfDeliveryApi.md#updateproofofdeliverylineasync) | **PUT** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/{lineId} | Update a proof of delivery line
+*RailWaybillsApi* | [**addRailWaybillLineAsync**](docs/Api/RailWaybillsApi.md#addrailwaybilllineasync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines | Add a line to rail waybill
+*RailWaybillsApi* | [**cancelRailWaybillAsync**](docs/Api/RailWaybillsApi.md#cancelrailwaybillasync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/Cancel | Cancel a rail waybill
+*RailWaybillsApi* | [**createRailWaybillAsync**](docs/Api/RailWaybillsApi.md#createrailwaybillasync) | **POST** /api/v2/LogisticsService/RailWaybills | Create a rail waybill
+*RailWaybillsApi* | [**deleteRailWaybillAsync**](docs/Api/RailWaybillsApi.md#deleterailwaybillasync) | **DELETE** /api/v2/LogisticsService/RailWaybills/{waybillId} | Delete a rail waybill
+*RailWaybillsApi* | [**getRailWaybillByIdAsync**](docs/Api/RailWaybillsApi.md#getrailwaybillbyidasync) | **GET** /api/v2/LogisticsService/RailWaybills/{waybillId} | Get rail waybill by ID
+*RailWaybillsApi* | [**getRailWaybillLinesAsync**](docs/Api/RailWaybillsApi.md#getrailwaybilllinesasync) | **GET** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines | Get rail waybill lines
+*RailWaybillsApi* | [**getRailWaybillLinesCountAsync**](docs/Api/RailWaybillsApi.md#getrailwaybilllinescountasync) | **GET** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/Count | Get rail waybill lines count
+*RailWaybillsApi* | [**getRailWaybillsAsync**](docs/Api/RailWaybillsApi.md#getrailwaybillsasync) | **GET** /api/v2/LogisticsService/RailWaybills | Get all rail waybills
+*RailWaybillsApi* | [**getRailWaybillsCountAsync**](docs/Api/RailWaybillsApi.md#getrailwaybillscountasync) | **GET** /api/v2/LogisticsService/RailWaybills/Count | Get rail waybills count
+*RailWaybillsApi* | [**issueRailWaybillAsync**](docs/Api/RailWaybillsApi.md#issuerailwaybillasync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/Issue | Issue a rail waybill
+*RailWaybillsApi* | [**markRailWaybillDeliveredAsync**](docs/Api/RailWaybillsApi.md#markrailwaybilldeliveredasync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/MarkDelivered | Mark rail waybill delivered
+*RailWaybillsApi* | [**markRailWaybillInTransitAsync**](docs/Api/RailWaybillsApi.md#markrailwaybillintransitasync) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/MarkInTransit | Mark rail waybill in transit
+*RailWaybillsApi* | [**removeRailWaybillLineAsync**](docs/Api/RailWaybillsApi.md#removerailwaybilllineasync) | **DELETE** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Remove a rail waybill line
+*RailWaybillsApi* | [**updateRailWaybillAsync**](docs/Api/RailWaybillsApi.md#updaterailwaybillasync) | **PUT** /api/v2/LogisticsService/RailWaybills/{waybillId} | Update a rail waybill
+*RailWaybillsApi* | [**updateRailWaybillLineAsync**](docs/Api/RailWaybillsApi.md#updaterailwaybilllineasync) | **PUT** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Update a rail waybill line
+*RoadWaybillsApi* | [**addRoadWaybillLineAsync**](docs/Api/RoadWaybillsApi.md#addroadwaybilllineasync) | **POST** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines | Add a line to road waybill
+*RoadWaybillsApi* | [**cancelRoadWaybillAsync**](docs/Api/RoadWaybillsApi.md#cancelroadwaybillasync) | **POST** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Cancel | Cancel a road waybill
+*RoadWaybillsApi* | [**createRoadWaybillAsync**](docs/Api/RoadWaybillsApi.md#createroadwaybillasync) | **POST** /api/v2/LogisticsService/RoadWaybills | Create a road waybill
+*RoadWaybillsApi* | [**deleteRoadWaybillAsync**](docs/Api/RoadWaybillsApi.md#deleteroadwaybillasync) | **DELETE** /api/v2/LogisticsService/RoadWaybills/{waybillId} | Delete a road waybill
+*RoadWaybillsApi* | [**disputeRoadWaybillAsync**](docs/Api/RoadWaybillsApi.md#disputeroadwaybillasync) | **POST** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Dispute | Dispute a road waybill
+*RoadWaybillsApi* | [**getRoadWaybillByIdAsync**](docs/Api/RoadWaybillsApi.md#getroadwaybillbyidasync) | **GET** /api/v2/LogisticsService/RoadWaybills/{waybillId} | Get road waybill by ID
+*RoadWaybillsApi* | [**getRoadWaybillLinesAsync**](docs/Api/RoadWaybillsApi.md#getroadwaybilllinesasync) | **GET** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines | Get road waybill lines
+*RoadWaybillsApi* | [**getRoadWaybillLinesCountAsync**](docs/Api/RoadWaybillsApi.md#getroadwaybilllinescountasync) | **GET** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines/Count | Get road waybill lines count
+*RoadWaybillsApi* | [**getRoadWaybillsAsync**](docs/Api/RoadWaybillsApi.md#getroadwaybillsasync) | **GET** /api/v2/LogisticsService/RoadWaybills | Get all road waybills
+*RoadWaybillsApi* | [**getRoadWaybillsCountAsync**](docs/Api/RoadWaybillsApi.md#getroadwaybillscountasync) | **GET** /api/v2/LogisticsService/RoadWaybills/Count | Get road waybills count
+*RoadWaybillsApi* | [**issueRoadWaybillAsync**](docs/Api/RoadWaybillsApi.md#issueroadwaybillasync) | **POST** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Issue | Issue a road waybill
+*RoadWaybillsApi* | [**markRoadWaybillDeliveredAsync**](docs/Api/RoadWaybillsApi.md#markroadwaybilldeliveredasync) | **POST** /api/v2/LogisticsService/RoadWaybills/{waybillId}/MarkDelivered | Mark road waybill delivered
+*RoadWaybillsApi* | [**markRoadWaybillInTransitAsync**](docs/Api/RoadWaybillsApi.md#markroadwaybillintransitasync) | **POST** /api/v2/LogisticsService/RoadWaybills/{waybillId}/MarkInTransit | Mark road waybill in transit
+*RoadWaybillsApi* | [**removeRoadWaybillLineAsync**](docs/Api/RoadWaybillsApi.md#removeroadwaybilllineasync) | **DELETE** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines/{lineId} | Remove a road waybill line
+*RoadWaybillsApi* | [**updateRoadWaybillAsync**](docs/Api/RoadWaybillsApi.md#updateroadwaybillasync) | **PUT** /api/v2/LogisticsService/RoadWaybills/{waybillId} | Update a road waybill
+*RoadWaybillsApi* | [**updateRoadWaybillLineAsync**](docs/Api/RoadWaybillsApi.md#updateroadwaybilllineasync) | **PUT** /api/v2/LogisticsService/RoadWaybills/{waybillId}/Lines/{lineId} | Update a road waybill line
+*SeawayBillsApi* | [**addSeawayBillLineAsync**](docs/Api/SeawayBillsApi.md#addseawaybilllineasync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Lines | Add a line to seaway bill
+*SeawayBillsApi* | [**cancelSeawayBillAsync**](docs/Api/SeawayBillsApi.md#cancelseawaybillasync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Cancel | Cancel a seaway bill
+*SeawayBillsApi* | [**createSeawayBillAsync**](docs/Api/SeawayBillsApi.md#createseawaybillasync) | **POST** /api/v2/LogisticsService/SeawayBills | Create a seaway bill
+*SeawayBillsApi* | [**deleteSeawayBillAsync**](docs/Api/SeawayBillsApi.md#deleteseawaybillasync) | **DELETE** /api/v2/LogisticsService/SeawayBills/{billId} | Delete a seaway bill
+*SeawayBillsApi* | [**getSeawayBillByIdAsync**](docs/Api/SeawayBillsApi.md#getseawaybillbyidasync) | **GET** /api/v2/LogisticsService/SeawayBills/{billId} | Get seaway bill by ID
+*SeawayBillsApi* | [**getSeawayBillLinesAsync**](docs/Api/SeawayBillsApi.md#getseawaybilllinesasync) | **GET** /api/v2/LogisticsService/SeawayBills/{billId}/Lines | Get seaway bill lines
+*SeawayBillsApi* | [**getSeawayBillLinesCountAsync**](docs/Api/SeawayBillsApi.md#getseawaybilllinescountasync) | **GET** /api/v2/LogisticsService/SeawayBills/{billId}/Lines/Count | Get seaway bill lines count
+*SeawayBillsApi* | [**getSeawayBillsAsync**](docs/Api/SeawayBillsApi.md#getseawaybillsasync) | **GET** /api/v2/LogisticsService/SeawayBills | Get all seaway bills
+*SeawayBillsApi* | [**getSeawayBillsCountAsync**](docs/Api/SeawayBillsApi.md#getseawaybillscountasync) | **GET** /api/v2/LogisticsService/SeawayBills/Count | Get seaway bills count
+*SeawayBillsApi* | [**issueSeawayBillAsync**](docs/Api/SeawayBillsApi.md#issueseawaybillasync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Issue | Issue a seaway bill
+*SeawayBillsApi* | [**markSeawayBillArrivedAsync**](docs/Api/SeawayBillsApi.md#markseawaybillarrivedasync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/MarkArrived | Mark seaway bill arrived
+*SeawayBillsApi* | [**markSeawayBillInTransitAsync**](docs/Api/SeawayBillsApi.md#markseawaybillintransitasync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/MarkInTransit | Mark seaway bill in transit
+*SeawayBillsApi* | [**releaseSeawayBillAsync**](docs/Api/SeawayBillsApi.md#releaseseawaybillasync) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Release | Release a seaway bill
+*SeawayBillsApi* | [**removeSeawayBillLineAsync**](docs/Api/SeawayBillsApi.md#removeseawaybilllineasync) | **DELETE** /api/v2/LogisticsService/SeawayBills/{billId}/Lines/{lineId} | Remove a seaway bill line
+*SeawayBillsApi* | [**updateSeawayBillAsync**](docs/Api/SeawayBillsApi.md#updateseawaybillasync) | **PUT** /api/v2/LogisticsService/SeawayBills/{billId} | Update a seaway bill
+*SeawayBillsApi* | [**updateSeawayBillLineAsync**](docs/Api/SeawayBillsApi.md#updateseawaybilllineasync) | **PUT** /api/v2/LogisticsService/SeawayBills/{billId}/Lines/{lineId} | Update a seaway bill line
+*SupplierProfilesApi* | [**createSupplierProfileAsync**](docs/Api/SupplierProfilesApi.md#createsupplierprofileasync) | **POST** /api/v2/LogisticsService/SupplierProfiles | Create a supplier profile
+*SupplierProfilesApi* | [**deleteSupplierProfileAsync**](docs/Api/SupplierProfilesApi.md#deletesupplierprofileasync) | **DELETE** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Delete a supplier profile
+*SupplierProfilesApi* | [**getSupplierProfileByIdAsync**](docs/Api/SupplierProfilesApi.md#getsupplierprofilebyidasync) | **GET** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Get supplier profile by ID
+*SupplierProfilesApi* | [**getSupplierProfilesAsync**](docs/Api/SupplierProfilesApi.md#getsupplierprofilesasync) | **GET** /api/v2/LogisticsService/SupplierProfiles | Get all supplier profiles
+*SupplierProfilesApi* | [**getSupplierProfilesCountAsync**](docs/Api/SupplierProfilesApi.md#getsupplierprofilescountasync) | **GET** /api/v2/LogisticsService/SupplierProfiles/Count | Get supplier profiles count
+*SupplierProfilesApi* | [**updateSupplierProfileAsync**](docs/Api/SupplierProfilesApi.md#updatesupplierprofileasync) | **PUT** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Update a supplier profile
+*TruckDriversApi* | [**activateTruckDriverAsync**](docs/Api/TruckDriversApi.md#activatetruckdriverasync) | **POST** /api/v2/LogisticsService/TruckDrivers/{driverId}/Activate | Activate a truck driver
+*TruckDriversApi* | [**createTruckDriverAsync**](docs/Api/TruckDriversApi.md#createtruckdriverasync) | **POST** /api/v2/LogisticsService/TruckDrivers | Create a truck driver
+*TruckDriversApi* | [**deactivateTruckDriverAsync**](docs/Api/TruckDriversApi.md#deactivatetruckdriverasync) | **POST** /api/v2/LogisticsService/TruckDrivers/{driverId}/Deactivate | Deactivate a truck driver
+*TruckDriversApi* | [**deleteTruckDriverAsync**](docs/Api/TruckDriversApi.md#deletetruckdriverasync) | **DELETE** /api/v2/LogisticsService/TruckDrivers/{driverId} | Delete a truck driver
+*TruckDriversApi* | [**getTruckDriverByIdAsync**](docs/Api/TruckDriversApi.md#gettruckdriverbyidasync) | **GET** /api/v2/LogisticsService/TruckDrivers/{driverId} | Get truck driver by ID
+*TruckDriversApi* | [**getTruckDriversAsync**](docs/Api/TruckDriversApi.md#gettruckdriversasync) | **GET** /api/v2/LogisticsService/TruckDrivers | Get all truck drivers
+*TruckDriversApi* | [**getTruckDriversCountAsync**](docs/Api/TruckDriversApi.md#gettruckdriverscountasync) | **GET** /api/v2/LogisticsService/TruckDrivers/Count | Get truck drivers count
+*TruckDriversApi* | [**updateTruckDriverAsync**](docs/Api/TruckDriversApi.md#updatetruckdriverasync) | **PUT** /api/v2/LogisticsService/TruckDrivers/{driverId} | Update a truck driver
+*TrucksApi* | [**arriveTripAsync**](docs/Api/TrucksApi.md#arrivetripasync) | **POST** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId}/Arrive | Arrive a trip
+*TrucksApi* | [**cancelTripAsync**](docs/Api/TrucksApi.md#canceltripasync) | **POST** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId}/Cancel | Cancel a trip
+*TrucksApi* | [**createTruckAsync**](docs/Api/TrucksApi.md#createtruckasync) | **POST** /api/v2/LogisticsService/Trucks | Create a truck
+*TrucksApi* | [**createTruckTripAsync**](docs/Api/TrucksApi.md#createtrucktripasync) | **POST** /api/v2/LogisticsService/Trucks/{truckId}/Trips | Create a truck trip
+*TrucksApi* | [**deleteTruckAsync**](docs/Api/TrucksApi.md#deletetruckasync) | **DELETE** /api/v2/LogisticsService/Trucks/{truckId} | Delete a truck
+*TrucksApi* | [**deleteTruckTripAsync**](docs/Api/TrucksApi.md#deletetrucktripasync) | **DELETE** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId} | Delete a truck trip
+*TrucksApi* | [**deliverTripAsync**](docs/Api/TrucksApi.md#delivertripasync) | **POST** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId}/Deliver | Deliver a trip
+*TrucksApi* | [**departTripAsync**](docs/Api/TrucksApi.md#departtripasync) | **POST** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId}/Depart | Depart a trip
+*TrucksApi* | [**dispatchTripAsync**](docs/Api/TrucksApi.md#dispatchtripasync) | **POST** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId}/Dispatch | Dispatch a trip
+*TrucksApi* | [**getTruckByIdAsync**](docs/Api/TrucksApi.md#gettruckbyidasync) | **GET** /api/v2/LogisticsService/Trucks/{truckId} | Get truck by ID
+*TrucksApi* | [**getTruckTripsAsync**](docs/Api/TrucksApi.md#gettrucktripsasync) | **GET** /api/v2/LogisticsService/Trucks/{truckId}/Trips | Get truck trips
+*TrucksApi* | [**getTruckTripsCountAsync**](docs/Api/TrucksApi.md#gettrucktripscountasync) | **GET** /api/v2/LogisticsService/Trucks/{truckId}/Trips/Count | Get truck trips count
+*TrucksApi* | [**getTrucksAsync**](docs/Api/TrucksApi.md#gettrucksasync) | **GET** /api/v2/LogisticsService/Trucks | Get all trucks
+*TrucksApi* | [**getTrucksCountAsync**](docs/Api/TrucksApi.md#gettruckscountasync) | **GET** /api/v2/LogisticsService/Trucks/Count | Get trucks count
+*TrucksApi* | [**updateTruckAsync**](docs/Api/TrucksApi.md#updatetruckasync) | **PUT** /api/v2/LogisticsService/Trucks/{truckId} | Update a truck
+*TrucksApi* | [**updateTruckTripAsync**](docs/Api/TrucksApi.md#updatetrucktripasync) | **PUT** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId} | Update a truck trip
+*VesselsApi* | [**createVesselAsync**](docs/Api/VesselsApi.md#createvesselasync) | **POST** /api/v2/LogisticsService/Vessels | Create a vessel
+*VesselsApi* | [**deleteVesselAsync**](docs/Api/VesselsApi.md#deletevesselasync) | **DELETE** /api/v2/LogisticsService/Vessels/{vesselId} | Delete a vessel
+*VesselsApi* | [**getVesselByIdAsync**](docs/Api/VesselsApi.md#getvesselbyidasync) | **GET** /api/v2/LogisticsService/Vessels/{vesselId} | Get vessel by ID
+*VesselsApi* | [**getVesselsAsync**](docs/Api/VesselsApi.md#getvesselsasync) | **GET** /api/v2/LogisticsService/Vessels | Get all vessels
+*VesselsApi* | [**getVesselsCountAsync**](docs/Api/VesselsApi.md#getvesselscountasync) | **GET** /api/v2/LogisticsService/Vessels/Count | Get vessels count
+*VesselsApi* | [**updateVesselAsync**](docs/Api/VesselsApi.md#updatevesselasync) | **PUT** /api/v2/LogisticsService/Vessels/{vesselId} | Update a vessel
+*VoyagesApi* | [**cancelVoyageAsync**](docs/Api/VoyagesApi.md#cancelvoyageasync) | **POST** /api/v2/LogisticsService/Voyages/{voyageId}/Cancel | Cancel a voyage
+*VoyagesApi* | [**completeVoyageAsync**](docs/Api/VoyagesApi.md#completevoyageasync) | **POST** /api/v2/LogisticsService/Voyages/{voyageId}/Complete | Complete a voyage
+*VoyagesApi* | [**createVoyageAsync**](docs/Api/VoyagesApi.md#createvoyageasync) | **POST** /api/v2/LogisticsService/Voyages | Create a voyage
+*VoyagesApi* | [**createVoyagePortCallAsync**](docs/Api/VoyagesApi.md#createvoyageportcallasync) | **POST** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls | Create a port call
+*VoyagesApi* | [**deleteVoyageAsync**](docs/Api/VoyagesApi.md#deletevoyageasync) | **DELETE** /api/v2/LogisticsService/Voyages/{voyageId} | Delete a voyage
+*VoyagesApi* | [**deleteVoyagePortCallAsync**](docs/Api/VoyagesApi.md#deletevoyageportcallasync) | **DELETE** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/{portCallId} | Delete a port call
+*VoyagesApi* | [**getVoyageByIdAsync**](docs/Api/VoyagesApi.md#getvoyagebyidasync) | **GET** /api/v2/LogisticsService/Voyages/{voyageId} | Get voyage by ID
+*VoyagesApi* | [**getVoyagePortCallsAsync**](docs/Api/VoyagesApi.md#getvoyageportcallsasync) | **GET** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls | Get voyage port calls
+*VoyagesApi* | [**getVoyagePortCallsCountAsync**](docs/Api/VoyagesApi.md#getvoyageportcallscountasync) | **GET** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/Count | Get voyage port calls count
+*VoyagesApi* | [**getVoyagesAsync**](docs/Api/VoyagesApi.md#getvoyagesasync) | **GET** /api/v2/LogisticsService/Voyages | Get all voyages
+*VoyagesApi* | [**getVoyagesCountAsync**](docs/Api/VoyagesApi.md#getvoyagescountasync) | **GET** /api/v2/LogisticsService/Voyages/Count | Get voyages count
+*VoyagesApi* | [**startVoyageAsync**](docs/Api/VoyagesApi.md#startvoyageasync) | **POST** /api/v2/LogisticsService/Voyages/{voyageId}/Start | Start a voyage
+*VoyagesApi* | [**updateVoyageAsync**](docs/Api/VoyagesApi.md#updatevoyageasync) | **PUT** /api/v2/LogisticsService/Voyages/{voyageId} | Update a voyage
+*VoyagesApi* | [**updateVoyagePortCallAsync**](docs/Api/VoyagesApi.md#updatevoyageportcallasync) | **PUT** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/{portCallId} | Update a port call
+*WarehousesApi* | [**createWarehouseAsync**](docs/Api/WarehousesApi.md#createwarehouseasync) | **POST** /api/v2/LogisticsService/Warehouses | Create a warehouse
+*WarehousesApi* | [**deleteWarehouseAsync**](docs/Api/WarehousesApi.md#deletewarehouseasync) | **DELETE** /api/v2/LogisticsService/Warehouses/{warehouseId} | Delete a warehouse
+*WarehousesApi* | [**getWarehouseByIdAsync**](docs/Api/WarehousesApi.md#getwarehousebyidasync) | **GET** /api/v2/LogisticsService/Warehouses/{warehouseId} | Get warehouse by ID
+*WarehousesApi* | [**getWarehousesAsync**](docs/Api/WarehousesApi.md#getwarehousesasync) | **GET** /api/v2/LogisticsService/Warehouses | Get all warehouses
+*WarehousesApi* | [**getWarehousesCountAsync**](docs/Api/WarehousesApi.md#getwarehousescountasync) | **GET** /api/v2/LogisticsService/Warehouses/Count | Get warehouses count
+*WarehousesApi* | [**updateWarehouseAsync**](docs/Api/WarehousesApi.md#updatewarehouseasync) | **PUT** /api/v2/LogisticsService/Warehouses/{warehouseId} | Update a warehouse
 
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [AirwayBillCreateDto](docs/Model/AirwayBillCreateDto.md)
+- [AirwayBillDto](docs/Model/AirwayBillDto.md)
+- [AirwayBillDtoEnvelope](docs/Model/AirwayBillDtoEnvelope.md)
+- [AirwayBillDtoListEnvelope](docs/Model/AirwayBillDtoListEnvelope.md)
+- [AirwayBillUpdateDto](docs/Model/AirwayBillUpdateDto.md)
 - [ContactDto](docs/Model/ContactDto.md)
-- [ContactDtoListEnvelope](docs/Model/ContactDtoListEnvelope.md)
+- [DeliveryNoteCreateDto](docs/Model/DeliveryNoteCreateDto.md)
+- [DeliveryNoteDto](docs/Model/DeliveryNoteDto.md)
+- [DeliveryNoteDtoEnvelope](docs/Model/DeliveryNoteDtoEnvelope.md)
+- [DeliveryNoteDtoListEnvelope](docs/Model/DeliveryNoteDtoListEnvelope.md)
+- [DeliveryNoteUpdateDto](docs/Model/DeliveryNoteUpdateDto.md)
+- [DisputeProofOfDeliveryRequest](docs/Model/DisputeProofOfDeliveryRequest.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
@@ -187,17 +345,85 @@ Class | Method | HTTP request | Description
 - [ItemRetainSampleDtoListEnvelope](docs/Model/ItemRetainSampleDtoListEnvelope.md)
 - [ItemRetainSampleUpdateDto](docs/Model/ItemRetainSampleUpdateDto.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
+- [PortCreateDto](docs/Model/PortCreateDto.md)
+- [PortDto](docs/Model/PortDto.md)
+- [PortDtoEnvelope](docs/Model/PortDtoEnvelope.md)
+- [PortDtoListEnvelope](docs/Model/PortDtoListEnvelope.md)
+- [PortUpdateDto](docs/Model/PortUpdateDto.md)
+- [ProofOfDeliveryCreateDto](docs/Model/ProofOfDeliveryCreateDto.md)
+- [ProofOfDeliveryDto](docs/Model/ProofOfDeliveryDto.md)
+- [ProofOfDeliveryDtoEnvelope](docs/Model/ProofOfDeliveryDtoEnvelope.md)
+- [ProofOfDeliveryDtoListEnvelope](docs/Model/ProofOfDeliveryDtoListEnvelope.md)
+- [ProofOfDeliveryLineCreateDto](docs/Model/ProofOfDeliveryLineCreateDto.md)
+- [ProofOfDeliveryLineDto](docs/Model/ProofOfDeliveryLineDto.md)
+- [ProofOfDeliveryLineDtoListEnvelope](docs/Model/ProofOfDeliveryLineDtoListEnvelope.md)
+- [ProofOfDeliveryLineUpdateDto](docs/Model/ProofOfDeliveryLineUpdateDto.md)
+- [ProofOfDeliveryUpdateDto](docs/Model/ProofOfDeliveryUpdateDto.md)
+- [RailWaybillCreateDto](docs/Model/RailWaybillCreateDto.md)
+- [RailWaybillDto](docs/Model/RailWaybillDto.md)
+- [RailWaybillDtoEnvelope](docs/Model/RailWaybillDtoEnvelope.md)
+- [RailWaybillDtoListEnvelope](docs/Model/RailWaybillDtoListEnvelope.md)
+- [RailWaybillUpdateDto](docs/Model/RailWaybillUpdateDto.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
+- [RejectProofOfDeliveryRequest](docs/Model/RejectProofOfDeliveryRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [RoadWaybillCreateDto](docs/Model/RoadWaybillCreateDto.md)
+- [RoadWaybillDto](docs/Model/RoadWaybillDto.md)
+- [RoadWaybillDtoEnvelope](docs/Model/RoadWaybillDtoEnvelope.md)
+- [RoadWaybillDtoListEnvelope](docs/Model/RoadWaybillDtoListEnvelope.md)
+- [RoadWaybillUpdateDto](docs/Model/RoadWaybillUpdateDto.md)
+- [SeawayBillCreateDto](docs/Model/SeawayBillCreateDto.md)
+- [SeawayBillDto](docs/Model/SeawayBillDto.md)
+- [SeawayBillDtoEnvelope](docs/Model/SeawayBillDtoEnvelope.md)
+- [SeawayBillDtoListEnvelope](docs/Model/SeawayBillDtoListEnvelope.md)
+- [SeawayBillUpdateDto](docs/Model/SeawayBillUpdateDto.md)
+- [SignProofOfDeliveryRequest](docs/Model/SignProofOfDeliveryRequest.md)
+- [SupplierProfileCreateDto](docs/Model/SupplierProfileCreateDto.md)
+- [SupplierProfileDto](docs/Model/SupplierProfileDto.md)
+- [SupplierProfileDtoEnvelope](docs/Model/SupplierProfileDtoEnvelope.md)
+- [SupplierProfileDtoListEnvelope](docs/Model/SupplierProfileDtoListEnvelope.md)
+- [SupplierProfileUpdateDto](docs/Model/SupplierProfileUpdateDto.md)
+- [TruckCreateDto](docs/Model/TruckCreateDto.md)
+- [TruckDriverCreateDto](docs/Model/TruckDriverCreateDto.md)
+- [TruckDriverDto](docs/Model/TruckDriverDto.md)
+- [TruckDriverDtoEnvelope](docs/Model/TruckDriverDtoEnvelope.md)
+- [TruckDriverDtoListEnvelope](docs/Model/TruckDriverDtoListEnvelope.md)
+- [TruckDriverUpdateDto](docs/Model/TruckDriverUpdateDto.md)
+- [TruckDto](docs/Model/TruckDto.md)
+- [TruckDtoEnvelope](docs/Model/TruckDtoEnvelope.md)
+- [TruckDtoListEnvelope](docs/Model/TruckDtoListEnvelope.md)
+- [TruckTripCreateDto](docs/Model/TruckTripCreateDto.md)
+- [TruckTripDto](docs/Model/TruckTripDto.md)
+- [TruckTripDtoListEnvelope](docs/Model/TruckTripDtoListEnvelope.md)
+- [TruckTripUpdateDto](docs/Model/TruckTripUpdateDto.md)
+- [TruckUpdateDto](docs/Model/TruckUpdateDto.md)
 - [TwoFactorRequest](docs/Model/TwoFactorRequest.md)
 - [TwoFactorResponse](docs/Model/TwoFactorResponse.md)
+- [VesselCreateDto](docs/Model/VesselCreateDto.md)
+- [VesselDto](docs/Model/VesselDto.md)
+- [VesselDtoEnvelope](docs/Model/VesselDtoEnvelope.md)
+- [VesselDtoListEnvelope](docs/Model/VesselDtoListEnvelope.md)
+- [VesselUpdateDto](docs/Model/VesselUpdateDto.md)
+- [VoyageCreateDto](docs/Model/VoyageCreateDto.md)
+- [VoyageDto](docs/Model/VoyageDto.md)
+- [VoyageDtoEnvelope](docs/Model/VoyageDtoEnvelope.md)
+- [VoyageDtoListEnvelope](docs/Model/VoyageDtoListEnvelope.md)
+- [VoyagePortCallCreateDto](docs/Model/VoyagePortCallCreateDto.md)
+- [VoyagePortCallDto](docs/Model/VoyagePortCallDto.md)
+- [VoyagePortCallDtoListEnvelope](docs/Model/VoyagePortCallDtoListEnvelope.md)
+- [VoyagePortCallUpdateDto](docs/Model/VoyagePortCallUpdateDto.md)
+- [VoyageUpdateDto](docs/Model/VoyageUpdateDto.md)
 - [WarehouseCreateDto](docs/Model/WarehouseCreateDto.md)
 - [WarehouseDto](docs/Model/WarehouseDto.md)
 - [WarehouseDtoEnvelope](docs/Model/WarehouseDtoEnvelope.md)
 - [WarehouseDtoListEnvelope](docs/Model/WarehouseDtoListEnvelope.md)
 - [WarehouseUpdateDto](docs/Model/WarehouseUpdateDto.md)
+- [WaybillLineCreateDto](docs/Model/WaybillLineCreateDto.md)
+- [WaybillLineDto](docs/Model/WaybillLineDto.md)
+- [WaybillLineDtoListEnvelope](docs/Model/WaybillLineDtoListEnvelope.md)
+- [WaybillLineUpdateDto](docs/Model/WaybillLineUpdateDto.md)
 
 ## Authorization
 Endpoints do not require authorization.
@@ -219,6 +445,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

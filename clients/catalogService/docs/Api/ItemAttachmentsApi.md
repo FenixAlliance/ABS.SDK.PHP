@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemAttachmentsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -138,7 +138,7 @@ No authorization required
 ## `getItemAttachmentByIdAsync()`
 
 ```php
-getItemAttachmentByIdAsync($item_attachment_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemAttachmentDtoEnvelope
+getItemAttachmentByIdAsync($item_attachment_id, $tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemAttachmentDtoEnvelope
 ```
 
 Get item attachment by ID
@@ -159,11 +159,12 @@ $apiInstance = new OpenAPI\Client\Api\ItemAttachmentsApi(
     new GuzzleHttp\Client()
 );
 $item_attachment_id = 'item_attachment_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemAttachmentByIdAsync($item_attachment_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemAttachmentByIdAsync($item_attachment_id, $tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemAttachmentsApi->getItemAttachmentByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -175,6 +176,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_attachment_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -234,7 +236,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

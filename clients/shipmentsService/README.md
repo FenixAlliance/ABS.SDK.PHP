@@ -51,44 +51,61 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\FenixAllianceABSWebApi(
+$apiInstance = new OpenAPI\Client\Api\BillsOfLadingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$return_url = 'return_url_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$bill_of_lading_create_dto = new \OpenAPI\Client\Model\BillOfLadingCreateDto(); // \OpenAPI\Client\Model\BillOfLadingCreateDto
 
 try {
-    $apiInstance->accountLogoutPost($return_url);
+    $result = $apiInstance->createBillOfLadingAsync($tenant_id, $api_version, $x_api_version, $bill_of_lading_create_dto);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FenixAllianceABSWebApi->accountLogoutPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillsOfLadingApi->createBillOfLadingAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*BillsOfLadingApi* | [**createBillOfLadingAsync**](docs/Api/BillsOfLadingApi.md#createbillofladingasync) | **POST** /api/v2/ShipmentsService/BillsOfLading | Create a bill of lading
+*BillsOfLadingApi* | [**createBillOfLadingLineAsync**](docs/Api/BillsOfLadingApi.md#createbillofladinglineasync) | **POST** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines | Create a bill of lading line
+*BillsOfLadingApi* | [**deleteBillOfLadingAsync**](docs/Api/BillsOfLadingApi.md#deletebillofladingasync) | **DELETE** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId} | Delete a bill of lading
+*BillsOfLadingApi* | [**deleteBillOfLadingLineAsync**](docs/Api/BillsOfLadingApi.md#deletebillofladinglineasync) | **DELETE** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId} | Delete a bill of lading line
+*BillsOfLadingApi* | [**getBillOfLadingByIdAsync**](docs/Api/BillsOfLadingApi.md#getbillofladingbyidasync) | **GET** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId} | Get bill of lading by ID
+*BillsOfLadingApi* | [**getBillOfLadingLineByIdAsync**](docs/Api/BillsOfLadingApi.md#getbillofladinglinebyidasync) | **GET** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId} | Get bill of lading line by ID
+*BillsOfLadingApi* | [**getBillOfLadingLinesAsync**](docs/Api/BillsOfLadingApi.md#getbillofladinglinesasync) | **GET** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines | Get bill of lading lines
+*BillsOfLadingApi* | [**getBillOfLadingLinesCountAsync**](docs/Api/BillsOfLadingApi.md#getbillofladinglinescountasync) | **GET** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/Count | Get bill of lading lines count
+*BillsOfLadingApi* | [**getBillsOfLadingAsync**](docs/Api/BillsOfLadingApi.md#getbillsofladingasync) | **GET** /api/v2/ShipmentsService/BillsOfLading | Get all bills of lading
+*BillsOfLadingApi* | [**getBillsOfLadingCountAsync**](docs/Api/BillsOfLadingApi.md#getbillsofladingcountasync) | **GET** /api/v2/ShipmentsService/BillsOfLading/Count | Get bills of lading count
+*BillsOfLadingApi* | [**updateBillOfLadingAsync**](docs/Api/BillsOfLadingApi.md#updatebillofladingasync) | **PUT** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId} | Update a bill of lading
+*BillsOfLadingApi* | [**updateBillOfLadingLineAsync**](docs/Api/BillsOfLadingApi.md#updatebillofladinglineasync) | **PUT** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId} | Update a bill of lading line
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
 *ItemShippingPoliciesApi* | [**createItemShippingPolicyAsync**](docs/Api/ItemShippingPoliciesApi.md#createitemshippingpolicyasync) | **POST** /api/v2/ShipmentsService/ItemShippingPolicies | Create an item shipping policy
 *ItemShippingPoliciesApi* | [**deleteItemShippingPolicyAsync**](docs/Api/ItemShippingPoliciesApi.md#deleteitemshippingpolicyasync) | **DELETE** /api/v2/ShipmentsService/ItemShippingPolicies/{policyId} | Delete an item shipping policy
 *ItemShippingPoliciesApi* | [**getItemShippingPoliciesAsync**](docs/Api/ItemShippingPoliciesApi.md#getitemshippingpoliciesasync) | **GET** /api/v2/ShipmentsService/ItemShippingPolicies | Get all item shipping policies
@@ -141,6 +158,17 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [BillOfLadingCreateDto](docs/Model/BillOfLadingCreateDto.md)
+- [BillOfLadingDto](docs/Model/BillOfLadingDto.md)
+- [BillOfLadingDtoEnvelope](docs/Model/BillOfLadingDtoEnvelope.md)
+- [BillOfLadingDtoListEnvelope](docs/Model/BillOfLadingDtoListEnvelope.md)
+- [BillOfLadingLineCreateDto](docs/Model/BillOfLadingLineCreateDto.md)
+- [BillOfLadingLineDto](docs/Model/BillOfLadingLineDto.md)
+- [BillOfLadingLineDtoEnvelope](docs/Model/BillOfLadingLineDtoEnvelope.md)
+- [BillOfLadingLineDtoListEnvelope](docs/Model/BillOfLadingLineDtoListEnvelope.md)
+- [BillOfLadingLineUpdateDto](docs/Model/BillOfLadingLineUpdateDto.md)
+- [BillOfLadingUpdateDto](docs/Model/BillOfLadingUpdateDto.md)
+- [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
@@ -215,6 +243,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

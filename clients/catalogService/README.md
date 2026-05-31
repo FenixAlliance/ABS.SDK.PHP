@@ -51,49 +51,58 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\FenixAllianceABSWebApi(
+$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$return_url = 'return_url_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$conversation_id = 'conversation_id_example'; // string
+$message = 'message_example'; // string
 
 try {
-    $apiInstance->accountLogoutPost($return_url);
+    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
 } catch (Exception $e) {
-    echo 'Exception when calling FenixAllianceABSWebApi->accountLogoutPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
 *ItemAttachmentsApi* | [**createItemAttachmentAsync**](docs/Api/ItemAttachmentsApi.md#createitemattachmentasync) | **POST** /api/v2/CatalogService/ItemAttachments | Create a new item attachment
 *ItemAttachmentsApi* | [**deleteItemAttachmentAsync**](docs/Api/ItemAttachmentsApi.md#deleteitemattachmentasync) | **DELETE** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Delete an item attachment
 *ItemAttachmentsApi* | [**getItemAttachmentByIdAsync**](docs/Api/ItemAttachmentsApi.md#getitemattachmentbyidasync) | **GET** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Get item attachment by ID
 *ItemAttachmentsApi* | [**getItemAttachmentsAsync**](docs/Api/ItemAttachmentsApi.md#getitemattachmentsasync) | **GET** /api/v2/CatalogService/ItemAttachments | Get all item attachments
 *ItemAttachmentsApi* | [**updateItemAttachmentAsync**](docs/Api/ItemAttachmentsApi.md#updateitemattachmentasync) | **PUT** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Update an item attachment
+*ItemAttributeOptionsApi* | [**createItemAttributeOptionAsync**](docs/Api/ItemAttributeOptionsApi.md#createitemattributeoptionasync) | **POST** /api/v2/CatalogService/ItemAttributeOptions | Create a new item attribute option
+*ItemAttributeOptionsApi* | [**deleteItemAttributeOptionAsync**](docs/Api/ItemAttributeOptionsApi.md#deleteitemattributeoptionasync) | **DELETE** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Delete an item attribute option
+*ItemAttributeOptionsApi* | [**getItemAttributeOptionByIdAsync**](docs/Api/ItemAttributeOptionsApi.md#getitemattributeoptionbyidasync) | **GET** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Get item attribute option by ID
+*ItemAttributeOptionsApi* | [**getItemAttributeOptionsAsync**](docs/Api/ItemAttributeOptionsApi.md#getitemattributeoptionsasync) | **GET** /api/v2/CatalogService/ItemAttributeOptions | Get all item attribute options
+*ItemAttributeOptionsApi* | [**getItemAttributeOptionsCountAsync**](docs/Api/ItemAttributeOptionsApi.md#getitemattributeoptionscountasync) | **GET** /api/v2/CatalogService/ItemAttributeOptions/Count | Get item attribute options count
+*ItemAttributeOptionsApi* | [**updateItemAttributeOptionAsync**](docs/Api/ItemAttributeOptionsApi.md#updateitemattributeoptionasync) | **PUT** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Update an item attribute option
 *ItemAttributesApi* | [**countItemAttributesAsync**](docs/Api/ItemAttributesApi.md#countitemattributesasync) | **GET** /api/v2/CatalogService/ItemAttributes/Count | Count item attributes
 *ItemAttributesApi* | [**createItemAttributeAsync**](docs/Api/ItemAttributesApi.md#createitemattributeasync) | **POST** /api/v2/CatalogService/ItemAttributes | Create a new item attribute
 *ItemAttributesApi* | [**deleteItemAttributeAsync**](docs/Api/ItemAttributesApi.md#deleteitemattributeasync) | **DELETE** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Delete an item attribute
@@ -105,12 +114,24 @@ Class | Method | HTTP request | Description
 *ItemBrandsApi* | [**getItemBrandByIdAsync**](docs/Api/ItemBrandsApi.md#getitembrandbyidasync) | **GET** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Get item brand by ID
 *ItemBrandsApi* | [**getItemBrandsAsync**](docs/Api/ItemBrandsApi.md#getitembrandsasync) | **GET** /api/v2/CatalogService/ItemBrands | Get all item brands
 *ItemBrandsApi* | [**updateItemBrandAsync**](docs/Api/ItemBrandsApi.md#updateitembrandasync) | **PUT** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Update an item brand
+*ItemBundlesApi* | [**createItemBundleAsync**](docs/Api/ItemBundlesApi.md#createitembundleasync) | **POST** /api/v2/CatalogService/ItemBundles | Create a new item bundle
+*ItemBundlesApi* | [**deleteItemBundleAsync**](docs/Api/ItemBundlesApi.md#deleteitembundleasync) | **DELETE** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Delete an item bundle
+*ItemBundlesApi* | [**getItemBundleByIdAsync**](docs/Api/ItemBundlesApi.md#getitembundlebyidasync) | **GET** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Get item bundle by ID
+*ItemBundlesApi* | [**getItemBundlesAsync**](docs/Api/ItemBundlesApi.md#getitembundlesasync) | **GET** /api/v2/CatalogService/ItemBundles | Get all item bundles
+*ItemBundlesApi* | [**getItemBundlesCountAsync**](docs/Api/ItemBundlesApi.md#getitembundlescountasync) | **GET** /api/v2/CatalogService/ItemBundles/Count | Get item bundles count
+*ItemBundlesApi* | [**updateItemBundleAsync**](docs/Api/ItemBundlesApi.md#updateitembundleasync) | **PUT** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Update an item bundle
 *ItemCategoriesApi* | [**countItemCategoriesAsync**](docs/Api/ItemCategoriesApi.md#countitemcategoriesasync) | **GET** /api/v2/CatalogService/ItemCategories/Count | Count item categories
 *ItemCategoriesApi* | [**createItemCategoryAsync**](docs/Api/ItemCategoriesApi.md#createitemcategoryasync) | **POST** /api/v2/CatalogService/ItemCategories | Create a new item category
 *ItemCategoriesApi* | [**deleteItemCategoryAsync**](docs/Api/ItemCategoriesApi.md#deleteitemcategoryasync) | **DELETE** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Delete an item category
 *ItemCategoriesApi* | [**getItemCategoriesAsync**](docs/Api/ItemCategoriesApi.md#getitemcategoriesasync) | **GET** /api/v2/CatalogService/ItemCategories | Get all item categories
 *ItemCategoriesApi* | [**getItemCategoryByIdAsync**](docs/Api/ItemCategoriesApi.md#getitemcategorybyidasync) | **GET** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Get item category by ID
 *ItemCategoriesApi* | [**updateItemCategoryAsync**](docs/Api/ItemCategoriesApi.md#updateitemcategoryasync) | **PUT** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Update an item category
+*ItemFamiliesApi* | [**createItemFamilyAsync**](docs/Api/ItemFamiliesApi.md#createitemfamilyasync) | **POST** /api/v2/CatalogService/ItemFamilies | Create a new item family
+*ItemFamiliesApi* | [**deleteItemFamilyAsync**](docs/Api/ItemFamiliesApi.md#deleteitemfamilyasync) | **DELETE** /api/v2/CatalogService/ItemFamilies/{itemFamilyId} | Delete an item family
+*ItemFamiliesApi* | [**getItemFamiliesAsync**](docs/Api/ItemFamiliesApi.md#getitemfamiliesasync) | **GET** /api/v2/CatalogService/ItemFamilies | Get all item families
+*ItemFamiliesApi* | [**getItemFamiliesCountAsync**](docs/Api/ItemFamiliesApi.md#getitemfamiliescountasync) | **GET** /api/v2/CatalogService/ItemFamilies/Count | Get item families count
+*ItemFamiliesApi* | [**getItemFamilyByIdAsync**](docs/Api/ItemFamiliesApi.md#getitemfamilybyidasync) | **GET** /api/v2/CatalogService/ItemFamilies/{itemFamilyId} | Get item family by ID
+*ItemFamiliesApi* | [**updateItemFamilyAsync**](docs/Api/ItemFamiliesApi.md#updateitemfamilyasync) | **PUT** /api/v2/CatalogService/ItemFamilies/{itemFamilyId} | Update an item family
 *ItemGoogleCategoriesApi* | [**getAllItemGoogleCategoriesAsync**](docs/Api/ItemGoogleCategoriesApi.md#getallitemgooglecategoriesasync) | **GET** /api/v2/CatalogService/ItemGoogleCategories/All | Get all Google item categories (all)
 *ItemGoogleCategoriesApi* | [**getChildrenItemGoogleCategoriesByIdAsync**](docs/Api/ItemGoogleCategoriesApi.md#getchildrenitemgooglecategoriesbyidasync) | **GET** /api/v2/CatalogService/ItemGoogleCategories/{itemCategoryId}/Children | Get children Google item categories by ID
 *ItemGoogleCategoriesApi* | [**getItemGoogleCategoriesAsync**](docs/Api/ItemGoogleCategoriesApi.md#getitemgooglecategoriesasync) | **GET** /api/v2/CatalogService/ItemGoogleCategories | Get all Google item categories
@@ -249,11 +270,6 @@ Class | Method | HTTP request | Description
 *MerchantsApi* | [**getMerchantById**](docs/Api/MerchantsApi.md#getmerchantbyid) | **GET** /api/v2/CatalogService/Merchants/{merchantId} | Get merchant by ID
 *MerchantsApi* | [**getMerchants**](docs/Api/MerchantsApi.md#getmerchants) | **GET** /api/v2/CatalogService/Merchants | Get all merchants
 *MerchantsApi* | [**getMerchantsCount**](docs/Api/MerchantsApi.md#getmerchantscount) | **GET** /api/v2/CatalogService/Merchants/Count | Count merchants
-*PricingRulesApi* | [**createPricingRule**](docs/Api/PricingRulesApi.md#createpricingrule) | **POST** /api/v2/CatalogService/PricingRules | Create a new pricing rule
-*PricingRulesApi* | [**deletePricingRule**](docs/Api/PricingRulesApi.md#deletepricingrule) | **DELETE** /api/v2/CatalogService/PricingRules/{pricingRuleId} | Delete a pricing rule
-*PricingRulesApi* | [**getPricingRuleById**](docs/Api/PricingRulesApi.md#getpricingrulebyid) | **GET** /api/v2/CatalogService/PricingRules/{pricingRuleId} | Get pricing rule by ID
-*PricingRulesApi* | [**getPricingRules**](docs/Api/PricingRulesApi.md#getpricingrules) | **GET** /api/v2/CatalogService/PricingRules | Get all pricing rules
-*PricingRulesApi* | [**updatePricingRule**](docs/Api/PricingRulesApi.md#updatepricingrule) | **PUT** /api/v2/CatalogService/PricingRules/Update | Update a pricing rule
 
 ## Models
 
@@ -280,20 +296,32 @@ Class | Method | HTTP request | Description
 - [ItemAttributeDto](docs/Model/ItemAttributeDto.md)
 - [ItemAttributeDtoEnvelope](docs/Model/ItemAttributeDtoEnvelope.md)
 - [ItemAttributeDtoListEnvelope](docs/Model/ItemAttributeDtoListEnvelope.md)
+- [ItemAttributeOptionCreateDto](docs/Model/ItemAttributeOptionCreateDto.md)
 - [ItemAttributeOptionDto](docs/Model/ItemAttributeOptionDto.md)
 - [ItemAttributeOptionDtoEnvelope](docs/Model/ItemAttributeOptionDtoEnvelope.md)
 - [ItemAttributeOptionDtoListEnvelope](docs/Model/ItemAttributeOptionDtoListEnvelope.md)
+- [ItemAttributeOptionUpdateDto](docs/Model/ItemAttributeOptionUpdateDto.md)
 - [ItemAttributeUpdateDto](docs/Model/ItemAttributeUpdateDto.md)
 - [ItemBrandCreateDto](docs/Model/ItemBrandCreateDto.md)
 - [ItemBrandDto](docs/Model/ItemBrandDto.md)
 - [ItemBrandDtoEnvelope](docs/Model/ItemBrandDtoEnvelope.md)
 - [ItemBrandDtoListEnvelope](docs/Model/ItemBrandDtoListEnvelope.md)
 - [ItemBrandUpdateDto](docs/Model/ItemBrandUpdateDto.md)
+- [ItemBundleCreateDto](docs/Model/ItemBundleCreateDto.md)
+- [ItemBundleDto](docs/Model/ItemBundleDto.md)
+- [ItemBundleDtoEnvelope](docs/Model/ItemBundleDtoEnvelope.md)
+- [ItemBundleDtoListEnvelope](docs/Model/ItemBundleDtoListEnvelope.md)
+- [ItemBundleUpdateDto](docs/Model/ItemBundleUpdateDto.md)
 - [ItemCategoryCreateDto](docs/Model/ItemCategoryCreateDto.md)
 - [ItemCategoryDto](docs/Model/ItemCategoryDto.md)
 - [ItemCategoryDtoEnvelope](docs/Model/ItemCategoryDtoEnvelope.md)
 - [ItemCategoryDtoListEnvelope](docs/Model/ItemCategoryDtoListEnvelope.md)
 - [ItemCategoryUpdateDto](docs/Model/ItemCategoryUpdateDto.md)
+- [ItemFamilyCreateDto](docs/Model/ItemFamilyCreateDto.md)
+- [ItemFamilyDto](docs/Model/ItemFamilyDto.md)
+- [ItemFamilyDtoEnvelope](docs/Model/ItemFamilyDtoEnvelope.md)
+- [ItemFamilyDtoListEnvelope](docs/Model/ItemFamilyDtoListEnvelope.md)
+- [ItemFamilyUpdateDto](docs/Model/ItemFamilyUpdateDto.md)
 - [ItemGoogleCategoryDto](docs/Model/ItemGoogleCategoryDto.md)
 - [ItemGoogleCategoryDtoEnvelope](docs/Model/ItemGoogleCategoryDtoEnvelope.md)
 - [ItemGoogleCategoryDtoListEnvelope](docs/Model/ItemGoogleCategoryDtoListEnvelope.md)
@@ -345,11 +373,9 @@ Class | Method | HTTP request | Description
 - [MerchantDtoListEnvelope](docs/Model/MerchantDtoListEnvelope.md)
 - [Money](docs/Model/Money.md)
 - [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
-- [PricingRuleCreateDto](docs/Model/PricingRuleCreateDto.md)
 - [PricingRuleDto](docs/Model/PricingRuleDto.md)
 - [PricingRuleDtoEnvelope](docs/Model/PricingRuleDtoEnvelope.md)
 - [PricingRuleDtoListEnvelope](docs/Model/PricingRuleDtoListEnvelope.md)
-- [PricingRuleUpdateDto](docs/Model/PricingRuleUpdateDto.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
@@ -378,6 +404,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

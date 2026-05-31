@@ -51,30 +51,36 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\CountriesApi(
+$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$conversation_id = 'conversation_id_example'; // string
+$message = 'message_example'; // string
 
 try {
-    $result = $apiInstance->countCountries($api_version, $x_api_version);
-    print_r($result);
+    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->countCountries: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*CountriesApi* | [**countCallingCodesByCountryAsync**](docs/Api/CountriesApi.md#countcallingcodesbycountryasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes/Count | Count calling codes for a country
+*CountriesApi* | [**countCitiesByStateAsync**](docs/Api/CountriesApi.md#countcitiesbystateasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities/Count | Count cities for a state
 *CountriesApi* | [**countCountries**](docs/Api/CountriesApi.md#countcountries) | **GET** /api/v2/GlobeService/Countries/Count | Count countries
+*CountriesApi* | [**countCountryStatesAsync**](docs/Api/CountriesApi.md#countcountrystatesasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/Count | Count states for a country
+*CountriesApi* | [**countTimezonesByCountryAsync**](docs/Api/CountriesApi.md#counttimezonesbycountryasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/Timezones/Count | Count timezones for a country
+*CountriesApi* | [**countTopLevelDomainsByCountryAsync**](docs/Api/CountriesApi.md#counttopleveldomainsbycountryasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains/Count | Count top-level domains for a country
 *CountriesApi* | [**getAllCountries**](docs/Api/CountriesApi.md#getallcountries) | **GET** /api/v2/GlobeService/Countries | Get all countries
 *CountriesApi* | [**getCallingCodesByCountryIdAsync**](docs/Api/CountriesApi.md#getcallingcodesbycountryidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | Get calling codes for a country
 *CountriesApi* | [**getCitiesByCountryStateIdAsync**](docs/Api/CountriesApi.md#getcitiesbycountrystateidasync) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | Get cities for a state
@@ -88,26 +94,27 @@ Class | Method | HTTP request | Description
 *CurrenciesApi* | [**countCurrenciesAsync**](docs/Api/CurrenciesApi.md#countcurrenciesasync) | **GET** /api/v2/GlobeService/Currencies/Count | Count currencies
 *CurrenciesApi* | [**getCurrencyByIdAsync**](docs/Api/CurrenciesApi.md#getcurrencybyidasync) | **GET** /api/v2/GlobeService/Currencies/{currencyId} | Get currency by ID
 *CurrenciesApi* | [**getEnabledCurrenciesAsync**](docs/Api/CurrenciesApi.md#getenabledcurrenciesasync) | **GET** /api/v2/GlobeService/Currencies | Get all currencies
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
 *LanguagesApi* | [**countLanguagesAsync**](docs/Api/LanguagesApi.md#countlanguagesasync) | **GET** /api/v2/GlobeService/Languages/Count | Count languages
 *LanguagesApi* | [**getLanguageByIdAsync**](docs/Api/LanguagesApi.md#getlanguagebyidasync) | **GET** /api/v2/GlobeService/Languages/{languageId} | Get language by ID
 *LanguagesApi* | [**getLanguagesAsync**](docs/Api/LanguagesApi.md#getlanguagesasync) | **GET** /api/v2/GlobeService/Languages | Get all languages
+*MigrationsApi* | [**apiV2GlobalSystemMigratePost**](docs/Api/MigrationsApi.md#apiv2globalsystemmigratepost) | **POST** /api/v2/Global/System/Migrate | 
 *TimezonesApi* | [**countTimezonesAsync**](docs/Api/TimezonesApi.md#counttimezonesasync) | **GET** /api/v2/GlobeService/Timezones/Count | Count timezones
 *TimezonesApi* | [**getTimeZoneByIdAsync**](docs/Api/TimezonesApi.md#gettimezonebyidasync) | **GET** /api/v2/GlobeService/Timezones/{timeZoneId} | Get timezone by ID
 *TimezonesApi* | [**getTimeZonesAsync**](docs/Api/TimezonesApi.md#gettimezonesasync) | **GET** /api/v2/GlobeService/Timezones | Get all timezones
@@ -133,6 +140,7 @@ Class | Method | HTTP request | Description
 - [CurrencyDto](docs/Model/CurrencyDto.md)
 - [CurrencyDtoEnvelope](docs/Model/CurrencyDtoEnvelope.md)
 - [CurrencyDtoListEnvelope](docs/Model/CurrencyDtoListEnvelope.md)
+- [Error](docs/Model/Error.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
@@ -140,10 +148,12 @@ Class | Method | HTTP request | Description
 - [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
+- [PaymentResponse](docs/Model/PaymentResponse.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [ResponseStatus](docs/Model/ResponseStatus.md)
 - [TimezoneDto](docs/Model/TimezoneDto.md)
 - [TimezoneDtoEnvelope](docs/Model/TimezoneDtoEnvelope.md)
 - [TimezoneDtoListEnvelope](docs/Model/TimezoneDtoListEnvelope.md)
@@ -170,6 +180,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

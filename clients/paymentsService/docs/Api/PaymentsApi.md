@@ -1,6 +1,6 @@
 # OpenAPI\Client\PaymentsApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -131,7 +131,7 @@ No authorization required
 ## `getPaymentAsync()`
 
 ```php
-getPaymentAsync($payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getPaymentAsync($tenant_id, $payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
 Gets a payment by ID (deprecated)
@@ -151,10 +151,11 @@ $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $payment_id = 'payment_id_example'; // string
 
 try {
-    $result = $apiInstance->getPaymentAsync($payment_id);
+    $result = $apiInstance->getPaymentAsync($tenant_id, $payment_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentsApi->getPaymentAsync: ', $e->getMessage(), PHP_EOL;
@@ -165,6 +166,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **payment_id** | **string**|  | |
 
 ### Return type
@@ -187,7 +189,7 @@ No authorization required
 ## `getPaymentAsyncV2()`
 
 ```php
-getPaymentAsyncV2($payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
+getPaymentAsyncV2($tenant_id, $payment_id): \OpenAPI\Client\Model\PaymentDtoListEnvelope
 ```
 
 Gets a payment by ID
@@ -207,10 +209,11 @@ $apiInstance = new OpenAPI\Client\Api\PaymentsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $payment_id = 'payment_id_example'; // string
 
 try {
-    $result = $apiInstance->getPaymentAsyncV2($payment_id);
+    $result = $apiInstance->getPaymentAsyncV2($tenant_id, $payment_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentsApi->getPaymentAsyncV2: ', $e->getMessage(), PHP_EOL;
@@ -221,6 +224,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **payment_id** | **string**|  | |
 
 ### Return type

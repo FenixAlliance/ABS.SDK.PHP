@@ -20,6 +20,10 @@ Name | Type | Description | Notes
 **account_type_id** | **string** |  | [optional]
 **debits_balance** | **float** |  | [optional]
 **credits_balance** | **float** |  | [optional]
+**balance_in_usd** | **float** |  | [optional]
+**debits_balance_in_usd** | **float** |  | [optional]
+**credits_balance_in_usd** | **float** |  | [optional]
+**forex_rate** | **float** |  | [optional]
 **parent_account_id** | **string** |  | [optional]
 **tenant_id** | **string** |  | [optional]
 **enrollment_id** | **string** |  | [optional]
@@ -28,5 +32,8 @@ Name | Type | Description | Notes
 **balance_amount** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
 **credits_balance_amount** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
 **debits_balance_amount** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
+**balance_amount_in_usd** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
+**debits_balance_amount_in_usd** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
+**credits_balance_amount_in_usd** | [**\OpenAPI\Client\Model\Money**](Money.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

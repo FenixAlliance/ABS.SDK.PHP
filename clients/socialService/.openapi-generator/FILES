@@ -3,7 +3,8 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/FenixAllianceABSWebApi.md
+docs/Api/CompletionsApi.md
+docs/Api/FenixAlliancePortalsWebsiteApi.md
 docs/Api/SocialFeedsApi.md
 docs/Api/SocialGroupsApi.md
 docs/Api/SocialPostsApi.md
@@ -24,6 +25,7 @@ docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
 docs/Model/NotificationDto.md
+docs/Model/NotificationDtoEnvelope.md
 docs/Model/NotificationDtoListEnvelope.md
 docs/Model/PrivateMessageCreateDto.md
 docs/Model/PrivateMessageDto.md
@@ -72,7 +74,8 @@ docs/Model/SocialReactionUpdateDto.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/FenixAllianceABSWebApi.php
+lib/Api/CompletionsApi.php
+lib/Api/FenixAlliancePortalsWebsiteApi.php
 lib/Api/SocialFeedsApi.php
 lib/Api/SocialGroupsApi.php
 lib/Api/SocialPostsApi.php
@@ -97,6 +100,7 @@ lib/Model/Int32Envelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
 lib/Model/NotificationDto.php
+lib/Model/NotificationDtoEnvelope.php
 lib/Model/NotificationDtoListEnvelope.php
 lib/Model/PrivateMessageCreateDto.php
 lib/Model/PrivateMessageDto.php
@@ -146,3 +150,6 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/CompletionsApiTest.php
+test/Api/FenixAlliancePortalsWebsiteApiTest.php
+test/Model/NotificationDtoEnvelopeTest.php

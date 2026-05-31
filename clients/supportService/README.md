@@ -51,98 +51,89 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\FenixAllianceABSWebApi(
+$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$return_url = 'return_url_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$conversation_id = 'conversation_id_example'; // string
+$message = 'message_example'; // string
 
 try {
-    $apiInstance->accountLogoutPost($return_url);
+    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
 } catch (Exception $e) {
-    echo 'Exception when calling FenixAllianceABSWebApi->accountLogoutPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
-*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
-*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
-*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
-*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
-*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
-*HelpdeskApi* | [**createInquiryRequestAsync**](docs/Api/HelpdeskApi.md#createinquiryrequestasync) | **POST** /api/v2/SupportService/InquiryRequests | Create an inquiry request
-*HelpdeskApi* | [**createKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#createknowledgearticleasync) | **POST** /api/v2/SupportService/KnowledgeArticles | Create a knowledge article
-*HelpdeskApi* | [**createMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#createmaintenancevisitasync) | **POST** /api/v2/SupportService/MaintenanceVisits | Create a maintenance visit
-*HelpdeskApi* | [**createRefundRequestAsync**](docs/Api/HelpdeskApi.md#createrefundrequestasync) | **POST** /api/v2/SupportService/RefundRequests | Create a refund request
-*HelpdeskApi* | [**createReturnRequestAsync**](docs/Api/HelpdeskApi.md#createreturnrequestasync) | **POST** /api/v2/SupportService/ReturnRequests | Create a return request
-*HelpdeskApi* | [**createWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#createwarrantyrequestasync) | **POST** /api/v2/SupportService/WarrantyRequests | Create a warranty request
-*HelpdeskApi* | [**deleteInquiryRequestAsync**](docs/Api/HelpdeskApi.md#deleteinquiryrequestasync) | **DELETE** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Delete an inquiry request
-*HelpdeskApi* | [**deleteKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#deleteknowledgearticleasync) | **DELETE** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Delete a knowledge article
-*HelpdeskApi* | [**deleteMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#deletemaintenancevisitasync) | **DELETE** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Delete a maintenance visit
-*HelpdeskApi* | [**deleteRefundRequestAsync**](docs/Api/HelpdeskApi.md#deleterefundrequestasync) | **DELETE** /api/v2/SupportService/RefundRequests/{refundRequestId} | Delete a refund request
-*HelpdeskApi* | [**deleteReturnRequestAsync**](docs/Api/HelpdeskApi.md#deletereturnrequestasync) | **DELETE** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Delete a return request
-*HelpdeskApi* | [**deleteWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#deletewarrantyrequestasync) | **DELETE** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Delete a warranty request
-*HelpdeskApi* | [**getInquiryRequestAsync**](docs/Api/HelpdeskApi.md#getinquiryrequestasync) | **GET** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Retrieve an inquiry request by ID
-*HelpdeskApi* | [**getInquiryRequestsAsync**](docs/Api/HelpdeskApi.md#getinquiryrequestsasync) | **GET** /api/v2/SupportService/InquiryRequests | Retrieve inquiry requests
-*HelpdeskApi* | [**getInquiryRequestsCountAsync**](docs/Api/HelpdeskApi.md#getinquiryrequestscountasync) | **GET** /api/v2/SupportService/InquiryRequests/Count | Get inquiry requests count
-*HelpdeskApi* | [**getKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#getknowledgearticleasync) | **GET** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Retrieve a knowledge article by ID
-*HelpdeskApi* | [**getKnowledgeArticlesAsync**](docs/Api/HelpdeskApi.md#getknowledgearticlesasync) | **GET** /api/v2/SupportService/KnowledgeArticles | Retrieve knowledge articles
-*HelpdeskApi* | [**getKnowledgeArticlesCountAsync**](docs/Api/HelpdeskApi.md#getknowledgearticlescountasync) | **GET** /api/v2/SupportService/KnowledgeArticles/Count | Get knowledge articles count
-*HelpdeskApi* | [**getMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#getmaintenancevisitasync) | **GET** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Retrieve a maintenance visit by ID
-*HelpdeskApi* | [**getMaintenanceVisitsAsync**](docs/Api/HelpdeskApi.md#getmaintenancevisitsasync) | **GET** /api/v2/SupportService/MaintenanceVisits | Retrieve maintenance visits
-*HelpdeskApi* | [**getMaintenanceVisitsCountAsync**](docs/Api/HelpdeskApi.md#getmaintenancevisitscountasync) | **GET** /api/v2/SupportService/MaintenanceVisits/Count | Get maintenance visits count
-*HelpdeskApi* | [**getRefundRequestAsync**](docs/Api/HelpdeskApi.md#getrefundrequestasync) | **GET** /api/v2/SupportService/RefundRequests/{refundRequestId} | Retrieve a refund request by ID
-*HelpdeskApi* | [**getRefundRequestsAsync**](docs/Api/HelpdeskApi.md#getrefundrequestsasync) | **GET** /api/v2/SupportService/RefundRequests | Retrieve refund requests
-*HelpdeskApi* | [**getRefundRequestsCountAsync**](docs/Api/HelpdeskApi.md#getrefundrequestscountasync) | **GET** /api/v2/SupportService/RefundRequests/Count | Get refund requests count
-*HelpdeskApi* | [**getReturnRequestAsync**](docs/Api/HelpdeskApi.md#getreturnrequestasync) | **GET** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Retrieve a return request by ID
-*HelpdeskApi* | [**getReturnRequestsAsync**](docs/Api/HelpdeskApi.md#getreturnrequestsasync) | **GET** /api/v2/SupportService/ReturnRequests | Retrieve return requests
-*HelpdeskApi* | [**getReturnRequestsCountAsync**](docs/Api/HelpdeskApi.md#getreturnrequestscountasync) | **GET** /api/v2/SupportService/ReturnRequests/Count | Get return requests count
-*HelpdeskApi* | [**getWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#getwarrantyrequestasync) | **GET** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Retrieve a warranty request by ID
-*HelpdeskApi* | [**getWarrantyRequestsAsync**](docs/Api/HelpdeskApi.md#getwarrantyrequestsasync) | **GET** /api/v2/SupportService/WarrantyRequests | Retrieve warranty requests
-*HelpdeskApi* | [**getWarrantyRequestsCountAsync**](docs/Api/HelpdeskApi.md#getwarrantyrequestscountasync) | **GET** /api/v2/SupportService/WarrantyRequests/Count | Get warranty requests count
-*HelpdeskApi* | [**updateInquiryRequestAsync**](docs/Api/HelpdeskApi.md#updateinquiryrequestasync) | **PUT** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Update an inquiry request
-*HelpdeskApi* | [**updateKnowledgeArticleAsync**](docs/Api/HelpdeskApi.md#updateknowledgearticleasync) | **PUT** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Update a knowledge article
-*HelpdeskApi* | [**updateMaintenanceVisitAsync**](docs/Api/HelpdeskApi.md#updatemaintenancevisitasync) | **PUT** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Update a maintenance visit
-*HelpdeskApi* | [**updateRefundRequestAsync**](docs/Api/HelpdeskApi.md#updaterefundrequestasync) | **PUT** /api/v2/SupportService/RefundRequests/{refundRequestId} | Update a refund request
-*HelpdeskApi* | [**updateReturnRequestAsync**](docs/Api/HelpdeskApi.md#updatereturnrequestasync) | **PUT** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Update a return request
-*HelpdeskApi* | [**updateWarrantyRequestAsync**](docs/Api/HelpdeskApi.md#updatewarrantyrequestasync) | **PUT** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Update a warranty request
-*PoliciesApi* | [**createRefundPolicyAsync**](docs/Api/PoliciesApi.md#createrefundpolicyasync) | **POST** /api/v2/SupportService/RefundPolicies | Create a new refund policy
-*PoliciesApi* | [**createReturnPolicyAsync**](docs/Api/PoliciesApi.md#createreturnpolicyasync) | **POST** /api/v2/SupportService/ReturnPolicies | Create a new return policy
-*PoliciesApi* | [**createWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#createwarrantypolicyasync) | **POST** /api/v2/SupportService/WarrantyPolicies | Create a new warranty policy
-*PoliciesApi* | [**deleteRefundPolicyAsync**](docs/Api/PoliciesApi.md#deleterefundpolicyasync) | **DELETE** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Delete a refund policy
-*PoliciesApi* | [**deleteReturnPolicyAsync**](docs/Api/PoliciesApi.md#deletereturnpolicyasync) | **DELETE** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Delete a return policy
-*PoliciesApi* | [**deleteWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#deletewarrantypolicyasync) | **DELETE** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Delete a warranty policy
-*PoliciesApi* | [**getRefundPoliciesAsync**](docs/Api/PoliciesApi.md#getrefundpoliciesasync) | **GET** /api/v2/SupportService/RefundPolicies | Retrieve a list of refund policies
-*PoliciesApi* | [**getRefundPoliciesCountAsync**](docs/Api/PoliciesApi.md#getrefundpoliciescountasync) | **GET** /api/v2/SupportService/RefundPolicies/Count | Get the count of refund policies
-*PoliciesApi* | [**getRefundPolicyAsync**](docs/Api/PoliciesApi.md#getrefundpolicyasync) | **GET** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Retrieve a refund policy by ID
-*PoliciesApi* | [**getReturnPoliciesAsync**](docs/Api/PoliciesApi.md#getreturnpoliciesasync) | **GET** /api/v2/SupportService/ReturnPolicies | Retrieve a list of return policies
-*PoliciesApi* | [**getReturnPoliciesCountAsync**](docs/Api/PoliciesApi.md#getreturnpoliciescountasync) | **GET** /api/v2/SupportService/ReturnPolicies/Count | Get the count of return policies
-*PoliciesApi* | [**getReturnPolicyAsync**](docs/Api/PoliciesApi.md#getreturnpolicyasync) | **GET** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Retrieve a return policy by ID
-*PoliciesApi* | [**getWarrantyPoliciesAsync**](docs/Api/PoliciesApi.md#getwarrantypoliciesasync) | **GET** /api/v2/SupportService/WarrantyPolicies | Retrieve a list of warranty policies
-*PoliciesApi* | [**getWarrantyPoliciesCountAsync**](docs/Api/PoliciesApi.md#getwarrantypoliciescountasync) | **GET** /api/v2/SupportService/WarrantyPolicies/Count | Get the count of warranty policies
-*PoliciesApi* | [**getWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#getwarrantypolicyasync) | **GET** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Retrieve a warranty policy by ID
-*PoliciesApi* | [**updateRefundPolicyAsync**](docs/Api/PoliciesApi.md#updaterefundpolicyasync) | **PUT** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Update a refund policy
-*PoliciesApi* | [**updateReturnPolicyAsync**](docs/Api/PoliciesApi.md#updatereturnpolicyasync) | **PUT** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Update a return policy
-*PoliciesApi* | [**updateWarrantyPolicyAsync**](docs/Api/PoliciesApi.md#updatewarrantypolicyasync) | **PUT** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Update a warranty policy
+*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
+*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
+*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
+*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
+*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
+*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*InquiryRequestsApi* | [**createInquiryRequestAsync**](docs/Api/InquiryRequestsApi.md#createinquiryrequestasync) | **POST** /api/v2/SupportService/InquiryRequests | Create an inquiry request
+*InquiryRequestsApi* | [**deleteInquiryRequestAsync**](docs/Api/InquiryRequestsApi.md#deleteinquiryrequestasync) | **DELETE** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Delete an inquiry request
+*InquiryRequestsApi* | [**getInquiryRequestAsync**](docs/Api/InquiryRequestsApi.md#getinquiryrequestasync) | **GET** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Retrieve an inquiry request by ID
+*InquiryRequestsApi* | [**getInquiryRequestsAsync**](docs/Api/InquiryRequestsApi.md#getinquiryrequestsasync) | **GET** /api/v2/SupportService/InquiryRequests | Retrieve inquiry requests
+*InquiryRequestsApi* | [**getInquiryRequestsCountAsync**](docs/Api/InquiryRequestsApi.md#getinquiryrequestscountasync) | **GET** /api/v2/SupportService/InquiryRequests/Count | Get inquiry requests count
+*InquiryRequestsApi* | [**updateInquiryRequestAsync**](docs/Api/InquiryRequestsApi.md#updateinquiryrequestasync) | **PUT** /api/v2/SupportService/InquiryRequests/{inquiryRequestId} | Update an inquiry request
+*KnowledgeArticlesApi* | [**createKnowledgeArticleAsync**](docs/Api/KnowledgeArticlesApi.md#createknowledgearticleasync) | **POST** /api/v2/SupportService/KnowledgeArticles | Create a knowledge article
+*KnowledgeArticlesApi* | [**deleteKnowledgeArticleAsync**](docs/Api/KnowledgeArticlesApi.md#deleteknowledgearticleasync) | **DELETE** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Delete a knowledge article
+*KnowledgeArticlesApi* | [**getKnowledgeArticleAsync**](docs/Api/KnowledgeArticlesApi.md#getknowledgearticleasync) | **GET** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Retrieve a knowledge article by ID
+*KnowledgeArticlesApi* | [**getKnowledgeArticlesAsync**](docs/Api/KnowledgeArticlesApi.md#getknowledgearticlesasync) | **GET** /api/v2/SupportService/KnowledgeArticles | Retrieve knowledge articles
+*KnowledgeArticlesApi* | [**getKnowledgeArticlesCountAsync**](docs/Api/KnowledgeArticlesApi.md#getknowledgearticlescountasync) | **GET** /api/v2/SupportService/KnowledgeArticles/Count | Get knowledge articles count
+*KnowledgeArticlesApi* | [**updateKnowledgeArticleAsync**](docs/Api/KnowledgeArticlesApi.md#updateknowledgearticleasync) | **PUT** /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId} | Update a knowledge article
+*MaintenanceVisitsApi* | [**createMaintenanceVisitAsync**](docs/Api/MaintenanceVisitsApi.md#createmaintenancevisitasync) | **POST** /api/v2/SupportService/MaintenanceVisits | Create a maintenance visit
+*MaintenanceVisitsApi* | [**deleteMaintenanceVisitAsync**](docs/Api/MaintenanceVisitsApi.md#deletemaintenancevisitasync) | **DELETE** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Delete a maintenance visit
+*MaintenanceVisitsApi* | [**getMaintenanceVisitAsync**](docs/Api/MaintenanceVisitsApi.md#getmaintenancevisitasync) | **GET** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Retrieve a maintenance visit by ID
+*MaintenanceVisitsApi* | [**getMaintenanceVisitsAsync**](docs/Api/MaintenanceVisitsApi.md#getmaintenancevisitsasync) | **GET** /api/v2/SupportService/MaintenanceVisits | Retrieve maintenance visits
+*MaintenanceVisitsApi* | [**getMaintenanceVisitsCountAsync**](docs/Api/MaintenanceVisitsApi.md#getmaintenancevisitscountasync) | **GET** /api/v2/SupportService/MaintenanceVisits/Count | Get maintenance visits count
+*MaintenanceVisitsApi* | [**updateMaintenanceVisitAsync**](docs/Api/MaintenanceVisitsApi.md#updatemaintenancevisitasync) | **PUT** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Update a maintenance visit
+*RefundPoliciesApi* | [**createRefundPolicyAsync**](docs/Api/RefundPoliciesApi.md#createrefundpolicyasync) | **POST** /api/v2/SupportService/RefundPolicies | Create a new refund policy
+*RefundPoliciesApi* | [**deleteRefundPolicyAsync**](docs/Api/RefundPoliciesApi.md#deleterefundpolicyasync) | **DELETE** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Delete a refund policy
+*RefundPoliciesApi* | [**getRefundPoliciesAsync**](docs/Api/RefundPoliciesApi.md#getrefundpoliciesasync) | **GET** /api/v2/SupportService/RefundPolicies | Retrieve a list of refund policies
+*RefundPoliciesApi* | [**getRefundPoliciesCountAsync**](docs/Api/RefundPoliciesApi.md#getrefundpoliciescountasync) | **GET** /api/v2/SupportService/RefundPolicies/Count | Get the count of refund policies
+*RefundPoliciesApi* | [**getRefundPolicyAsync**](docs/Api/RefundPoliciesApi.md#getrefundpolicyasync) | **GET** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Retrieve a refund policy by ID
+*RefundPoliciesApi* | [**updateRefundPolicyAsync**](docs/Api/RefundPoliciesApi.md#updaterefundpolicyasync) | **PUT** /api/v2/SupportService/RefundPolicies/{refundPolicyId} | Update a refund policy
+*RefundRequestsApi* | [**createRefundRequestAsync**](docs/Api/RefundRequestsApi.md#createrefundrequestasync) | **POST** /api/v2/SupportService/RefundRequests | Create a refund request
+*RefundRequestsApi* | [**deleteRefundRequestAsync**](docs/Api/RefundRequestsApi.md#deleterefundrequestasync) | **DELETE** /api/v2/SupportService/RefundRequests/{refundRequestId} | Delete a refund request
+*RefundRequestsApi* | [**getRefundRequestAsync**](docs/Api/RefundRequestsApi.md#getrefundrequestasync) | **GET** /api/v2/SupportService/RefundRequests/{refundRequestId} | Retrieve a refund request by ID
+*RefundRequestsApi* | [**getRefundRequestsAsync**](docs/Api/RefundRequestsApi.md#getrefundrequestsasync) | **GET** /api/v2/SupportService/RefundRequests | Retrieve refund requests
+*RefundRequestsApi* | [**getRefundRequestsCountAsync**](docs/Api/RefundRequestsApi.md#getrefundrequestscountasync) | **GET** /api/v2/SupportService/RefundRequests/Count | Get refund requests count
+*RefundRequestsApi* | [**updateRefundRequestAsync**](docs/Api/RefundRequestsApi.md#updaterefundrequestasync) | **PUT** /api/v2/SupportService/RefundRequests/{refundRequestId} | Update a refund request
+*ReturnPoliciesApi* | [**createReturnPolicyAsync**](docs/Api/ReturnPoliciesApi.md#createreturnpolicyasync) | **POST** /api/v2/SupportService/ReturnPolicies | Create a new return policy
+*ReturnPoliciesApi* | [**deleteReturnPolicyAsync**](docs/Api/ReturnPoliciesApi.md#deletereturnpolicyasync) | **DELETE** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Delete a return policy
+*ReturnPoliciesApi* | [**getReturnPoliciesAsync**](docs/Api/ReturnPoliciesApi.md#getreturnpoliciesasync) | **GET** /api/v2/SupportService/ReturnPolicies | Retrieve a list of return policies
+*ReturnPoliciesApi* | [**getReturnPoliciesCountAsync**](docs/Api/ReturnPoliciesApi.md#getreturnpoliciescountasync) | **GET** /api/v2/SupportService/ReturnPolicies/Count | Get the count of return policies
+*ReturnPoliciesApi* | [**getReturnPolicyAsync**](docs/Api/ReturnPoliciesApi.md#getreturnpolicyasync) | **GET** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Retrieve a return policy by ID
+*ReturnPoliciesApi* | [**updateReturnPolicyAsync**](docs/Api/ReturnPoliciesApi.md#updatereturnpolicyasync) | **PUT** /api/v2/SupportService/ReturnPolicies/{returnPolicyId} | Update a return policy
+*ReturnRequestsApi* | [**createReturnRequestAsync**](docs/Api/ReturnRequestsApi.md#createreturnrequestasync) | **POST** /api/v2/SupportService/ReturnRequests | Create a return request
+*ReturnRequestsApi* | [**deleteReturnRequestAsync**](docs/Api/ReturnRequestsApi.md#deletereturnrequestasync) | **DELETE** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Delete a return request
+*ReturnRequestsApi* | [**getReturnRequestAsync**](docs/Api/ReturnRequestsApi.md#getreturnrequestasync) | **GET** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Retrieve a return request by ID
+*ReturnRequestsApi* | [**getReturnRequestsAsync**](docs/Api/ReturnRequestsApi.md#getreturnrequestsasync) | **GET** /api/v2/SupportService/ReturnRequests | Retrieve return requests
+*ReturnRequestsApi* | [**getReturnRequestsCountAsync**](docs/Api/ReturnRequestsApi.md#getreturnrequestscountasync) | **GET** /api/v2/SupportService/ReturnRequests/Count | Get return requests count
+*ReturnRequestsApi* | [**updateReturnRequestAsync**](docs/Api/ReturnRequestsApi.md#updatereturnrequestasync) | **PUT** /api/v2/SupportService/ReturnRequests/{returnRequestId} | Update a return request
 *SupportEntitlementsApi* | [**createSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#createsupportentitlementasync) | **POST** /api/v2/SupportService/SupportEntitlements | Create a new support entitlement
 *SupportEntitlementsApi* | [**deleteSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#deletesupportentitlementasync) | **DELETE** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Delete a support entitlement
 *SupportEntitlementsApi* | [**getSupportEntitlementAsync**](docs/Api/SupportEntitlementsApi.md#getsupportentitlementasync) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Retrieve a support entitlement by ID
@@ -189,6 +180,18 @@ Class | Method | HTTP request | Description
 *SupportTicketsApi* | [**getSupportTicketsCountAsync**](docs/Api/SupportTicketsApi.md#getsupportticketscountasync) | **GET** /api/v2/SupportService/SupportTickets/Count | Get the count of support tickets
 *SupportTicketsApi* | [**relateSupportTicketToConversationAsync**](docs/Api/SupportTicketsApi.md#relatesupporttickettoconversationasync) | **POST** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Create a conversation for a support ticket
 *SupportTicketsApi* | [**updateSupportTicketAsync**](docs/Api/SupportTicketsApi.md#updatesupportticketasync) | **PUT** /api/v2/SupportService/SupportTickets/{supportTicketId} | Update a support ticket
+*WarrantyPoliciesApi* | [**createWarrantyPolicyAsync**](docs/Api/WarrantyPoliciesApi.md#createwarrantypolicyasync) | **POST** /api/v2/SupportService/WarrantyPolicies | Create a new warranty policy
+*WarrantyPoliciesApi* | [**deleteWarrantyPolicyAsync**](docs/Api/WarrantyPoliciesApi.md#deletewarrantypolicyasync) | **DELETE** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Delete a warranty policy
+*WarrantyPoliciesApi* | [**getWarrantyPoliciesAsync**](docs/Api/WarrantyPoliciesApi.md#getwarrantypoliciesasync) | **GET** /api/v2/SupportService/WarrantyPolicies | Retrieve a list of warranty policies
+*WarrantyPoliciesApi* | [**getWarrantyPoliciesCountAsync**](docs/Api/WarrantyPoliciesApi.md#getwarrantypoliciescountasync) | **GET** /api/v2/SupportService/WarrantyPolicies/Count | Get the count of warranty policies
+*WarrantyPoliciesApi* | [**getWarrantyPolicyAsync**](docs/Api/WarrantyPoliciesApi.md#getwarrantypolicyasync) | **GET** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Retrieve a warranty policy by ID
+*WarrantyPoliciesApi* | [**updateWarrantyPolicyAsync**](docs/Api/WarrantyPoliciesApi.md#updatewarrantypolicyasync) | **PUT** /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId} | Update a warranty policy
+*WarrantyRequestsApi* | [**createWarrantyRequestAsync**](docs/Api/WarrantyRequestsApi.md#createwarrantyrequestasync) | **POST** /api/v2/SupportService/WarrantyRequests | Create a warranty request
+*WarrantyRequestsApi* | [**deleteWarrantyRequestAsync**](docs/Api/WarrantyRequestsApi.md#deletewarrantyrequestasync) | **DELETE** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Delete a warranty request
+*WarrantyRequestsApi* | [**getWarrantyRequestAsync**](docs/Api/WarrantyRequestsApi.md#getwarrantyrequestasync) | **GET** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Retrieve a warranty request by ID
+*WarrantyRequestsApi* | [**getWarrantyRequestsAsync**](docs/Api/WarrantyRequestsApi.md#getwarrantyrequestsasync) | **GET** /api/v2/SupportService/WarrantyRequests | Retrieve warranty requests
+*WarrantyRequestsApi* | [**getWarrantyRequestsCountAsync**](docs/Api/WarrantyRequestsApi.md#getwarrantyrequestscountasync) | **GET** /api/v2/SupportService/WarrantyRequests/Count | Get warranty requests count
+*WarrantyRequestsApi* | [**updateWarrantyRequestAsync**](docs/Api/WarrantyRequestsApi.md#updatewarrantyrequestasync) | **PUT** /api/v2/SupportService/WarrantyRequests/{warrantyRequestId} | Update a warranty request
 
 ## Models
 
@@ -308,6 +311,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.0.0.0`
+- API version: `2.1.2.5401`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

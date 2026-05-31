@@ -1,0 +1,11 @@
+# # X500DistinguishedName
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**oid** | [**\OpenAPI\Client\Model\Oid**](Oid.md) |  | [optional]
+**raw_data** | **string** |  | [optional]
+**name** | **string** |  | [optional] [readonly]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

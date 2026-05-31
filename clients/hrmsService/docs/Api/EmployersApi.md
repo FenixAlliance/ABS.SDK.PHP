@@ -1,6 +1,6 @@
 # OpenAPI\Client\EmployersApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -321,7 +321,7 @@ No authorization required
 ## `updateEmployerAsync()`
 
 ```php
-updateEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $body): \OpenAPI\Client\Model\EmptyEnvelope
+updateEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $employer_profile_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Update an employer
@@ -345,10 +345,10 @@ $tenant_id = 'tenant_id_example'; // string
 $employer_id = 'employer_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$body = array('key' => new \stdClass); // object
+$employer_profile_update_dto = new \OpenAPI\Client\Model\EmployerProfileUpdateDto(); // \OpenAPI\Client\Model\EmployerProfileUpdateDto
 
 try {
-    $result = $apiInstance->updateEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $body);
+    $result = $apiInstance->updateEmployerAsync($tenant_id, $employer_id, $api_version, $x_api_version, $employer_profile_update_dto);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmployersApi->updateEmployerAsync: ', $e->getMessage(), PHP_EOL;
@@ -363,7 +363,7 @@ try {
 | **employer_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **body** | **object**|  | [optional] |
+| **employer_profile_update_dto** | [**\OpenAPI\Client\Model\EmployerProfileUpdateDto**](../Model/EmployerProfileUpdateDto.md)|  | [optional] |
 
 ### Return type
 

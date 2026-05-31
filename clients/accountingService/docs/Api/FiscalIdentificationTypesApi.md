@@ -1,6 +1,6 @@
 # OpenAPI\Client\FiscalIdentificationTypesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -203,7 +203,7 @@ No authorization required
 ## `getFiscalIdentificationTypes()`
 
 ```php
-getFiscalIdentificationTypes($authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FiscalIdentificationTypeDtoListEnvelope
+getFiscalIdentificationTypes($tenant_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\FiscalIdentificationTypeDtoListEnvelope
 ```
 
 Get fiscal identification types for an authority
@@ -223,12 +223,13 @@ $apiInstance = new OpenAPI\Client\Api\FiscalIdentificationTypesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getFiscalIdentificationTypes($authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalIdentificationTypes($tenant_id, $authority_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalIdentificationTypesApi->getFiscalIdentificationTypes: ', $e->getMessage(), PHP_EOL;
@@ -239,6 +240,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -263,7 +265,7 @@ No authorization required
 ## `getFiscalIdentificationTypesCount()`
 
 ```php
-getFiscalIdentificationTypesCount($authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getFiscalIdentificationTypesCount($tenant_id, $authority_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get fiscal identification types count
@@ -283,12 +285,13 @@ $apiInstance = new OpenAPI\Client\Api\FiscalIdentificationTypesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $authority_id = 'authority_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getFiscalIdentificationTypesCount($authority_id, $api_version, $x_api_version);
+    $result = $apiInstance->getFiscalIdentificationTypesCount($tenant_id, $authority_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FiscalIdentificationTypesApi->getFiscalIdentificationTypesCount: ', $e->getMessage(), PHP_EOL;
@@ -299,6 +302,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
 | **authority_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |

@@ -1,6 +1,6 @@
 # OpenAPI\Client\ItemRefundPoliciesApi
 
-All URIs are relative to https://absuite.net, except if the operation defines another base path.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -14,7 +14,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 ## `countItemRefundPoliciesAsync()`
 
 ```php
-countItemRefundPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+countItemRefundPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Count item refund policies
@@ -34,12 +34,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemRefundPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->countItemRefundPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->countItemRefundPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRefundPoliciesApi->countItemRefundPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -74,7 +76,7 @@ No authorization required
 ## `getItemRefundPoliciesAsync()`
 
 ```php
-getItemRefundPoliciesAsync($item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope
+getItemRefundPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRefundPolicyDtoListEnvelope
 ```
 
 Get item refund policies
@@ -94,12 +96,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemRefundPoliciesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemRefundPoliciesAsync($item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRefundPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRefundPoliciesApi->getItemRefundPoliciesAsync: ', $e->getMessage(), PHP_EOL;
@@ -110,6 +113,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
@@ -134,7 +138,7 @@ No authorization required
 ## `getItemRefundPolicyByIdAsync()`
 
 ```php
-getItemRefundPolicyByIdAsync($item_refund_policy_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRefundPolicyDtoEnvelope
+getItemRefundPolicyByIdAsync($item_refund_policy_id, $tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemRefundPolicyDtoEnvelope
 ```
 
 Get item refund policy by ID
@@ -155,12 +159,13 @@ $apiInstance = new OpenAPI\Client\Api\ItemRefundPoliciesApi(
     new GuzzleHttp\Client()
 );
 $item_refund_policy_id = 'item_refund_policy_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
 $item_id = 'item_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemRefundPolicyByIdAsync($item_refund_policy_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getItemRefundPolicyByIdAsync($item_refund_policy_id, $tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemRefundPoliciesApi->getItemRefundPolicyByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -172,6 +177,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **item_refund_policy_id** | **string**|  | |
+| **tenant_id** | **string**|  | [optional] |
 | **item_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
