@@ -58,6 +58,7 @@ docs/Model/MaintenanceVisitCreateDto.md
 docs/Model/MaintenanceVisitDto.md
 docs/Model/MaintenanceVisitDtoEnvelope.md
 docs/Model/MaintenanceVisitDtoListEnvelope.md
+docs/Model/Operation.md
 docs/Model/PrivateMessageDto.md
 docs/Model/PrivateMessageDtoListEnvelope.md
 docs/Model/RefreshRequest.md
@@ -175,6 +176,7 @@ lib/Model/MaintenanceVisitDto.php
 lib/Model/MaintenanceVisitDtoEnvelope.php
 lib/Model/MaintenanceVisitDtoListEnvelope.php
 lib/Model/ModelInterface.php
+lib/Model/Operation.php
 lib/Model/PrivateMessageDto.php
 lib/Model/PrivateMessageDtoListEnvelope.php
 lib/Model/RefreshRequest.php
@@ -234,14 +236,4 @@ lib/Model/WarrantyRequestDtoListEnvelope.php
 lib/Model/WarrantyRequestUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php
-test/Api/InquiryRequestsApiTest.php
-test/Api/KnowledgeArticlesApiTest.php
-test/Api/MaintenanceVisitsApiTest.php
-test/Api/RefundPoliciesApiTest.php
-test/Api/RefundRequestsApiTest.php
-test/Api/ReturnPoliciesApiTest.php
-test/Api/ReturnRequestsApiTest.php
-test/Api/WarrantyPoliciesApiTest.php
-test/Api/WarrantyRequestsApiTest.php
+test/Model/OperationTest.php

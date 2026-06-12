@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **end_quantity** | **float** |  | [optional]
 **percent** | **float** |  | [optional]
 **value** | **float** |  | [optional]
+**item_id** | **string** |  | [optional]
 **discount_list_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

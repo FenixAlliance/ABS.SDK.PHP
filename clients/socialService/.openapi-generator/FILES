@@ -27,6 +27,7 @@ docs/Model/LoginRequest.md
 docs/Model/NotificationDto.md
 docs/Model/NotificationDtoEnvelope.md
 docs/Model/NotificationDtoListEnvelope.md
+docs/Model/Operation.md
 docs/Model/PrivateMessageCreateDto.md
 docs/Model/PrivateMessageDto.md
 docs/Model/PrivateMessageDtoListEnvelope.md
@@ -102,6 +103,7 @@ lib/Model/ModelInterface.php
 lib/Model/NotificationDto.php
 lib/Model/NotificationDtoEnvelope.php
 lib/Model/NotificationDtoListEnvelope.php
+lib/Model/Operation.php
 lib/Model/PrivateMessageCreateDto.php
 lib/Model/PrivateMessageDto.php
 lib/Model/PrivateMessageDtoListEnvelope.php
@@ -150,6 +152,4 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php
-test/Model/NotificationDtoEnvelopeTest.php
+test/Model/OperationTest.php

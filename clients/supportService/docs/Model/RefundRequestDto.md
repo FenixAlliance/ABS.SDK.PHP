@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **approved** | **bool** |  | [optional]
 **approved_timestamp** | **\DateTime** |  | [optional]
 **tenant_id** | **string** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **support_entitlement_id** | **string** |  | [optional]
 **contact_id** | **string** |  | [optional]
-**account_holder_id** | **string** |  | [optional]
+**user_id** | **string** |  | [optional]
 **refund_policy_id** | **string** |  | [optional]
 **payment_id** | **string** |  | [optional]
 

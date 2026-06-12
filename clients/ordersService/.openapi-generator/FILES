@@ -19,6 +19,7 @@ docs/Model/InfoRequest.md
 docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
 docs/Model/LoginRequest.md
+docs/Model/Operation.md
 docs/Model/OrderCreateDto.md
 docs/Model/OrderDto.md
 docs/Model/OrderDtoEnvelope.md
@@ -59,6 +60,7 @@ lib/Model/InfoResponse.php
 lib/Model/Int32Envelope.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
+lib/Model/Operation.php
 lib/Model/OrderCreateDto.php
 lib/Model/OrderDto.php
 lib/Model/OrderDtoEnvelope.php
@@ -80,5 +82,3 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UserDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php

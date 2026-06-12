@@ -124,5 +124,3 @@ lib/Model/WalletDto.php
 lib/Model/WalletDtoEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php

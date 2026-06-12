@@ -41,6 +41,7 @@ docs/Model/OAuthApplicationUpdateDto.md
 docs/Model/OAuthAuthorizationDto.md
 docs/Model/OAuthAuthorizationDtoEnvelope.md
 docs/Model/OAuthAuthorizationDtoListEnvelope.md
+docs/Model/Operation.md
 docs/Model/RefreshRequest.md
 docs/Model/RegisterRequest.md
 docs/Model/ResendConfirmationEmailRequest.md
@@ -106,6 +107,7 @@ lib/Model/OAuthApplicationUpdateDto.php
 lib/Model/OAuthAuthorizationDto.php
 lib/Model/OAuthAuthorizationDtoEnvelope.php
 lib/Model/OAuthAuthorizationDtoListEnvelope.php
+lib/Model/Operation.php
 lib/Model/RefreshRequest.php
 lib/Model/RegisterRequest.php
 lib/Model/ResendConfirmationEmailRequest.php
@@ -130,5 +132,3 @@ lib/Model/WebhookRequestDto.php
 lib/Model/WebhookRequestDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php

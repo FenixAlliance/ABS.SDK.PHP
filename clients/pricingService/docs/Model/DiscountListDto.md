@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
 **name** | **string** |  | [optional]
+**discount_list_type** | **string** |  | [optional]
 **currency_id** | **string** |  | [optional]
 **tenant_id** | **string** |  | [optional]
 **enrollment_id** | **string** |  | [optional]

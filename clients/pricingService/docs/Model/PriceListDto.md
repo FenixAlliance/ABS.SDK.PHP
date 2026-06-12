@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **start_date** | **\DateTime** |  | [optional]
 **end_date** | **\DateTime** |  | [optional]
 **description** | **string** |  | [optional]
+**context** | **string** |  | [optional]
 **currency_id** | **string** |  | [optional]
 **tenant_id** | **string** |  | [optional]
 **unit_id** | **string** |  | [optional]

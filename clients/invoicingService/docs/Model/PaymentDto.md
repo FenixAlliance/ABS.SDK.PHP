@@ -63,5 +63,7 @@ Name | Type | Description | Notes
 **enrollment_id** | **string** |  | [optional]
 **bank_id** | **string** |  | [optional]
 **payment_token_id** | **string** |  | [optional]
+**emisor_wallet_account_id** | **string** |  | [optional]
+**receiver_wallet_account_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -31,6 +31,5 @@ Name | Type | Description | Notes
 **data9** | **string** |  | [optional]
 **data9_label** | **string** |  | [optional]
 **authorized** | **bool** |  | [optional]
-**contact_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

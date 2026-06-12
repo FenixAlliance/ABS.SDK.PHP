@@ -117,7 +117,5 @@ Name | Type | Description | Notes
 **business_profile_record_id** | **string** |  | [optional]
 **parent_billing_item_record_id** | **string** |  | [optional]
 **cart_id** | **string** |  | [optional]
-**item_id** | **string** |  | [optional]
-**shipping_address_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

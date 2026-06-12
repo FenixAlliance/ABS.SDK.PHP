@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional]
 **release_date_time** | **\DateTime** |  | [optional]
 **tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **course_id** | **string** |  | [optional]
 **course_unit_id** | **string** |  | [optional]
 

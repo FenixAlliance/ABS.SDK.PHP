@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **expected_end_date_time** | **\DateTime** |  | [optional]
 **course_id** | **string** |  | [optional]
 **tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

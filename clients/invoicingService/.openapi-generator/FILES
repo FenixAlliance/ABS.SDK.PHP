@@ -47,6 +47,7 @@ docs/Model/InvoiceUpdateDto.md
 docs/Model/LoginRequest.md
 docs/Model/Money.md
 docs/Model/MoneyEnvelope.md
+docs/Model/Operation.md
 docs/Model/PaymentDto.md
 docs/Model/PaymentDtoIReadOnlyListEnvelope.md
 docs/Model/RefreshRequest.md
@@ -108,6 +109,7 @@ lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
 lib/Model/Money.php
 lib/Model/MoneyEnvelope.php
+lib/Model/Operation.php
 lib/Model/PaymentDto.php
 lib/Model/PaymentDtoIReadOnlyListEnvelope.php
 lib/Model/RefreshRequest.php
@@ -122,5 +124,3 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php

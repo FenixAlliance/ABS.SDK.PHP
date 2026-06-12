@@ -82,7 +82,3 @@ lib/Model/UserCreateDto.php
 lib/Model/UserCreateDtoEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php
-test/Model/AuthResultEnvelopeTest.php
-test/Model/AuthResultTest.php

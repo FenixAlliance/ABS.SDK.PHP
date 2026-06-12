@@ -80,30 +80,35 @@ Class | Method | HTTP request | Description
 *CourseArticlesApi* | [**getCourseArticleByIdAsync**](docs/Api/CourseArticlesApi.md#getcoursearticlebyidasync) | **GET** /api/v2/LearningService/CourseArticles/{articleId} | Get course article by ID
 *CourseArticlesApi* | [**getCourseArticlesAsync**](docs/Api/CourseArticlesApi.md#getcoursearticlesasync) | **GET** /api/v2/LearningService/CourseArticles | Get all course articles
 *CourseArticlesApi* | [**getCourseArticlesCountAsync**](docs/Api/CourseArticlesApi.md#getcoursearticlescountasync) | **GET** /api/v2/LearningService/CourseArticles/Count | Get course articles count
+*CourseArticlesApi* | [**patchCourseArticleAsync**](docs/Api/CourseArticlesApi.md#patchcoursearticleasync) | **PATCH** /api/v2/LearningService/CourseArticles/{articleId} | Patch a course article
 *CourseArticlesApi* | [**updateCourseArticleAsync**](docs/Api/CourseArticlesApi.md#updatecoursearticleasync) | **PUT** /api/v2/LearningService/CourseArticles/{articleId} | Update a course article
 *CourseAssignmentComponentsApi* | [**createCourseAssignmentComponentAsync**](docs/Api/CourseAssignmentComponentsApi.md#createcourseassignmentcomponentasync) | **POST** /api/v2/LearningService/CourseAssignmentComponents | Create a course assignment component
 *CourseAssignmentComponentsApi* | [**deleteCourseAssignmentComponentAsync**](docs/Api/CourseAssignmentComponentsApi.md#deletecourseassignmentcomponentasync) | **DELETE** /api/v2/LearningService/CourseAssignmentComponents/{componentId} | Delete a course assignment component
 *CourseAssignmentComponentsApi* | [**getCourseAssignmentComponentByIdAsync**](docs/Api/CourseAssignmentComponentsApi.md#getcourseassignmentcomponentbyidasync) | **GET** /api/v2/LearningService/CourseAssignmentComponents/{componentId} | Get course assignment component by ID
 *CourseAssignmentComponentsApi* | [**getCourseAssignmentComponentsAsync**](docs/Api/CourseAssignmentComponentsApi.md#getcourseassignmentcomponentsasync) | **GET** /api/v2/LearningService/CourseAssignmentComponents | Get all course assignment components
 *CourseAssignmentComponentsApi* | [**getCourseAssignmentComponentsCountAsync**](docs/Api/CourseAssignmentComponentsApi.md#getcourseassignmentcomponentscountasync) | **GET** /api/v2/LearningService/CourseAssignmentComponents/Count | Get course assignment components count
+*CourseAssignmentComponentsApi* | [**patchCourseAssignmentComponentAsync**](docs/Api/CourseAssignmentComponentsApi.md#patchcourseassignmentcomponentasync) | **PATCH** /api/v2/LearningService/CourseAssignmentComponents/{componentId} | Patch a course assignment component
 *CourseAssignmentComponentsApi* | [**updateCourseAssignmentComponentAsync**](docs/Api/CourseAssignmentComponentsApi.md#updatecourseassignmentcomponentasync) | **PUT** /api/v2/LearningService/CourseAssignmentComponents/{componentId} | Update a course assignment component
 *CourseAssignmentTypesApi* | [**createCourseAssignmentTypeAsync**](docs/Api/CourseAssignmentTypesApi.md#createcourseassignmenttypeasync) | **POST** /api/v2/LearningService/CourseAssignmentTypes | Create a course assignment type
 *CourseAssignmentTypesApi* | [**deleteCourseAssignmentTypeAsync**](docs/Api/CourseAssignmentTypesApi.md#deletecourseassignmenttypeasync) | **DELETE** /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId} | Delete a course assignment type
 *CourseAssignmentTypesApi* | [**getCourseAssignmentTypeByIdAsync**](docs/Api/CourseAssignmentTypesApi.md#getcourseassignmenttypebyidasync) | **GET** /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId} | Get course assignment type by ID
 *CourseAssignmentTypesApi* | [**getCourseAssignmentTypesAsync**](docs/Api/CourseAssignmentTypesApi.md#getcourseassignmenttypesasync) | **GET** /api/v2/LearningService/CourseAssignmentTypes | Get all course assignment types
 *CourseAssignmentTypesApi* | [**getCourseAssignmentTypesCountAsync**](docs/Api/CourseAssignmentTypesApi.md#getcourseassignmenttypescountasync) | **GET** /api/v2/LearningService/CourseAssignmentTypes/Count | Get course assignment types count
+*CourseAssignmentTypesApi* | [**patchCourseAssignmentTypeAsync**](docs/Api/CourseAssignmentTypesApi.md#patchcourseassignmenttypeasync) | **PATCH** /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId} | Patch a course assignment type
 *CourseAssignmentTypesApi* | [**updateCourseAssignmentTypeAsync**](docs/Api/CourseAssignmentTypesApi.md#updatecourseassignmenttypeasync) | **PUT** /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId} | Update a course assignment type
 *CourseAssignmentsApi* | [**createCourseAssignmentAsync**](docs/Api/CourseAssignmentsApi.md#createcourseassignmentasync) | **POST** /api/v2/LearningService/CourseAssignments | Create a new course assignment
 *CourseAssignmentsApi* | [**deleteCourseAssignmentAsync**](docs/Api/CourseAssignmentsApi.md#deletecourseassignmentasync) | **DELETE** /api/v2/LearningService/CourseAssignments/{assignmentId} | Delete a course assignment
 *CourseAssignmentsApi* | [**getCourseAssignmentByIdAsync**](docs/Api/CourseAssignmentsApi.md#getcourseassignmentbyidasync) | **GET** /api/v2/LearningService/CourseAssignments/{assignmentId} | Get course assignment by ID
 *CourseAssignmentsApi* | [**getCourseAssignmentsAsync**](docs/Api/CourseAssignmentsApi.md#getcourseassignmentsasync) | **GET** /api/v2/LearningService/CourseAssignments | Get all course assignments
 *CourseAssignmentsApi* | [**getCourseAssignmentsCountAsync**](docs/Api/CourseAssignmentsApi.md#getcourseassignmentscountasync) | **GET** /api/v2/LearningService/CourseAssignments/Count | Get course assignments count
+*CourseAssignmentsApi* | [**patchCourseAssignmentAsync**](docs/Api/CourseAssignmentsApi.md#patchcourseassignmentasync) | **PATCH** /api/v2/LearningService/CourseAssignments/{assignmentId} | Patch a course assignment
 *CourseAssignmentsApi* | [**updateCourseAssignmentAsync**](docs/Api/CourseAssignmentsApi.md#updatecourseassignmentasync) | **PUT** /api/v2/LearningService/CourseAssignments/{assignmentId} | Update a course assignment
 *CourseCategoriesApi* | [**createCourseCategoryAsync**](docs/Api/CourseCategoriesApi.md#createcoursecategoryasync) | **POST** /api/v2/LearningService/CourseCategories | Create a new course category
 *CourseCategoriesApi* | [**deleteCourseCategoryAsync**](docs/Api/CourseCategoriesApi.md#deletecoursecategoryasync) | **DELETE** /api/v2/LearningService/CourseCategories/{categoryId} | Delete a course category
 *CourseCategoriesApi* | [**getCourseCategoriesAsync**](docs/Api/CourseCategoriesApi.md#getcoursecategoriesasync) | **GET** /api/v2/LearningService/CourseCategories | Get all course categories
 *CourseCategoriesApi* | [**getCourseCategoriesCountAsync**](docs/Api/CourseCategoriesApi.md#getcoursecategoriescountasync) | **GET** /api/v2/LearningService/CourseCategories/Count | Get course categories count
 *CourseCategoriesApi* | [**getCourseCategoryByIdAsync**](docs/Api/CourseCategoriesApi.md#getcoursecategorybyidasync) | **GET** /api/v2/LearningService/CourseCategories/{categoryId} | Get course category by ID
+*CourseCategoriesApi* | [**patchCourseCategoryAsync**](docs/Api/CourseCategoriesApi.md#patchcoursecategoryasync) | **PATCH** /api/v2/LearningService/CourseCategories/{categoryId} | Patch a course category
 *CourseCategoriesApi* | [**updateCourseCategoryAsync**](docs/Api/CourseCategoriesApi.md#updatecoursecategoryasync) | **PUT** /api/v2/LearningService/CourseCategories/{categoryId} | Update a course category
 *CourseCertificatesApi* | [**createCourseCertificateAsync**](docs/Api/CourseCertificatesApi.md#createcoursecertificateasync) | **POST** /api/v2/LearningService/CourseCertificates | Create a course certificate
 *CourseCertificatesApi* | [**createCourseCertificateTemplateAsync**](docs/Api/CourseCertificatesApi.md#createcoursecertificatetemplateasync) | **POST** /api/v2/LearningService/CourseCertificates/Template | Create a certificate template
@@ -115,6 +120,8 @@ Class | Method | HTTP request | Description
 *CourseCertificatesApi* | [**getCourseCertificateTemplatesCountAsync**](docs/Api/CourseCertificatesApi.md#getcoursecertificatetemplatescountasync) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count
 *CourseCertificatesApi* | [**getCourseCertificatesAsync**](docs/Api/CourseCertificatesApi.md#getcoursecertificatesasync) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates
 *CourseCertificatesApi* | [**getCourseCertificatesCountAsync**](docs/Api/CourseCertificatesApi.md#getcoursecertificatescountasync) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count
+*CourseCertificatesApi* | [**patchCourseCertificateAsync**](docs/Api/CourseCertificatesApi.md#patchcoursecertificateasync) | **PATCH** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Patch a course certificate
+*CourseCertificatesApi* | [**patchCourseCertificateTemplateAsync**](docs/Api/CourseCertificatesApi.md#patchcoursecertificatetemplateasync) | **PATCH** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Patch a certificate template
 *CourseCertificatesApi* | [**updateCourseCertificateAsync**](docs/Api/CourseCertificatesApi.md#updatecoursecertificateasync) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate
 *CourseCertificatesApi* | [**updateCourseCertificateTemplateAsync**](docs/Api/CourseCertificatesApi.md#updatecoursecertificatetemplateasync) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template
 *CourseCohortsApi* | [**createCourseCohortAsync**](docs/Api/CourseCohortsApi.md#createcoursecohortasync) | **POST** /api/v2/LearningService/CourseCohorts | Create a new course cohort
@@ -122,6 +129,7 @@ Class | Method | HTTP request | Description
 *CourseCohortsApi* | [**getCourseCohortByIdAsync**](docs/Api/CourseCohortsApi.md#getcoursecohortbyidasync) | **GET** /api/v2/LearningService/CourseCohorts/{cohortId} | Get course cohort by ID
 *CourseCohortsApi* | [**getCourseCohortsAsync**](docs/Api/CourseCohortsApi.md#getcoursecohortsasync) | **GET** /api/v2/LearningService/CourseCohorts | Get all course cohorts
 *CourseCohortsApi* | [**getCourseCohortsCountAsync**](docs/Api/CourseCohortsApi.md#getcoursecohortscountasync) | **GET** /api/v2/LearningService/CourseCohorts/Count | Get course cohorts count
+*CourseCohortsApi* | [**patchCourseCohortAsync**](docs/Api/CourseCohortsApi.md#patchcoursecohortasync) | **PATCH** /api/v2/LearningService/CourseCohorts/{cohortId} | Patch a course cohort
 *CourseCohortsApi* | [**updateCourseCohortAsync**](docs/Api/CourseCohortsApi.md#updatecoursecohortasync) | **PUT** /api/v2/LearningService/CourseCohorts/{cohortId} | Update a course cohort
 *CourseContentGroupsApi* | [**createCourseContentGroupAsync**](docs/Api/CourseContentGroupsApi.md#createcoursecontentgroupasync) | **POST** /api/v2/LearningService/CourseContentGroups | Create a new course content group
 *CourseContentGroupsApi* | [**deleteCourseContentGroupAsync**](docs/Api/CourseContentGroupsApi.md#deletecoursecontentgroupasync) | **DELETE** /api/v2/LearningService/CourseContentGroups/{groupId} | Delete a course content group
@@ -130,6 +138,7 @@ Class | Method | HTTP request | Description
 *CourseContentGroupsApi* | [**getCourseContentGroupsByCourseAsync**](docs/Api/CourseContentGroupsApi.md#getcoursecontentgroupsbycourseasync) | **GET** /api/v2/LearningService/Courses/{courseId}/ContentGroups | Get course content groups by course
 *CourseContentGroupsApi* | [**getCourseContentGroupsByCourseCountAsync**](docs/Api/CourseContentGroupsApi.md#getcoursecontentgroupsbycoursecountasync) | **GET** /api/v2/LearningService/Courses/{courseId}/ContentGroups/Count | Get course content groups count by course
 *CourseContentGroupsApi* | [**getCourseContentGroupsCountAsync**](docs/Api/CourseContentGroupsApi.md#getcoursecontentgroupscountasync) | **GET** /api/v2/LearningService/CourseContentGroups/Count | Get course content groups count
+*CourseContentGroupsApi* | [**patchCourseContentGroupAsync**](docs/Api/CourseContentGroupsApi.md#patchcoursecontentgroupasync) | **PATCH** /api/v2/LearningService/CourseContentGroups/{groupId} | Patch a course content group
 *CourseContentGroupsApi* | [**updateCourseContentGroupAsync**](docs/Api/CourseContentGroupsApi.md#updatecoursecontentgroupasync) | **PUT** /api/v2/LearningService/CourseContentGroups/{groupId} | Update a course content group
 *CourseEnrollmentsApi* | [**createCourseEnrollmentAsync**](docs/Api/CourseEnrollmentsApi.md#createcourseenrollmentasync) | **POST** /api/v2/LearningService/CourseEnrollments | Create a new course enrollment
 *CourseEnrollmentsApi* | [**deleteCourseEnrollmentAsync**](docs/Api/CourseEnrollmentsApi.md#deletecourseenrollmentasync) | **DELETE** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Delete a course enrollment
@@ -137,84 +146,98 @@ Class | Method | HTTP request | Description
 *CourseEnrollmentsApi* | [**getEnrollmentsAsync**](docs/Api/CourseEnrollmentsApi.md#getenrollmentsasync) | **GET** /api/v2/LearningService/CourseEnrollments | Get all course enrollments
 *CourseEnrollmentsApi* | [**getEnrollmentsCountAsync**](docs/Api/CourseEnrollmentsApi.md#getenrollmentscountasync) | **GET** /api/v2/LearningService/CourseEnrollments/Count | Get course enrollments count
 *CourseEnrollmentsApi* | [**getStudentCourseEnrollmentsAsync**](docs/Api/CourseEnrollmentsApi.md#getstudentcourseenrollmentsasync) | **GET** /api/v2/LearningService/CourseEnrollments/Student/{studentProfileId} | Get enrollments by student
+*CourseEnrollmentsApi* | [**patchCourseEnrollmentAsync**](docs/Api/CourseEnrollmentsApi.md#patchcourseenrollmentasync) | **PATCH** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Patch a course enrollment
 *CourseEnrollmentsApi* | [**updateCourseEnrollmentAsync**](docs/Api/CourseEnrollmentsApi.md#updatecourseenrollmentasync) | **PUT** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Update a course enrollment
 *CourseFilesApi* | [**createCourseFileAsync**](docs/Api/CourseFilesApi.md#createcoursefileasync) | **POST** /api/v2/LearningService/CourseFiles | Create a new course file
 *CourseFilesApi* | [**deleteCourseFileAsync**](docs/Api/CourseFilesApi.md#deletecoursefileasync) | **DELETE** /api/v2/LearningService/CourseFiles/{fileId} | Delete a course file
 *CourseFilesApi* | [**getCourseFileByIdAsync**](docs/Api/CourseFilesApi.md#getcoursefilebyidasync) | **GET** /api/v2/LearningService/CourseFiles/{fileId} | Get course file by ID
 *CourseFilesApi* | [**getCourseFilesAsync**](docs/Api/CourseFilesApi.md#getcoursefilesasync) | **GET** /api/v2/LearningService/CourseFiles | Get all course files
 *CourseFilesApi* | [**getCourseFilesCountAsync**](docs/Api/CourseFilesApi.md#getcoursefilescountasync) | **GET** /api/v2/LearningService/CourseFiles/Count | Get course files count
+*CourseFilesApi* | [**patchCourseFileAsync**](docs/Api/CourseFilesApi.md#patchcoursefileasync) | **PATCH** /api/v2/LearningService/CourseFiles/{fileId} | Patch a course file
 *CourseFilesApi* | [**updateCourseFileAsync**](docs/Api/CourseFilesApi.md#updatecoursefileasync) | **PUT** /api/v2/LearningService/CourseFiles/{fileId} | Update a course file
 *CourseForumsApi* | [**createCourseForumAsync**](docs/Api/CourseForumsApi.md#createcourseforumasync) | **POST** /api/v2/LearningService/CourseForums | Create a course forum
 *CourseForumsApi* | [**deleteCourseForumAsync**](docs/Api/CourseForumsApi.md#deletecourseforumasync) | **DELETE** /api/v2/LearningService/CourseForums/{forumId} | Delete a course forum
 *CourseForumsApi* | [**getCourseForumByIdAsync**](docs/Api/CourseForumsApi.md#getcourseforumbyidasync) | **GET** /api/v2/LearningService/CourseForums/{forumId} | Get course forum by ID
 *CourseForumsApi* | [**getCourseForumsAsync**](docs/Api/CourseForumsApi.md#getcourseforumsasync) | **GET** /api/v2/LearningService/CourseForums | Get all course forums
 *CourseForumsApi* | [**getCourseForumsCountAsync**](docs/Api/CourseForumsApi.md#getcourseforumscountasync) | **GET** /api/v2/LearningService/CourseForums/Count | Get course forums count
+*CourseForumsApi* | [**patchCourseForumAsync**](docs/Api/CourseForumsApi.md#patchcourseforumasync) | **PATCH** /api/v2/LearningService/CourseForums/{forumId} | Patch a course forum
 *CourseForumsApi* | [**updateCourseForumAsync**](docs/Api/CourseForumsApi.md#updatecourseforumasync) | **PUT** /api/v2/LearningService/CourseForums/{forumId} | Update a course forum
 *CourseGradingRubricsApi* | [**createCourseGradingRubricAsync**](docs/Api/CourseGradingRubricsApi.md#createcoursegradingrubricasync) | **POST** /api/v2/LearningService/CourseGradingRubrics | Create a course grading rubric
 *CourseGradingRubricsApi* | [**deleteCourseGradingRubricAsync**](docs/Api/CourseGradingRubricsApi.md#deletecoursegradingrubricasync) | **DELETE** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Delete a course grading rubric
 *CourseGradingRubricsApi* | [**getCourseGradingRubricByIdAsync**](docs/Api/CourseGradingRubricsApi.md#getcoursegradingrubricbyidasync) | **GET** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Get course grading rubric by ID
 *CourseGradingRubricsApi* | [**getCourseGradingRubricsAsync**](docs/Api/CourseGradingRubricsApi.md#getcoursegradingrubricsasync) | **GET** /api/v2/LearningService/CourseGradingRubrics | Get all course grading rubrics
 *CourseGradingRubricsApi* | [**getCourseGradingRubricsCountAsync**](docs/Api/CourseGradingRubricsApi.md#getcoursegradingrubricscountasync) | **GET** /api/v2/LearningService/CourseGradingRubrics/Count | Get course grading rubrics count
+*CourseGradingRubricsApi* | [**patchCourseGradingRubricAsync**](docs/Api/CourseGradingRubricsApi.md#patchcoursegradingrubricasync) | **PATCH** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Patch a course grading rubric
 *CourseGradingRubricsApi* | [**updateCourseGradingRubricAsync**](docs/Api/CourseGradingRubricsApi.md#updatecoursegradingrubricasync) | **PUT** /api/v2/LearningService/CourseGradingRubrics/{rubricId} | Update a course grading rubric
 *CourseHandoutsApi* | [**createCourseHandoutAsync**](docs/Api/CourseHandoutsApi.md#createcoursehandoutasync) | **POST** /api/v2/LearningService/CourseHandouts | Create a course handout
 *CourseHandoutsApi* | [**deleteCourseHandoutAsync**](docs/Api/CourseHandoutsApi.md#deletecoursehandoutasync) | **DELETE** /api/v2/LearningService/CourseHandouts/{handoutId} | Delete a course handout
 *CourseHandoutsApi* | [**getCourseHandoutByIdAsync**](docs/Api/CourseHandoutsApi.md#getcoursehandoutbyidasync) | **GET** /api/v2/LearningService/CourseHandouts/{handoutId} | Get course handout by ID
 *CourseHandoutsApi* | [**getCourseHandoutsAsync**](docs/Api/CourseHandoutsApi.md#getcoursehandoutsasync) | **GET** /api/v2/LearningService/CourseHandouts | Get all course handouts
 *CourseHandoutsApi* | [**getCourseHandoutsCountAsync**](docs/Api/CourseHandoutsApi.md#getcoursehandoutscountasync) | **GET** /api/v2/LearningService/CourseHandouts/Count | Get course handouts count
+*CourseHandoutsApi* | [**patchCourseHandoutAsync**](docs/Api/CourseHandoutsApi.md#patchcoursehandoutasync) | **PATCH** /api/v2/LearningService/CourseHandouts/{handoutId} | Patch a course handout
 *CourseHandoutsApi* | [**updateCourseHandoutAsync**](docs/Api/CourseHandoutsApi.md#updatecoursehandoutasync) | **PUT** /api/v2/LearningService/CourseHandouts/{handoutId} | Update a course handout
 *CourseLibrariesApi* | [**createCourseLibraryAsync**](docs/Api/CourseLibrariesApi.md#createcourselibraryasync) | **POST** /api/v2/LearningService/CourseLibraries | Create a course library
 *CourseLibrariesApi* | [**deleteCourseLibraryAsync**](docs/Api/CourseLibrariesApi.md#deletecourselibraryasync) | **DELETE** /api/v2/LearningService/CourseLibraries/{libraryId} | Delete a course library
 *CourseLibrariesApi* | [**getCourseLibrariesAsync**](docs/Api/CourseLibrariesApi.md#getcourselibrariesasync) | **GET** /api/v2/LearningService/CourseLibraries | Get all course libraries
 *CourseLibrariesApi* | [**getCourseLibrariesCountAsync**](docs/Api/CourseLibrariesApi.md#getcourselibrariescountasync) | **GET** /api/v2/LearningService/CourseLibraries/Count | Get course libraries count
 *CourseLibrariesApi* | [**getCourseLibraryByIdAsync**](docs/Api/CourseLibrariesApi.md#getcourselibrarybyidasync) | **GET** /api/v2/LearningService/CourseLibraries/{libraryId} | Get course library by ID
+*CourseLibrariesApi* | [**patchCourseLibraryAsync**](docs/Api/CourseLibrariesApi.md#patchcourselibraryasync) | **PATCH** /api/v2/LearningService/CourseLibraries/{libraryId} | Patch a course library
 *CourseLibrariesApi* | [**updateCourseLibraryAsync**](docs/Api/CourseLibrariesApi.md#updatecourselibraryasync) | **PUT** /api/v2/LearningService/CourseLibraries/{libraryId} | Update a course library
 *CoursePagesApi* | [**createCoursePageAsync**](docs/Api/CoursePagesApi.md#createcoursepageasync) | **POST** /api/v2/LearningService/CoursePages | Create a new course page
 *CoursePagesApi* | [**deleteCoursePageAsync**](docs/Api/CoursePagesApi.md#deletecoursepageasync) | **DELETE** /api/v2/LearningService/CoursePages/{pageId} | Delete a course page
 *CoursePagesApi* | [**getCoursePageByIdAsync**](docs/Api/CoursePagesApi.md#getcoursepagebyidasync) | **GET** /api/v2/LearningService/CoursePages/{pageId} | Get course page by ID
 *CoursePagesApi* | [**getCoursePagesAsync**](docs/Api/CoursePagesApi.md#getcoursepagesasync) | **GET** /api/v2/LearningService/CoursePages | Get all course pages
 *CoursePagesApi* | [**getCoursePagesCountAsync**](docs/Api/CoursePagesApi.md#getcoursepagescountasync) | **GET** /api/v2/LearningService/CoursePages/Count | Get course pages count
+*CoursePagesApi* | [**patchCoursePageAsync**](docs/Api/CoursePagesApi.md#patchcoursepageasync) | **PATCH** /api/v2/LearningService/CoursePages/{pageId} | Patch a course page
 *CoursePagesApi* | [**updateCoursePageAsync**](docs/Api/CoursePagesApi.md#updatecoursepageasync) | **PUT** /api/v2/LearningService/CoursePages/{pageId} | Update a course page
 *CourseProblemSetsApi* | [**createCourseProblemSetAsync**](docs/Api/CourseProblemSetsApi.md#createcourseproblemsetasync) | **POST** /api/v2/LearningService/CourseProblemSets | Create a new course problem set
 *CourseProblemSetsApi* | [**deleteCourseProblemSetAsync**](docs/Api/CourseProblemSetsApi.md#deletecourseproblemsetasync) | **DELETE** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Delete a course problem set
 *CourseProblemSetsApi* | [**getCourseProblemSetByIdAsync**](docs/Api/CourseProblemSetsApi.md#getcourseproblemsetbyidasync) | **GET** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Get course problem set by ID
 *CourseProblemSetsApi* | [**getCourseProblemSetsAsync**](docs/Api/CourseProblemSetsApi.md#getcourseproblemsetsasync) | **GET** /api/v2/LearningService/CourseProblemSets | Get all course problem sets
 *CourseProblemSetsApi* | [**getCourseProblemSetsCountAsync**](docs/Api/CourseProblemSetsApi.md#getcourseproblemsetscountasync) | **GET** /api/v2/LearningService/CourseProblemSets/Count | Get course problem sets count
+*CourseProblemSetsApi* | [**patchCourseProblemSetAsync**](docs/Api/CourseProblemSetsApi.md#patchcourseproblemsetasync) | **PATCH** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Patch a course problem set
 *CourseProblemSetsApi* | [**updateCourseProblemSetAsync**](docs/Api/CourseProblemSetsApi.md#updatecourseproblemsetasync) | **PUT** /api/v2/LearningService/CourseProblemSets/{problemSetId} | Update a course problem set
 *CourseSectionsApi* | [**createCourseSectionAsync**](docs/Api/CourseSectionsApi.md#createcoursesectionasync) | **POST** /api/v2/LearningService/CourseSections | Create a new course section
 *CourseSectionsApi* | [**deleteCourseSectionAsync**](docs/Api/CourseSectionsApi.md#deletecoursesectionasync) | **DELETE** /api/v2/LearningService/CourseSections/{sectionId} | Delete a course section
 *CourseSectionsApi* | [**getCourseSectionByIdAsync**](docs/Api/CourseSectionsApi.md#getcoursesectionbyidasync) | **GET** /api/v2/LearningService/CourseSections/{sectionId} | Get course section by ID
 *CourseSectionsApi* | [**getCourseSectionsAsync**](docs/Api/CourseSectionsApi.md#getcoursesectionsasync) | **GET** /api/v2/LearningService/CourseSections | Get all course sections
 *CourseSectionsApi* | [**getCourseSectionsCountAsync**](docs/Api/CourseSectionsApi.md#getcoursesectionscountasync) | **GET** /api/v2/LearningService/CourseSections/Count | Get course sections count
+*CourseSectionsApi* | [**patchCourseSectionAsync**](docs/Api/CourseSectionsApi.md#patchcoursesectionasync) | **PATCH** /api/v2/LearningService/CourseSections/{sectionId} | Patch a course section
 *CourseSectionsApi* | [**updateCourseSectionAsync**](docs/Api/CourseSectionsApi.md#updatecoursesectionasync) | **PUT** /api/v2/LearningService/CourseSections/{sectionId} | Update a course section
 *CourseTeamMembershipsApi* | [**createCourseTeamMembershipAsync**](docs/Api/CourseTeamMembershipsApi.md#createcourseteammembershipasync) | **POST** /api/v2/LearningService/CourseTeamMemberships | Create a course team membership
 *CourseTeamMembershipsApi* | [**deleteCourseTeamMembershipAsync**](docs/Api/CourseTeamMembershipsApi.md#deletecourseteammembershipasync) | **DELETE** /api/v2/LearningService/CourseTeamMemberships/{membershipId} | Delete a course team membership
 *CourseTeamMembershipsApi* | [**getCourseTeamMembershipByIdAsync**](docs/Api/CourseTeamMembershipsApi.md#getcourseteammembershipbyidasync) | **GET** /api/v2/LearningService/CourseTeamMemberships/{membershipId} | Get course team membership by ID
 *CourseTeamMembershipsApi* | [**getCourseTeamMembershipsAsync**](docs/Api/CourseTeamMembershipsApi.md#getcourseteammembershipsasync) | **GET** /api/v2/LearningService/CourseTeamMemberships | Get all course team memberships
 *CourseTeamMembershipsApi* | [**getCourseTeamMembershipsCountAsync**](docs/Api/CourseTeamMembershipsApi.md#getcourseteammembershipscountasync) | **GET** /api/v2/LearningService/CourseTeamMemberships/Count | Get course team memberships count
+*CourseTeamMembershipsApi* | [**patchCourseTeamMembershipAsync**](docs/Api/CourseTeamMembershipsApi.md#patchcourseteammembershipasync) | **PATCH** /api/v2/LearningService/CourseTeamMemberships/{membershipId} | Patch a course team membership
 *CourseTeamMembershipsApi* | [**updateCourseTeamMembershipAsync**](docs/Api/CourseTeamMembershipsApi.md#updatecourseteammembershipasync) | **PUT** /api/v2/LearningService/CourseTeamMemberships/{membershipId} | Update a course team membership
 *CourseUnitComponentsApi* | [**createCourseUnitComponentAsync**](docs/Api/CourseUnitComponentsApi.md#createcourseunitcomponentasync) | **POST** /api/v2/LearningService/CourseUnitComponents | Create a new course unit component
 *CourseUnitComponentsApi* | [**deleteCourseUnitComponentAsync**](docs/Api/CourseUnitComponentsApi.md#deletecourseunitcomponentasync) | **DELETE** /api/v2/LearningService/CourseUnitComponents/{componentId} | Delete a course unit component
 *CourseUnitComponentsApi* | [**getCourseUnitComponentByIdAsync**](docs/Api/CourseUnitComponentsApi.md#getcourseunitcomponentbyidasync) | **GET** /api/v2/LearningService/CourseUnitComponents/{componentId} | Get course unit component by ID
 *CourseUnitComponentsApi* | [**getCourseUnitComponentsAsync**](docs/Api/CourseUnitComponentsApi.md#getcourseunitcomponentsasync) | **GET** /api/v2/LearningService/CourseUnitComponents | Get all course unit components
 *CourseUnitComponentsApi* | [**getCourseUnitComponentsCountAsync**](docs/Api/CourseUnitComponentsApi.md#getcourseunitcomponentscountasync) | **GET** /api/v2/LearningService/CourseUnitComponents/Count | Get course unit components count
+*CourseUnitComponentsApi* | [**patchCourseUnitComponentAsync**](docs/Api/CourseUnitComponentsApi.md#patchcourseunitcomponentasync) | **PATCH** /api/v2/LearningService/CourseUnitComponents/{componentId} | Patch a course unit component
 *CourseUnitComponentsApi* | [**updateCourseUnitComponentAsync**](docs/Api/CourseUnitComponentsApi.md#updatecourseunitcomponentasync) | **PUT** /api/v2/LearningService/CourseUnitComponents/{componentId} | Update a course unit component
 *CourseUnitsApi* | [**createCourseUnitAsync**](docs/Api/CourseUnitsApi.md#createcourseunitasync) | **POST** /api/v2/LearningService/CourseUnits | Create a new course unit
 *CourseUnitsApi* | [**deleteCourseUnitAsync**](docs/Api/CourseUnitsApi.md#deletecourseunitasync) | **DELETE** /api/v2/LearningService/CourseUnits/{unitId} | Delete a course unit
 *CourseUnitsApi* | [**getCourseUnitByIdAsync**](docs/Api/CourseUnitsApi.md#getcourseunitbyidasync) | **GET** /api/v2/LearningService/CourseUnits/{unitId} | Get course unit by ID
 *CourseUnitsApi* | [**getCourseUnitsAsync**](docs/Api/CourseUnitsApi.md#getcourseunitsasync) | **GET** /api/v2/LearningService/CourseUnits | Get all course units
 *CourseUnitsApi* | [**getCourseUnitsCountAsync**](docs/Api/CourseUnitsApi.md#getcourseunitscountasync) | **GET** /api/v2/LearningService/CourseUnits/Count | Get course units count
+*CourseUnitsApi* | [**patchCourseUnitAsync**](docs/Api/CourseUnitsApi.md#patchcourseunitasync) | **PATCH** /api/v2/LearningService/CourseUnits/{unitId} | Patch a course unit
 *CourseUnitsApi* | [**updateCourseUnitAsync**](docs/Api/CourseUnitsApi.md#updatecourseunitasync) | **PUT** /api/v2/LearningService/CourseUnits/{unitId} | Update a course unit
 *CourseUpdatesApi* | [**createCourseUpdateAsync**](docs/Api/CourseUpdatesApi.md#createcourseupdateasync) | **POST** /api/v2/LearningService/CourseUpdates | Create a new course update
 *CourseUpdatesApi* | [**deleteCourseUpdateAsync**](docs/Api/CourseUpdatesApi.md#deletecourseupdateasync) | **DELETE** /api/v2/LearningService/CourseUpdates/{updateId} | Delete a course update
 *CourseUpdatesApi* | [**getCourseUpdateByIdAsync**](docs/Api/CourseUpdatesApi.md#getcourseupdatebyidasync) | **GET** /api/v2/LearningService/CourseUpdates/{updateId} | Get course update by ID
 *CourseUpdatesApi* | [**getCourseUpdatesAsync**](docs/Api/CourseUpdatesApi.md#getcourseupdatesasync) | **GET** /api/v2/LearningService/CourseUpdates | Get all course updates
 *CourseUpdatesApi* | [**getCourseUpdatesCountAsync**](docs/Api/CourseUpdatesApi.md#getcourseupdatescountasync) | **GET** /api/v2/LearningService/CourseUpdates/Count | Get course updates count
+*CourseUpdatesApi* | [**patchCourseUpdateAsync**](docs/Api/CourseUpdatesApi.md#patchcourseupdateasync) | **PATCH** /api/v2/LearningService/CourseUpdates/{updateId} | Patch a course update
 *CourseUpdatesApi* | [**updateCourseUpdateAsync**](docs/Api/CourseUpdatesApi.md#updatecourseupdateasync) | **PUT** /api/v2/LearningService/CourseUpdates/{updateId} | Update a course update
 *CourseWikisApi* | [**createCourseWikiAsync**](docs/Api/CourseWikisApi.md#createcoursewikiasync) | **POST** /api/v2/LearningService/CourseWikis | Create a new course wiki
 *CourseWikisApi* | [**deleteCourseWikiAsync**](docs/Api/CourseWikisApi.md#deletecoursewikiasync) | **DELETE** /api/v2/LearningService/CourseWikis/{wikiId} | Delete a course wiki
 *CourseWikisApi* | [**getCourseWikiByIdAsync**](docs/Api/CourseWikisApi.md#getcoursewikibyidasync) | **GET** /api/v2/LearningService/CourseWikis/{wikiId} | Get course wiki by ID
 *CourseWikisApi* | [**getCourseWikisAsync**](docs/Api/CourseWikisApi.md#getcoursewikisasync) | **GET** /api/v2/LearningService/CourseWikis | Get all course wikis
 *CourseWikisApi* | [**getCourseWikisCountAsync**](docs/Api/CourseWikisApi.md#getcoursewikiscountasync) | **GET** /api/v2/LearningService/CourseWikis/Count | Get course wikis count
+*CourseWikisApi* | [**patchCourseWikiAsync**](docs/Api/CourseWikisApi.md#patchcoursewikiasync) | **PATCH** /api/v2/LearningService/CourseWikis/{wikiId} | Patch a course wiki
 *CourseWikisApi* | [**updateCourseWikiAsync**](docs/Api/CourseWikisApi.md#updatecoursewikiasync) | **PUT** /api/v2/LearningService/CourseWikis/{wikiId} | Update a course wiki
 *CoursesApi* | [**createCourseAsync**](docs/Api/CoursesApi.md#createcourseasync) | **POST** /api/v2/LearningService/Courses | Create a new course
 *CoursesApi* | [**deleteCourseAsync**](docs/Api/CoursesApi.md#deletecourseasync) | **DELETE** /api/v2/LearningService/Courses/{courseId} | Delete a course
@@ -256,6 +279,7 @@ Class | Method | HTTP request | Description
 *CoursesApi* | [**getInstructorProfilesByCourseCountAsync**](docs/Api/CoursesApi.md#getinstructorprofilesbycoursecountasync) | **GET** /api/v2/LearningService/Courses/{courseId}/Instructors/Count | Get instructor profiles by course count
 *CoursesApi* | [**getStudentProfilesByCourseAsync**](docs/Api/CoursesApi.md#getstudentprofilesbycourseasync) | **GET** /api/v2/LearningService/Courses/{courseId}/Students | Get student profiles by course
 *CoursesApi* | [**getStudentProfilesByCourseCountAsync**](docs/Api/CoursesApi.md#getstudentprofilesbycoursecountasync) | **GET** /api/v2/LearningService/Courses/{courseId}/Students/Count | Get student profiles by course count
+*CoursesApi* | [**patchCourseAsync**](docs/Api/CoursesApi.md#patchcourseasync) | **PATCH** /api/v2/LearningService/Courses/{courseId} | Patch a course
 *CoursesApi* | [**updateCourseAsync**](docs/Api/CoursesApi.md#updatecourseasync) | **PUT** /api/v2/LearningService/Courses/{courseId} | Update a course
 *FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
 *FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
@@ -278,6 +302,7 @@ Class | Method | HTTP request | Description
 *InstructorProfilesApi* | [**apiV2LearningServiceInstructorProfilesGet**](docs/Api/InstructorProfilesApi.md#apiv2learningserviceinstructorprofilesget) | **GET** /api/v2/LearningService/InstructorProfiles | 
 *InstructorProfilesApi* | [**apiV2LearningServiceInstructorProfilesInstructorProfileIdDelete**](docs/Api/InstructorProfilesApi.md#apiv2learningserviceinstructorprofilesinstructorprofileiddelete) | **DELETE** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 *InstructorProfilesApi* | [**apiV2LearningServiceInstructorProfilesInstructorProfileIdGet**](docs/Api/InstructorProfilesApi.md#apiv2learningserviceinstructorprofilesinstructorprofileidget) | **GET** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
+*InstructorProfilesApi* | [**apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch**](docs/Api/InstructorProfilesApi.md#apiv2learningserviceinstructorprofilesinstructorprofileidpatch) | **PATCH** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 *InstructorProfilesApi* | [**apiV2LearningServiceInstructorProfilesInstructorProfileIdPut**](docs/Api/InstructorProfilesApi.md#apiv2learningserviceinstructorprofilesinstructorprofileidput) | **PUT** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 *InstructorProfilesApi* | [**apiV2LearningServiceInstructorProfilesPost**](docs/Api/InstructorProfilesApi.md#apiv2learningserviceinstructorprofilespost) | **POST** /api/v2/LearningService/InstructorProfiles | 
 *MeApi* | [**getMyAverageScoreAsync**](docs/Api/MeApi.md#getmyaveragescoreasync) | **GET** /api/v2/LearningService/Me/AverageScore | Get current user&#39;s average score
@@ -302,6 +327,7 @@ Class | Method | HTTP request | Description
 *StudentProfilesApi* | [**apiV2LearningServiceStudentProfilesStudentProfileIdDelete**](docs/Api/StudentProfilesApi.md#apiv2learningservicestudentprofilesstudentprofileiddelete) | **DELETE** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 *StudentProfilesApi* | [**apiV2LearningServiceStudentProfilesStudentProfileIdGet**](docs/Api/StudentProfilesApi.md#apiv2learningservicestudentprofilesstudentprofileidget) | **GET** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 *StudentProfilesApi* | [**apiV2LearningServiceStudentProfilesStudentProfileIdHoursCompletedGet**](docs/Api/StudentProfilesApi.md#apiv2learningservicestudentprofilesstudentprofileidhourscompletedget) | **GET** /api/v2/LearningService/StudentProfiles/{studentProfileId}/HoursCompleted | 
+*StudentProfilesApi* | [**apiV2LearningServiceStudentProfilesStudentProfileIdPatch**](docs/Api/StudentProfilesApi.md#apiv2learningservicestudentprofilesstudentprofileidpatch) | **PATCH** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 *StudentProfilesApi* | [**apiV2LearningServiceStudentProfilesStudentProfileIdPut**](docs/Api/StudentProfilesApi.md#apiv2learningservicestudentprofilesstudentprofileidput) | **PUT** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 
 ## Models
@@ -387,6 +413,7 @@ Class | Method | HTTP request | Description
 - [CourseWikiCreateDto](docs/Model/CourseWikiCreateDto.md)
 - [CourseWikiDto](docs/Model/CourseWikiDto.md)
 - [CourseWikiUpdateDto](docs/Model/CourseWikiUpdateDto.md)
+- [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
@@ -397,6 +424,7 @@ Class | Method | HTTP request | Description
 - [InstructorProfileDtoIReadOnlyListEnvelope](docs/Model/InstructorProfileDtoIReadOnlyListEnvelope.md)
 - [InstructorProfileUpdateDto](docs/Model/InstructorProfileUpdateDto.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
+- [Operation](docs/Model/Operation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
@@ -428,6 +456,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

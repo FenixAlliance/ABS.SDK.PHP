@@ -9,6 +9,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getJobOfferByIdAsync()**](JobOffersApi.md#getJobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID |
 | [**getJobOffersAsync()**](JobOffersApi.md#getJobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers |
 | [**getJobOffersCountAsync()**](JobOffersApi.md#getJobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers |
+| [**patchJobOfferAsync()**](JobOffersApi.md#patchJobOfferAsync) | **PATCH** /api/v2/HrmsService/JobOffers/{jobOfferId} | Patch a job offer |
 | [**updateJobOfferAsync()**](JobOffersApi.md#updateJobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer |
 
 
@@ -318,10 +319,74 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `patchJobOfferAsync()`
+
+```php
+patchJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patch a job offer
+
+Partially updates an existing job offer for the specified tenant.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\JobOffersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$job_offer_id = 'job_offer_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling JobOffersApi->patchJobOfferAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **job_offer_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateJobOfferAsync()`
 
 ```php
-updateJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $body): \OpenAPI\Client\Model\EmptyEnvelope
+updateJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $job_offer_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Update a job offer
@@ -345,10 +410,10 @@ $tenant_id = 'tenant_id_example'; // string
 $job_offer_id = 'job_offer_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
-$body = array('key' => new \stdClass); // object
+$job_offer_update_dto = new \OpenAPI\Client\Model\JobOfferUpdateDto(); // \OpenAPI\Client\Model\JobOfferUpdateDto
 
 try {
-    $result = $apiInstance->updateJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $body);
+    $result = $apiInstance->updateJobOfferAsync($tenant_id, $job_offer_id, $api_version, $x_api_version, $job_offer_update_dto);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobOffersApi->updateJobOfferAsync: ', $e->getMessage(), PHP_EOL;
@@ -363,7 +428,7 @@ try {
 | **job_offer_id** | **string**|  | |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
-| **body** | **object**|  | [optional] |
+| **job_offer_update_dto** | [**\OpenAPI\Client\Model\JobOfferUpdateDto**](../Model/JobOfferUpdateDto.md)|  | [optional] |
 
 ### Return type
 

@@ -85,6 +85,8 @@ Class | Method | HTTP request | Description
 *DiscountListsApi* | [**getDiscountListEntry**](docs/Api/DiscountListsApi.md#getdiscountlistentry) | **GET** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Gets a discount list entry by ID
 *DiscountListsApi* | [**getDiscountLists**](docs/Api/DiscountListsApi.md#getdiscountlists) | **GET** /api/v2/PricingService/DiscountLists | Retrieves all discount lists
 *DiscountListsApi* | [**getDiscountListsCount**](docs/Api/DiscountListsApi.md#getdiscountlistscount) | **GET** /api/v2/PricingService/DiscountLists/Count | Counts discount lists
+*DiscountListsApi* | [**patchDiscountList**](docs/Api/DiscountListsApi.md#patchdiscountlist) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId} | Patches a discount list
+*DiscountListsApi* | [**patchDiscountListEntry**](docs/Api/DiscountListsApi.md#patchdiscountlistentry) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Patches a discount list entry
 *DiscountListsApi* | [**updateDiscountList**](docs/Api/DiscountListsApi.md#updatediscountlist) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId} | Updates a discount list
 *DiscountListsApi* | [**updateDiscountListEntry**](docs/Api/DiscountListsApi.md#updatediscountlistentry) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Updates a discount list entry
 *FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
@@ -113,6 +115,8 @@ Class | Method | HTTP request | Description
 *PriceListsApi* | [**getPriceListPricesAsync**](docs/Api/PriceListsApi.md#getpricelistpricesasync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list
 *PriceListsApi* | [**getPriceListsAsync**](docs/Api/PriceListsApi.md#getpricelistsasync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists
 *PriceListsApi* | [**getPriceListsCountAsync**](docs/Api/PriceListsApi.md#getpricelistscountasync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists
+*PriceListsApi* | [**patchPriceListAsync**](docs/Api/PriceListsApi.md#patchpricelistasync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list
+*PriceListsApi* | [**patchPriceListPriceAsync**](docs/Api/PriceListsApi.md#patchpricelistpriceasync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Patches a price list entry
 *PriceListsApi* | [**updatePriceListAsync**](docs/Api/PriceListsApi.md#updatepricelistasync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list
 *PriceListsApi* | [**updatePriceListPriceAsync**](docs/Api/PriceListsApi.md#updatepricelistpriceasync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry
 *PricesApi* | [**getFinalPrice**](docs/Api/PricesApi.md#getfinalprice) | **GET** /api/v2/PricingService/Prices/{itemId}/FinalPrice | Gets the final price for an item
@@ -124,12 +128,14 @@ Class | Method | HTTP request | Description
 *PricingRulesApi* | [**getPricingRuleById**](docs/Api/PricingRulesApi.md#getpricingrulebyid) | **GET** /api/v2/PricingService/PricingRules/{pricingRuleId} | Get pricing rule by ID
 *PricingRulesApi* | [**getPricingRules**](docs/Api/PricingRulesApi.md#getpricingrules) | **GET** /api/v2/PricingService/PricingRules | Get all pricing rules
 *PricingRulesApi* | [**getPricingRulesCountAsync**](docs/Api/PricingRulesApi.md#getpricingrulescountasync) | **GET** /api/v2/PricingService/PricingRules/Count | Counts pricing rules
+*PricingRulesApi* | [**patchPricingRule**](docs/Api/PricingRulesApi.md#patchpricingrule) | **PATCH** /api/v2/PricingService/PricingRules/{pricingRuleId} | Patch a pricing rule
 *PricingRulesApi* | [**updatePricingRule**](docs/Api/PricingRulesApi.md#updatepricingrule) | **PUT** /api/v2/PricingService/PricingRules/Update | Update a pricing rule
 *RoundingPoliciesApi* | [**createRoundingPolicyAsync**](docs/Api/RoundingPoliciesApi.md#createroundingpolicyasync) | **POST** /api/v2/PricingService/RoundingPolicies | Creates a rounding policy
 *RoundingPoliciesApi* | [**deleteRoundingPolicyAsync**](docs/Api/RoundingPoliciesApi.md#deleteroundingpolicyasync) | **DELETE** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Deletes a rounding policy
 *RoundingPoliciesApi* | [**getRoundingPoliciesAsync**](docs/Api/RoundingPoliciesApi.md#getroundingpoliciesasync) | **GET** /api/v2/PricingService/RoundingPolicies | Gets all rounding policies
 *RoundingPoliciesApi* | [**getRoundingPoliciesCountAsync**](docs/Api/RoundingPoliciesApi.md#getroundingpoliciescountasync) | **GET** /api/v2/PricingService/RoundingPolicies/Count | Counts rounding policies
 *RoundingPoliciesApi* | [**getRoundingPolicyByIdAsync**](docs/Api/RoundingPoliciesApi.md#getroundingpolicybyidasync) | **GET** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Gets a rounding policy by ID
+*RoundingPoliciesApi* | [**patchRoundingPolicyAsync**](docs/Api/RoundingPoliciesApi.md#patchroundingpolicyasync) | **PATCH** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Patches a rounding policy
 *RoundingPoliciesApi* | [**updateRoundingPolicyAsync**](docs/Api/RoundingPoliciesApi.md#updateroundingpolicyasync) | **PUT** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Updates a rounding policy
 
 ## Models
@@ -163,6 +169,7 @@ Class | Method | HTTP request | Description
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [Money](docs/Model/Money.md)
 - [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
+- [Operation](docs/Model/Operation.md)
 - [PriceListCreateDto](docs/Model/PriceListCreateDto.md)
 - [PriceListDto](docs/Model/PriceListDto.md)
 - [PriceListDtoEnvelope](docs/Model/PriceListDtoEnvelope.md)
@@ -205,6 +212,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

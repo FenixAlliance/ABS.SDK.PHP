@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_id** | **string** |  | [optional]
+**priority** | **int** |  | [optional]
+**code** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **surcharge_percent** | **float** |  | [optional]
 **surcharge_amount** | **float** |  | [optional]

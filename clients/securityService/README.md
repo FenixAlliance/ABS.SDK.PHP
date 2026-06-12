@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**getBusinessApplicationsCountAsync**](docs/Api/ApplicationsApi.md#getbusinessapplicationscountasync) | **GET** /api/v2/SecurityService/Applications/Count | Get business applications count
 *ApplicationsApi* | [**getPermissionsByApplicationAsync**](docs/Api/ApplicationsApi.md#getpermissionsbyapplicationasync) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Permissions | Get permissions by application
 *ApplicationsApi* | [**getRolesByApplicationAsync**](docs/Api/ApplicationsApi.md#getrolesbyapplicationasync) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Roles | Get roles by application
+*ApplicationsApi* | [**patchBusinessApplicationAsync**](docs/Api/ApplicationsApi.md#patchbusinessapplicationasync) | **PATCH** /api/v2/SecurityService/Applications/{applicationId} | Patch an existing business application
 *ApplicationsApi* | [**updateBusinessApplicationAsync**](docs/Api/ApplicationsApi.md#updatebusinessapplicationasync) | **PUT** /api/v2/SecurityService/Applications/{applicationId} | Update an existing business application
 *CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
 *FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
@@ -112,6 +113,7 @@ Class | Method | HTTP request | Description
 *OAuthApplicationsApi* | [**getOAuthAuthorizationByIdAsync**](docs/Api/OAuthApplicationsApi.md#getoauthauthorizationbyidasync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/{authorizationId} | Get OAuth authorization by ID
 *OAuthApplicationsApi* | [**getOAuthAuthorizationsAsync**](docs/Api/OAuthApplicationsApi.md#getoauthauthorizationsasync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations | Get all OAuth authorizations
 *OAuthApplicationsApi* | [**getOAuthAuthorizationsCountAsync**](docs/Api/OAuthApplicationsApi.md#getoauthauthorizationscountasync) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/Count | Get OAuth authorizations count
+*OAuthApplicationsApi* | [**patchOAuthApplicationAsync**](docs/Api/OAuthApplicationsApi.md#patchoauthapplicationasync) | **PATCH** /api/v2/SecurityService/OAuthApplications/{applicationId} | Patch an existing OAuth application
 *OAuthApplicationsApi* | [**updateOAuthApplicationAsync**](docs/Api/OAuthApplicationsApi.md#updateoauthapplicationasync) | **PUT** /api/v2/SecurityService/OAuthApplications/{applicationId} | Update an existing OAuth application
 *PermissionsApi* | [**assignPermissionToBusinessApplicationAsync**](docs/Api/PermissionsApi.md#assignpermissiontobusinessapplicationasync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Assign a permission to a business application
 *PermissionsApi* | [**assignPermissionToEnrollmentAsync**](docs/Api/PermissionsApi.md#assignpermissiontoenrollmentasync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Assign a permission to an enrollment
@@ -125,6 +127,7 @@ Class | Method | HTTP request | Description
 *PermissionsApi* | [**getPermissionsByEnrollmentAsync**](docs/Api/PermissionsApi.md#getpermissionsbyenrollmentasync) | **GET** /api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId} | Get permissions by enrollment
 *PermissionsApi* | [**getPermissionsCountAsync**](docs/Api/PermissionsApi.md#getpermissionscountasync) | **GET** /api/v2/SecurityService/Permissions/Count | Get permissions count
 *PermissionsApi* | [**getRolesByPermissionAsync**](docs/Api/PermissionsApi.md#getrolesbypermissionasync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles | Get roles by permission
+*PermissionsApi* | [**patchPermissionAsync**](docs/Api/PermissionsApi.md#patchpermissionasync) | **PATCH** /api/v2/SecurityService/Permissions/{securityPermissionId} | Patch an existing permission
 *PermissionsApi* | [**revokePermissionFromBusinessApplicationAsync**](docs/Api/PermissionsApi.md#revokepermissionfrombusinessapplicationasync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Revoke a permission from a business application
 *PermissionsApi* | [**revokePermissionFromEnrollmentAsync**](docs/Api/PermissionsApi.md#revokepermissionfromenrollmentasync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Revoke a permission from an enrollment
 *PermissionsApi* | [**revokeRoleFromPermissionAsync**](docs/Api/PermissionsApi.md#revokerolefrompermissionasync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Revoke a role from a permission
@@ -141,6 +144,7 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**getRolesAsync**](docs/Api/RolesApi.md#getrolesasync) | **GET** /api/v2/SecurityService/Roles | Get all roles
 *RolesApi* | [**getRolesByEnrollmentAsync**](docs/Api/RolesApi.md#getrolesbyenrollmentasync) | **GET** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment
 *RolesApi* | [**getRolesCountAsync**](docs/Api/RolesApi.md#getrolescountasync) | **GET** /api/v2/SecurityService/Roles/Count | Get roles count
+*RolesApi* | [**patchRoleAsync**](docs/Api/RolesApi.md#patchroleasync) | **PATCH** /api/v2/SecurityService/Roles/{securityRoleId} | Patch an existing role
 *RolesApi* | [**revokePermissionFromRoleAsync**](docs/Api/RolesApi.md#revokepermissionfromroleasync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role
 *RolesApi* | [**revokeRoleFromBusinessApplicationAsync**](docs/Api/RolesApi.md#revokerolefrombusinessapplicationasync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application
 *RolesApi* | [**revokeRoleFromEnrollmentAsync**](docs/Api/RolesApi.md#revokerolefromenrollmentasync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment
@@ -182,6 +186,7 @@ Class | Method | HTTP request | Description
 - [OAuthAuthorizationDto](docs/Model/OAuthAuthorizationDto.md)
 - [OAuthAuthorizationDtoEnvelope](docs/Model/OAuthAuthorizationDtoEnvelope.md)
 - [OAuthAuthorizationDtoListEnvelope](docs/Model/OAuthAuthorizationDtoListEnvelope.md)
+- [Operation](docs/Model/Operation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
@@ -225,6 +230,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

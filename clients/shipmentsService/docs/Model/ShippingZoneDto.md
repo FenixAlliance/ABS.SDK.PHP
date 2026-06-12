@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **everywhere** | **bool** |  | [optional]
 **postal_codes** | **string** |  | [optional]
 **country_codes** | **string** |  | [optional]
-**business_id** | **string** |  | [optional]
+**tenant_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *LoyaltyProgramsApi* | [**deleteLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#deleteloyaltyprogramasync) | **DELETE** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Delete a loyalty program
 *LoyaltyProgramsApi* | [**getLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#getloyaltyprogramasync) | **GET** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Get loyalty program by ID
 *LoyaltyProgramsApi* | [**getLoyaltyProgramsAsync**](docs/Api/LoyaltyProgramsApi.md#getloyaltyprogramsasync) | **GET** /api/v2/SalesService/LoyaltyPrograms | Get loyalty programs
+*LoyaltyProgramsApi* | [**patchLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#patchloyaltyprogramasync) | **PATCH** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Patch a loyalty program
 *LoyaltyProgramsApi* | [**updateLoyaltyProgramAsync**](docs/Api/LoyaltyProgramsApi.md#updateloyaltyprogramasync) | **PUT** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Update a loyalty program
 *MarginsApi* | [**getQuoteAsync**](docs/Api/MarginsApi.md#getquoteasync) | **GET** /api/v2/SalesService/Margins/{marginId}/Details | Get margin details by ID
 *PointOfSalesApi* | [**countPointOfSalesAsync**](docs/Api/PointOfSalesApi.md#countpointofsalesasync) | **GET** /api/v2/SalesService/PointOfSales/Count | Get point of sales count
@@ -104,6 +105,7 @@ Class | Method | HTTP request | Description
 *PointOfSalesApi* | [**deletePointOfSaleAsync**](docs/Api/PointOfSalesApi.md#deletepointofsaleasync) | **DELETE** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Delete a point of sale
 *PointOfSalesApi* | [**getPointOfSaleAsync**](docs/Api/PointOfSalesApi.md#getpointofsaleasync) | **GET** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Get point of sale by ID
 *PointOfSalesApi* | [**getPointOfSalesAsync**](docs/Api/PointOfSalesApi.md#getpointofsalesasync) | **GET** /api/v2/SalesService/PointOfSales | Get point of sales
+*PointOfSalesApi* | [**patchPointOfSaleAsync**](docs/Api/PointOfSalesApi.md#patchpointofsaleasync) | **PATCH** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Patch a point of sale
 *PointOfSalesApi* | [**updatePointOfSaleAsync**](docs/Api/PointOfSalesApi.md#updatepointofsaleasync) | **PUT** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Update a point of sale
 *SalesLiteraturesApi* | [**countSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#countsalesliteraturesasync) | **GET** /api/v2/SalesService/SalesLiteratures/Count | Get sales literatures count
 *SalesLiteraturesApi* | [**createSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#createsalesliteratureasync) | **POST** /api/v2/SalesService/SalesLiteratures | Create a sales literature
@@ -111,12 +113,14 @@ Class | Method | HTTP request | Description
 *SalesLiteraturesApi* | [**getExtendedSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#getextendedsalesliteraturesasync) | **GET** /api/v2/SalesService/SalesLiteratures/Extended | Get extended sales literatures
 *SalesLiteraturesApi* | [**getSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#getsalesliteratureasync) | **GET** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID
 *SalesLiteraturesApi* | [**getSalesLiteraturesAsync**](docs/Api/SalesLiteraturesApi.md#getsalesliteraturesasync) | **GET** /api/v2/SalesService/SalesLiteratures | Get sales literatures
+*SalesLiteraturesApi* | [**patchSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#patchsalesliteratureasync) | **PATCH** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Patch a sales literature
 *SalesLiteraturesApi* | [**updateSalesLiteratureAsync**](docs/Api/SalesLiteraturesApi.md#updatesalesliteratureasync) | **PUT** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Update a sales literature
 *StoresApi* | [**countStoresAsync**](docs/Api/StoresApi.md#countstoresasync) | **GET** /api/v2/SalesService/Stores/Count | Get stores count
 *StoresApi* | [**createStoreAsync**](docs/Api/StoresApi.md#createstoreasync) | **POST** /api/v2/SalesService/Stores | Create a store
 *StoresApi* | [**deleteStoreAsync**](docs/Api/StoresApi.md#deletestoreasync) | **DELETE** /api/v2/SalesService/Stores/{storeId} | Delete a store
 *StoresApi* | [**getStoreAsync**](docs/Api/StoresApi.md#getstoreasync) | **GET** /api/v2/SalesService/Stores/{storeId} | Get store by ID
 *StoresApi* | [**getStoresAsync**](docs/Api/StoresApi.md#getstoresasync) | **GET** /api/v2/SalesService/Stores | Get stores
+*StoresApi* | [**patchStoreAsync**](docs/Api/StoresApi.md#patchstoreasync) | **PATCH** /api/v2/SalesService/Stores/{storeId} | Patch a store
 *StoresApi* | [**updateStoreAsync**](docs/Api/StoresApi.md#updatestoreasync) | **PUT** /api/v2/SalesService/Stores/{storeId} | Update a store
 
 ## Models
@@ -137,6 +141,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyProgramDtoEnvelope](docs/Model/LoyaltyProgramDtoEnvelope.md)
 - [LoyaltyProgramDtoListEnvelope](docs/Model/LoyaltyProgramDtoListEnvelope.md)
 - [LoyaltyProgramUpdateDto](docs/Model/LoyaltyProgramUpdateDto.md)
+- [Operation](docs/Model/Operation.md)
 - [PointOfSaleCreateDto](docs/Model/PointOfSaleCreateDto.md)
 - [PointOfSaleDto](docs/Model/PointOfSaleDto.md)
 - [PointOfSaleDtoEnvelope](docs/Model/PointOfSaleDtoEnvelope.md)
@@ -181,6 +186,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

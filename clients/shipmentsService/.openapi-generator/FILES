@@ -38,6 +38,7 @@ docs/Model/ItemShippingPolicyDtoEnvelope.md
 docs/Model/ItemShippingPolicyDtoListEnvelope.md
 docs/Model/ItemShippingPolicyUpdateDto.md
 docs/Model/LoginRequest.md
+docs/Model/Operation.md
 docs/Model/RefreshRequest.md
 docs/Model/RegisterRequest.md
 docs/Model/ResendConfirmationEmailRequest.md
@@ -119,6 +120,7 @@ lib/Model/ItemShippingPolicyDtoListEnvelope.php
 lib/Model/ItemShippingPolicyUpdateDto.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
+lib/Model/Operation.php
 lib/Model/RefreshRequest.php
 lib/Model/RegisterRequest.php
 lib/Model/ResendConfirmationEmailRequest.php
@@ -162,17 +164,4 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/BillsOfLadingApiTest.php
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php
-test/Model/BillOfLadingCreateDtoTest.php
-test/Model/BillOfLadingDtoEnvelopeTest.php
-test/Model/BillOfLadingDtoListEnvelopeTest.php
-test/Model/BillOfLadingDtoTest.php
-test/Model/BillOfLadingLineCreateDtoTest.php
-test/Model/BillOfLadingLineDtoEnvelopeTest.php
-test/Model/BillOfLadingLineDtoListEnvelopeTest.php
-test/Model/BillOfLadingLineDtoTest.php
-test/Model/BillOfLadingLineUpdateDtoTest.php
-test/Model/BillOfLadingUpdateDtoTest.php
-test/Model/EmptyEnvelopeTest.php
+test/Model/OperationTest.php
