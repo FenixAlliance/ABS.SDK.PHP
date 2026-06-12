@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **duns** | **string** |  | [optional]
 **is_public_company** | **bool** |  | [optional]
 **is_facta_customer** | **bool** |  | [optional]
+**tax_payer_type** | **string** |  | [optional]
 **country_id** | **string** |  |
 **state_id** | **string** |  |
 **city_id** | **string** |  |

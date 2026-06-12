@@ -79,18 +79,21 @@ Class | Method | HTTP request | Description
 *AssetCategoriesApi* | [**getAssetCategories**](docs/Api/AssetCategoriesApi.md#getassetcategories) | **GET** /api/v2/AssetsService/AssetCategories | Gets all asset categories for the current tenant
 *AssetCategoriesApi* | [**getAssetCategoriesCount**](docs/Api/AssetCategoriesApi.md#getassetcategoriescount) | **GET** /api/v2/AssetsService/AssetCategories/count | Gets the count of asset categories
 *AssetCategoriesApi* | [**getAssetCategory**](docs/Api/AssetCategoriesApi.md#getassetcategory) | **GET** /api/v2/AssetsService/AssetCategories/{categoryId} | Gets a specific asset category
+*AssetCategoriesApi* | [**patchAssetCategory**](docs/Api/AssetCategoriesApi.md#patchassetcategory) | **PATCH** /api/v2/AssetsService/AssetCategories/{categoryId} | Partially updates an existing asset category
 *AssetCategoriesApi* | [**updateAssetCategory**](docs/Api/AssetCategoriesApi.md#updateassetcategory) | **PUT** /api/v2/AssetsService/AssetCategories/{categoryId} | Updates an existing asset category
 *AssetTransfersApi* | [**createAssetTransferAsync**](docs/Api/AssetTransfersApi.md#createassettransferasync) | **POST** /api/v2/AssetsService/AssetTransfers | Creates a new asset transfer
 *AssetTransfersApi* | [**deleteAssetTransferAsync**](docs/Api/AssetTransfersApi.md#deleteassettransferasync) | **DELETE** /api/v2/AssetsService/AssetTransfers/{transferId} | Deletes an asset transfer
 *AssetTransfersApi* | [**getAssetTransferAsync**](docs/Api/AssetTransfersApi.md#getassettransferasync) | **GET** /api/v2/AssetsService/AssetTransfers/{transferId} | Gets a single asset transfer by ID
 *AssetTransfersApi* | [**getAssetTransfersAsync**](docs/Api/AssetTransfersApi.md#getassettransfersasync) | **GET** /api/v2/AssetsService/AssetTransfers | Gets a list of asset transfers
 *AssetTransfersApi* | [**getAssetTransfersCountAsync**](docs/Api/AssetTransfersApi.md#getassettransferscountasync) | **GET** /api/v2/AssetsService/AssetTransfers/Count | Gets the count of asset transfers
+*AssetTransfersApi* | [**patchAssetTransferAsync**](docs/Api/AssetTransfersApi.md#patchassettransferasync) | **PATCH** /api/v2/AssetsService/AssetTransfers/{transferId} | Partially updates an existing asset transfer
 *AssetTransfersApi* | [**updateAssetTransferAsync**](docs/Api/AssetTransfersApi.md#updateassettransferasync) | **PUT** /api/v2/AssetsService/AssetTransfers/{transferId} | Updates an existing asset transfer
 *AssetTypesApi* | [**createAssetType**](docs/Api/AssetTypesApi.md#createassettype) | **POST** /api/v2/AssetsService/AssetTypes | Creates a new asset type
 *AssetTypesApi* | [**deleteAssetType**](docs/Api/AssetTypesApi.md#deleteassettype) | **DELETE** /api/v2/AssetsService/AssetTypes/{typeId} | Deletes an asset type
 *AssetTypesApi* | [**getAssetType**](docs/Api/AssetTypesApi.md#getassettype) | **GET** /api/v2/AssetsService/AssetTypes/{typeId} | Gets a specific asset type
 *AssetTypesApi* | [**getAssetTypes**](docs/Api/AssetTypesApi.md#getassettypes) | **GET** /api/v2/AssetsService/AssetTypes | Gets all asset types for the current tenant
 *AssetTypesApi* | [**getAssetTypesCount**](docs/Api/AssetTypesApi.md#getassettypescount) | **GET** /api/v2/AssetsService/AssetTypes/count | Gets the count of asset types
+*AssetTypesApi* | [**patchAssetType**](docs/Api/AssetTypesApi.md#patchassettype) | **PATCH** /api/v2/AssetsService/AssetTypes/{typeId} | Partially updates an existing asset type
 *AssetTypesApi* | [**updateAssetType**](docs/Api/AssetTypesApi.md#updateassettype) | **PUT** /api/v2/AssetsService/AssetTypes/{typeId} | Updates an existing asset type
 *AssetsApi* | [**createAsset**](docs/Api/AssetsApi.md#createasset) | **POST** /api/v2/AssetsService/Assets | Creates a new asset
 *AssetsApi* | [**createAssetAssetCategory**](docs/Api/AssetsApi.md#createassetassetcategory) | **POST** /api/v2/AssetsService/Assets/Categories | Creates a new asset category
@@ -122,6 +125,12 @@ Class | Method | HTTP request | Description
 *AssetsApi* | [**getAssetValueAmendsCount**](docs/Api/AssetsApi.md#getassetvalueamendscount) | **GET** /api/v2/AssetsService/Assets/{assetId}/ValueAmends/Count | Gets count of value amendments for a specific asset
 *AssetsApi* | [**getAssets**](docs/Api/AssetsApi.md#getassets) | **GET** /api/v2/AssetsService/Assets | Gets all assets for the current tenant
 *AssetsApi* | [**getAssetsCount**](docs/Api/AssetsApi.md#getassetscount) | **GET** /api/v2/AssetsService/Assets/count | Gets the count of assets
+*AssetsApi* | [**patchAsset**](docs/Api/AssetsApi.md#patchasset) | **PATCH** /api/v2/AssetsService/Assets/{assetId} | Partially updates an existing asset
+*AssetsApi* | [**patchAssetAssetCategory**](docs/Api/AssetsApi.md#patchassetassetcategory) | **PATCH** /api/v2/AssetsService/Assets/Categories/{categoryId} | Partially updates an existing asset category
+*AssetsApi* | [**patchAssetDepreciationRecord**](docs/Api/AssetsApi.md#patchassetdepreciationrecord) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/DepreciationRecords/{recordId} | Partially updates a depreciation record for an asset
+*AssetsApi* | [**patchAssetRepair**](docs/Api/AssetsApi.md#patchassetrepair) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/Repairs/{repairId} | Partially updates a repair for an asset
+*AssetsApi* | [**patchAssetTransfer**](docs/Api/AssetsApi.md#patchassettransfer) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/Transfers/{transferId} | Partially updates a transfer for an asset
+*AssetsApi* | [**patchAssetValueAmend**](docs/Api/AssetsApi.md#patchassetvalueamend) | **PATCH** /api/v2/AssetsService/Assets/{assetId}/ValueAmends/{amendId} | Partially updates a value amendment for an asset
 *AssetsApi* | [**updateAsset**](docs/Api/AssetsApi.md#updateasset) | **PUT** /api/v2/AssetsService/Assets/{assetId} | Updates an existing asset
 *AssetsApi* | [**updateAssetAssetCategory**](docs/Api/AssetsApi.md#updateassetassetcategory) | **PUT** /api/v2/AssetsService/Assets/Categories/{categoryId} | Updates an existing asset category
 *AssetsApi* | [**updateAssetDepreciationRecord**](docs/Api/AssetsApi.md#updateassetdepreciationrecord) | **PUT** /api/v2/AssetsService/Assets/{assetId}/DepreciationRecords/{recordId} | Updates a depreciation record for an asset
@@ -193,6 +202,7 @@ Class | Method | HTTP request | Description
 - [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
+- [Operation](docs/Model/Operation.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
@@ -220,6 +230,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

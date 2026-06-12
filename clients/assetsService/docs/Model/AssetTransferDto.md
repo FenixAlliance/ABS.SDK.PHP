@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**business_id** | **string** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **asset_id** | **string** |  | [optional]
 **asset_name** | **string** |  | [optional]
 **is_root_transfer** | **bool** |  | [optional]

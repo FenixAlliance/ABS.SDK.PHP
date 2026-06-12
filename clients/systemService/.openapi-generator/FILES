@@ -216,8 +216,3 @@ lib/Model/WebPortalDtoListEnvelope.php
 lib/Model/WebPortalUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/BusinessDomainsApiTest.php
-test/Model/BusinessDomainDtoEnvelopeTest.php
-test/Model/BusinessDomainDtoListEnvelopeTest.php
-test/Model/BusinessDomainDtoTest.php
-test/Model/OperationTest.php

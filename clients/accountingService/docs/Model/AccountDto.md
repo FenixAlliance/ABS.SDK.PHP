@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **prefix** | **string** |  | [optional]
 **balance** | **float** |  | [optional]
 **currency_id** | **string** |  | [optional]
+**contact_id** | **string** |  | [optional]
 **account_type** | **string** |  | [optional]
 **qualified_name** | **string** |  | [optional]
 **account_type_id** | **string** |  | [optional]

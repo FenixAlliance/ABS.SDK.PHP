@@ -236,4 +236,3 @@ lib/Model/WarrantyRequestDtoListEnvelope.php
 lib/Model/WarrantyRequestUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/OperationTest.php

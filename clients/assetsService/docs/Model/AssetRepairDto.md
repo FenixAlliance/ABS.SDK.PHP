@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **object** |  | [optional]
+**id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**business_id** | **object** |  | [optional]
-**business_profile_record_id** | **object** |  | [optional]
-**asset_id** | **object** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
+**asset_id** | **string** |  | [optional]
 **asset_name** | **string** |  | [optional]
 **repair_status** | **string** |  | [optional]
 **scheduled_date** | **\DateTime** |  | [optional]

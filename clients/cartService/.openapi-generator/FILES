@@ -102,4 +102,3 @@ lib/Model/WishListItemRecordDto.php
 lib/Model/WishListUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/OperationTest.php

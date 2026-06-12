@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **path** | **string** |  | [optional]
 **prefix** | **string** |  | [optional]
 **currency_id** | **string** |  |
+**contact_id** | **string** |  | [optional]
 **account_type_id** | **string** |  | [optional]
 **parent_account_id** | **string** |  | [optional]
 **account_category** | **string** |  | [optional]

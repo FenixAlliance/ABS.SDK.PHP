@@ -130,4 +130,3 @@ lib/Model/WalletWithdrawRequestDto.php
 lib/Model/WalletWithdrawRequestDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/OperationTest.php

@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **tax_policy_id** | **string** |  | [optional]
 **item_price_id** | **string** |  | [optional]
 **item_id** | **string** |  | [optional]

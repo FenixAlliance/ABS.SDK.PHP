@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **purchase_price** | **float** |  | [optional]
 **currency_id** | **string** |  | [optional]
 **item_id** | **string** |  | [optional]
+**asset_type_id** | **string** |  | [optional]
 **asset_category_id** | **string** |  | [optional]
 **purchase_invoice_id** | **string** |  | [optional]
 **purchase_receipt_id** | **string** |  | [optional]
