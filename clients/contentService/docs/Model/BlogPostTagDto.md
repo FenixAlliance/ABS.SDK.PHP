@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
 **slug** | **string** |  | [optional]
+**type** | **string** |  | [optional]
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **seo_title** | **string** |  | [optional]
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 **image_url** | **string** |  | [optional]
 **image** | **string** |  | [optional]
 **web_portal_id** | **string** |  | [optional]
-**business_id** | **string** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

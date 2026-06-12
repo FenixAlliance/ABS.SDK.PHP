@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **markup** | **string** |  | [optional]
 **featured_image_url** | **string** |  | [optional]
 **code_type** | **string** |  | [optional]
+**slug** | **string** |  | [optional]
 **web_template_id** | **string** |  | [optional]
+**parent_web_content_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

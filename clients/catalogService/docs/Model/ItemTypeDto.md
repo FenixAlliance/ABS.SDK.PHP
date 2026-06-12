@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional]
 **image_url** | **string** |  | [optional]
 **google_category_taxonomy** | **string** |  | [optional]
-**business_id** | **string** |  |
+**tenant_id** | **string** |  |
 **item_category_id** | **string** |  |
 **item_google_category_id** | **string** |  | [optional]
 

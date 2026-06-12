@@ -4,6 +4,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**bindWebPortalDomainAsync()**](PortalsApi.md#bindWebPortalDomainAsync) | **POST** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Bind a domain to a web portal |
 | [**countPortalsAsync()**](PortalsApi.md#countPortalsAsync) | **GET** /api/v2/ContentService/Portals/Count | Count portals |
 | [**createWebPortalAsync()**](PortalsApi.md#createWebPortalAsync) | **POST** /api/v2/ContentService/Portals | Create a new web portal |
 | [**deleteWebPortalAsync()**](PortalsApi.md#deleteWebPortalAsync) | **DELETE** /api/v2/ContentService/Portals/{portalId} | Delete a web portal |
@@ -12,13 +13,80 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getPortalsAsync()**](PortalsApi.md#getPortalsAsync) | **GET** /api/v2/ContentService/Portals | Get portals |
 | [**getRootWebPortalAsync()**](PortalsApi.md#getRootWebPortalAsync) | **GET** /api/v2/ContentService/Portals/Root | Get the root portal |
 | [**getWebPortalByIdAsync()**](PortalsApi.md#getWebPortalByIdAsync) | **GET** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID |
+| [**getWebPortalDomainBindingsAsync()**](PortalsApi.md#getWebPortalDomainBindingsAsync) | **GET** /api/v2/ContentService/Portals/{portalId}/DomainBindings | Get a web portal&#39;s bound domains |
 | [**getWebPortalOptionsAsync()**](PortalsApi.md#getWebPortalOptionsAsync) | **GET** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal&#39;s options by its ID |
 | [**getWebPortalSettingsAsync()**](PortalsApi.md#getWebPortalSettingsAsync) | **GET** /api/v2/ContentService/Portals/{portalId}/Settings | Get a web portal&#39;s settings by its ID |
 | [**initializeCurrentWebPortalAsync()**](PortalsApi.md#initializeCurrentWebPortalAsync) | **POST** /api/v2/ContentService/Portals/Initialize | Initialize the current portal |
 | [**patchWebPortalAsync()**](PortalsApi.md#patchWebPortalAsync) | **PATCH** /api/v2/ContentService/Portals/{portalId} | Partially update a web portal |
 | [**searchWebPortalAsync()**](PortalsApi.md#searchWebPortalAsync) | **GET** /api/v2/ContentService/Portals/Search | Search for a portal by its domain |
+| [**unbindWebPortalDomainAsync()**](PortalsApi.md#unbindWebPortalDomainAsync) | **DELETE** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Unbind a domain from a web portal |
 | [**updateWebPortalAsync()**](PortalsApi.md#updateWebPortalAsync) | **PUT** /api/v2/ContentService/Portals/{portalId} | Update an existing web portal |
+| [**updateWebPortalSettingsAsync()**](PortalsApi.md#updateWebPortalSettingsAsync) | **PUT** /api/v2/ContentService/Portals/{portalId}/Settings | Update a web portal&#39;s settings |
 
+
+## `bindWebPortalDomainAsync()`
+
+```php
+bindWebPortalDomainAsync($tenant_id, $portal_id, $business_domain_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Bind a domain to a web portal
+
+Bind a verified BusinessDomain to a web portal
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PortalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$portal_id = 'portal_id_example'; // string
+$business_domain_id = 'business_domain_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->bindWebPortalDomainAsync($tenant_id, $portal_id, $business_domain_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PortalsApi->bindWebPortalDomainAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **portal_id** | **string**|  | |
+| **business_domain_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `countPortalsAsync()`
 
@@ -498,6 +566,68 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWebPortalDomainBindingsAsync()`
+
+```php
+getWebPortalDomainBindingsAsync($tenant_id, $portal_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BusinessDomainDtoListEnvelope
+```
+
+Get a web portal's bound domains
+
+Get the BusinessDomains bound to a web portal
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PortalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$portal_id = 'portal_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getWebPortalDomainBindingsAsync($tenant_id, $portal_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PortalsApi->getWebPortalDomainBindingsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **portal_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\BusinessDomainDtoListEnvelope**](../Model/BusinessDomainDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getWebPortalOptionsAsync()`
 
 ```php
@@ -800,6 +930,70 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `unbindWebPortalDomainAsync()`
+
+```php
+unbindWebPortalDomainAsync($tenant_id, $portal_id, $business_domain_id, $api_version, $x_api_version): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Unbind a domain from a web portal
+
+Unbind a BusinessDomain from a web portal
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PortalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$portal_id = 'portal_id_example'; // string
+$business_domain_id = 'business_domain_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->unbindWebPortalDomainAsync($tenant_id, $portal_id, $business_domain_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PortalsApi->unbindWebPortalDomainAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **portal_id** | **string**|  | |
+| **business_domain_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateWebPortalAsync()`
 
 ```php
@@ -846,6 +1040,70 @@ try {
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **web_portal_update_dto** | [**\OpenAPI\Client\Model\WebPortalUpdateDto**](../Model/WebPortalUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateWebPortalSettingsAsync()`
+
+```php
+updateWebPortalSettingsAsync($tenant_id, $portal_id, $api_version, $x_api_version, $portal_settings): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Update a web portal's settings
+
+Update a web portal's settings (Options) by its ID
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PortalsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$portal_id = 'portal_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$portal_settings = new \OpenAPI\Client\Model\PortalSettings(); // \OpenAPI\Client\Model\PortalSettings
+
+try {
+    $result = $apiInstance->updateWebPortalSettingsAsync($tenant_id, $portal_id, $api_version, $x_api_version, $portal_settings);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PortalsApi->updateWebPortalSettingsAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **portal_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **portal_settings** | [**\OpenAPI\Client\Model\PortalSettings**](../Model/PortalSettings.md)|  | [optional] |
 
 ### Return type
 

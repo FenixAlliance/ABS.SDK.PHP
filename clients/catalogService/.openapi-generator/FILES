@@ -26,6 +26,8 @@ docs/Api/ItemWarrantyPoliciesApi.md
 docs/Api/ItemsApi.md
 docs/Api/MerchantsApi.md
 docs/Model/AccessTokenResponse.md
+docs/Model/BatchStockItemUpdateRequest.md
+docs/Model/BulkProduct.md
 docs/Model/CatalogItemCreateDto.md
 docs/Model/CatalogItemDto.md
 docs/Model/CatalogItemDtoEnvelope.md
@@ -125,6 +127,7 @@ docs/Model/MerchantDtoEnvelope.md
 docs/Model/MerchantDtoListEnvelope.md
 docs/Model/Money.md
 docs/Model/MoneyEnvelope.md
+docs/Model/Operation.md
 docs/Model/PricingRuleDto.md
 docs/Model/PricingRuleDtoEnvelope.md
 docs/Model/PricingRuleDtoListEnvelope.md
@@ -162,6 +165,8 @@ lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
+lib/Model/BatchStockItemUpdateRequest.php
+lib/Model/BulkProduct.php
 lib/Model/CatalogItemCreateDto.php
 lib/Model/CatalogItemDto.php
 lib/Model/CatalogItemDtoEnvelope.php
@@ -262,6 +267,7 @@ lib/Model/MerchantDtoListEnvelope.php
 lib/Model/ModelInterface.php
 lib/Model/Money.php
 lib/Model/MoneyEnvelope.php
+lib/Model/Operation.php
 lib/Model/PricingRuleDto.php
 lib/Model/PricingRuleDtoEnvelope.php
 lib/Model/PricingRuleDtoListEnvelope.php
@@ -274,20 +280,3 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UpdateProductPrimaryImageAsyncRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php
-test/Api/ItemAttributeOptionsApiTest.php
-test/Api/ItemBundlesApiTest.php
-test/Api/ItemFamiliesApiTest.php
-test/Model/ItemAttributeOptionCreateDtoTest.php
-test/Model/ItemAttributeOptionUpdateDtoTest.php
-test/Model/ItemBundleCreateDtoTest.php
-test/Model/ItemBundleDtoEnvelopeTest.php
-test/Model/ItemBundleDtoListEnvelopeTest.php
-test/Model/ItemBundleDtoTest.php
-test/Model/ItemBundleUpdateDtoTest.php
-test/Model/ItemFamilyCreateDtoTest.php
-test/Model/ItemFamilyDtoEnvelopeTest.php
-test/Model/ItemFamilyDtoListEnvelopeTest.php
-test/Model/ItemFamilyDtoTest.php
-test/Model/ItemFamilyUpdateDtoTest.php

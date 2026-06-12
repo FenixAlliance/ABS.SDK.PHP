@@ -4,6 +4,8 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**batchUpdateStockItems()**](ItemsApi.md#batchUpdateStockItems) | **POST** /api/v2/CatalogService/Items/Batch | Bulk-update stock items |
+| [**bulkUpsertStockItems()**](ItemsApi.md#bulkUpsertStockItems) | **POST** /api/v2/CatalogService/Items/BulkUpsert | Bulk upsert stock items from rows |
 | [**countStockItemTagsByItemId()**](ItemsApi.md#countStockItemTagsByItemId) | **GET** /api/v2/CatalogService/Items/{itemId}/Tags/Count | Count tags for a stock item |
 | [**countStockItemsByBusiness()**](ItemsApi.md#countStockItemsByBusiness) | **GET** /api/v2/CatalogService/Items/Count | Count stock items by business |
 | [**createStockItem()**](ItemsApi.md#createStockItem) | **POST** /api/v2/CatalogService/Items | Create a new stock item |
@@ -46,6 +48,8 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getStockItemsOdataMaxPrice()**](ItemsApi.md#getStockItemsOdataMaxPrice) | **GET** /api/v2/CatalogService/Items/MaxPrice | Get max price of stock items |
 | [**getStockItemsOdataMinPrice()**](ItemsApi.md#getStockItemsOdataMinPrice) | **GET** /api/v2/CatalogService/Items/MinPrice | Get min price of stock items |
 | [**getStockItemsQuery()**](ItemsApi.md#getStockItemsQuery) | **GET** /api/v2/CatalogService/Items | Get all stock items |
+| [**patchStockItem()**](ItemsApi.md#patchStockItem) | **PATCH** /api/v2/CatalogService/Items/{itemId} | Patch a stock item |
+| [**recalculateStockItemPrices()**](ItemsApi.md#recalculateStockItemPrices) | **POST** /api/v2/CatalogService/Items/RecalculatePrices | Recalculate stock item prices |
 | [**relateAttachmentToStockItem()**](ItemsApi.md#relateAttachmentToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/Attachments/{itemAttachmentId} | Relate attachment to stock item |
 | [**relateAttributeOptionToStockItem()**](ItemsApi.md#relateAttributeOptionToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/AttributeOptions/{itemAttributeOptionId} | Relate attribute option to stock item |
 | [**relateBrandToStockItem()**](ItemsApi.md#relateBrandToStockItem) | **POST** /api/v2/CatalogService/Items/{itemId}/Brands/{itemBrandId} | Relate brand to stock item |
@@ -81,6 +85,128 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**updateProductPrimaryImageAsync()**](ItemsApi.md#updateProductPrimaryImageAsync) | **POST** /api/v2/CatalogService/Items/{itemId}/Images/Primary | Update item primary image |
 | [**updateStockItem()**](ItemsApi.md#updateStockItem) | **PUT** /api/v2/CatalogService/Items/{itemId} | Update a stock item |
 
+
+## `batchUpdateStockItems()`
+
+```php
+batchUpdateStockItems($tenant_id, $api_version, $x_api_version, $batch_stock_item_update_request)
+```
+
+Bulk-update stock items
+
+Applies a targeted bulk operation (set flags, add/remove tax policies) to many items atomically.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$batch_stock_item_update_request = new \OpenAPI\Client\Model\BatchStockItemUpdateRequest(); // \OpenAPI\Client\Model\BatchStockItemUpdateRequest
+
+try {
+    $apiInstance->batchUpdateStockItems($tenant_id, $api_version, $x_api_version, $batch_stock_item_update_request);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->batchUpdateStockItems: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **batch_stock_item_update_request** | [**\OpenAPI\Client\Model\BatchStockItemUpdateRequest**](../Model/BatchStockItemUpdateRequest.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `bulkUpsertStockItems()`
+
+```php
+bulkUpsertStockItems($tenant_id, $api_version, $x_api_version, $bulk_product)
+```
+
+Bulk upsert stock items from rows
+
+Updates scalar fields of matching tenant-owned items or creates new ones, all in one transaction.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$bulk_product = array(new \OpenAPI\Client\Model\BulkProduct()); // \OpenAPI\Client\Model\BulkProduct[]
+
+try {
+    $apiInstance->bulkUpsertStockItems($tenant_id, $api_version, $x_api_version, $bulk_product);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->bulkUpsertStockItems: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **bulk_product** | [**\OpenAPI\Client\Model\BulkProduct[]**](../Model/BulkProduct.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `countStockItemTagsByItemId()`
 
@@ -2640,6 +2766,130 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchStockItem()`
+
+```php
+patchStockItem($tenant_id, $item_id, $api_version, $x_api_version, $operation)
+```
+
+Patch a stock item
+
+Partially updates an existing stock item for the specified tenant and item ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$item_id = 'item_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $apiInstance->patchStockItem($tenant_id, $item_id, $api_version, $x_api_version, $operation);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->patchStockItem: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **item_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `recalculateStockItemPrices()`
+
+```php
+recalculateStockItemPrices($tenant_id, $api_version, $x_api_version, $request_body)
+```
+
+Recalculate stock item prices
+
+Recomputes derived prices for the given tenant-owned items via the pricing service, atomically.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$request_body = array('request_body_example'); // string[]
+
+try {
+    $apiInstance->recalculateStockItemPrices($tenant_id, $api_version, $x_api_version, $request_body);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->recalculateStockItemPrices: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **request_body** | [**string[]**](../Model/string.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

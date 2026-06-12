@@ -96,41 +96,48 @@ Class | Method | HTTP request | Description
 *ItemAttachmentsApi* | [**deleteItemAttachmentAsync**](docs/Api/ItemAttachmentsApi.md#deleteitemattachmentasync) | **DELETE** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Delete an item attachment
 *ItemAttachmentsApi* | [**getItemAttachmentByIdAsync**](docs/Api/ItemAttachmentsApi.md#getitemattachmentbyidasync) | **GET** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Get item attachment by ID
 *ItemAttachmentsApi* | [**getItemAttachmentsAsync**](docs/Api/ItemAttachmentsApi.md#getitemattachmentsasync) | **GET** /api/v2/CatalogService/ItemAttachments | Get all item attachments
+*ItemAttachmentsApi* | [**patchItemAttachmentAsync**](docs/Api/ItemAttachmentsApi.md#patchitemattachmentasync) | **PATCH** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Patch an item attachment
 *ItemAttachmentsApi* | [**updateItemAttachmentAsync**](docs/Api/ItemAttachmentsApi.md#updateitemattachmentasync) | **PUT** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Update an item attachment
 *ItemAttributeOptionsApi* | [**createItemAttributeOptionAsync**](docs/Api/ItemAttributeOptionsApi.md#createitemattributeoptionasync) | **POST** /api/v2/CatalogService/ItemAttributeOptions | Create a new item attribute option
 *ItemAttributeOptionsApi* | [**deleteItemAttributeOptionAsync**](docs/Api/ItemAttributeOptionsApi.md#deleteitemattributeoptionasync) | **DELETE** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Delete an item attribute option
 *ItemAttributeOptionsApi* | [**getItemAttributeOptionByIdAsync**](docs/Api/ItemAttributeOptionsApi.md#getitemattributeoptionbyidasync) | **GET** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Get item attribute option by ID
 *ItemAttributeOptionsApi* | [**getItemAttributeOptionsAsync**](docs/Api/ItemAttributeOptionsApi.md#getitemattributeoptionsasync) | **GET** /api/v2/CatalogService/ItemAttributeOptions | Get all item attribute options
 *ItemAttributeOptionsApi* | [**getItemAttributeOptionsCountAsync**](docs/Api/ItemAttributeOptionsApi.md#getitemattributeoptionscountasync) | **GET** /api/v2/CatalogService/ItemAttributeOptions/Count | Get item attribute options count
+*ItemAttributeOptionsApi* | [**patchItemAttributeOptionAsync**](docs/Api/ItemAttributeOptionsApi.md#patchitemattributeoptionasync) | **PATCH** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Patch an item attribute option
 *ItemAttributeOptionsApi* | [**updateItemAttributeOptionAsync**](docs/Api/ItemAttributeOptionsApi.md#updateitemattributeoptionasync) | **PUT** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Update an item attribute option
 *ItemAttributesApi* | [**countItemAttributesAsync**](docs/Api/ItemAttributesApi.md#countitemattributesasync) | **GET** /api/v2/CatalogService/ItemAttributes/Count | Count item attributes
 *ItemAttributesApi* | [**createItemAttributeAsync**](docs/Api/ItemAttributesApi.md#createitemattributeasync) | **POST** /api/v2/CatalogService/ItemAttributes | Create a new item attribute
 *ItemAttributesApi* | [**deleteItemAttributeAsync**](docs/Api/ItemAttributesApi.md#deleteitemattributeasync) | **DELETE** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Delete an item attribute
 *ItemAttributesApi* | [**getItemAttributeByIdAsync**](docs/Api/ItemAttributesApi.md#getitemattributebyidasync) | **GET** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Get item attribute by ID
 *ItemAttributesApi* | [**getItemAttributesAsync**](docs/Api/ItemAttributesApi.md#getitemattributesasync) | **GET** /api/v2/CatalogService/ItemAttributes | Get all item attributes
+*ItemAttributesApi* | [**patchItemAttributeAsync**](docs/Api/ItemAttributesApi.md#patchitemattributeasync) | **PATCH** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Patch an item attribute
 *ItemAttributesApi* | [**updateItemAttributeAsync**](docs/Api/ItemAttributesApi.md#updateitemattributeasync) | **PUT** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Update an item attribute
 *ItemBrandsApi* | [**createItemBrandAsync**](docs/Api/ItemBrandsApi.md#createitembrandasync) | **POST** /api/v2/CatalogService/ItemBrands | Create a new item brand
 *ItemBrandsApi* | [**deleteItemBrandAsync**](docs/Api/ItemBrandsApi.md#deleteitembrandasync) | **DELETE** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Delete an item brand
 *ItemBrandsApi* | [**getItemBrandByIdAsync**](docs/Api/ItemBrandsApi.md#getitembrandbyidasync) | **GET** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Get item brand by ID
 *ItemBrandsApi* | [**getItemBrandsAsync**](docs/Api/ItemBrandsApi.md#getitembrandsasync) | **GET** /api/v2/CatalogService/ItemBrands | Get all item brands
+*ItemBrandsApi* | [**patchItemBrandAsync**](docs/Api/ItemBrandsApi.md#patchitembrandasync) | **PATCH** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Patch an item brand
 *ItemBrandsApi* | [**updateItemBrandAsync**](docs/Api/ItemBrandsApi.md#updateitembrandasync) | **PUT** /api/v2/CatalogService/ItemBrands/{itemBrandId} | Update an item brand
 *ItemBundlesApi* | [**createItemBundleAsync**](docs/Api/ItemBundlesApi.md#createitembundleasync) | **POST** /api/v2/CatalogService/ItemBundles | Create a new item bundle
 *ItemBundlesApi* | [**deleteItemBundleAsync**](docs/Api/ItemBundlesApi.md#deleteitembundleasync) | **DELETE** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Delete an item bundle
 *ItemBundlesApi* | [**getItemBundleByIdAsync**](docs/Api/ItemBundlesApi.md#getitembundlebyidasync) | **GET** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Get item bundle by ID
 *ItemBundlesApi* | [**getItemBundlesAsync**](docs/Api/ItemBundlesApi.md#getitembundlesasync) | **GET** /api/v2/CatalogService/ItemBundles | Get all item bundles
 *ItemBundlesApi* | [**getItemBundlesCountAsync**](docs/Api/ItemBundlesApi.md#getitembundlescountasync) | **GET** /api/v2/CatalogService/ItemBundles/Count | Get item bundles count
+*ItemBundlesApi* | [**patchItemBundleAsync**](docs/Api/ItemBundlesApi.md#patchitembundleasync) | **PATCH** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Patch an item bundle
 *ItemBundlesApi* | [**updateItemBundleAsync**](docs/Api/ItemBundlesApi.md#updateitembundleasync) | **PUT** /api/v2/CatalogService/ItemBundles/{itemBundleId} | Update an item bundle
 *ItemCategoriesApi* | [**countItemCategoriesAsync**](docs/Api/ItemCategoriesApi.md#countitemcategoriesasync) | **GET** /api/v2/CatalogService/ItemCategories/Count | Count item categories
 *ItemCategoriesApi* | [**createItemCategoryAsync**](docs/Api/ItemCategoriesApi.md#createitemcategoryasync) | **POST** /api/v2/CatalogService/ItemCategories | Create a new item category
 *ItemCategoriesApi* | [**deleteItemCategoryAsync**](docs/Api/ItemCategoriesApi.md#deleteitemcategoryasync) | **DELETE** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Delete an item category
 *ItemCategoriesApi* | [**getItemCategoriesAsync**](docs/Api/ItemCategoriesApi.md#getitemcategoriesasync) | **GET** /api/v2/CatalogService/ItemCategories | Get all item categories
 *ItemCategoriesApi* | [**getItemCategoryByIdAsync**](docs/Api/ItemCategoriesApi.md#getitemcategorybyidasync) | **GET** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Get item category by ID
+*ItemCategoriesApi* | [**patchItemCategoryAsync**](docs/Api/ItemCategoriesApi.md#patchitemcategoryasync) | **PATCH** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Patch an item category
 *ItemCategoriesApi* | [**updateItemCategoryAsync**](docs/Api/ItemCategoriesApi.md#updateitemcategoryasync) | **PUT** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Update an item category
 *ItemFamiliesApi* | [**createItemFamilyAsync**](docs/Api/ItemFamiliesApi.md#createitemfamilyasync) | **POST** /api/v2/CatalogService/ItemFamilies | Create a new item family
 *ItemFamiliesApi* | [**deleteItemFamilyAsync**](docs/Api/ItemFamiliesApi.md#deleteitemfamilyasync) | **DELETE** /api/v2/CatalogService/ItemFamilies/{itemFamilyId} | Delete an item family
 *ItemFamiliesApi* | [**getItemFamiliesAsync**](docs/Api/ItemFamiliesApi.md#getitemfamiliesasync) | **GET** /api/v2/CatalogService/ItemFamilies | Get all item families
 *ItemFamiliesApi* | [**getItemFamiliesCountAsync**](docs/Api/ItemFamiliesApi.md#getitemfamiliescountasync) | **GET** /api/v2/CatalogService/ItemFamilies/Count | Get item families count
 *ItemFamiliesApi* | [**getItemFamilyByIdAsync**](docs/Api/ItemFamiliesApi.md#getitemfamilybyidasync) | **GET** /api/v2/CatalogService/ItemFamilies/{itemFamilyId} | Get item family by ID
+*ItemFamiliesApi* | [**patchItemFamilyAsync**](docs/Api/ItemFamiliesApi.md#patchitemfamilyasync) | **PATCH** /api/v2/CatalogService/ItemFamilies/{itemFamilyId} | Patch an item family
 *ItemFamiliesApi* | [**updateItemFamilyAsync**](docs/Api/ItemFamiliesApi.md#updateitemfamilyasync) | **PUT** /api/v2/CatalogService/ItemFamilies/{itemFamilyId} | Update an item family
 *ItemGoogleCategoriesApi* | [**getAllItemGoogleCategoriesAsync**](docs/Api/ItemGoogleCategoriesApi.md#getallitemgooglecategoriesasync) | **GET** /api/v2/CatalogService/ItemGoogleCategories/All | Get all Google item categories (all)
 *ItemGoogleCategoriesApi* | [**getChildrenItemGoogleCategoriesByIdAsync**](docs/Api/ItemGoogleCategoriesApi.md#getchildrenitemgooglecategoriesbyidasync) | **GET** /api/v2/CatalogService/ItemGoogleCategories/{itemCategoryId}/Children | Get children Google item categories by ID
@@ -144,11 +151,13 @@ Class | Method | HTTP request | Description
 *ItemImagesApi* | [**deleteItemImageAsync**](docs/Api/ItemImagesApi.md#deleteitemimageasync) | **DELETE** /api/v2/CatalogService/ItemImages/{itemImageId} | Delete an item image
 *ItemImagesApi* | [**getItemImageByIdAsync**](docs/Api/ItemImagesApi.md#getitemimagebyidasync) | **GET** /api/v2/CatalogService/ItemImages/{itemImageId} | Get item image by ID
 *ItemImagesApi* | [**getItemImagesAsync**](docs/Api/ItemImagesApi.md#getitemimagesasync) | **GET** /api/v2/CatalogService/ItemImages | Get all item images
+*ItemImagesApi* | [**patchItemImageAsync**](docs/Api/ItemImagesApi.md#patchitemimageasync) | **PATCH** /api/v2/CatalogService/ItemImages/{itemImageId} | Patch an item image
 *ItemImagesApi* | [**updateItemImageAsync**](docs/Api/ItemImagesApi.md#updateitemimageasync) | **PUT** /api/v2/CatalogService/ItemImages/{itemImageId} | Update an item image
 *ItemQuestionsApi* | [**createItemQuestionAsync**](docs/Api/ItemQuestionsApi.md#createitemquestionasync) | **POST** /api/v2/CatalogService/ItemQuestions | Create a new item question
 *ItemQuestionsApi* | [**deleteItemQuestionAsync**](docs/Api/ItemQuestionsApi.md#deleteitemquestionasync) | **DELETE** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Delete an item question
 *ItemQuestionsApi* | [**getItemQuestionByIdAsync**](docs/Api/ItemQuestionsApi.md#getitemquestionbyidasync) | **GET** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Get item question by ID
 *ItemQuestionsApi* | [**getItemQuestionsAsync**](docs/Api/ItemQuestionsApi.md#getitemquestionsasync) | **GET** /api/v2/CatalogService/ItemQuestions | Get all item questions
+*ItemQuestionsApi* | [**patchItemQuestionAsync**](docs/Api/ItemQuestionsApi.md#patchitemquestionasync) | **PATCH** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Patch an item question
 *ItemQuestionsApi* | [**updateItemQuestionAsync**](docs/Api/ItemQuestionsApi.md#updateitemquestionasync) | **PUT** /api/v2/CatalogService/ItemQuestions/{itemQuestionId} | Update an item question
 *ItemRefundPoliciesApi* | [**countItemRefundPoliciesAsync**](docs/Api/ItemRefundPoliciesApi.md#countitemrefundpoliciesasync) | **GET** /api/v2/CatalogService/ItemRefundPolicies/Count | Count item refund policies
 *ItemRefundPoliciesApi* | [**getItemRefundPoliciesAsync**](docs/Api/ItemRefundPoliciesApi.md#getitemrefundpoliciesasync) | **GET** /api/v2/CatalogService/ItemRefundPolicies | Get item refund policies
@@ -164,6 +173,7 @@ Class | Method | HTTP request | Description
 *ItemReviewsApi* | [**deleteItemReviewAsync**](docs/Api/ItemReviewsApi.md#deleteitemreviewasync) | **DELETE** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Delete an item review
 *ItemReviewsApi* | [**getItemReviewByIdAsync**](docs/Api/ItemReviewsApi.md#getitemreviewbyidasync) | **GET** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Get item review by ID
 *ItemReviewsApi* | [**getItemReviewsAsync**](docs/Api/ItemReviewsApi.md#getitemreviewsasync) | **GET** /api/v2/CatalogService/ItemReviews | Get all item reviews
+*ItemReviewsApi* | [**patchItemReviewAsync**](docs/Api/ItemReviewsApi.md#patchitemreviewasync) | **PATCH** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Patch an item review
 *ItemReviewsApi* | [**updateItemReviewAsync**](docs/Api/ItemReviewsApi.md#updateitemreviewasync) | **PUT** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Update an item review
 *ItemShippingPoliciesApi* | [**countItemShippingPoliciesAsync**](docs/Api/ItemShippingPoliciesApi.md#countitemshippingpoliciesasync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies
 *ItemShippingPoliciesApi* | [**getItemShippingPoliciesAsync**](docs/Api/ItemShippingPoliciesApi.md#getitemshippingpoliciesasync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
@@ -174,6 +184,7 @@ Class | Method | HTTP request | Description
 *ItemTagsApi* | [**deleteItemTagAsync**](docs/Api/ItemTagsApi.md#deleteitemtagasync) | **DELETE** /api/v2/CatalogService/ItemTags/{itemTagId} | Delete an item tag
 *ItemTagsApi* | [**getItemTagByIdAsync**](docs/Api/ItemTagsApi.md#getitemtagbyidasync) | **GET** /api/v2/CatalogService/ItemTags/{itemTagId} | Get item tag by ID
 *ItemTagsApi* | [**getItemTagsAsync**](docs/Api/ItemTagsApi.md#getitemtagsasync) | **GET** /api/v2/CatalogService/ItemTags | Get all item tags
+*ItemTagsApi* | [**patchItemTagAsync**](docs/Api/ItemTagsApi.md#patchitemtagasync) | **PATCH** /api/v2/CatalogService/ItemTags/{itemTagId} | Patch an item tag
 *ItemTagsApi* | [**updateItemTagAsync**](docs/Api/ItemTagsApi.md#updateitemtagasync) | **PUT** /api/v2/CatalogService/ItemTags/{itemTagId} | Update an item tag
 *ItemTaxPoliciesApi* | [**countItemTaxPoliciesAsync**](docs/Api/ItemTaxPoliciesApi.md#countitemtaxpoliciesasync) | **GET** /api/v2/CatalogService/ItemTaxPolicies/Count | Count item tax policies
 *ItemTaxPoliciesApi* | [**getItemTaxPoliciesAsync**](docs/Api/ItemTaxPoliciesApi.md#getitemtaxpoliciesasync) | **GET** /api/v2/CatalogService/ItemTaxPolicies | Get item tax policies
@@ -185,12 +196,15 @@ Class | Method | HTTP request | Description
 *ItemTypesApi* | [**deleteItemTypeAsync**](docs/Api/ItemTypesApi.md#deleteitemtypeasync) | **DELETE** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Delete an item type
 *ItemTypesApi* | [**getItemTypeByIdAsync**](docs/Api/ItemTypesApi.md#getitemtypebyidasync) | **GET** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Get item type by ID
 *ItemTypesApi* | [**getItemTypesAsync**](docs/Api/ItemTypesApi.md#getitemtypesasync) | **GET** /api/v2/CatalogService/ItemTypes | Get all item types
+*ItemTypesApi* | [**patchItemTypeAsync**](docs/Api/ItemTypesApi.md#patchitemtypeasync) | **PATCH** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Patch an item type
 *ItemTypesApi* | [**updateItemTypeAsync**](docs/Api/ItemTypesApi.md#updateitemtypeasync) | **PUT** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Update an item type
 *ItemWarrantyPoliciesApi* | [**countItemWarrantyPoliciesAsync**](docs/Api/ItemWarrantyPoliciesApi.md#countitemwarrantypoliciesasync) | **GET** /api/v2/CatalogService/ItemWarrantyPolicies/Count | Count item warranty policies
 *ItemWarrantyPoliciesApi* | [**getItemWarrantyPoliciesAsync**](docs/Api/ItemWarrantyPoliciesApi.md#getitemwarrantypoliciesasync) | **GET** /api/v2/CatalogService/ItemWarrantyPolicies | Get item warranty policies
 *ItemWarrantyPoliciesApi* | [**getItemWarrantyPolicyByIdAsync**](docs/Api/ItemWarrantyPoliciesApi.md#getitemwarrantypolicybyidasync) | **GET** /api/v2/CatalogService/ItemWarrantyPolicies/{itemWarrantyPolicyId} | Get item warranty policy by ID
 *ItemWarrantyPoliciesApi* | [**relateItemToWarrantyPolicyAsync**](docs/Api/ItemWarrantyPoliciesApi.md#relateitemtowarrantypolicyasync) | **POST** /api/v2/CatalogService/ItemWarrantyPolicies | Relate item to warranty policy
 *ItemWarrantyPoliciesApi* | [**removeWarrantyPolicyFromItemAsync**](docs/Api/ItemWarrantyPoliciesApi.md#removewarrantypolicyfromitemasync) | **DELETE** /api/v2/CatalogService/ItemWarrantyPolicies/{itemWarrantyPolicyId} | Remove warranty policy from item
+*ItemsApi* | [**batchUpdateStockItems**](docs/Api/ItemsApi.md#batchupdatestockitems) | **POST** /api/v2/CatalogService/Items/Batch | Bulk-update stock items
+*ItemsApi* | [**bulkUpsertStockItems**](docs/Api/ItemsApi.md#bulkupsertstockitems) | **POST** /api/v2/CatalogService/Items/BulkUpsert | Bulk upsert stock items from rows
 *ItemsApi* | [**countStockItemTagsByItemId**](docs/Api/ItemsApi.md#countstockitemtagsbyitemid) | **GET** /api/v2/CatalogService/Items/{itemId}/Tags/Count | Count tags for a stock item
 *ItemsApi* | [**countStockItemsByBusiness**](docs/Api/ItemsApi.md#countstockitemsbybusiness) | **GET** /api/v2/CatalogService/Items/Count | Count stock items by business
 *ItemsApi* | [**createStockItem**](docs/Api/ItemsApi.md#createstockitem) | **POST** /api/v2/CatalogService/Items | Create a new stock item
@@ -233,6 +247,8 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**getStockItemsOdataMaxPrice**](docs/Api/ItemsApi.md#getstockitemsodatamaxprice) | **GET** /api/v2/CatalogService/Items/MaxPrice | Get max price of stock items
 *ItemsApi* | [**getStockItemsOdataMinPrice**](docs/Api/ItemsApi.md#getstockitemsodataminprice) | **GET** /api/v2/CatalogService/Items/MinPrice | Get min price of stock items
 *ItemsApi* | [**getStockItemsQuery**](docs/Api/ItemsApi.md#getstockitemsquery) | **GET** /api/v2/CatalogService/Items | Get all stock items
+*ItemsApi* | [**patchStockItem**](docs/Api/ItemsApi.md#patchstockitem) | **PATCH** /api/v2/CatalogService/Items/{itemId} | Patch a stock item
+*ItemsApi* | [**recalculateStockItemPrices**](docs/Api/ItemsApi.md#recalculatestockitemprices) | **POST** /api/v2/CatalogService/Items/RecalculatePrices | Recalculate stock item prices
 *ItemsApi* | [**relateAttachmentToStockItem**](docs/Api/ItemsApi.md#relateattachmenttostockitem) | **POST** /api/v2/CatalogService/Items/{itemId}/Attachments/{itemAttachmentId} | Relate attachment to stock item
 *ItemsApi* | [**relateAttributeOptionToStockItem**](docs/Api/ItemsApi.md#relateattributeoptiontostockitem) | **POST** /api/v2/CatalogService/Items/{itemId}/AttributeOptions/{itemAttributeOptionId} | Relate attribute option to stock item
 *ItemsApi* | [**relateBrandToStockItem**](docs/Api/ItemsApi.md#relatebrandtostockitem) | **POST** /api/v2/CatalogService/Items/{itemId}/Brands/{itemBrandId} | Relate brand to stock item
@@ -274,6 +290,8 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
+- [BatchStockItemUpdateRequest](docs/Model/BatchStockItemUpdateRequest.md)
+- [BulkProduct](docs/Model/BulkProduct.md)
 - [CatalogItemCreateDto](docs/Model/CatalogItemCreateDto.md)
 - [CatalogItemDto](docs/Model/CatalogItemDto.md)
 - [CatalogItemDtoEnvelope](docs/Model/CatalogItemDtoEnvelope.md)
@@ -373,6 +391,7 @@ Class | Method | HTTP request | Description
 - [MerchantDtoListEnvelope](docs/Model/MerchantDtoListEnvelope.md)
 - [Money](docs/Model/Money.md)
 - [MoneyEnvelope](docs/Model/MoneyEnvelope.md)
+- [Operation](docs/Model/Operation.md)
 - [PricingRuleDto](docs/Model/PricingRuleDto.md)
 - [PricingRuleDtoEnvelope](docs/Model/PricingRuleDtoEnvelope.md)
 - [PricingRuleDtoListEnvelope](docs/Model/PricingRuleDtoListEnvelope.md)
@@ -404,6 +423,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **markup** | **string** |  | [optional]
 **featured_image_url** | **string** |  | [optional]
 **code_type** | **string** |  | [optional]
+**slug** | **string** |  | [optional]
 **blog_post_category_id** | **string** |  | [optional]
 **web_template_id** | **string** |  | [optional]
 
