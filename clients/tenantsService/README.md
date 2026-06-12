@@ -80,12 +80,14 @@ Class | Method | HTTP request | Description
 *DepartmentsApi* | [**getTenantDepartmentById**](docs/Api/DepartmentsApi.md#gettenantdepartmentbyid) | **GET** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Retrieve a single tenant department by its ID
 *DepartmentsApi* | [**getTenantDepartments**](docs/Api/DepartmentsApi.md#gettenantdepartments) | **GET** /api/v2/TenantsService/Departments | Retrieve a list of tenant departments
 *DepartmentsApi* | [**getTenantDepartmentsCount**](docs/Api/DepartmentsApi.md#gettenantdepartmentscount) | **GET** /api/v2/TenantsService/Departments/Count | Get the count of tenant departments
+*DepartmentsApi* | [**patchTenantDepartmentAsync**](docs/Api/DepartmentsApi.md#patchtenantdepartmentasync) | **PATCH** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Patch a tenant department
 *DepartmentsApi* | [**updateTenantDepartment**](docs/Api/DepartmentsApi.md#updatetenantdepartment) | **PUT** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Update a tenant department
 *EmployeeEnrollmentsApi* | [**createTenantEmployeeEnrollment**](docs/Api/EmployeeEnrollmentsApi.md#createtenantemployeeenrollment) | **POST** /api/v2/TenantsService/EmployeeEnrollments | Create a new tenant employee enrollment
 *EmployeeEnrollmentsApi* | [**deleteTenantEmployeeEnrollment**](docs/Api/EmployeeEnrollmentsApi.md#deletetenantemployeeenrollment) | **DELETE** /api/v2/TenantsService/EmployeeEnrollments/{tenantEmployeeEnrollmentId} | Delete a tenant employee enrollment
 *EmployeeEnrollmentsApi* | [**getTenantEmployeeEnrollmentById**](docs/Api/EmployeeEnrollmentsApi.md#gettenantemployeeenrollmentbyid) | **GET** /api/v2/TenantsService/EmployeeEnrollments/{tenantEmployeeEnrollmentId} | Retrieve a single tenant employee enrollment by its ID
 *EmployeeEnrollmentsApi* | [**getTenantEmployeeEnrollments**](docs/Api/EmployeeEnrollmentsApi.md#gettenantemployeeenrollments) | **GET** /api/v2/TenantsService/EmployeeEnrollments | Retrieve a list of tenant employee enrollments
 *EmployeeEnrollmentsApi* | [**getTenantEmployeeEnrollmentsCount**](docs/Api/EmployeeEnrollmentsApi.md#gettenantemployeeenrollmentscount) | **GET** /api/v2/TenantsService/EmployeeEnrollments/Count | Get the count of tenant employee enrollments
+*EmployeeEnrollmentsApi* | [**patchTenantEmployeeEnrollmentAsync**](docs/Api/EmployeeEnrollmentsApi.md#patchtenantemployeeenrollmentasync) | **PATCH** /api/v2/TenantsService/EmployeeEnrollments/{tenantEmployeeEnrollmentId} | Patch a tenant employee enrollment
 *EmployeeEnrollmentsApi* | [**updateTenantEmployeeEnrollment**](docs/Api/EmployeeEnrollmentsApi.md#updatetenantemployeeenrollment) | **PUT** /api/v2/TenantsService/EmployeeEnrollments/{tenantEmployeeEnrollmentId} | Update a tenant employee enrollment
 *EnrollmentsApi* | [**createTenantEnrollment**](docs/Api/EnrollmentsApi.md#createtenantenrollment) | **POST** /api/v2/TenantsService/Enrollments | Create a new tenant enrollment
 *EnrollmentsApi* | [**deleteTenantEnrollment**](docs/Api/EnrollmentsApi.md#deletetenantenrollment) | **DELETE** /api/v2/TenantsService/Enrollments/{enrollmentId} | Delete a tenant enrollment
@@ -94,6 +96,7 @@ Class | Method | HTTP request | Description
 *EnrollmentsApi* | [**getTenantEnrollmentById**](docs/Api/EnrollmentsApi.md#gettenantenrollmentbyid) | **GET** /api/v2/TenantsService/Enrollments/{enrollmentId} | Retrieve a single tenant enrollment by its ID
 *EnrollmentsApi* | [**getTenantEnrollments**](docs/Api/EnrollmentsApi.md#gettenantenrollments) | **GET** /api/v2/TenantsService/Enrollments | Retrieve a list of tenant enrollments
 *EnrollmentsApi* | [**getTenantEnrollmentsCount**](docs/Api/EnrollmentsApi.md#gettenantenrollmentscount) | **GET** /api/v2/TenantsService/Enrollments/Count | Get the count of tenant enrollments
+*EnrollmentsApi* | [**patchTenantEnrollmentAsync**](docs/Api/EnrollmentsApi.md#patchtenantenrollmentasync) | **PATCH** /api/v2/TenantsService/Enrollments/{enrollmentId} | Patch a tenant enrollment
 *EnrollmentsApi* | [**updateTenantEnrollment**](docs/Api/EnrollmentsApi.md#updatetenantenrollment) | **PUT** /api/v2/TenantsService/Enrollments/{enrollmentId} | Update a tenant enrollment
 *FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
 *FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
@@ -117,6 +120,7 @@ Class | Method | HTTP request | Description
 *IndustriesApi* | [**getTenantIndustries**](docs/Api/IndustriesApi.md#gettenantindustries) | **GET** /api/v2/TenantsService/Industries | Retrieve a list of tenant industries
 *IndustriesApi* | [**getTenantIndustriesCount**](docs/Api/IndustriesApi.md#gettenantindustriescount) | **GET** /api/v2/TenantsService/Industries/Count | Get the count of tenant industries
 *IndustriesApi* | [**getTenantIndustryById**](docs/Api/IndustriesApi.md#gettenantindustrybyid) | **GET** /api/v2/TenantsService/Industries/{tenantIndustryId} | Retrieve a single tenant industry by its ID
+*IndustriesApi* | [**patchTenantIndustryAsync**](docs/Api/IndustriesApi.md#patchtenantindustryasync) | **PATCH** /api/v2/TenantsService/Industries/{tenantIndustryId} | Patch a tenant industry
 *IndustriesApi* | [**updateTenantIndustry**](docs/Api/IndustriesApi.md#updatetenantindustry) | **PUT** /api/v2/TenantsService/Industries/{tenantIndustryId} | Update a tenant industry
 *InvitationsApi* | [**acceptTenantInvitation**](docs/Api/InvitationsApi.md#accepttenantinvitation) | **POST** /api/v2/TenantsService/Invitations/{invitationId}/Accept | Accept an invitation to join a tenant
 *InvitationsApi* | [**declineTenantInvitation**](docs/Api/InvitationsApi.md#declinetenantinvitation) | **POST** /api/v2/TenantsService/Invitations/{invitationId}/Decline | Decline an invitation to join a tenant
@@ -131,6 +135,7 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**getTenantOptionByKey**](docs/Api/OptionsApi.md#gettenantoptionbykey) | **GET** /api/v2/TenantsService/Options/Key/{key} | Retrieve a single tenant option by its key
 *OptionsApi* | [**getTenantOptions**](docs/Api/OptionsApi.md#gettenantoptions) | **GET** /api/v2/TenantsService/Options | Retrieve a list of tenant options
 *OptionsApi* | [**getTenantOptionsCount**](docs/Api/OptionsApi.md#gettenantoptionscount) | **GET** /api/v2/TenantsService/Options/Count | Get the count of tenant options
+*OptionsApi* | [**patchTenantOption**](docs/Api/OptionsApi.md#patchtenantoption) | **PATCH** /api/v2/TenantsService/Options/{optionId} | Patch a tenant option
 *OptionsApi* | [**updateTenantOption**](docs/Api/OptionsApi.md#updatetenantoption) | **PUT** /api/v2/TenantsService/Options/{optionId} | Update a tenant option
 *OptionsApi* | [**upsertTenantOption**](docs/Api/OptionsApi.md#upserttenantoption) | **PUT** /api/v2/TenantsService/Options/Upsert/{key} | Create or update a tenant option by key
 *PositionsApi* | [**createTenantPosition**](docs/Api/PositionsApi.md#createtenantposition) | **POST** /api/v2/TenantsService/Positions | Create a new tenant position
@@ -138,42 +143,49 @@ Class | Method | HTTP request | Description
 *PositionsApi* | [**getTenantPositionById**](docs/Api/PositionsApi.md#gettenantpositionbyid) | **GET** /api/v2/TenantsService/Positions/{tenantPositionId} | Retrieve a single tenant position by its ID
 *PositionsApi* | [**getTenantPositions**](docs/Api/PositionsApi.md#gettenantpositions) | **GET** /api/v2/TenantsService/Positions | Retrieve a list of tenant positions
 *PositionsApi* | [**getTenantPositionsCount**](docs/Api/PositionsApi.md#gettenantpositionscount) | **GET** /api/v2/TenantsService/Positions/Count | Get the count of tenant positions
+*PositionsApi* | [**patchTenantPosition**](docs/Api/PositionsApi.md#patchtenantposition) | **PATCH** /api/v2/TenantsService/Positions/{tenantPositionId} | Patch a tenant position
 *PositionsApi* | [**updateTenantPosition**](docs/Api/PositionsApi.md#updatetenantposition) | **PUT** /api/v2/TenantsService/Positions/{tenantPositionId} | Update a tenant position
 *SegmentsApi* | [**createTenantSegment**](docs/Api/SegmentsApi.md#createtenantsegment) | **POST** /api/v2/TenantsService/Segments | Create a new tenant segment
 *SegmentsApi* | [**deleteTenantSegment**](docs/Api/SegmentsApi.md#deletetenantsegment) | **DELETE** /api/v2/TenantsService/Segments/{tenantSegmentId} | Delete a tenant segment
 *SegmentsApi* | [**getTenantSegmentById**](docs/Api/SegmentsApi.md#gettenantsegmentbyid) | **GET** /api/v2/TenantsService/Segments/{tenantSegmentId} | Retrieve a single tenant segment by its ID
 *SegmentsApi* | [**getTenantSegments**](docs/Api/SegmentsApi.md#gettenantsegments) | **GET** /api/v2/TenantsService/Segments | Retrieve a list of tenant segments
 *SegmentsApi* | [**getTenantSegmentsCount**](docs/Api/SegmentsApi.md#gettenantsegmentscount) | **GET** /api/v2/TenantsService/Segments/Count | Get the count of tenant segments
+*SegmentsApi* | [**patchTenantSegment**](docs/Api/SegmentsApi.md#patchtenantsegment) | **PATCH** /api/v2/TenantsService/Segments/{tenantSegmentId} | Patch a tenant segment
 *SegmentsApi* | [**updateTenantSegment**](docs/Api/SegmentsApi.md#updatetenantsegment) | **PUT** /api/v2/TenantsService/Segments/{tenantSegmentId} | Update a tenant segment
 *SizesApi* | [**createTenantSize**](docs/Api/SizesApi.md#createtenantsize) | **POST** /api/v2/TenantsService/Sizes | Create a new tenant size
 *SizesApi* | [**deleteTenantSize**](docs/Api/SizesApi.md#deletetenantsize) | **DELETE** /api/v2/TenantsService/Sizes/{tenantSizeId} | Delete a tenant size
 *SizesApi* | [**getTenantSizeById**](docs/Api/SizesApi.md#gettenantsizebyid) | **GET** /api/v2/TenantsService/Sizes/{tenantSizeId} | Retrieve a single tenant size by its ID
 *SizesApi* | [**getTenantSizes**](docs/Api/SizesApi.md#gettenantsizes) | **GET** /api/v2/TenantsService/Sizes | Retrieve a list of tenant sizes
 *SizesApi* | [**getTenantSizesCount**](docs/Api/SizesApi.md#gettenantsizescount) | **GET** /api/v2/TenantsService/Sizes/Count | Get the count of tenant sizes
+*SizesApi* | [**patchTenantSize**](docs/Api/SizesApi.md#patchtenantsize) | **PATCH** /api/v2/TenantsService/Sizes/{tenantSizeId} | Patch a tenant size
 *SizesApi* | [**updateTenantSize**](docs/Api/SizesApi.md#updatetenantsize) | **PUT** /api/v2/TenantsService/Sizes/{tenantSizeId} | Update a tenant size
 *TeamContactEnrollmentsApi* | [**createTenantTeamContactEnrollment**](docs/Api/TeamContactEnrollmentsApi.md#createtenantteamcontactenrollment) | **POST** /api/v2/TenantsService/TeamContactEnrollments | Create a new tenant team contact enrollment
 *TeamContactEnrollmentsApi* | [**deleteTenantTeamContactEnrollment**](docs/Api/TeamContactEnrollmentsApi.md#deletetenantteamcontactenrollment) | **DELETE** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Delete a tenant team contact enrollment
 *TeamContactEnrollmentsApi* | [**getTenantTeamContactEnrollmentById**](docs/Api/TeamContactEnrollmentsApi.md#gettenantteamcontactenrollmentbyid) | **GET** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Retrieve a single tenant team contact enrollment by its ID
 *TeamContactEnrollmentsApi* | [**getTenantTeamContactEnrollments**](docs/Api/TeamContactEnrollmentsApi.md#gettenantteamcontactenrollments) | **GET** /api/v2/TenantsService/TeamContactEnrollments | Retrieve a list of tenant team contact enrollments
 *TeamContactEnrollmentsApi* | [**getTenantTeamContactEnrollmentsCount**](docs/Api/TeamContactEnrollmentsApi.md#gettenantteamcontactenrollmentscount) | **GET** /api/v2/TenantsService/TeamContactEnrollments/Count | Get the count of tenant team contact enrollments
+*TeamContactEnrollmentsApi* | [**patchTenantTeamContactEnrollment**](docs/Api/TeamContactEnrollmentsApi.md#patchtenantteamcontactenrollment) | **PATCH** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Patch a tenant team contact enrollment
 *TeamContactEnrollmentsApi* | [**updateTenantTeamContactEnrollment**](docs/Api/TeamContactEnrollmentsApi.md#updatetenantteamcontactenrollment) | **PUT** /api/v2/TenantsService/TeamContactEnrollments/{tenantTeamContactEnrollmentId} | Update a tenant team contact enrollment
 *TeamProjectEnrollmentsApi* | [**createTenantTeamProjectEnrollment**](docs/Api/TeamProjectEnrollmentsApi.md#createtenantteamprojectenrollment) | **POST** /api/v2/TenantsService/TeamProjectEnrollments | Create a new tenant team project enrollment
 *TeamProjectEnrollmentsApi* | [**deleteTenantTeamProjectEnrollment**](docs/Api/TeamProjectEnrollmentsApi.md#deletetenantteamprojectenrollment) | **DELETE** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Delete a tenant team project enrollment
 *TeamProjectEnrollmentsApi* | [**getTenantTeamProjectEnrollmentById**](docs/Api/TeamProjectEnrollmentsApi.md#gettenantteamprojectenrollmentbyid) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Retrieve a single tenant team project enrollment by its ID
 *TeamProjectEnrollmentsApi* | [**getTenantTeamProjectEnrollments**](docs/Api/TeamProjectEnrollmentsApi.md#gettenantteamprojectenrollments) | **GET** /api/v2/TenantsService/TeamProjectEnrollments | Retrieve a list of tenant team project enrollments
 *TeamProjectEnrollmentsApi* | [**getTenantTeamProjectEnrollmentsCount**](docs/Api/TeamProjectEnrollmentsApi.md#gettenantteamprojectenrollmentscount) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/Count | Get the count of tenant team project enrollments
+*TeamProjectEnrollmentsApi* | [**patchTenantTeamProjectEnrollment**](docs/Api/TeamProjectEnrollmentsApi.md#patchtenantteamprojectenrollment) | **PATCH** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Patch a tenant team project enrollment
 *TeamProjectEnrollmentsApi* | [**updateTenantTeamProjectEnrollment**](docs/Api/TeamProjectEnrollmentsApi.md#updatetenantteamprojectenrollment) | **PUT** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Update a tenant team project enrollment
 *TeamRecordsApi* | [**createTenantTeamRecord**](docs/Api/TeamRecordsApi.md#createtenantteamrecord) | **POST** /api/v2/TenantsService/TeamRecords | Create a new tenant team record
 *TeamRecordsApi* | [**deleteTenantTeamRecord**](docs/Api/TeamRecordsApi.md#deletetenantteamrecord) | **DELETE** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Delete a tenant team record
 *TeamRecordsApi* | [**getTenantTeamRecordById**](docs/Api/TeamRecordsApi.md#gettenantteamrecordbyid) | **GET** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Retrieve a single tenant team record by its ID
 *TeamRecordsApi* | [**getTenantTeamRecords**](docs/Api/TeamRecordsApi.md#gettenantteamrecords) | **GET** /api/v2/TenantsService/TeamRecords | Retrieve a list of tenant team records
 *TeamRecordsApi* | [**getTenantTeamRecordsCount**](docs/Api/TeamRecordsApi.md#gettenantteamrecordscount) | **GET** /api/v2/TenantsService/TeamRecords/Count | Get the count of tenant team records
+*TeamRecordsApi* | [**patchTenantTeamRecord**](docs/Api/TeamRecordsApi.md#patchtenantteamrecord) | **PATCH** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Patch a tenant team record
 *TeamRecordsApi* | [**updateTenantTeamRecord**](docs/Api/TeamRecordsApi.md#updatetenantteamrecord) | **PUT** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Update a tenant team record
 *TeamsApi* | [**createTenantTeam**](docs/Api/TeamsApi.md#createtenantteam) | **POST** /api/v2/TenantsService/Teams | Create a new tenant team
 *TeamsApi* | [**deleteTenantTeam**](docs/Api/TeamsApi.md#deletetenantteam) | **DELETE** /api/v2/TenantsService/Teams/{tenantTeamId} | Delete a tenant team
 *TeamsApi* | [**getTenantTeamById**](docs/Api/TeamsApi.md#gettenantteambyid) | **GET** /api/v2/TenantsService/Teams/{tenantTeamId} | Retrieve a single tenant team by its ID
 *TeamsApi* | [**getTenantTeams**](docs/Api/TeamsApi.md#gettenantteams) | **GET** /api/v2/TenantsService/Teams | Retrieve a list of tenant teams
 *TeamsApi* | [**getTenantTeamsCount**](docs/Api/TeamsApi.md#gettenantteamscount) | **GET** /api/v2/TenantsService/Teams/Count | Get the count of tenant teams
+*TeamsApi* | [**patchTenantTeam**](docs/Api/TeamsApi.md#patchtenantteam) | **PATCH** /api/v2/TenantsService/Teams/{tenantTeamId} | Patch a tenant team
 *TeamsApi* | [**updateTenantTeam**](docs/Api/TeamsApi.md#updatetenantteam) | **PUT** /api/v2/TenantsService/Teams/{tenantTeamId} | Update a tenant team
 *TenantsApi* | [**assignLicenseAsync**](docs/Api/TenantsApi.md#assignlicenseasync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Assign a license to a specific enrollment
 *TenantsApi* | [**createTenantAsync**](docs/Api/TenantsApi.md#createtenantasync) | **POST** /api/v2/TenantsService/Tenants | Create a new business tenant
@@ -215,12 +227,14 @@ Class | Method | HTTP request | Description
 *TerritoriesApi* | [**getTenantTerritories**](docs/Api/TerritoriesApi.md#gettenantterritories) | **GET** /api/v2/TenantsService/Territories | Retrieve a list of tenant territories
 *TerritoriesApi* | [**getTenantTerritoriesCount**](docs/Api/TerritoriesApi.md#gettenantterritoriescount) | **GET** /api/v2/TenantsService/Territories/Count | Get the count of tenant territories
 *TerritoriesApi* | [**getTenantTerritoryById**](docs/Api/TerritoriesApi.md#gettenantterritorybyid) | **GET** /api/v2/TenantsService/Territories/{tenantTerritoryId} | Retrieve a single tenant territory by its ID
+*TerritoriesApi* | [**patchTenantTerritory**](docs/Api/TerritoriesApi.md#patchtenantterritory) | **PATCH** /api/v2/TenantsService/Territories/{tenantTerritoryId} | Patch a tenant territory
 *TerritoriesApi* | [**updateTenantTerritory**](docs/Api/TerritoriesApi.md#updatetenantterritory) | **PUT** /api/v2/TenantsService/Territories/{tenantTerritoryId} | Update a tenant territory
 *TypesApi* | [**createTenantType**](docs/Api/TypesApi.md#createtenanttype) | **POST** /api/v2/TenantsService/Types | Create a new tenant type
 *TypesApi* | [**deleteTenantType**](docs/Api/TypesApi.md#deletetenanttype) | **DELETE** /api/v2/TenantsService/Types/{tenantTypeId} | Delete a tenant type
 *TypesApi* | [**getTenantTypeById**](docs/Api/TypesApi.md#gettenanttypebyid) | **GET** /api/v2/TenantsService/Types/{tenantTypeId} | Retrieve a single tenant type by its ID
 *TypesApi* | [**getTenantTypes**](docs/Api/TypesApi.md#gettenanttypes) | **GET** /api/v2/TenantsService/Types | Retrieve a list of tenant types
 *TypesApi* | [**getTenantTypesCount**](docs/Api/TypesApi.md#gettenanttypescount) | **GET** /api/v2/TenantsService/Types/Count | Get the count of tenant types
+*TypesApi* | [**patchTenantType**](docs/Api/TypesApi.md#patchtenanttype) | **PATCH** /api/v2/TenantsService/Types/{tenantTypeId} | Patch a tenant type
 *TypesApi* | [**updateTenantType**](docs/Api/TypesApi.md#updatetenanttype) | **PUT** /api/v2/TenantsService/Types/{tenantTypeId} | Update a tenant type
 *UnitGroupsApi* | [**createUnitAsync**](docs/Api/UnitGroupsApi.md#createunitasync) | **POST** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units | Create a unit within a unit group
 *UnitGroupsApi* | [**createUnitGroupAsync**](docs/Api/UnitGroupsApi.md#createunitgroupasync) | **POST** /api/v2/TenantsService/UnitGroups | Create a new unit group
@@ -232,6 +246,8 @@ Class | Method | HTTP request | Description
 *UnitGroupsApi* | [**getUnitGroupsCountAsync**](docs/Api/UnitGroupsApi.md#getunitgroupscountasync) | **GET** /api/v2/TenantsService/UnitGroups/Count | Get the count of unit groups
 *UnitGroupsApi* | [**getUnitsAsync**](docs/Api/UnitGroupsApi.md#getunitsasync) | **GET** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units | Retrieve units for a unit group
 *UnitGroupsApi* | [**getUnitsCountAsync**](docs/Api/UnitGroupsApi.md#getunitscountasync) | **GET** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/Count | Get the count of units in a unit group
+*UnitGroupsApi* | [**patchUnitAsync**](docs/Api/UnitGroupsApi.md#patchunitasync) | **PATCH** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/{unitId} | Patch a unit within a unit group
+*UnitGroupsApi* | [**patchUnitGroupAsync**](docs/Api/UnitGroupsApi.md#patchunitgroupasync) | **PATCH** /api/v2/TenantsService/UnitGroups/{unitGroupId} | Patch a unit group
 *UnitGroupsApi* | [**updateUnitAsync**](docs/Api/UnitGroupsApi.md#updateunitasync) | **PUT** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/{unitId} | Update a unit within a unit group
 *UnitGroupsApi* | [**updateUnitGroupAsync**](docs/Api/UnitGroupsApi.md#updateunitgroupasync) | **PUT** /api/v2/TenantsService/UnitGroups/{unitGroupId} | Update a unit group
 *UnitsApi* | [**createTenantUnit**](docs/Api/UnitsApi.md#createtenantunit) | **POST** /api/v2/TenantsService/Units | Create a new tenant unit
@@ -239,6 +255,7 @@ Class | Method | HTTP request | Description
 *UnitsApi* | [**getTenantUnitById**](docs/Api/UnitsApi.md#gettenantunitbyid) | **GET** /api/v2/TenantsService/Units/{tenantUnitId} | Retrieve a single tenant unit by its ID
 *UnitsApi* | [**getTenantUnits**](docs/Api/UnitsApi.md#gettenantunits) | **GET** /api/v2/TenantsService/Units | Retrieve a list of tenant units
 *UnitsApi* | [**getTenantUnitsCount**](docs/Api/UnitsApi.md#gettenantunitscount) | **GET** /api/v2/TenantsService/Units/Count | Get the count of tenant units
+*UnitsApi* | [**patchTenantUnit**](docs/Api/UnitsApi.md#patchtenantunit) | **PATCH** /api/v2/TenantsService/Units/{tenantUnitId} | Patch a tenant unit
 *UnitsApi* | [**updateTenantUnit**](docs/Api/UnitsApi.md#updatetenantunit) | **PUT** /api/v2/TenantsService/Units/{tenantUnitId} | Update a tenant unit
 
 ## Models
@@ -398,6 +415,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

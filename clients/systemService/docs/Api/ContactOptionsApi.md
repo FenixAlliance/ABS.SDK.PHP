@@ -9,6 +9,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getSystemContactOptionById()**](ContactOptionsApi.md#getSystemContactOptionById) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Retrieve a single contact option by its ID (admin) |
 | [**getSystemContactOptions()**](ContactOptionsApi.md#getSystemContactOptions) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options | Retrieve a list of contact options (admin) |
 | [**getSystemContactOptionsCount()**](ContactOptionsApi.md#getSystemContactOptionsCount) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options/Count | Get the count of contact options (admin) |
+| [**patchSystemContactOption()**](ContactOptionsApi.md#patchSystemContactOption) | **PATCH** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Partially update a contact option (admin) |
 | [**updateSystemContactOption()**](ContactOptionsApi.md#updateSystemContactOption) | **PUT** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Update a contact option (admin) |
 
 
@@ -320,6 +321,70 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchSystemContactOption()`
+
+```php
+patchSystemContactOption($contact_id, $option_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Partially update a contact option (admin)
+
+Admin endpoint to partially update an option for any contact using a JSON Patch document
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactOptionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$contact_id = 'contact_id_example'; // string
+$option_id = 'option_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchSystemContactOption($contact_id, $option_id, $api_version, $x_api_version, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactOptionsApi->patchSystemContactOption: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contact_id** | **string**|  | |
+| **option_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

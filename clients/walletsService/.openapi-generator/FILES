@@ -30,6 +30,7 @@ docs/Model/LocationDtoEnvelope.md
 docs/Model/LocationDtoListEnvelope.md
 docs/Model/LocationUpdateDto.md
 docs/Model/LoginRequest.md
+docs/Model/Operation.md
 docs/Model/OrderDto.md
 docs/Model/OrderDtoListEnvelope.md
 docs/Model/PaymentChargebackDto.md
@@ -94,6 +95,7 @@ lib/Model/LocationDtoListEnvelope.php
 lib/Model/LocationUpdateDto.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
+lib/Model/Operation.php
 lib/Model/OrderDto.php
 lib/Model/OrderDtoListEnvelope.php
 lib/Model/PaymentChargebackDto.php
@@ -128,5 +130,4 @@ lib/Model/WalletWithdrawRequestDto.php
 lib/Model/WalletWithdrawRequestDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php
+test/Model/OperationTest.php

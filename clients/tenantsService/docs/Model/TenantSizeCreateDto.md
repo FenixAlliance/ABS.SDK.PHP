@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**name** | **string** |  | [optional]
 **employee_low_range_value** | **int** |  | [optional]
 **employee_high_range_value** | **int** |  | [optional]
 

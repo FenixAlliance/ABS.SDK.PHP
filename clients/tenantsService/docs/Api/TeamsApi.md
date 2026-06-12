@@ -9,6 +9,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getTenantTeamById()**](TeamsApi.md#getTenantTeamById) | **GET** /api/v2/TenantsService/Teams/{tenantTeamId} | Retrieve a single tenant team by its ID |
 | [**getTenantTeams()**](TeamsApi.md#getTenantTeams) | **GET** /api/v2/TenantsService/Teams | Retrieve a list of tenant teams |
 | [**getTenantTeamsCount()**](TeamsApi.md#getTenantTeamsCount) | **GET** /api/v2/TenantsService/Teams/Count | Get the count of tenant teams |
+| [**patchTenantTeam()**](TeamsApi.md#patchTenantTeam) | **PATCH** /api/v2/TenantsService/Teams/{tenantTeamId} | Patch a tenant team |
 | [**updateTenantTeam()**](TeamsApi.md#updateTenantTeam) | **PUT** /api/v2/TenantsService/Teams/{tenantTeamId} | Update a tenant team |
 
 
@@ -312,6 +313,70 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchTenantTeam()`
+
+```php
+patchTenantTeam($tenant_id, $tenant_team_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patch a tenant team
+
+Patch a tenant team
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\TeamsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$tenant_team_id = 'tenant_team_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchTenantTeam($tenant_id, $tenant_team_id, $api_version, $x_api_version, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TeamsApi->patchTenantTeam: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **tenant_team_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

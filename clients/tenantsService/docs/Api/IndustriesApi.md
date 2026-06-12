@@ -9,6 +9,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getTenantIndustries()**](IndustriesApi.md#getTenantIndustries) | **GET** /api/v2/TenantsService/Industries | Retrieve a list of tenant industries |
 | [**getTenantIndustriesCount()**](IndustriesApi.md#getTenantIndustriesCount) | **GET** /api/v2/TenantsService/Industries/Count | Get the count of tenant industries |
 | [**getTenantIndustryById()**](IndustriesApi.md#getTenantIndustryById) | **GET** /api/v2/TenantsService/Industries/{tenantIndustryId} | Retrieve a single tenant industry by its ID |
+| [**patchTenantIndustryAsync()**](IndustriesApi.md#patchTenantIndustryAsync) | **PATCH** /api/v2/TenantsService/Industries/{tenantIndustryId} | Patch a tenant industry |
 | [**updateTenantIndustry()**](IndustriesApi.md#updateTenantIndustry) | **PUT** /api/v2/TenantsService/Industries/{tenantIndustryId} | Update a tenant industry |
 
 
@@ -312,6 +313,70 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchTenantIndustryAsync()`
+
+```php
+patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patch a tenant industry
+
+Patch a tenant industry
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\IndustriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$tenant_industry_id = 'tenant_industry_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchTenantIndustryAsync($tenant_id, $tenant_industry_id, $api_version, $x_api_version, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling IndustriesApi->patchTenantIndustryAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **tenant_industry_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

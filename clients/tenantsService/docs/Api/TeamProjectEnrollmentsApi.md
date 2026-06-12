@@ -9,6 +9,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getTenantTeamProjectEnrollmentById()**](TeamProjectEnrollmentsApi.md#getTenantTeamProjectEnrollmentById) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Retrieve a single tenant team project enrollment by its ID |
 | [**getTenantTeamProjectEnrollments()**](TeamProjectEnrollmentsApi.md#getTenantTeamProjectEnrollments) | **GET** /api/v2/TenantsService/TeamProjectEnrollments | Retrieve a list of tenant team project enrollments |
 | [**getTenantTeamProjectEnrollmentsCount()**](TeamProjectEnrollmentsApi.md#getTenantTeamProjectEnrollmentsCount) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/Count | Get the count of tenant team project enrollments |
+| [**patchTenantTeamProjectEnrollment()**](TeamProjectEnrollmentsApi.md#patchTenantTeamProjectEnrollment) | **PATCH** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Patch a tenant team project enrollment |
 | [**updateTenantTeamProjectEnrollment()**](TeamProjectEnrollmentsApi.md#updateTenantTeamProjectEnrollment) | **PUT** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Update a tenant team project enrollment |
 
 
@@ -312,6 +313,70 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchTenantTeamProjectEnrollment()`
+
+```php
+patchTenantTeamProjectEnrollment($tenant_id, $tenant_team_project_enrollment_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patch a tenant team project enrollment
+
+Patch a tenant team project enrollment
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\TeamProjectEnrollmentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$tenant_team_project_enrollment_id = 'tenant_team_project_enrollment_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchTenantTeamProjectEnrollment($tenant_id, $tenant_team_project_enrollment_id, $api_version, $x_api_version, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TeamProjectEnrollmentsApi->patchTenantTeamProjectEnrollment: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **tenant_team_project_enrollment_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

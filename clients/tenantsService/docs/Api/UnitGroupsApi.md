@@ -14,6 +14,8 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getUnitGroupsCountAsync()**](UnitGroupsApi.md#getUnitGroupsCountAsync) | **GET** /api/v2/TenantsService/UnitGroups/Count | Get the count of unit groups |
 | [**getUnitsAsync()**](UnitGroupsApi.md#getUnitsAsync) | **GET** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units | Retrieve units for a unit group |
 | [**getUnitsCountAsync()**](UnitGroupsApi.md#getUnitsCountAsync) | **GET** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/Count | Get the count of units in a unit group |
+| [**patchUnitAsync()**](UnitGroupsApi.md#patchUnitAsync) | **PATCH** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/{unitId} | Patch a unit within a unit group |
+| [**patchUnitGroupAsync()**](UnitGroupsApi.md#patchUnitGroupAsync) | **PATCH** /api/v2/TenantsService/UnitGroups/{unitGroupId} | Patch a unit group |
 | [**updateUnitAsync()**](UnitGroupsApi.md#updateUnitAsync) | **PUT** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/{unitId} | Update a unit within a unit group |
 | [**updateUnitGroupAsync()**](UnitGroupsApi.md#updateUnitGroupAsync) | **PUT** /api/v2/TenantsService/UnitGroups/{unitGroupId} | Update a unit group |
 
@@ -634,6 +636,136 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchUnitAsync()`
+
+```php
+patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patch a unit within a unit group
+
+Partially updates an existing unit within a specific unit group.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UnitGroupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$unit_group_id = 'unit_group_id_example'; // string
+$unit_id = 'unit_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchUnitAsync($tenant_id, $unit_group_id, $unit_id, $api_version, $x_api_version, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UnitGroupsApi->patchUnitAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **unit_group_id** | **string**|  | |
+| **unit_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchUnitGroupAsync()`
+
+```php
+patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patch a unit group
+
+Partially updates an existing unit group by its unique identifier.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UnitGroupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$unit_group_id = 'unit_group_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchUnitGroupAsync($tenant_id, $unit_group_id, $api_version, $x_api_version, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UnitGroupsApi->patchUnitGroupAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **unit_group_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
 - **Accept**: `application/json`, `application/xml`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

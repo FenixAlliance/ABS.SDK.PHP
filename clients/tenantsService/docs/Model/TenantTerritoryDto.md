@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
-**business_id** | **string** |  | [optional]
-**business_profile_record_id** | **string** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **parent_territory_id** | **string** |  | [optional]

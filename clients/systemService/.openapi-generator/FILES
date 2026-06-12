@@ -4,6 +4,7 @@
 README.md
 composer.json
 docs/Api/AntiforgeryApi.md
+docs/Api/BusinessDomainsApi.md
 docs/Api/CartsApi.md
 docs/Api/CompletionsApi.md
 docs/Api/ContactOptionsApi.md
@@ -24,6 +25,9 @@ docs/Api/UsersApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/AdditionalAttribute.md
 docs/Model/BooleanEnvelope.md
+docs/Model/BusinessDomainDto.md
+docs/Model/BusinessDomainDtoEnvelope.md
+docs/Model/BusinessDomainDtoListEnvelope.md
 docs/Model/CartDto.md
 docs/Model/CartDtoEnvelope.md
 docs/Model/CartDtoListEnvelope.md
@@ -61,6 +65,7 @@ docs/Model/LoginRequest.md
 docs/Model/Module.md
 docs/Model/ModuleListEnvelope.md
 docs/Model/ObjectEmailDispatchRequest.md
+docs/Model/Operation.md
 docs/Model/OptionCreateDto.md
 docs/Model/OptionDto.md
 docs/Model/OptionDtoEnvelope.md
@@ -103,6 +108,7 @@ docs/Model/WebPortalDtoListEnvelope.md
 docs/Model/WebPortalUpdateDto.md
 git_push.sh
 lib/Api/AntiforgeryApi.php
+lib/Api/BusinessDomainsApi.php
 lib/Api/CartsApi.php
 lib/Api/CompletionsApi.php
 lib/Api/ContactOptionsApi.php
@@ -126,6 +132,9 @@ lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/AdditionalAttribute.php
 lib/Model/BooleanEnvelope.php
+lib/Model/BusinessDomainDto.php
+lib/Model/BusinessDomainDtoEnvelope.php
+lib/Model/BusinessDomainDtoListEnvelope.php
 lib/Model/CartDto.php
 lib/Model/CartDtoEnvelope.php
 lib/Model/CartDtoListEnvelope.php
@@ -164,6 +173,7 @@ lib/Model/ModelInterface.php
 lib/Model/Module.php
 lib/Model/ModuleListEnvelope.php
 lib/Model/ObjectEmailDispatchRequest.php
+lib/Model/Operation.php
 lib/Model/OptionCreateDto.php
 lib/Model/OptionDto.php
 lib/Model/OptionDtoEnvelope.php
@@ -206,15 +216,8 @@ lib/Model/WebPortalDtoListEnvelope.php
 lib/Model/WebPortalUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/CompletionsApiTest.php
-test/Api/FenixAlliancePortalsWebsiteApiTest.php
-test/Api/LicensesApiTest.php
-test/Model/AdditionalAttributeTest.php
-test/Model/EnvelopeTest.php
-test/Model/LicenseAttributesListEnvelopeTest.php
-test/Model/LicenseFeatureTest.php
-test/Model/LicenseKeyRequestTest.php
-test/Model/LicenseKeyTest.php
-test/Model/LicenseValidationErrorListEnvelopeTest.php
-test/Model/LicenseValidationErrorTest.php
-test/Model/StringEnvelopeTest.php
+test/Api/BusinessDomainsApiTest.php
+test/Model/BusinessDomainDtoEnvelopeTest.php
+test/Model/BusinessDomainDtoListEnvelopeTest.php
+test/Model/BusinessDomainDtoTest.php
+test/Model/OperationTest.php

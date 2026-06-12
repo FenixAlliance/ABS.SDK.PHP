@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [optional]
 **employee_low_range_value** | **int** |  | [optional]
 **employee_high_range_value** | **int** |  | [optional]
 

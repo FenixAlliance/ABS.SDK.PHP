@@ -75,6 +75,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AntiforgeryApi* | [**getAndStoreTokens**](docs/Api/AntiforgeryApi.md#getandstoretokens) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens
 *AntiforgeryApi* | [**isRequestValidAsync**](docs/Api/AntiforgeryApi.md#isrequestvalidasync) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request
+*BusinessDomainsApi* | [**deleteSystemBusinessDomain**](docs/Api/BusinessDomainsApi.md#deletesystembusinessdomain) | **DELETE** /api/v2/SystemService/BusinessDomains/{businessDomainId} | Delete a business domain
+*BusinessDomainsApi* | [**getSystemBusinessDomainById**](docs/Api/BusinessDomainsApi.md#getsystembusinessdomainbyid) | **GET** /api/v2/SystemService/BusinessDomains/{businessDomainId} | Retrieve a business domain by its ID
+*BusinessDomainsApi* | [**getSystemBusinessDomains**](docs/Api/BusinessDomainsApi.md#getsystembusinessdomains) | **GET** /api/v2/SystemService/BusinessDomains | Retrieve all business domains in the system
+*BusinessDomainsApi* | [**getSystemBusinessDomainsCount**](docs/Api/BusinessDomainsApi.md#getsystembusinessdomainscount) | **GET** /api/v2/SystemService/BusinessDomains/Count | Get the count of all business domains in the system
+*BusinessDomainsApi* | [**verifySystemBusinessDomain**](docs/Api/BusinessDomainsApi.md#verifysystembusinessdomain) | **POST** /api/v2/SystemService/BusinessDomains/{businessDomainId}/Verify | Verify a business domain
 *CartsApi* | [**deleteSystemCart**](docs/Api/CartsApi.md#deletesystemcart) | **DELETE** /api/v2/SystemService/Carts/{cartId} | Delete a system cart
 *CartsApi* | [**getSystemCartById**](docs/Api/CartsApi.md#getsystemcartbyid) | **GET** /api/v2/SystemService/Carts/{cartId} | Retrieve a single system cart by its ID
 *CartsApi* | [**getSystemCarts**](docs/Api/CartsApi.md#getsystemcarts) | **GET** /api/v2/SystemService/Carts | Retrieve a list of system carts
@@ -85,6 +90,7 @@ Class | Method | HTTP request | Description
 *ContactOptionsApi* | [**getSystemContactOptionById**](docs/Api/ContactOptionsApi.md#getsystemcontactoptionbyid) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Retrieve a single contact option by its ID (admin)
 *ContactOptionsApi* | [**getSystemContactOptions**](docs/Api/ContactOptionsApi.md#getsystemcontactoptions) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options | Retrieve a list of contact options (admin)
 *ContactOptionsApi* | [**getSystemContactOptionsCount**](docs/Api/ContactOptionsApi.md#getsystemcontactoptionscount) | **GET** /api/v2/SystemService/Contacts/{contactId}/Options/Count | Get the count of contact options (admin)
+*ContactOptionsApi* | [**patchSystemContactOption**](docs/Api/ContactOptionsApi.md#patchsystemcontactoption) | **PATCH** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Partially update a contact option (admin)
 *ContactOptionsApi* | [**updateSystemContactOption**](docs/Api/ContactOptionsApi.md#updatesystemcontactoption) | **PUT** /api/v2/SystemService/Contacts/{contactId}/Options/{optionId} | Update a contact option (admin)
 *EmailsApi* | [**adminPreviewBasicEmailTemplate**](docs/Api/EmailsApi.md#adminpreviewbasicemailtemplate) | **POST** /api/v2/SystemService/Emails/Preview | Preview a rendered basic email template.
 *EmailsApi* | [**adminSendBasicEmail**](docs/Api/EmailsApi.md#adminsendbasicemail) | **POST** /api/v2/SystemService/Emails/SendBasic | Send a basic transactional email to recipients.
@@ -131,6 +137,7 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**getSystemOptionByKey**](docs/Api/OptionsApi.md#getsystemoptionbykey) | **GET** /api/v2/SystemService/Options/Key/{key} | Retrieve a single system option by its key
 *OptionsApi* | [**getSystemOptions**](docs/Api/OptionsApi.md#getsystemoptions) | **GET** /api/v2/SystemService/Options | Retrieve a list of system options
 *OptionsApi* | [**getSystemOptionsCount**](docs/Api/OptionsApi.md#getsystemoptionscount) | **GET** /api/v2/SystemService/Options/Count | Get the count of system options
+*OptionsApi* | [**patchSystemOption**](docs/Api/OptionsApi.md#patchsystemoption) | **PATCH** /api/v2/SystemService/Options/{optionId} | Partially update a system option
 *OptionsApi* | [**updateSystemOption**](docs/Api/OptionsApi.md#updatesystemoption) | **PUT** /api/v2/SystemService/Options/{optionId} | Update a system option
 *OptionsApi* | [**upsertSystemOption**](docs/Api/OptionsApi.md#upsertsystemoption) | **PUT** /api/v2/SystemService/Options/Upsert/{key} | Create or update a system option by key
 *OverviewApi* | [**getSystemOverview**](docs/Api/OverviewApi.md#getsystemoverview) | **GET** /api/v2/SystemService/Overview | Get system overview information
@@ -139,12 +146,14 @@ Class | Method | HTTP request | Description
 *PortalsApi* | [**getSystemPortalById**](docs/Api/PortalsApi.md#getsystemportalbyid) | **GET** /api/v2/SystemService/Portals/{portalId} | Retrieve a single system portal by its ID
 *PortalsApi* | [**getSystemPortals**](docs/Api/PortalsApi.md#getsystemportals) | **GET** /api/v2/SystemService/Portals | Retrieve a list of system portals
 *PortalsApi* | [**getSystemPortalsCount**](docs/Api/PortalsApi.md#getsystemportalscount) | **GET** /api/v2/SystemService/Portals/Count | Get the count of system portals
+*PortalsApi* | [**patchSystemPortal**](docs/Api/PortalsApi.md#patchsystemportal) | **PATCH** /api/v2/SystemService/Portals/{portalId} | Partially update a system portal
 *PortalsApi* | [**updateSystemPortal**](docs/Api/PortalsApi.md#updatesystemportal) | **PUT** /api/v2/SystemService/Portals/{portalId} | Update a system portal
 *TenantOptionsApi* | [**createSystemTenantOption**](docs/Api/TenantOptionsApi.md#createsystemtenantoption) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Options | Create a new tenant option (admin)
 *TenantOptionsApi* | [**deleteSystemTenantOption**](docs/Api/TenantOptionsApi.md#deletesystemtenantoption) | **DELETE** /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId} | Delete a tenant option (admin)
 *TenantOptionsApi* | [**getSystemTenantOptionById**](docs/Api/TenantOptionsApi.md#getsystemtenantoptionbyid) | **GET** /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId} | Retrieve a single tenant option by its ID (admin)
 *TenantOptionsApi* | [**getSystemTenantOptions**](docs/Api/TenantOptionsApi.md#getsystemtenantoptions) | **GET** /api/v2/SystemService/Tenants/{tenantId}/Options | Retrieve a list of tenant options (admin)
 *TenantOptionsApi* | [**getSystemTenantOptionsCount**](docs/Api/TenantOptionsApi.md#getsystemtenantoptionscount) | **GET** /api/v2/SystemService/Tenants/{tenantId}/Options/Count | Get the count of tenant options (admin)
+*TenantOptionsApi* | [**patchSystemTenantOption**](docs/Api/TenantOptionsApi.md#patchsystemtenantoption) | **PATCH** /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId} | Partially update a tenant option (admin)
 *TenantOptionsApi* | [**updateSystemTenantOption**](docs/Api/TenantOptionsApi.md#updatesystemtenantoption) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId} | Update a tenant option (admin)
 *TenantsApi* | [**adminPreviewTenantEmail**](docs/Api/TenantsApi.md#adminpreviewtenantemail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a tenant.
 *TenantsApi* | [**adminSendTenantEmail**](docs/Api/TenantsApi.md#adminsendtenantemail) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a tenant.
@@ -155,12 +164,14 @@ Class | Method | HTTP request | Description
 *TenantsApi* | [**getExtendedTenantsCount**](docs/Api/TenantsApi.md#getextendedtenantscount) | **GET** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance.
 *TenantsApi* | [**getTenant**](docs/Api/TenantsApi.md#gettenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID.
 *TenantsApi* | [**getTenantsCount**](docs/Api/TenantsApi.md#gettenantscount) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance.
+*TenantsApi* | [**patchTenant**](docs/Api/TenantsApi.md#patchtenant) | **PATCH** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID.
 *TenantsApi* | [**updateTenant**](docs/Api/TenantsApi.md#updatetenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID.
 *UserOptionsApi* | [**createSystemUserOption**](docs/Api/UserOptionsApi.md#createsystemuseroption) | **POST** /api/v2/SystemService/Users/{userId}/Options | Create a new user option (admin)
 *UserOptionsApi* | [**deleteSystemUserOption**](docs/Api/UserOptionsApi.md#deletesystemuseroption) | **DELETE** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Delete a user option (admin)
 *UserOptionsApi* | [**getSystemUserOptionById**](docs/Api/UserOptionsApi.md#getsystemuseroptionbyid) | **GET** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Retrieve a single user option by its ID (admin)
 *UserOptionsApi* | [**getSystemUserOptions**](docs/Api/UserOptionsApi.md#getsystemuseroptions) | **GET** /api/v2/SystemService/Users/{userId}/Options | Retrieve a list of user options (admin)
 *UserOptionsApi* | [**getSystemUserOptionsCount**](docs/Api/UserOptionsApi.md#getsystemuseroptionscount) | **GET** /api/v2/SystemService/Users/{userId}/Options/Count | Get the count of user options (admin)
+*UserOptionsApi* | [**patchSystemUserOption**](docs/Api/UserOptionsApi.md#patchsystemuseroption) | **PATCH** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Partially update a user option (admin)
 *UserOptionsApi* | [**updateSystemUserOption**](docs/Api/UserOptionsApi.md#updatesystemuseroption) | **PUT** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Update a user option (admin)
 *UsersApi* | [**adminPreviewUserEmailTemplate**](docs/Api/UsersApi.md#adminpreviewuseremailtemplate) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Preview | Preview the rendered email for a user.
 *UsersApi* | [**adminSendUserEmail**](docs/Api/UsersApi.md#adminsenduseremail) | **POST** /api/v2/SystemService/Users/{userId}/Emails/Send | Send an email to a user.
@@ -172,6 +183,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**getUserAsync**](docs/Api/UsersApi.md#getuserasync) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID
 *UsersApi* | [**getUsersAsync**](docs/Api/UsersApi.md#getusersasync) | **GET** /api/v2/SystemService/Users | Retrieve a list of users
 *UsersApi* | [**getUsersCountAsync**](docs/Api/UsersApi.md#getuserscountasync) | **GET** /api/v2/SystemService/Users/Count | Get the count of users
+*UsersApi* | [**patchAccountHolderAsync**](docs/Api/UsersApi.md#patchaccountholderasync) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user
 *UsersApi* | [**updateAccountHolderAsync**](docs/Api/UsersApi.md#updateaccountholderasync) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user
 
 ## Models
@@ -179,6 +191,9 @@ Class | Method | HTTP request | Description
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [AdditionalAttribute](docs/Model/AdditionalAttribute.md)
 - [BooleanEnvelope](docs/Model/BooleanEnvelope.md)
+- [BusinessDomainDto](docs/Model/BusinessDomainDto.md)
+- [BusinessDomainDtoEnvelope](docs/Model/BusinessDomainDtoEnvelope.md)
+- [BusinessDomainDtoListEnvelope](docs/Model/BusinessDomainDtoListEnvelope.md)
 - [CartDto](docs/Model/CartDto.md)
 - [CartDtoEnvelope](docs/Model/CartDtoEnvelope.md)
 - [CartDtoListEnvelope](docs/Model/CartDtoListEnvelope.md)
@@ -216,6 +231,7 @@ Class | Method | HTTP request | Description
 - [Module](docs/Model/Module.md)
 - [ModuleListEnvelope](docs/Model/ModuleListEnvelope.md)
 - [ObjectEmailDispatchRequest](docs/Model/ObjectEmailDispatchRequest.md)
+- [Operation](docs/Model/Operation.md)
 - [OptionCreateDto](docs/Model/OptionCreateDto.md)
 - [OptionDto](docs/Model/OptionDto.md)
 - [OptionDtoEnvelope](docs/Model/OptionDtoEnvelope.md)
@@ -277,6 +293,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5401`
+- API version: `2.1.2.5532`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

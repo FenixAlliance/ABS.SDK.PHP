@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
+**tenant_id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 
