@@ -4,9 +4,8 @@
 README.md
 composer.json
 docs/Api/AirwayBillsApi.md
-docs/Api/CompletionsApi.md
 docs/Api/DeliveryNotesApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/ItemPackingSlipsApi.md
 docs/Api/ItemPickListsApi.md
 docs/Api/ItemRestocksApi.md
@@ -28,6 +27,7 @@ docs/Model/AirwayBillDto.md
 docs/Model/AirwayBillDtoEnvelope.md
 docs/Model/AirwayBillDtoListEnvelope.md
 docs/Model/AirwayBillUpdateDto.md
+docs/Model/ContactCreateDto.md
 docs/Model/ContactDto.md
 docs/Model/DeliveryNoteCreateDto.md
 docs/Model/DeliveryNoteDto.md
@@ -160,9 +160,8 @@ docs/Model/WaybillLineDtoListEnvelope.md
 docs/Model/WaybillLineUpdateDto.md
 git_push.sh
 lib/Api/AirwayBillsApi.php
-lib/Api/CompletionsApi.php
 lib/Api/DeliveryNotesApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/ItemPackingSlipsApi.php
 lib/Api/ItemPickListsApi.php
 lib/Api/ItemRestocksApi.php
@@ -187,6 +186,7 @@ lib/Model/AirwayBillDto.php
 lib/Model/AirwayBillDtoEnvelope.php
 lib/Model/AirwayBillDtoListEnvelope.php
 lib/Model/AirwayBillUpdateDto.php
+lib/Model/ContactCreateDto.php
 lib/Model/ContactDto.php
 lib/Model/DeliveryNoteCreateDto.php
 lib/Model/DeliveryNoteDto.php
@@ -320,3 +320,4 @@ lib/Model/WaybillLineDtoListEnvelope.php
 lib/Model/WaybillLineUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ContactCreateDtoTest.php

@@ -3,10 +3,9 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
 docs/Api/ExchangeApi.md
 docs/Api/ExchangeVApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/RatesApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/CurrencyId.md
@@ -29,10 +28,9 @@ docs/Model/ResetPasswordRequest.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/CompletionsApi.php
 lib/Api/ExchangeApi.php
 lib/Api/ExchangeVApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/RatesApi.php
 lib/ApiException.php
 lib/Configuration.php

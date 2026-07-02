@@ -51,47 +51,44 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
+$apiInstance = new OpenAPI\Client\Api\FenixAllianceABSWebApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$tenant_id = 'tenant_id_example'; // string
-$conversation_id = 'conversation_id_example'; // string
-$message = 'message_example'; // string
+$return_url = 'return_url_example'; // string
 
 try {
-    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
+    $apiInstance->accountLogoutPost($return_url);
 } catch (Exception $e) {
-    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FenixAllianceABSWebApi->accountLogoutPost: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
-*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
-*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
-*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
-*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
-*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
-*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
 *InvoicesApi* | [**aggregateInvoiceDiscounts**](docs/Api/InvoicesApi.md#aggregateinvoicediscounts) | **POST** /api/v2/InvoicingService/Invoices/DiscountsAggregate | Aggregate invoice discounts.
 *InvoicesApi* | [**aggregateInvoiceGlobalSurcharges**](docs/Api/InvoicesApi.md#aggregateinvoiceglobalsurcharges) | **POST** /api/v2/InvoicingService/Invoices/GlobalSurchargesAggregate | Aggregate invoice global surcharges.
 *InvoicesApi* | [**aggregateInvoiceTaxBases**](docs/Api/InvoicesApi.md#aggregateinvoicetaxbases) | **POST** /api/v2/InvoicingService/Invoices/TaxBasesAggregate | Aggregate invoice tax bases.
@@ -128,6 +125,8 @@ Class | Method | HTTP request | Description
 *InvoicesApi* | [**getInvoiceReferencesCount**](docs/Api/InvoicesApi.md#getinvoicereferencescount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references.
 *InvoicesApi* | [**getInvoices**](docs/Api/InvoicesApi.md#getinvoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices.
 *InvoicesApi* | [**getInvoicesCount**](docs/Api/InvoicesApi.md#getinvoicescount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices.
+*InvoicesApi* | [**getPurchaseInvoicesSum**](docs/Api/InvoicesApi.md#getpurchaseinvoicessum) | **GET** /api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum | Sum tenant purchase-invoice totals.
+*InvoicesApi* | [**getSalesInvoicesSum**](docs/Api/InvoicesApi.md#getsalesinvoicessum) | **GET** /api/v2/InvoicingService/Invoices/SalesInvoices/Sum | Sum tenant sales-invoice totals.
 *InvoicesApi* | [**patchInvoice**](docs/Api/InvoicesApi.md#patchinvoice) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice.
 *InvoicesApi* | [**patchInvoiceAdjustment**](docs/Api/InvoicesApi.md#patchinvoiceadjustment) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment.
 *InvoicesApi* | [**patchInvoiceLine**](docs/Api/InvoicesApi.md#patchinvoiceline) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line.
@@ -145,6 +144,7 @@ Class | Method | HTTP request | Description
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [CurrencyId](docs/Model/CurrencyId.md)
+- [DecimalEnvelope](docs/Model/DecimalEnvelope.md)
 - [EmailDispatchRequest](docs/Model/EmailDispatchRequest.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [Envelope](docs/Model/Envelope.md)
@@ -218,6 +218,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5532`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

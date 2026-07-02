@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
+**kind** | **string** |  | [optional]
 **name** | **string** |  |
 **legal_name** | **string** |  | [optional]
 **email** | **string** |  |

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **valid_response** | **bool** |  | [optional]
 **parent_file_upload_id** | **string** |  | [optional]
 **file_path** | **string** |  | [optional]
+**public_access_type** | **string** |  | [optional]
 **metadata** | **string** |  | [optional]
 **support_request_id** | **string** |  | [optional]
 

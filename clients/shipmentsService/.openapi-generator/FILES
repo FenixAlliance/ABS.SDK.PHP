@@ -4,8 +4,7 @@
 README.md
 composer.json
 docs/Api/BillsOfLadingApi.md
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/ItemShippingPoliciesApi.md
 docs/Api/ShipmentsApi.md
 docs/Api/ShippingClassesApi.md
@@ -82,8 +81,7 @@ docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
 lib/Api/BillsOfLadingApi.php
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/ItemShippingPoliciesApi.php
 lib/Api/ShipmentsApi.php
 lib/Api/ShippingClassesApi.php

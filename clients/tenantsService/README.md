@@ -51,30 +51,31 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
+$apiInstance = new OpenAPI\Client\Api\BusinessRelationshipsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$conversation_id = 'conversation_id_example'; // string
-$message = 'message_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
+    $result = $apiInstance->getBusinessRelationshipsCountAsync($tenant_id, $api_version, $x_api_version);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessRelationshipsApi->getBusinessRelationshipsCountAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
+*BusinessRelationshipsApi* | [**getBusinessRelationshipsCountAsync**](docs/Api/BusinessRelationshipsApi.md#getbusinessrelationshipscountasync) | **GET** /api/v2/TenantsService/BusinessRelationships/Count | Get business relationships count
 *DepartmentsApi* | [**createTenantDepartment**](docs/Api/DepartmentsApi.md#createtenantdepartment) | **POST** /api/v2/TenantsService/Departments | Create a new tenant department
 *DepartmentsApi* | [**deleteTenantDepartment**](docs/Api/DepartmentsApi.md#deletetenantdepartment) | **DELETE** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Delete a tenant department
 *DepartmentsApi* | [**getTenantDepartmentById**](docs/Api/DepartmentsApi.md#gettenantdepartmentbyid) | **GET** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Retrieve a single tenant department by its ID
@@ -98,23 +99,23 @@ Class | Method | HTTP request | Description
 *EnrollmentsApi* | [**getTenantEnrollmentsCount**](docs/Api/EnrollmentsApi.md#gettenantenrollmentscount) | **GET** /api/v2/TenantsService/Enrollments/Count | Get the count of tenant enrollments
 *EnrollmentsApi* | [**patchTenantEnrollmentAsync**](docs/Api/EnrollmentsApi.md#patchtenantenrollmentasync) | **PATCH** /api/v2/TenantsService/Enrollments/{enrollmentId} | Patch a tenant enrollment
 *EnrollmentsApi* | [**updateTenantEnrollment**](docs/Api/EnrollmentsApi.md#updatetenantenrollment) | **PUT** /api/v2/TenantsService/Enrollments/{enrollmentId} | Update a tenant enrollment
-*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
-*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
-*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
-*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
-*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
-*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
 *IndustriesApi* | [**createTenantIndustry**](docs/Api/IndustriesApi.md#createtenantindustry) | **POST** /api/v2/TenantsService/Industries | Create a new tenant industry
 *IndustriesApi* | [**deleteTenantIndustry**](docs/Api/IndustriesApi.md#deletetenantindustry) | **DELETE** /api/v2/TenantsService/Industries/{tenantIndustryId} | Delete a tenant industry
 *IndustriesApi* | [**getTenantIndustries**](docs/Api/IndustriesApi.md#gettenantindustries) | **GET** /api/v2/TenantsService/Industries | Retrieve a list of tenant industries
@@ -415,6 +416,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5532`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

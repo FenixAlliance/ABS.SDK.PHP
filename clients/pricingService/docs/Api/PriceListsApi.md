@@ -1,6 +1,6 @@
 # OpenAPI\Client\PriceListsApi
 
-All URIs are relative to http://localhost, except if the operation defines another base path.
+All URIs are relative to https://absuite.net, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -11,6 +11,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getPriceListAsync()**](PriceListsApi.md#getPriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID |
 | [**getPriceListPriceAsync()**](PriceListsApi.md#getPriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID |
 | [**getPriceListPricesAsync()**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list |
+| [**getPriceListPricesCountAsync()**](PriceListsApi.md#getPriceListPricesCountAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/Count | Counts prices in a price list |
 | [**getPriceListsAsync()**](PriceListsApi.md#getPriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists |
 | [**getPriceListsCountAsync()**](PriceListsApi.md#getPriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists |
 | [**patchPriceListAsync()**](PriceListsApi.md#patchPriceListAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list |
@@ -419,6 +420,64 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\ItemPriceDtoListEnvelope**](../Model/ItemPriceDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPriceListPricesCountAsync()`
+
+```php
+getPriceListPricesCountAsync($tenant_id, $price_list_id): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Counts prices in a price list
+
+Gets the count of price entries for a specific price list.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PriceListsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$price_list_id = 'price_list_id_example'; // string
+
+try {
+    $result = $apiInstance->getPriceListPricesCountAsync($tenant_id, $price_list_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PriceListsApi->getPriceListPricesCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **price_list_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
 
 ### Authorization
 

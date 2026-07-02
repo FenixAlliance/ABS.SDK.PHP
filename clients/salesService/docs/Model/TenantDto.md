@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
 **qualified_name** | **string** |  | [optional] [readonly]
+**kind** | **string** |  | [optional]
 **tax_id** | **string** |  | [optional]
 **about** | **string** |  | [optional]
 **wallet_id** | **string** |  | [optional]

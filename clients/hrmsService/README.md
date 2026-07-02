@@ -72,7 +72,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -88,7 +88,6 @@ Class | Method | HTTP request | Description
 *AppraisalWorkflowsApi* | [**getAppraisalWorkflowsAsync**](docs/Api/AppraisalWorkflowsApi.md#getappraisalworkflowsasync) | **GET** /api/v2/HrmsService/AppraisalWorkflows | Get appraisal workflows
 *AppraisalWorkflowsApi* | [**getAppraisalWorkflowsCountAsync**](docs/Api/AppraisalWorkflowsApi.md#getappraisalworkflowscountasync) | **GET** /api/v2/HrmsService/AppraisalWorkflows/Count | Count appraisal workflows
 *AppraisalWorkflowsApi* | [**updateAppraisalWorkflowAsync**](docs/Api/AppraisalWorkflowsApi.md#updateappraisalworkflowasync) | **PUT** /api/v2/HrmsService/AppraisalWorkflows/{workflowId} | Update an appraisal workflow
-*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
 *EmployeeAppraisalSessionsApi* | [**createEmployeeAppraisalSessionAsync**](docs/Api/EmployeeAppraisalSessionsApi.md#createemployeeappraisalsessionasync) | **POST** /api/v2/HrmsService/EmployeeAppraisalSessions | Create an employee appraisal session
 *EmployeeAppraisalSessionsApi* | [**deleteEmployeeAppraisalSessionAsync**](docs/Api/EmployeeAppraisalSessionsApi.md#deleteemployeeappraisalsessionasync) | **DELETE** /api/v2/HrmsService/EmployeeAppraisalSessions/{sessionId} | Delete an employee appraisal session
 *EmployeeAppraisalSessionsApi* | [**getEmployeeAppraisalSessionByIdAsync**](docs/Api/EmployeeAppraisalSessionsApi.md#getemployeeappraisalsessionbyidasync) | **GET** /api/v2/HrmsService/EmployeeAppraisalSessions/{sessionId} | Get employee appraisal session by ID
@@ -117,23 +116,31 @@ Class | Method | HTTP request | Description
 *EmployersApi* | [**getEmployersCountAsync**](docs/Api/EmployersApi.md#getemployerscountasync) | **GET** /api/v2/HrmsService/Employers/Count | Count employers
 *EmployersApi* | [**patchEmployerAsync**](docs/Api/EmployersApi.md#patchemployerasync) | **PATCH** /api/v2/HrmsService/Employers/{employerId} | Patch an employer
 *EmployersApi* | [**updateEmployerAsync**](docs/Api/EmployersApi.md#updateemployerasync) | **PUT** /api/v2/HrmsService/Employers/{employerId} | Update an employer
-*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
-*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
-*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
-*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
-*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
-*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*GigApplicationsApi* | [**acceptGigApplicationAsync**](docs/Api/GigApplicationsApi.md#acceptgigapplicationasync) | **POST** /api/v2/HrmsService/GigApplications/{gigApplicationId}/Accept | Accept a gig application
+*GigApplicationsApi* | [**createGigApplicationAsync**](docs/Api/GigApplicationsApi.md#creategigapplicationasync) | **POST** /api/v2/HrmsService/GigApplications | Create a gig application
+*GigApplicationsApi* | [**deleteGigApplicationAsync**](docs/Api/GigApplicationsApi.md#deletegigapplicationasync) | **DELETE** /api/v2/HrmsService/GigApplications/{gigApplicationId} | Delete a gig application
+*GigApplicationsApi* | [**getGigApplicationByIdAsync**](docs/Api/GigApplicationsApi.md#getgigapplicationbyidasync) | **GET** /api/v2/HrmsService/GigApplications/{gigApplicationId} | Get gig application by ID
+*GigApplicationsApi* | [**getGigApplicationsAsync**](docs/Api/GigApplicationsApi.md#getgigapplicationsasync) | **GET** /api/v2/HrmsService/GigApplications | Get gig applications
+*GigApplicationsApi* | [**getGigApplicationsCountAsync**](docs/Api/GigApplicationsApi.md#getgigapplicationscountasync) | **GET** /api/v2/HrmsService/GigApplications/Count | Count gig applications
+*GigApplicationsApi* | [**patchGigApplicationAsync**](docs/Api/GigApplicationsApi.md#patchgigapplicationasync) | **PATCH** /api/v2/HrmsService/GigApplications/{gigApplicationId} | Patch a gig application
+*GigApplicationsApi* | [**updateGigApplicationAsync**](docs/Api/GigApplicationsApi.md#updategigapplicationasync) | **PUT** /api/v2/HrmsService/GigApplications/{gigApplicationId} | Update a gig application
 *GigsApi* | [**createGigAsync**](docs/Api/GigsApi.md#creategigasync) | **POST** /api/v2/HrmsService/Gigs | Create a gig
 *GigsApi* | [**deleteGigAsync**](docs/Api/GigsApi.md#deletegigasync) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | Delete a gig
 *GigsApi* | [**getGigByIdAsync**](docs/Api/GigsApi.md#getgigbyidasync) | **GET** /api/v2/HrmsService/Gigs/{gigId} | Get gig by ID
@@ -141,12 +148,47 @@ Class | Method | HTTP request | Description
 *GigsApi* | [**getGigsCountAsync**](docs/Api/GigsApi.md#getgigscountasync) | **GET** /api/v2/HrmsService/Gigs/Count | Count gigs
 *GigsApi* | [**patchGigAsync**](docs/Api/GigsApi.md#patchgigasync) | **PATCH** /api/v2/HrmsService/Gigs/{gigId} | Patch a gig
 *GigsApi* | [**updateGigAsync**](docs/Api/GigsApi.md#updategigasync) | **PUT** /api/v2/HrmsService/Gigs/{gigId} | Update a gig
+*JobApplicantsApi* | [**createJobApplicantAsync**](docs/Api/JobApplicantsApi.md#createjobapplicantasync) | **POST** /api/v2/HrmsService/JobApplicants | Create a job applicant
+*JobApplicantsApi* | [**deleteJobApplicantAsync**](docs/Api/JobApplicantsApi.md#deletejobapplicantasync) | **DELETE** /api/v2/HrmsService/JobApplicants/{jobApplicantId} | Delete a job applicant
+*JobApplicantsApi* | [**getJobApplicantByIdAsync**](docs/Api/JobApplicantsApi.md#getjobapplicantbyidasync) | **GET** /api/v2/HrmsService/JobApplicants/{jobApplicantId} | Get job applicant by ID
+*JobApplicantsApi* | [**getJobApplicantsAsync**](docs/Api/JobApplicantsApi.md#getjobapplicantsasync) | **GET** /api/v2/HrmsService/JobApplicants | Get job applicants
+*JobApplicantsApi* | [**getJobApplicantsCountAsync**](docs/Api/JobApplicantsApi.md#getjobapplicantscountasync) | **GET** /api/v2/HrmsService/JobApplicants/Count | Count job applicants
+*JobApplicantsApi* | [**patchJobApplicantAsync**](docs/Api/JobApplicantsApi.md#patchjobapplicantasync) | **PATCH** /api/v2/HrmsService/JobApplicants/{jobApplicantId} | Patch a job applicant
+*JobApplicantsApi* | [**updateJobApplicantAsync**](docs/Api/JobApplicantsApi.md#updatejobapplicantasync) | **PUT** /api/v2/HrmsService/JobApplicants/{jobApplicantId} | Update a job applicant
+*JobApplicationsApi* | [**changeJobApplicationStatusAsync**](docs/Api/JobApplicationsApi.md#changejobapplicationstatusasync) | **POST** /api/v2/HrmsService/JobApplications/{jobApplicationId}/Status | Change job application status
+*JobApplicationsApi* | [**createJobApplicationAsync**](docs/Api/JobApplicationsApi.md#createjobapplicationasync) | **POST** /api/v2/HrmsService/JobApplications | Create a job application
+*JobApplicationsApi* | [**deleteJobApplicationAsync**](docs/Api/JobApplicationsApi.md#deletejobapplicationasync) | **DELETE** /api/v2/HrmsService/JobApplications/{jobApplicationId} | Delete a job application
+*JobApplicationsApi* | [**getJobApplicationByIdAsync**](docs/Api/JobApplicationsApi.md#getjobapplicationbyidasync) | **GET** /api/v2/HrmsService/JobApplications/{jobApplicationId} | Get job application by ID
+*JobApplicationsApi* | [**getJobApplicationsAsync**](docs/Api/JobApplicationsApi.md#getjobapplicationsasync) | **GET** /api/v2/HrmsService/JobApplications | Get job applications
+*JobApplicationsApi* | [**getJobApplicationsCountAsync**](docs/Api/JobApplicationsApi.md#getjobapplicationscountasync) | **GET** /api/v2/HrmsService/JobApplications/Count | Count job applications
+*JobApplicationsApi* | [**patchJobApplicationAsync**](docs/Api/JobApplicationsApi.md#patchjobapplicationasync) | **PATCH** /api/v2/HrmsService/JobApplications/{jobApplicationId} | Patch a job application
+*JobApplicationsApi* | [**updateJobApplicationAsync**](docs/Api/JobApplicationsApi.md#updatejobapplicationasync) | **PUT** /api/v2/HrmsService/JobApplications/{jobApplicationId} | Update a job application
+*JobFieldsApi* | [**createJobFieldAsync**](docs/Api/JobFieldsApi.md#createjobfieldasync) | **POST** /api/v2/HrmsService/JobFields | Create a job field
+*JobFieldsApi* | [**deleteJobFieldAsync**](docs/Api/JobFieldsApi.md#deletejobfieldasync) | **DELETE** /api/v2/HrmsService/JobFields/{jobFieldId} | Delete a job field
+*JobFieldsApi* | [**getJobFieldByIdAsync**](docs/Api/JobFieldsApi.md#getjobfieldbyidasync) | **GET** /api/v2/HrmsService/JobFields/{jobFieldId} | Get job field by ID
+*JobFieldsApi* | [**getJobFieldsAsync**](docs/Api/JobFieldsApi.md#getjobfieldsasync) | **GET** /api/v2/HrmsService/JobFields | Get job fields
+*JobFieldsApi* | [**getJobFieldsCountAsync**](docs/Api/JobFieldsApi.md#getjobfieldscountasync) | **GET** /api/v2/HrmsService/JobFields/Count | Count job fields
+*JobFieldsApi* | [**patchJobFieldAsync**](docs/Api/JobFieldsApi.md#patchjobfieldasync) | **PATCH** /api/v2/HrmsService/JobFields/{jobFieldId} | Patch a job field
+*JobFieldsApi* | [**updateJobFieldAsync**](docs/Api/JobFieldsApi.md#updatejobfieldasync) | **PUT** /api/v2/HrmsService/JobFields/{jobFieldId} | Update a job field
+*JobOfferFieldsApi* | [**createJobOfferFieldAsync**](docs/Api/JobOfferFieldsApi.md#createjobofferfieldasync) | **POST** /api/v2/HrmsService/JobOfferFields | Create a job offer field
+*JobOfferFieldsApi* | [**deleteJobOfferFieldAsync**](docs/Api/JobOfferFieldsApi.md#deletejobofferfieldasync) | **DELETE** /api/v2/HrmsService/JobOfferFields/{jobOfferFieldId} | Delete a job offer field
+*JobOfferFieldsApi* | [**getJobOfferFieldByIdAsync**](docs/Api/JobOfferFieldsApi.md#getjobofferfieldbyidasync) | **GET** /api/v2/HrmsService/JobOfferFields/{jobOfferFieldId} | Get job offer field by ID
+*JobOfferFieldsApi* | [**getJobOfferFieldsAsync**](docs/Api/JobOfferFieldsApi.md#getjobofferfieldsasync) | **GET** /api/v2/HrmsService/JobOfferFields | Get job offer fields
+*JobOfferFieldsApi* | [**getJobOfferFieldsCountAsync**](docs/Api/JobOfferFieldsApi.md#getjobofferfieldscountasync) | **GET** /api/v2/HrmsService/JobOfferFields/Count | Count job offer fields
+*JobOfferFieldsApi* | [**patchJobOfferFieldAsync**](docs/Api/JobOfferFieldsApi.md#patchjobofferfieldasync) | **PATCH** /api/v2/HrmsService/JobOfferFields/{jobOfferFieldId} | Patch a job offer field
+*JobOfferFieldsApi* | [**updateJobOfferFieldAsync**](docs/Api/JobOfferFieldsApi.md#updatejobofferfieldasync) | **PUT** /api/v2/HrmsService/JobOfferFields/{jobOfferFieldId} | Update a job offer field
+*JobOffersApi* | [**closeJobOfferAsync**](docs/Api/JobOffersApi.md#closejobofferasync) | **POST** /api/v2/HrmsService/JobOffers/{jobOfferId}/Close | Close a job offer
 *JobOffersApi* | [**createJobOfferAsync**](docs/Api/JobOffersApi.md#createjobofferasync) | **POST** /api/v2/HrmsService/JobOffers | Create a job offer
 *JobOffersApi* | [**deleteJobOfferAsync**](docs/Api/JobOffersApi.md#deletejobofferasync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | Delete a job offer
+*JobOffersApi* | [**fillJobOfferAsync**](docs/Api/JobOffersApi.md#filljobofferasync) | **POST** /api/v2/HrmsService/JobOffers/{jobOfferId}/Fill | Mark a job offer filled
 *JobOffersApi* | [**getJobOfferByIdAsync**](docs/Api/JobOffersApi.md#getjobofferbyidasync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID
 *JobOffersApi* | [**getJobOffersAsync**](docs/Api/JobOffersApi.md#getjoboffersasync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers
 *JobOffersApi* | [**getJobOffersCountAsync**](docs/Api/JobOffersApi.md#getjobofferscountasync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers
+*JobOffersApi* | [**getPublicJobOfferByIdAsync**](docs/Api/JobOffersApi.md#getpublicjobofferbyidasync) | **GET** /api/v2/HrmsService/JobOffers/Public/{jobOfferId} | Get public job offer by ID
+*JobOffersApi* | [**getPublicJobOffersAsync**](docs/Api/JobOffersApi.md#getpublicjoboffersasync) | **GET** /api/v2/HrmsService/JobOffers/Public | Get public job offers
+*JobOffersApi* | [**getPublicJobOffersCountAsync**](docs/Api/JobOffersApi.md#getpublicjobofferscountasync) | **GET** /api/v2/HrmsService/JobOffers/Public/Count | Count public job offers
 *JobOffersApi* | [**patchJobOfferAsync**](docs/Api/JobOffersApi.md#patchjobofferasync) | **PATCH** /api/v2/HrmsService/JobOffers/{jobOfferId} | Patch a job offer
+*JobOffersApi* | [**publishJobOfferAsync**](docs/Api/JobOffersApi.md#publishjobofferasync) | **POST** /api/v2/HrmsService/JobOffers/{jobOfferId}/Publish | Publish a job offer
 *JobOffersApi* | [**updateJobOfferAsync**](docs/Api/JobOffersApi.md#updatejobofferasync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer
 *JobTitlesApi* | [**createJobTitleAsync**](docs/Api/JobTitlesApi.md#createjobtitleasync) | **POST** /api/v2/HrmsService/JobTitles | Create a job title
 *JobTitlesApi* | [**deleteJobTitleAsync**](docs/Api/JobTitlesApi.md#deletejobtitleasync) | **DELETE** /api/v2/HrmsService/JobTitles/{jobTitleId} | Delete a job title
@@ -181,6 +223,13 @@ Class | Method | HTTP request | Description
 *PayrollsApi* | [**getPayrollsCountAsync**](docs/Api/PayrollsApi.md#getpayrollscountasync) | **GET** /api/v2/HrmsService/Payrolls/Count | Count payrolls
 *PayrollsApi* | [**patchPayrollAsync**](docs/Api/PayrollsApi.md#patchpayrollasync) | **PATCH** /api/v2/HrmsService/Payrolls/{payrollId} | Patch a payroll
 *PayrollsApi* | [**updatePayrollAsync**](docs/Api/PayrollsApi.md#updatepayrollasync) | **PUT** /api/v2/HrmsService/Payrolls/{payrollId} | Update a payroll
+*RequiredSkillsApi* | [**createRequiredSkillAsync**](docs/Api/RequiredSkillsApi.md#createrequiredskillasync) | **POST** /api/v2/HrmsService/RequiredSkills | Create a required skill
+*RequiredSkillsApi* | [**deleteRequiredSkillAsync**](docs/Api/RequiredSkillsApi.md#deleterequiredskillasync) | **DELETE** /api/v2/HrmsService/RequiredSkills/{requiredSkillId} | Delete a required skill
+*RequiredSkillsApi* | [**getRequiredSkillByIdAsync**](docs/Api/RequiredSkillsApi.md#getrequiredskillbyidasync) | **GET** /api/v2/HrmsService/RequiredSkills/{requiredSkillId} | Get required skill by ID
+*RequiredSkillsApi* | [**getRequiredSkillsAsync**](docs/Api/RequiredSkillsApi.md#getrequiredskillsasync) | **GET** /api/v2/HrmsService/RequiredSkills | Get required skills
+*RequiredSkillsApi* | [**getRequiredSkillsCountAsync**](docs/Api/RequiredSkillsApi.md#getrequiredskillscountasync) | **GET** /api/v2/HrmsService/RequiredSkills/Count | Count required skills
+*RequiredSkillsApi* | [**patchRequiredSkillAsync**](docs/Api/RequiredSkillsApi.md#patchrequiredskillasync) | **PATCH** /api/v2/HrmsService/RequiredSkills/{requiredSkillId} | Patch a required skill
+*RequiredSkillsApi* | [**updateRequiredSkillAsync**](docs/Api/RequiredSkillsApi.md#updaterequiredskillasync) | **PUT** /api/v2/HrmsService/RequiredSkills/{requiredSkillId} | Update a required skill
 *SalariesApi* | [**createSalaryAsync**](docs/Api/SalariesApi.md#createsalaryasync) | **POST** /api/v2/HrmsService/Salaries | Create a salary
 *SalariesApi* | [**deleteSalaryAsync**](docs/Api/SalariesApi.md#deletesalaryasync) | **DELETE** /api/v2/HrmsService/Salaries/{salaryId} | Delete a salary
 *SalariesApi* | [**getSalariesAsync**](docs/Api/SalariesApi.md#getsalariesasync) | **GET** /api/v2/HrmsService/Salaries | Get salaries
@@ -243,6 +292,7 @@ Class | Method | HTTP request | Description
 - [AppraisalWorkflowDtoEnvelope](docs/Model/AppraisalWorkflowDtoEnvelope.md)
 - [AppraisalWorkflowDtoListEnvelope](docs/Model/AppraisalWorkflowDtoListEnvelope.md)
 - [AppraisalWorkflowUpdateDto](docs/Model/AppraisalWorkflowUpdateDto.md)
+- [ContactCreateDto](docs/Model/ContactCreateDto.md)
 - [ContactDto](docs/Model/ContactDto.md)
 - [EmployeeAppraisalSessionCreateDto](docs/Model/EmployeeAppraisalSessionCreateDto.md)
 - [EmployeeAppraisalSessionDto](docs/Model/EmployeeAppraisalSessionDto.md)
@@ -267,6 +317,11 @@ Class | Method | HTTP request | Description
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ForgotPasswordRequest](docs/Model/ForgotPasswordRequest.md)
+- [GigApplicationCreateDto](docs/Model/GigApplicationCreateDto.md)
+- [GigApplicationDto](docs/Model/GigApplicationDto.md)
+- [GigApplicationDtoEnvelope](docs/Model/GigApplicationDtoEnvelope.md)
+- [GigApplicationDtoListEnvelope](docs/Model/GigApplicationDtoListEnvelope.md)
+- [GigApplicationUpdateDto](docs/Model/GigApplicationUpdateDto.md)
 - [GigCreateDto](docs/Model/GigCreateDto.md)
 - [GigDto](docs/Model/GigDto.md)
 - [GigDtoEnvelope](docs/Model/GigDtoEnvelope.md)
@@ -276,10 +331,30 @@ Class | Method | HTTP request | Description
 - [InfoRequest](docs/Model/InfoRequest.md)
 - [InfoResponse](docs/Model/InfoResponse.md)
 - [Int32Envelope](docs/Model/Int32Envelope.md)
+- [JobApplicantProfileCreateDto](docs/Model/JobApplicantProfileCreateDto.md)
+- [JobApplicantProfileDto](docs/Model/JobApplicantProfileDto.md)
+- [JobApplicantProfileDtoEnvelope](docs/Model/JobApplicantProfileDtoEnvelope.md)
+- [JobApplicantProfileDtoListEnvelope](docs/Model/JobApplicantProfileDtoListEnvelope.md)
+- [JobApplicantProfileUpdateDto](docs/Model/JobApplicantProfileUpdateDto.md)
+- [JobFieldCreateDto](docs/Model/JobFieldCreateDto.md)
+- [JobFieldDto](docs/Model/JobFieldDto.md)
+- [JobFieldDtoEnvelope](docs/Model/JobFieldDtoEnvelope.md)
+- [JobFieldDtoListEnvelope](docs/Model/JobFieldDtoListEnvelope.md)
+- [JobFieldUpdateDto](docs/Model/JobFieldUpdateDto.md)
+- [JobOfferApplicationCreateDto](docs/Model/JobOfferApplicationCreateDto.md)
+- [JobOfferApplicationDto](docs/Model/JobOfferApplicationDto.md)
+- [JobOfferApplicationDtoEnvelope](docs/Model/JobOfferApplicationDtoEnvelope.md)
+- [JobOfferApplicationDtoListEnvelope](docs/Model/JobOfferApplicationDtoListEnvelope.md)
+- [JobOfferApplicationUpdateDto](docs/Model/JobOfferApplicationUpdateDto.md)
 - [JobOfferCreateDto](docs/Model/JobOfferCreateDto.md)
 - [JobOfferDto](docs/Model/JobOfferDto.md)
 - [JobOfferDtoEnvelope](docs/Model/JobOfferDtoEnvelope.md)
 - [JobOfferDtoListEnvelope](docs/Model/JobOfferDtoListEnvelope.md)
+- [JobOfferFieldRecordCreateDto](docs/Model/JobOfferFieldRecordCreateDto.md)
+- [JobOfferFieldRecordDto](docs/Model/JobOfferFieldRecordDto.md)
+- [JobOfferFieldRecordDtoEnvelope](docs/Model/JobOfferFieldRecordDtoEnvelope.md)
+- [JobOfferFieldRecordDtoListEnvelope](docs/Model/JobOfferFieldRecordDtoListEnvelope.md)
+- [JobOfferFieldRecordUpdateDto](docs/Model/JobOfferFieldRecordUpdateDto.md)
 - [JobOfferUpdateDto](docs/Model/JobOfferUpdateDto.md)
 - [JobTitleCreateDto](docs/Model/JobTitleCreateDto.md)
 - [JobTitleDto](docs/Model/JobTitleDto.md)
@@ -310,6 +385,11 @@ Class | Method | HTTP request | Description
 - [PayrollUpdateDto](docs/Model/PayrollUpdateDto.md)
 - [RefreshRequest](docs/Model/RefreshRequest.md)
 - [RegisterRequest](docs/Model/RegisterRequest.md)
+- [RequiredSkillRecordCreateDto](docs/Model/RequiredSkillRecordCreateDto.md)
+- [RequiredSkillRecordDto](docs/Model/RequiredSkillRecordDto.md)
+- [RequiredSkillRecordDtoEnvelope](docs/Model/RequiredSkillRecordDtoEnvelope.md)
+- [RequiredSkillRecordDtoListEnvelope](docs/Model/RequiredSkillRecordDtoListEnvelope.md)
+- [RequiredSkillRecordUpdateDto](docs/Model/RequiredSkillRecordUpdateDto.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [SalaryCreateDto](docs/Model/SalaryCreateDto.md)
@@ -370,6 +450,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5532`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

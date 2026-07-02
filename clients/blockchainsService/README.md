@@ -71,7 +71,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -89,24 +89,23 @@ Class | Method | HTTP request | Description
 *BlockchainsApi* | [**patchBlockchainBlockAsync**](docs/Api/BlockchainsApi.md#patchblockchainblockasync) | **PATCH** /api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks/{blockId} | Patch a blockchain block
 *BlockchainsApi* | [**updateBlockchainAsync**](docs/Api/BlockchainsApi.md#updateblockchainasync) | **PUT** /api/v2/BlockchainsService/Blockchains/{id} | Update a blockchain
 *BlockchainsApi* | [**updateBlockchainBlockAsync**](docs/Api/BlockchainsApi.md#updateblockchainblockasync) | **PUT** /api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks/{blockId} | Update a blockchain block
-*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
-*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
-*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
-*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
-*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
-*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
-*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
 *NonFungibleTokensApi* | [**createNonFungibleTokenAsync**](docs/Api/NonFungibleTokensApi.md#createnonfungibletokenasync) | **POST** /api/v2/BlockchainsService/NonFungibleTokens | Create a new NFT
 *NonFungibleTokensApi* | [**deleteNonFungibleTokenAsync**](docs/Api/NonFungibleTokensApi.md#deletenonfungibletokenasync) | **DELETE** /api/v2/BlockchainsService/NonFungibleTokens/{id} | Delete an NFT
 *NonFungibleTokensApi* | [**getNonFungibleTokenByIdAsync**](docs/Api/NonFungibleTokensApi.md#getnonfungibletokenbyidasync) | **GET** /api/v2/BlockchainsService/NonFungibleTokens/{id} | Get NFT by ID
@@ -268,6 +267,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5532`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -72,7 +72,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -83,6 +83,8 @@ Class | Method | HTTP request | Description
 *AccountGroupsApi* | [**getAccountGroupsCountAsync**](docs/Api/AccountGroupsApi.md#getaccountgroupscountasync) | **GET** /api/v2/AccountingService/AccountGroups/Count | Gets the current tenant accounts count
 *AccountGroupsApi* | [**patchAccountGroupAsync**](docs/Api/AccountGroupsApi.md#patchaccountgroupasync) | **PATCH** /api/v2/AccountingService/AccountGroups/{accountGroupId} | Patch an account group
 *AccountGroupsApi* | [**updateAccountGroup**](docs/Api/AccountGroupsApi.md#updateaccountgroup) | **PUT** /api/v2/AccountingService/AccountGroups/{accountGroupId} | Updates an existing account group
+*AccountingEntriesApi* | [**getCreditsSumAsync**](docs/Api/AccountingEntriesApi.md#getcreditssumasync) | **GET** /api/v2/AccountingService/AccountingEntries/Credits/Sum | Sum tenant accounting-entry credits
+*AccountingEntriesApi* | [**getDebitsSumAsync**](docs/Api/AccountingEntriesApi.md#getdebitssumasync) | **GET** /api/v2/AccountingService/AccountingEntries/Debits/Sum | Sum tenant accounting-entry debits
 *AccountingPeriodsApi* | [**createAccountingPeriod**](docs/Api/AccountingPeriodsApi.md#createaccountingperiod) | **POST** /api/v2/AccountingService/AccountingPeriods | Creates a new accounting period
 *AccountingPeriodsApi* | [**deleteAccountingPeriod**](docs/Api/AccountingPeriodsApi.md#deleteaccountingperiod) | **DELETE** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Deletes an existing accounting period
 *AccountingPeriodsApi* | [**getAccountingPeriod**](docs/Api/AccountingPeriodsApi.md#getaccountingperiod) | **GET** /api/v2/AccountingService/AccountingPeriods/{accountingPeriodId} | Gets the current tenant accounting period
@@ -202,7 +204,6 @@ Class | Method | HTTP request | Description
 *CommissionsApi* | [**patchPaymentCommissionAsync**](docs/Api/CommissionsApi.md#patchpaymentcommissionasync) | **PATCH** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Patch a payment commission
 *CommissionsApi* | [**updateCommissionAsync**](docs/Api/CommissionsApi.md#updatecommissionasync) | **PUT** /api/v2/AccountingService/Commissions/Commissions/{commissionId} | Update a commission
 *CommissionsApi* | [**updatePaymentCommissionAsync**](docs/Api/CommissionsApi.md#updatepaymentcommissionasync) | **PUT** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Update a payment commission
-*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
 *CostCentresApi* | [**createCostCentre**](docs/Api/CostCentresApi.md#createcostcentre) | **POST** /api/v2/AccountingService/CostCentres | Create a cost centre
 *CostCentresApi* | [**createCostCentreBudget**](docs/Api/CostCentresApi.md#createcostcentrebudget) | **POST** /api/v2/AccountingService/CostCentres/CostCentreBudgets | Create a cost centre budget
 *CostCentresApi* | [**createCostCentreGroup**](docs/Api/CostCentresApi.md#createcostcentregroup) | **POST** /api/v2/AccountingService/CostCentres/CostCentreGroups | Create a cost centre group
@@ -237,23 +238,23 @@ Class | Method | HTTP request | Description
 *ExpenseTypesApi* | [**getExpenseTypesCount**](docs/Api/ExpenseTypesApi.md#getexpensetypescount) | **GET** /api/v2/AccountingService/ExpenseTypes/Count | Get the count of expense types for a tenant
 *ExpenseTypesApi* | [**patchExpenseType**](docs/Api/ExpenseTypesApi.md#patchexpensetype) | **PATCH** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Patch an expense type
 *ExpenseTypesApi* | [**updateExpenseType**](docs/Api/ExpenseTypesApi.md#updateexpensetype) | **PUT** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Update an expense type
-*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
-*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
-*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
-*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
-*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
-*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
 *FinancialBooksApi* | [**createFinancialBookAsync**](docs/Api/FinancialBooksApi.md#createfinancialbookasync) | **POST** /api/v2/AccountingService/FinancialBooks | Creates a new financial book
 *FinancialBooksApi* | [**deleteFinancialBookAsync**](docs/Api/FinancialBooksApi.md#deletefinancialbookasync) | **DELETE** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Deletes an existing financial book
 *FinancialBooksApi* | [**getFinancialBookDetailsAsync**](docs/Api/FinancialBooksApi.md#getfinancialbookdetailsasync) | **GET** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Gets the details of a specific financial book
@@ -337,6 +338,8 @@ Class | Method | HTTP request | Description
 *InvoiceEnumerationRangesApi* | [**getInvoiceEnumerationRangesAsync**](docs/Api/InvoiceEnumerationRangesApi.md#getinvoiceenumerationrangesasync) | **GET** /api/v2/AccountingService/InvoiceEnumerationRanges | Get all invoice enumeration ranges
 *InvoiceEnumerationRangesApi* | [**patchInvoiceEnumerationRangeAsync**](docs/Api/InvoiceEnumerationRangesApi.md#patchinvoiceenumerationrangeasync) | **PATCH** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Patch an invoice enumeration range
 *InvoiceEnumerationRangesApi* | [**updateInvoiceEnumerationRangeAsync**](docs/Api/InvoiceEnumerationRangesApi.md#updateinvoiceenumerationrangeasync) | **PUT** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Update an invoice enumeration range
+*JournalEntriesApi* | [**getExpensesSumAsync**](docs/Api/JournalEntriesApi.md#getexpensessumasync) | **GET** /api/v2/AccountingService/JournalEntries/Expenses/Sum | Sum tenant expenses
+*JournalEntriesApi* | [**getIncomesSumAsync**](docs/Api/JournalEntriesApi.md#getincomessumasync) | **GET** /api/v2/AccountingService/JournalEntries/Incomes/Sum | Sum tenant incomes
 *JournalTypesApi* | [**createJournalTypeAsync**](docs/Api/JournalTypesApi.md#createjournaltypeasync) | **POST** /api/v2/AccountingService/JournalTypes | Creates a new journal type
 *JournalTypesApi* | [**deleteJournalTypeAsync**](docs/Api/JournalTypesApi.md#deletejournaltypeasync) | **DELETE** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Deletes a journal type
 *JournalTypesApi* | [**getJournalTypeDetailsAsync**](docs/Api/JournalTypesApi.md#getjournaltypedetailsasync) | **GET** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Retrieves a journal type by ID
@@ -415,6 +418,7 @@ Class | Method | HTTP request | Description
 *SharesApi* | [**getShareIssuance**](docs/Api/SharesApi.md#getshareissuance) | **GET** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Gets a share issuance by id
 *SharesApi* | [**getShareIssuances**](docs/Api/SharesApi.md#getshareissuances) | **GET** /api/v2/AccountingService/Shares/Issuances | Gets the current tenant share issuances
 *SharesApi* | [**getShareIssuancesCount**](docs/Api/SharesApi.md#getshareissuancescount) | **GET** /api/v2/AccountingService/Shares/Issuances/Count | Gets the current tenant share issuances count
+*SharesApi* | [**getShareIssuancesSum**](docs/Api/SharesApi.md#getshareissuancessum) | **GET** /api/v2/AccountingService/Shares/Issuances/Sum | Sum tenant share issuance quantities
 *SharesApi* | [**getShareTransfer**](docs/Api/SharesApi.md#getsharetransfer) | **GET** /api/v2/AccountingService/Shares/Transfers/{transferId} | Gets a share transfer by id
 *SharesApi* | [**getShareTransferReason**](docs/Api/SharesApi.md#getsharetransferreason) | **GET** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Gets a share transfer reason by id
 *SharesApi* | [**getShareTransferReasons**](docs/Api/SharesApi.md#getsharetransferreasons) | **GET** /api/v2/AccountingService/Shares/TransferReasons | Gets the current tenant share transfer reasons
@@ -583,6 +587,7 @@ Class | Method | HTTP request | Description
 - [CostCentreUpdateDto](docs/Model/CostCentreUpdateDto.md)
 - [CreateLedgerDto](docs/Model/CreateLedgerDto.md)
 - [CurrencyId](docs/Model/CurrencyId.md)
+- [DecimalEnvelope](docs/Model/DecimalEnvelope.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [ExpenseClaimCreateDto](docs/Model/ExpenseClaimCreateDto.md)
@@ -779,6 +784,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5532`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

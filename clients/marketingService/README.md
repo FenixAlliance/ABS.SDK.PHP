@@ -51,30 +51,31 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
+$apiInstance = new OpenAPI\Client\Api\EmailGroupsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$conversation_id = 'conversation_id_example'; // string
-$message = 'message_example'; // string
+$email_group_create_dto = new \OpenAPI\Client\Model\EmailGroupCreateDto(); // \OpenAPI\Client\Model\EmailGroupCreateDto
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
+    $result = $apiInstance->createEmailGroupAsync($tenant_id, $email_group_create_dto, $api_version, $x_api_version);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmailGroupsApi->createEmailGroupAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
 *EmailGroupsApi* | [**createEmailGroupAsync**](docs/Api/EmailGroupsApi.md#createemailgroupasync) | **POST** /api/v2/MarketingService/EmailGroups | Create an email group
 *EmailGroupsApi* | [**deleteEmailGroupAsync**](docs/Api/EmailGroupsApi.md#deleteemailgroupasync) | **DELETE** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Delete an email group
 *EmailGroupsApi* | [**getEmailGroupDetailsAsync**](docs/Api/EmailGroupsApi.md#getemailgroupdetailsasync) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Get email group by ID
@@ -96,23 +97,23 @@ Class | Method | HTTP request | Description
 *EmailTemplatesApi* | [**getEmailTemplatesODataAsync**](docs/Api/EmailTemplatesApi.md#getemailtemplatesodataasync) | **GET** /api/v2/MarketingService/EmailTemplates | Get email templates
 *EmailTemplatesApi* | [**patchEmailTemplateAsync**](docs/Api/EmailTemplatesApi.md#patchemailtemplateasync) | **PATCH** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Patch an email template
 *EmailTemplatesApi* | [**updateEmailTemplateAsync**](docs/Api/EmailTemplatesApi.md#updateemailtemplateasync) | **PUT** /api/v2/MarketingService/EmailTemplates/{emailTemplateId} | Update an email template
-*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
-*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
-*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
-*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
-*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
-*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
 *MarketingAreasApi* | [**createMarketingAreaAsync**](docs/Api/MarketingAreasApi.md#createmarketingareaasync) | **POST** /api/v2/MarketingService/MarketingAreas | Create a marketing area
 *MarketingAreasApi* | [**deleteMarketingAreaAsync**](docs/Api/MarketingAreasApi.md#deletemarketingareaasync) | **DELETE** /api/v2/MarketingService/MarketingAreas/{marketingAreaId} | Delete a marketing area
 *MarketingAreasApi* | [**getMarketingAreaByIdAsync**](docs/Api/MarketingAreasApi.md#getmarketingareabyidasync) | **GET** /api/v2/MarketingService/MarketingAreas/{marketingAreaId} | Get marketing area by ID
@@ -141,6 +142,7 @@ Class | Method | HTTP request | Description
 *MarketingListsApi* | [**getMarketingListsCountAsync**](docs/Api/MarketingListsApi.md#getmarketinglistscountasync) | **GET** /api/v2/MarketingService/MarketingLists/Count | Get marketing lists count
 *MarketingListsApi* | [**patchMarketingListAsync**](docs/Api/MarketingListsApi.md#patchmarketinglistasync) | **PATCH** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Patch a marketing list
 *MarketingListsApi* | [**updateMarketingListAsync**](docs/Api/MarketingListsApi.md#updatemarketinglistasync) | **PUT** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Update a marketing list
+*NewsletterSubscriptionsApi* | [**getNewsletterSubscriptionsCountAsync**](docs/Api/NewsletterSubscriptionsApi.md#getnewslettersubscriptionscountasync) | **GET** /api/v2/MarketingService/NewsletterSubscriptions/Count | Get newsletter subscriptions count
 *NewslettersApi* | [**createNewsletterAsync**](docs/Api/NewslettersApi.md#createnewsletterasync) | **POST** /api/v2/MarketingService/Newsletters | Create a newsletter
 *NewslettersApi* | [**deleteNewsletterAsync**](docs/Api/NewslettersApi.md#deletenewsletterasync) | **DELETE** /api/v2/MarketingService/Newsletters/{newsletterId} | Delete a newsletter
 *NewslettersApi* | [**getNewsletterDetailsAsync**](docs/Api/NewslettersApi.md#getnewsletterdetailsasync) | **GET** /api/v2/MarketingService/Newsletters/{newsletterId} | Get newsletter by ID
@@ -253,6 +255,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5532`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

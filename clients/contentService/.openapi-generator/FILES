@@ -8,8 +8,7 @@ docs/Api/BlogPostCategoriesApi.md
 docs/Api/BlogPostTagsApi.md
 docs/Api/BlogPostsApi.md
 docs/Api/BusinessDomainsApi.md
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/LocalizationStringsApi.md
 docs/Api/MenuContextsApi.md
 docs/Api/PortalsApi.md
@@ -295,8 +294,7 @@ lib/Api/BlogPostCategoriesApi.php
 lib/Api/BlogPostTagsApi.php
 lib/Api/BlogPostsApi.php
 lib/Api/BusinessDomainsApi.php
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/LocalizationStringsApi.php
 lib/Api/MenuContextsApi.php
 lib/Api/PortalsApi.php

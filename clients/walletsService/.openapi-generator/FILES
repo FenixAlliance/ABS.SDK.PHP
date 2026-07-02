@@ -3,8 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/WalletsApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/BankAccountCreateDto.md
@@ -64,8 +63,7 @@ docs/Model/WalletWithdrawRequestCreateDto.md
 docs/Model/WalletWithdrawRequestDto.md
 docs/Model/WalletWithdrawRequestDtoListEnvelope.md
 git_push.sh
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/WalletsApi.php
 lib/ApiException.php
 lib/Configuration.php

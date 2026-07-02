@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **featured_image_url** | **string** |  | [optional]
 **code_type** | **string** |  | [optional]
 **slug** | **string** |  | [optional]
+**web_portal_id** | **string** |  | [optional]
 **web_template_id** | **string** |  | [optional]
 **parent_web_content_id** | **string** |  | [optional]
 

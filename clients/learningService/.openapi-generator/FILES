@@ -3,7 +3,6 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
 docs/Api/CourseArticlesApi.md
 docs/Api/CourseAssignmentComponentsApi.md
 docs/Api/CourseAssignmentTypesApi.md
@@ -27,13 +26,14 @@ docs/Api/CourseUnitsApi.md
 docs/Api/CourseUpdatesApi.md
 docs/Api/CourseWikisApi.md
 docs/Api/CoursesApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/InstructorProfilesApi.md
 docs/Api/MeApi.md
 docs/Api/StudentProfilesApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/AverageDto.md
 docs/Model/AverageDtoEnvelope.md
+docs/Model/ContactCreateDto.md
 docs/Model/ContactDto.md
 docs/Model/CountDto.md
 docs/Model/CountDtoEnvelope.md
@@ -135,7 +135,6 @@ docs/Model/StudentProfileUpdateDto.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/CompletionsApi.php
 lib/Api/CourseArticlesApi.php
 lib/Api/CourseAssignmentComponentsApi.php
 lib/Api/CourseAssignmentTypesApi.php
@@ -159,7 +158,7 @@ lib/Api/CourseUnitsApi.php
 lib/Api/CourseUpdatesApi.php
 lib/Api/CourseWikisApi.php
 lib/Api/CoursesApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/InstructorProfilesApi.php
 lib/Api/MeApi.php
 lib/Api/StudentProfilesApi.php
@@ -169,6 +168,7 @@ lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/AverageDto.php
 lib/Model/AverageDtoEnvelope.php
+lib/Model/ContactCreateDto.php
 lib/Model/ContactDto.php
 lib/Model/CountDto.php
 lib/Model/CountDtoEnvelope.php
@@ -272,3 +272,4 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ContactCreateDtoTest.php

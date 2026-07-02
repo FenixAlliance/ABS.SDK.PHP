@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
 **message** | **string** |  |
+**body_html** | **string** |  | [optional]
+**body_format** | **string** |  | [optional]
 **parent_comment_id** | **string** |  | [optional]
 **social_profile_id** | **string** |  | [optional]
 **social_feed_post_id** | **string** |  | [optional]

@@ -4,6 +4,7 @@
 README.md
 composer.json
 docs/Api/AccountGroupsApi.md
+docs/Api/AccountingEntriesApi.md
 docs/Api/AccountingPeriodsApi.md
 docs/Api/AccountsApi.md
 docs/Api/BankProfilesApi.md
@@ -12,11 +13,10 @@ docs/Api/BillableLineTaxesApi.md
 docs/Api/BillingProfilesApi.md
 docs/Api/BudgetsApi.md
 docs/Api/CommissionsApi.md
-docs/Api/CompletionsApi.md
 docs/Api/CostCentresApi.md
 docs/Api/ExpenseClaimsApi.md
 docs/Api/ExpenseTypesApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/FinancialBooksApi.md
 docs/Api/FiscalAuthoritiesApi.md
 docs/Api/FiscalAuthorityYearsApi.md
@@ -29,6 +29,7 @@ docs/Api/FiscalResponsibilityRecordsApi.md
 docs/Api/FiscalYearsApi.md
 docs/Api/GrantsApi.md
 docs/Api/InvoiceEnumerationRangesApi.md
+docs/Api/JournalEntriesApi.md
 docs/Api/JournalTypesApi.md
 docs/Api/JournalsApi.md
 docs/Api/LedgerTypesApi.md
@@ -142,6 +143,7 @@ docs/Model/CostCentreGroupUpdateDto.md
 docs/Model/CostCentreUpdateDto.md
 docs/Model/CreateLedgerDto.md
 docs/Model/CurrencyId.md
+docs/Model/DecimalEnvelope.md
 docs/Model/EmptyEnvelope.md
 docs/Model/ErrorEnvelope.md
 docs/Model/ExpenseClaimCreateDto.md
@@ -319,6 +321,7 @@ docs/Model/TwoFactorResponse.md
 docs/Model/UpdateLedgerDto.md
 git_push.sh
 lib/Api/AccountGroupsApi.php
+lib/Api/AccountingEntriesApi.php
 lib/Api/AccountingPeriodsApi.php
 lib/Api/AccountsApi.php
 lib/Api/BankProfilesApi.php
@@ -327,11 +330,10 @@ lib/Api/BillableLineTaxesApi.php
 lib/Api/BillingProfilesApi.php
 lib/Api/BudgetsApi.php
 lib/Api/CommissionsApi.php
-lib/Api/CompletionsApi.php
 lib/Api/CostCentresApi.php
 lib/Api/ExpenseClaimsApi.php
 lib/Api/ExpenseTypesApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/FinancialBooksApi.php
 lib/Api/FiscalAuthoritiesApi.php
 lib/Api/FiscalAuthorityYearsApi.php
@@ -344,6 +346,7 @@ lib/Api/FiscalResponsibilityRecordsApi.php
 lib/Api/FiscalYearsApi.php
 lib/Api/GrantsApi.php
 lib/Api/InvoiceEnumerationRangesApi.php
+lib/Api/JournalEntriesApi.php
 lib/Api/JournalTypesApi.php
 lib/Api/JournalsApi.php
 lib/Api/LedgerTypesApi.php
@@ -460,6 +463,7 @@ lib/Model/CostCentreGroupUpdateDto.php
 lib/Model/CostCentreUpdateDto.php
 lib/Model/CreateLedgerDto.php
 lib/Model/CurrencyId.php
+lib/Model/DecimalEnvelope.php
 lib/Model/EmptyEnvelope.php
 lib/Model/ErrorEnvelope.php
 lib/Model/ExpenseClaimCreateDto.php
@@ -638,3 +642,6 @@ lib/Model/TwoFactorResponse.php
 lib/Model/UpdateLedgerDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/AccountingEntriesApiTest.php
+test/Api/JournalEntriesApiTest.php
+test/Model/DecimalEnvelopeTest.php

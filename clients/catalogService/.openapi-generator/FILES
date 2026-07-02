@@ -3,8 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/ItemAttachmentsApi.md
 docs/Api/ItemAttributeOptionsApi.md
 docs/Api/ItemAttributesApi.md
@@ -139,8 +138,7 @@ docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 docs/Model/UpdateProductPrimaryImageAsyncRequest.md
 git_push.sh
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/ItemAttachmentsApi.php
 lib/Api/ItemAttributeOptionsApi.php
 lib/Api/ItemAttributesApi.php

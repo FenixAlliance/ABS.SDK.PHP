@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**kind** | **string** |  | [optional]
 **name** | **string** |  |
 **legal_name** | **string** |  | [optional]
 **email** | **string** |  |

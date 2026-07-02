@@ -3,9 +3,8 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
 docs/Api/DiscountListsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/PriceListsApi.md
 docs/Api/PricesApi.md
 docs/Api/PricingRulesApi.md
@@ -62,9 +61,8 @@ docs/Model/RoundingPolicyUpdateDto.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/CompletionsApi.php
 lib/Api/DiscountListsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/PriceListsApi.php
 lib/Api/PricesApi.php
 lib/Api/PricingRulesApi.php

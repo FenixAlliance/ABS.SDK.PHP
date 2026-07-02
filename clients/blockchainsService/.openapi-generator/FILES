@@ -4,8 +4,7 @@
 README.md
 composer.json
 docs/Api/BlockchainsApi.md
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/NonFungibleTokensApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/ApplyClause.md
@@ -139,8 +138,7 @@ docs/Model/X509Certificate2.md
 docs/Model/X509Extension.md
 git_push.sh
 lib/Api/BlockchainsApi.php
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/NonFungibleTokensApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -278,3 +276,4 @@ lib/Model/X509Certificate2.php
 lib/Model/X509Extension.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/FenixAllianceABSWebApiTest.php

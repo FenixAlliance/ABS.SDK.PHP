@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
+**status** | **string** |  | [optional]
 **remote** | **bool** |  | [optional]
 **expected_hire_date** | **\DateTime** |  | [optional]
 **title** | **string** |  | [optional]

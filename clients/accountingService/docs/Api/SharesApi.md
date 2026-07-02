@@ -1,6 +1,6 @@
 # OpenAPI\Client\SharesApi
 
-All URIs are relative to http://localhost, except if the operation defines another base path.
+All URIs are relative to https://absuite.net, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -18,6 +18,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getShareIssuance()**](SharesApi.md#getShareIssuance) | **GET** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Gets a share issuance by id |
 | [**getShareIssuances()**](SharesApi.md#getShareIssuances) | **GET** /api/v2/AccountingService/Shares/Issuances | Gets the current tenant share issuances |
 | [**getShareIssuancesCount()**](SharesApi.md#getShareIssuancesCount) | **GET** /api/v2/AccountingService/Shares/Issuances/Count | Gets the current tenant share issuances count |
+| [**getShareIssuancesSum()**](SharesApi.md#getShareIssuancesSum) | **GET** /api/v2/AccountingService/Shares/Issuances/Sum | Sum tenant share issuance quantities |
 | [**getShareTransfer()**](SharesApi.md#getShareTransfer) | **GET** /api/v2/AccountingService/Shares/Transfers/{transferId} | Gets a share transfer by id |
 | [**getShareTransferReason()**](SharesApi.md#getShareTransferReason) | **GET** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Gets a share transfer reason by id |
 | [**getShareTransferReasons()**](SharesApi.md#getShareTransferReasons) | **GET** /api/v2/AccountingService/Shares/TransferReasons | Gets the current tenant share transfer reasons |
@@ -876,6 +877,66 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getShareIssuancesSum()`
+
+```php
+getShareIssuancesSum($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\DecimalEnvelope
+```
+
+Sum tenant share issuance quantities
+
+Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by the supplied OData date range.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\SharesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getShareIssuancesSum($tenant_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SharesApi->getShareIssuancesSum: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\DecimalEnvelope**](../Model/DecimalEnvelope.md)
 
 ### Authorization
 

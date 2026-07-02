@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **timestamp** | **\DateTime** |  | [optional]
 **type** | **string** |  | [optional]
 **contact_id** | **string** |  | [optional]
+**contact** | [**\OpenAPI\Client\Model\ContactCreateDto**](ContactCreateDto.md) |  | [optional]
 **about** | **string** |  | [optional]
 **avatar_url** | **string** |  | [optional]
 **data** | **string** |  | [optional]

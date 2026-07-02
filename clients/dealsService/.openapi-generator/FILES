@@ -3,10 +3,9 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
 docs/Api/DealUnitFlowsApi.md
 docs/Api/DealUnitsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/ContactDto.md
 docs/Model/DealUnitCreateDto.md
@@ -51,10 +50,9 @@ docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 docs/Model/UserDto.md
 git_push.sh
-lib/Api/CompletionsApi.php
 lib/Api/DealUnitFlowsApi.php
 lib/Api/DealUnitsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php

@@ -7,8 +7,7 @@ docs/Api/AssetCategoriesApi.md
 docs/Api/AssetTransfersApi.md
 docs/Api/AssetTypesApi.md
 docs/Api/AssetsApi.md
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/AssetCategoryCreateDto.md
 docs/Model/AssetCategoryDto.md
@@ -65,8 +64,7 @@ lib/Api/AssetCategoriesApi.php
 lib/Api/AssetTransfersApi.php
 lib/Api/AssetTypesApi.php
 lib/Api/AssetsApi.php
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php

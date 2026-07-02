@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **hash** | **string** |  | [optional]
 **file_url** | **string** |  | [optional]
 **file_path** | **string** |  | [optional]
+**storage_key** | **string** |  | [optional]
+**storage_provider_key** | **string** |  | [optional]
 **file_name** | **string** |  | [optional]
 **abstract** | **string** |  | [optional]
 **key_words** | **string** |  | [optional]
@@ -26,6 +28,14 @@ Name | Type | Description | Notes
 **enrollment_id** | **string** |  | [optional]
 **social_profile_id** | **string** |  | [optional]
 **folder_path** | **string** |  | [optional]
+**scan_status** | **string** |  | [optional]
+**thumbnail_status** | **string** |  | [optional]
+**has_thumbnail** | **bool** |  | [optional] [readonly]
+**thumbnail_storage_key** | **string** |  | [optional]
+**thumbnail_content_type** | **string** |  | [optional]
+**thumbnail_width** | **int** |  | [optional]
+**thumbnail_height** | **int** |  | [optional]
+**public_access_type** | **string** |  | [optional]
 **support_request_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

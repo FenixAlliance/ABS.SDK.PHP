@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **timestamp** | **\DateTime** |  | [optional]
 **name** | **string** |  | [optional]
+**un_ece_code** | **string** |  | [optional]
 **unit_group_id** | **string** |  | [optional]
 **base_unit_amount** | **float** |  | [optional]
 **base_unit_id** | **string** |  | [optional]

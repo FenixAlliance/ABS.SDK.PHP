@@ -3,10 +3,8 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Model/AccessTokenResponse.md
-docs/Model/ErrorEnvelope.md
 docs/Model/ForgotPasswordRequest.md
 docs/Model/HttpValidationProblemDetails.md
 docs/Model/InfoRequest.md
@@ -19,13 +17,11 @@ docs/Model/ResetPasswordRequest.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
-lib/Model/ErrorEnvelope.php
 lib/Model/ForgotPasswordRequest.php
 lib/Model/HttpValidationProblemDetails.php
 lib/Model/InfoRequest.php

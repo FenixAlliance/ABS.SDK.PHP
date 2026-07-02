@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **timestamp** | **\DateTime** |  | [optional]
 **name** | **string** |  | [optional]
 **description** | **string** |  | [optional]
+**payment_means_code** | **string** |  | [optional]
 **tenant_id** | **string** |  | [optional]
 **enrollment_id** | **string** |  | [optional]
 

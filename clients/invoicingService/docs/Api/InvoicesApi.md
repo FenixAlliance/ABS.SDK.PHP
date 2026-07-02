@@ -1,6 +1,6 @@
 # OpenAPI\Client\InvoicesApi
 
-All URIs are relative to http://localhost, except if the operation defines another base path.
+All URIs are relative to https://absuite.net, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -40,6 +40,8 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getInvoiceReferencesCount()**](InvoicesApi.md#getInvoiceReferencesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references. |
 | [**getInvoices()**](InvoicesApi.md#getInvoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices. |
 | [**getInvoicesCount()**](InvoicesApi.md#getInvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices. |
+| [**getPurchaseInvoicesSum()**](InvoicesApi.md#getPurchaseInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum | Sum tenant purchase-invoice totals. |
+| [**getSalesInvoicesSum()**](InvoicesApi.md#getSalesInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/SalesInvoices/Sum | Sum tenant sales-invoice totals. |
 | [**patchInvoice()**](InvoicesApi.md#patchInvoice) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice. |
 | [**patchInvoiceAdjustment()**](InvoicesApi.md#patchInvoiceAdjustment) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment. |
 | [**patchInvoiceLine()**](InvoicesApi.md#patchInvoiceLine) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line. |
@@ -2164,6 +2166,118 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPurchaseInvoicesSum()`
+
+```php
+getPurchaseInvoicesSum($tenant_id): \OpenAPI\Client\Model\DecimalEnvelope
+```
+
+Sum tenant purchase-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseInvoice, filtered by the supplied OData date range.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getPurchaseInvoicesSum($tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->getPurchaseInvoicesSum: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\DecimalEnvelope**](../Model/DecimalEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSalesInvoicesSum()`
+
+```php
+getSalesInvoicesSum($tenant_id): \OpenAPI\Client\Model\DecimalEnvelope
+```
+
+Sum tenant sales-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvoice, filtered by the supplied OData date range.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getSalesInvoicesSum($tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->getSalesInvoicesSum: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\DecimalEnvelope**](../Model/DecimalEnvelope.md)
 
 ### Authorization
 

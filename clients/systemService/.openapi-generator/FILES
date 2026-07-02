@@ -6,12 +6,10 @@ composer.json
 docs/Api/AntiforgeryApi.md
 docs/Api/BusinessDomainsApi.md
 docs/Api/CartsApi.md
-docs/Api/CompletionsApi.md
 docs/Api/ContactOptionsApi.md
 docs/Api/EmailsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/IPLookupsApi.md
-docs/Api/LicensesApi.md
 docs/Api/LicensingApi.md
 docs/Api/MigrationsApi.md
 docs/Api/ModulesApi.md
@@ -23,7 +21,6 @@ docs/Api/TenantsApi.md
 docs/Api/UserOptionsApi.md
 docs/Api/UsersApi.md
 docs/Model/AccessTokenResponse.md
-docs/Model/AdditionalAttribute.md
 docs/Model/BooleanEnvelope.md
 docs/Model/BusinessDomainDto.md
 docs/Model/BusinessDomainDtoEnvelope.md
@@ -54,12 +51,6 @@ docs/Model/IValidationFailureListEnvelope.md
 docs/Model/InfoRequest.md
 docs/Model/InfoResponse.md
 docs/Model/Int32Envelope.md
-docs/Model/LicenseAttributesListEnvelope.md
-docs/Model/LicenseFeature.md
-docs/Model/LicenseKey.md
-docs/Model/LicenseKeyRequest.md
-docs/Model/LicenseValidationError.md
-docs/Model/LicenseValidationErrorListEnvelope.md
 docs/Model/LicenseValidationRequest.md
 docs/Model/LoginRequest.md
 docs/Model/Module.md
@@ -76,7 +67,6 @@ docs/Model/RegisterRequest.md
 docs/Model/ResendConfirmationEmailRequest.md
 docs/Model/ResetPasswordRequest.md
 docs/Model/SocialProfileDto.md
-docs/Model/StringEnvelope.md
 docs/Model/StringListEnvelope.md
 docs/Model/StudioModule.md
 docs/Model/StudioModuleListEnvelope.md
@@ -110,12 +100,10 @@ git_push.sh
 lib/Api/AntiforgeryApi.php
 lib/Api/BusinessDomainsApi.php
 lib/Api/CartsApi.php
-lib/Api/CompletionsApi.php
 lib/Api/ContactOptionsApi.php
 lib/Api/EmailsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/IPLookupsApi.php
-lib/Api/LicensesApi.php
 lib/Api/LicensingApi.php
 lib/Api/MigrationsApi.php
 lib/Api/ModulesApi.php
@@ -130,7 +118,6 @@ lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
-lib/Model/AdditionalAttribute.php
 lib/Model/BooleanEnvelope.php
 lib/Model/BusinessDomainDto.php
 lib/Model/BusinessDomainDtoEnvelope.php
@@ -161,12 +148,6 @@ lib/Model/IValidationFailureListEnvelope.php
 lib/Model/InfoRequest.php
 lib/Model/InfoResponse.php
 lib/Model/Int32Envelope.php
-lib/Model/LicenseAttributesListEnvelope.php
-lib/Model/LicenseFeature.php
-lib/Model/LicenseKey.php
-lib/Model/LicenseKeyRequest.php
-lib/Model/LicenseValidationError.php
-lib/Model/LicenseValidationErrorListEnvelope.php
 lib/Model/LicenseValidationRequest.php
 lib/Model/LoginRequest.php
 lib/Model/ModelInterface.php
@@ -184,7 +165,6 @@ lib/Model/RegisterRequest.php
 lib/Model/ResendConfirmationEmailRequest.php
 lib/Model/ResetPasswordRequest.php
 lib/Model/SocialProfileDto.php
-lib/Model/StringEnvelope.php
 lib/Model/StringListEnvelope.php
 lib/Model/StudioModule.php
 lib/Model/StudioModuleListEnvelope.php

@@ -3,8 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/LoyaltyProgramsApi.md
 docs/Api/MarginsApi.md
 docs/Api/PointOfSalesApi.md
@@ -51,8 +50,7 @@ docs/Model/TenantDto.md
 docs/Model/TwoFactorRequest.md
 docs/Model/TwoFactorResponse.md
 git_push.sh
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/LoyaltyProgramsApi.php
 lib/Api/MarginsApi.php
 lib/Api/PointOfSalesApi.php

@@ -51,47 +51,71 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\CompletionsApi(
+$apiInstance = new OpenAPI\Client\Api\CurriculumExperiencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$curriculum_id = 'curriculum_id_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
 $tenant_id = 'tenant_id_example'; // string
-$conversation_id = 'conversation_id_example'; // string
-$message = 'message_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$curriculum_experience_create_dto = new \OpenAPI\Client\Model\CurriculumExperienceCreateDto(); // \OpenAPI\Client\Model\CurriculumExperienceCreateDto
 
 try {
-    $apiInstance->apiV2AiServiceCompletionsCompleteGet($tenant_id, $conversation_id, $message);
+    $result = $apiInstance->createCurriculumExperienceAsync($curriculum_id, $social_profile_id, $tenant_id, $api_version, $x_api_version, $curriculum_experience_create_dto);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CompletionsApi->apiV2AiServiceCompletionsCompleteGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CurriculumExperiencesApi->createCurriculumExperienceAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CompletionsApi* | [**apiV2AiServiceCompletionsCompleteGet**](docs/Api/CompletionsApi.md#apiv2aiservicecompletionscompleteget) | **GET** /api/v2/AiService/Completions/Complete | 
-*FenixAlliancePortalsWebsiteApi* | [**accountLogoutPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountlogoutpost) | **POST** /Account/Logout | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
-*FenixAlliancePortalsWebsiteApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
-*FenixAlliancePortalsWebsiteApi* | [**forgotPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**healthGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#healthget) | **GET** /health | 
-*FenixAlliancePortalsWebsiteApi* | [**helloGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#helloget) | **GET** /hello | 
-*FenixAlliancePortalsWebsiteApi* | [**loginPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#loginpost) | **POST** /login | 
-*FenixAlliancePortalsWebsiteApi* | [**manage2faPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manage2fapost) | **POST** /manage/2fa | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfoget) | **GET** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**manageInfoPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#manageinfopost) | **POST** /manage/info | 
-*FenixAlliancePortalsWebsiteApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAlliancePortalsWebsiteApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**refreshPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#refreshpost) | **POST** /refresh | 
-*FenixAlliancePortalsWebsiteApi* | [**registerPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#registerpost) | **POST** /register | 
-*FenixAlliancePortalsWebsiteApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
-*FenixAlliancePortalsWebsiteApi* | [**resetPasswordPost**](docs/Api/FenixAlliancePortalsWebsiteApi.md#resetpasswordpost) | **POST** /resetPassword | 
-*FenixAlliancePortalsWebsiteApi* | [**versionGet**](docs/Api/FenixAlliancePortalsWebsiteApi.md#versionget) | **GET** /version | 
+*CurriculumExperiencesApi* | [**createCurriculumExperienceAsync**](docs/Api/CurriculumExperiencesApi.md#createcurriculumexperienceasync) | **POST** /api/v2/SocialService/Curriculums/{curriculumId}/Experiences | Create a curriculum experience
+*CurriculumExperiencesApi* | [**deleteCurriculumExperienceAsync**](docs/Api/CurriculumExperiencesApi.md#deletecurriculumexperienceasync) | **DELETE** /api/v2/SocialService/Curriculums/{curriculumId}/Experiences/{experienceId} | Delete a curriculum experience
+*CurriculumExperiencesApi* | [**getCurriculumExperienceAsync**](docs/Api/CurriculumExperiencesApi.md#getcurriculumexperienceasync) | **GET** /api/v2/SocialService/Curriculums/{curriculumId}/Experiences/{experienceId} | Get curriculum experience by ID
+*CurriculumExperiencesApi* | [**getCurriculumExperiencesAsync**](docs/Api/CurriculumExperiencesApi.md#getcurriculumexperiencesasync) | **GET** /api/v2/SocialService/Curriculums/{curriculumId}/Experiences | Get curriculum experiences
+*CurriculumExperiencesApi* | [**getCurriculumExperiencesCountAsync**](docs/Api/CurriculumExperiencesApi.md#getcurriculumexperiencescountasync) | **GET** /api/v2/SocialService/Curriculums/{curriculumId}/Experiences/Count | Count curriculum experiences
+*CurriculumExperiencesApi* | [**patchCurriculumExperienceAsync**](docs/Api/CurriculumExperiencesApi.md#patchcurriculumexperienceasync) | **PATCH** /api/v2/SocialService/Curriculums/{curriculumId}/Experiences/{experienceId} | Patch a curriculum experience
+*CurriculumExperiencesApi* | [**updateCurriculumExperienceAsync**](docs/Api/CurriculumExperiencesApi.md#updatecurriculumexperienceasync) | **PUT** /api/v2/SocialService/Curriculums/{curriculumId}/Experiences/{experienceId} | Update a curriculum experience
+*CurriculumsApi* | [**createCurriculumAsync**](docs/Api/CurriculumsApi.md#createcurriculumasync) | **POST** /api/v2/SocialService/Curriculums | Create a curriculum
+*CurriculumsApi* | [**deleteCurriculumAsync**](docs/Api/CurriculumsApi.md#deletecurriculumasync) | **DELETE** /api/v2/SocialService/Curriculums/{curriculumId} | Delete a curriculum
+*CurriculumsApi* | [**getCurriculumAsync**](docs/Api/CurriculumsApi.md#getcurriculumasync) | **GET** /api/v2/SocialService/Curriculums/{curriculumId} | Get curriculum by ID
+*CurriculumsApi* | [**getCurriculumsAsync**](docs/Api/CurriculumsApi.md#getcurriculumsasync) | **GET** /api/v2/SocialService/Curriculums | Get curricula
+*CurriculumsApi* | [**getCurriculumsCountAsync**](docs/Api/CurriculumsApi.md#getcurriculumscountasync) | **GET** /api/v2/SocialService/Curriculums/Count | Count curricula
+*CurriculumsApi* | [**patchCurriculumAsync**](docs/Api/CurriculumsApi.md#patchcurriculumasync) | **PATCH** /api/v2/SocialService/Curriculums/{curriculumId} | Patch a curriculum
+*CurriculumsApi* | [**updateCurriculumAsync**](docs/Api/CurriculumsApi.md#updatecurriculumasync) | **PUT** /api/v2/SocialService/Curriculums/{curriculumId} | Update a curriculum
+*FenixAllianceABSWebApi* | [**accountLogoutPost**](docs/Api/FenixAllianceABSWebApi.md#accountlogoutpost) | **POST** /Account/Logout | 
+*FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
+*FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
+*FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
+*FenixAllianceABSWebApi* | [**loginPost**](docs/Api/FenixAllianceABSWebApi.md#loginpost) | **POST** /login | 
+*FenixAllianceABSWebApi* | [**manage2faPost**](docs/Api/FenixAllianceABSWebApi.md#manage2fapost) | **POST** /manage/2fa | 
+*FenixAllianceABSWebApi* | [**manageInfoGet**](docs/Api/FenixAllianceABSWebApi.md#manageinfoget) | **GET** /manage/info | 
+*FenixAllianceABSWebApi* | [**manageInfoPost**](docs/Api/FenixAllianceABSWebApi.md#manageinfopost) | **POST** /manage/info | 
+*FenixAllianceABSWebApi* | [**mapIdentityApiConfirmEmail**](docs/Api/FenixAllianceABSWebApi.md#mapidentityapiconfirmemail) | **GET** /confirmEmail | 
+*FenixAllianceABSWebApi* | [**refreshPost**](docs/Api/FenixAllianceABSWebApi.md#refreshpost) | **POST** /refresh | 
+*FenixAllianceABSWebApi* | [**registerPost**](docs/Api/FenixAllianceABSWebApi.md#registerpost) | **POST** /register | 
+*FenixAllianceABSWebApi* | [**resendConfirmationEmailPost**](docs/Api/FenixAllianceABSWebApi.md#resendconfirmationemailpost) | **POST** /resendConfirmationEmail | 
+*FenixAllianceABSWebApi* | [**resetPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#resetpasswordpost) | **POST** /resetPassword | 
+*FenixAllianceABSWebApi* | [**versionGet**](docs/Api/FenixAllianceABSWebApi.md#versionget) | **GET** /version | 
+*SkillsApi* | [**createSkillAsync**](docs/Api/SkillsApi.md#createskillasync) | **POST** /api/v2/SocialService/Skills | Create a skill
+*SkillsApi* | [**deleteSkillAsync**](docs/Api/SkillsApi.md#deleteskillasync) | **DELETE** /api/v2/SocialService/Skills/{skillId} | Delete a skill
+*SkillsApi* | [**getSkillByIdAsync**](docs/Api/SkillsApi.md#getskillbyidasync) | **GET** /api/v2/SocialService/Skills/{skillId} | Get skill by ID
+*SkillsApi* | [**getSkillsAsync**](docs/Api/SkillsApi.md#getskillsasync) | **GET** /api/v2/SocialService/Skills | Get skills
+*SkillsApi* | [**getSkillsCountAsync**](docs/Api/SkillsApi.md#getskillscountasync) | **GET** /api/v2/SocialService/Skills/Count | Count skills
+*SkillsApi* | [**patchSkillAsync**](docs/Api/SkillsApi.md#patchskillasync) | **PATCH** /api/v2/SocialService/Skills/{skillId} | Patch a skill
+*SkillsApi* | [**updateSkillAsync**](docs/Api/SkillsApi.md#updateskillasync) | **PUT** /api/v2/SocialService/Skills/{skillId} | Update a skill
 *SocialFeedsApi* | [**createFeedPostAsync**](docs/Api/SocialFeedsApi.md#createfeedpostasync) | **POST** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts | Create a social feed post
 *SocialFeedsApi* | [**deleteFeedPostAsync**](docs/Api/SocialFeedsApi.md#deletefeedpostasync) | **DELETE** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/{feedPostId} | Delete a social feed post
 *SocialFeedsApi* | [**getFeedNotifications**](docs/Api/SocialFeedsApi.md#getfeednotifications) | **GET** /api/v2/SocialService/SocialFeeds | Get social feeds
@@ -167,6 +191,16 @@ Class | Method | HTTP request | Description
 - [ConversationCreateDto](docs/Model/ConversationCreateDto.md)
 - [ConversationDto](docs/Model/ConversationDto.md)
 - [ConversationDtoListEnvelope](docs/Model/ConversationDtoListEnvelope.md)
+- [CurriculumCreateDto](docs/Model/CurriculumCreateDto.md)
+- [CurriculumDto](docs/Model/CurriculumDto.md)
+- [CurriculumDtoEnvelope](docs/Model/CurriculumDtoEnvelope.md)
+- [CurriculumDtoListEnvelope](docs/Model/CurriculumDtoListEnvelope.md)
+- [CurriculumExperienceCreateDto](docs/Model/CurriculumExperienceCreateDto.md)
+- [CurriculumExperienceDto](docs/Model/CurriculumExperienceDto.md)
+- [CurriculumExperienceDtoEnvelope](docs/Model/CurriculumExperienceDtoEnvelope.md)
+- [CurriculumExperienceDtoListEnvelope](docs/Model/CurriculumExperienceDtoListEnvelope.md)
+- [CurriculumExperienceUpdateDto](docs/Model/CurriculumExperienceUpdateDto.md)
+- [CurriculumUpdateDto](docs/Model/CurriculumUpdateDto.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
 - [ErrorEnvelope](docs/Model/ErrorEnvelope.md)
 - [FollowRecordDto](docs/Model/FollowRecordDto.md)
@@ -189,6 +223,11 @@ Class | Method | HTTP request | Description
 - [RegisterRequest](docs/Model/RegisterRequest.md)
 - [ResendConfirmationEmailRequest](docs/Model/ResendConfirmationEmailRequest.md)
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
+- [SkillCreateDto](docs/Model/SkillCreateDto.md)
+- [SkillDto](docs/Model/SkillDto.md)
+- [SkillDtoEnvelope](docs/Model/SkillDtoEnvelope.md)
+- [SkillDtoListEnvelope](docs/Model/SkillDtoListEnvelope.md)
+- [SkillUpdateDto](docs/Model/SkillUpdateDto.md)
 - [SocialFeedDto](docs/Model/SocialFeedDto.md)
 - [SocialFeedDtoEnvelope](docs/Model/SocialFeedDtoEnvelope.md)
 - [SocialFeedDtoListEnvelope](docs/Model/SocialFeedDtoListEnvelope.md)
@@ -248,6 +287,6 @@ support@fenix-alliance.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.1.2.5532`
+- API version: `2.0.0.0`
     - Generator version: `7.9.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

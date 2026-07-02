@@ -3,8 +3,7 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CompletionsApi.md
-docs/Api/FenixAlliancePortalsWebsiteApi.md
+docs/Api/FenixAllianceABSWebApi.md
 docs/Api/InquiryRequestsApi.md
 docs/Api/KnowledgeArticlesApi.md
 docs/Api/MaintenanceVisitsApi.md
@@ -117,8 +116,7 @@ docs/Model/WarrantyRequestDtoEnvelope.md
 docs/Model/WarrantyRequestDtoListEnvelope.md
 docs/Model/WarrantyRequestUpdateDto.md
 git_push.sh
-lib/Api/CompletionsApi.php
-lib/Api/FenixAlliancePortalsWebsiteApi.php
+lib/Api/FenixAllianceABSWebApi.php
 lib/Api/InquiryRequestsApi.php
 lib/Api/KnowledgeArticlesApi.php
 lib/Api/MaintenanceVisitsApi.php

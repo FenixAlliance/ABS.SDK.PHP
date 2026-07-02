@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 **zero** | **bool** |  | [optional]
 **reduced** | **bool** |  | [optional]
 **withholding** | **bool** |  | [optional]
+**tax_scheme_code** | **string** |  | [optional]
+**tax_category_code** | **string** |  | [optional]
 **fiscal_authority_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
