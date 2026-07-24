@@ -76,7 +76,21 @@ class ContactsApi
             'application/json',
             'application/xml',
         ],
+        'createContactEmailAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'createProfileForContactAsync' => [
+            'application/json',
+            'application/xml',
+        ],
         'deleteContactAsync' => [
+            'application/json',
+        ],
+        'deleteContactEmailAsync' => [
+            'application/json',
+        ],
+        'deleteProfileForContactAsync' => [
             'application/json',
         ],
         'getBusinessOwnedIndividualAsync' => [
@@ -106,7 +120,10 @@ class ContactsApi
         'getContactCartAsync' => [
             'application/json',
         ],
-        'getContactProfilesAsync' => [
+        'getContactEmailsAsync' => [
+            'application/json',
+        ],
+        'getContactEmailsCountAsync' => [
             'application/json',
         ],
         'getContactSocialProfileAsync' => [
@@ -145,7 +162,17 @@ class ContactsApi
         'getOrganizationRelatedOrganizationsAsync' => [
             'application/json',
         ],
+        'getProfilesForContactAsync' => [
+            'application/json',
+        ],
+        'getProfilesForContactCountAsync' => [
+            'application/json',
+        ],
         'patchContactAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'patchContactEmailAsync' => [
             'application/json',
             'application/xml',
         ],
@@ -166,10 +193,21 @@ class ContactsApi
             'application/json',
             'application/xml',
         ],
+        'updateContactEmailAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'updateProfileForContactAsync' => [
+            'application/json',
+            'application/xml',
+        ],
         'upsertTenantOntoAnotherTenantContactListAsync' => [
             'application/json',
         ],
         'upsertUserOntoAnotherTenantContactListAsync' => [
+            'application/json',
+        ],
+        'verifyContactEmailAsync' => [
             'application/json',
         ],
     ];
@@ -632,6 +670,590 @@ class ContactsApi
     }
 
     /**
+     * Operation createContactEmailAsync
+     *
+     * Add an email address to a contact
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailCreateDto $contact_email_create_dto contact_email_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createContactEmailAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_email_create_dto = null, string $contentType = self::contentTypes['createContactEmailAsync'][0])
+    {
+        $this->createContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_create_dto, $contentType);
+    }
+
+    /**
+     * Operation createContactEmailAsyncWithHttpInfo
+     *
+     * Add an email address to a contact
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailCreateDto $contact_email_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_email_create_dto = null, string $contentType = self::contentTypes['createContactEmailAsync'][0])
+    {
+        $request = $this->createContactEmailAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_create_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createContactEmailAsyncAsync
+     *
+     * Add an email address to a contact
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailCreateDto $contact_email_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createContactEmailAsyncAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_email_create_dto = null, string $contentType = self::contentTypes['createContactEmailAsync'][0])
+    {
+        return $this->createContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_create_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createContactEmailAsyncAsyncWithHttpInfo
+     *
+     * Add an email address to a contact
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailCreateDto $contact_email_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_email_create_dto = null, string $contentType = self::contentTypes['createContactEmailAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->createContactEmailAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_create_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createContactEmailAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailCreateDto $contact_email_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createContactEmailAsyncRequest($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_email_create_dto = null, string $contentType = self::contentTypes['createContactEmailAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling createContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling createContactEmailAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Emails/Addresses';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($contact_email_create_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_email_create_dto));
+            } else {
+                $httpBody = $contact_email_create_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createProfileForContactAsync
+     *
+     * Create a contact profile
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileCreateDto $contact_profile_create_dto contact_profile_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createProfileForContactAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_profile_create_dto = null, string $contentType = self::contentTypes['createProfileForContactAsync'][0])
+    {
+        $this->createProfileForContactAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_create_dto, $contentType);
+    }
+
+    /**
+     * Operation createProfileForContactAsyncWithHttpInfo
+     *
+     * Create a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileCreateDto $contact_profile_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createProfileForContactAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_profile_create_dto = null, string $contentType = self::contentTypes['createProfileForContactAsync'][0])
+    {
+        $request = $this->createProfileForContactAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_create_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createProfileForContactAsyncAsync
+     *
+     * Create a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileCreateDto $contact_profile_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createProfileForContactAsyncAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_profile_create_dto = null, string $contentType = self::contentTypes['createProfileForContactAsync'][0])
+    {
+        return $this->createProfileForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_create_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createProfileForContactAsyncAsyncWithHttpInfo
+     *
+     * Create a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileCreateDto $contact_profile_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createProfileForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_profile_create_dto = null, string $contentType = self::contentTypes['createProfileForContactAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->createProfileForContactAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_create_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createProfileForContactAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileCreateDto $contact_profile_create_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createProfileForContactAsyncRequest($tenant_id, $contact_id, $api_version = null, $x_api_version = null, $contact_profile_create_dto = null, string $contentType = self::contentTypes['createProfileForContactAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling createProfileForContactAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling createProfileForContactAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Profiles';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($contact_profile_create_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_profile_create_dto));
+            } else {
+                $httpBody = $contact_profile_create_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteContactAsync
      *
      * Delete a contact
@@ -997,6 +1619,604 @@ class ContactsApi
             $resourcePath = str_replace(
                 '{' . 'contactId' . '}',
                 ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteContactEmailAsync
+     *
+     * Delete a contact email address
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $email_id email_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteContactEmailAsync'][0])
+    {
+        $this->deleteContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType);
+    }
+
+    /**
+     * Operation deleteContactEmailAsyncWithHttpInfo
+     *
+     * Delete a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteContactEmailAsync'][0])
+    {
+        $request = $this->deleteContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteContactEmailAsyncAsync
+     *
+     * Delete a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteContactEmailAsyncAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteContactEmailAsync'][0])
+    {
+        return $this->deleteContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteContactEmailAsyncAsyncWithHttpInfo
+     *
+     * Delete a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteContactEmailAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteContactEmailAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteContactEmailAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling deleteContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling deleteContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'email_id' is set
+        if ($email_id === null || (is_array($email_id) && count($email_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_id when calling deleteContactEmailAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'emailId' . '}',
+                ObjectSerializer::toPathValue($email_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteProfileForContactAsync
+     *
+     * Delete a contact profile
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $profile_id profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteProfileForContactAsync($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteProfileForContactAsync'][0])
+    {
+        $this->deleteProfileForContactAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contentType);
+    }
+
+    /**
+     * Operation deleteProfileForContactAsyncWithHttpInfo
+     *
+     * Delete a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteProfileForContactAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteProfileForContactAsync'][0])
+    {
+        $request = $this->deleteProfileForContactAsyncRequest($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteProfileForContactAsyncAsync
+     *
+     * Delete a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProfileForContactAsyncAsync($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteProfileForContactAsync'][0])
+    {
+        return $this->deleteProfileForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteProfileForContactAsyncAsyncWithHttpInfo
+     *
+     * Delete a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProfileForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteProfileForContactAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteProfileForContactAsyncRequest($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteProfileForContactAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteProfileForContactAsyncRequest($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['deleteProfileForContactAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling deleteProfileForContactAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling deleteProfileForContactAsync'
+            );
+        }
+
+        // verify the required parameter 'profile_id' is set
+        if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $profile_id when calling deleteProfileForContactAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($profile_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'profileId' . '}',
+                ObjectSerializer::toPathValue($profile_id),
                 $resourcePath
             );
         }
@@ -4897,44 +6117,44 @@ class ContactsApi
     }
 
     /**
-     * Operation getContactProfilesAsync
+     * Operation getContactEmailsAsync
      *
-     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s email addresses
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $contact_id contact_id (required)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactProfilesAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactProfileDtoListEnvelope
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactEmailDtoListEnvelope
      */
-    public function getContactProfilesAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactProfilesAsync'][0])
+    public function getContactEmailsAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsAsync'][0])
     {
-        list($response) = $this->getContactProfilesAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getContactEmailsAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
     /**
-     * Operation getContactProfilesAsyncWithHttpInfo
+     * Operation getContactEmailsAsyncWithHttpInfo
      *
-     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s email addresses
      *
      * @param  string $tenant_id (required)
      * @param  string $contact_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactProfilesAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactEmailDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactProfilesAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactProfilesAsync'][0])
+    public function getContactEmailsAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsAsync'][0])
     {
-        $request = $this->getContactProfilesAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+        $request = $this->getContactEmailsAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4960,33 +6180,6 @@ class ContactsApi
 
 
             switch($statusCode) {
-                case 404:
-                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 403:
                     if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -5042,11 +6235,11 @@ class ContactsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\OpenAPI\Client\Model\ContactProfileDtoListEnvelope' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ContactEmailDtoListEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ContactProfileDtoListEnvelope' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ContactEmailDtoListEnvelope' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5064,7 +6257,7 @@ class ContactsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ContactEmailDtoListEnvelope', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5083,7 +6276,7 @@ class ContactsApi
                 );
             }
 
-            $returnType = '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope';
+            $returnType = '\OpenAPI\Client\Model\ContactEmailDtoListEnvelope';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5113,14 +6306,6 @@ class ContactsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ErrorEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -5140,7 +6325,7 @@ class ContactsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope',
+                        '\OpenAPI\Client\Model\ContactEmailDtoListEnvelope',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5151,22 +6336,22 @@ class ContactsApi
     }
 
     /**
-     * Operation getContactProfilesAsyncAsync
+     * Operation getContactEmailsAsyncAsync
      *
-     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s email addresses
      *
      * @param  string $tenant_id (required)
      * @param  string $contact_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactProfilesAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactProfilesAsyncAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactProfilesAsync'][0])
+    public function getContactEmailsAsyncAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsAsync'][0])
     {
-        return $this->getContactProfilesAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType)
+        return $this->getContactEmailsAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5175,23 +6360,23 @@ class ContactsApi
     }
 
     /**
-     * Operation getContactProfilesAsyncAsyncWithHttpInfo
+     * Operation getContactEmailsAsyncAsyncWithHttpInfo
      *
-     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s email addresses
      *
      * @param  string $tenant_id (required)
      * @param  string $contact_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactProfilesAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactProfilesAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactProfilesAsync'][0])
+    public function getContactEmailsAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsAsync'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope';
-        $request = $this->getContactProfilesAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+        $returnType = '\OpenAPI\Client\Model\ContactEmailDtoListEnvelope';
+        $request = $this->getContactEmailsAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5230,38 +6415,427 @@ class ContactsApi
     }
 
     /**
-     * Create request for operation 'getContactProfilesAsync'
+     * Create request for operation 'getContactEmailsAsync'
      *
      * @param  string $tenant_id (required)
      * @param  string $contact_id (required)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactProfilesAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getContactProfilesAsyncRequest($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactProfilesAsync'][0])
+    public function getContactEmailsAsyncRequest($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
         if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling getContactProfilesAsync'
+                'Missing the required parameter $tenant_id when calling getContactEmailsAsync'
             );
         }
 
         // verify the required parameter 'contact_id' is set
         if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_id when calling getContactProfilesAsync'
+                'Missing the required parameter $contact_id when calling getContactEmailsAsync'
             );
         }
 
 
 
 
-        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Profiles';
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Emails';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getContactEmailsCountAsync
+     *
+     * Get contact email addresses count
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
+     */
+    public function getContactEmailsCountAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsCountAsync'][0])
+    {
+        list($response) = $this->getContactEmailsCountAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getContactEmailsCountAsyncWithHttpInfo
+     *
+     * Get contact email addresses count
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getContactEmailsCountAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsCountAsync'][0])
+    {
+        $request = $this->getContactEmailsCountAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\Int32Envelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Int32Envelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Int32Envelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Int32Envelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getContactEmailsCountAsyncAsync
+     *
+     * Get contact email addresses count
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getContactEmailsCountAsyncAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsCountAsync'][0])
+    {
+        return $this->getContactEmailsCountAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getContactEmailsCountAsyncAsyncWithHttpInfo
+     *
+     * Get contact email addresses count
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getContactEmailsCountAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsCountAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+        $request = $this->getContactEmailsCountAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getContactEmailsCountAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getContactEmailsCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getContactEmailsCountAsyncRequest($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getContactEmailsCountAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getContactEmailsCountAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling getContactEmailsCountAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Emails/Count';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -10414,6 +11988,854 @@ class ContactsApi
     }
 
     /**
+     * Operation getProfilesForContactAsync
+     *
+     * Get a contact&#39;s social profiles
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactProfileDtoListEnvelope
+     */
+    public function getProfilesForContactAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactAsync'][0])
+    {
+        list($response) = $this->getProfilesForContactAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getProfilesForContactAsyncWithHttpInfo
+     *
+     * Get a contact&#39;s social profiles
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ContactProfileDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getProfilesForContactAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactAsync'][0])
+    {
+        $request = $this->getProfilesForContactAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 404:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\ContactProfileDtoListEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ContactProfileDtoListEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getProfilesForContactAsyncAsync
+     *
+     * Get a contact&#39;s social profiles
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfilesForContactAsyncAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactAsync'][0])
+    {
+        return $this->getProfilesForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getProfilesForContactAsyncAsyncWithHttpInfo
+     *
+     * Get a contact&#39;s social profiles
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfilesForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ContactProfileDtoListEnvelope';
+        $request = $this->getProfilesForContactAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getProfilesForContactAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getProfilesForContactAsyncRequest($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getProfilesForContactAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling getProfilesForContactAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Profiles';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getProfilesForContactCountAsync
+     *
+     * Get contact profiles count
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
+     */
+    public function getProfilesForContactCountAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactCountAsync'][0])
+    {
+        list($response) = $this->getProfilesForContactCountAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getProfilesForContactCountAsyncWithHttpInfo
+     *
+     * Get contact profiles count
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getProfilesForContactCountAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactCountAsync'][0])
+    {
+        $request = $this->getProfilesForContactCountAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\Int32Envelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Int32Envelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Int32Envelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Int32Envelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getProfilesForContactCountAsyncAsync
+     *
+     * Get contact profiles count
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfilesForContactCountAsyncAsync($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactCountAsync'][0])
+    {
+        return $this->getProfilesForContactCountAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getProfilesForContactCountAsyncAsyncWithHttpInfo
+     *
+     * Get contact profiles count
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfilesForContactCountAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactCountAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+        $request = $this->getProfilesForContactCountAsyncRequest($tenant_id, $contact_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getProfilesForContactCountAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForContactCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getProfilesForContactCountAsyncRequest($tenant_id, $contact_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getProfilesForContactCountAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getProfilesForContactCountAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling getProfilesForContactCountAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Profiles/Count';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation patchContactAsync
      *
      * Patch a contact
@@ -10785,6 +13207,318 @@ class ContactsApi
             $resourcePath = str_replace(
                 '{' . 'contactId' . '}',
                 ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($operation)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+            } else {
+                $httpBody = $operation;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchContactEmailAsync
+     *
+     * Patch a contact email address
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $email_id email_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function patchContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactEmailAsync'][0])
+    {
+        $this->patchContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation, $contentType);
+    }
+
+    /**
+     * Operation patchContactEmailAsyncWithHttpInfo
+     *
+     * Patch a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactEmailAsync'][0])
+    {
+        $request = $this->patchContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchContactEmailAsyncAsync
+     *
+     * Patch a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchContactEmailAsyncAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactEmailAsync'][0])
+    {
+        return $this->patchContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchContactEmailAsyncAsyncWithHttpInfo
+     *
+     * Patch a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactEmailAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->patchContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchContactEmailAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $operation = null, string $contentType = self::contentTypes['patchContactEmailAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling patchContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling patchContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'email_id' is set
+        if ($email_id === null || (is_array($email_id) && count($email_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_id when calling patchContactEmailAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'emailId' . '}',
+                ObjectSerializer::toPathValue($email_id),
                 $resourcePath
             );
         }
@@ -12234,6 +14968,630 @@ class ContactsApi
     }
 
     /**
+     * Operation updateContactEmailAsync
+     *
+     * Update a contact email address
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $email_id email_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailUpdateDto $contact_email_update_dto contact_email_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $contact_email_update_dto = null, string $contentType = self::contentTypes['updateContactEmailAsync'][0])
+    {
+        $this->updateContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contact_email_update_dto, $contentType);
+    }
+
+    /**
+     * Operation updateContactEmailAsyncWithHttpInfo
+     *
+     * Update a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailUpdateDto $contact_email_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $contact_email_update_dto = null, string $contentType = self::contentTypes['updateContactEmailAsync'][0])
+    {
+        $request = $this->updateContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contact_email_update_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateContactEmailAsyncAsync
+     *
+     * Update a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailUpdateDto $contact_email_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateContactEmailAsyncAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $contact_email_update_dto = null, string $contentType = self::contentTypes['updateContactEmailAsync'][0])
+    {
+        return $this->updateContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contact_email_update_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateContactEmailAsyncAsyncWithHttpInfo
+     *
+     * Update a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailUpdateDto $contact_email_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $contact_email_update_dto = null, string $contentType = self::contentTypes['updateContactEmailAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->updateContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contact_email_update_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateContactEmailAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactEmailUpdateDto $contact_email_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, $contact_email_update_dto = null, string $contentType = self::contentTypes['updateContactEmailAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling updateContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling updateContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'email_id' is set
+        if ($email_id === null || (is_array($email_id) && count($email_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_id when calling updateContactEmailAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'emailId' . '}',
+                ObjectSerializer::toPathValue($email_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($contact_email_update_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_email_update_dto));
+            } else {
+                $httpBody = $contact_email_update_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateProfileForContactAsync
+     *
+     * Update a contact profile
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $profile_id profile_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileUpdateDto $contact_profile_update_dto contact_profile_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateProfileForContactAsync($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, $contact_profile_update_dto = null, string $contentType = self::contentTypes['updateProfileForContactAsync'][0])
+    {
+        $this->updateProfileForContactAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contact_profile_update_dto, $contentType);
+    }
+
+    /**
+     * Operation updateProfileForContactAsyncWithHttpInfo
+     *
+     * Update a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileUpdateDto $contact_profile_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateProfileForContactAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, $contact_profile_update_dto = null, string $contentType = self::contentTypes['updateProfileForContactAsync'][0])
+    {
+        $request = $this->updateProfileForContactAsyncRequest($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contact_profile_update_dto, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateProfileForContactAsyncAsync
+     *
+     * Update a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileUpdateDto $contact_profile_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateProfileForContactAsyncAsync($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, $contact_profile_update_dto = null, string $contentType = self::contentTypes['updateProfileForContactAsync'][0])
+    {
+        return $this->updateProfileForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contact_profile_update_dto, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateProfileForContactAsyncAsyncWithHttpInfo
+     *
+     * Update a contact profile
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileUpdateDto $contact_profile_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateProfileForContactAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, $contact_profile_update_dto = null, string $contentType = self::contentTypes['updateProfileForContactAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->updateProfileForContactAsyncRequest($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contact_profile_update_dto, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateProfileForContactAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $profile_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  \OpenAPI\Client\Model\ContactProfileUpdateDto $contact_profile_update_dto (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileForContactAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateProfileForContactAsyncRequest($tenant_id, $contact_id, $profile_id, $api_version = null, $x_api_version = null, $contact_profile_update_dto = null, string $contentType = self::contentTypes['updateProfileForContactAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling updateProfileForContactAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling updateProfileForContactAsync'
+            );
+        }
+
+        // verify the required parameter 'profile_id' is set
+        if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $profile_id when calling updateProfileForContactAsync'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($profile_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'profileId' . '}',
+                ObjectSerializer::toPathValue($profile_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($contact_profile_update_dto)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_profile_update_dto));
+            } else {
+                $httpBody = $contact_profile_update_dto;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation upsertTenantOntoAnotherTenantContactListAsync
      *
      * Upsert a tenant onto another tenant&#39;s contact list
@@ -13028,6 +16386,313 @@ class ContactsApi
             $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
         }
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation verifyContactEmailAsync
+     *
+     * Verify a contact email address
+     *
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contact_id contact_id (required)
+     * @param  string $email_id email_id (required)
+     * @param  string $api_version api_version (optional)
+     * @param  string $x_api_version x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function verifyContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['verifyContactEmailAsync'][0])
+    {
+        $this->verifyContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType);
+    }
+
+    /**
+     * Operation verifyContactEmailAsyncWithHttpInfo
+     *
+     * Verify a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function verifyContactEmailAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['verifyContactEmailAsync'][0])
+    {
+        $request = $this->verifyContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation verifyContactEmailAsyncAsync
+     *
+     * Verify a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function verifyContactEmailAsyncAsync($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['verifyContactEmailAsync'][0])
+    {
+        return $this->verifyContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation verifyContactEmailAsyncAsyncWithHttpInfo
+     *
+     * Verify a contact email address
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function verifyContactEmailAsyncAsyncWithHttpInfo($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['verifyContactEmailAsync'][0])
+    {
+        $returnType = '';
+        $request = $this->verifyContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'verifyContactEmailAsync'
+     *
+     * @param  string $tenant_id (required)
+     * @param  string $contact_id (required)
+     * @param  string $email_id (required)
+     * @param  string $api_version (optional)
+     * @param  string $x_api_version (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyContactEmailAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function verifyContactEmailAsyncRequest($tenant_id, $contact_id, $email_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['verifyContactEmailAsync'][0])
+    {
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling verifyContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'contact_id' is set
+        if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $contact_id when calling verifyContactEmailAsync'
+            );
+        }
+
+        // verify the required parameter 'email_id' is set
+        if ($email_id === null || (is_array($email_id) && count($email_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_id when calling verifyContactEmailAsync'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $api_version,
+            'api-version', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($x_api_version !== null) {
+            $headerParams['x-api-version'] = ObjectSerializer::toHeaderValue($x_api_version);
+        }
+
+        // path params
+        if ($contact_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'contactId' . '}',
+                ObjectSerializer::toPathValue($contact_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'emailId' . '}',
+                ObjectSerializer::toPathValue($email_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(

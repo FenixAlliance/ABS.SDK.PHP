@@ -61,13 +61,10 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'string',
         'timestamp' => '\DateTime',
         'description' => 'string',
-        'date' => '\DateTime',
-        'amount' => 'float',
+        'planned_amount' => 'float',
         'currency_id' => 'string',
         'debit_account_id' => 'string',
         'credit_account_id' => 'string',
-        'journal_entry_id' => 'string',
-        'accounting_entry_type' => 'string',
         'budget_id' => 'string'
     ];
 
@@ -82,13 +79,10 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'uuid',
         'timestamp' => 'date-time',
         'description' => null,
-        'date' => 'date-time',
-        'amount' => 'double',
+        'planned_amount' => 'double',
         'currency_id' => null,
         'debit_account_id' => null,
         'credit_account_id' => null,
-        'journal_entry_id' => null,
-        'accounting_entry_type' => null,
         'budget_id' => null
     ];
 
@@ -101,14 +95,11 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => false,
         'timestamp' => false,
         'description' => false,
-        'date' => true,
-        'amount' => false,
+        'planned_amount' => false,
         'currency_id' => false,
-        'debit_account_id' => true,
-        'credit_account_id' => true,
-        'journal_entry_id' => true,
-        'accounting_entry_type' => false,
-        'budget_id' => true
+        'debit_account_id' => false,
+        'credit_account_id' => false,
+        'budget_id' => false
     ];
 
     /**
@@ -200,13 +191,10 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'id',
         'timestamp' => 'timestamp',
         'description' => 'description',
-        'date' => 'date',
-        'amount' => 'amount',
+        'planned_amount' => 'plannedAmount',
         'currency_id' => 'currencyId',
         'debit_account_id' => 'debitAccountId',
         'credit_account_id' => 'creditAccountId',
-        'journal_entry_id' => 'journalEntryId',
-        'accounting_entry_type' => 'accountingEntryType',
         'budget_id' => 'budgetId'
     ];
 
@@ -219,13 +207,10 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
         'description' => 'setDescription',
-        'date' => 'setDate',
-        'amount' => 'setAmount',
+        'planned_amount' => 'setPlannedAmount',
         'currency_id' => 'setCurrencyId',
         'debit_account_id' => 'setDebitAccountId',
         'credit_account_id' => 'setCreditAccountId',
-        'journal_entry_id' => 'setJournalEntryId',
-        'accounting_entry_type' => 'setAccountingEntryType',
         'budget_id' => 'setBudgetId'
     ];
 
@@ -238,13 +223,10 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
         'description' => 'getDescription',
-        'date' => 'getDate',
-        'amount' => 'getAmount',
+        'planned_amount' => 'getPlannedAmount',
         'currency_id' => 'getCurrencyId',
         'debit_account_id' => 'getDebitAccountId',
         'credit_account_id' => 'getCreditAccountId',
-        'journal_entry_id' => 'getJournalEntryId',
-        'accounting_entry_type' => 'getAccountingEntryType',
         'budget_id' => 'getBudgetId'
     ];
 
@@ -289,23 +271,6 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
-    public const ACCOUNTING_ENTRY_TYPE_NONE = 'None';
-    public const ACCOUNTING_ENTRY_TYPE_DEBIT = 'Debit';
-    public const ACCOUNTING_ENTRY_TYPE_CREDIT = 'Credit';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccountingEntryTypeAllowableValues()
-    {
-        return [
-            self::ACCOUNTING_ENTRY_TYPE_NONE,
-            self::ACCOUNTING_ENTRY_TYPE_DEBIT,
-            self::ACCOUNTING_ENTRY_TYPE_CREDIT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -325,13 +290,10 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('date', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('planned_amount', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('debit_account_id', $data ?? [], null);
         $this->setIfExists('credit_account_id', $data ?? [], null);
-        $this->setIfExists('journal_entry_id', $data ?? [], null);
-        $this->setIfExists('accounting_entry_type', $data ?? [], null);
         $this->setIfExists('budget_id', $data ?? [], null);
     }
 
@@ -380,21 +342,25 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
             $invalidProperties[] = "invalid value for 'currency_id', the character length must be bigger than or equal to 1.";
         }
 
-        $allowedValues = $this->getAccountingEntryTypeAllowableValues();
-        if (!is_null($this->container['accounting_entry_type']) && !in_array($this->container['accounting_entry_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'accounting_entry_type', must be one of '%s'",
-                $this->container['accounting_entry_type'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['debit_account_id'] === null) {
+            $invalidProperties[] = "'debit_account_id' can't be null";
+        }
+        if ((mb_strlen($this->container['debit_account_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'debit_account_id', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['budget_id']) && (mb_strlen($this->container['budget_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'budget_id', the character length must be smaller than or equal to 36.";
+        if ($this->container['credit_account_id'] === null) {
+            $invalidProperties[] = "'credit_account_id' can't be null";
+        }
+        if ((mb_strlen($this->container['credit_account_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'credit_account_id', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['budget_id']) && (mb_strlen($this->container['budget_id']) < 0)) {
-            $invalidProperties[] = "invalid value for 'budget_id', the character length must be bigger than or equal to 0.";
+        if ($this->container['budget_id'] === null) {
+            $invalidProperties[] = "'budget_id' can't be null";
+        }
+        if ((mb_strlen($this->container['budget_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'budget_id', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -501,62 +467,28 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets date
-     *
-     * @return \DateTime|null
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime|null $date date
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        if (is_null($date)) {
-            array_push($this->openAPINullablesSetToNull, 'date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
+     * Gets planned_amount
      *
      * @return float|null
      */
-    public function getAmount()
+    public function getPlannedAmount()
     {
-        return $this->container['amount'];
+        return $this->container['planned_amount'];
     }
 
     /**
-     * Sets amount
+     * Sets planned_amount
      *
-     * @param float|null $amount amount
+     * @param float|null $planned_amount planned_amount
      *
      * @return self
      */
-    public function setAmount($amount)
+    public function setPlannedAmount($planned_amount)
     {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+        if (is_null($planned_amount)) {
+            throw new \InvalidArgumentException('non-nullable planned_amount cannot be null');
         }
-        $this->container['amount'] = $amount;
+        $this->container['planned_amount'] = $planned_amount;
 
         return $this;
     }
@@ -596,7 +528,7 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets debit_account_id
      *
-     * @return string|null
+     * @return string
      */
     public function getDebitAccountId()
     {
@@ -606,22 +538,20 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets debit_account_id
      *
-     * @param string|null $debit_account_id debit_account_id
+     * @param string $debit_account_id debit_account_id
      *
      * @return self
      */
     public function setDebitAccountId($debit_account_id)
     {
         if (is_null($debit_account_id)) {
-            array_push($this->openAPINullablesSetToNull, 'debit_account_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('debit_account_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable debit_account_id cannot be null');
         }
+
+        if ((mb_strlen($debit_account_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $debit_account_id when calling BudgetAccountEntryCreateDto., must be bigger than or equal to 1.');
+        }
+
         $this->container['debit_account_id'] = $debit_account_id;
 
         return $this;
@@ -630,7 +560,7 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets credit_account_id
      *
-     * @return string|null
+     * @return string
      */
     public function getCreditAccountId()
     {
@@ -640,94 +570,21 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets credit_account_id
      *
-     * @param string|null $credit_account_id credit_account_id
+     * @param string $credit_account_id credit_account_id
      *
      * @return self
      */
     public function setCreditAccountId($credit_account_id)
     {
         if (is_null($credit_account_id)) {
-            array_push($this->openAPINullablesSetToNull, 'credit_account_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('credit_account_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable credit_account_id cannot be null');
         }
+
+        if ((mb_strlen($credit_account_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $credit_account_id when calling BudgetAccountEntryCreateDto., must be bigger than or equal to 1.');
+        }
+
         $this->container['credit_account_id'] = $credit_account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets journal_entry_id
-     *
-     * @return string|null
-     */
-    public function getJournalEntryId()
-    {
-        return $this->container['journal_entry_id'];
-    }
-
-    /**
-     * Sets journal_entry_id
-     *
-     * @param string|null $journal_entry_id journal_entry_id
-     *
-     * @return self
-     */
-    public function setJournalEntryId($journal_entry_id)
-    {
-        if (is_null($journal_entry_id)) {
-            array_push($this->openAPINullablesSetToNull, 'journal_entry_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('journal_entry_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['journal_entry_id'] = $journal_entry_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets accounting_entry_type
-     *
-     * @return string|null
-     */
-    public function getAccountingEntryType()
-    {
-        return $this->container['accounting_entry_type'];
-    }
-
-    /**
-     * Sets accounting_entry_type
-     *
-     * @param string|null $accounting_entry_type accounting_entry_type
-     *
-     * @return self
-     */
-    public function setAccountingEntryType($accounting_entry_type)
-    {
-        if (is_null($accounting_entry_type)) {
-            throw new \InvalidArgumentException('non-nullable accounting_entry_type cannot be null');
-        }
-        $allowedValues = $this->getAccountingEntryTypeAllowableValues();
-        if (!in_array($accounting_entry_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'accounting_entry_type', must be one of '%s'",
-                    $accounting_entry_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['accounting_entry_type'] = $accounting_entry_type;
 
         return $this;
     }
@@ -735,7 +592,7 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets budget_id
      *
-     * @return string|null
+     * @return string
      */
     public function getBudgetId()
     {
@@ -745,27 +602,18 @@ class BudgetAccountEntryCreateDto implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets budget_id
      *
-     * @param string|null $budget_id budget_id
+     * @param string $budget_id budget_id
      *
      * @return self
      */
     public function setBudgetId($budget_id)
     {
         if (is_null($budget_id)) {
-            array_push($this->openAPINullablesSetToNull, 'budget_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('budget_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable budget_id cannot be null');
         }
-        if (!is_null($budget_id) && (mb_strlen($budget_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $budget_id when calling BudgetAccountEntryCreateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($budget_id) && (mb_strlen($budget_id) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $budget_id when calling BudgetAccountEntryCreateDto., must be bigger than or equal to 0.');
+
+        if ((mb_strlen($budget_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $budget_id when calling BudgetAccountEntryCreateDto., must be bigger than or equal to 1.');
         }
 
         $this->container['budget_id'] = $budget_id;

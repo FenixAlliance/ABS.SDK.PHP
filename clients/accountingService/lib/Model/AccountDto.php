@@ -84,6 +84,10 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'string',
         'children_accounts_count' => 'int',
         'account_category' => 'string',
+        'is_contra' => 'bool',
+        'is_monetary' => 'bool',
+        'income_statement_sub_type' => 'string',
+        'normal_balance' => 'string',
         'balance_amount' => '\OpenAPI\Client\Model\Money',
         'credits_balance_amount' => '\OpenAPI\Client\Model\Money',
         'debits_balance_amount' => '\OpenAPI\Client\Model\Money',
@@ -126,6 +130,10 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => null,
         'children_accounts_count' => 'int32',
         'account_category' => null,
+        'is_contra' => null,
+        'is_monetary' => null,
+        'income_statement_sub_type' => null,
+        'normal_balance' => null,
         'balance_amount' => null,
         'credits_balance_amount' => null,
         'debits_balance_amount' => null,
@@ -166,6 +174,10 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => true,
         'children_accounts_count' => false,
         'account_category' => false,
+        'is_contra' => false,
+        'is_monetary' => false,
+        'income_statement_sub_type' => true,
+        'normal_balance' => false,
         'balance_amount' => false,
         'credits_balance_amount' => false,
         'debits_balance_amount' => false,
@@ -286,6 +298,10 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'enrollmentId',
         'children_accounts_count' => 'childrenAccountsCount',
         'account_category' => 'accountCategory',
+        'is_contra' => 'isContra',
+        'is_monetary' => 'isMonetary',
+        'income_statement_sub_type' => 'incomeStatementSubType',
+        'normal_balance' => 'normalBalance',
         'balance_amount' => 'balanceAmount',
         'credits_balance_amount' => 'creditsBalanceAmount',
         'debits_balance_amount' => 'debitsBalanceAmount',
@@ -326,6 +342,10 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'setEnrollmentId',
         'children_accounts_count' => 'setChildrenAccountsCount',
         'account_category' => 'setAccountCategory',
+        'is_contra' => 'setIsContra',
+        'is_monetary' => 'setIsMonetary',
+        'income_statement_sub_type' => 'setIncomeStatementSubType',
+        'normal_balance' => 'setNormalBalance',
         'balance_amount' => 'setBalanceAmount',
         'credits_balance_amount' => 'setCreditsBalanceAmount',
         'debits_balance_amount' => 'setDebitsBalanceAmount',
@@ -366,6 +386,10 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'enrollment_id' => 'getEnrollmentId',
         'children_accounts_count' => 'getChildrenAccountsCount',
         'account_category' => 'getAccountCategory',
+        'is_contra' => 'getIsContra',
+        'is_monetary' => 'getIsMonetary',
+        'income_statement_sub_type' => 'getIncomeStatementSubType',
+        'normal_balance' => 'getNormalBalance',
         'balance_amount' => 'getBalanceAmount',
         'credits_balance_amount' => 'getCreditsBalanceAmount',
         'debits_balance_amount' => 'getDebitsBalanceAmount',
@@ -420,6 +444,12 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public const ACCOUNT_CATEGORY_REVENUE = 'Revenue';
     public const ACCOUNT_CATEGORY_EXPENSE = 'Expense';
     public const ACCOUNT_CATEGORY_LIABILITIES = 'Liabilities';
+    public const INCOME_STATEMENT_SUB_TYPE_OPERATING_REVENUE = 'OperatingRevenue';
+    public const INCOME_STATEMENT_SUB_TYPE_GAIN = 'Gain';
+    public const INCOME_STATEMENT_SUB_TYPE_OPERATING_EXPENSE = 'OperatingExpense';
+    public const INCOME_STATEMENT_SUB_TYPE_LOSS = 'Loss';
+    public const NORMAL_BALANCE_DEBIT = 'Debit';
+    public const NORMAL_BALANCE_CREDIT = 'Credit';
 
     /**
      * Gets allowable values of the enum
@@ -434,6 +464,34 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
             self::ACCOUNT_CATEGORY_REVENUE,
             self::ACCOUNT_CATEGORY_EXPENSE,
             self::ACCOUNT_CATEGORY_LIABILITIES,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIncomeStatementSubTypeAllowableValues()
+    {
+        return [
+            self::INCOME_STATEMENT_SUB_TYPE_OPERATING_REVENUE,
+            self::INCOME_STATEMENT_SUB_TYPE_GAIN,
+            self::INCOME_STATEMENT_SUB_TYPE_OPERATING_EXPENSE,
+            self::INCOME_STATEMENT_SUB_TYPE_LOSS,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNormalBalanceAllowableValues()
+    {
+        return [
+            self::NORMAL_BALANCE_DEBIT,
+            self::NORMAL_BALANCE_CREDIT,
         ];
     }
 
@@ -478,6 +536,10 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('children_accounts_count', $data ?? [], null);
         $this->setIfExists('account_category', $data ?? [], null);
+        $this->setIfExists('is_contra', $data ?? [], null);
+        $this->setIfExists('is_monetary', $data ?? [], null);
+        $this->setIfExists('income_statement_sub_type', $data ?? [], null);
+        $this->setIfExists('normal_balance', $data ?? [], null);
         $this->setIfExists('balance_amount', $data ?? [], null);
         $this->setIfExists('credits_balance_amount', $data ?? [], null);
         $this->setIfExists('debits_balance_amount', $data ?? [], null);
@@ -518,6 +580,24 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'account_category', must be one of '%s'",
                 $this->container['account_category'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getIncomeStatementSubTypeAllowableValues();
+        if (!is_null($this->container['income_statement_sub_type']) && !in_array($this->container['income_statement_sub_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'income_statement_sub_type', must be one of '%s'",
+                $this->container['income_statement_sub_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getNormalBalanceAllowableValues();
+        if (!is_null($this->container['normal_balance']) && !in_array($this->container['normal_balance'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'normal_balance', must be one of '%s'",
+                $this->container['normal_balance'],
                 implode("', '", $allowedValues)
             );
         }
@@ -1350,6 +1430,141 @@ class AccountDto implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['account_category'] = $account_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_contra
+     *
+     * @return bool|null
+     */
+    public function getIsContra()
+    {
+        return $this->container['is_contra'];
+    }
+
+    /**
+     * Sets is_contra
+     *
+     * @param bool|null $is_contra is_contra
+     *
+     * @return self
+     */
+    public function setIsContra($is_contra)
+    {
+        if (is_null($is_contra)) {
+            throw new \InvalidArgumentException('non-nullable is_contra cannot be null');
+        }
+        $this->container['is_contra'] = $is_contra;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_monetary
+     *
+     * @return bool|null
+     */
+    public function getIsMonetary()
+    {
+        return $this->container['is_monetary'];
+    }
+
+    /**
+     * Sets is_monetary
+     *
+     * @param bool|null $is_monetary is_monetary
+     *
+     * @return self
+     */
+    public function setIsMonetary($is_monetary)
+    {
+        if (is_null($is_monetary)) {
+            throw new \InvalidArgumentException('non-nullable is_monetary cannot be null');
+        }
+        $this->container['is_monetary'] = $is_monetary;
+
+        return $this;
+    }
+
+    /**
+     * Gets income_statement_sub_type
+     *
+     * @return string|null
+     */
+    public function getIncomeStatementSubType()
+    {
+        return $this->container['income_statement_sub_type'];
+    }
+
+    /**
+     * Sets income_statement_sub_type
+     *
+     * @param string|null $income_statement_sub_type income_statement_sub_type
+     *
+     * @return self
+     */
+    public function setIncomeStatementSubType($income_statement_sub_type)
+    {
+        if (is_null($income_statement_sub_type)) {
+            array_push($this->openAPINullablesSetToNull, 'income_statement_sub_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('income_statement_sub_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getIncomeStatementSubTypeAllowableValues();
+        if (!is_null($income_statement_sub_type) && !in_array($income_statement_sub_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'income_statement_sub_type', must be one of '%s'",
+                    $income_statement_sub_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['income_statement_sub_type'] = $income_statement_sub_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets normal_balance
+     *
+     * @return string|null
+     */
+    public function getNormalBalance()
+    {
+        return $this->container['normal_balance'];
+    }
+
+    /**
+     * Sets normal_balance
+     *
+     * @param string|null $normal_balance normal_balance
+     *
+     * @return self
+     */
+    public function setNormalBalance($normal_balance)
+    {
+        if (is_null($normal_balance)) {
+            throw new \InvalidArgumentException('non-nullable normal_balance cannot be null');
+        }
+        $allowedValues = $this->getNormalBalanceAllowableValues();
+        if (!in_array($normal_balance, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'normal_balance', must be one of '%s'",
+                    $normal_balance,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['normal_balance'] = $normal_balance;
 
         return $this;
     }

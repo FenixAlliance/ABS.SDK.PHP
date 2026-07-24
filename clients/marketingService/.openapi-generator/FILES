@@ -62,6 +62,11 @@ docs/Model/MarketingListUpdateDto.md
 docs/Model/NewsletterCreateDto.md
 docs/Model/NewsletterDto.md
 docs/Model/NewsletterDtoEnvelope.md
+docs/Model/NewsletterSubscriptionCreateDto.md
+docs/Model/NewsletterSubscriptionDto.md
+docs/Model/NewsletterSubscriptionDtoEnvelope.md
+docs/Model/NewsletterSubscriptionDtoListEnvelope.md
+docs/Model/NewsletterSubscriptionUpdateDto.md
 docs/Model/NewsletterUpdateDto.md
 docs/Model/Operation.md
 docs/Model/OrderDto.md
@@ -146,6 +151,11 @@ lib/Model/ModelInterface.php
 lib/Model/NewsletterCreateDto.php
 lib/Model/NewsletterDto.php
 lib/Model/NewsletterDtoEnvelope.php
+lib/Model/NewsletterSubscriptionCreateDto.php
+lib/Model/NewsletterSubscriptionDto.php
+lib/Model/NewsletterSubscriptionDtoEnvelope.php
+lib/Model/NewsletterSubscriptionDtoListEnvelope.php
+lib/Model/NewsletterSubscriptionUpdateDto.php
 lib/Model/NewsletterUpdateDto.php
 lib/Model/Operation.php
 lib/Model/OrderDto.php
@@ -168,4 +178,8 @@ lib/Model/TwoFactorRequest.php
 lib/Model/TwoFactorResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/NewsletterSubscriptionsApiTest.php
+test/Model/NewsletterSubscriptionCreateDtoTest.php
+test/Model/NewsletterSubscriptionDtoEnvelopeTest.php
+test/Model/NewsletterSubscriptionDtoListEnvelopeTest.php
+test/Model/NewsletterSubscriptionDtoTest.php
+test/Model/NewsletterSubscriptionUpdateDtoTest.php

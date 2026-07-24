@@ -200,7 +200,7 @@ No authorization required
 ## `getNonFungibleTokensAsync()`
 
 ```php
-getNonFungibleTokensAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\NonFungibleTokenDtoListEnvelope
+getNonFungibleTokensAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\NonFungibleTokenDtoListEnvelope
 ```
 
 Get all non-fungible tokens
@@ -221,12 +221,11 @@ $apiInstance = new OpenAPI\Client\Api\NonFungibleTokensApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions(); // \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getNonFungibleTokensAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getNonFungibleTokensAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NonFungibleTokensApi->getNonFungibleTokensAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,7 +237,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -262,7 +260,7 @@ No authorization required
 ## `getNonFungibleTokensCountAsync()`
 
 ```php
-getNonFungibleTokensCountAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getNonFungibleTokensCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get NFTs count
@@ -283,12 +281,11 @@ $apiInstance = new OpenAPI\Client\Api\NonFungibleTokensApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions(); // \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getNonFungibleTokensCountAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getNonFungibleTokensCountAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NonFungibleTokensApi->getNonFungibleTokensCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,7 +297,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

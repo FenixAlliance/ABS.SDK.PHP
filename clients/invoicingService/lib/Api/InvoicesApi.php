@@ -12751,7 +12751,7 @@ class InvoicesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DecimalEnvelope
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope
      */
     public function getPurchaseInvoicesSum($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
@@ -12769,7 +12769,7 @@ class InvoicesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DecimalEnvelope, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPurchaseInvoicesSumWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
@@ -12854,11 +12854,11 @@ class InvoicesApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\OpenAPI\Client\Model\DecimalEnvelope' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\MoneyEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DecimalEnvelope' !== 'string') {
+                        if ('\OpenAPI\Client\Model\MoneyEnvelope' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -12876,7 +12876,7 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DecimalEnvelope', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MoneyEnvelope', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12895,7 +12895,7 @@ class InvoicesApi
                 );
             }
 
-            $returnType = '\OpenAPI\Client\Model\DecimalEnvelope';
+            $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -12944,7 +12944,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DecimalEnvelope',
+                        '\OpenAPI\Client\Model\MoneyEnvelope',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12988,7 +12988,7 @@ class InvoicesApi
      */
     public function getPurchaseInvoicesSumAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getPurchaseInvoicesSum'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DecimalEnvelope';
+        $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
         $request = $this->getPurchaseInvoicesSumRequest($tenant_id, $contentType);
 
         return $this->client
@@ -13130,7 +13130,7 @@ class InvoicesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DecimalEnvelope
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope
      */
     public function getSalesInvoicesSum($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
@@ -13148,7 +13148,7 @@ class InvoicesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\DecimalEnvelope, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\MoneyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSalesInvoicesSumWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
@@ -13233,11 +13233,11 @@ class InvoicesApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\OpenAPI\Client\Model\DecimalEnvelope' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\MoneyEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DecimalEnvelope' !== 'string') {
+                        if ('\OpenAPI\Client\Model\MoneyEnvelope' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -13255,7 +13255,7 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DecimalEnvelope', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MoneyEnvelope', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13274,7 +13274,7 @@ class InvoicesApi
                 );
             }
 
-            $returnType = '\OpenAPI\Client\Model\DecimalEnvelope';
+            $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -13323,7 +13323,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DecimalEnvelope',
+                        '\OpenAPI\Client\Model\MoneyEnvelope',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13367,7 +13367,7 @@ class InvoicesApi
      */
     public function getSalesInvoicesSumAsyncWithHttpInfo($tenant_id, string $contentType = self::contentTypes['getSalesInvoicesSum'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DecimalEnvelope';
+        $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
         $request = $this->getSalesInvoicesSumRequest($tenant_id, $contentType);
 
         return $this->client

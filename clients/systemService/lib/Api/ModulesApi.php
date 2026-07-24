@@ -542,7 +542,7 @@ class ModulesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ModuleListEnvelope
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SuiteModuleListEnvelope
      */
     public function getAvailableModules($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAvailableModules'][0])
     {
@@ -562,7 +562,7 @@ class ModulesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ModuleListEnvelope, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\SuiteModuleListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAvailableModulesWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAvailableModules'][0])
     {
@@ -647,11 +647,11 @@ class ModulesApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\OpenAPI\Client\Model\ModuleListEnvelope' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\SuiteModuleListEnvelope' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ModuleListEnvelope' !== 'string') {
+                        if ('\OpenAPI\Client\Model\SuiteModuleListEnvelope' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -669,7 +669,7 @@ class ModulesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ModuleListEnvelope', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SuiteModuleListEnvelope', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -688,7 +688,7 @@ class ModulesApi
                 );
             }
 
-            $returnType = '\OpenAPI\Client\Model\ModuleListEnvelope';
+            $returnType = '\OpenAPI\Client\Model\SuiteModuleListEnvelope';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -737,7 +737,7 @@ class ModulesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ModuleListEnvelope',
+                        '\OpenAPI\Client\Model\SuiteModuleListEnvelope',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -785,7 +785,7 @@ class ModulesApi
      */
     public function getAvailableModulesAsyncWithHttpInfo($tenant_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getAvailableModules'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ModuleListEnvelope';
+        $returnType = '\OpenAPI\Client\Model\SuiteModuleListEnvelope';
         $request = $this->getAvailableModulesRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         return $this->client

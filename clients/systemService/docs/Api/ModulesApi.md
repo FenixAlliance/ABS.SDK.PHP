@@ -69,7 +69,7 @@ No authorization required
 ## `getAvailableModules()`
 
 ```php
-getAvailableModules($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ModuleListEnvelope
+getAvailableModules($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\SuiteModuleListEnvelope
 ```
 
 Get all modules available to a tenant user.
@@ -109,7 +109,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ModuleListEnvelope**](../Model/ModuleListEnvelope.md)
+[**\OpenAPI\Client\Model\SuiteModuleListEnvelope**](../Model/SuiteModuleListEnvelope.md)
 
 ### Authorization
 

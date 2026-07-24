@@ -88,12 +88,12 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
+        'name' => false,
         'description' => true,
         'closed' => false,
         'end_date' => false,
         'start_date' => false,
-        'fiscal_authority_id' => true
+        'fiscal_authority_id' => false
     ];
 
     /**
@@ -310,6 +310,20 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['fiscal_authority_id'] === null) {
+            $invalidProperties[] = "'fiscal_authority_id' can't be null";
+        }
+        if ((mb_strlen($this->container['fiscal_authority_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'fiscal_authority_id', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -328,7 +342,7 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -338,22 +352,20 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
+
+        if ((mb_strlen($name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling FiscalYearUpdateDto., must be bigger than or equal to 1.');
+        }
+
         $this->container['name'] = $name;
 
         return $this;
@@ -477,7 +489,7 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets fiscal_authority_id
      *
-     * @return string|null
+     * @return string
      */
     public function getFiscalAuthorityId()
     {
@@ -487,22 +499,20 @@ class FiscalYearUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets fiscal_authority_id
      *
-     * @param string|null $fiscal_authority_id fiscal_authority_id
+     * @param string $fiscal_authority_id fiscal_authority_id
      *
      * @return self
      */
     public function setFiscalAuthorityId($fiscal_authority_id)
     {
         if (is_null($fiscal_authority_id)) {
-            array_push($this->openAPINullablesSetToNull, 'fiscal_authority_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('fiscal_authority_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable fiscal_authority_id cannot be null');
         }
+
+        if ((mb_strlen($fiscal_authority_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $fiscal_authority_id when calling FiscalYearUpdateDto., must be bigger than or equal to 1.');
+        }
+
         $this->container['fiscal_authority_id'] = $fiscal_authority_id;
 
         return $this;

@@ -73,8 +73,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'job_title' => 'string',
         'country_id' => 'string',
         'parent_contact_id' => 'string',
-        'address_line1' => 'string',
-        'address_line2' => 'string',
         'postal_code' => 'string',
         'state_id' => 'string',
         'city_id' => 'string',
@@ -125,8 +123,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'job_title' => null,
         'country_id' => null,
         'parent_contact_id' => null,
-        'address_line1' => null,
-        'address_line2' => null,
         'postal_code' => null,
         'state_id' => null,
         'city_id' => null,
@@ -175,8 +171,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'job_title' => true,
         'country_id' => true,
         'parent_contact_id' => true,
-        'address_line1' => true,
-        'address_line2' => true,
         'postal_code' => true,
         'state_id' => true,
         'city_id' => true,
@@ -305,8 +299,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'job_title' => 'jobTitle',
         'country_id' => 'countryId',
         'parent_contact_id' => 'parentContactId',
-        'address_line1' => 'addressLine1',
-        'address_line2' => 'addressLine2',
         'postal_code' => 'postalCode',
         'state_id' => 'stateId',
         'city_id' => 'cityId',
@@ -355,8 +347,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'job_title' => 'setJobTitle',
         'country_id' => 'setCountryId',
         'parent_contact_id' => 'setParentContactId',
-        'address_line1' => 'setAddressLine1',
-        'address_line2' => 'setAddressLine2',
         'postal_code' => 'setPostalCode',
         'state_id' => 'setStateId',
         'city_id' => 'setCityId',
@@ -405,8 +395,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'job_title' => 'getJobTitle',
         'country_id' => 'getCountryId',
         'parent_contact_id' => 'getParentContactId',
-        'address_line1' => 'getAddressLine1',
-        'address_line2' => 'getAddressLine2',
         'postal_code' => 'getPostalCode',
         'state_id' => 'getStateId',
         'city_id' => 'getCityId',
@@ -521,8 +509,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('job_title', $data ?? [], null);
         $this->setIfExists('country_id', $data ?? [], null);
         $this->setIfExists('parent_contact_id', $data ?? [], null);
-        $this->setIfExists('address_line1', $data ?? [], null);
-        $this->setIfExists('address_line2', $data ?? [], null);
         $this->setIfExists('postal_code', $data ?? [], null);
         $this->setIfExists('state_id', $data ?? [], null);
         $this->setIfExists('city_id', $data ?? [], null);
@@ -1213,74 +1199,6 @@ class ContactUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['parent_contact_id'] = $parent_contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_line1
-     *
-     * @return string|null
-     */
-    public function getAddressLine1()
-    {
-        return $this->container['address_line1'];
-    }
-
-    /**
-     * Sets address_line1
-     *
-     * @param string|null $address_line1 address_line1
-     *
-     * @return self
-     */
-    public function setAddressLine1($address_line1)
-    {
-        if (is_null($address_line1)) {
-            array_push($this->openAPINullablesSetToNull, 'address_line1');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('address_line1', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['address_line1'] = $address_line1;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_line2
-     *
-     * @return string|null
-     */
-    public function getAddressLine2()
-    {
-        return $this->container['address_line2'];
-    }
-
-    /**
-     * Sets address_line2
-     *
-     * @param string|null $address_line2 address_line2
-     *
-     * @return self
-     */
-    public function setAddressLine2($address_line2)
-    {
-        if (is_null($address_line2)) {
-            array_push($this->openAPINullablesSetToNull, 'address_line2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('address_line2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['address_line2'] = $address_line2;
 
         return $this;
     }

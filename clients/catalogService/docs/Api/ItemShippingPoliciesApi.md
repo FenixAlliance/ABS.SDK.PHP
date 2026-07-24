@@ -5,8 +5,8 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**countItemShippingPoliciesAsync()**](ItemShippingPoliciesApi.md#countItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies |
-| [**getItemShippingPoliciesAsync()**](ItemShippingPoliciesApi.md#getItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies |
-| [**getItemShippingPolicyByIdAsync()**](ItemShippingPoliciesApi.md#getItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID |
+| [**getCatalogItemShippingPoliciesAsync()**](ItemShippingPoliciesApi.md#getCatalogItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies |
+| [**getCatalogItemShippingPolicyByIdAsync()**](ItemShippingPoliciesApi.md#getCatalogItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID |
 | [**relateItemToShippingPolicyAsync()**](ItemShippingPoliciesApi.md#relateItemToShippingPolicyAsync) | **POST** /api/v2/CatalogService/ItemShippingPolicies | Relate item to shipping policy |
 | [**removeShippingPolicyFromItemAsync()**](ItemShippingPoliciesApi.md#removeShippingPolicyFromItemAsync) | **DELETE** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Remove shipping policy from item |
 
@@ -73,10 +73,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getItemShippingPoliciesAsync()`
+## `getCatalogItemShippingPoliciesAsync()`
 
 ```php
-getItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
+getCatalogItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoListEnvelope
 ```
 
 Get item shipping policies
@@ -102,10 +102,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCatalogItemShippingPoliciesAsync($tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ItemShippingPoliciesApi->getItemShippingPoliciesAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemShippingPoliciesApi->getCatalogItemShippingPoliciesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -135,10 +135,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getItemShippingPolicyByIdAsync()`
+## `getCatalogItemShippingPolicyByIdAsync()`
 
 ```php
-getItemShippingPolicyByIdAsync($item_shipping_policy_id, $tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoEnvelope
+getCatalogItemShippingPolicyByIdAsync($item_shipping_policy_id, $tenant_id, $item_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ItemShippingPolicyDtoEnvelope
 ```
 
 Get item shipping policy by ID
@@ -165,10 +165,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getItemShippingPolicyByIdAsync($item_shipping_policy_id, $tenant_id, $item_id, $api_version, $x_api_version);
+    $result = $apiInstance->getCatalogItemShippingPolicyByIdAsync($item_shipping_policy_id, $tenant_id, $item_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ItemShippingPoliciesApi->getItemShippingPolicyByIdAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemShippingPoliciesApi->getCatalogItemShippingPolicyByIdAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -185,7 +185,7 @@ class TaskTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
         'id' => 'id',
         'timestamp' => 'timestamp',
         'title' => 'title',
-        'task_category_id' => 'taskCategoryID',
+        'task_category_id' => 'taskCategoryId',
         'display_in_time_tracker' => 'displayInTimeTracker',
         'requires_description' => 'requiresDescription'
     ];

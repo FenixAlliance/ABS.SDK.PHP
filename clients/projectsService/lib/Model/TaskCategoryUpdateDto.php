@@ -58,7 +58,8 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'title' => 'string'
+        'title' => 'string',
+        'project_id' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'title' => null
+        'title' => null,
+        'project_id' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'title' => true
+        'title' => true,
+        'project_id' => true
     ];
 
     /**
@@ -167,7 +170,8 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title'
+        'title' => 'title',
+        'project_id' => 'projectId'
     ];
 
     /**
@@ -176,7 +180,8 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle'
+        'title' => 'setTitle',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -185,7 +190,8 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle'
+        'title' => 'getTitle',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -246,6 +252,7 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -320,6 +327,40 @@ class TaskCategoryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return string|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string|null $project_id project_id
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            array_push($this->openAPINullablesSetToNull, 'project_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('project_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

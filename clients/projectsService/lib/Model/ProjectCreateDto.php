@@ -62,6 +62,8 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => '\DateTime',
         'title' => 'string',
         'description' => 'string',
+        'individual_id' => 'string',
+        'organization_id' => 'string',
         'project_start_date' => '\DateTime',
         'project_end_date' => '\DateTime'
     ];
@@ -78,6 +80,8 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'date-time',
         'title' => null,
         'description' => null,
+        'individual_id' => null,
+        'organization_id' => null,
         'project_start_date' => 'date-time',
         'project_end_date' => 'date-time'
     ];
@@ -92,6 +96,8 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => false,
         'title' => true,
         'description' => true,
+        'individual_id' => true,
+        'organization_id' => true,
         'project_start_date' => false,
         'project_end_date' => false
     ];
@@ -186,6 +192,8 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'timestamp',
         'title' => 'title',
         'description' => 'description',
+        'individual_id' => 'individualId',
+        'organization_id' => 'organizationId',
         'project_start_date' => 'projectStartDate',
         'project_end_date' => 'projectEndDate'
     ];
@@ -200,6 +208,8 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'setTimestamp',
         'title' => 'setTitle',
         'description' => 'setDescription',
+        'individual_id' => 'setIndividualId',
+        'organization_id' => 'setOrganizationId',
         'project_start_date' => 'setProjectStartDate',
         'project_end_date' => 'setProjectEndDate'
     ];
@@ -214,6 +224,8 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'getTimestamp',
         'title' => 'getTitle',
         'description' => 'getDescription',
+        'individual_id' => 'getIndividualId',
+        'organization_id' => 'getOrganizationId',
         'project_start_date' => 'getProjectStartDate',
         'project_end_date' => 'getProjectEndDate'
     ];
@@ -279,6 +291,8 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('individual_id', $data ?? [], null);
+        $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('project_start_date', $data ?? [], null);
         $this->setIfExists('project_end_date', $data ?? [], null);
     }
@@ -443,6 +457,74 @@ class ProjectCreateDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets individual_id
+     *
+     * @return string|null
+     */
+    public function getIndividualId()
+    {
+        return $this->container['individual_id'];
+    }
+
+    /**
+     * Sets individual_id
+     *
+     * @param string|null $individual_id individual_id
+     *
+     * @return self
+     */
+    public function setIndividualId($individual_id)
+    {
+        if (is_null($individual_id)) {
+            array_push($this->openAPINullablesSetToNull, 'individual_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('individual_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['individual_id'] = $individual_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization_id
+     *
+     * @return string|null
+     */
+    public function getOrganizationId()
+    {
+        return $this->container['organization_id'];
+    }
+
+    /**
+     * Sets organization_id
+     *
+     * @param string|null $organization_id organization_id
+     *
+     * @return self
+     */
+    public function setOrganizationId($organization_id)
+    {
+        if (is_null($organization_id)) {
+            array_push($this->openAPINullablesSetToNull, 'organization_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['organization_id'] = $organization_id;
 
         return $this;
     }

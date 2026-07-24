@@ -191,7 +191,7 @@ class ProjectTaskCreateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         'description' => 'description',
         'start_date' => 'startDate',
         'due_line' => 'dueLine',
-        'project_id' => 'projectID'
+        'project_id' => 'projectId'
     ];
 
     /**

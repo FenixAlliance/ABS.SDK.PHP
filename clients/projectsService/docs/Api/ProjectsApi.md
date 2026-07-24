@@ -6,23 +6,26 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | ------------- | ------------- | ------------- |
 | [**createProjectAsync()**](ProjectsApi.md#createProjectAsync) | **POST** /api/v2/ProjectsService/Projects | Creates a new project |
 | [**createProjectPeriodAsync()**](ProjectsApi.md#createProjectPeriodAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Periods | Creates a project period |
-| [**createProjectTaskAsync()**](ProjectsApi.md#createProjectTaskAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task |
+| [**createTaskForProjectAsync()**](ProjectsApi.md#createTaskForProjectAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task |
 | [**deleteProjectAsync()**](ProjectsApi.md#deleteProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} | Deletes a project |
 | [**deleteProjectPeriodAsync()**](ProjectsApi.md#deleteProjectPeriodAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Deletes a project period |
-| [**deleteProjectTaskAsync()**](ProjectsApi.md#deleteProjectTaskAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task |
+| [**deleteTaskForProjectAsync()**](ProjectsApi.md#deleteTaskForProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task |
 | [**getProjectByIdAsync()**](ProjectsApi.md#getProjectByIdAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId} | Gets a project by ID |
 | [**getProjectPeriodsAsync()**](ProjectsApi.md#getProjectPeriodsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods | Retrieves project periods |
 | [**getProjectTaskCategoriesAsync()**](ProjectsApi.md#getProjectTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | Retrieves project task categories |
 | [**getProjectTaskCategoriesCountAsync()**](ProjectsApi.md#getProjectTaskCategoriesCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | Counts project task categories |
-| [**getProjectTasksAsync()**](ProjectsApi.md#getProjectTasksAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks |
-| [**getProjectTasksCountAsync()**](ProjectsApi.md#getProjectTasksCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks |
-| [**getProjectTimeLogsAsync()**](ProjectsApi.md#getProjectTimeLogsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs |
 | [**getProjectTimeLogsCountAsync()**](ProjectsApi.md#getProjectTimeLogsCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | Counts project time logs |
 | [**getProjectsByTenantIdAsync()**](ProjectsApi.md#getProjectsByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects | Retrieves all projects |
 | [**getProjectsCountByTenantIdAsync()**](ProjectsApi.md#getProjectsCountByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects/Count | Counts projects |
+| [**getTasksForProjectAsync()**](ProjectsApi.md#getTasksForProjectAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks |
+| [**getTasksForProjectCountAsync()**](ProjectsApi.md#getTasksForProjectCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks |
+| [**getTimeLogsForProjectAsync()**](ProjectsApi.md#getTimeLogsForProjectAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs |
+| [**patchProjectAsync()**](ProjectsApi.md#patchProjectAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId} | Patches a project |
+| [**patchProjectPeriodAsync()**](ProjectsApi.md#patchProjectPeriodAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Patches a project period |
+| [**patchTaskForProjectAsync()**](ProjectsApi.md#patchTaskForProjectAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Patches a project task |
 | [**updateProjectAsync()**](ProjectsApi.md#updateProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId} | Updates a project |
 | [**updateProjectPeriodAsync()**](ProjectsApi.md#updateProjectPeriodAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Updates a project period |
-| [**updateProjectTaskAsync()**](ProjectsApi.md#updateProjectTaskAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task |
+| [**updateTaskForProjectAsync()**](ProjectsApi.md#updateTaskForProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task |
 
 
 ## `createProjectAsync()`
@@ -143,10 +146,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createProjectTaskAsync()`
+## `createTaskForProjectAsync()`
 
 ```php
-createProjectTaskAsync($project_id, $tenant_id, $project_task_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
+createTaskForProjectAsync($project_id, $tenant_id, $project_task_create_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Creates a project task
@@ -171,10 +174,10 @@ $tenant_id = 'tenant_id_example'; // string
 $project_task_create_dto = new \OpenAPI\Client\Model\ProjectTaskCreateDto(); // \OpenAPI\Client\Model\ProjectTaskCreateDto
 
 try {
-    $result = $apiInstance->createProjectTaskAsync($project_id, $tenant_id, $project_task_create_dto);
+    $result = $apiInstance->createTaskForProjectAsync($project_id, $tenant_id, $project_task_create_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->createProjectTaskAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->createTaskForProjectAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -321,10 +324,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteProjectTaskAsync()`
+## `deleteTaskForProjectAsync()`
 
 ```php
-deleteProjectTaskAsync($tenant_id, $project_id, $project_task_id): \OpenAPI\Client\Model\EmptyEnvelope
+deleteTaskForProjectAsync($tenant_id, $project_id, $project_task_id): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Deletes a project task
@@ -349,10 +352,10 @@ $project_id = 'project_id_example'; // string
 $project_task_id = 'project_task_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteProjectTaskAsync($tenant_id, $project_id, $project_task_id);
+    $result = $apiInstance->deleteTaskForProjectAsync($tenant_id, $project_id, $project_task_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->deleteProjectTaskAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->deleteTaskForProjectAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -613,180 +616,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getProjectTasksAsync()`
-
-```php
-getProjectTasksAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
-```
-
-Retrieves project tasks
-
-Gets all tasks for a specific project with OData support.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-
-try {
-    $result = $apiInstance->getProjectTasksAsync($project_id, $tenant_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->getProjectTasksAsync: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope**](../Model/ProjectTaskDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getProjectTasksCountAsync()`
-
-```php
-getProjectTasksCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
-```
-
-Counts project tasks
-
-Gets the count of tasks for a specific project.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-
-try {
-    $result = $apiInstance->getProjectTasksCountAsync($project_id, $tenant_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->getProjectTasksCountAsync: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getProjectTimeLogsAsync()`
-
-```php
-getProjectTimeLogsAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
-```
-
-Retrieves project time logs
-
-Gets all time log entries for a specific project with OData support.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$project_id = 'project_id_example'; // string
-$tenant_id = 'tenant_id_example'; // string
-
-try {
-    $result = $apiInstance->getProjectTimeLogsAsync($project_id, $tenant_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->getProjectTimeLogsAsync: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **project_id** | **string**|  | |
-| **tenant_id** | **string**|  | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope**](../Model/ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/xml`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `getProjectTimeLogsCountAsync()`
 
 ```php
@@ -957,6 +786,364 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getTasksForProjectAsync()`
+
+```php
+getTasksForProjectAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
+```
+
+Retrieves project tasks
+
+Gets all tasks for a specific project with OData support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getTasksForProjectAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getTasksForProjectAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope**](../Model/ProjectTaskDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTasksForProjectCountAsync()`
+
+```php
+getTasksForProjectCountAsync($project_id, $tenant_id): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Counts project tasks
+
+Gets the count of tasks for a specific project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getTasksForProjectCountAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getTasksForProjectCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTimeLogsForProjectAsync()`
+
+```php
+getTimeLogsForProjectAsync($project_id, $tenant_id): \OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
+```
+
+Retrieves project time logs
+
+Gets all time log entries for a specific project with OData support.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+
+try {
+    $result = $apiInstance->getTimeLogsForProjectAsync($project_id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->getTimeLogsForProjectAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope**](../Model/ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchProjectAsync()`
+
+```php
+patchProjectAsync($project_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patches a project
+
+Partially updates the specified project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchProjectAsync($project_id, $tenant_id, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->patchProjectAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchProjectPeriodAsync()`
+
+```php
+patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patches a project period
+
+Partially updates the specified period for a project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$project_period_id = 'project_period_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->patchProjectPeriodAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **project_period_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchTaskForProjectAsync()`
+
+```php
+patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $operation): \OpenAPI\Client\Model\EmptyEnvelope
+```
+
+Patches a project task
+
+Partially updates the specified task in a project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ProjectsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$project_id = 'project_id_example'; // string
+$project_task_id = 'project_task_id_example'; // string
+$tenant_id = 'tenant_id_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $result = $apiInstance->patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $operation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProjectsApi->patchTaskForProjectAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **project_id** | **string**|  | |
+| **project_task_id** | **string**|  | |
+| **tenant_id** | **string**|  | |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateProjectAsync()`
 
 ```php
@@ -1079,10 +1266,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateProjectTaskAsync()`
+## `updateTaskForProjectAsync()`
 
 ```php
-updateProjectTaskAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
+updateTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Updates a project task
@@ -1108,10 +1295,10 @@ $tenant_id = 'tenant_id_example'; // string
 $project_task_update_dto = new \OpenAPI\Client\Model\ProjectTaskUpdateDto(); // \OpenAPI\Client\Model\ProjectTaskUpdateDto
 
 try {
-    $result = $apiInstance->updateProjectTaskAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto);
+    $result = $apiInstance->updateTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProjectsApi->updateProjectTaskAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProjectsApi->updateTaskForProjectAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

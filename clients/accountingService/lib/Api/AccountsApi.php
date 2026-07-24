@@ -268,7 +268,7 @@ class AccountsApi
      * Aggregate accounts balance
      *
      * @param  string $tenant_id tenant_id (required)
-     * @param  string $currency_id currency_id (optional)
+     * @param  string $currency_id currency_id (optional, default to 'USD.USA')
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
@@ -277,7 +277,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope
      */
-    public function aggregateAccountsBalanceAsync($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
         list($response) = $this->aggregateAccountsBalanceAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $contentType);
         return $response;
@@ -289,7 +289,7 @@ class AccountsApi
      * Aggregate accounts balance
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
@@ -298,7 +298,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MoneyEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function aggregateAccountsBalanceAsyncWithHttpInfo($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
         $request = $this->aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $contentType);
 
@@ -487,7 +487,7 @@ class AccountsApi
      * Aggregate accounts balance
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
@@ -495,7 +495,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateAccountsBalanceAsyncAsync($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
         return $this->aggregateAccountsBalanceAsyncAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $contentType)
             ->then(
@@ -511,7 +511,7 @@ class AccountsApi
      * Aggregate accounts balance
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
@@ -519,7 +519,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function aggregateAccountsBalanceAsyncAsyncWithHttpInfo($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MoneyEnvelope';
         $request = $this->aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $contentType);
@@ -564,7 +564,7 @@ class AccountsApi
      * Create request for operation 'aggregateAccountsBalanceAsync'
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['aggregateAccountsBalanceAsync'] to see the possible values for this operation
@@ -572,7 +572,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
+    public function aggregateAccountsBalanceAsyncRequest($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['aggregateAccountsBalanceAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -5905,7 +5905,7 @@ class AccountsApi
      * Get account aggregate
      *
      * @param  string $tenant_id tenant_id (required)
-     * @param  string $currency_id currency_id (optional)
+     * @param  string $currency_id currency_id (optional, default to 'USD.USA')
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  \OpenAPI\Client\Model\AccountDto[] $account_dto account_dto (optional)
@@ -5915,7 +5915,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope
      */
-    public function getAccountAggregateAsync($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
+    public function getAccountAggregateAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
     {
         list($response) = $this->getAccountAggregateAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto, $contentType);
         return $response;
@@ -5927,7 +5927,7 @@ class AccountsApi
      * Get account aggregate
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\AccountDto[] $account_dto (optional)
@@ -5937,7 +5937,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountAggregateAsyncWithHttpInfo($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
+    public function getAccountAggregateAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
     {
         $request = $this->getAccountAggregateAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto, $contentType);
 
@@ -6126,7 +6126,7 @@ class AccountsApi
      * Get account aggregate
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\AccountDto[] $account_dto (optional)
@@ -6135,7 +6135,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAggregateAsyncAsync($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
+    public function getAccountAggregateAsyncAsync($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
     {
         return $this->getAccountAggregateAsyncAsyncWithHttpInfo($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto, $contentType)
             ->then(
@@ -6151,7 +6151,7 @@ class AccountsApi
      * Get account aggregate
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\AccountDto[] $account_dto (optional)
@@ -6160,7 +6160,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAggregateAsyncAsyncWithHttpInfo($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
+    public function getAccountAggregateAsyncAsyncWithHttpInfo($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AccountingEntryDtoListEnvelope';
         $request = $this->getAccountAggregateAsyncRequest($tenant_id, $currency_id, $api_version, $x_api_version, $account_dto, $contentType);
@@ -6205,7 +6205,7 @@ class AccountsApi
      * Create request for operation 'getAccountAggregateAsync'
      *
      * @param  string $tenant_id (required)
-     * @param  string $currency_id (optional)
+     * @param  string $currency_id (optional, default to 'USD.USA')
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  \OpenAPI\Client\Model\AccountDto[] $account_dto (optional)
@@ -6214,7 +6214,7 @@ class AccountsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountAggregateAsyncRequest($tenant_id, $currency_id = null, $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
+    public function getAccountAggregateAsyncRequest($tenant_id, $currency_id = 'USD.USA', $api_version = null, $x_api_version = null, $account_dto = null, string $contentType = self::contentTypes['getAccountAggregateAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set

@@ -5,7 +5,11 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createContactAsync()**](ContactsApi.md#createContactAsync) | **POST** /api/v2/CrmService/Contacts | Create a new contact |
+| [**createContactEmailAsync()**](ContactsApi.md#createContactEmailAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Addresses | Add an email address to a contact |
+| [**createProfileForContactAsync()**](ContactsApi.md#createProfileForContactAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Profiles | Create a contact profile |
 | [**deleteContactAsync()**](ContactsApi.md#deleteContactAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId} | Delete a contact |
+| [**deleteContactEmailAsync()**](ContactsApi.md#deleteContactEmailAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Delete a contact email address |
+| [**deleteProfileForContactAsync()**](ContactsApi.md#deleteProfileForContactAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Delete a contact profile |
 | [**getBusinessOwnedIndividualAsync()**](ContactsApi.md#getBusinessOwnedIndividualAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId} | Get a Contact of type Individual by ID |
 | [**getBusinessOwnedIndividualsAsync()**](ContactsApi.md#getBusinessOwnedIndividualsAsync) | **GET** /api/v2/CrmService/Contacts/Individuals | Get all contacts of type individual |
 | [**getBusinessOwnedIndividualsCountAsync()**](ContactsApi.md#getBusinessOwnedIndividualsCountAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/Count | Get all contacts of type individual count |
@@ -15,7 +19,8 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getContactAsync()**](ContactsApi.md#getContactAsync) | **GET** /api/v2/CrmService/Contacts/{contactId} | Get a contact by ID |
 | [**getContactAvatarAsync()**](ContactsApi.md#getContactAvatarAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Avatar | Get a contact&#39;s avatar |
 | [**getContactCartAsync()**](ContactsApi.md#getContactCartAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Cart | Get a contact&#39;s cart |
-| [**getContactProfilesAsync()**](ContactsApi.md#getContactProfilesAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact&#39;s social profiles |
+| [**getContactEmailsAsync()**](ContactsApi.md#getContactEmailsAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails | Get a contact&#39;s email addresses |
+| [**getContactEmailsCountAsync()**](ContactsApi.md#getContactEmailsCountAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails/Count | Get contact email addresses count |
 | [**getContactSocialProfileAsync()**](ContactsApi.md#getContactSocialProfileAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/SocialProfile | Get a contact&#39;s social profile |
 | [**getContactWalletAsync()**](ContactsApi.md#getContactWalletAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Wallet | Get a contact&#39;s wallet |
 | [**getContactsAsync()**](ContactsApi.md#getContactsAsync) | **GET** /api/v2/CrmService/Contacts | Get all business owned contacts |
@@ -28,13 +33,19 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**getIndividualRelatedOrganizationsAsync()**](ContactsApi.md#getIndividualRelatedOrganizationsAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId}/Organizations | Get individual related organizations |
 | [**getOrganizationRelatedIndividualsAsync()**](ContactsApi.md#getOrganizationRelatedIndividualsAsync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals | Get organization related individuals |
 | [**getOrganizationRelatedOrganizationsAsync()**](ContactsApi.md#getOrganizationRelatedOrganizationsAsync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations | Get organization related organizations |
+| [**getProfilesForContactAsync()**](ContactsApi.md#getProfilesForContactAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact&#39;s social profiles |
+| [**getProfilesForContactCountAsync()**](ContactsApi.md#getProfilesForContactCountAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles/Count | Get contact profiles count |
 | [**patchContactAsync()**](ContactsApi.md#patchContactAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId} | Patch a contact |
+| [**patchContactEmailAsync()**](ContactsApi.md#patchContactEmailAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Patch a contact email address |
 | [**previewContactEmailTemplate()**](ContactsApi.md#previewContactEmailTemplate) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Preview | Preview the rendered email for a contact. |
 | [**sendContactEmail()**](ContactsApi.md#sendContactEmail) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Send | Send an email to a contact. |
 | [**updateContactAsync()**](ContactsApi.md#updateContactAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId} | Update a contact |
 | [**updateContactAvatarAsync()**](ContactsApi.md#updateContactAvatarAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Avatar | Update a contact&#39;s avatar |
+| [**updateContactEmailAsync()**](ContactsApi.md#updateContactEmailAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Update a contact email address |
+| [**updateProfileForContactAsync()**](ContactsApi.md#updateProfileForContactAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Update a contact profile |
 | [**upsertTenantOntoAnotherTenantContactListAsync()**](ContactsApi.md#upsertTenantOntoAnotherTenantContactListAsync) | **POST** /api/v2/CrmService/Contacts/Organizations/Upsert | Upsert a tenant onto another tenant&#39;s contact list |
 | [**upsertUserOntoAnotherTenantContactListAsync()**](ContactsApi.md#upsertUserOntoAnotherTenantContactListAsync) | **POST** /api/v2/CrmService/Contacts/Individuals/Upsert | Upsert a user onto a tenant&#39;s contact list |
+| [**verifyContactEmailAsync()**](ContactsApi.md#verifyContactEmailAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify | Verify a contact email address |
 
 
 ## `createContactAsync()`
@@ -99,6 +110,132 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createContactEmailAsync()`
+
+```php
+createContactEmailAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_create_dto)
+```
+
+Add an email address to a contact
+
+Creates a new email address for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$contact_email_create_dto = new \OpenAPI\Client\Model\ContactEmailCreateDto(); // \OpenAPI\Client\Model\ContactEmailCreateDto
+
+try {
+    $apiInstance->createContactEmailAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_email_create_dto);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->createContactEmailAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **contact_email_create_dto** | [**\OpenAPI\Client\Model\ContactEmailCreateDto**](../Model/ContactEmailCreateDto.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createProfileForContactAsync()`
+
+```php
+createProfileForContactAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_create_dto)
+```
+
+Create a contact profile
+
+Creates a new profile for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$contact_profile_create_dto = new \OpenAPI\Client\Model\ContactProfileCreateDto(); // \OpenAPI\Client\Model\ContactProfileCreateDto
+
+try {
+    $apiInstance->createProfileForContactAsync($tenant_id, $contact_id, $api_version, $x_api_version, $contact_profile_create_dto);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->createProfileForContactAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **contact_profile_create_dto** | [**\OpenAPI\Client\Model\ContactProfileCreateDto**](../Model/ContactProfileCreateDto.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteContactAsync()`
 
 ```php
@@ -147,6 +284,132 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteContactEmailAsync()`
+
+```php
+deleteContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version)
+```
+
+Delete a contact email address
+
+Deletes an email address from the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$email_id = 'email_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $apiInstance->deleteContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->deleteContactEmailAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **email_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteProfileForContactAsync()`
+
+```php
+deleteProfileForContactAsync($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version)
+```
+
+Delete a contact profile
+
+Deletes a profile for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$profile_id = 'profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $apiInstance->deleteProfileForContactAsync($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->deleteProfileForContactAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -711,15 +974,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getContactProfilesAsync()`
+## `getContactEmailsAsync()`
 
 ```php
-getContactProfilesAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactProfileDtoListEnvelope
+getContactEmailsAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactEmailDtoListEnvelope
 ```
 
-Get a contact's social profiles
+Get a contact's email addresses
 
-Get a contact's social profiles
+Get all email addresses for the specified contact.
 
 ### Example
 
@@ -740,10 +1003,10 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getContactProfilesAsync($tenant_id, $contact_id, $api_version, $x_api_version);
+    $result = $apiInstance->getContactEmailsAsync($tenant_id, $contact_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ContactsApi->getContactProfilesAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContactsApi->getContactEmailsAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -758,7 +1021,69 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ContactProfileDtoListEnvelope**](../Model/ContactProfileDtoListEnvelope.md)
+[**\OpenAPI\Client\Model\ContactEmailDtoListEnvelope**](../Model/ContactEmailDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getContactEmailsCountAsync()`
+
+```php
+getContactEmailsCountAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Get contact email addresses count
+
+Returns the count of email addresses for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getContactEmailsCountAsync($tenant_id, $contact_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->getContactEmailsCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
 
 ### Authorization
 
@@ -1507,6 +1832,130 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getProfilesForContactAsync()`
+
+```php
+getProfilesForContactAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\ContactProfileDtoListEnvelope
+```
+
+Get a contact's social profiles
+
+Get a contact's social profiles
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getProfilesForContactAsync($tenant_id, $contact_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->getProfilesForContactAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ContactProfileDtoListEnvelope**](../Model/ContactProfileDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProfilesForContactCountAsync()`
+
+```php
+getProfilesForContactCountAsync($tenant_id, $contact_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+```
+
+Get contact profiles count
+
+Returns the count of profiles for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $result = $apiInstance->getProfilesForContactCountAsync($tenant_id, $contact_id, $api_version, $x_api_version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->getProfilesForContactCountAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Int32Envelope**](../Model/Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `patchContactAsync()`
 
 ```php
@@ -1557,6 +2006,71 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\EmptyEnvelope**](../Model/EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `patchContactEmailAsync()`
+
+```php
+patchContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation)
+```
+
+Patch a contact email address
+
+Partially updates an existing email address for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$email_id = 'email_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$operation = array(new \OpenAPI\Client\Model\Operation()); // \OpenAPI\Client\Model\Operation[]
+
+try {
+    $apiInstance->patchContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $operation);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->patchContactEmailAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **email_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **operation** | [**\OpenAPI\Client\Model\Operation[]**](../Model/Operation.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -1821,6 +2335,136 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateContactEmailAsync()`
+
+```php
+updateContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contact_email_update_dto)
+```
+
+Update a contact email address
+
+Updates an existing email address for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$email_id = 'email_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$contact_email_update_dto = new \OpenAPI\Client\Model\ContactEmailUpdateDto(); // \OpenAPI\Client\Model\ContactEmailUpdateDto
+
+try {
+    $apiInstance->updateContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version, $contact_email_update_dto);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->updateContactEmailAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **email_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **contact_email_update_dto** | [**\OpenAPI\Client\Model\ContactEmailUpdateDto**](../Model/ContactEmailUpdateDto.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateProfileForContactAsync()`
+
+```php
+updateProfileForContactAsync($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contact_profile_update_dto)
+```
+
+Update a contact profile
+
+Updates an existing profile for the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$profile_id = 'profile_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$contact_profile_update_dto = new \OpenAPI\Client\Model\ContactProfileUpdateDto(); // \OpenAPI\Client\Model\ContactProfileUpdateDto
+
+try {
+    $apiInstance->updateProfileForContactAsync($tenant_id, $contact_id, $profile_id, $api_version, $x_api_version, $contact_profile_update_dto);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->updateProfileForContactAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **profile_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **contact_profile_update_dto** | [**\OpenAPI\Client\Model\ContactProfileUpdateDto**](../Model/ContactProfileUpdateDto.md)|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `application/xml`
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `upsertTenantOntoAnotherTenantContactListAsync()`
 
 ```php
@@ -1931,6 +2575,69 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\ContactDtoEnvelope**](../Model/ContactDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/xml`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `verifyContactEmailAsync()`
+
+```php
+verifyContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version)
+```
+
+Verify a contact email address
+
+Marks an email address as verified on the specified contact.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ContactsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$contact_id = 'contact_id_example'; // string
+$email_id = 'email_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $apiInstance->verifyContactEmailAsync($tenant_id, $contact_id, $email_id, $api_version, $x_api_version);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactsApi->verifyContactEmailAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **contact_id** | **string**|  | |
+| **email_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

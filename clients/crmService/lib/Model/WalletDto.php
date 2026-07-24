@@ -107,7 +107,7 @@ class WalletDto implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => true,
-        'timestamp' => false,
+        'timestamp' => true,
         'balance' => false,
         'crypto_balance' => false,
         'test_mode' => false,
@@ -442,7 +442,14 @@ class WalletDto implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTimestamp($timestamp)
     {
         if (is_null($timestamp)) {
-            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'timestamp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timestamp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['timestamp'] = $timestamp;
 

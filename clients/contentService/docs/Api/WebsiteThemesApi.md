@@ -200,7 +200,7 @@ No authorization required
 ## `getWebsiteThemesAsync()`
 
 ```php
-getWebsiteThemesAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\WebsiteThemeDtoListEnvelope
+getWebsiteThemesAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\WebsiteThemeDtoListEnvelope
 ```
 
 Get all website themes
@@ -221,12 +221,11 @@ $apiInstance = new OpenAPI\Client\Api\WebsiteThemesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\WebsiteThemeDtoODataQueryOptions(); // \OpenAPI\Client\Model\WebsiteThemeDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getWebsiteThemesAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getWebsiteThemesAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebsiteThemesApi->getWebsiteThemesAsync: ', $e->getMessage(), PHP_EOL;
@@ -238,7 +237,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\WebsiteThemeDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -262,7 +260,7 @@ No authorization required
 ## `getWebsiteThemesCountAsync()`
 
 ```php
-getWebsiteThemesCountAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getWebsiteThemesCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get website themes count
@@ -283,12 +281,11 @@ $apiInstance = new OpenAPI\Client\Api\WebsiteThemesApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\WebsiteThemeDtoODataQueryOptions(); // \OpenAPI\Client\Model\WebsiteThemeDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getWebsiteThemesCountAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getWebsiteThemesCountAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebsiteThemesApi->getWebsiteThemesCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -300,7 +297,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\WebsiteThemeDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

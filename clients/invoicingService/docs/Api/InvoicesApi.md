@@ -2183,7 +2183,7 @@ No authorization required
 ## `getPurchaseInvoicesSum()`
 
 ```php
-getPurchaseInvoicesSum($tenant_id): \OpenAPI\Client\Model\DecimalEnvelope
+getPurchaseInvoicesSum($tenant_id): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Sum tenant purchase-invoice totals.
@@ -2221,7 +2221,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DecimalEnvelope**](../Model/DecimalEnvelope.md)
+[**\OpenAPI\Client\Model\MoneyEnvelope**](../Model/MoneyEnvelope.md)
 
 ### Authorization
 
@@ -2239,7 +2239,7 @@ No authorization required
 ## `getSalesInvoicesSum()`
 
 ```php
-getSalesInvoicesSum($tenant_id): \OpenAPI\Client\Model\DecimalEnvelope
+getSalesInvoicesSum($tenant_id): \OpenAPI\Client\Model\MoneyEnvelope
 ```
 
 Sum tenant sales-invoice totals.
@@ -2277,7 +2277,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DecimalEnvelope**](../Model/DecimalEnvelope.md)
+[**\OpenAPI\Client\Model\MoneyEnvelope**](../Model/MoneyEnvelope.md)
 
 ### Authorization
 

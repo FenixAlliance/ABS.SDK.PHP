@@ -63,7 +63,9 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => 'string',
         'task_category_id' => 'string',
         'display_in_time_tracker' => 'bool',
-        'requires_description' => 'bool'
+        'requires_description' => 'bool',
+        'tenant_id' => 'string',
+        'enrollment_id' => 'string'
     ];
 
     /**
@@ -79,7 +81,9 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => null,
         'task_category_id' => null,
         'display_in_time_tracker' => null,
-        'requires_description' => null
+        'requires_description' => null,
+        'tenant_id' => null,
+        'enrollment_id' => null
     ];
 
     /**
@@ -93,7 +97,9 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => true,
         'task_category_id' => true,
         'display_in_time_tracker' => false,
-        'requires_description' => false
+        'requires_description' => false,
+        'tenant_id' => true,
+        'enrollment_id' => true
     ];
 
     /**
@@ -185,9 +191,11 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'timestamp' => 'timestamp',
         'title' => 'title',
-        'task_category_id' => 'taskCategoryID',
+        'task_category_id' => 'taskCategoryId',
         'display_in_time_tracker' => 'displayInTimeTracker',
-        'requires_description' => 'requiresDescription'
+        'requires_description' => 'requiresDescription',
+        'tenant_id' => 'tenantId',
+        'enrollment_id' => 'enrollmentId'
     ];
 
     /**
@@ -201,7 +209,9 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => 'setTitle',
         'task_category_id' => 'setTaskCategoryId',
         'display_in_time_tracker' => 'setDisplayInTimeTracker',
-        'requires_description' => 'setRequiresDescription'
+        'requires_description' => 'setRequiresDescription',
+        'tenant_id' => 'setTenantId',
+        'enrollment_id' => 'setEnrollmentId'
     ];
 
     /**
@@ -215,7 +225,9 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => 'getTitle',
         'task_category_id' => 'getTaskCategoryId',
         'display_in_time_tracker' => 'getDisplayInTimeTracker',
-        'requires_description' => 'getRequiresDescription'
+        'requires_description' => 'getRequiresDescription',
+        'tenant_id' => 'getTenantId',
+        'enrollment_id' => 'getEnrollmentId'
     ];
 
     /**
@@ -281,6 +293,8 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('task_category_id', $data ?? [], null);
         $this->setIfExists('display_in_time_tracker', $data ?? [], null);
         $this->setIfExists('requires_description', $data ?? [], null);
+        $this->setIfExists('tenant_id', $data ?? [], null);
+        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -511,6 +525,74 @@ class TaskTypeDto implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable requires_description cannot be null');
         }
         $this->container['requires_description'] = $requires_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets tenant_id
+     *
+     * @return string|null
+     */
+    public function getTenantId()
+    {
+        return $this->container['tenant_id'];
+    }
+
+    /**
+     * Sets tenant_id
+     *
+     * @param string|null $tenant_id tenant_id
+     *
+     * @return self
+     */
+    public function setTenantId($tenant_id)
+    {
+        if (is_null($tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tenant_id'] = $tenant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets enrollment_id
+     *
+     * @return string|null
+     */
+    public function getEnrollmentId()
+    {
+        return $this->container['enrollment_id'];
+    }
+
+    /**
+     * Sets enrollment_id
+     *
+     * @param string|null $enrollment_id enrollment_id
+     *
+     * @return self
+     */
+    public function setEnrollmentId($enrollment_id)
+    {
+        if (is_null($enrollment_id)) {
+            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enrollment_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

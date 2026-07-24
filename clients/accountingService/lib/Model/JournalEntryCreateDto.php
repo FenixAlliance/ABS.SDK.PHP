@@ -60,18 +60,15 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'group' => 'bool',
-        'opening' => 'bool',
-        'description' => 'string',
-        'date' => '\DateTime',
-        'debit' => 'float',
-        'credit' => 'float',
         'journal_id' => 'string',
-        'currency_id' => 'string',
-        'debit_account_id' => 'string',
-        'credit_account_id' => 'string',
-        'parent_journal_entry_id' => 'string',
-        'invoice_code' => 'string'
+        'fiscal_period_id' => 'string',
+        'transaction_currency_id' => 'string',
+        'description' => 'string',
+        'source_document_type' => 'string',
+        'source_document_id' => 'string',
+        'idempotency_key' => 'string',
+        'is_opening_balance' => 'bool',
+        'accounting_entries' => '\OpenAPI\Client\Model\AccountingEntryCreateDto[]'
     ];
 
     /**
@@ -84,18 +81,15 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'group' => null,
-        'opening' => null,
-        'description' => null,
-        'date' => 'date-time',
-        'debit' => 'double',
-        'credit' => 'double',
         'journal_id' => null,
-        'currency_id' => null,
-        'debit_account_id' => null,
-        'credit_account_id' => null,
-        'parent_journal_entry_id' => null,
-        'invoice_code' => null
+        'fiscal_period_id' => null,
+        'transaction_currency_id' => null,
+        'description' => null,
+        'source_document_type' => null,
+        'source_document_id' => null,
+        'idempotency_key' => null,
+        'is_opening_balance' => null,
+        'accounting_entries' => null
     ];
 
     /**
@@ -106,18 +100,15 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'group' => false,
-        'opening' => false,
-        'description' => false,
-        'date' => false,
-        'debit' => false,
-        'credit' => false,
         'journal_id' => false,
-        'currency_id' => false,
-        'debit_account_id' => false,
-        'credit_account_id' => false,
-        'parent_journal_entry_id' => true,
-        'invoice_code' => true
+        'fiscal_period_id' => false,
+        'transaction_currency_id' => false,
+        'description' => false,
+        'source_document_type' => true,
+        'source_document_id' => true,
+        'idempotency_key' => true,
+        'is_opening_balance' => false,
+        'accounting_entries' => true
     ];
 
     /**
@@ -208,18 +199,15 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'group' => 'group',
-        'opening' => 'opening',
-        'description' => 'description',
-        'date' => 'date',
-        'debit' => 'debit',
-        'credit' => 'credit',
         'journal_id' => 'journalId',
-        'currency_id' => 'currencyId',
-        'debit_account_id' => 'debitAccountId',
-        'credit_account_id' => 'creditAccountId',
-        'parent_journal_entry_id' => 'parentJournalEntryId',
-        'invoice_code' => 'invoiceCode'
+        'fiscal_period_id' => 'fiscalPeriodId',
+        'transaction_currency_id' => 'transactionCurrencyId',
+        'description' => 'description',
+        'source_document_type' => 'sourceDocumentType',
+        'source_document_id' => 'sourceDocumentId',
+        'idempotency_key' => 'idempotencyKey',
+        'is_opening_balance' => 'isOpeningBalance',
+        'accounting_entries' => 'accountingEntries'
     ];
 
     /**
@@ -230,18 +218,15 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'group' => 'setGroup',
-        'opening' => 'setOpening',
-        'description' => 'setDescription',
-        'date' => 'setDate',
-        'debit' => 'setDebit',
-        'credit' => 'setCredit',
         'journal_id' => 'setJournalId',
-        'currency_id' => 'setCurrencyId',
-        'debit_account_id' => 'setDebitAccountId',
-        'credit_account_id' => 'setCreditAccountId',
-        'parent_journal_entry_id' => 'setParentJournalEntryId',
-        'invoice_code' => 'setInvoiceCode'
+        'fiscal_period_id' => 'setFiscalPeriodId',
+        'transaction_currency_id' => 'setTransactionCurrencyId',
+        'description' => 'setDescription',
+        'source_document_type' => 'setSourceDocumentType',
+        'source_document_id' => 'setSourceDocumentId',
+        'idempotency_key' => 'setIdempotencyKey',
+        'is_opening_balance' => 'setIsOpeningBalance',
+        'accounting_entries' => 'setAccountingEntries'
     ];
 
     /**
@@ -252,18 +237,15 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'group' => 'getGroup',
-        'opening' => 'getOpening',
-        'description' => 'getDescription',
-        'date' => 'getDate',
-        'debit' => 'getDebit',
-        'credit' => 'getCredit',
         'journal_id' => 'getJournalId',
-        'currency_id' => 'getCurrencyId',
-        'debit_account_id' => 'getDebitAccountId',
-        'credit_account_id' => 'getCreditAccountId',
-        'parent_journal_entry_id' => 'getParentJournalEntryId',
-        'invoice_code' => 'getInvoiceCode'
+        'fiscal_period_id' => 'getFiscalPeriodId',
+        'transaction_currency_id' => 'getTransactionCurrencyId',
+        'description' => 'getDescription',
+        'source_document_type' => 'getSourceDocumentType',
+        'source_document_id' => 'getSourceDocumentId',
+        'idempotency_key' => 'getIdempotencyKey',
+        'is_opening_balance' => 'getIsOpeningBalance',
+        'accounting_entries' => 'getAccountingEntries'
     ];
 
     /**
@@ -325,18 +307,15 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('group', $data ?? [], null);
-        $this->setIfExists('opening', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('date', $data ?? [], null);
-        $this->setIfExists('debit', $data ?? [], null);
-        $this->setIfExists('credit', $data ?? [], null);
         $this->setIfExists('journal_id', $data ?? [], null);
-        $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('debit_account_id', $data ?? [], null);
-        $this->setIfExists('credit_account_id', $data ?? [], null);
-        $this->setIfExists('parent_journal_entry_id', $data ?? [], null);
-        $this->setIfExists('invoice_code', $data ?? [], null);
+        $this->setIfExists('fiscal_period_id', $data ?? [], null);
+        $this->setIfExists('transaction_currency_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('source_document_type', $data ?? [], null);
+        $this->setIfExists('source_document_id', $data ?? [], null);
+        $this->setIfExists('idempotency_key', $data ?? [], null);
+        $this->setIfExists('is_opening_balance', $data ?? [], null);
+        $this->setIfExists('accounting_entries', $data ?? [], null);
     }
 
     /**
@@ -366,16 +345,6 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ((mb_strlen($this->container['description']) < 1)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
         if ($this->container['journal_id'] === null) {
             $invalidProperties[] = "'journal_id' can't be null";
         }
@@ -383,25 +352,29 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = "invalid value for 'journal_id', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['currency_id'] === null) {
-            $invalidProperties[] = "'currency_id' can't be null";
+        if ($this->container['fiscal_period_id'] === null) {
+            $invalidProperties[] = "'fiscal_period_id' can't be null";
         }
-        if ((mb_strlen($this->container['currency_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'currency_id', the character length must be bigger than or equal to 1.";
-        }
-
-        if ($this->container['debit_account_id'] === null) {
-            $invalidProperties[] = "'debit_account_id' can't be null";
-        }
-        if ((mb_strlen($this->container['debit_account_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'debit_account_id', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['fiscal_period_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'fiscal_period_id', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['credit_account_id'] === null) {
-            $invalidProperties[] = "'credit_account_id' can't be null";
+        if ($this->container['transaction_currency_id'] === null) {
+            $invalidProperties[] = "'transaction_currency_id' can't be null";
         }
-        if ((mb_strlen($this->container['credit_account_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'credit_account_id', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['transaction_currency_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'transaction_currency_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ((mb_strlen($this->container['description']) > 300)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 300.";
+        }
+
+        if ((mb_strlen($this->container['description']) < 1)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -474,173 +447,6 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets group
-     *
-     * @return bool|null
-     */
-    public function getGroup()
-    {
-        return $this->container['group'];
-    }
-
-    /**
-     * Sets group
-     *
-     * @param bool|null $group group
-     *
-     * @return self
-     */
-    public function setGroup($group)
-    {
-        if (is_null($group)) {
-            throw new \InvalidArgumentException('non-nullable group cannot be null');
-        }
-        $this->container['group'] = $group;
-
-        return $this;
-    }
-
-    /**
-     * Gets opening
-     *
-     * @return bool|null
-     */
-    public function getOpening()
-    {
-        return $this->container['opening'];
-    }
-
-    /**
-     * Sets opening
-     *
-     * @param bool|null $opening opening
-     *
-     * @return self
-     */
-    public function setOpening($opening)
-    {
-        if (is_null($opening)) {
-            throw new \InvalidArgumentException('non-nullable opening cannot be null');
-        }
-        $this->container['opening'] = $opening;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-
-        if ((mb_strlen($description) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling JournalEntryCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime $date date
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit
-     *
-     * @return float|null
-     */
-    public function getDebit()
-    {
-        return $this->container['debit'];
-    }
-
-    /**
-     * Sets debit
-     *
-     * @param float|null $debit debit
-     *
-     * @return self
-     */
-    public function setDebit($debit)
-    {
-        if (is_null($debit)) {
-            throw new \InvalidArgumentException('non-nullable debit cannot be null');
-        }
-        $this->container['debit'] = $debit;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit
-     *
-     * @return float|null
-     */
-    public function getCredit()
-    {
-        return $this->container['credit'];
-    }
-
-    /**
-     * Sets credit
-     *
-     * @param float|null $credit credit
-     *
-     * @return self
-     */
-    public function setCredit($credit)
-    {
-        if (is_null($credit)) {
-            throw new \InvalidArgumentException('non-nullable credit cannot be null');
-        }
-        $this->container['credit'] = $credit;
-
-        return $this;
-    }
-
-    /**
      * Gets journal_id
      *
      * @return string
@@ -673,165 +479,262 @@ class JournalEntryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets currency_id
+     * Gets fiscal_period_id
      *
      * @return string
      */
-    public function getCurrencyId()
+    public function getFiscalPeriodId()
     {
-        return $this->container['currency_id'];
+        return $this->container['fiscal_period_id'];
     }
 
     /**
-     * Sets currency_id
+     * Sets fiscal_period_id
      *
-     * @param string $currency_id currency_id
+     * @param string $fiscal_period_id fiscal_period_id
      *
      * @return self
      */
-    public function setCurrencyId($currency_id)
+    public function setFiscalPeriodId($fiscal_period_id)
     {
-        if (is_null($currency_id)) {
-            throw new \InvalidArgumentException('non-nullable currency_id cannot be null');
+        if (is_null($fiscal_period_id)) {
+            throw new \InvalidArgumentException('non-nullable fiscal_period_id cannot be null');
         }
 
-        if ((mb_strlen($currency_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $currency_id when calling JournalEntryCreateDto., must be bigger than or equal to 1.');
+        if ((mb_strlen($fiscal_period_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $fiscal_period_id when calling JournalEntryCreateDto., must be bigger than or equal to 1.');
         }
 
-        $this->container['currency_id'] = $currency_id;
+        $this->container['fiscal_period_id'] = $fiscal_period_id;
 
         return $this;
     }
 
     /**
-     * Gets debit_account_id
+     * Gets transaction_currency_id
      *
      * @return string
      */
-    public function getDebitAccountId()
+    public function getTransactionCurrencyId()
     {
-        return $this->container['debit_account_id'];
+        return $this->container['transaction_currency_id'];
     }
 
     /**
-     * Sets debit_account_id
+     * Sets transaction_currency_id
      *
-     * @param string $debit_account_id debit_account_id
+     * @param string $transaction_currency_id transaction_currency_id
      *
      * @return self
      */
-    public function setDebitAccountId($debit_account_id)
+    public function setTransactionCurrencyId($transaction_currency_id)
     {
-        if (is_null($debit_account_id)) {
-            throw new \InvalidArgumentException('non-nullable debit_account_id cannot be null');
+        if (is_null($transaction_currency_id)) {
+            throw new \InvalidArgumentException('non-nullable transaction_currency_id cannot be null');
         }
 
-        if ((mb_strlen($debit_account_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $debit_account_id when calling JournalEntryCreateDto., must be bigger than or equal to 1.');
+        if ((mb_strlen($transaction_currency_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $transaction_currency_id when calling JournalEntryCreateDto., must be bigger than or equal to 1.');
         }
 
-        $this->container['debit_account_id'] = $debit_account_id;
+        $this->container['transaction_currency_id'] = $transaction_currency_id;
 
         return $this;
     }
 
     /**
-     * Gets credit_account_id
+     * Gets description
      *
      * @return string
      */
-    public function getCreditAccountId()
+    public function getDescription()
     {
-        return $this->container['credit_account_id'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets credit_account_id
+     * Sets description
      *
-     * @param string $credit_account_id credit_account_id
+     * @param string $description description
      *
      * @return self
      */
-    public function setCreditAccountId($credit_account_id)
+    public function setDescription($description)
     {
-        if (is_null($credit_account_id)) {
-            throw new \InvalidArgumentException('non-nullable credit_account_id cannot be null');
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        if ((mb_strlen($description) > 300)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling JournalEntryCreateDto., must be smaller than or equal to 300.');
+        }
+        if ((mb_strlen($description) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling JournalEntryCreateDto., must be bigger than or equal to 1.');
         }
 
-        if ((mb_strlen($credit_account_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $credit_account_id when calling JournalEntryCreateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['credit_account_id'] = $credit_account_id;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets parent_journal_entry_id
+     * Gets source_document_type
      *
      * @return string|null
      */
-    public function getParentJournalEntryId()
+    public function getSourceDocumentType()
     {
-        return $this->container['parent_journal_entry_id'];
+        return $this->container['source_document_type'];
     }
 
     /**
-     * Sets parent_journal_entry_id
+     * Sets source_document_type
      *
-     * @param string|null $parent_journal_entry_id parent_journal_entry_id
+     * @param string|null $source_document_type source_document_type
      *
      * @return self
      */
-    public function setParentJournalEntryId($parent_journal_entry_id)
+    public function setSourceDocumentType($source_document_type)
     {
-        if (is_null($parent_journal_entry_id)) {
-            array_push($this->openAPINullablesSetToNull, 'parent_journal_entry_id');
+        if (is_null($source_document_type)) {
+            array_push($this->openAPINullablesSetToNull, 'source_document_type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('parent_journal_entry_id', $nullablesSetToNull);
+            $index = array_search('source_document_type', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['parent_journal_entry_id'] = $parent_journal_entry_id;
+        $this->container['source_document_type'] = $source_document_type;
 
         return $this;
     }
 
     /**
-     * Gets invoice_code
+     * Gets source_document_id
      *
      * @return string|null
      */
-    public function getInvoiceCode()
+    public function getSourceDocumentId()
     {
-        return $this->container['invoice_code'];
+        return $this->container['source_document_id'];
     }
 
     /**
-     * Sets invoice_code
+     * Sets source_document_id
      *
-     * @param string|null $invoice_code invoice_code
+     * @param string|null $source_document_id source_document_id
      *
      * @return self
      */
-    public function setInvoiceCode($invoice_code)
+    public function setSourceDocumentId($source_document_id)
     {
-        if (is_null($invoice_code)) {
-            array_push($this->openAPINullablesSetToNull, 'invoice_code');
+        if (is_null($source_document_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_document_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('invoice_code', $nullablesSetToNull);
+            $index = array_search('source_document_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['invoice_code'] = $invoice_code;
+        $this->container['source_document_id'] = $source_document_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets idempotency_key
+     *
+     * @return string|null
+     */
+    public function getIdempotencyKey()
+    {
+        return $this->container['idempotency_key'];
+    }
+
+    /**
+     * Sets idempotency_key
+     *
+     * @param string|null $idempotency_key idempotency_key
+     *
+     * @return self
+     */
+    public function setIdempotencyKey($idempotency_key)
+    {
+        if (is_null($idempotency_key)) {
+            array_push($this->openAPINullablesSetToNull, 'idempotency_key');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('idempotency_key', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['idempotency_key'] = $idempotency_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_opening_balance
+     *
+     * @return bool|null
+     */
+    public function getIsOpeningBalance()
+    {
+        return $this->container['is_opening_balance'];
+    }
+
+    /**
+     * Sets is_opening_balance
+     *
+     * @param bool|null $is_opening_balance is_opening_balance
+     *
+     * @return self
+     */
+    public function setIsOpeningBalance($is_opening_balance)
+    {
+        if (is_null($is_opening_balance)) {
+            throw new \InvalidArgumentException('non-nullable is_opening_balance cannot be null');
+        }
+        $this->container['is_opening_balance'] = $is_opening_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets accounting_entries
+     *
+     * @return \OpenAPI\Client\Model\AccountingEntryCreateDto[]|null
+     */
+    public function getAccountingEntries()
+    {
+        return $this->container['accounting_entries'];
+    }
+
+    /**
+     * Sets accounting_entries
+     *
+     * @param \OpenAPI\Client\Model\AccountingEntryCreateDto[]|null $accounting_entries accounting_entries
+     *
+     * @return self
+     */
+    public function setAccountingEntries($accounting_entries)
+    {
+        if (is_null($accounting_entries)) {
+            array_push($this->openAPINullablesSetToNull, 'accounting_entries');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('accounting_entries', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['accounting_entries'] = $accounting_entries;
 
         return $this;
     }

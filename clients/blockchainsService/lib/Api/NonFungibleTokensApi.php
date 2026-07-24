@@ -1125,7 +1125,6 @@ class NonFungibleTokensApi
      * Get all non-fungible tokens
      *
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options o_data_query_options (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensAsync'] to see the possible values for this operation
@@ -1134,9 +1133,9 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NonFungibleTokenDtoListEnvelope
      */
-    public function getNonFungibleTokensAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
+    public function getNonFungibleTokensAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
     {
-        list($response) = $this->getNonFungibleTokensAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getNonFungibleTokensAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -1146,7 +1145,6 @@ class NonFungibleTokensApi
      * Get all non-fungible tokens
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensAsync'] to see the possible values for this operation
@@ -1155,9 +1153,9 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\NonFungibleTokenDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNonFungibleTokensAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
+    public function getNonFungibleTokensAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
     {
-        $request = $this->getNonFungibleTokensAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getNonFungibleTokensAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1309,7 +1307,6 @@ class NonFungibleTokensApi
      * Get all non-fungible tokens
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensAsync'] to see the possible values for this operation
@@ -1317,9 +1314,9 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNonFungibleTokensAsyncAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
+    public function getNonFungibleTokensAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
     {
-        return $this->getNonFungibleTokensAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType)
+        return $this->getNonFungibleTokensAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1333,7 +1330,6 @@ class NonFungibleTokensApi
      * Get all non-fungible tokens
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensAsync'] to see the possible values for this operation
@@ -1341,10 +1337,10 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNonFungibleTokensAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
+    public function getNonFungibleTokensAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NonFungibleTokenDtoListEnvelope';
-        $request = $this->getNonFungibleTokensAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getNonFungibleTokensAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1386,7 +1382,6 @@ class NonFungibleTokensApi
      * Create request for operation 'getNonFungibleTokensAsync'
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensAsync'] to see the possible values for this operation
@@ -1394,7 +1389,7 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNonFungibleTokensAsyncRequest($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
+    public function getNonFungibleTokensAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1403,7 +1398,6 @@ class NonFungibleTokensApi
                 'Missing the required parameter $tenant_id when calling getNonFungibleTokensAsync'
             );
         }
-
 
 
 
@@ -1423,15 +1417,6 @@ class NonFungibleTokensApi
             'form', // style
             true, // explode
             true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $o_data_query_options,
-            'oDataQueryOptions', // param base name
-            'object', // openApiType
-            'form', // style
-            true, // explode
-            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -1509,7 +1494,6 @@ class NonFungibleTokensApi
      * Get NFTs count
      *
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options o_data_query_options (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensCountAsync'] to see the possible values for this operation
@@ -1518,9 +1502,9 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getNonFungibleTokensCountAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
+    public function getNonFungibleTokensCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
     {
-        list($response) = $this->getNonFungibleTokensCountAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getNonFungibleTokensCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -1530,7 +1514,6 @@ class NonFungibleTokensApi
      * Get NFTs count
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensCountAsync'] to see the possible values for this operation
@@ -1539,9 +1522,9 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNonFungibleTokensCountAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
+    public function getNonFungibleTokensCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
     {
-        $request = $this->getNonFungibleTokensCountAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getNonFungibleTokensCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1693,7 +1676,6 @@ class NonFungibleTokensApi
      * Get NFTs count
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensCountAsync'] to see the possible values for this operation
@@ -1701,9 +1683,9 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNonFungibleTokensCountAsyncAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
+    public function getNonFungibleTokensCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
     {
-        return $this->getNonFungibleTokensCountAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType)
+        return $this->getNonFungibleTokensCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1717,7 +1699,6 @@ class NonFungibleTokensApi
      * Get NFTs count
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensCountAsync'] to see the possible values for this operation
@@ -1725,10 +1706,10 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNonFungibleTokensCountAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
+    public function getNonFungibleTokensCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getNonFungibleTokensCountAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getNonFungibleTokensCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1770,7 +1751,6 @@ class NonFungibleTokensApi
      * Create request for operation 'getNonFungibleTokensCountAsync'
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\NonFungibleTokenDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNonFungibleTokensCountAsync'] to see the possible values for this operation
@@ -1778,7 +1758,7 @@ class NonFungibleTokensApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNonFungibleTokensCountAsyncRequest($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
+    public function getNonFungibleTokensCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getNonFungibleTokensCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1787,7 +1767,6 @@ class NonFungibleTokensApi
                 'Missing the required parameter $tenant_id when calling getNonFungibleTokensCountAsync'
             );
         }
-
 
 
 
@@ -1807,15 +1786,6 @@ class NonFungibleTokensApi
             'form', // style
             true, // explode
             true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $o_data_query_options,
-            'oDataQueryOptions', // param base name
-            'object', // openApiType
-            'form', // style
-            true, // explode
-            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(

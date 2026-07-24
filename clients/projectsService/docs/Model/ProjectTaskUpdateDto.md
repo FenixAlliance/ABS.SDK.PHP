@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**title** | **string** |  | [optional]
+**description** | **string** |  | [optional]
 **start_date** | **\DateTime** |  | [optional]
 **due_line** | **\DateTime** |  | [optional]
 

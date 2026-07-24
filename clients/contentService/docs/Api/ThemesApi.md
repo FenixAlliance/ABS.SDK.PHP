@@ -4,13 +4,13 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getLatestCurrencyRatesModelAsync()**](ThemesApi.md#getLatestCurrencyRatesModelAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes |
+| [**updateThemesAsync()**](ThemesApi.md#updateThemesAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes |
 
 
-## `getLatestCurrencyRatesModelAsync()`
+## `updateThemesAsync()`
 
 ```php
-getLatestCurrencyRatesModelAsync($api_version, $x_api_version)
+updateThemesAsync($api_version, $x_api_version)
 ```
 
 Update base web content themes
@@ -34,9 +34,9 @@ $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $apiInstance->getLatestCurrencyRatesModelAsync($api_version, $x_api_version);
+    $apiInstance->updateThemesAsync($api_version, $x_api_version);
 } catch (Exception $e) {
-    echo 'Exception when calling ThemesApi->getLatestCurrencyRatesModelAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ThemesApi->updateThemesAsync: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

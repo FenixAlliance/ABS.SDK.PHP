@@ -80,7 +80,7 @@ class ProjectsApi
             'application/json',
             'application/xml',
         ],
-        'createProjectTaskAsync' => [
+        'createTaskForProjectAsync' => [
             'application/json',
             'application/xml',
         ],
@@ -90,7 +90,7 @@ class ProjectsApi
         'deleteProjectPeriodAsync' => [
             'application/json',
         ],
-        'deleteProjectTaskAsync' => [
+        'deleteTaskForProjectAsync' => [
             'application/json',
         ],
         'getProjectByIdAsync' => [
@@ -105,15 +105,6 @@ class ProjectsApi
         'getProjectTaskCategoriesCountAsync' => [
             'application/json',
         ],
-        'getProjectTasksAsync' => [
-            'application/json',
-        ],
-        'getProjectTasksCountAsync' => [
-            'application/json',
-        ],
-        'getProjectTimeLogsAsync' => [
-            'application/json',
-        ],
         'getProjectTimeLogsCountAsync' => [
             'application/json',
         ],
@@ -123,6 +114,27 @@ class ProjectsApi
         'getProjectsCountByTenantIdAsync' => [
             'application/json',
         ],
+        'getTasksForProjectAsync' => [
+            'application/json',
+        ],
+        'getTasksForProjectCountAsync' => [
+            'application/json',
+        ],
+        'getTimeLogsForProjectAsync' => [
+            'application/json',
+        ],
+        'patchProjectAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'patchProjectPeriodAsync' => [
+            'application/json',
+            'application/xml',
+        ],
+        'patchTaskForProjectAsync' => [
+            'application/json',
+            'application/xml',
+        ],
         'updateProjectAsync' => [
             'application/json',
             'application/xml',
@@ -131,7 +143,7 @@ class ProjectsApi
             'application/json',
             'application/xml',
         ],
-        'updateProjectTaskAsync' => [
+        'updateTaskForProjectAsync' => [
             'application/json',
             'application/xml',
         ],
@@ -988,42 +1000,42 @@ class ProjectsApi
     }
 
     /**
-     * Operation createProjectTaskAsync
+     * Operation createTaskForProjectAsync
      *
      * Creates a project task
      *
      * @param  string $project_id project_id (required)
      * @param  string $tenant_id tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskCreateDto $project_task_create_dto project_task_create_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function createProjectTaskAsync($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createProjectTaskAsync'][0])
+    public function createTaskForProjectAsync($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createTaskForProjectAsync'][0])
     {
-        list($response) = $this->createProjectTaskAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto, $contentType);
+        list($response) = $this->createTaskForProjectAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto, $contentType);
         return $response;
     }
 
     /**
-     * Operation createProjectTaskAsyncWithHttpInfo
+     * Operation createTaskForProjectAsyncWithHttpInfo
      *
      * Creates a project task
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskCreateDto $project_task_create_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProjectTaskAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createProjectTaskAsync'][0])
+    public function createTaskForProjectAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createTaskForProjectAsync'][0])
     {
-        $request = $this->createProjectTaskAsyncRequest($project_id, $tenant_id, $project_task_create_dto, $contentType);
+        $request = $this->createTaskForProjectAsyncRequest($project_id, $tenant_id, $project_task_create_dto, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1205,21 +1217,21 @@ class ProjectsApi
     }
 
     /**
-     * Operation createProjectTaskAsyncAsync
+     * Operation createTaskForProjectAsyncAsync
      *
      * Creates a project task
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskCreateDto $project_task_create_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProjectTaskAsyncAsync($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createProjectTaskAsync'][0])
+    public function createTaskForProjectAsyncAsync($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createTaskForProjectAsync'][0])
     {
-        return $this->createProjectTaskAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto, $contentType)
+        return $this->createTaskForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1228,22 +1240,22 @@ class ProjectsApi
     }
 
     /**
-     * Operation createProjectTaskAsyncAsyncWithHttpInfo
+     * Operation createTaskForProjectAsyncAsyncWithHttpInfo
      *
      * Creates a project task
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskCreateDto $project_task_create_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProjectTaskAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createProjectTaskAsync'][0])
+    public function createTaskForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createTaskForProjectAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->createProjectTaskAsyncRequest($project_id, $tenant_id, $project_task_create_dto, $contentType);
+        $request = $this->createTaskForProjectAsyncRequest($project_id, $tenant_id, $project_task_create_dto, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1282,30 +1294,30 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'createProjectTaskAsync'
+     * Create request for operation 'createTaskForProjectAsync'
      *
      * @param  string $project_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskCreateDto $project_task_create_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProjectTaskAsyncRequest($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createProjectTaskAsync'][0])
+    public function createTaskForProjectAsyncRequest($project_id, $tenant_id, $project_task_create_dto = null, string $contentType = self::contentTypes['createTaskForProjectAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling createProjectTaskAsync'
+                'Missing the required parameter $project_id when calling createTaskForProjectAsync'
             );
         }
 
         // verify the required parameter 'tenant_id' is set
         if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling createProjectTaskAsync'
+                'Missing the required parameter $tenant_id when calling createTaskForProjectAsync'
             );
         }
 
@@ -2218,42 +2230,42 @@ class ProjectsApi
     }
 
     /**
-     * Operation deleteProjectTaskAsync
+     * Operation deleteTaskForProjectAsync
      *
      * Deletes a project task
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $project_id project_id (required)
      * @param  string $project_task_id project_task_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function deleteProjectTaskAsync($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteProjectTaskAsync'][0])
+    public function deleteTaskForProjectAsync($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteTaskForProjectAsync'][0])
     {
-        list($response) = $this->deleteProjectTaskAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, $contentType);
+        list($response) = $this->deleteTaskForProjectAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteProjectTaskAsyncWithHttpInfo
+     * Operation deleteTaskForProjectAsyncWithHttpInfo
      *
      * Deletes a project task
      *
      * @param  string $tenant_id (required)
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProjectTaskAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteProjectTaskAsync'][0])
+    public function deleteTaskForProjectAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteTaskForProjectAsync'][0])
     {
-        $request = $this->deleteProjectTaskAsyncRequest($tenant_id, $project_id, $project_task_id, $contentType);
+        $request = $this->deleteTaskForProjectAsyncRequest($tenant_id, $project_id, $project_task_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2435,21 +2447,21 @@ class ProjectsApi
     }
 
     /**
-     * Operation deleteProjectTaskAsyncAsync
+     * Operation deleteTaskForProjectAsyncAsync
      *
      * Deletes a project task
      *
      * @param  string $tenant_id (required)
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProjectTaskAsyncAsync($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteProjectTaskAsync'][0])
+    public function deleteTaskForProjectAsyncAsync($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteTaskForProjectAsync'][0])
     {
-        return $this->deleteProjectTaskAsyncAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, $contentType)
+        return $this->deleteTaskForProjectAsyncAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2458,22 +2470,22 @@ class ProjectsApi
     }
 
     /**
-     * Operation deleteProjectTaskAsyncAsyncWithHttpInfo
+     * Operation deleteTaskForProjectAsyncAsyncWithHttpInfo
      *
      * Deletes a project task
      *
      * @param  string $tenant_id (required)
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProjectTaskAsyncAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteProjectTaskAsync'][0])
+    public function deleteTaskForProjectAsyncAsyncWithHttpInfo($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteTaskForProjectAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->deleteProjectTaskAsyncRequest($tenant_id, $project_id, $project_task_id, $contentType);
+        $request = $this->deleteTaskForProjectAsyncRequest($tenant_id, $project_id, $project_task_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2512,37 +2524,37 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'deleteProjectTaskAsync'
+     * Create request for operation 'deleteTaskForProjectAsync'
      *
      * @param  string $tenant_id (required)
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProjectTaskAsyncRequest($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteProjectTaskAsync'][0])
+    public function deleteTaskForProjectAsyncRequest($tenant_id, $project_id, $project_task_id, string $contentType = self::contentTypes['deleteTaskForProjectAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
         if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling deleteProjectTaskAsync'
+                'Missing the required parameter $tenant_id when calling deleteTaskForProjectAsync'
             );
         }
 
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling deleteProjectTaskAsync'
+                'Missing the required parameter $project_id when calling deleteTaskForProjectAsync'
             );
         }
 
         // verify the required parameter 'project_task_id' is set
         if ($project_task_id === null || (is_array($project_task_id) && count($project_task_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_task_id when calling deleteProjectTaskAsync'
+                'Missing the required parameter $project_task_id when calling deleteTaskForProjectAsync'
             );
         }
 
@@ -4233,1203 +4245,6 @@ class ProjectsApi
     }
 
     /**
-     * Operation getProjectTasksAsync
-     *
-     * Retrieves project tasks
-     *
-     * @param  string $project_id project_id (required)
-     * @param  string $tenant_id tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksAsync'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
-     */
-    public function getProjectTasksAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksAsync'][0])
-    {
-        list($response) = $this->getProjectTasksAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getProjectTasksAsyncWithHttpInfo
-     *
-     * Retrieves project tasks
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksAsync'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getProjectTasksAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksAsync'][0])
-    {
-        $request = $this->getProjectTasksAsyncRequest($project_id, $tenant_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 403:
-                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 200:
-                    if ('\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            $returnType = '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ErrorEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ErrorEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getProjectTasksAsyncAsync
-     *
-     * Retrieves project tasks
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProjectTasksAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksAsync'][0])
-    {
-        return $this->getProjectTasksAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getProjectTasksAsyncAsyncWithHttpInfo
-     *
-     * Retrieves project tasks
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProjectTasksAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksAsync'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope';
-        $request = $this->getProjectTasksAsyncRequest($project_id, $tenant_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getProjectTasksAsync'
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getProjectTasksAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksAsync'][0])
-    {
-
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling getProjectTasksAsync'
-            );
-        }
-
-        // verify the required parameter 'tenant_id' is set
-        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling getProjectTasksAsync'
-            );
-        }
-
-
-        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Tasks';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $tenant_id,
-            'tenantId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            true // required
-        ) ?? []);
-
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'projectId' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/xml', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getProjectTasksCountAsync
-     *
-     * Counts project tasks
-     *
-     * @param  string $project_id project_id (required)
-     * @param  string $tenant_id tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksCountAsync'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
-     */
-    public function getProjectTasksCountAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksCountAsync'][0])
-    {
-        list($response) = $this->getProjectTasksCountAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getProjectTasksCountAsyncWithHttpInfo
-     *
-     * Counts project tasks
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksCountAsync'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getProjectTasksCountAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksCountAsync'][0])
-    {
-        $request = $this->getProjectTasksCountAsyncRequest($project_id, $tenant_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 403:
-                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 200:
-                    if ('\OpenAPI\Client\Model\Int32Envelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\Int32Envelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Int32Envelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ErrorEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ErrorEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Int32Envelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getProjectTasksCountAsyncAsync
-     *
-     * Counts project tasks
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksCountAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProjectTasksCountAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksCountAsync'][0])
-    {
-        return $this->getProjectTasksCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getProjectTasksCountAsyncAsyncWithHttpInfo
-     *
-     * Counts project tasks
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksCountAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProjectTasksCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksCountAsync'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getProjectTasksCountAsyncRequest($project_id, $tenant_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getProjectTasksCountAsync'
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTasksCountAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getProjectTasksCountAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTasksCountAsync'][0])
-    {
-
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling getProjectTasksCountAsync'
-            );
-        }
-
-        // verify the required parameter 'tenant_id' is set
-        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling getProjectTasksCountAsync'
-            );
-        }
-
-
-        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $tenant_id,
-            'tenantId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            true // required
-        ) ?? []);
-
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'projectId' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/xml', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getProjectTimeLogsAsync
-     *
-     * Retrieves project time logs
-     *
-     * @param  string $project_id project_id (required)
-     * @param  string $tenant_id tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsAsync'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
-     */
-    public function getProjectTimeLogsAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsAsync'][0])
-    {
-        list($response) = $this->getProjectTimeLogsAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getProjectTimeLogsAsyncWithHttpInfo
-     *
-     * Retrieves project time logs
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsAsync'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getProjectTimeLogsAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsAsync'][0])
-    {
-        $request = $this->getProjectTimeLogsAsyncRequest($project_id, $tenant_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 403:
-                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 200:
-                    if ('\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            $returnType = '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ErrorEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ErrorEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getProjectTimeLogsAsyncAsync
-     *
-     * Retrieves project time logs
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProjectTimeLogsAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsAsync'][0])
-    {
-        return $this->getProjectTimeLogsAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getProjectTimeLogsAsyncAsyncWithHttpInfo
-     *
-     * Retrieves project time logs
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProjectTimeLogsAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsAsync'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope';
-        $request = $this->getProjectTimeLogsAsyncRequest($project_id, $tenant_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getProjectTimeLogsAsync'
-     *
-     * @param  string $project_id (required)
-     * @param  string $tenant_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProjectTimeLogsAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getProjectTimeLogsAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getProjectTimeLogsAsync'][0])
-    {
-
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling getProjectTimeLogsAsync'
-            );
-        }
-
-        // verify the required parameter 'tenant_id' is set
-        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling getProjectTimeLogsAsync'
-            );
-        }
-
-
-        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $tenant_id,
-            'tenantId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            true // required
-        ) ?? []);
-
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'projectId' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/xml', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getProjectTimeLogsCountAsync
      *
      * Counts project time logs
@@ -6587,6 +5402,2479 @@ class ProjectsApi
     }
 
     /**
+     * Operation getTasksForProjectAsync
+     *
+     * Retrieves project tasks
+     *
+     * @param  string $project_id project_id (required)
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope
+     */
+    public function getTasksForProjectAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    {
+        list($response) = $this->getTasksForProjectAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getTasksForProjectAsyncWithHttpInfo
+     *
+     * Retrieves project tasks
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTasksForProjectAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    {
+        $request = $this->getTasksForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTasksForProjectAsyncAsync
+     *
+     * Retrieves project tasks
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTasksForProjectAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    {
+        return $this->getTasksForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTasksForProjectAsyncAsyncWithHttpInfo
+     *
+     * Retrieves project tasks
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTasksForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ProjectTaskDtoListEnvelope';
+        $request = $this->getTasksForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTasksForProjectAsync'
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTasksForProjectAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectAsync'][0])
+    {
+
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling getTasksForProjectAsync'
+            );
+        }
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getTasksForProjectAsync'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Tasks';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectId' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTasksForProjectCountAsync
+     *
+     * Counts project tasks
+     *
+     * @param  string $project_id project_id (required)
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
+     */
+    public function getTasksForProjectCountAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    {
+        list($response) = $this->getTasksForProjectCountAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getTasksForProjectCountAsyncWithHttpInfo
+     *
+     * Counts project tasks
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTasksForProjectCountAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    {
+        $request = $this->getTasksForProjectCountAsyncRequest($project_id, $tenant_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\Int32Envelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Int32Envelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Int32Envelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Int32Envelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTasksForProjectCountAsyncAsync
+     *
+     * Counts project tasks
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTasksForProjectCountAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    {
+        return $this->getTasksForProjectCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTasksForProjectCountAsyncAsyncWithHttpInfo
+     *
+     * Counts project tasks
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTasksForProjectCountAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Int32Envelope';
+        $request = $this->getTasksForProjectCountAsyncRequest($project_id, $tenant_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTasksForProjectCountAsync'
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTasksForProjectCountAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTasksForProjectCountAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getTasksForProjectCountAsync'][0])
+    {
+
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling getTasksForProjectCountAsync'
+            );
+        }
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getTasksForProjectCountAsync'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectId' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTimeLogsForProjectAsync
+     *
+     * Retrieves project time logs
+     *
+     * @param  string $project_id project_id (required)
+     * @param  string $tenant_id tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope
+     */
+    public function getTimeLogsForProjectAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    {
+        list($response) = $this->getTimeLogsForProjectAsyncWithHttpInfo($project_id, $tenant_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getTimeLogsForProjectAsyncWithHttpInfo
+     *
+     * Retrieves project time logs
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTimeLogsForProjectAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    {
+        $request = $this->getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTimeLogsForProjectAsyncAsync
+     *
+     * Retrieves project time logs
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTimeLogsForProjectAsyncAsync($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    {
+        return $this->getTimeLogsForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTimeLogsForProjectAsyncAsyncWithHttpInfo
+     *
+     * Retrieves project time logs
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTimeLogsForProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ProjectTimeLogDtoListEnvelope';
+        $request = $this->getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTimeLogsForProjectAsync'
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeLogsForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTimeLogsForProjectAsyncRequest($project_id, $tenant_id, string $contentType = self::contentTypes['getTimeLogsForProjectAsync'][0])
+    {
+
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling getTimeLogsForProjectAsync'
+            );
+        }
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling getTimeLogsForProjectAsync'
+            );
+        }
+
+
+        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/TimeLogs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectId' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchProjectAsync
+     *
+     * Patches a project
+     *
+     * @param  string $project_id project_id (required)
+     * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     */
+    public function patchProjectAsync($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    {
+        list($response) = $this->patchProjectAsyncWithHttpInfo($project_id, $tenant_id, $operation, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation patchProjectAsyncWithHttpInfo
+     *
+     * Patches a project
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchProjectAsyncWithHttpInfo($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    {
+        $request = $this->patchProjectAsyncRequest($project_id, $tenant_id, $operation, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchProjectAsyncAsync
+     *
+     * Patches a project
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchProjectAsyncAsync($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    {
+        return $this->patchProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $operation, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchProjectAsyncAsyncWithHttpInfo
+     *
+     * Patches a project
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchProjectAsyncAsyncWithHttpInfo($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->patchProjectAsyncRequest($project_id, $tenant_id, $operation, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchProjectAsync'
+     *
+     * @param  string $project_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchProjectAsyncRequest($project_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectAsync'][0])
+    {
+
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling patchProjectAsync'
+            );
+        }
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling patchProjectAsync'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectId' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($operation)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+            } else {
+                $httpBody = $operation;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchProjectPeriodAsync
+     *
+     * Patches a project period
+     *
+     * @param  string $project_id project_id (required)
+     * @param  string $project_period_id project_period_id (required)
+     * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     */
+    public function patchProjectPeriodAsync($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    {
+        list($response) = $this->patchProjectPeriodAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation patchProjectPeriodAsyncWithHttpInfo
+     *
+     * Patches a project period
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_period_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchProjectPeriodAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    {
+        $request = $this->patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $operation, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchProjectPeriodAsyncAsync
+     *
+     * Patches a project period
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_period_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchProjectPeriodAsyncAsync($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    {
+        return $this->patchProjectPeriodAsyncAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchProjectPeriodAsyncAsyncWithHttpInfo
+     *
+     * Patches a project period
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_period_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchProjectPeriodAsyncAsyncWithHttpInfo($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $operation, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchProjectPeriodAsync'
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_period_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchProjectPeriodAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchProjectPeriodAsyncRequest($project_id, $project_period_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchProjectPeriodAsync'][0])
+    {
+
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling patchProjectPeriodAsync'
+            );
+        }
+
+        // verify the required parameter 'project_period_id' is set
+        if ($project_period_id === null || (is_array($project_period_id) && count($project_period_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_period_id when calling patchProjectPeriodAsync'
+            );
+        }
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling patchProjectPeriodAsync'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectId' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_period_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectPeriodId' . '}',
+                ObjectSerializer::toPathValue($project_period_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($operation)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+            } else {
+                $httpBody = $operation;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation patchTaskForProjectAsync
+     *
+     * Patches a project task
+     *
+     * @param  string $project_id project_id (required)
+     * @param  string $project_task_id project_task_id (required)
+     * @param  string $tenant_id tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
+     */
+    public function patchTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    {
+        list($response) = $this->patchTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation patchTaskForProjectAsyncWithHttpInfo
+     *
+     * Patches a project task
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_task_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function patchTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    {
+        $request = $this->patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $operation, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 403:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\OpenAPI\Client\Model\ErrorEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ErrorEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ErrorEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\OpenAPI\Client\Model\EmptyEnvelope' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\EmptyEnvelope' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\EmptyEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ErrorEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\EmptyEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation patchTaskForProjectAsyncAsync
+     *
+     * Patches a project task
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_task_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchTaskForProjectAsyncAsync($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    {
+        return $this->patchTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation patchTaskForProjectAsyncAsyncWithHttpInfo
+     *
+     * Patches a project task
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_task_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function patchTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
+        $request = $this->patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $operation, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'patchTaskForProjectAsync'
+     *
+     * @param  string $project_id (required)
+     * @param  string $project_task_id (required)
+     * @param  string $tenant_id (required)
+     * @param  \OpenAPI\Client\Model\Operation[] $operation (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTaskForProjectAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function patchTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $operation = null, string $contentType = self::contentTypes['patchTaskForProjectAsync'][0])
+    {
+
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling patchTaskForProjectAsync'
+            );
+        }
+
+        // verify the required parameter 'project_task_id' is set
+        if ($project_task_id === null || (is_array($project_task_id) && count($project_task_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_task_id when calling patchTaskForProjectAsync'
+            );
+        }
+
+        // verify the required parameter 'tenant_id' is set
+        if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenant_id when calling patchTaskForProjectAsync'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectId' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_task_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'projectTaskId' . '}',
+                ObjectSerializer::toPathValue($project_task_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'application/xml', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($operation)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($operation));
+            } else {
+                $httpBody = $operation;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateProjectAsync
      *
      * Updates a project
@@ -7431,7 +8719,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation updateProjectTaskAsync
+     * Operation updateTaskForProjectAsync
      *
      * Updates a project task
      *
@@ -7439,20 +8727,20 @@ class ProjectsApi
      * @param  string $project_task_id project_task_id (required)
      * @param  string $tenant_id tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskUpdateDto $project_task_update_dto project_task_update_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope
      */
-    public function updateProjectTaskAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateProjectTaskAsync'][0])
+    public function updateTaskForProjectAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateTaskForProjectAsync'][0])
     {
-        list($response) = $this->updateProjectTaskAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType);
+        list($response) = $this->updateTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateProjectTaskAsyncWithHttpInfo
+     * Operation updateTaskForProjectAsyncWithHttpInfo
      *
      * Updates a project task
      *
@@ -7460,15 +8748,15 @@ class ProjectsApi
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskUpdateDto $project_task_update_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\EmptyEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateProjectTaskAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateProjectTaskAsync'][0])
+    public function updateTaskForProjectAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateTaskForProjectAsync'][0])
     {
-        $request = $this->updateProjectTaskAsyncRequest($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType);
+        $request = $this->updateTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7650,7 +8938,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation updateProjectTaskAsyncAsync
+     * Operation updateTaskForProjectAsyncAsync
      *
      * Updates a project task
      *
@@ -7658,14 +8946,14 @@ class ProjectsApi
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskUpdateDto $project_task_update_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProjectTaskAsyncAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateProjectTaskAsync'][0])
+    public function updateTaskForProjectAsyncAsync($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateTaskForProjectAsync'][0])
     {
-        return $this->updateProjectTaskAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType)
+        return $this->updateTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7674,7 +8962,7 @@ class ProjectsApi
     }
 
     /**
-     * Operation updateProjectTaskAsyncAsyncWithHttpInfo
+     * Operation updateTaskForProjectAsyncAsyncWithHttpInfo
      *
      * Updates a project task
      *
@@ -7682,15 +8970,15 @@ class ProjectsApi
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskUpdateDto $project_task_update_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProjectTaskAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateProjectTaskAsync'][0])
+    public function updateTaskForProjectAsyncAsyncWithHttpInfo($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateTaskForProjectAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\EmptyEnvelope';
-        $request = $this->updateProjectTaskAsyncRequest($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType);
+        $request = $this->updateTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $project_task_update_dto, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7729,38 +9017,38 @@ class ProjectsApi
     }
 
     /**
-     * Create request for operation 'updateProjectTaskAsync'
+     * Create request for operation 'updateTaskForProjectAsync'
      *
      * @param  string $project_id (required)
      * @param  string $project_task_id (required)
      * @param  string $tenant_id (required)
      * @param  \OpenAPI\Client\Model\ProjectTaskUpdateDto $project_task_update_dto (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProjectTaskAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaskForProjectAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateProjectTaskAsyncRequest($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateProjectTaskAsync'][0])
+    public function updateTaskForProjectAsyncRequest($project_id, $project_task_id, $tenant_id, $project_task_update_dto = null, string $contentType = self::contentTypes['updateTaskForProjectAsync'][0])
     {
 
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling updateProjectTaskAsync'
+                'Missing the required parameter $project_id when calling updateTaskForProjectAsync'
             );
         }
 
         // verify the required parameter 'project_task_id' is set
         if ($project_task_id === null || (is_array($project_task_id) && count($project_task_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_task_id when calling updateProjectTaskAsync'
+                'Missing the required parameter $project_task_id when calling updateTaskForProjectAsync'
             );
         }
 
         // verify the required parameter 'tenant_id' is set
         if ($tenant_id === null || (is_array($tenant_id) && count($tenant_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenant_id when calling updateProjectTaskAsync'
+                'Missing the required parameter $tenant_id when calling updateTaskForProjectAsync'
             );
         }
 

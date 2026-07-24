@@ -1,25 +1,26 @@
 # OpenAPI\Client\RadzenEditorApi
 
-All URIs are relative to http://localhost, except if the operation defines another base path.
+All URIs are relative to https://absuite.net, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**image()**](RadzenEditorApi.md#image) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Image | Upload an image file |
-| [**multiple()**](RadzenEditorApi.md#multiple) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Multiple | Upload multiple files |
-| [**post()**](RadzenEditorApi.md#post) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/{id} | Upload files by ID |
-| [**single()**](RadzenEditorApi.md#single) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Single | Upload a single file |
-| [**specific()**](RadzenEditorApi.md#specific) | **POST** /api/v2/StorageService/RadzenEditor/Uploads/Specific | Upload a specific file |
+| [**radzenUploadImage()**](RadzenEditorApi.md#radzenUploadImage) | **POST** /api/v2/fs/radzen/tenants/{tenantId}/upload/image | Upload an editor image to tenant storage. |
+| [**radzenUploadImageScoped()**](RadzenEditorApi.md#radzenUploadImageScoped) | **POST** /api/v2/fs/radzen/tenants/{tenantId}/{recordType}/{recordId}/upload/image | Upload an editor image scoped to a record. |
+| [**radzenUploadSingle()**](RadzenEditorApi.md#radzenUploadSingle) | **POST** /api/v2/fs/radzen/tenants/{tenantId}/upload/single | Upload a single editor file to tenant storage. |
+| [**radzenUploadSingleScoped()**](RadzenEditorApi.md#radzenUploadSingleScoped) | **POST** /api/v2/fs/radzen/tenants/{tenantId}/{recordType}/{recordId}/upload/single | Upload a single editor file scoped to a record. |
+| [**radzenUploadStream()**](RadzenEditorApi.md#radzenUploadStream) | **PUT** /api/v2/fs/radzen/tenants/{tenantId}/upload/stream | Chunked editor upload (not implemented). |
+| [**radzenUploadStreamScoped()**](RadzenEditorApi.md#radzenUploadStreamScoped) | **PUT** /api/v2/fs/radzen/tenants/{tenantId}/{recordType}/{recordId}/upload/stream | Chunked editor upload scoped to a record (not implemented). |
+| [**radzenUploadUserImage()**](RadzenEditorApi.md#radzenUploadUserImage) | **POST** /api/v2/fs/radzen/users/upload/image | Upload an editor image to user storage. |
+| [**radzenUploadUserImageScoped()**](RadzenEditorApi.md#radzenUploadUserImageScoped) | **POST** /api/v2/fs/radzen/users/{recordType}/{recordId}/upload/image | Upload a user editor image scoped to a record. |
 
 
-## `image()`
+## `radzenUploadImage()`
 
 ```php
-image($tenant_id, $api_version, $x_api_version, $file)
+radzenUploadImage($tenant_id, $visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file)
 ```
 
-Upload an image file
-
-Uploads an image file and returns its URL for editor embedding.
+Upload an editor image to tenant storage.
 
 ### Example
 
@@ -35,14 +36,17 @@ $apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$visibility = 'visibility_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$purpose = 'purpose_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->image($tenant_id, $api_version, $x_api_version, $file);
+    $apiInstance->radzenUploadImage($tenant_id, $visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file);
 } catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->image: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RadzenEditorApi->radzenUploadImage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -50,7 +54,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
+| **visibility** | **string**|  | [optional] |
+| **social_profile_id** | **string**|  | [optional] |
+| **purpose** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
@@ -72,15 +79,13 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `multiple()`
+## `radzenUploadImageScoped()`
 
 ```php
-multiple($tenant_id, $api_version, $x_api_version, $files)
+radzenUploadImageScoped($tenant_id, $record_type, $record_id, $visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file)
 ```
 
-Upload multiple files
-
-Uploads multiple files to tenant or user storage.
+Upload an editor image scoped to a record.
 
 ### Example
 
@@ -96,138 +101,19 @@ $apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$files = array("/path/to/file.txt"); // \SplFileObject[]
-
-try {
-    $apiInstance->multiple($tenant_id, $api_version, $x_api_version, $files);
-} catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->multiple: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **files** | **\SplFileObject[]**|  | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `post()`
-
-```php
-post($id, $tenant_id, $api_version, $x_api_version, $files)
-```
-
-Upload files by ID
-
-Uploads files associated with a specific resource ID.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$id = 56; // int
-$tenant_id = 'tenant_id_example'; // string
-$api_version = 'api_version_example'; // string
-$x_api_version = 'x_api_version_example'; // string
-$files = array("/path/to/file.txt"); // \SplFileObject[]
-
-try {
-    $apiInstance->post($id, $tenant_id, $api_version, $x_api_version, $files);
-} catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->post: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**|  | |
-| **tenant_id** | **string**|  | [optional] |
-| **api_version** | **string**|  | [optional] |
-| **x_api_version** | **string**|  | [optional] |
-| **files** | **\SplFileObject[]**|  | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `single()`
-
-```php
-single($tenant_id, $api_version, $x_api_version, $file)
-```
-
-Upload a single file
-
-Uploads a single file to tenant or user storage.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$tenant_id = 'tenant_id_example'; // string
+$record_type = 'record_type_example'; // string
+$record_id = 'record_id_example'; // string
+$visibility = 'visibility_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$purpose = 'purpose_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->single($tenant_id, $api_version, $x_api_version, $file);
+    $apiInstance->radzenUploadImageScoped($tenant_id, $record_type, $record_id, $visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file);
 } catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->single: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RadzenEditorApi->radzenUploadImageScoped: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -235,7 +121,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
+| **record_type** | **string**|  | |
+| **record_id** | **string**|  | |
+| **visibility** | **string**|  | [optional] |
+| **social_profile_id** | **string**|  | [optional] |
+| **purpose** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
@@ -257,15 +148,13 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `specific()`
+## `radzenUploadSingle()`
 
 ```php
-specific($tenant_id, $api_version, $x_api_version, $file)
+radzenUploadSingle($tenant_id, $api_version, $x_api_version, $file)
 ```
 
-Upload a specific file
-
-Uploads a specific file to tenant or user storage.
+Upload a single editor file to tenant storage.
 
 ### Example
 
@@ -286,9 +175,9 @@ $x_api_version = 'x_api_version_example'; // string
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->specific($tenant_id, $api_version, $x_api_version, $file);
+    $apiInstance->radzenUploadSingle($tenant_id, $api_version, $x_api_version, $file);
 } catch (Exception $e) {
-    echo 'Exception when calling RadzenEditorApi->specific: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RadzenEditorApi->radzenUploadSingle: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -296,7 +185,318 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **string**|  | [optional] |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `radzenUploadSingleScoped()`
+
+```php
+radzenUploadSingleScoped($tenant_id, $record_type, $record_id, $api_version, $x_api_version, $file)
+```
+
+Upload a single editor file scoped to a record.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$record_type = 'record_type_example'; // string
+$record_id = 'record_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $apiInstance->radzenUploadSingleScoped($tenant_id, $record_type, $record_id, $api_version, $x_api_version, $file);
+} catch (Exception $e) {
+    echo 'Exception when calling RadzenEditorApi->radzenUploadSingleScoped: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **record_type** | **string**|  | |
+| **record_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `radzenUploadStream()`
+
+```php
+radzenUploadStream($tenant_id, $api_version, $x_api_version)
+```
+
+Chunked editor upload (not implemented).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $apiInstance->radzenUploadStream($tenant_id, $api_version, $x_api_version);
+} catch (Exception $e) {
+    echo 'Exception when calling RadzenEditorApi->radzenUploadStream: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `radzenUploadStreamScoped()`
+
+```php
+radzenUploadStreamScoped($tenant_id, $record_type, $record_id, $api_version, $x_api_version)
+```
+
+Chunked editor upload scoped to a record (not implemented).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$tenant_id = 'tenant_id_example'; // string
+$record_type = 'record_type_example'; // string
+$record_id = 'record_id_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+
+try {
+    $apiInstance->radzenUploadStreamScoped($tenant_id, $record_type, $record_id, $api_version, $x_api_version);
+} catch (Exception $e) {
+    echo 'Exception when calling RadzenEditorApi->radzenUploadStreamScoped: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **record_type** | **string**|  | |
+| **record_id** | **string**|  | |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `radzenUploadUserImage()`
+
+```php
+radzenUploadUserImage($visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file)
+```
+
+Upload an editor image to user storage.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$visibility = 'visibility_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$purpose = 'purpose_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $apiInstance->radzenUploadUserImage($visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file);
+} catch (Exception $e) {
+    echo 'Exception when calling RadzenEditorApi->radzenUploadUserImage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **visibility** | **string**|  | [optional] |
+| **social_profile_id** | **string**|  | [optional] |
+| **purpose** | **string**|  | [optional] |
+| **api_version** | **string**|  | [optional] |
+| **x_api_version** | **string**|  | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `radzenUploadUserImageScoped()`
+
+```php
+radzenUploadUserImageScoped($record_type, $record_id, $visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file)
+```
+
+Upload a user editor image scoped to a record.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\RadzenEditorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$record_type = 'record_type_example'; // string
+$record_id = 'record_id_example'; // string
+$visibility = 'visibility_example'; // string
+$social_profile_id = 'social_profile_id_example'; // string
+$purpose = 'purpose_example'; // string
+$api_version = 'api_version_example'; // string
+$x_api_version = 'x_api_version_example'; // string
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $apiInstance->radzenUploadUserImageScoped($record_type, $record_id, $visibility, $social_profile_id, $purpose, $api_version, $x_api_version, $file);
+} catch (Exception $e) {
+    echo 'Exception when calling RadzenEditorApi->radzenUploadUserImageScoped: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **record_type** | **string**|  | |
+| **record_id** | **string**|  | |
+| **visibility** | **string**|  | [optional] |
+| **social_profile_id** | **string**|  | [optional] |
+| **purpose** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **file** | **\SplFileObject****\SplFileObject**|  | [optional] |

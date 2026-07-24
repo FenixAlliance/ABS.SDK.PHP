@@ -25,6 +25,11 @@ docs/Api/UnitGroupsApi.md
 docs/Api/UnitsApi.md
 docs/Model/AccessTokenResponse.md
 docs/Model/BooleanEnvelope.md
+docs/Model/BusinessRelationshipCreateDto.md
+docs/Model/BusinessRelationshipDto.md
+docs/Model/BusinessRelationshipDtoEnvelope.md
+docs/Model/BusinessRelationshipDtoListEnvelope.md
+docs/Model/BusinessRelationshipUpdateDto.md
 docs/Model/CartDto.md
 docs/Model/CartDtoEnvelope.md
 docs/Model/EmptyEnvelope.md
@@ -150,7 +155,7 @@ docs/Model/UnitGroupDtoEnvelope.md
 docs/Model/UnitGroupDtoListEnvelope.md
 docs/Model/UnitGroupUpdateDto.md
 docs/Model/UnitUpdateDto.md
-docs/Model/UpdateAvatarAsyncRequest.md
+docs/Model/UpdateTenantAvatarAsyncRequest.md
 docs/Model/UserDto.md
 docs/Model/UserDtoListEnvelope.md
 docs/Model/WalletDto.md
@@ -183,6 +188,11 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AccessTokenResponse.php
 lib/Model/BooleanEnvelope.php
+lib/Model/BusinessRelationshipCreateDto.php
+lib/Model/BusinessRelationshipDto.php
+lib/Model/BusinessRelationshipDtoEnvelope.php
+lib/Model/BusinessRelationshipDtoListEnvelope.php
+lib/Model/BusinessRelationshipUpdateDto.php
 lib/Model/CartDto.php
 lib/Model/CartDtoEnvelope.php
 lib/Model/EmptyEnvelope.php
@@ -309,7 +319,7 @@ lib/Model/UnitGroupDtoEnvelope.php
 lib/Model/UnitGroupDtoListEnvelope.php
 lib/Model/UnitGroupUpdateDto.php
 lib/Model/UnitUpdateDto.php
-lib/Model/UpdateAvatarAsyncRequest.php
+lib/Model/UpdateTenantAvatarAsyncRequest.php
 lib/Model/UserDto.php
 lib/Model/UserDtoListEnvelope.php
 lib/Model/WalletDto.php
@@ -318,4 +328,9 @@ lib/Model/WebPortalDto.php
 lib/Model/WebPortalDtoListEnvelope.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/BusinessRelationshipsApiTest.php
+test/Model/BusinessRelationshipCreateDtoTest.php
+test/Model/BusinessRelationshipDtoEnvelopeTest.php
+test/Model/BusinessRelationshipDtoListEnvelopeTest.php
+test/Model/BusinessRelationshipDtoTest.php
+test/Model/BusinessRelationshipUpdateDtoTest.php
+test/Model/UpdateTenantAvatarAsyncRequestTest.php

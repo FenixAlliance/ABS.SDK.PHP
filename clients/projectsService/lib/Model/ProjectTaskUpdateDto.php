@@ -58,6 +58,8 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'title' => 'string',
+        'description' => 'string',
         'start_date' => '\DateTime',
         'due_line' => '\DateTime'
     ];
@@ -70,6 +72,8 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'title' => null,
+        'description' => null,
         'start_date' => 'date-time',
         'due_line' => 'date-time'
     ];
@@ -80,6 +84,8 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'title' => true,
+        'description' => true,
         'start_date' => false,
         'due_line' => false
     ];
@@ -170,6 +176,8 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'title' => 'title',
+        'description' => 'description',
         'start_date' => 'startDate',
         'due_line' => 'dueLine'
     ];
@@ -180,6 +188,8 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'title' => 'setTitle',
+        'description' => 'setDescription',
         'start_date' => 'setStartDate',
         'due_line' => 'setDueLine'
     ];
@@ -190,6 +200,8 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'title' => 'getTitle',
+        'description' => 'getDescription',
         'start_date' => 'getStartDate',
         'due_line' => 'getDueLine'
     ];
@@ -251,6 +263,8 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('due_line', $data ?? [], null);
     }
@@ -296,6 +310,74 @@ class ProjectTaskUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
 
     /**
      * Gets start_date

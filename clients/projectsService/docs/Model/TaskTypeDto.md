@@ -10,5 +10,7 @@ Name | Type | Description | Notes
 **task_category_id** | **string** |  | [optional]
 **display_in_time_tracker** | **bool** |  | [optional]
 **requires_description** | **bool** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

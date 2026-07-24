@@ -60,24 +60,16 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'debit' => 'float',
-        'credit' => 'float',
-        'description' => 'string',
-        'forex_rate' => 'float',
-        'account_id' => 'string',
         'tenant_id' => 'string',
-        'date' => '\DateTime',
         'enrollment_id' => 'string',
+        'description' => 'string',
+        'planned_amount' => 'float',
         'currency_id' => 'string',
         'debit_account_id' => 'string',
         'credit_account_id' => 'string',
-        'journal_entry_id' => 'string',
-        'debit_account_name' => 'string',
-        'credit_account_name' => 'string',
-        'accounting_entry_type' => 'string',
-        'debit_amount' => '\OpenAPI\Client\Model\Money',
-        'credit_amount' => '\OpenAPI\Client\Model\Money',
-        'budget_id' => 'string'
+        'budget_id' => 'string',
+        'date' => '\DateTime',
+        'planned_amount_money' => '\OpenAPI\Client\Model\Money'
     ];
 
     /**
@@ -90,24 +82,16 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'id' => null,
         'timestamp' => 'date-time',
-        'debit' => 'double',
-        'credit' => 'double',
-        'description' => null,
-        'forex_rate' => 'double',
-        'account_id' => null,
         'tenant_id' => null,
-        'date' => 'date-time',
         'enrollment_id' => null,
+        'description' => null,
+        'planned_amount' => 'double',
         'currency_id' => null,
         'debit_account_id' => null,
         'credit_account_id' => null,
-        'journal_entry_id' => null,
-        'debit_account_name' => null,
-        'credit_account_name' => null,
-        'accounting_entry_type' => null,
-        'debit_amount' => null,
-        'credit_amount' => null,
-        'budget_id' => null
+        'budget_id' => null,
+        'date' => 'date-time',
+        'planned_amount_money' => null
     ];
 
     /**
@@ -118,24 +102,16 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'id' => true,
         'timestamp' => true,
-        'debit' => false,
-        'credit' => false,
-        'description' => true,
-        'forex_rate' => false,
-        'account_id' => true,
         'tenant_id' => true,
-        'date' => true,
         'enrollment_id' => true,
+        'description' => true,
+        'planned_amount' => false,
         'currency_id' => true,
         'debit_account_id' => true,
         'credit_account_id' => true,
-        'journal_entry_id' => true,
-        'debit_account_name' => true,
-        'credit_account_name' => true,
-        'accounting_entry_type' => false,
-        'debit_amount' => false,
-        'credit_amount' => false,
-        'budget_id' => true
+        'budget_id' => true,
+        'date' => true,
+        'planned_amount_money' => false
     ];
 
     /**
@@ -226,24 +202,16 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'debit' => 'debit',
-        'credit' => 'credit',
-        'description' => 'description',
-        'forex_rate' => 'forexRate',
-        'account_id' => 'accountId',
         'tenant_id' => 'tenantId',
-        'date' => 'date',
         'enrollment_id' => 'enrollmentId',
+        'description' => 'description',
+        'planned_amount' => 'plannedAmount',
         'currency_id' => 'currencyId',
         'debit_account_id' => 'debitAccountId',
         'credit_account_id' => 'creditAccountId',
-        'journal_entry_id' => 'journalEntryId',
-        'debit_account_name' => 'debitAccountName',
-        'credit_account_name' => 'creditAccountName',
-        'accounting_entry_type' => 'accountingEntryType',
-        'debit_amount' => 'debitAmount',
-        'credit_amount' => 'creditAmount',
-        'budget_id' => 'budgetId'
+        'budget_id' => 'budgetId',
+        'date' => 'date',
+        'planned_amount_money' => 'plannedAmountMoney'
     ];
 
     /**
@@ -254,24 +222,16 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'debit' => 'setDebit',
-        'credit' => 'setCredit',
-        'description' => 'setDescription',
-        'forex_rate' => 'setForexRate',
-        'account_id' => 'setAccountId',
         'tenant_id' => 'setTenantId',
-        'date' => 'setDate',
         'enrollment_id' => 'setEnrollmentId',
+        'description' => 'setDescription',
+        'planned_amount' => 'setPlannedAmount',
         'currency_id' => 'setCurrencyId',
         'debit_account_id' => 'setDebitAccountId',
         'credit_account_id' => 'setCreditAccountId',
-        'journal_entry_id' => 'setJournalEntryId',
-        'debit_account_name' => 'setDebitAccountName',
-        'credit_account_name' => 'setCreditAccountName',
-        'accounting_entry_type' => 'setAccountingEntryType',
-        'debit_amount' => 'setDebitAmount',
-        'credit_amount' => 'setCreditAmount',
-        'budget_id' => 'setBudgetId'
+        'budget_id' => 'setBudgetId',
+        'date' => 'setDate',
+        'planned_amount_money' => 'setPlannedAmountMoney'
     ];
 
     /**
@@ -282,24 +242,16 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'debit' => 'getDebit',
-        'credit' => 'getCredit',
-        'description' => 'getDescription',
-        'forex_rate' => 'getForexRate',
-        'account_id' => 'getAccountId',
         'tenant_id' => 'getTenantId',
-        'date' => 'getDate',
         'enrollment_id' => 'getEnrollmentId',
+        'description' => 'getDescription',
+        'planned_amount' => 'getPlannedAmount',
         'currency_id' => 'getCurrencyId',
         'debit_account_id' => 'getDebitAccountId',
         'credit_account_id' => 'getCreditAccountId',
-        'journal_entry_id' => 'getJournalEntryId',
-        'debit_account_name' => 'getDebitAccountName',
-        'credit_account_name' => 'getCreditAccountName',
-        'accounting_entry_type' => 'getAccountingEntryType',
-        'debit_amount' => 'getDebitAmount',
-        'credit_amount' => 'getCreditAmount',
-        'budget_id' => 'getBudgetId'
+        'budget_id' => 'getBudgetId',
+        'date' => 'getDate',
+        'planned_amount_money' => 'getPlannedAmountMoney'
     ];
 
     /**
@@ -343,23 +295,6 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const ACCOUNTING_ENTRY_TYPE_NONE = 'None';
-    public const ACCOUNTING_ENTRY_TYPE_DEBIT = 'Debit';
-    public const ACCOUNTING_ENTRY_TYPE_CREDIT = 'Credit';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccountingEntryTypeAllowableValues()
-    {
-        return [
-            self::ACCOUNTING_ENTRY_TYPE_NONE,
-            self::ACCOUNTING_ENTRY_TYPE_DEBIT,
-            self::ACCOUNTING_ENTRY_TYPE_CREDIT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -378,24 +313,16 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('debit', $data ?? [], null);
-        $this->setIfExists('credit', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('forex_rate', $data ?? [], null);
-        $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('date', $data ?? [], null);
         $this->setIfExists('enrollment_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('planned_amount', $data ?? [], null);
         $this->setIfExists('currency_id', $data ?? [], null);
         $this->setIfExists('debit_account_id', $data ?? [], null);
         $this->setIfExists('credit_account_id', $data ?? [], null);
-        $this->setIfExists('journal_entry_id', $data ?? [], null);
-        $this->setIfExists('debit_account_name', $data ?? [], null);
-        $this->setIfExists('credit_account_name', $data ?? [], null);
-        $this->setIfExists('accounting_entry_type', $data ?? [], null);
-        $this->setIfExists('debit_amount', $data ?? [], null);
-        $this->setIfExists('credit_amount', $data ?? [], null);
         $this->setIfExists('budget_id', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('planned_amount_money', $data ?? [], null);
     }
 
     /**
@@ -424,15 +351,6 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAccountingEntryTypeAllowableValues();
-        if (!is_null($this->container['accounting_entry_type']) && !in_array($this->container['accounting_entry_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'accounting_entry_type', must be one of '%s'",
-                $this->container['accounting_entry_type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -518,55 +436,69 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets debit
+     * Gets tenant_id
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getDebit()
+    public function getTenantId()
     {
-        return $this->container['debit'];
+        return $this->container['tenant_id'];
     }
 
     /**
-     * Sets debit
+     * Sets tenant_id
      *
-     * @param float|null $debit debit
+     * @param string|null $tenant_id tenant_id
      *
      * @return self
      */
-    public function setDebit($debit)
+    public function setTenantId($tenant_id)
     {
-        if (is_null($debit)) {
-            throw new \InvalidArgumentException('non-nullable debit cannot be null');
+        if (is_null($tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['debit'] = $debit;
+        $this->container['tenant_id'] = $tenant_id;
 
         return $this;
     }
 
     /**
-     * Gets credit
+     * Gets enrollment_id
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getCredit()
+    public function getEnrollmentId()
     {
-        return $this->container['credit'];
+        return $this->container['enrollment_id'];
     }
 
     /**
-     * Sets credit
+     * Sets enrollment_id
      *
-     * @param float|null $credit credit
+     * @param string|null $enrollment_id enrollment_id
      *
      * @return self
      */
-    public function setCredit($credit)
+    public function setEnrollmentId($enrollment_id)
     {
-        if (is_null($credit)) {
-            throw new \InvalidArgumentException('non-nullable credit cannot be null');
+        if (is_null($enrollment_id)) {
+            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enrollment_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['credit'] = $credit;
+        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }
@@ -606,164 +538,28 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets forex_rate
+     * Gets planned_amount
      *
      * @return float|null
      */
-    public function getForexRate()
+    public function getPlannedAmount()
     {
-        return $this->container['forex_rate'];
+        return $this->container['planned_amount'];
     }
 
     /**
-     * Sets forex_rate
+     * Sets planned_amount
      *
-     * @param float|null $forex_rate forex_rate
+     * @param float|null $planned_amount planned_amount
      *
      * @return self
      */
-    public function setForexRate($forex_rate)
+    public function setPlannedAmount($planned_amount)
     {
-        if (is_null($forex_rate)) {
-            throw new \InvalidArgumentException('non-nullable forex_rate cannot be null');
+        if (is_null($planned_amount)) {
+            throw new \InvalidArgumentException('non-nullable planned_amount cannot be null');
         }
-        $this->container['forex_rate'] = $forex_rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_id
-     *
-     * @return string|null
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string|null $account_id account_id
-     *
-     * @return self
-     */
-    public function setAccountId($account_id)
-    {
-        if (is_null($account_id)) {
-            array_push($this->openAPINullablesSetToNull, 'account_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string|null $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tenant_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenant_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \DateTime|null
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime|null $date date
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        if (is_null($date)) {
-            array_push($this->openAPINullablesSetToNull, 'date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets enrollment_id
-     *
-     * @return string|null
-     */
-    public function getEnrollmentId()
-    {
-        return $this->container['enrollment_id'];
-    }
-
-    /**
-     * Sets enrollment_id
-     *
-     * @param string|null $enrollment_id enrollment_id
-     *
-     * @return self
-     */
-    public function setEnrollmentId($enrollment_id)
-    {
-        if (is_null($enrollment_id)) {
-            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('enrollment_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['enrollment_id'] = $enrollment_id;
+        $this->container['planned_amount'] = $planned_amount;
 
         return $this;
     }
@@ -871,199 +667,6 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets journal_entry_id
-     *
-     * @return string|null
-     */
-    public function getJournalEntryId()
-    {
-        return $this->container['journal_entry_id'];
-    }
-
-    /**
-     * Sets journal_entry_id
-     *
-     * @param string|null $journal_entry_id journal_entry_id
-     *
-     * @return self
-     */
-    public function setJournalEntryId($journal_entry_id)
-    {
-        if (is_null($journal_entry_id)) {
-            array_push($this->openAPINullablesSetToNull, 'journal_entry_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('journal_entry_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['journal_entry_id'] = $journal_entry_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_account_name
-     *
-     * @return string|null
-     */
-    public function getDebitAccountName()
-    {
-        return $this->container['debit_account_name'];
-    }
-
-    /**
-     * Sets debit_account_name
-     *
-     * @param string|null $debit_account_name debit_account_name
-     *
-     * @return self
-     */
-    public function setDebitAccountName($debit_account_name)
-    {
-        if (is_null($debit_account_name)) {
-            array_push($this->openAPINullablesSetToNull, 'debit_account_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('debit_account_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['debit_account_name'] = $debit_account_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_account_name
-     *
-     * @return string|null
-     */
-    public function getCreditAccountName()
-    {
-        return $this->container['credit_account_name'];
-    }
-
-    /**
-     * Sets credit_account_name
-     *
-     * @param string|null $credit_account_name credit_account_name
-     *
-     * @return self
-     */
-    public function setCreditAccountName($credit_account_name)
-    {
-        if (is_null($credit_account_name)) {
-            array_push($this->openAPINullablesSetToNull, 'credit_account_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('credit_account_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['credit_account_name'] = $credit_account_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets accounting_entry_type
-     *
-     * @return string|null
-     */
-    public function getAccountingEntryType()
-    {
-        return $this->container['accounting_entry_type'];
-    }
-
-    /**
-     * Sets accounting_entry_type
-     *
-     * @param string|null $accounting_entry_type accounting_entry_type
-     *
-     * @return self
-     */
-    public function setAccountingEntryType($accounting_entry_type)
-    {
-        if (is_null($accounting_entry_type)) {
-            throw new \InvalidArgumentException('non-nullable accounting_entry_type cannot be null');
-        }
-        $allowedValues = $this->getAccountingEntryTypeAllowableValues();
-        if (!in_array($accounting_entry_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'accounting_entry_type', must be one of '%s'",
-                    $accounting_entry_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['accounting_entry_type'] = $accounting_entry_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getDebitAmount()
-    {
-        return $this->container['debit_amount'];
-    }
-
-    /**
-     * Sets debit_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $debit_amount debit_amount
-     *
-     * @return self
-     */
-    public function setDebitAmount($debit_amount)
-    {
-        if (is_null($debit_amount)) {
-            throw new \InvalidArgumentException('non-nullable debit_amount cannot be null');
-        }
-        $this->container['debit_amount'] = $debit_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_amount
-     *
-     * @return \OpenAPI\Client\Model\Money|null
-     */
-    public function getCreditAmount()
-    {
-        return $this->container['credit_amount'];
-    }
-
-    /**
-     * Sets credit_amount
-     *
-     * @param \OpenAPI\Client\Model\Money|null $credit_amount credit_amount
-     *
-     * @return self
-     */
-    public function setCreditAmount($credit_amount)
-    {
-        if (is_null($credit_amount)) {
-            throw new \InvalidArgumentException('non-nullable credit_amount cannot be null');
-        }
-        $this->container['credit_amount'] = $credit_amount;
-
-        return $this;
-    }
-
-    /**
      * Gets budget_id
      *
      * @return string|null
@@ -1093,6 +696,67 @@ class BudgetAccountEntryDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['budget_id'] = $budget_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     *
+     * @return \DateTime|null
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime|null $date date
+     *
+     * @return self
+     */
+    public function setDate($date)
+    {
+        if (is_null($date)) {
+            array_push($this->openAPINullablesSetToNull, 'date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets planned_amount_money
+     *
+     * @return \OpenAPI\Client\Model\Money|null
+     */
+    public function getPlannedAmountMoney()
+    {
+        return $this->container['planned_amount_money'];
+    }
+
+    /**
+     * Sets planned_amount_money
+     *
+     * @param \OpenAPI\Client\Model\Money|null $planned_amount_money planned_amount_money
+     *
+     * @return self
+     */
+    public function setPlannedAmountMoney($planned_amount_money)
+    {
+        if (is_null($planned_amount_money)) {
+            throw new \InvalidArgumentException('non-nullable planned_amount_money cannot be null');
+        }
+        $this->container['planned_amount_money'] = $planned_amount_money;
 
         return $this;
     }

@@ -72,7 +72,7 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$currency_id = 'currency_id_example'; // string
+$currency_id = 'USD.USA'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
@@ -89,7 +89,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **currency_id** | **string**|  | [optional] |
+| **currency_id** | **string**|  | [optional] [default to &#39;USD.USA&#39;] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -888,7 +888,7 @@ $apiInstance = new OpenAPI\Client\Api\AccountsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$currency_id = 'currency_id_example'; // string
+$currency_id = 'USD.USA'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 $account_dto = array(new \OpenAPI\Client\Model\AccountDto()); // \OpenAPI\Client\Model\AccountDto[]
@@ -906,7 +906,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **currency_id** | **string**|  | [optional] |
+| **currency_id** | **string**|  | [optional] [default to &#39;USD.USA&#39;] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 | **account_dto** | [**\OpenAPI\Client\Model\AccountDto[]**](../Model/AccountDto.md)|  | [optional] |

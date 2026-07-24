@@ -57,14 +57,15 @@ $apiInstance = new OpenAPI\Client\Api\BusinessRelationshipsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
+$business_relationship_create_dto = new \OpenAPI\Client\Model\BusinessRelationshipCreateDto(); // \OpenAPI\Client\Model\BusinessRelationshipCreateDto
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getBusinessRelationshipsCountAsync($tenant_id, $api_version, $x_api_version);
+    $result = $apiInstance->createBusinessRelationshipAsync($tenant_id, $business_relationship_create_dto, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BusinessRelationshipsApi->getBusinessRelationshipsCountAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessRelationshipsApi->createBusinessRelationshipAsync: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -75,7 +76,12 @@ All URIs are relative to *https://absuite.net*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BusinessRelationshipsApi* | [**createBusinessRelationshipAsync**](docs/Api/BusinessRelationshipsApi.md#createbusinessrelationshipasync) | **POST** /api/v2/TenantsService/BusinessRelationships | Create a business relationship
+*BusinessRelationshipsApi* | [**deleteBusinessRelationshipAsync**](docs/Api/BusinessRelationshipsApi.md#deletebusinessrelationshipasync) | **DELETE** /api/v2/TenantsService/BusinessRelationships/{businessRelationshipId} | Delete a business relationship
+*BusinessRelationshipsApi* | [**getBusinessRelationshipByIdAsync**](docs/Api/BusinessRelationshipsApi.md#getbusinessrelationshipbyidasync) | **GET** /api/v2/TenantsService/BusinessRelationships/{businessRelationshipId} | Get business relationship by ID
+*BusinessRelationshipsApi* | [**getBusinessRelationshipsAsync**](docs/Api/BusinessRelationshipsApi.md#getbusinessrelationshipsasync) | **GET** /api/v2/TenantsService/BusinessRelationships | Get business relationships
 *BusinessRelationshipsApi* | [**getBusinessRelationshipsCountAsync**](docs/Api/BusinessRelationshipsApi.md#getbusinessrelationshipscountasync) | **GET** /api/v2/TenantsService/BusinessRelationships/Count | Get business relationships count
+*BusinessRelationshipsApi* | [**updateBusinessRelationshipAsync**](docs/Api/BusinessRelationshipsApi.md#updatebusinessrelationshipasync) | **PUT** /api/v2/TenantsService/BusinessRelationships/{businessRelationshipId} | Update a business relationship
 *DepartmentsApi* | [**createTenantDepartment**](docs/Api/DepartmentsApi.md#createtenantdepartment) | **POST** /api/v2/TenantsService/Departments | Create a new tenant department
 *DepartmentsApi* | [**deleteTenantDepartment**](docs/Api/DepartmentsApi.md#deletetenantdepartment) | **DELETE** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Delete a tenant department
 *DepartmentsApi* | [**getTenantDepartmentById**](docs/Api/DepartmentsApi.md#gettenantdepartmentbyid) | **GET** /api/v2/TenantsService/Departments/{tenantDepartmentId} | Retrieve a single tenant department by its ID
@@ -103,6 +109,7 @@ Class | Method | HTTP request | Description
 *FenixAllianceABSWebApi* | [**accountManageDownloadPersonalDataPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagedownloadpersonaldatapost) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceABSWebApi* | [**accountManageLinkExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountmanagelinkexternalloginpost) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceABSWebApi* | [**accountPerformExternalLoginPost**](docs/Api/FenixAllianceABSWebApi.md#accountperformexternalloginpost) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceABSWebApi* | [**apiV2AIServiceAgentsAgentIdAguiPost**](docs/Api/FenixAllianceABSWebApi.md#apiv2aiserviceagentsagentidaguipost) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceABSWebApi* | [**forgotPasswordPost**](docs/Api/FenixAllianceABSWebApi.md#forgotpasswordpost) | **POST** /forgotPassword | 
 *FenixAllianceABSWebApi* | [**healthGet**](docs/Api/FenixAllianceABSWebApi.md#healthget) | **GET** /health | 
 *FenixAllianceABSWebApi* | [**helloGet**](docs/Api/FenixAllianceABSWebApi.md#helloget) | **GET** /hello | 
@@ -193,6 +200,7 @@ Class | Method | HTTP request | Description
 *TenantsApi* | [**deSelectTenantAsync**](docs/Api/TenantsApi.md#deselecttenantasync) | **POST** /api/v2/TenantsService/Tenants/Deselect | Deselect the user&#39;s default tenant
 *TenantsApi* | [**deleteTenantAsync**](docs/Api/TenantsApi.md#deletetenantasync) | **DELETE** /api/v2/TenantsService/Tenants | Delete a tenant
 *TenantsApi* | [**getAccessibleFeaturesAsync**](docs/Api/TenantsApi.md#getaccessiblefeaturesasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Features | Get the list of features accessible to a specific enrollment
+*TenantsApi* | [**getCartForTenantAsync**](docs/Api/TenantsApi.md#getcartfortenantasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart
 *TenantsApi* | [**getCurrentTenantAsync**](docs/Api/TenantsApi.md#getcurrenttenantasync) | **GET** /api/v2/TenantsService/Tenants/Current | Get the user&#39;s current default tenant
 *TenantsApi* | [**getEnrollmentLicenseByIdAsync**](docs/Api/TenantsApi.md#getenrollmentlicensebyidasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Get a specific license for an enrollment
 *TenantsApi* | [**getEnrollmentLicensesAsync**](docs/Api/TenantsApi.md#getenrollmentlicensesasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses | Get the list of licenses available to a specific enrollment
@@ -202,7 +210,6 @@ Class | Method | HTTP request | Description
 *TenantsApi* | [**getRootTenantAsync**](docs/Api/TenantsApi.md#getroottenantasync) | **GET** /api/v2/TenantsService/Tenants/Root | Get the root tenant of the platform
 *TenantsApi* | [**getTenantAsync**](docs/Api/TenantsApi.md#gettenantasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId} | Get a specific tenant by ID
 *TenantsApi* | [**getTenantAvatarAsync**](docs/Api/TenantsApi.md#gettenantavatarasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Get a tenant&#39;s avatar
-*TenantsApi* | [**getTenantCartAsync**](docs/Api/TenantsApi.md#gettenantcartasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart
 *TenantsApi* | [**getTenantEnrollmentAsync**](docs/Api/TenantsApi.md#gettenantenrollmentasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId} | Get a specific tenant enrollment
 *TenantsApi* | [**getTenantEnrollmentsAsync**](docs/Api/TenantsApi.md#gettenantenrollmentsasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments | Get the list of user enrollments for a tenant
 *TenantsApi* | [**getTenantInvitationsAsync**](docs/Api/TenantsApi.md#gettenantinvitationsasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Invitations | Get the list of invitations issued by a tenant
@@ -219,8 +226,8 @@ Class | Method | HTTP request | Description
 *TenantsApi* | [**patchTenantAsync**](docs/Api/TenantsApi.md#patchtenantasync) | **PATCH** /api/v2/TenantsService/Tenants/{tenantId} | Patch a tenant&#39;s profile
 *TenantsApi* | [**revokeLicenseAsync**](docs/Api/TenantsApi.md#revokelicenseasync) | **DELETE** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Revoke a license from a specific enrollment
 *TenantsApi* | [**selectTenantAsync**](docs/Api/TenantsApi.md#selecttenantasync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Select | Select a business tenant as the user&#39;s default tenant
-*TenantsApi* | [**updateAvatarAsync**](docs/Api/TenantsApi.md#updateavatarasync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar
 *TenantsApi* | [**updateTenantAsync**](docs/Api/TenantsApi.md#updatetenantasync) | **PUT** /api/v2/TenantsService/Tenants/{tenantId} | Update a tenant&#39;s profile
+*TenantsApi* | [**updateTenantAvatarAsync**](docs/Api/TenantsApi.md#updatetenantavatarasync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar
 *TenantsApi* | [**validateEnrollmentFeatureAccess**](docs/Api/TenantsApi.md#validateenrollmentfeatureaccess) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/HasAccess | Validate the access to a specific feature for a specific enrollment
 *TenantsApi* | [**validateEnrollmentPermissionsAsync**](docs/Api/TenantsApi.md#validateenrollmentpermissionsasync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Permissions/Validate | Validate the existence of a list of roles and permissions for a specific enrollment
 *TerritoriesApi* | [**createTenantTerritory**](docs/Api/TerritoriesApi.md#createtenantterritory) | **POST** /api/v2/TenantsService/Territories | Create a new tenant territory
@@ -263,6 +270,11 @@ Class | Method | HTTP request | Description
 
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [BooleanEnvelope](docs/Model/BooleanEnvelope.md)
+- [BusinessRelationshipCreateDto](docs/Model/BusinessRelationshipCreateDto.md)
+- [BusinessRelationshipDto](docs/Model/BusinessRelationshipDto.md)
+- [BusinessRelationshipDtoEnvelope](docs/Model/BusinessRelationshipDtoEnvelope.md)
+- [BusinessRelationshipDtoListEnvelope](docs/Model/BusinessRelationshipDtoListEnvelope.md)
+- [BusinessRelationshipUpdateDto](docs/Model/BusinessRelationshipUpdateDto.md)
 - [CartDto](docs/Model/CartDto.md)
 - [CartDtoEnvelope](docs/Model/CartDtoEnvelope.md)
 - [EmptyEnvelope](docs/Model/EmptyEnvelope.md)
@@ -388,7 +400,7 @@ Class | Method | HTTP request | Description
 - [UnitGroupDtoListEnvelope](docs/Model/UnitGroupDtoListEnvelope.md)
 - [UnitGroupUpdateDto](docs/Model/UnitGroupUpdateDto.md)
 - [UnitUpdateDto](docs/Model/UnitUpdateDto.md)
-- [UpdateAvatarAsyncRequest](docs/Model/UpdateAvatarAsyncRequest.md)
+- [UpdateTenantAvatarAsyncRequest](docs/Model/UpdateTenantAvatarAsyncRequest.md)
 - [UserDto](docs/Model/UserDto.md)
 - [UserDtoListEnvelope](docs/Model/UserDtoListEnvelope.md)
 - [WalletDto](docs/Model/WalletDto.md)

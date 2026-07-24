@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **string** |  | [optional]
+**task_category_id** | **string** |  | [optional]
 **display_in_time_tracker** | **bool** |  | [optional]
 **requires_description** | **bool** |  | [optional]
 

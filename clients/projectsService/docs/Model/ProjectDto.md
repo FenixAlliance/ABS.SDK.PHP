@@ -8,6 +8,10 @@ Name | Type | Description | Notes
 **timestamp** | **\DateTime** |  | [optional]
 **title** | **string** |  | [optional]
 **description** | **string** |  | [optional]
+**individual_id** | **string** |  | [optional]
+**organization_id** | **string** |  | [optional]
+**tenant_id** | **string** |  | [optional]
+**enrollment_id** | **string** |  | [optional]
 **project_start_date** | **\DateTime** |  | [optional]
 **project_end_date** | **\DateTime** |  | [optional]
 

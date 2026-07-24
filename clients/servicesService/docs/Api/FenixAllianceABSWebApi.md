@@ -8,6 +8,7 @@ All URIs are relative to https://absuite.net, except if the operation defines an
 | [**accountManageDownloadPersonalDataPost()**](FenixAllianceABSWebApi.md#accountManageDownloadPersonalDataPost) | **POST** /Account/Manage/DownloadPersonalData |  |
 | [**accountManageLinkExternalLoginPost()**](FenixAllianceABSWebApi.md#accountManageLinkExternalLoginPost) | **POST** /Account/Manage/LinkExternalLogin |  |
 | [**accountPerformExternalLoginPost()**](FenixAllianceABSWebApi.md#accountPerformExternalLoginPost) | **POST** /Account/PerformExternalLogin |  |
+| [**apiV2AIServiceAgentsAgentIdAguiPost()**](FenixAllianceABSWebApi.md#apiV2AIServiceAgentsAgentIdAguiPost) | **POST** /api/v2/AIService/Agents/{agentId}/agui |  |
 | [**forgotPasswordPost()**](FenixAllianceABSWebApi.md#forgotPasswordPost) | **POST** /forgotPassword |  |
 | [**healthGet()**](FenixAllianceABSWebApi.md#healthGet) | **GET** /health |  |
 | [**helloGet()**](FenixAllianceABSWebApi.md#helloGet) | **GET** /hello |  |
@@ -228,6 +229,59 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `multipart/form-data`, `application/x-www-form-urlencoded`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `apiV2AIServiceAgentsAgentIdAguiPost()`
+
+```php
+apiV2AIServiceAgentsAgentIdAguiPost($agent_id)
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\FenixAllianceABSWebApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$agent_id = 'agent_id_example'; // string
+
+try {
+    $apiInstance->apiV2AIServiceAgentsAgentIdAguiPost($agent_id);
+} catch (Exception $e) {
+    echo 'Exception when calling FenixAllianceABSWebApi->apiV2AIServiceAgentsAgentIdAguiPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **agent_id** | **string**|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -320,4 +320,3 @@ lib/Model/WaybillLineDtoListEnvelope.php
 lib/Model/WaybillLineUpdateDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/ContactCreateDtoTest.php

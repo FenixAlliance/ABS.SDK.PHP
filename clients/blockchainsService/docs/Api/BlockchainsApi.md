@@ -329,7 +329,7 @@ No authorization required
 ## `getBlockchainBlocksAsync()`
 
 ```php
-getBlockchainBlocksAsync($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\BlockchainBlockDtoListEnvelope
+getBlockchainBlocksAsync($tenant_id, $blockchain_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BlockchainBlockDtoListEnvelope
 ```
 
 Get blocks for a blockchain
@@ -349,12 +349,11 @@ $apiInstance = new OpenAPI\Client\Api\BlockchainsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $blockchain_id = 'blockchain_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions(); // \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getBlockchainBlocksAsync($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getBlockchainBlocksAsync($tenant_id, $blockchain_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlockchainsApi->getBlockchainBlocksAsync: ', $e->getMessage(), PHP_EOL;
@@ -367,7 +366,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **blockchain_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -391,7 +389,7 @@ No authorization required
 ## `getBlockchainBlocksCountAsync()`
 
 ```php
-getBlockchainBlocksCountAsync($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBlockchainBlocksCountAsync($tenant_id, $blockchain_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get block count for a blockchain
@@ -411,12 +409,11 @@ $apiInstance = new OpenAPI\Client\Api\BlockchainsApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $blockchain_id = 'blockchain_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions(); // \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getBlockchainBlocksCountAsync($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getBlockchainBlocksCountAsync($tenant_id, $blockchain_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlockchainsApi->getBlockchainBlocksCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -429,7 +426,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **blockchain_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -515,7 +511,7 @@ No authorization required
 ## `getBlockchainsAsync()`
 
 ```php
-getBlockchainsAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\BlockchainDtoListEnvelope
+getBlockchainsAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\BlockchainDtoListEnvelope
 ```
 
 Get all blockchains
@@ -536,12 +532,11 @@ $apiInstance = new OpenAPI\Client\Api\BlockchainsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BlockchainDtoODataQueryOptions(); // \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getBlockchainsAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getBlockchainsAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlockchainsApi->getBlockchainsAsync: ', $e->getMessage(), PHP_EOL;
@@ -553,7 +548,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\BlockchainDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 
@@ -577,7 +571,7 @@ No authorization required
 ## `getBlockchainsCountAsync()`
 
 ```php
-getBlockchainsCountAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
+getBlockchainsCountAsync($tenant_id, $api_version, $x_api_version): \OpenAPI\Client\Model\Int32Envelope
 ```
 
 Get blockchains count
@@ -598,12 +592,11 @@ $apiInstance = new OpenAPI\Client\Api\BlockchainsApi(
     new GuzzleHttp\Client()
 );
 $tenant_id = 'tenant_id_example'; // string
-$o_data_query_options = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BlockchainDtoODataQueryOptions(); // \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
 
 try {
-    $result = $apiInstance->getBlockchainsCountAsync($tenant_id, $o_data_query_options, $api_version, $x_api_version);
+    $result = $apiInstance->getBlockchainsCountAsync($tenant_id, $api_version, $x_api_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlockchainsApi->getBlockchainsCountAsync: ', $e->getMessage(), PHP_EOL;
@@ -615,7 +608,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **o_data_query_options** | [**\OpenAPI\Client\Model\BlockchainDtoODataQueryOptions**](../Model/.md)|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
 

@@ -72,7 +72,7 @@ class ThemesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getLatestCurrencyRatesModelAsync' => [
+        'updateThemesAsync' => [
             'application/json',
         ],
     ];
@@ -124,39 +124,39 @@ class ThemesApi
     }
 
     /**
-     * Operation getLatestCurrencyRatesModelAsync
+     * Operation updateThemesAsync
      *
      * Update base web content themes
      *
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLatestCurrencyRatesModelAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateThemesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getLatestCurrencyRatesModelAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLatestCurrencyRatesModelAsync'][0])
+    public function updateThemesAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['updateThemesAsync'][0])
     {
-        $this->getLatestCurrencyRatesModelAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
+        $this->updateThemesAsyncWithHttpInfo($api_version, $x_api_version, $contentType);
     }
 
     /**
-     * Operation getLatestCurrencyRatesModelAsyncWithHttpInfo
+     * Operation updateThemesAsyncWithHttpInfo
      *
      * Update base web content themes
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLatestCurrencyRatesModelAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateThemesAsync'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLatestCurrencyRatesModelAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLatestCurrencyRatesModelAsync'][0])
+    public function updateThemesAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['updateThemesAsync'][0])
     {
-        $request = $this->getLatestCurrencyRatesModelAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->updateThemesAsyncRequest($api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -207,20 +207,20 @@ class ThemesApi
     }
 
     /**
-     * Operation getLatestCurrencyRatesModelAsyncAsync
+     * Operation updateThemesAsyncAsync
      *
      * Update base web content themes
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLatestCurrencyRatesModelAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateThemesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLatestCurrencyRatesModelAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLatestCurrencyRatesModelAsync'][0])
+    public function updateThemesAsyncAsync($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['updateThemesAsync'][0])
     {
-        return $this->getLatestCurrencyRatesModelAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
+        return $this->updateThemesAsyncAsyncWithHttpInfo($api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -229,21 +229,21 @@ class ThemesApi
     }
 
     /**
-     * Operation getLatestCurrencyRatesModelAsyncAsyncWithHttpInfo
+     * Operation updateThemesAsyncAsyncWithHttpInfo
      *
      * Update base web content themes
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLatestCurrencyRatesModelAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateThemesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLatestCurrencyRatesModelAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLatestCurrencyRatesModelAsync'][0])
+    public function updateThemesAsyncAsyncWithHttpInfo($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['updateThemesAsync'][0])
     {
         $returnType = '';
-        $request = $this->getLatestCurrencyRatesModelAsyncRequest($api_version, $x_api_version, $contentType);
+        $request = $this->updateThemesAsyncRequest($api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -269,16 +269,16 @@ class ThemesApi
     }
 
     /**
-     * Create request for operation 'getLatestCurrencyRatesModelAsync'
+     * Create request for operation 'updateThemesAsync'
      *
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLatestCurrencyRatesModelAsync'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateThemesAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLatestCurrencyRatesModelAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getLatestCurrencyRatesModelAsync'][0])
+    public function updateThemesAsyncRequest($api_version = null, $x_api_version = null, string $contentType = self::contentTypes['updateThemesAsync'][0])
     {
 
 

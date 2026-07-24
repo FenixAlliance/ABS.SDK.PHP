@@ -183,7 +183,7 @@ class ProjectPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSerial
         'timestamp' => 'timestamp',
         'period_start_date' => 'periodStartDate',
         'period_end_date' => 'periodEndDate',
-        'project_id' => 'projectID'
+        'project_id' => 'projectId'
     ];
 
     /**

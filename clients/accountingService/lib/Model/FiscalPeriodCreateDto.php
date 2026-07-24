@@ -90,10 +90,10 @@ class FiscalPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'name' => true,
+        'name' => false,
         'from_date' => false,
         'to_date' => false,
-        'fiscal_year_id' => true
+        'fiscal_year_id' => false
     ];
 
     /**
@@ -310,19 +310,25 @@ class FiscalPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 50)) {
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 50)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) < 0)) {
+        if ((mb_strlen($this->container['name']) < 0)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['fiscal_year_id']) && (mb_strlen($this->container['fiscal_year_id']) > 36)) {
+        if ($this->container['fiscal_year_id'] === null) {
+            $invalidProperties[] = "'fiscal_year_id' can't be null";
+        }
+        if ((mb_strlen($this->container['fiscal_year_id']) > 36)) {
             $invalidProperties[] = "invalid value for 'fiscal_year_id', the character length must be smaller than or equal to 36.";
         }
 
-        if (!is_null($this->container['fiscal_year_id']) && (mb_strlen($this->container['fiscal_year_id']) < 0)) {
+        if ((mb_strlen($this->container['fiscal_year_id']) < 0)) {
             $invalidProperties[] = "invalid value for 'fiscal_year_id', the character length must be bigger than or equal to 0.";
         }
 
@@ -398,7 +404,7 @@ class FiscalPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -408,26 +414,19 @@ class FiscalPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string $name name
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        if (!is_null($name) && (mb_strlen($name) > 50)) {
+        if ((mb_strlen($name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $name when calling FiscalPeriodCreateDto., must be smaller than or equal to 50.');
         }
-        if (!is_null($name) && (mb_strlen($name) < 0)) {
+        if ((mb_strlen($name) < 0)) {
             throw new \InvalidArgumentException('invalid length for $name when calling FiscalPeriodCreateDto., must be bigger than or equal to 0.');
         }
 
@@ -493,7 +492,7 @@ class FiscalPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets fiscal_year_id
      *
-     * @return string|null
+     * @return string
      */
     public function getFiscalYearId()
     {
@@ -503,26 +502,19 @@ class FiscalPeriodCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets fiscal_year_id
      *
-     * @param string|null $fiscal_year_id fiscal_year_id
+     * @param string $fiscal_year_id fiscal_year_id
      *
      * @return self
      */
     public function setFiscalYearId($fiscal_year_id)
     {
         if (is_null($fiscal_year_id)) {
-            array_push($this->openAPINullablesSetToNull, 'fiscal_year_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('fiscal_year_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable fiscal_year_id cannot be null');
         }
-        if (!is_null($fiscal_year_id) && (mb_strlen($fiscal_year_id) > 36)) {
+        if ((mb_strlen($fiscal_year_id) > 36)) {
             throw new \InvalidArgumentException('invalid length for $fiscal_year_id when calling FiscalPeriodCreateDto., must be smaller than or equal to 36.');
         }
-        if (!is_null($fiscal_year_id) && (mb_strlen($fiscal_year_id) < 0)) {
+        if ((mb_strlen($fiscal_year_id) < 0)) {
             throw new \InvalidArgumentException('invalid length for $fiscal_year_id when calling FiscalPeriodCreateDto., must be bigger than or equal to 0.');
         }
 

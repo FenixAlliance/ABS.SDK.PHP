@@ -60,10 +60,14 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
+        'title' => 'string',
+        'description' => 'string',
         'start_date' => '\DateTime',
         'due_line' => '\DateTime',
         'project_id' => 'string',
-        'project_task_bucket_id' => 'string'
+        'project_task_bucket_id' => 'string',
+        'tenant_id' => 'string',
+        'enrollment_id' => 'string'
     ];
 
     /**
@@ -76,10 +80,14 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => null,
         'timestamp' => 'date-time',
+        'title' => null,
+        'description' => null,
         'start_date' => 'date-time',
         'due_line' => 'date-time',
         'project_id' => null,
-        'project_task_bucket_id' => null
+        'project_task_bucket_id' => null,
+        'tenant_id' => null,
+        'enrollment_id' => null
     ];
 
     /**
@@ -90,10 +98,14 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => true,
         'timestamp' => true,
+        'title' => true,
+        'description' => true,
         'start_date' => false,
         'due_line' => false,
         'project_id' => true,
-        'project_task_bucket_id' => true
+        'project_task_bucket_id' => true,
+        'tenant_id' => true,
+        'enrollment_id' => true
     ];
 
     /**
@@ -184,10 +196,14 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
+        'title' => 'title',
+        'description' => 'description',
         'start_date' => 'startDate',
         'due_line' => 'dueLine',
-        'project_id' => 'projectID',
-        'project_task_bucket_id' => 'projectTaskBucketID'
+        'project_id' => 'projectId',
+        'project_task_bucket_id' => 'projectTaskBucketId',
+        'tenant_id' => 'tenantId',
+        'enrollment_id' => 'enrollmentId'
     ];
 
     /**
@@ -198,10 +214,14 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
+        'title' => 'setTitle',
+        'description' => 'setDescription',
         'start_date' => 'setStartDate',
         'due_line' => 'setDueLine',
         'project_id' => 'setProjectId',
-        'project_task_bucket_id' => 'setProjectTaskBucketId'
+        'project_task_bucket_id' => 'setProjectTaskBucketId',
+        'tenant_id' => 'setTenantId',
+        'enrollment_id' => 'setEnrollmentId'
     ];
 
     /**
@@ -212,10 +232,14 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
+        'title' => 'getTitle',
+        'description' => 'getDescription',
         'start_date' => 'getStartDate',
         'due_line' => 'getDueLine',
         'project_id' => 'getProjectId',
-        'project_task_bucket_id' => 'getProjectTaskBucketId'
+        'project_task_bucket_id' => 'getProjectTaskBucketId',
+        'tenant_id' => 'getTenantId',
+        'enrollment_id' => 'getEnrollmentId'
     ];
 
     /**
@@ -277,10 +301,14 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('due_line', $data ?? [], null);
         $this->setIfExists('project_id', $data ?? [], null);
         $this->setIfExists('project_task_bucket_id', $data ?? [], null);
+        $this->setIfExists('tenant_id', $data ?? [], null);
+        $this->setIfExists('enrollment_id', $data ?? [], null);
     }
 
     /**
@@ -389,6 +417,74 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -511,6 +607,74 @@ class ProjectTaskDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['project_task_bucket_id'] = $project_task_bucket_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tenant_id
+     *
+     * @return string|null
+     */
+    public function getTenantId()
+    {
+        return $this->container['tenant_id'];
+    }
+
+    /**
+     * Sets tenant_id
+     *
+     * @param string|null $tenant_id tenant_id
+     *
+     * @return self
+     */
+    public function setTenantId($tenant_id)
+    {
+        if (is_null($tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tenant_id'] = $tenant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets enrollment_id
+     *
+     * @return string|null
+     */
+    public function getEnrollmentId()
+    {
+        return $this->container['enrollment_id'];
+    }
+
+    /**
+     * Sets enrollment_id
+     *
+     * @param string|null $enrollment_id enrollment_id
+     *
+     * @return self
+     */
+    public function setEnrollmentId($enrollment_id)
+    {
+        if (is_null($enrollment_id)) {
+            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enrollment_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

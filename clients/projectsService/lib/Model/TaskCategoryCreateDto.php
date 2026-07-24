@@ -60,7 +60,8 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'id' => 'string',
         'timestamp' => '\DateTime',
-        'title' => 'string'
+        'title' => 'string',
+        'project_id' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'timestamp' => 'date-time',
-        'title' => null
+        'title' => null,
+        'project_id' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'id' => false,
         'timestamp' => false,
-        'title' => true
+        'title' => true,
+        'project_id' => true
     ];
 
     /**
@@ -175,7 +178,8 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'id' => 'id',
         'timestamp' => 'timestamp',
-        'title' => 'title'
+        'title' => 'title',
+        'project_id' => 'projectId'
     ];
 
     /**
@@ -186,7 +190,8 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'id' => 'setId',
         'timestamp' => 'setTimestamp',
-        'title' => 'setTitle'
+        'title' => 'setTitle',
+        'project_id' => 'setProjectId'
     ];
 
     /**
@@ -197,7 +202,8 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'id' => 'getId',
         'timestamp' => 'getTimestamp',
-        'title' => 'getTitle'
+        'title' => 'getTitle',
+        'project_id' => 'getProjectId'
     ];
 
     /**
@@ -260,6 +266,7 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('project_id', $data ?? [], null);
     }
 
     /**
@@ -388,6 +395,40 @@ class TaskCategoryCreateDto implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return string|null
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param string|null $project_id project_id
+     *
+     * @return self
+     */
+    public function setProjectId($project_id)
+    {
+        if (is_null($project_id)) {
+            array_push($this->openAPINullablesSetToNull, 'project_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('project_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['project_id'] = $project_id;
 
         return $this;
     }

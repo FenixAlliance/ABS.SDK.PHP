@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **job_title** | **string** |  | [optional]
 **country_id** | **string** |  | [optional]
 **parent_contact_id** | **string** |  | [optional]
-**address_line1** | **string** |  | [optional]
-**address_line2** | **string** |  | [optional]
 **postal_code** | **string** |  | [optional]
 **state_id** | **string** |  | [optional]
 **city_id** | **string** |  | [optional]

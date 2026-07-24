@@ -1659,7 +1659,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $blockchain_id blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options o_data_query_options (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksAsync'] to see the possible values for this operation
@@ -1668,9 +1667,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BlockchainBlockDtoListEnvelope
      */
-    public function getBlockchainBlocksAsync($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
+    public function getBlockchainBlocksAsync($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
     {
-        list($response) = $this->getBlockchainBlocksAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBlockchainBlocksAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -1681,7 +1680,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksAsync'] to see the possible values for this operation
@@ -1690,9 +1688,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BlockchainBlockDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlockchainBlocksAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
+    public function getBlockchainBlocksAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
     {
-        $request = $this->getBlockchainBlocksAsyncRequest($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainBlocksAsyncRequest($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1810,7 +1808,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksAsync'] to see the possible values for this operation
@@ -1818,9 +1815,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainBlocksAsyncAsync($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
+    public function getBlockchainBlocksAsyncAsync($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
     {
-        return $this->getBlockchainBlocksAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType)
+        return $this->getBlockchainBlocksAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1835,7 +1832,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksAsync'] to see the possible values for this operation
@@ -1843,10 +1839,10 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainBlocksAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
+    public function getBlockchainBlocksAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlockchainBlockDtoListEnvelope';
-        $request = $this->getBlockchainBlocksAsyncRequest($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainBlocksAsyncRequest($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1889,7 +1885,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksAsync'] to see the possible values for this operation
@@ -1897,7 +1892,7 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlockchainBlocksAsyncRequest($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
+    public function getBlockchainBlocksAsyncRequest($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -1917,7 +1912,6 @@ class BlockchainsApi
 
 
 
-
         $resourcePath = '/api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks';
         $formParams = [];
         $queryParams = [];
@@ -1933,15 +1927,6 @@ class BlockchainsApi
             'form', // style
             true, // explode
             true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $o_data_query_options,
-            'oDataQueryOptions', // param base name
-            'object', // openApiType
-            'form', // style
-            true, // explode
-            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2028,7 +2013,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id tenant_id (required)
      * @param  string $blockchain_id blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options o_data_query_options (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksCountAsync'] to see the possible values for this operation
@@ -2037,9 +2021,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBlockchainBlocksCountAsync($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
+    public function getBlockchainBlocksCountAsync($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
     {
-        list($response) = $this->getBlockchainBlocksCountAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBlockchainBlocksCountAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -2050,7 +2034,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksCountAsync'] to see the possible values for this operation
@@ -2059,9 +2042,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlockchainBlocksCountAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
+    public function getBlockchainBlocksCountAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
     {
-        $request = $this->getBlockchainBlocksCountAsyncRequest($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainBlocksCountAsyncRequest($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2179,7 +2162,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksCountAsync'] to see the possible values for this operation
@@ -2187,9 +2169,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainBlocksCountAsyncAsync($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
+    public function getBlockchainBlocksCountAsyncAsync($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
     {
-        return $this->getBlockchainBlocksCountAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType)
+        return $this->getBlockchainBlocksCountAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2204,7 +2186,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksCountAsync'] to see the possible values for this operation
@@ -2212,10 +2193,10 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainBlocksCountAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
+    public function getBlockchainBlocksCountAsyncAsyncWithHttpInfo($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBlockchainBlocksCountAsyncRequest($tenant_id, $blockchain_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainBlocksCountAsyncRequest($tenant_id, $blockchain_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2258,7 +2239,6 @@ class BlockchainsApi
      *
      * @param  string $tenant_id (required)
      * @param  string $blockchain_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainBlockDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainBlocksCountAsync'] to see the possible values for this operation
@@ -2266,7 +2246,7 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlockchainBlocksCountAsyncRequest($tenant_id, $blockchain_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
+    public function getBlockchainBlocksCountAsyncRequest($tenant_id, $blockchain_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainBlocksCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -2286,7 +2266,6 @@ class BlockchainsApi
 
 
 
-
         $resourcePath = '/api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks/Count';
         $formParams = [];
         $queryParams = [];
@@ -2302,15 +2281,6 @@ class BlockchainsApi
             'form', // style
             true, // explode
             true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $o_data_query_options,
-            'oDataQueryOptions', // param base name
-            'object', // openApiType
-            'form', // style
-            true, // explode
-            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2820,7 +2790,6 @@ class BlockchainsApi
      * Get all blockchains
      *
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options o_data_query_options (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsAsync'] to see the possible values for this operation
@@ -2829,9 +2798,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlockchainDtoListEnvelope
      */
-    public function getBlockchainsAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
+    public function getBlockchainsAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
     {
-        list($response) = $this->getBlockchainsAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBlockchainsAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -2841,7 +2810,6 @@ class BlockchainsApi
      * Get all blockchains
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsAsync'] to see the possible values for this operation
@@ -2850,9 +2818,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\BlockchainDtoListEnvelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlockchainsAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
+    public function getBlockchainsAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
     {
-        $request = $this->getBlockchainsAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3004,7 +2972,6 @@ class BlockchainsApi
      * Get all blockchains
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsAsync'] to see the possible values for this operation
@@ -3012,9 +2979,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainsAsyncAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
+    public function getBlockchainsAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
     {
-        return $this->getBlockchainsAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType)
+        return $this->getBlockchainsAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3028,7 +2995,6 @@ class BlockchainsApi
      * Get all blockchains
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsAsync'] to see the possible values for this operation
@@ -3036,10 +3002,10 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainsAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
+    public function getBlockchainsAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BlockchainDtoListEnvelope';
-        $request = $this->getBlockchainsAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainsAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3081,7 +3047,6 @@ class BlockchainsApi
      * Create request for operation 'getBlockchainsAsync'
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsAsync'] to see the possible values for this operation
@@ -3089,7 +3054,7 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlockchainsAsyncRequest($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
+    public function getBlockchainsAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3098,7 +3063,6 @@ class BlockchainsApi
                 'Missing the required parameter $tenant_id when calling getBlockchainsAsync'
             );
         }
-
 
 
 
@@ -3118,15 +3082,6 @@ class BlockchainsApi
             'form', // style
             true, // explode
             true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $o_data_query_options,
-            'oDataQueryOptions', // param base name
-            'object', // openApiType
-            'form', // style
-            true, // explode
-            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -3204,7 +3159,6 @@ class BlockchainsApi
      * Get blockchains count
      *
      * @param  string $tenant_id tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options o_data_query_options (optional)
      * @param  string $api_version api_version (optional)
      * @param  string $x_api_version x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsCountAsync'] to see the possible values for this operation
@@ -3213,9 +3167,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope
      */
-    public function getBlockchainsCountAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
+    public function getBlockchainsCountAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
     {
-        list($response) = $this->getBlockchainsCountAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        list($response) = $this->getBlockchainsCountAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType);
         return $response;
     }
 
@@ -3225,7 +3179,6 @@ class BlockchainsApi
      * Get blockchains count
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsCountAsync'] to see the possible values for this operation
@@ -3234,9 +3187,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ErrorEnvelope|\OpenAPI\Client\Model\Int32Envelope, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlockchainsCountAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
+    public function getBlockchainsCountAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
     {
-        $request = $this->getBlockchainsCountAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3388,7 +3341,6 @@ class BlockchainsApi
      * Get blockchains count
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsCountAsync'] to see the possible values for this operation
@@ -3396,9 +3348,9 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainsCountAsyncAsync($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
+    public function getBlockchainsCountAsyncAsync($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
     {
-        return $this->getBlockchainsCountAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType)
+        return $this->getBlockchainsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version, $x_api_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3412,7 +3364,6 @@ class BlockchainsApi
      * Get blockchains count
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsCountAsync'] to see the possible values for this operation
@@ -3420,10 +3371,10 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBlockchainsCountAsyncAsyncWithHttpInfo($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
+    public function getBlockchainsCountAsyncAsyncWithHttpInfo($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Int32Envelope';
-        $request = $this->getBlockchainsCountAsyncRequest($tenant_id, $o_data_query_options, $api_version, $x_api_version, $contentType);
+        $request = $this->getBlockchainsCountAsyncRequest($tenant_id, $api_version, $x_api_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3465,7 +3416,6 @@ class BlockchainsApi
      * Create request for operation 'getBlockchainsCountAsync'
      *
      * @param  string $tenant_id (required)
-     * @param  \OpenAPI\Client\Model\BlockchainDtoODataQueryOptions $o_data_query_options (optional)
      * @param  string $api_version (optional)
      * @param  string $x_api_version (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBlockchainsCountAsync'] to see the possible values for this operation
@@ -3473,7 +3423,7 @@ class BlockchainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBlockchainsCountAsyncRequest($tenant_id, $o_data_query_options = null, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
+    public function getBlockchainsCountAsyncRequest($tenant_id, $api_version = null, $x_api_version = null, string $contentType = self::contentTypes['getBlockchainsCountAsync'][0])
     {
 
         // verify the required parameter 'tenant_id' is set
@@ -3482,7 +3432,6 @@ class BlockchainsApi
                 'Missing the required parameter $tenant_id when calling getBlockchainsCountAsync'
             );
         }
-
 
 
 
@@ -3502,15 +3451,6 @@ class BlockchainsApi
             'form', // style
             true, // explode
             true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $o_data_query_options,
-            'oDataQueryOptions', // param base name
-            'object', // openApiType
-            'form', // style
-            true, // explode
-            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(

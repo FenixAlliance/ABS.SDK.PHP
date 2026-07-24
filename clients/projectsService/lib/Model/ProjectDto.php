@@ -62,6 +62,10 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => '\DateTime',
         'title' => 'string',
         'description' => 'string',
+        'individual_id' => 'string',
+        'organization_id' => 'string',
+        'tenant_id' => 'string',
+        'enrollment_id' => 'string',
         'project_start_date' => '\DateTime',
         'project_end_date' => '\DateTime'
     ];
@@ -78,6 +82,10 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'date-time',
         'title' => null,
         'description' => null,
+        'individual_id' => null,
+        'organization_id' => null,
+        'tenant_id' => null,
+        'enrollment_id' => null,
         'project_start_date' => 'date-time',
         'project_end_date' => 'date-time'
     ];
@@ -92,6 +100,10 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => true,
         'title' => true,
         'description' => true,
+        'individual_id' => true,
+        'organization_id' => true,
+        'tenant_id' => true,
+        'enrollment_id' => true,
         'project_start_date' => false,
         'project_end_date' => false
     ];
@@ -186,6 +198,10 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'timestamp',
         'title' => 'title',
         'description' => 'description',
+        'individual_id' => 'individualId',
+        'organization_id' => 'organizationId',
+        'tenant_id' => 'tenantId',
+        'enrollment_id' => 'enrollmentId',
         'project_start_date' => 'projectStartDate',
         'project_end_date' => 'projectEndDate'
     ];
@@ -200,6 +216,10 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'setTimestamp',
         'title' => 'setTitle',
         'description' => 'setDescription',
+        'individual_id' => 'setIndividualId',
+        'organization_id' => 'setOrganizationId',
+        'tenant_id' => 'setTenantId',
+        'enrollment_id' => 'setEnrollmentId',
         'project_start_date' => 'setProjectStartDate',
         'project_end_date' => 'setProjectEndDate'
     ];
@@ -214,6 +234,10 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'timestamp' => 'getTimestamp',
         'title' => 'getTitle',
         'description' => 'getDescription',
+        'individual_id' => 'getIndividualId',
+        'organization_id' => 'getOrganizationId',
+        'tenant_id' => 'getTenantId',
+        'enrollment_id' => 'getEnrollmentId',
         'project_start_date' => 'getProjectStartDate',
         'project_end_date' => 'getProjectEndDate'
     ];
@@ -279,6 +303,10 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('individual_id', $data ?? [], null);
+        $this->setIfExists('organization_id', $data ?? [], null);
+        $this->setIfExists('tenant_id', $data ?? [], null);
+        $this->setIfExists('enrollment_id', $data ?? [], null);
         $this->setIfExists('project_start_date', $data ?? [], null);
         $this->setIfExists('project_end_date', $data ?? [], null);
     }
@@ -457,6 +485,142 @@ class ProjectDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets individual_id
+     *
+     * @return string|null
+     */
+    public function getIndividualId()
+    {
+        return $this->container['individual_id'];
+    }
+
+    /**
+     * Sets individual_id
+     *
+     * @param string|null $individual_id individual_id
+     *
+     * @return self
+     */
+    public function setIndividualId($individual_id)
+    {
+        if (is_null($individual_id)) {
+            array_push($this->openAPINullablesSetToNull, 'individual_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('individual_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['individual_id'] = $individual_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization_id
+     *
+     * @return string|null
+     */
+    public function getOrganizationId()
+    {
+        return $this->container['organization_id'];
+    }
+
+    /**
+     * Sets organization_id
+     *
+     * @param string|null $organization_id organization_id
+     *
+     * @return self
+     */
+    public function setOrganizationId($organization_id)
+    {
+        if (is_null($organization_id)) {
+            array_push($this->openAPINullablesSetToNull, 'organization_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['organization_id'] = $organization_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tenant_id
+     *
+     * @return string|null
+     */
+    public function getTenantId()
+    {
+        return $this->container['tenant_id'];
+    }
+
+    /**
+     * Sets tenant_id
+     *
+     * @param string|null $tenant_id tenant_id
+     *
+     * @return self
+     */
+    public function setTenantId($tenant_id)
+    {
+        if (is_null($tenant_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tenant_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tenant_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tenant_id'] = $tenant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets enrollment_id
+     *
+     * @return string|null
+     */
+    public function getEnrollmentId()
+    {
+        return $this->container['enrollment_id'];
+    }
+
+    /**
+     * Sets enrollment_id
+     *
+     * @param string|null $enrollment_id enrollment_id
+     *
+     * @return self
+     */
+    public function setEnrollmentId($enrollment_id)
+    {
+        if (is_null($enrollment_id)) {
+            array_push($this->openAPINullablesSetToNull, 'enrollment_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enrollment_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enrollment_id'] = $enrollment_id;
 
         return $this;
     }

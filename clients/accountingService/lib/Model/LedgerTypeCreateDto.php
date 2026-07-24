@@ -249,10 +249,8 @@ class LedgerTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
 
     public const LEDGER_CLASS_ASSETS = 'Assets';
     public const LEDGER_CLASS_EQUITY = 'Equity';
-    public const LEDGER_CLASS_GAINS = 'Gains';
-    public const LEDGER_CLASS_LOSSES = 'Losses';
     public const LEDGER_CLASS_REVENUE = 'Revenue';
-    public const LEDGER_CLASS_EXPENSES = 'Expenses';
+    public const LEDGER_CLASS_EXPENSE = 'Expense';
     public const LEDGER_CLASS_LIABILITIES = 'Liabilities';
 
     /**
@@ -265,10 +263,8 @@ class LedgerTypeCreateDto implements ModelInterface, ArrayAccess, \JsonSerializa
         return [
             self::LEDGER_CLASS_ASSETS,
             self::LEDGER_CLASS_EQUITY,
-            self::LEDGER_CLASS_GAINS,
-            self::LEDGER_CLASS_LOSSES,
             self::LEDGER_CLASS_REVENUE,
-            self::LEDGER_CLASS_EXPENSES,
+            self::LEDGER_CLASS_EXPENSE,
             self::LEDGER_CLASS_LIABILITIES,
         ];
     }

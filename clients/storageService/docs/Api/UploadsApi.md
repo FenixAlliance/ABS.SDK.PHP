@@ -1,6 +1,6 @@
 # OpenAPI\Client\UploadsApi
 
-All URIs are relative to http://localhost, except if the operation defines another base path.
+All URIs are relative to https://absuite.net, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -10,12 +10,12 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `saveFileAsync()`
 
 ```php
-saveFileAsync($tenant_id, $api_version, $x_api_version, $notes, $title, $author, $is_folder, $file_name, $abstract, $key_words, $valid_response, $parent_file_upload_id, $file_path, $app_file_content, $app_file_sha256, $app_file_created_at_utc, $app_file_user_id_value, $app_file_tenant_id_value, $app_file_enrollment_id_value, $app_file_source, $app_file_length, $app_file_name, $app_file_file_name, $app_file_last_modified, $app_file_size, $app_file_content_type, $app_file_content_disposition, $app_file_headers, $id, $timestamp): \OpenAPI\Client\Model\EmptyEnvelope
+saveFileAsync($tenant_id, $api_version, $x_api_version, $file, $notes, $title, $author, $is_folder, $file_name, $abstract, $key_words, $valid_response, $parent_file_upload_id, $file_path, $public_access_type, $purpose, $social_profile_id_value, $app_file_content, $app_file_sha256, $app_file_created_at_utc, $app_file_user_id_value, $app_file_tenant_id_value, $app_file_enrollment_id_value, $app_file_source, $app_file_length, $app_file_name, $app_file_file_name, $app_file_last_modified, $app_file_size, $app_file_content_type, $app_file_content_disposition, $app_file_headers, $id, $timestamp): \OpenAPI\Client\Model\EmptyEnvelope
 ```
 
 Upload a file
 
-Uploads a file to tenant or user storage.
+Uploads a file to tenant or user storage, scanned and catalogued through the storage spine.
 
 ### Example
 
@@ -33,6 +33,7 @@ $apiInstance = new OpenAPI\Client\Api\UploadsApi(
 $tenant_id = 'tenant_id_example'; // string
 $api_version = 'api_version_example'; // string
 $x_api_version = 'x_api_version_example'; // string
+$file = "/path/to/file.txt"; // \SplFileObject
 $notes = 'notes_example'; // string
 $title = 'title_example'; // string
 $author = 'author_example'; // string
@@ -43,6 +44,9 @@ $key_words = 'key_words_example'; // string
 $valid_response = True; // bool
 $parent_file_upload_id = 'parent_file_upload_id_example'; // string
 $file_path = 'file_path_example'; // string
+$public_access_type = 'public_access_type_example'; // string
+$purpose = 'purpose_example'; // string
+$social_profile_id_value = 'social_profile_id_value_example'; // string
 $app_file_content = 'app_file_content_example'; // string
 $app_file_sha256 = 'app_file_sha256_example'; // string
 $app_file_created_at_utc = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime
@@ -62,7 +66,7 @@ $id = 'id_example'; // string
 $timestamp = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime
 
 try {
-    $result = $apiInstance->saveFileAsync($tenant_id, $api_version, $x_api_version, $notes, $title, $author, $is_folder, $file_name, $abstract, $key_words, $valid_response, $parent_file_upload_id, $file_path, $app_file_content, $app_file_sha256, $app_file_created_at_utc, $app_file_user_id_value, $app_file_tenant_id_value, $app_file_enrollment_id_value, $app_file_source, $app_file_length, $app_file_name, $app_file_file_name, $app_file_last_modified, $app_file_size, $app_file_content_type, $app_file_content_disposition, $app_file_headers, $id, $timestamp);
+    $result = $apiInstance->saveFileAsync($tenant_id, $api_version, $x_api_version, $file, $notes, $title, $author, $is_folder, $file_name, $abstract, $key_words, $valid_response, $parent_file_upload_id, $file_path, $public_access_type, $purpose, $social_profile_id_value, $app_file_content, $app_file_sha256, $app_file_created_at_utc, $app_file_user_id_value, $app_file_tenant_id_value, $app_file_enrollment_id_value, $app_file_source, $app_file_length, $app_file_name, $app_file_file_name, $app_file_last_modified, $app_file_size, $app_file_content_type, $app_file_content_disposition, $app_file_headers, $id, $timestamp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UploadsApi->saveFileAsync: ', $e->getMessage(), PHP_EOL;
@@ -76,6 +80,7 @@ try {
 | **tenant_id** | **string**|  | [optional] |
 | **api_version** | **string**|  | [optional] |
 | **x_api_version** | **string**|  | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
 | **notes** | **string**|  | [optional] |
 | **title** | **string**|  | [optional] |
 | **author** | **string**|  | [optional] |
@@ -86,6 +91,9 @@ try {
 | **valid_response** | **bool**|  | [optional] |
 | **parent_file_upload_id** | **string**|  | [optional] |
 | **file_path** | **string**|  | [optional] |
+| **public_access_type** | **string**|  | [optional] |
+| **purpose** | **string**|  | [optional] |
+| **social_profile_id_value** | **string**|  | [optional] |
 | **app_file_content** | **string**|  | [optional] |
 | **app_file_sha256** | **string**|  | [optional] |
 | **app_file_created_at_utc** | **\DateTime**|  | [optional] |

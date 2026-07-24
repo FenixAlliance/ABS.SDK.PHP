@@ -58,14 +58,12 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => 'string',
-        'amount' => 'float',
-        'date' => '\DateTime',
-        'currency_id' => 'string',
-        'debit_account_id' => 'string',
-        'credit_account_id' => 'string',
         'journal_entry_id' => 'string',
-        'accounting_entry_type' => 'string'
+        'account_id' => 'string',
+        'direction' => 'string',
+        'transaction_amount' => 'float',
+        'transaction_currency_id' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -76,14 +74,12 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'description' => null,
-        'amount' => 'double',
-        'date' => 'date-time',
-        'currency_id' => null,
-        'debit_account_id' => null,
-        'credit_account_id' => null,
         'journal_entry_id' => null,
-        'accounting_entry_type' => null
+        'account_id' => null,
+        'direction' => null,
+        'transaction_amount' => 'double',
+        'transaction_currency_id' => null,
+        'description' => null
     ];
 
     /**
@@ -92,14 +88,12 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'description' => true,
-        'amount' => false,
-        'date' => true,
-        'currency_id' => true,
-        'debit_account_id' => true,
-        'credit_account_id' => true,
         'journal_entry_id' => true,
-        'accounting_entry_type' => false
+        'account_id' => true,
+        'direction' => false,
+        'transaction_amount' => false,
+        'transaction_currency_id' => true,
+        'description' => true
     ];
 
     /**
@@ -188,14 +182,12 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'description',
-        'amount' => 'amount',
-        'date' => 'date',
-        'currency_id' => 'currencyId',
-        'debit_account_id' => 'debitAccountId',
-        'credit_account_id' => 'creditAccountId',
         'journal_entry_id' => 'journalEntryId',
-        'accounting_entry_type' => 'accountingEntryType'
+        'account_id' => 'accountId',
+        'direction' => 'direction',
+        'transaction_amount' => 'transactionAmount',
+        'transaction_currency_id' => 'transactionCurrencyId',
+        'description' => 'description'
     ];
 
     /**
@@ -204,14 +196,12 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'amount' => 'setAmount',
-        'date' => 'setDate',
-        'currency_id' => 'setCurrencyId',
-        'debit_account_id' => 'setDebitAccountId',
-        'credit_account_id' => 'setCreditAccountId',
         'journal_entry_id' => 'setJournalEntryId',
-        'accounting_entry_type' => 'setAccountingEntryType'
+        'account_id' => 'setAccountId',
+        'direction' => 'setDirection',
+        'transaction_amount' => 'setTransactionAmount',
+        'transaction_currency_id' => 'setTransactionCurrencyId',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -220,14 +210,12 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'amount' => 'getAmount',
-        'date' => 'getDate',
-        'currency_id' => 'getCurrencyId',
-        'debit_account_id' => 'getDebitAccountId',
-        'credit_account_id' => 'getCreditAccountId',
         'journal_entry_id' => 'getJournalEntryId',
-        'accounting_entry_type' => 'getAccountingEntryType'
+        'account_id' => 'getAccountId',
+        'direction' => 'getDirection',
+        'transaction_amount' => 'getTransactionAmount',
+        'transaction_currency_id' => 'getTransactionCurrencyId',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -271,21 +259,19 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-    public const ACCOUNTING_ENTRY_TYPE_NONE = 'None';
-    public const ACCOUNTING_ENTRY_TYPE_DEBIT = 'Debit';
-    public const ACCOUNTING_ENTRY_TYPE_CREDIT = 'Credit';
+    public const DIRECTION_DEBIT = 'Debit';
+    public const DIRECTION_CREDIT = 'Credit';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getAccountingEntryTypeAllowableValues()
+    public function getDirectionAllowableValues()
     {
         return [
-            self::ACCOUNTING_ENTRY_TYPE_NONE,
-            self::ACCOUNTING_ENTRY_TYPE_DEBIT,
-            self::ACCOUNTING_ENTRY_TYPE_CREDIT,
+            self::DIRECTION_DEBIT,
+            self::DIRECTION_CREDIT,
         ];
     }
 
@@ -304,14 +290,12 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('date', $data ?? [], null);
-        $this->setIfExists('currency_id', $data ?? [], null);
-        $this->setIfExists('debit_account_id', $data ?? [], null);
-        $this->setIfExists('credit_account_id', $data ?? [], null);
         $this->setIfExists('journal_entry_id', $data ?? [], null);
-        $this->setIfExists('accounting_entry_type', $data ?? [], null);
+        $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('direction', $data ?? [], null);
+        $this->setIfExists('transaction_amount', $data ?? [], null);
+        $this->setIfExists('transaction_currency_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
     }
 
     /**
@@ -341,45 +325,29 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 1000)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 1000.";
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!is_null($this->container['direction']) && !in_array($this->container['direction'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'direction', must be one of '%s'",
+                $this->container['direction'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['transaction_amount']) && ($this->container['transaction_amount'] > 9.999999999999999E+20)) {
+            $invalidProperties[] = "invalid value for 'transaction_amount', must be smaller than or equal to 9.999999999999999E+20.";
+        }
+
+        if (!is_null($this->container['transaction_amount']) && ($this->container['transaction_amount'] < 1.0E-16)) {
+            $invalidProperties[] = "invalid value for 'transaction_amount', must be bigger than or equal to 1.0E-16.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 300)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 300.";
         }
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 1)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!is_null($this->container['amount']) && ($this->container['amount'] > 999999999999999)) {
-            $invalidProperties[] = "invalid value for 'amount', must be smaller than or equal to 999999999999999.";
-        }
-
-        if (!is_null($this->container['amount']) && ($this->container['amount'] < 0.01)) {
-            $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 0.01.";
-        }
-
-        if (!is_null($this->container['credit_account_id']) && (mb_strlen($this->container['credit_account_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'credit_account_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['credit_account_id']) && (mb_strlen($this->container['credit_account_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'credit_account_id', the character length must be bigger than or equal to 36.";
-        }
-
-        if (!is_null($this->container['journal_entry_id']) && (mb_strlen($this->container['journal_entry_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'journal_entry_id', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['journal_entry_id']) && (mb_strlen($this->container['journal_entry_id']) < 36)) {
-            $invalidProperties[] = "invalid value for 'journal_entry_id', the character length must be bigger than or equal to 36.";
-        }
-
-        $allowedValues = $this->getAccountingEntryTypeAllowableValues();
-        if (!is_null($this->container['accounting_entry_type']) && !in_array($this->container['accounting_entry_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'accounting_entry_type', must be one of '%s'",
-                $this->container['accounting_entry_type'],
-                implode("', '", $allowedValues)
-            );
         }
 
         return $invalidProperties;
@@ -396,225 +364,6 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($description) && (mb_strlen($description) > 1000)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling AccountingEntryUpdateDto., must be smaller than or equal to 1000.');
-        }
-        if (!is_null($description) && (mb_strlen($description) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling AccountingEntryUpdateDto., must be bigger than or equal to 1.');
-        }
-
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return float|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param float|null $amount amount
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-
-        if (($amount > 999999999999999)) {
-            throw new \InvalidArgumentException('invalid value for $amount when calling AccountingEntryUpdateDto., must be smaller than or equal to 999999999999999.');
-        }
-        if (($amount < 0.01)) {
-            throw new \InvalidArgumentException('invalid value for $amount when calling AccountingEntryUpdateDto., must be bigger than or equal to 0.01.');
-        }
-
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \DateTime|null
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime|null $date date
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        if (is_null($date)) {
-            array_push($this->openAPINullablesSetToNull, 'date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency_id
-     *
-     * @return string|null
-     */
-    public function getCurrencyId()
-    {
-        return $this->container['currency_id'];
-    }
-
-    /**
-     * Sets currency_id
-     *
-     * @param string|null $currency_id currency_id
-     *
-     * @return self
-     */
-    public function setCurrencyId($currency_id)
-    {
-        if (is_null($currency_id)) {
-            array_push($this->openAPINullablesSetToNull, 'currency_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['currency_id'] = $currency_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets debit_account_id
-     *
-     * @return string|null
-     */
-    public function getDebitAccountId()
-    {
-        return $this->container['debit_account_id'];
-    }
-
-    /**
-     * Sets debit_account_id
-     *
-     * @param string|null $debit_account_id debit_account_id
-     *
-     * @return self
-     */
-    public function setDebitAccountId($debit_account_id)
-    {
-        if (is_null($debit_account_id)) {
-            array_push($this->openAPINullablesSetToNull, 'debit_account_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('debit_account_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['debit_account_id'] = $debit_account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_account_id
-     *
-     * @return string|null
-     */
-    public function getCreditAccountId()
-    {
-        return $this->container['credit_account_id'];
-    }
-
-    /**
-     * Sets credit_account_id
-     *
-     * @param string|null $credit_account_id credit_account_id
-     *
-     * @return self
-     */
-    public function setCreditAccountId($credit_account_id)
-    {
-        if (is_null($credit_account_id)) {
-            array_push($this->openAPINullablesSetToNull, 'credit_account_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('credit_account_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($credit_account_id) && (mb_strlen($credit_account_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $credit_account_id when calling AccountingEntryUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($credit_account_id) && (mb_strlen($credit_account_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $credit_account_id when calling AccountingEntryUpdateDto., must be bigger than or equal to 36.');
-        }
-
-        $this->container['credit_account_id'] = $credit_account_id;
-
-        return $this;
-    }
 
     /**
      * Gets journal_entry_id
@@ -645,51 +394,188 @@ class AccountingEntryUpdateDto implements ModelInterface, ArrayAccess, \JsonSeri
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        if (!is_null($journal_entry_id) && (mb_strlen($journal_entry_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $journal_entry_id when calling AccountingEntryUpdateDto., must be smaller than or equal to 36.');
-        }
-        if (!is_null($journal_entry_id) && (mb_strlen($journal_entry_id) < 36)) {
-            throw new \InvalidArgumentException('invalid length for $journal_entry_id when calling AccountingEntryUpdateDto., must be bigger than or equal to 36.');
-        }
-
         $this->container['journal_entry_id'] = $journal_entry_id;
 
         return $this;
     }
 
     /**
-     * Gets accounting_entry_type
+     * Gets account_id
      *
      * @return string|null
      */
-    public function getAccountingEntryType()
+    public function getAccountId()
     {
-        return $this->container['accounting_entry_type'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets accounting_entry_type
+     * Sets account_id
      *
-     * @param string|null $accounting_entry_type accounting_entry_type
+     * @param string|null $account_id account_id
      *
      * @return self
      */
-    public function setAccountingEntryType($accounting_entry_type)
+    public function setAccountId($account_id)
     {
-        if (is_null($accounting_entry_type)) {
-            throw new \InvalidArgumentException('non-nullable accounting_entry_type cannot be null');
+        if (is_null($account_id)) {
+            array_push($this->openAPINullablesSetToNull, 'account_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('account_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $allowedValues = $this->getAccountingEntryTypeAllowableValues();
-        if (!in_array($accounting_entry_type, $allowedValues, true)) {
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets direction
+     *
+     * @return string|null
+     */
+    public function getDirection()
+    {
+        return $this->container['direction'];
+    }
+
+    /**
+     * Sets direction
+     *
+     * @param string|null $direction direction
+     *
+     * @return self
+     */
+    public function setDirection($direction)
+    {
+        if (is_null($direction)) {
+            throw new \InvalidArgumentException('non-nullable direction cannot be null');
+        }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($direction, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'accounting_entry_type', must be one of '%s'",
-                    $accounting_entry_type,
+                    "Invalid value '%s' for 'direction', must be one of '%s'",
+                    $direction,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['accounting_entry_type'] = $accounting_entry_type;
+        $this->container['direction'] = $direction;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_amount
+     *
+     * @return float|null
+     */
+    public function getTransactionAmount()
+    {
+        return $this->container['transaction_amount'];
+    }
+
+    /**
+     * Sets transaction_amount
+     *
+     * @param float|null $transaction_amount transaction_amount
+     *
+     * @return self
+     */
+    public function setTransactionAmount($transaction_amount)
+    {
+        if (is_null($transaction_amount)) {
+            throw new \InvalidArgumentException('non-nullable transaction_amount cannot be null');
+        }
+
+        if (($transaction_amount > 9.999999999999999E+20)) {
+            throw new \InvalidArgumentException('invalid value for $transaction_amount when calling AccountingEntryUpdateDto., must be smaller than or equal to 9.999999999999999E+20.');
+        }
+        if (($transaction_amount < 1.0E-16)) {
+            throw new \InvalidArgumentException('invalid value for $transaction_amount when calling AccountingEntryUpdateDto., must be bigger than or equal to 1.0E-16.');
+        }
+
+        $this->container['transaction_amount'] = $transaction_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_currency_id
+     *
+     * @return string|null
+     */
+    public function getTransactionCurrencyId()
+    {
+        return $this->container['transaction_currency_id'];
+    }
+
+    /**
+     * Sets transaction_currency_id
+     *
+     * @param string|null $transaction_currency_id transaction_currency_id
+     *
+     * @return self
+     */
+    public function setTransactionCurrencyId($transaction_currency_id)
+    {
+        if (is_null($transaction_currency_id)) {
+            array_push($this->openAPINullablesSetToNull, 'transaction_currency_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('transaction_currency_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['transaction_currency_id'] = $transaction_currency_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($description) && (mb_strlen($description) > 300)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling AccountingEntryUpdateDto., must be smaller than or equal to 300.');
+        }
+        if (!is_null($description) && (mb_strlen($description) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling AccountingEntryUpdateDto., must be bigger than or equal to 1.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }

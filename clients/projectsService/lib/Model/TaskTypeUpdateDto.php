@@ -59,6 +59,7 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'title' => 'string',
+        'task_category_id' => 'string',
         'display_in_time_tracker' => 'bool',
         'requires_description' => 'bool'
     ];
@@ -72,6 +73,7 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'title' => null,
+        'task_category_id' => null,
         'display_in_time_tracker' => null,
         'requires_description' => null
     ];
@@ -83,6 +85,7 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'title' => true,
+        'task_category_id' => true,
         'display_in_time_tracker' => false,
         'requires_description' => false
     ];
@@ -174,6 +177,7 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'title' => 'title',
+        'task_category_id' => 'taskCategoryId',
         'display_in_time_tracker' => 'displayInTimeTracker',
         'requires_description' => 'requiresDescription'
     ];
@@ -185,6 +189,7 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'title' => 'setTitle',
+        'task_category_id' => 'setTaskCategoryId',
         'display_in_time_tracker' => 'setDisplayInTimeTracker',
         'requires_description' => 'setRequiresDescription'
     ];
@@ -196,6 +201,7 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'title' => 'getTitle',
+        'task_category_id' => 'getTaskCategoryId',
         'display_in_time_tracker' => 'getDisplayInTimeTracker',
         'requires_description' => 'getRequiresDescription'
     ];
@@ -258,6 +264,7 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('task_category_id', $data ?? [], null);
         $this->setIfExists('display_in_time_tracker', $data ?? [], null);
         $this->setIfExists('requires_description', $data ?? [], null);
     }
@@ -334,6 +341,40 @@ class TaskTypeUpdateDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_category_id
+     *
+     * @return string|null
+     */
+    public function getTaskCategoryId()
+    {
+        return $this->container['task_category_id'];
+    }
+
+    /**
+     * Sets task_category_id
+     *
+     * @param string|null $task_category_id task_category_id
+     *
+     * @return self
+     */
+    public function setTaskCategoryId($task_category_id)
+    {
+        if (is_null($task_category_id)) {
+            array_push($this->openAPINullablesSetToNull, 'task_category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('task_category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['task_category_id'] = $task_category_id;
 
         return $this;
     }
